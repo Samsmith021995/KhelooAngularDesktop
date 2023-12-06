@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { DesktopMainComponent } from './desktop-main.component';
 
 const routes: Routes = [
-  {
-    path:'',
-    component:DesktopMainComponent
-  }
+  // {
+  //   path:'',
+  //   component:DesktopMainComponent
+  // }
 ];
 
 @NgModule({

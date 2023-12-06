@@ -3,8 +3,6 @@ import { CommonServiceService } from './service/common-service.service';
 
 @Component({
   selector: 'app-main',
-  standalone: true,
-  imports: [],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
