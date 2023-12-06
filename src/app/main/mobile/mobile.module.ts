@@ -3,14 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { MobileRoutingModule } from './mobile-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { MobileMainComponent } from './mobile-main/mobile-main.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    // MobileMainComponent
+  ],
   imports: [
     CommonModule,
     MobileRoutingModule,
-    // SharedModule
+    SharedModule
   ]
 })
 export class MobileModule { }

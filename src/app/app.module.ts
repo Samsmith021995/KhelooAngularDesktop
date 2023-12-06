@@ -9,21 +9,28 @@ import { DesktopMainComponent } from './main/desktop/desktop-main/desktop-main.c
 import { MobileMainComponent } from './main/mobile/mobile-main/mobile-main.component';
 import { FooterComponent } from './main/desktop/desktop-main/footer/footer.component';
 import { HeaderComponent } from './main/desktop/desktop-main/header/header.component';
+import { MHeaderComponent } from './main/mobile/mobile-main/header/header.component';
+import { MFooterComponent } from './main/mobile/mobile-main/footer/footer.component';
+import { MainModule } from './main/main.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    DesktopMainComponent,
-    MobileMainComponent,
-    FooterComponent,
-    HeaderComponent
+    // MainComponent,
+    // DesktopMainComponent,
+    // MobileMainComponent,
+    // FooterComponent,
+    // HeaderComponent,
+    // MHeaderComponent,
+    // MFooterComponent
+  
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    // MainModule
   ],
   providers: [],
   bootstrap: [AppComponent]

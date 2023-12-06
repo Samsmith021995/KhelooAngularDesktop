@@ -1,7 +1,10 @@
 @if(isSmallScreen){
-<app-mobile-main></app-mobile-main>
-} @else{
+    <app-mobile-main></app-mobile-main>
+
+} @else if(!isSmallScreen){
     <app-desktop-main></app-desktop-main>
-    
 }
+<!-- <router-outlet></router-outlet> -->
+<!-- Ashu -->
+<!-- {{isSmallScreen}} -->
 <!-- <app-desktop-main></app-desktop-main> -->
