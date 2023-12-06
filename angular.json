@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "KhelooAngularDesktop:build:production"
+              "buildTarget": "KhelooAngularDesktop:build:production"
             },
             "development": {
-              "browserTarget": "KhelooAngularDesktop:build:development"
+              "buildTarget": "KhelooAngularDesktop:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "KhelooAngularDesktop:build"
+            "buildTarget": "KhelooAngularDesktop:build"
           }
         },
         "test": {
