@@ -5,11 +5,13 @@ import { CommonHomeRoutingModule } from './common-home-routing.module';
 import { DHomeComponent } from './d-home/d-home.component';
 import { MHomeComponent } from './m-home/m-home.component';
 import { SharedModule } from '../shared/shared.module';
+import { CommonHomeComponent } from './common-home.component';
 
 
 
 @NgModule({
   declarations: [
+    CommonHomeComponent,
     DHomeComponent,
    MHomeComponent
   ],
@@ -18,10 +20,5 @@ import { SharedModule } from '../shared/shared.module';
     CommonHomeRoutingModule,
     SharedModule
   ],
-  exports:[
-    DHomeComponent,
-   MHomeComponent 
-  ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CommonHomeModule { }

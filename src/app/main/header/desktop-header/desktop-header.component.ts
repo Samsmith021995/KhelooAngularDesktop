@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrl: './desktop-header.component.css'
 })
 export class DesktopHeaderComponent {
+  logincheck :boolean = false;
+  balance : any; 
+  showmenu :boolean = false;
+  username :any = '';
+  showmenubar(){
 
+  }
+  logout(){
+
+  }
 }

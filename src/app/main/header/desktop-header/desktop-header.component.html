@@ -1,1 +1,55 @@
-<p>desktop-header works!</p>
+
+    
+    <!-- <ng-container *ngIf="!isSmallScreen"> -->
+    
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark pd10-50">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">
+          <img src="https://kheloo.com/images/logo.gif" class="logo">
+        </a>
+        <a class="navbar-brand me-2" href="#">
+          <img src="https://cmsbetconstruct.com/storage/medias/vbet/media_4_4ac7eaa91a5473d2e549c9fd4cdaa78e.gif"
+            class="promotion-icon" />
+        </a>
+        <div class="" id="navbarSupportedContent">
+          <span class="navbar-nav me-auto mb-2 mb-lg-0">
+    
+          </span>
+            <button type="button" class="btn btn-success btn-lg mx-3 deposit" routerLink="/deposits">
+              Deposit
+            </button>
+            <div *ngIf="!logincheck">
+            <button type="button" class="btn btn-primary btn-lg mx-3" routerLink="register">
+              REGISTER
+            </button>
+            <button type="button" class="btn btn-primary btn-lg" routerLink="login">
+              LOGIN
+            </button>
+          </div>
+    
+          <div class="loginbtn user" *ngIf="logincheck">
+            <span class="UserName"><a (click)="showmenubar()"><i class="fa fa-user-circle-o" aria-hidden="true" ></i> Hi {{ username }} <br /> <i
+                class="fa fa-inr" aria-hidden="true"></i><!--INR--> {{ balance }}</a></span>
+            <div class="col" *ngIf="showmenu">
+              <ol class="sub-menu">
+                <li class="menu-item">
+                <a routerLink="withdraw" >Withdraws</a>
+                </li>
+                <li class="menu-item">
+                <a routerLink="statements" >Statements</a>
+                </li>
+                <li class="menu-item">
+                <a routerLink="settings">Settings</a>
+                </li>
+                <li class="menu-item">
+                <a (click)="logout()">Logout</a>
+                </li>
+              </ol>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- </ng-container> -->

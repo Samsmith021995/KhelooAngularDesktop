@@ -1,0 +1,81 @@
+.navbar {
+  border-radius: 0;
+}
+.navbar > .container,
+.navbar > .container-fluid,
+.navbar > .container-lg,
+.navbar > .container-md,
+.navbar > .container-sm,
+.navbar > .container-xl,
+.navbar > .container-xxl {
+  display: flex;
+  flex-wrap: initial;
+  align-items: center;
+  justify-content: space-between;
+}
+.loginbtn.user {
+  color: #fff;
+  font-size: 15px;
+  text-align: right;
+}
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
+  background: #000c24 !important;
+  margin: 0;
+}
+a.navbar-brand.fw-bold {
+  display: flex;
+}
+
+img.promotion-icon {
+  margin-top: -1px;
+  width: 70%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+button.btn.btn-primary.btn-lg {
+  background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
+  border: none;
+}
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.pd10-50 {
+  padding: 10px 50px;
+}
+.sub-menu {
+  position: absolute;
+  width: 10%;
+  top: 100%;
+  right: 30px;
+  display: block;
+  z-index: 1;
+  text-align: center;
+
+}
+.sub-menu .menu-item:nth-child(1) {
+  animation-duration: .2s;
+  animation-delay: 0s;
+}
+
+.sub-menu .menu-item {
+  padding: 0.75rem 0;
+  background: #1e0048;
+  opacity: 1;
+  border: 1px solid #f4ad09;
+  transform-origin: bottom;
+  animation: enter .4s ease forwards;
+  list-style: none;
+}
+.menu-item a{
+  text-decoration: none;
+  color: white;
+}
+a{
+  cursor: pointer;
+}
+
+.logincontainer{
+  float: right;
+}
+.logocontainer{
+  display: inline-block;
+}

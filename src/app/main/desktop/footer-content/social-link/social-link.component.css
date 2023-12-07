@@ -1,0 +1,28 @@
+.socialMediaWrapper {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jwcxlZ .socialMediaWrapper a {
+    width: 35px;
+    height: 35px;
+    margin: 0px 5px;
+    display: flex;
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out 0s;
+}
+span.lazy-load-image-background.none.lazy-load-image-loaded img {
+    width: 87%;
+}
+.fcNFUj {
+    width: 100%;
+    color: rgb(255, 255, 255);
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+}
