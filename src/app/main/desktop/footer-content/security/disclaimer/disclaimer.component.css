@@ -196,13 +196,17 @@
   /* //   line-height: 30px;
   //   gap: 5px;
   //   text-align: justify;
-  //   margin: 13px 0px;
-  */
-} 
+  //   margin: 13px 0px; */
+}
 .fjVnzR span {
   font-size: 21px;
 }
-
+.center {
+    text-align: center;
+    margin: 0 auto !important;
+    display: block !important;
+    margin-bottom: 30px !important;
+}
 .jrxmYg {
   font-size: 28px !important;
   color: rgb(189 8 198);
@@ -256,7 +260,7 @@ span.sd {
   font-weight: 900;
   text-transform: uppercase;
   &::before {
-    content: "Invite";
+    content: "Disclaimer";
     color: rgb(75 16 79 / 50%);
     font-size: 130px;
     /* //width: 350px; */

@@ -1,3 +1,4 @@
+
 @import url(https://fonts.googleapis.com/css?family=Lato&subset=latin-ext);
 .nSrBz {
   width: 100%;
@@ -187,18 +188,17 @@
   align-items: flex-start;
 }
 .fjVnzR p {
-  /* //   display: flex; */
+/* //   display: flex; */
   flex-wrap: wrap;
   -webkit-box-pack: center;
   justify-content: center;
   color: rgb(255, 255, 255);
   font-size: 21px;
-  /* //   line-height: 30px;
-  //   gap: 5px;
-  //   text-align: justify;
-  //   margin: 13px 0px;
-  */
-} 
+  line-height: 30px;
+  gap: 5px;
+  text-align: justify;
+  margin: 13px 0px;
+}
 .fjVnzR span {
   font-size: 21px;
 }
@@ -208,221 +208,81 @@
   color: rgb(189 8 198);
   font-size: 17px;
   /* font-family: Inter-Bold; */
-  display: block;
-  margin: 5px 0 30px;
+  display: contents;
   font-family: "Poppins", sans-serif;
 }
-.table td,
-.table th {
-  padding: 1.75rem;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
-}
-th {
-  text-align: inherit;
-}
-tbody,
-thead,
-tr.head {
-  font-size: 20px;
-  border-color: inherit;
-  border-style: solid;
-  border-width: 0;
-  padding: 20px !important;
-  background-color: #ef008a;
-}
+
 div.title {
-  width: 100%;
-  height: 100px;
-  margin-top: 100px;
-}
-.sd:after {
-  content: "";
-  width: 190px;
-  height: 10px;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
-    center center / cover no-repeat;
-  display: block;
-  margin: -25px auto;
-  /* position: absolute; */
-}
-span.sd {
-  color: #7814a1;
-  display: block;
-  font-size: 76px;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 1.9;
-  font-weight: 900;
-  text-transform: uppercase;
-  &::before {
-    content: "Invite";
-    color: rgb(75 16 79 / 50%);
-    font-size: 130px;
-    /* //width: 350px; */
-    display: block;
-    margin: -160px 0px;
-    font-weight: 900;
-
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  }
-}
-.pinkbtn {
-  box-shadow: 0px 0px 8px #fdb600;
-  border-radius: 13.3444px;
-  width: auto;
-  height: auto;
-  padding: 10px 15px;
-  color: rgb(255, 255, 255);
-  outline: none;
-  font-size: 18px;
-  font-weight: 700;
-  border: 1px solid #855705;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  z-index: 99;
-  margin-top: 3rem;
-  cursor: pointer;
-  background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
-}
-.affiliates_y_icon_container.col-md-1 img {
-  width: 100%;
-}
-.col-md-6.borderp {
-  border: 1px solid #895b8b;
-  padding: 10px;
-}
-
-span.sc-NUcrz.jrxmYg.center.col-md-12:after {
-  content: "";
-  width: 190px;
-  height: 10px;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
-    center center/cover no-repeat;
-  display: block;
-  margin: 0px auto;
-}
-td img {
-  width: 5%;
-}
-.table {
-    --bs-table-bg: unset;
-    --bs-table-color: #ffffff;
-    --bs-table-striped-color: #ffffff;
-}
-.table td, .table th {
-    padding: 1.75rem;
-    vertical-align: top;
-    border-top: 1px solid #510559;
-}
-.table-striped>tbody>tr:nth-of-type(odd) {
-    background-color: #f9f9f9;
-}
-.table-striped>tbody>tr:nth-of-type(even) {
-    background-color: #7c0974;
-}
-.ref_container{
-	position: relative;
-	max-width: 70%;
-}
-.cool_btn{
-  position: relative;
-  background: #19011c;
-  padding: 10px;
-  border-radius: 7px;
-  transition: 0.3s;
-  color: rgb(189, 8, 198);
-  border: 1px solid rgb(189, 8, 198);
-
-}
-.cool_btn:hover{
-	cursor: pointer;
-}
-
-
-.cool_btn:active {
-    background: black;
-}
-.cool_btn input{
-	border: 0;
-	border-radius: 0;
-}
-.ref_url{
-	opacity: 0.8;
-}
-
-.ref_url_btn{
-	font-weight: 500;
-	float:right;
-}
-.ref_url_copied{
-	/*display: none;*/
-	margin: 0 auto;
-    /*position: relative;*/
-    text-align: center;
-    width: 100px;
-    position: absolute;
-    left: 50%;
-    margin-left: -50px;
-    top: 50%;
-    margin-top: 20px;
-    }
-.ref_share{
-	margin-top:20px;
-	background: #34DA99;
-	border: 0;
-	padding: 10px;
-	border-radius: 7px;
-	width: 100%;
-	transition: 0.3s;
-  font-weight:500;
-  color:#fff;
-  display:none;
-  @media screen and ( max-width: 	540px) {
-    display:block;
-	}
-}
-.ref_share:hover{
-	cursor: pointer;
-	background: #36D467;
-}
-.ref_url_copied2{
-	/*display: none;*/
-	position: absolute;
-    background: #333399;
-    color:#fff;
     width: 100%;
-    top: 0;
-    left: 0;
-    padding: 10px 0 10px 0;
-    border-radius: 7px;
+    height: 100px;
+    margin-top: 100px;
+  }
+  .sd:after {
+    content: "";
+    width: 190px;
+    height: 10px;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png) center center / cover no-repeat;
+    display: block;
+    margin: -25px auto;
+    /* position: absolute; */
+  }
+span.sd {
+    color: #7814a1;
+    display: block;
+    font-size: 76px;
     text-align: center;
-    transition: 0.3s;
-    opacity: 0;
-    z-index:-9;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    &::before {
+      content: "Poker";
+      color: rgb(75 16 79 / 50%);
+      font-size: 130px;
+      /* //width: 350px; */
+      display: block;
+      margin: -160px -110px;
+      font-weight: 900;
+  
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+
+ul ,li
+{
+ margin: 0.75em 0;
+ padding: 0 1em;
+ list-style: none;
 }
-.oi {
-	opacity:1;
-	transition: 0.3s;
-  z-index:9;
+
+
+ul li::before {
+ content: "";
+ border:  rgb(189, 8, 198);
+ border-style: solid;
+ border-width: 0.35em;
+ border-radius: 6px;
+ display: block;
+ height: 0;
+ width: 0;
+ left: -1em;
+ top: 0.9em;
+ position: relative;
 }
-.ref_desc{
-	margin-top: 20px;
-	margin-bottom: 20px;
-  list-style:none;
-  font-size: 14px;
+
+ol li::marker {
+ content: "\2022";
 }
-.ref_desc li{
-	line-height: 24px;	
+
+li p{
+    justify-content: left !important;
+    margin: -5px 0px 0px 10px !important;
 }
-.sc-cKYHso.eBOuzh {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    color: rgb(255, 255, 255);
-    font-size: 21px;
-    line-height: 30px;
-    gap: 5px;
-    text-align: justify;
-    margin: 0px;
+
+p span{
+    color: rgb(189, 8, 198);
+    margin-left: 5px;
+    font-weight: 600;
+
 }

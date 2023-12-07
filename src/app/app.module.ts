@@ -17,6 +17,19 @@ import { InviteFriendComponent } from './main/desktop/footer-content/general/inv
 import { AffiliateComponent } from './main/desktop/footer-content/general/affiliate/affiliate.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrivacyPolicyComponent } from './main/mobile/privacy-policy/privacy-policy.component';
+import { ContactWithUsComponent } from './main/desktop/footer-content/contact-with-us/contact-with-us.component';
+import { DisclaimerComponent } from './main/desktop/footer-content/security/disclaimer/disclaimer.component';
+import { TermConditionComponent } from './main/desktop/footer-content/security/term-condition/term-condition.component';
+import { CookiePolicyComponent } from './main/desktop/footer-content/security/cookie-policy/cookie-policy.component';
+import { DisconnectionPolicyComponent } from './main/desktop/footer-content/security/disconnection-policy/disconnection-policy.component';
+import { CasinoComponent } from './main/desktop/footer-content/games/casino/casino.component';
+import { TeenpattiComponent } from './main/desktop/footer-content/games/teenpatti/teenpatti.component';
+import { AndarBaharComponent } from './main/desktop/footer-content/games/andar-bahar/andar-bahar.component';
+import { SlotsComponent } from './main/desktop/footer-content/games/slots/slots.component';
+import { BaccaratComponent } from './main/desktop/footer-content/games/baccarat/baccarat.component';
+import { RouletteComponent } from './main/desktop/footer-content/games/roulette/roulette.component';
+import { BlackjackComponent } from './main/desktop/footer-content/games/blackjack/blackjack.component';
+import { PokerComponent } from './main/desktop/footer-content/games/poker/poker.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +45,19 @@ import { PrivacyPolicyComponent } from './main/mobile/privacy-policy/privacy-pol
     InviteFriendComponent,
     AffiliateComponent,
     PrivacyPolicyComponent,
+    ContactWithUsComponent,
+    DisclaimerComponent,
+    TermConditionComponent,
+    CookiePolicyComponent,
+    DisconnectionPolicyComponent,
+    CasinoComponent,
+    TeenpattiComponent,
+    AndarBaharComponent,
+    SlotsComponent,
+    BaccaratComponent,
+    RouletteComponent,
+    BlackjackComponent,
+    PokerComponent,
   ],
   imports: [
     BrowserModule,
