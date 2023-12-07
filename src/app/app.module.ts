@@ -16,6 +16,7 @@ import { FaqComponent } from './main/desktop/footer-content/general/faq/faq.comp
 import { InviteFriendComponent } from './main/desktop/footer-content/general/invite-friend/invite-friend.component';
 import { AffiliateComponent } from './main/desktop/footer-content/general/affiliate/affiliate.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PrivacyPolicyComponent } from './main/mobile/privacy-policy/privacy-policy.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FaqComponent,
     InviteFriendComponent,
     AffiliateComponent,
+    PrivacyPolicyComponent,
   ],
   imports: [
     BrowserModule,
