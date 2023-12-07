@@ -5,32 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './main/shared/shared.module';
 import { MainComponent } from './main/main.component';
-import { DesktopMainComponent } from './main/desktop/desktop-main/desktop-main.component';
-import { MobileMainComponent } from './main/mobile/mobile-main/mobile-main.component';
-import { FooterComponent } from './main/desktop/desktop-main/footer/footer.component';
-import { HeaderComponent } from './main/desktop/desktop-main/header/header.component';
-import { MHeaderComponent } from './main/mobile/mobile-main/header/header.component';
-import { MFooterComponent } from './main/mobile/mobile-main/footer/footer.component';
-import { MainModule } from './main/main.module';
-
+import { DesktopHeaderComponent } from './main/header/desktop-header/desktop-header.component';
+import { MobileHeaderComponent } from './main/header/mobile-header/mobile-header.component';
 @NgModule({
   declarations: [
     AppComponent,
-    // MainComponent,
-    // DesktopMainComponent,
-    // MobileMainComponent,
-    // FooterComponent,
-    // HeaderComponent,
-    // MHeaderComponent,
-    // MFooterComponent
-  
+    MainComponent,
+    DesktopHeaderComponent,
+    MobileHeaderComponent,
+   
+
+
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    // MainModule
   ],
   providers: [],
   bootstrap: [AppComponent]

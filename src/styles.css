@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+.show-desktop {
+    display: none;
+    @media (min-width: 721px) { 
+      display: block; 
+    }
+  }
+  
+  .show-mobile {
+    display: block; 
+    @media (min-width: 721px) { 
+      display: none; 
+    }
+  }
