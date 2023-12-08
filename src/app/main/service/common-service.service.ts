@@ -10,16 +10,12 @@ export class CommonServiceService {
   isSmallScreen!:string
   constructor() {
     this.init();
-    
   }
 
   private init() {
-    // Use RxJS to listen to window resize events
     fromEvent(window, 'resize').subscribe((event: Event) => {
       this.checkScreenSize();
     });
-
-    // Initial check for screen size
     this.checkScreenSize();
   }
 
@@ -30,8 +26,6 @@ export class CommonServiceService {
 
   private checkScreenSize(): void {
     let screenWidth = window.innerWidth;
-    // console.log("check event " + screenWidth);
-
     if (screenWidth < 767) {
       this.isSmallScreen = 'true';
     } else {
@@ -43,4 +37,37 @@ export class CommonServiceService {
   updateMyVariable(newValue: string) {
     this.myVariableSubject.next(newValue);
   }
+
+  private logingSubject = new BehaviorSubject<{ [key: string]: boolean }>({});
+  public loging$ = this.logingSubject.asObservable();
+  
+  startloging(keyid: string) {
+    const loging = this.logingSubject.value;
+    this.logingSubject.next({
+      ...loging,
+      [keyid]: true
+    });
+  }
+  stoploging(keyid: string) {
+    const logArr = this.logingSubject.value;
+    delete logArr[keyid];
+    this.logingSubject.next(logArr);
+  }
+
+  setForGet(obj:any){
+    return ('?' + Object.entries(obj).map(([key, value]) => `${key}=${value}`).join('&'));
+  }
+
+  setLogDetails(data:any){
+    localStorage.setItem('UserName',data.UserName);
+    localStorage.setItem('LoginToken',data.LoginToken);
+    localStorage.setItem('userbalance',data.userbalance);
+    localStorage.setItem('UserId',data.UserId);
+  }
+  
+  clearLocalVars(){
+    localStorage.clear();
+    sessionStorage.clear();
+  }
+
 }

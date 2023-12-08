@@ -1,1 +1,22 @@
-<p>d-home works!</p>
+<div style=" background-color: gray;color: white;  display: flex;">
+    <div style=" display: flex; justify-content: space-around;width: 50%;"> 
+
+        @for (item of mainCategory; track $index) {
+            
+            <p>{{item}}</p>
+        }
+    </div>
+    <div style=" width: 50%; padding: 0.1rem;"> 
+    <input type="text" style="float: right;background: black;
+    color: white; width: 30%; height: 40px">
+    </div>
+</div>
+<div style="display: flex;">
+    <div style=" display: flex; justify-content: space-around; width: 100%;"> 
+<ng-container *ngFor="let item of gamesData">
+        {{item.url_thumb}}
+
+</ng-container>
+    </div>
+   
+</div>

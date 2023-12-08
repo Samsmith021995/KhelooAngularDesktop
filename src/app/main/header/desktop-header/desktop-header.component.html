@@ -16,16 +16,18 @@
           <span class="navbar-nav me-auto mb-2 mb-lg-0">
     
           </span>
-            <button type="button" class="btn btn-success btn-lg mx-3 deposit" routerLink="/deposits">
+            <!-- <button type="button" class="btn btn-success btn-lg mx-3 deposit" routerLink="/deposits">
               Deposit
-            </button>
+            </button> -->
             <div *ngIf="!logincheck">
-            <button type="button" class="btn btn-primary btn-lg mx-3" routerLink="register">
-              REGISTER
-            </button>
-            <button type="button" class="btn btn-primary btn-lg" routerLink="login">
-              LOGIN
-            </button>
+              <input type="text" name="" id="mob" placeholder="Mobile" autocomplete="off">
+              <input type="password" name="" id="pass" placeholder="Mobile" autocomplete="off">
+              <button type="button" class="btn btn-primary btn-lg" routerLink="login">
+                LOGIN
+              </button>
+              <button type="button" class="btn btn-primary btn-lg mx-3" routerLink="register">
+                Sign Up
+              </button>
           </div>
     
           <div class="loginbtn user" *ngIf="logincheck">

@@ -30,6 +30,8 @@ import { BaccaratComponent } from './main/desktop/footer-content/games/baccarat/
 import { RouletteComponent } from './main/desktop/footer-content/games/roulette/roulette.component';
 import { BlackjackComponent } from './main/desktop/footer-content/games/blackjack/blackjack.component';
 import { PokerComponent } from './main/desktop/footer-content/games/poker/poker.component';
+import { RegisterComponent } from './main/desktop/auth/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,14 +60,14 @@ import { PokerComponent } from './main/desktop/footer-content/games/poker/poker.
     RouletteComponent,
     BlackjackComponent,
     PokerComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    SharedModule
+  
+,  ],
   providers: [],
   bootstrap: [AppComponent]
 })

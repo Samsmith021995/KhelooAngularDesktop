@@ -11,7 +11,7 @@
   display: flex;
   flex-wrap: initial;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .loginbtn.user {
   color: #fff;
@@ -27,10 +27,10 @@ a.navbar-brand.fw-bold {
 }
 
 img.promotion-icon {
-  margin-top: -1px;
+  /* margin-top: -1px;
   width: 70%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; */
   border-radius: 4px;
 }
 
@@ -78,4 +78,26 @@ a{
 }
 .logocontainer{
   display: inline-block;
+}
+.logo{
+  width: 100px;
+}
+
+.promotion-icon{
+  
+  width: 30px;
+}
+
+input{
+  width: 200px;
+  margin-right: 4px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+button{
+  height: 100%;
+  padding: 13px 10px;
+  margin-right: 10px;
+  border-radius: 5px;
 }
