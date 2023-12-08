@@ -32,6 +32,7 @@ import { BlackjackComponent } from './main/desktop/footer-content/games/blackjac
 import { PokerComponent } from './main/desktop/footer-content/games/poker/poker.component';
 import { RegisterComponent } from './main/desktop/auth/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './main/desktop/auth/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,7 @@ import { HttpClientModule } from '@angular/common/http';
     BlackjackComponent,
     PokerComponent,
     RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

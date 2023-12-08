@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { CommonServiceService } from './main/service/common-service.service';
+import { LoginComponent } from './main/desktop/auth/login/login.component';
 const commonSer = new CommonServiceService();
 // console.log(commonSer.isSmallScreen);
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
         },
       
     ]
+  },
+  {
+    path:'login',
+    component:LoginComponent
   }
 ];
 
