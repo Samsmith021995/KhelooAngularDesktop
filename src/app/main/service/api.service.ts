@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CommonServiceService } from './common-service.service';
 import { LoaderService } from './loader.service';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/env/environments';
+
+
 @Injectable({
   providedIn: 'root'
 })

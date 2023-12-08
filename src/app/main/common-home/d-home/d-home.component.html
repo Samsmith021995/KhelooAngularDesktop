@@ -1,22 +1,35 @@
 <div style=" background-color: gray;color: white;  display: flex;">
-    <div style=" display: flex; justify-content: space-around;width: 50%;"> 
-
+    <div style=" display: flex; justify-content: space-around;width: 50%;">
         @for (item of mainCategory; track $index) {
-            
-            <p>{{item}}</p>
+       <a (click)="getAllCategory({mainCat:item})"> <p>{{item}}</p></a>
         }
     </div>
-    <div style=" width: 50%; padding: 0.1rem;"> 
-    <input type="text" style="float: right;background: black;
+    <div style=" width: 50%; padding: 0.1rem;">
+        <input type="text" style="float: right;background: black;
     color: white; width: 30%; height: 40px">
     </div>
 </div>
-<div style="display: flex;">
-    <div style=" display: flex; justify-content: space-around; width: 100%;"> 
-<ng-container *ngFor="let item of gamesData">
-        {{item.url_thumb}}
-
+<div style="display: flex; overflow-x: auto; width: 100%; color: white;">
+<ng-container *ngIf="selected != 'AllGames'">
+    <ng-container *ngFor="let category of subCategory">
+        
+        <div>
+            <button (click)="gameListOne(category)">{{category}}</button>
+        </div>
+    </ng-container>
 </ng-container>
-    </div>
-   
 </div>
+<ng-container *ngFor="let category of subCategory">
+    <ng-container *ngIf="gamesData[category]">
+        <span style="color: white;">
+            <h2>{{ category }}({{gamesData[category].length}})</h2>
+        </span>
+        <div style=" display: flex; margin-right: 4px; overflow-x: auto; width: 100%; color: white;">
+            <div *ngFor="let game of gamesData[category]">
+                <div style="margin-right: 4px;">
+                    <img [src]="game.url_thumb" alt="" width="100px">
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>
