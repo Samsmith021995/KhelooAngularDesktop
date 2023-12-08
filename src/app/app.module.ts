@@ -33,6 +33,7 @@ import { PokerComponent } from './main/desktop/footer-content/games/poker/poker.
 import { RegisterComponent } from './main/desktop/auth/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './main/desktop/auth/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,8 @@ import { LoginComponent } from './main/desktop/auth/login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   
 ,  ],
   providers: [],

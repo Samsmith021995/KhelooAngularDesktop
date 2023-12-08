@@ -19,16 +19,19 @@
             <!-- <button type="button" class="btn btn-success btn-lg mx-3 deposit" routerLink="/deposits">
               Deposit
             </button> -->
-            <div *ngIf="!logincheck">
-              <input type="text" name="" id="mob" placeholder="Mobile" autocomplete="off">
-              <input type="password" name="" id="pass" placeholder="Mobile" autocomplete="off">
-              <button type="button" class="btn btn-primary btn-lg" routerLink="login">
-                LOGIN
-              </button>
-              <button type="button" class="btn btn-primary btn-lg mx-3" routerLink="register">
-                Sign Up
-              </button>
-          </div>
+            <form [formGroup]="loginForm">
+
+              <div *ngIf="!logincheck">
+                <input type="text" name="" id="mob" placeholder="Mobile" autocomplete="off" formControlName="Mobile">
+                <input type="password" name="" id="pass" placeholder="Mobile" autocomplete="off" formControlName="Password">
+                <button type="button" class="btn btn-primary btn-lg" (click)="login()" >
+                  LOGIN
+                </button>
+                <button type="button" class="btn btn-primary btn-lg mx-3" routerLink="register">
+                  Sign Up
+                </button>
+              </div>
+            </form>
     
           <div class="loginbtn user" *ngIf="logincheck">
             <span class="UserName"><a (click)="showmenubar()"><i class="fa fa-user-circle-o" aria-hidden="true" ></i> Hi {{ username }} <br /> <i

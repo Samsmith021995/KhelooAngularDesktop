@@ -33,7 +33,7 @@ gameListAll(item:any){
     })
   ).subscribe(data=>{
     this.gamesData[item] = data;
-    console.log(this.gamesData[item] );
+    // console.log(this.gamesData[item] );
   });
 
 }
@@ -46,12 +46,12 @@ gameListOne(item:any){
     })
   ).subscribe(data=>{
     this.gamesData[item] = data;
-    console.log(this.gamesData[item] );
+    // console.log(this.gamesData[item] );
   });
 
 }
 getAllCategory(cat?:any){
-console.log(cat);
+// console.log(cat);
 this.apiSer.apiRequest(config['gameCategory']).pipe(
   catchError((error)=>{
     throw error;
