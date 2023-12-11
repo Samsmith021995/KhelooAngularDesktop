@@ -8,7 +8,8 @@ export const config:any = {
     "generateForpass":{endURL:"GameV1/GenerateOTPForgotPassword",type:"POST",keyL:"generateForpass"},
     "verifyOtppass":{endURL:"GameV1/ResetPassword",type:"POST",keyL:"verifyOtppass"},
     "changePassword":{endURL:"GameV1/ChangePassword",type:"POST",keyL:"changePassword"},
-
+    "getUserProfile":{endURL:"MyProfileAPI/GetUserProfile",type:"GET",keyL:"getUserProfile"},
+    
    
 
 }

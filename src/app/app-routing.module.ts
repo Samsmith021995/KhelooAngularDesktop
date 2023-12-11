@@ -22,6 +22,11 @@ const routes: Routes = [
           loadChildren:()=>import('./main/desktop/auth/change-password/change-password.module').then(m=>m.ChangePasswordModule),
                
            },
+           {
+            path:'setting',
+            loadChildren:()=>import('./main/desktop/setting/setting.module').then(m=>m.SettingModule),
+                 
+             },
     ]
   },
   {
