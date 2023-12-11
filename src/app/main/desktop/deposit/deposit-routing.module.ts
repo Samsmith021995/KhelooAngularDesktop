@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DepositComponent } from './deposit.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path:'',
+    component:DepositComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

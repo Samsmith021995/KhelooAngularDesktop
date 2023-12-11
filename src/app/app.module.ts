@@ -35,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './main/desktop/auth/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/forgot-password.component';
+import { GamePlatformComponent } from './main/desktop/game-platform/game-platform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/for
     RegisterComponent,
     LoginComponent,
     ForgotPasswordComponent,
+    GamePlatformComponent,
   ],
   imports: [
     BrowserModule,

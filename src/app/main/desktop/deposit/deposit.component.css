@@ -1,0 +1,297 @@
+:root {
+    --background-color: #f6f6f6;
+    --vigo-color: #007eea !important;
+    --slider-color: #A3A3A3;
+    --input-number-color: #EBEBEB;
+  }
+  .bmi-calculator {
+    border: 5px solid white;
+    box-shadow: 0px 0px 10px hsl(0deg 0% 74%);
+    padding: 3em;
+    margin: 2em;
+    height: auto;
+    width: 90%;
+    margin: 3% auto;
+    background-color: white;
+  }
+  
+  .bmi-calculator-weight, .bmi-calculator-height {
+    margin-bottom: 2.2em;
+    width: 100%;
+  }
+  
+  .weight-slider, .height-slider {
+    width: 100%;
+    height: 1px;
+    border-radius: 10px;
+    background: var(--slider-color); /* Light grey background. */
+    outline: none; /* Remove outline. */
+  }
+  
+  a.ftc {
+    float: right;
+    font-size: 12px;
+    color: #ddd;
+  }
+  
+  .col-md-4.offset-md-1 {
+    border: 5px solid white;
+    box-shadow: 0px 0px 10px hsl(0deg 0% 74%);
+    padding: 2em;
+    margin: 2em;
+    width: 100%;
+    height: 10%;
+    margin: 2% auto;
+    background-color: white;
+  }
+  
+  input[type=range]:focus {
+    outline: none; 
+  }
+  
+  input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  /* Special styling for WebKit/Blink */
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 2.5px solid var(--vigo-color);
+    height: 20px;
+    width: 20px;
+    border-radius: 40px;
+    background: white;
+    cursor: pointer;
+    margin-top: 0px; 
+  }
+  
+  /* All the same stuff for Firefox */
+  input[type=range]::-moz-range-thumb {
+    /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
+    border: 2.5px solid var(--vigo-color);
+    height: 20px;
+    width: 20px;
+    border-radius: 40px;
+    background: white;
+    cursor: pointer;
+  }
+  
+  /* All the same stuff for IE */
+  input[type=range]::-ms-thumb {
+    /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
+    border: 2.5px solid var(--vigo-color);
+    height: 20px;
+    width: 20px;
+    border-radius: 40px;
+    background: white;
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+  }
+  
+  /* INPUT TYPE NUMBER STYLING*/
+  input[type=number] {
+    -moz-appearance: none; /* Override default CSS styles */
+    -webkit-appearance: none;
+    /* cursor: pointer;*/
+    /* Real styling part :D */
+    background: var(--input-number-color);
+    border-style: none;
+    height: 30px;
+    width: 60px;
+    margin-left: 20px;
+    margin-right: 10px;
+    text-align: right;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+  }
+  
+    input[type=number]:focus {
+      outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+    }
+  
+  .gumb {
+    text-align: center;
+    font-size: 1em;
+    color: white;
+    width: 100%;
+    background: #183f9e;
+    margin-bottom: 10px;
+    padding: 11px 32px;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  
+  @media only screen and (max-width: 325px) {
+    .bmi-calculator {
+      height: 560px;
+    }
+  
+    h1 {
+      font-size: 1.5em;
+    }
+  }
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    background: #c7c7c7;
+    outline: none;
+    height: 1px;
+    border-radius: 10px;
+    --vigo-color: #004bff;
+    opacity: 0.7;
+    transition: opacity .2s;
+  }
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      background: #000;
+      cursor: pointer;
+    }
+  @media screen and (max-width: 560px) and (min-width:220px) {
+    .bmi-calculator {
+      border: 5px solid white;
+      box-shadow: 0px 0px 10px hsl(0deg 0% 74%);
+      padding: 2em 7px;
+      height: auto;
+      width: 100%;
+      margin: 6% auto;
+      background-color: white;
+    }
+    .col-md-4.offset-md-1 {
+      border: 5px solid white;
+      box-shadow: 0px 0px 10px hsl(0deg 0% 74%);
+      padding: 2em;
+      margin: 2em;
+      width: 100%;
+      height: 10%;
+      margin: 2% 4%;
+      background-color: white;
+    }
+  }
+  
+.login,
+.image {
+  min-height: 100vh;
+}
+.bg-light {
+  /* //  background: #000 !important;
+  // background-image: linear-gradient(#6612a5, #2c003a); */
+  background-image: linear-gradient(#6612a5, #2c003a);
+}
+p.text-muted.mb-4.loginsubtitle {
+  font-size: 14px;
+  color: #fff !important;
+}
+h3.display-4.logintitle {
+  color: #fff;
+  font-weight: 600;
+}
+
+.rounded-pill {
+  border-radius: 4px !important;
+  padding: 2.375rem 0.75rem !important;
+  font-size: 14px;
+  border: 1px solid #2b2b2b !important;
+  width: 100%;
+  background: transparent;
+  color: #fff !important;
+  max-width: none;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #2b2b2b;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #2b2b2b;
+}
+h3.display-4.logintitle {
+  color: #fff;
+  margin: 16px 0;
+}
+.bg-image {
+  /* //background-image: url("https://res.cloudinary.com/mhmd/image/upload/v1555917661/art-colorful-contemporary-2047905_dxtao7.jpg"); */
+  background-image: url("/assets/images/login-bg2.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+button.btn.btn-primary.btn-lg{
+  width: 100%;
+  background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
+  padding: 16px;
+  border: none;
+  margin: 0 !important;
+}
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+button.btn {
+    border-radius: 5px;
+    margin: 20px 1px;
+    font-size: 13px;
+    background: #eee;
+    padding: 4px 17px;
+    border: 1px solid #ddd;
+}
+
+#depoRange{
+  accent-color: #ef008a;
+}
+
+
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.bl_ind_promotion_container {
+  border: 1px solid #f7ad07;
+  margin: 10px;
+  display: flex; /* Use flex display for better layout control */
+  align-items: center; /* Center content vertically */
+  width: 100%;
+  justify-content: space-between;
+  padding: 6px;
+}
+
+.ribbon {
+  border: 1.5px solid #ffd370;
+  border-radius: 12px;
+  width: 100px;
+  height: 20px;
+  text-align: center;
+  background-color: black;
+  margin: -100px 0px 0px 21px;
+}
+
+.bl_ind_prom_content_container {
+  flex: 1; /* Allow this container to take remaining space */
+  padding: 10px; /* Add some padding for spacing */
+  margin-left : -54px
+}
+
+.bl_prom_image {
+  max-width: 100px; /* Limit image width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.bl_prom_title_container span{
+  font-size: 20px;
+}

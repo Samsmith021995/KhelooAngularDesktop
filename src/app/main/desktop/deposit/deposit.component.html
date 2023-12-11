@@ -1,1 +1,81 @@
-<p>deposit works!</p>
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="col-md-6 d-none d-md-flex bg-image"></div>
+        <div class="col-md-6 bg-light">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-7 mx-auto">
+                            <ng-container *ngIf="paymentinput">
+                                <h3 class="display-4 logintitle">Deposit Amount</h3>
+                                <!-- <p class="text-muted mb-4 loginsubtitle">Already have an account?</p> -->
+                                <form [formGroup]="deposits">
+                                    <div class="bmi-calculator-weight">
+                                        <div class="form-group mb-3">
+                                            <input id="depositAmount" type="text" placeholder="Amount" required=""
+                                                autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4"
+                                                formControlName="Amount"
+                                                value="{{ deposits.controls['ramount'].value }}">
+                                        </div>
+                                        <div>
+                                            <input type="range" min="0" max="50000" name="amount" id="depoRange"
+                                                value="{{ deposits.controls['Amount'].value }}"
+                                                formControlName="ramount" step="500">
+                                        </div>
+                                        <button type="button" class="btn" (click)="setAmount(100)"> ₹ 100 </button>
+                                        <button type="button" class="btn" (click)="setAmount(500)"> ₹ 500 </button>
+                                        <button type="button" class="btn" (click)="setAmount(1000)"> ₹ 1000 </button>
+                                        <button type="button" class="btn" (click)="setAmount(2000)"> ₹ 2000 </button>
+                                        <button type="button" class="btn" (click)="setAmount(5000)"> ₹ 5000 </button>
+                                        <button type="button" class="btn" (click)="setAmount(10000)"> ₹ 10000 </button>
+                                    </div>
+
+                                    <button _ngcontent-ng-c1731079979="" type="button"
+                                        class="btn btn-primary btn-lg mx-3" (click)="requestDeposit()"> <span
+                                            *ngIf="!showsubmitbtn">Deposit</span>
+                                        <span *ngIf="showsubmitbtn"><i class="fa fa-circle-o-notch fa-spin"
+                                                style="font-size:24px"></i></span></button>
+                                </form>
+                            </ng-container>
+                        </div>
+                        <div class="col-lg-10 col-xl-7 mx-auto">
+                            <ng-container *ngFor="let item of paymentGateway">
+
+                                <a target="_blank" href="{{ item.PaymentUrl + transcationIdFinal}}">
+
+                                    <div class="bl_promotion_list_main_container ng-scope"
+                                        ng-repeat="deposit in UserPaymentGetway">
+                                        <div class="bl_promotion_list_container">
+                                            <div>
+                                                <div class="bl_ind_promotion_container box">
+                                                    <div class="ribbon ribbon-top-left">
+
+                                                        <span> {{item.Tag}}</span>
+
+                                                    </div>
+                                                    <div class="bl_ind_prom_content_container">
+                                                        <p class="bl_prom_title_container">
+                                                            <span>{{item.Title}}</span>
+                                                        </p>
+                                                        <p class="bl_prom_heading">{{item.SubTitle}}</p>
+                                                    </div>
+                                                    <div class="bl_ind_img_container">
+                                                        <img src="https://kheloo.com/{{ item.ImageUrl }}"
+                                                            class="bl_prom_image" alt="" width="100" height="52">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </ng-container>
+
+                        </div>
+                    </div>
+                </div><!-- End -->
+
+            </div>
+        </div><!-- End -->
+
+    </div>
+</div>

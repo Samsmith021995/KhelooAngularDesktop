@@ -5,6 +5,7 @@ import { CommonServiceService } from './main/service/common-service.service';
 import { LoginComponent } from './main/desktop/auth/login/login.component';
 import { RegisterComponent } from './main/desktop/auth/register/register.component';
 import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/forgot-password.component';
+import { GamePlatformComponent } from './main/desktop/game-platform/game-platform.component';
 const commonSer = new CommonServiceService();
 // console.log(commonSer.isSmallScreen);
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
         path: 'withdraw',
         loadChildren: () => import('./main/desktop/withdrawl/withdrawl.module').then(m => m.WithdrawlModule),
       },
+      {
+        path: 'deposit',
+        loadChildren: () => import('./main/desktop/deposit/deposit.module').then(m => m.DepositModule),
+      },
     ]
   },
   {
@@ -45,6 +50,10 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     component: ForgotPasswordComponent
+  },
+  {
+    path: 'games/:id',
+    component: GamePlatformComponent
   }
 ];
 

@@ -12,7 +12,12 @@ export const config:any = {
     "fetchStatement":{endURL:"MyProfileAPI/GetUserStatement",type:"POST",keyL:"fetchStatement"},
     "withdrawReq":{endURL:"MyProfileAPI/WithdrawRequest",type:"POST",keyL:"withdrawReq"},
     "withdrawState":{endURL:"MyProfileAPI/GetWithdrawalStatement",type:"GET",keyL:"withdrawState"},
-    
-   
+    "depositReq":{endURL:"MyProfileAPI/DepositeUserAmount",type:"POST",keyL:"depositReq"},
+    "getTranscationId":{endURL:"AppPayment/DepositUserPaymentTransaction",type:"GET",keyL:"getTranscationId"},
+    "getPaymentGateway":{endURL:"AppPayment/GetPaymentGatewayMasterDetails",type:"GET",keyL:"getPaymentGateway"},
+    "getProvider":{endURL:"MyProfileApi/GetUrlBasedOnGameProvider",type:"GET",keyL:"getProvider"},
+
+    // MyProfileApi/GetUrlBasedOnGameProvider?game_id=2231
+
 
 }
