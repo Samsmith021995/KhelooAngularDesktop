@@ -34,6 +34,7 @@ import { RegisterComponent } from './main/desktop/auth/register/register.compone
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './main/desktop/auth/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/forgot-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +65,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PokerComponent,
     RegisterComponent,
     LoginComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,10 @@ export const config:any = {
     "otp":{endURL:"GameV1/GenerateOTP",type:"GET",keyL:"otp"},
     "verifyOtp":{endURL:"GameV1/VerifyOTP",type:"GET",keyL:"verifyOtp"},
     "signUp":{endURL:"GameV1/RegisterUser",type:"POST",keyL:"signUp"},
-    //GameV1/GetGameList?GameCategory=Blackjack
+    "generateForpass":{endURL:"GameV1/GenerateOTPForgotPassword",type:"POST",keyL:"generateForpass"},
+    "verifyOtppass":{endURL:"GameV1/ResetPassword",type:"POST",keyL:"verifyOtppass"},
+    "changePassword":{endURL:"GameV1/ChangePassword",type:"POST",keyL:"changePassword"},
+
    
+
 }

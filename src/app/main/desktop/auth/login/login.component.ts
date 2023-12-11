@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit{
 ngOnInit(): void {
   
   this.loginform = this.fb.group({
-    Mobile : ['',[Validators.required,Validators.maxLength(10)]],
+    Mobile : ['',[Validators.required]],
     Password : ['',Validators.required],
   });
 }
@@ -45,9 +45,11 @@ ngOnInit(): void {
  }
 
  login(){
+  console.log("Ashutosh");
    this.showsubmitbtn = true;
-   let param = this.loginform.value;
-   this.apiSer.apiRequest( config['login'],param).subscribe({
+   let param = this.loginform.getRawValue();
+   console.log(param);
+   this.apiSer.apiRequest(config['login'],param).subscribe({
      next: data=>{
        if(data.ErrorCode == '1'){
          this.showsubmitbtn = false;
