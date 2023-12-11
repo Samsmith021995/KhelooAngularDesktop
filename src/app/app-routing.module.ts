@@ -9,37 +9,38 @@ const commonSer = new CommonServiceService();
 // console.log(commonSer.isSmallScreen);
 const routes: Routes = [
   {
-    path:'',
-    component:MainComponent,
-    children:[
+    path: '',
+    component: MainComponent,
+    children: [
       {
-       path:'',
-       loadChildren:()=>import('./main/common-home/common-home.module').then(m=>m.CommonHomeModule),
-            
-        },
-        {
-          path:'change-password',
-          loadChildren:()=>import('./main/desktop/auth/change-password/change-password.module').then(m=>m.ChangePasswordModule),
-               
-           },
-           {
-            path:'setting',
-            loadChildren:()=>import('./main/desktop/setting/setting.module').then(m=>m.SettingModule),
-                 
-             },
+        path: '',
+        loadChildren: () => import('./main/common-home/common-home.module').then(m => m.CommonHomeModule),
+      },
+      {
+        path: 'change-password',
+        loadChildren: () => import('./main/desktop/auth/change-password/change-password.module').then(m => m.ChangePasswordModule),
+      },
+      {
+        path: 'setting',
+        loadChildren: () => import('./main/desktop/setting/setting.module').then(m => m.SettingModule),
+      },
+      {
+        path: 'statements',
+        loadChildren: () => import('./main/desktop/statement/statement.module').then(m => m.StatementModule),
+      },
     ]
   },
   {
-    path:'login',
-    component:LoginComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path:'register',
-    component:RegisterComponent
+    path: 'register',
+    component: RegisterComponent
   },
   {
-    path:'forgot-password',
-    component:ForgotPasswordComponent
+    path: 'forgot-password',
+    component: ForgotPasswordComponent
   }
 ];
 

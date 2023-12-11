@@ -9,6 +9,7 @@ export const config:any = {
     "verifyOtppass":{endURL:"GameV1/ResetPassword",type:"POST",keyL:"verifyOtppass"},
     "changePassword":{endURL:"GameV1/ChangePassword",type:"POST",keyL:"changePassword"},
     "getUserProfile":{endURL:"MyProfileAPI/GetUserProfile",type:"GET",keyL:"getUserProfile"},
+    "fetchStatement":{endURL:"MyProfileAPI/GetUserStatement",type:"POST",keyL:"fetchStatement"},
     
    
 

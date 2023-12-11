@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { StatementRoutingModule } from './statement-routing.module';
 import { StatementComponent } from './statement.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { StatementComponent } from './statement.component';
   ],
   imports: [
     CommonModule,
-    StatementRoutingModule
+    StatementRoutingModule,
+    SharedModule
   ]
 })
 export class StatementModule { }

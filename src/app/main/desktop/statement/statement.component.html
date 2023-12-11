@@ -1,1 +1,89 @@
-<p>statement works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr class="head">
+                            <th>S No.</th>
+                            <th>Level</th>
+                            <th>Bet</th>
+                            <th>Win</th>
+                            <th>Bal</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let item of details; let i= index;">
+
+                            <tr>
+                                <td>{{ pages.PageNumber > 1 ? i + 1 + ( pages.RecordCount * (pages.PageNumber -1)): i+1  }}</td>
+                                <td>{{ item.Description}}</td>
+                                <td>{{ item.Credit }}</td>
+                                <td>{{ item.Debit }}</td>
+                                <td>{{ item.Balance }}</td>
+                                <td> {{item.CreatedDate | date:"mediumDate"}}</td>
+                            </tr>
+                        </ng-container>
+                        <!-- <tr>
+                            <td colspan="6">
+                                <app-loader  *ngIf="isLoading"></app-loader>
+
+                            </td>
+                        </tr> -->
+                        <tr *ngIf="details == 0">
+                            <td colspan="6">
+
+                                <!-- <app-loader  *ngIf="isLoading"></app-loader> -->
+                            </td>
+                            <!-- <td colspan="6" [ngSwitch]="details">
+                               <p *ngSwitchCase="0"> No Transcation Found</p>
+                              <p *ngSwitchDefault>  <app-loader  *ngIf="isLoading"></app-loader></p>
+                            </td> -->
+                        </tr>
+                       
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-md-12">
+                
+                        
+                        <div class="pagination">
+                            <div class="col-md-3 col-sm-3" style="text-align: center;">
+                                <div class="pagination-info">
+                                <span id="total-items">Showing {{pages.PageNumber == 1 ? 1:(pages.PageNumber-1)*pages.RecordCount + 1}} to {{ pages.PageNumber * pages.RecordCount <= ttl ? pages.PageNumber * pages.RecordCount : ttl}} of {{ ttl }} entries</span>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+
+                                <div class="pagination-pages">
+
+                                    <a  class="page-link"  (click)="onPaginatorChange( { 'action':'pagechange', 'pageno':pages.PageNumber > 1 ? pages.PageNumber -1 : 1} )">&laquo;</a>
+                                    <ng-container *ngFor="let numberd of paginatorBlock">
+                                    <a  class="page-link" [class.active]= " numberd  === pages.PageNumber" (click)="onPaginatorChange( { 'action':'pagechange', 'pageno':numberd} )">{{ numberd }}</a>
+                                </ng-container>
+                                    
+                                    <a  class="page-link" (click)="onPaginatorChange( { 'action':'pagechange', 'pageno':pages.PageNumber + 1} )" >&raquo;</a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3" style="text-align: center;">
+
+                                <div class="pagination-controls">
+                                    <!-- <label for="items-per-page">Items per page:</label> -->
+                                    <select id="items-per-page" class="page-select" (change)="onPaginatorChange({ 'action':'pagesize', 'pagesize': $event})">
+                                        <option value="10">10</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                        <option value="500">500</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+        </div>
+    </div>
+    
+</div>
