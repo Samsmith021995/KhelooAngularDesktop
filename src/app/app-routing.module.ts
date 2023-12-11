@@ -28,6 +28,10 @@ const routes: Routes = [
         path: 'statements',
         loadChildren: () => import('./main/desktop/statement/statement.module').then(m => m.StatementModule),
       },
+      {
+        path: 'withdraw',
+        loadChildren: () => import('./main/desktop/withdrawl/withdrawl.module').then(m => m.WithdrawlModule),
+      },
     ]
   },
   {

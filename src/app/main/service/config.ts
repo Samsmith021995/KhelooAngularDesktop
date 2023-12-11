@@ -10,6 +10,8 @@ export const config:any = {
     "changePassword":{endURL:"GameV1/ChangePassword",type:"POST",keyL:"changePassword"},
     "getUserProfile":{endURL:"MyProfileAPI/GetUserProfile",type:"GET",keyL:"getUserProfile"},
     "fetchStatement":{endURL:"MyProfileAPI/GetUserStatement",type:"POST",keyL:"fetchStatement"},
+    "withdrawReq":{endURL:"MyProfileAPI/WithdrawRequest",type:"POST",keyL:"withdrawReq"},
+    "withdrawState":{endURL:"MyProfileAPI/GetWithdrawalStatement",type:"GET",keyL:"withdrawState"},
     
    
 
