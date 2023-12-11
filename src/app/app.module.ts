@@ -17,6 +17,7 @@ import { InviteFriendComponent } from './main/desktop/footer-content/general/inv
 import { AffiliateComponent } from './main/desktop/footer-content/general/affiliate/affiliate.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrivacyPolicyComponent } from './main/mobile/privacy-policy/privacy-policy.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,8 @@ import { PrivacyPolicyComponent } from './main/mobile/privacy-policy/privacy-pol
     InviteFriendComponent,
     AffiliateComponent,
     PrivacyPolicyComponent,
+    
+    
   ],
   imports: [
     BrowserModule,

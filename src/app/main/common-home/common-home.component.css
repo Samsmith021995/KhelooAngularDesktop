@@ -1,0 +1,15 @@
+.lang_container {
+    background: url(https://kheloo.com/images/langstrip.png);
+    margin-top: 60px;
+    padding: 25px 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.lang_sub_container {
+    padding: 0 15px;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+    justify-content: center;
+}

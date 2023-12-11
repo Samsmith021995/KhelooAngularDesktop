@@ -1,3 +1,5 @@
+@import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css';
+@import 'https://kheloo.com/Content/OurAssest/Common/style.css';
 /* You can add global styles to this file, and also import other style files */
 .show-desktop {
     display: none;
@@ -19,6 +21,10 @@
 body {
   background: #110019 !important;
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+.login_container ul {
+  margin: 0;
 }
 button.deposit {
   position: relative;
@@ -88,4 +94,11 @@ button.deposit:active {
 }
 .table-striped>tbody>tr:nth-child(even)>td, .table-striped>tbody>tr:nth-child(even)>th {
   background-color: #2a0b47;
+}
+.footer_logo_container img{
+  width: 150px;
+  margin: 0 auto;
+}
+.heading {
+  margin-bottom: 15px;
 }
