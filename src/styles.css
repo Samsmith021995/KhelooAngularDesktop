@@ -1,6 +1,5 @@
-@import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css';
-@import 'https://kheloo.com/Content/OurAssest/Common/style.css';
-/* You can add global styles to this file, and also import other style files */
+/* /* @import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css';
+@import 'https://kheloo.com/Content/OurAssest/Common/style.css'; */
 .show-desktop {
     display: none;
     @media (min-width: 721px) { 
@@ -15,9 +14,7 @@
     }
   }
 
-  /* You can add global styles to this file, and also import other style files */
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@0,100;0,300;0,600;1,900&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'); */
+ 
 body {
   background: #110019 !important;
   font-family: 'Poppins', sans-serif;
@@ -101,7 +98,7 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
+} */
 
 /* Firefox */
 input[type=number] {
