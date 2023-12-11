@@ -1,0 +1,50 @@
+.heading h2 {
+    font-size: 36px;
+    position: relative;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: anton,sans-serif;
+    background: -webkit-linear-gradient(#f08f0f 0%, #fff 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    z-index: 0;
+    padding-top: 5px;
+    padding-bottom: 30px;
+    cursor: auto;
+    font-size: 28px;
+    letter-spacing: 0 !important;
+   
+}
+.live_sub_container {
+    background: url(https://kheloo.com/images/Withdrawl-Board_9.png) round;
+    padding: 0;
+    padding-bottom: 23px;
+    border-radius: 22px;
+    border-left: 2px solid #c8b683;
+    position: relative;
+    border-right: 2px solid #c8b683;
+}
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.live_main_withdraw_container {
+    background: #000;
+}
+.col-xs-6 {
+    width: 50%;
+    float: left;
+    margin-top: 15px;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.live_icon_container {
+    padding: 5px;
+    border: 3px solid #d57f23;
+    height: 38px;
+    border-radius: 50%;
+}

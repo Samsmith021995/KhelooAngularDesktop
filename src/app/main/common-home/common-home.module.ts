@@ -6,6 +6,10 @@ import { DHomeComponent } from './d-home/d-home.component';
 import { MHomeComponent } from './m-home/m-home.component';
 import { SharedModule } from '../shared/shared.module';
 import { CommonHomeComponent } from './common-home.component';
+import { BannerComponent } from './m-home/banner/banner.component';
+import { LangstripComponent } from '../mobile/langstrip/langstrip.component';
+import { JackpotComponent } from '../mobile/jackpot/jackpot.component';
+import { PromotionVideoComponent } from '../mobile/promotion-video/promotion-video.component';
 
 
 
@@ -13,7 +17,11 @@ import { CommonHomeComponent } from './common-home.component';
   declarations: [
     CommonHomeComponent,
     DHomeComponent,
-   MHomeComponent
+   MHomeComponent,
+   BannerComponent,
+   LangstripComponent,
+   JackpotComponent,
+   PromotionVideoComponent,
   ],
   imports: [
     CommonModule,
