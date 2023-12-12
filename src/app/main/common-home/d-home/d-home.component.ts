@@ -12,9 +12,9 @@ import Swiper from 'swiper';
 })
 export class DHomeComponent implements AfterViewInit{
   private loaderSubscriber !: Subscription;
-  @ViewChild('swiper', { static: false }) swiperEl?: ElementRef;
+  @ViewChild('swiper2', { static: false }) swiperEl2?: ElementRef;
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
-  swiper?: Swiper;
+  swiper2?: Swiper;
   private apiSubscriber: Subscription[] = [];
   constructor(private apiSer: ApiService, private router: Router,private renderer:Renderer2) { }
   mainCategory: any[] = [];
@@ -34,7 +34,7 @@ export class DHomeComponent implements AfterViewInit{
 
 
   ngAfterViewInit() {
-    this.swiper = new Swiper(this.swiperEl?.nativeElement, {
+    this.swiper2 = new Swiper(this.swiperEl2?.nativeElement, {
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',

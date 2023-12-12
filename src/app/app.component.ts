@@ -15,15 +15,15 @@ export class AppComponent implements OnInit {
   constructor(private router:Router,private commonSer:CommonServiceService){}
 
   ngOnInit(): void {
-    this.commonSer.myVariable$.subscribe((width)=>{
-      this.isSmallScreen = width === "true";
-    });
-
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.refreshHeader(); 
       }
     });
+    this.commonSer.myVariable$.subscribe((width)=>{
+      this.isSmallScreen = width === "true";
+    });
+
     
   }
 

@@ -93,8 +93,8 @@ export class ApiService {
         text: msg,
         icon: iconText,
         timer: 2000,
-        color: '#af0101',
-        confirmButtonColor:'#af0101',
+        color: iconText=='success'?'#28a745':'#af0101',
+        confirmButtonColor:iconText=='success'?'#28a745':'#af0101',
       });
     }
 

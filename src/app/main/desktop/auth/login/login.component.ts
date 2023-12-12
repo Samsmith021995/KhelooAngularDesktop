@@ -1,13 +1,10 @@
-
 import { Component ,ChangeDetectorRef, OnInit} from "@angular/core";
 import { FormBuilder,FormGroup, Validators } from "@angular/forms";
-
-// import { StrogeService } from 'src/app/service/stroge.service';
 import { Router } from "@angular/router";
-// import { UserAuthService } from "src/app/service/user-auth.service";
 import { ApiService } from "src/app/main/service/api.service";
 import { CommonServiceService } from "src/app/main/service/common-service.service";
 import { config } from "src/app/main/service/config";
+import { Subscription ,catchError} from "rxjs";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,13 +17,22 @@ export class LoginComponent implements OnInit{
  UserPassword: string = "";
  password = "password";
  showsubmitbtn :boolean = false
+ private loaderSubscriber !: Subscription;
+ private apiSubscriber: Subscription[]=[];
+ loginform  !:FormGroup
+ btnLoading:boolean = false;
 
- loginform  !:FormGroup;
  constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router,private cdr: ChangeDetectorRef,private comSer:CommonServiceService){
    
   }
 ngOnInit(): void {
-  
+  this.loaderSubscriber = this.apiSer.loaderService.loading$.pipe(
+    catchError((error)=>{
+    throw error
+  })
+  ).subscribe((loading:any={}) => {
+    this.btnLoading=('login' in loading)?true:false;
+  });
   this.loginform = this.fb.group({
     Mobile : ['',[Validators.required]],
     Password : ['',Validators.required],
@@ -45,10 +51,10 @@ ngOnInit(): void {
  }
 
  login(){
-  console.log("Ashutosh");
+  // console.log("Ashutosh");
    this.showsubmitbtn = true;
    let param = this.loginform.getRawValue();
-   console.log(param);
+  //  console.log(param);
    this.apiSer.apiRequest(config['login'],param).subscribe({
      next: data=>{
        if(data.ErrorCode == '1'){

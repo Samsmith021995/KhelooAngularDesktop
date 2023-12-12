@@ -16,6 +16,7 @@ export const config:any = {
     "getTranscationId":{endURL:"AppPayment/DepositUserPaymentTransaction",type:"GET",keyL:"getTranscationId"},
     "getPaymentGateway":{endURL:"AppPayment/GetPaymentGatewayMasterDetails",type:"GET",keyL:"getPaymentGateway"},
     "getProvider":{endURL:"MyProfileApi/GetUrlBasedOnGameProvider",type:"GET",keyL:"getProvider"},
+    "balance":{endURL:"MyProfileAPI/GetUserBalance",type:"GET",keyL:"balance"},
 
     // MyProfileApi/GetUrlBasedOnGameProvider?game_id=2231
 
