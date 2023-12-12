@@ -21,11 +21,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
     // DHomeComponent,
     // MHomeComponent
+  
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -51,6 +54,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatCheckboxModule
   ],
  exports:[
+  LoaderComponent,
     CommonModule,
     FormsModule,
     HttpClientModule,

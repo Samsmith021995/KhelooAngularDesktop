@@ -37,6 +37,10 @@ const routes: Routes = [
         path: 'deposit',
         loadChildren: () => import('./main/desktop/deposit/deposit.module').then(m => m.DepositModule),
       },
+      {
+        path: 'promotion',
+        loadChildren: () => import('./main/desktop/promotion/promotion.module').then(m => m.PromotionModule),
+      },
     ]
   },
   {

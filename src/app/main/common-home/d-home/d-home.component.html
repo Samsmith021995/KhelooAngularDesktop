@@ -1,7 +1,13 @@
+@if(gamelist){
+<app-loader></app-loader>
+}@else {
+
 <div style=" background-color: gray;color: white;  display: flex;">
     <div style=" display: flex; justify-content: space-around;width: 50%;">
         @for (item of mainCategory; track $index) {
-       <a (click)="getAllCategory({mainCat:item})"> <p>{{item}}</p></a>
+        <a (click)="getAllCategory({mainCat:item})">
+            <p>{{item}}</p>
+        </a>
         }
     </div>
     <div style=" width: 50%; padding: 0.1rem;">
@@ -9,29 +15,49 @@
     color: white; width: 30%; height: 40px">
     </div>
 </div>
-<div style="display: flex; overflow-x: auto; width: 100%; color: white;">
-<ng-container *ngIf="selected != 'AllGames'">
-    <ng-container *ngFor="let category of subCategory">
-        
-        <div>
-            <button (click)="gameListOne(category)">{{category}}</button>
-        </div>
-    </ng-container>
-</ng-container>
+
+<div class="swiper" #swiper>
+    <div class="swiper-wrapper">
+        <ng-container *ngFor="let img of images">
+            <div class="swiper-slide"><img [src]="img" alt="" width="100%"></div>
+        </ng-container>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-scrollbar"></div>
 </div>
-<ng-container *ngFor="let category of subCategory">
-    <ng-container *ngIf="gamesData[category]">
-        <span style="color: white;">
+<div style="display: flex; overflow-x: auto; width: 100%; color: white;">
+    <ng-container *ngIf="selected != 'AllGames'">
+        <ng-container *ngFor="let category of subCategory">
+
+            <div>
+                <button (click)="gameListOne(category)">{{category}}</button>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>
+<ng-container *ngFor="let category of subCategory; let i=index;">
+    <div *ngIf="gamesData[category]">
+        <span style="color: white;" class="category-btn">
             <h2>{{ category }}({{gamesData[category].length}})</h2>
+            <button (click)="showMoreF(i)" class="btn-show">ShowMore </button>
         </span>
-        <div style=" display: flex; margin-right: 4px; overflow-x: auto; width: 100%; color: white;">
+        <div style=" display: flex; margin-right: 4px; overflow-x: auto; width: 100%; color: white;" #showMore
+            class="ashu">
             <div *ngFor="let game of gamesData[category]">
-                <div style="margin-right: 4px;">
-                    <a  (click)="gameStart(game.game_id)">
-                        <img [src]="game.url_thumb" alt="" width="100px">
+                <div style="margin-right: 4px; " class="casino-game-item">
+                    <img [src]="game.url_thumb" alt="" width="250px">
+                    <a (click)="gameStart(game.game_id)">
+                        <div class="playbtn">
+                            <img src="https://kheloo.fun/img/play_icon_134504.png" alt=""
+                                class="casino-game-item-image-bc" class="play">
+                        </div>
                     </a>
                 </div>
             </div>
         </div>
-    </ng-container>
+    </div>
 </ng-container>
+
+}
