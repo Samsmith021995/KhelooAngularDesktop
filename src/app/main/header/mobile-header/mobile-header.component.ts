@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import {Component, Inject, ViewChild,ElementRef, TemplateRef} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -7,15 +7,10 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './mobile-header.component.css'
 })
 export class MobileHeaderComponent {
-  @ViewChild('register') register!: TemplateRef<any>;
-  constructor(private dialog: MatDialog){}
+  @ViewChild('login') login!: TemplateRef<any>;
+  constructor(public dialog:MatDialog){}
+  openDialog(){
+    this.dialog.open(this.login)
 
-  openRegister(){
-    let dialogRef = this.dialog.open(this.register, {
-      height: '900x',
-      width: '600px',
-      panelClass: 'screen-dialog',
-    });
-    dialogRef.afterClosed().subscribe(result => {})
   }
 }

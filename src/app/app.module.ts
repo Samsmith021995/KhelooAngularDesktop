@@ -37,6 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/forgot-password.component';
 import { GamePlatformComponent } from './main/desktop/game-platform/game-platform.component';
 import { PopRegisterComponent } from './main/mobile/pop-register/pop-register.component';
+import { BottomNavbarComponent } from './main/footer/m-footer/bottom-navbar/bottom-navbar.component';
+import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.component';
 
 @NgModule({
   declarations: [
@@ -71,8 +73,8 @@ import { PopRegisterComponent } from './main/mobile/pop-register/pop-register.co
     ForgotPasswordComponent,
     GamePlatformComponent,
     PopRegisterComponent,
-    
-    
+    BottomNavbarComponent,
+     LoginpopupComponent
   ],
   imports: [
     BrowserModule,

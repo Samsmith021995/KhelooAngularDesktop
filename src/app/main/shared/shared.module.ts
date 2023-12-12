@@ -23,6 +23,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { LoaderComponent } from './loader/loader.component';
 
+
 @NgModule({
   declarations: [
     // DHomeComponent,
@@ -51,7 +52,8 @@ import { LoaderComponent } from './loader/loader.component';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSlideToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule,
   ],
  exports:[
   LoaderComponent,
