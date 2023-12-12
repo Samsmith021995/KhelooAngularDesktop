@@ -22,14 +22,17 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { LoaderComponent } from './loader/loader.component';
+import { BannerComponent } from './banner/banner.component';
+
 
 
 @NgModule({
   declarations: [
     // DHomeComponent,
     // MHomeComponent
+    BannerComponent,
+    LoaderComponent,
   
-    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -57,6 +60,7 @@ import { LoaderComponent } from './loader/loader.component';
   ],
  exports:[
   LoaderComponent,
+  BannerComponent,
     CommonModule,
     FormsModule,
     HttpClientModule,
@@ -79,6 +83,6 @@ import { LoaderComponent } from './loader/loader.component';
     MatSlideToggleModule,
     MatCheckboxModule
  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
 export class SharedModule { }

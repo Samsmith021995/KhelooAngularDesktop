@@ -15,18 +15,7 @@
     color: white; width: 30%; height: 40px">
     </div>
 </div>
-
-<div class="swiper" #swiper2>
-    <div class="swiper-wrapper">
-        <ng-container *ngFor="let img of images">
-            <div class="swiper-slide"><img [src]="img" alt="" width="100%"></div>
-        </ng-container>
-    </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-scrollbar"></div>
-</div>
+<app-banner [images]="images" ></app-banner>
 <div style="display: flex; overflow-x: auto; width: 100%; color: white;">
     <ng-container *ngIf="selected != 'AllGames'">
         <ng-container *ngFor="let category of subCategory">

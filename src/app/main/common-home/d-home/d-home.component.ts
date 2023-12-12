@@ -10,9 +10,8 @@ import Swiper from 'swiper';
   templateUrl: './d-home.component.html',
   styleUrl: './d-home.component.css'
 })
-export class DHomeComponent implements AfterViewInit{
+export class DHomeComponent implements OnInit{
   private loaderSubscriber !: Subscription;
-  @ViewChild('swiper2', { static: false }) swiperEl2?: ElementRef;
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   swiper2?: Swiper;
   private apiSubscriber: Subscription[] = [];
@@ -33,25 +32,7 @@ export class DHomeComponent implements AfterViewInit{
   ];
 
 
-  ngAfterViewInit() {
-    this.swiper2 = new Swiper(this.swiperEl2?.nativeElement, {
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-      },
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: true,
-      },
-      loop: true
-    });
-  }
+
   // categoryName:any[] = ['Most Popular','Virtual Sports','Baccarat','Blackjack','Casual Games','Craps','Crash Games','Dragon Tiger','Fishing Games','Game Show','Live Baccarat','Live Blackjack','Live Dealer','Live Dragon Tiger','Live Lobby','Live Poker','Live Roulette','Live Sic Bo','Money Wheel',"Play'n Go",'Playtech','Playtech Live','Pragmatic play','Relax Gaming','Roulette'];
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
@@ -125,4 +106,5 @@ export class DHomeComponent implements AfterViewInit{
         this.renderer.addClass(nativeElement, 'showMore');
       }
   }
+
 }
