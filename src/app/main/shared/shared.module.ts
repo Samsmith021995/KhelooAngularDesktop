@@ -22,6 +22,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+
 @NgModule({
   declarations: [
     // DHomeComponent,
@@ -48,7 +49,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSlideToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule,
   ],
  exports:[
     CommonModule,

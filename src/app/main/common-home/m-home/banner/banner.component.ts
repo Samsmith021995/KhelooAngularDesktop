@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
 import Swiper from 'swiper';
 @Component({
   selector: 'app-banner',

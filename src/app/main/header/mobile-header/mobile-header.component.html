@@ -6,17 +6,23 @@
     </div>
     <div class="login_container">
     <ul>
-    <li ng-class="SelectedGameOption == 'Promotion'?'nav_active':'';" class="customer_icon_container promotion_icon_container">
-    <a href="https://kheloo.com/#promotion_section_container" class="beforeLogin" ng-click="SelectGame('Promotion');">
+    <li class="customer_icon_container promotion_icon_container">
+    <a href="https://kheloo.com/#promotion_section_container" class="beforeLogin">
     <img src="https://kheloo.com/images/promotion_icon.png" class="img-fluid" alt="customer support">
     <span>Promotions</span>
     </a>
     </li>
     <li class="sign_up_container">
-    <a href="javascript:void(0);" id="LoginForm" class="LoginFormClass" data-toggle="modal" data-target="#LoginModal">
+    <a mat-button (click)="openDialog()" id="LoginForm" class="LoginFormClass" data-toggle="modal" data-target="#LoginModal">
     Login
     </a>
     </li>
     </ul>
     </div>
     </div>
+
+   
+   <ng-template #login>
+       <app-loginpopup ></app-loginpopup>
+
+   </ng-template>

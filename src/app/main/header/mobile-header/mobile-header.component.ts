@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Inject, ViewChild,ElementRef, TemplateRef} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-mobile-header',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './mobile-header.component.css'
 })
 export class MobileHeaderComponent {
+  @ViewChild('login') login!: TemplateRef<any>;
+  constructor(public dialog:MatDialog){}
+  openDialog(){
+    this.dialog.open(this.login)
 
+  }
 }
