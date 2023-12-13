@@ -1,4 +1,4 @@
-import { Component, OnInit,ElementRef,Renderer2,QueryList,ViewChildren,ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2, QueryList, ViewChildren, ViewChild, AfterViewInit } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
 import { catchError, Subscription } from 'rxjs';
@@ -10,20 +10,24 @@ import Swiper from 'swiper';
   templateUrl: './d-home.component.html',
   styleUrl: './d-home.component.css'
 })
-export class DHomeComponent implements OnInit{
+export class DHomeComponent implements OnInit {
+  searchTerm: string = '';
+  allResults: any[] = [];
+  filteredResults: { [key: string]: any[] } = {};
   private loaderSubscriber !: Subscription;
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   swiper2?: Swiper;
   private apiSubscriber: Subscription[] = [];
-  constructor(private apiSer: ApiService, private router: Router,private renderer:Renderer2) { }
+  constructor(private apiSer: ApiService, private router: Router, private renderer: Renderer2) { }
   mainCategory: any[] = [];
   subCategory: any[] = [];
   categoryFetch = false;
   gamelist = false;
-  showMore :boolean = false;
+  showMore: boolean = false;
   gamesData: { [key: string]: any[] } = {};
+  backgamesData: { [key: string]: any[] } = {};
   selected: any = { mainCat: 'AllGames' };
-  
+
   images = [
     '/assets/images/Cashback.png',
     '/assets/images/WELCOME BONUS.png',
@@ -31,15 +35,13 @@ export class DHomeComponent implements OnInit{
     '/assets/images/LUCK.png',
   ];
 
-
-
-  // categoryName:any[] = ['Most Popular','Virtual Sports','Baccarat','Blackjack','Casual Games','Craps','Crash Games','Dragon Tiger','Fishing Games','Game Show','Live Baccarat','Live Blackjack','Live Dealer','Live Dragon Tiger','Live Lobby','Live Poker','Live Roulette','Live Sic Bo','Money Wheel',"Play'n Go",'Playtech','Playtech Live','Pragmatic play','Relax Gaming','Roulette'];
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.categoryFetch = ('gameCategory' in loading) ? true : false;
       this.gamelist = ('gameList' in loading) ? true : false;
     });
     this.getAllCategory(this.selected);
+
 
   }
   gameListAll(item: any) {
@@ -50,10 +52,12 @@ export class DHomeComponent implements OnInit{
       })
     ).subscribe(data => {
       this.gamesData[item] = data;
-      // console.log(this.gamesData[item] );
+      this.filteredResults[item] = data;
+
     });
 
   }
+
   gameListOne(item: any) {
     this.gamesData = {};
     let param = { GameCategory: item };
@@ -63,12 +67,11 @@ export class DHomeComponent implements OnInit{
       })
     ).subscribe(data => {
       this.gamesData[item] = data;
-      // console.log(this.gamesData[item] );
+      this.filteredResults[item] = data;
     });
 
   }
   getAllCategory(cat?: any) {
-    // console.log(cat);
     this.apiSer.apiRequest(config['gameCategory']).pipe(
       catchError((error) => {
         throw error;
@@ -100,11 +103,26 @@ export class DHomeComponent implements OnInit{
   gameStart(param: any) {
     this.router.navigate(['/games', param]);
   }
-  showMoreF(item:number){
+  showMoreF(item: number) {
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     if (nativeElement) {
-        this.renderer.addClass(nativeElement, 'showMore');
-      }
+      this.renderer.addClass(nativeElement, 'showMore');
+    }
   }
 
+  onSearch() {
+    if (this.searchTerm.trim() !== '') {
+      let param = { GameCategory: this.selected }
+      for (let item of this.subCategory) {
+        const filteredApiResults = this.filteredResults[item].filter(result =>
+          result.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
+        this.gamesData[item] = filteredApiResults;
+      }
+
+    } else {
+      this.gamesData = { ...this.filteredResults };
+    }
+
+  }
 }

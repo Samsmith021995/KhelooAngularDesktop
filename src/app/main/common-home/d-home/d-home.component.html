@@ -1,7 +1,6 @@
 @if(gamelist){
 <app-loader></app-loader>
 }@else {
-
 <div style=" background-color: gray;color: white;  display: flex;">
     <div style=" display: flex; justify-content: space-around;width: 50%;">
         @for (item of mainCategory; track $index) {
@@ -12,14 +11,13 @@
     </div>
     <div style=" width: 50%; padding: 0.1rem;">
         <input type="text" style="float: right;background: black;
-    color: white; width: 30%; height: 40px">
+    color: white; width: 30%; height: 40px" [(ngModel)]="searchTerm" (input)="onSearch()">
     </div>
 </div>
-<app-banner [images]="images" ></app-banner>
+<app-banner [images]="images"></app-banner>
 <div style="display: flex; overflow-x: auto; width: 100%; color: white;">
     <ng-container *ngIf="selected != 'AllGames'">
         <ng-container *ngFor="let category of subCategory">
-
             <div>
                 <button (click)="gameListOne(category)">{{category}}</button>
             </div>
