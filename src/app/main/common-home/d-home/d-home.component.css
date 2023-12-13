@@ -249,7 +249,6 @@ casino-game-item {
 }
 .showMore {
     flex-wrap: wrap;
-
     img {
         width: 200px;
         margin-right: 10px;
@@ -267,4 +266,50 @@ casino-game-item {
 .category-btn {
     display: flex;
     justify-content: space-between;
+}
+
+.prev-next{
+    background: none;
+    border: none;
+    color: white;
+    vertical-align: middle;
+    margin-top: 85px;
+    position: absolute;
+    z-index: 1034;
+    font-size: 34px;
+}
+.next-prev{
+    background: none;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    vertical-align: middle;
+    margin-top: -100px;
+    position: relative;
+    z-index: 1034;
+    font-size: 34px; 
+    float: right;
+}
+
+svg{
+    background-color: white;
+    border:1px solid white;
+    border-radius: 50%;
+    color: gray;
+}
+
+
+.selected{
+    color:yellow;
+}
+
+.subCat-btn{
+    background: darkgrey;
+    padding: 20px 30px;
+    margin: 5px 3px;
+    border-radius: 5px;
+}
+
+.subSele{
+    color: yellow;
 }

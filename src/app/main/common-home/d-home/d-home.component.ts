@@ -27,7 +27,7 @@ export class DHomeComponent implements OnInit {
   gamesData: { [key: string]: any[] } = {};
   backgamesData: { [key: string]: any[] } = {};
   selected: any = { mainCat: 'AllGames' };
-
+  subSelected:string= '';
   images = [
     '/assets/images/Cashback.png',
     '/assets/images/WELCOME BONUS.png',
@@ -59,6 +59,7 @@ export class DHomeComponent implements OnInit {
   }
 
   gameListOne(item: any) {
+    this.subSelected = item;
     this.gamesData = {};
     let param = { GameCategory: item };
     this.apiSer.apiRequest(config['gameList'], param).pipe(
@@ -69,7 +70,6 @@ export class DHomeComponent implements OnInit {
       this.gamesData[item] = data;
       this.filteredResults[item] = data;
     });
-
   }
   getAllCategory(cat?: any) {
     this.apiSer.apiRequest(config['gameCategory']).pipe(
@@ -92,7 +92,6 @@ export class DHomeComponent implements OnInit {
       this.selected = cat.mainCat;
       this.mainCategory = Array.from(categorySet);
       this.subCategory = Array.from(subCategorySet);
-
       this.subCategory.forEach((item: { GameCategory: string; }) => {
         this.gameListAll(item);
       })
@@ -106,6 +105,10 @@ export class DHomeComponent implements OnInit {
   showMoreF(item: number) {
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     if (nativeElement) {
+      if(nativeElement.classList.contains('showMore')){
+        this.renderer.removeClass(nativeElement, 'showMore');
+        return ;
+      }
       this.renderer.addClass(nativeElement, 'showMore');
     }
   }
@@ -119,10 +122,24 @@ export class DHomeComponent implements OnInit {
         );
         this.gamesData[item] = filteredApiResults;
       }
-
     } else {
       this.gamesData = { ...this.filteredResults };
     }
 
+  }
+
+  scrollPrev(item: number) {
+    let nativeElement = this.myElementRef.toArray()[item].nativeElement;
+    nativeElement.scrollLeft -= 300;
+    // if (nativeElement) {
+    //   this.renderer.addClass(nativeElement, 'showMore');
+    // }
+  }
+  scrollNext(item: number) {
+    let nativeElement = this.myElementRef.toArray()[item].nativeElement;
+    nativeElement.scrollLeft += 300;
+    // if (nativeElement) {
+    //   this.renderer.addClass(nativeElement, 'showMore');
+    // }
   }
 }
