@@ -28,7 +28,7 @@
     <div *ngIf="gamesData[category]">
         <span style="color: white;" class="category-btn">
             <h2>{{ category }}({{gamesData[category].length}})</h2>
-            <button (click)="showMoreF(i)" class="btn-show">ShowMore </button>
+            <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 8">ShowMore </button>
         </span>
         <div style=" display: flex; margin-right: 4px; overflow-x: auto; width: 100%; color: white;" #showMore
             class="ashu">
@@ -47,4 +47,8 @@
     </div>
 </ng-container>
 
+}
+
+@if(selected == 'Poker'){
+    <!-- <app-poker></app-poker> -->
 }

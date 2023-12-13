@@ -260,7 +260,7 @@ span.sd {
   font-weight: 900;
   text-transform: uppercase;
   &::before {
-    content: "Disclaimer";
+    content: "Privacy Policy";
     color: rgb(75 16 79 / 50%);
     font-size: 130px;
     /* //width: 350px; */

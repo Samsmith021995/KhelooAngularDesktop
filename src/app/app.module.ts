@@ -16,7 +16,6 @@ import { FaqComponent } from './main/desktop/footer-content/general/faq/faq.comp
 import { InviteFriendComponent } from './main/desktop/footer-content/general/invite-friend/invite-friend.component';
 import { AffiliateComponent } from './main/desktop/footer-content/general/affiliate/affiliate.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PrivacyPolicyComponent } from './main/mobile/privacy-policy/privacy-policy.component';
 import { ContactWithUsComponent } from './main/desktop/footer-content/contact-with-us/contact-with-us.component';
 import { DisclaimerComponent } from './main/desktop/footer-content/security/disclaimer/disclaimer.component';
 import { TermConditionComponent } from './main/desktop/footer-content/security/term-condition/term-condition.component';
@@ -29,7 +28,7 @@ import { SlotsComponent } from './main/desktop/footer-content/games/slots/slots.
 import { BaccaratComponent } from './main/desktop/footer-content/games/baccarat/baccarat.component';
 import { RouletteComponent } from './main/desktop/footer-content/games/roulette/roulette.component';
 import { BlackjackComponent } from './main/desktop/footer-content/games/blackjack/blackjack.component';
-import { PokerComponent } from './main/desktop/footer-content/games/poker/poker.component';
+// import { PokerComponent } from './main/desktop/footer-content/games/poker/poker.component';
 import { RegisterComponent } from './main/desktop/auth/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './main/desktop/auth/login/login.component';
@@ -54,7 +53,6 @@ import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.compone
     FaqComponent,
     InviteFriendComponent,
     AffiliateComponent,
-    PrivacyPolicyComponent,
     ContactWithUsComponent,
     DisclaimerComponent,
     TermConditionComponent,
@@ -67,7 +65,7 @@ import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.compone
     BaccaratComponent,
     RouletteComponent,
     BlackjackComponent,
-    PokerComponent,
+    // PokerComponent,
     RegisterComponent,
     LoginComponent,
     ForgotPasswordComponent,

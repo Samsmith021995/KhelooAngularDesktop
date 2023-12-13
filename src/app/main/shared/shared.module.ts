@@ -23,6 +23,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { LoaderComponent } from './loader/loader.component';
 import { BannerComponent } from './banner/banner.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { PokerComponent } from '../desktop/footer-content/games/poker/poker.component';
 
 
 
@@ -32,6 +34,8 @@ import { BannerComponent } from './banner/banner.component';
     // MHomeComponent
     BannerComponent,
     LoaderComponent,
+    NotFoundComponent,
+    PokerComponent
   
   ],
   imports: [
@@ -59,8 +63,10 @@ import { BannerComponent } from './banner/banner.component';
     MatDialogModule,
   ],
  exports:[
+  PokerComponent,
   LoaderComponent,
   BannerComponent,
+  NotFoundComponent,
     CommonModule,
     FormsModule,
     HttpClientModule,

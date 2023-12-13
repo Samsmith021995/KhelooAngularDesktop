@@ -1,13 +1,12 @@
 @import 'swiper/css';
-
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
+
 .playbtn .play {
     /* max-width: 31%; */
     filter: invert(100%) sepia(0) saturate(0%) hue-rotate(0) brightness(100%) contrast(100%);
-  }
- 
-  .playbtn {
+}
+.playbtn {
     align-items: center;
     background: rgba(0, 0, 0, 0.7);
     bottom: 0;
@@ -20,21 +19,21 @@
     top: 0;
     transition: opacity 0.4s ease;
     z-index: 1;
-  }
-  
-  .casino-game-item:hover .playbtn {
+}
+
+.casino-game-item:hover .playbtn {
     opacity: 1;
-  }
-  a{
+}
+
+a {
     cursor: pointer;
-  } 
-
-
-  .hm-row-bc {
+}
+.hm-row-bc {
     display: grid;
     grid-gap: 10px;
     gap: 10px;
 }
+
 .page-view-more {
     display: flex;
     align-items: center;
@@ -51,6 +50,7 @@
     flex: auto;
     text-transform: uppercase;
 }
+
 .ellipsis {
     overflow: hidden;
     white-space: nowrap;
@@ -60,9 +60,6 @@
 .games-horiz {
     overflow: hidden;
 }
-
-
-
 .games-horiz {
     overflow: hidden;
 }
@@ -75,13 +72,15 @@ div {
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    color: rgba(var(--b-sc-rgb),.5);
+    color: rgba(var(--b-sc-rgb), .5);
     font-size: 12px;
     line-height: 14px;
 }
+
 a {
     text-decoration: none;
 }
+
 .view-arrow-more {
     /* // -webkit-margin-start: 6px; */
     margin-inline-start: 6px;
@@ -91,12 +90,14 @@ a {
     overflow: hidden;
 }
 
-.layout-bc {user-select: none;
+.layout-bc {
+    user-select: none;
 }
 
 .games-horiz-scroll {
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(5, 1fr);
 }
+
 .games-horiz-scroll {
     display: grid;
     /* // grid-auto-flow: column; */
@@ -107,7 +108,7 @@ a {
     width: 100%;
     height: 100%;
     /* padding-top: 70%; */
-    background: rgba(var(--b-sc-rgb),.1) no-repeat 50%/contain;
+    background: rgba(var(--b-sc-rgb), .1) no-repeat 50%/contain;
     border-radius: 4px;
     overflow: hidden;
     position: relative;
@@ -137,7 +138,7 @@ img {
 
 .casino-game-item-fav-bc {
     position: absolute;
-    color: hsla(0,0%,100%,.8);
+    color: hsla(0, 0%, 100%, .8);
     font-size: 16px;
     opacity: 0;
     transition: .24s;
@@ -145,8 +146,9 @@ img {
     z-index: 2;
 }
 
-[class*=" bc-i-"], [class^=bc-i-] {
-    font-family: "BetConstruct-Icons"!important;
+[class*=" bc-i-"],
+[class^=bc-i-] {
+    font-family: "BetConstruct-Icons" !important;
     speak: never;
     font-style: normal;
     font-weight: 400;
@@ -165,7 +167,7 @@ img {
 
 .casino-game-item-fav-bc {
     position: absolute;
-    color: hsla(0,0%,100%,.8);
+    color: hsla(0, 0%, 100%, .8);
     font-size: 16px;
     opacity: 0;
     transition: .24s;
@@ -176,13 +178,14 @@ img {
 [dir=ltr] .casino-game-item-fav-bc {
     left: 10px;
 }
+
 .casino-game-item-fav-bc {
     top: 10px;
 }
 
 .casino-game-item-fav-bc {
     position: absolute;
-    color: hsla(0,0%,100%,.8);
+    color: hsla(0, 0%, 100%, .8);
     font-size: 16px;
     opacity: 0;
     transition: .24s;
@@ -215,7 +218,7 @@ casino-game-item {
     width: 100%;
     height: 100%;
     /* padding-top: 70%; */
-    background: rgba(var(--b-sc-rgb),.1) no-repeat 50%/contain;
+    background: rgba(var(--b-sc-rgb), .1) no-repeat 50%/contain;
     border-radius: 4px;
     overflow: hidden;
     position: relative;
@@ -224,9 +227,9 @@ casino-game-item {
 .playbtn .play {
     max-width: 31%;
     filter: invert(100%) sepia(0) saturate(0%) hue-rotate(0) brightness(100%) contrast(100%);
-  }
-  
-  .playbtn {
+}
+
+.playbtn {
     align-items: center;
     background: rgba(0, 0, 0, 0.7);
     bottom: 0;
@@ -239,34 +242,29 @@ casino-game-item {
     top: 0;
     transition: opacity 0.4s ease;
     z-index: 1;
-  }
-  
-  .casino-game-item:hover .playbtn {
+}
+
+.casino-game-item:hover .playbtn {
     opacity: 1;
-  }
-  a{
-    cursor: pointer;
-  }
-
-
-  .showMore{
+}
+.showMore {
     flex-wrap: wrap;
-    img{
-        width: 200px;
-        margin-right:10px;
-        margin-bottom:10px;
-    }
-  }
 
-  .btn-show{
-    background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
-    border: none;
+    img {
+        width: 200px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}
+.btn-show {
     margin: 5px;
     padding: 3px 13px;
-    border-radius: 5px;
-  }
-
-  .category-btn{
-    display:flex;
+    border-radius: 25px;
+    background: none;
+    color: white;
+    border: 1px solid gray;
+}
+.category-btn {
+    display: flex;
     justify-content: space-between;
-  }
+}
