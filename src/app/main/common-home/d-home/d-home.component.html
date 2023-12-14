@@ -39,7 +39,7 @@
         <button class="prev-next" *ngIf="gamesData[category].length > 8 && !subSelected && !myElementRef.toArray()[i]?.nativeElement?.classList.contains('showMore')" (click)="scrollPrev(i)" ><svg width="1em" height="1em" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="rem:stroke-[4px] text-trunks rem:text-[10px]  "><path d="M20.5 25L11.5 16L20.5 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
         <div style=" display: flex; margin-right: 4px; overflow-x: auto; width: 100%; color: white;" #showMore
             class="ashu" [ngClass]="{'showMore':subSelected}">
-            <div *ngFor="let game of gamesData[category]">
+            <div *ngFor="let game of gamesData[category] | slice:0:defaultSlice">
                 <div style="margin-right: 4px; " class="casino-game-item">
                     <img [src]="game.url_thumb" alt="" width="250px">
                     <a (click)="gameStart(game.game_id)">
@@ -50,8 +50,11 @@
                     </a>
                 </div>
             </div>
+
         </div>
-       
+       <button (click)="updateSlice()" class="btn-show" *ngIf="gamesData[category].length > 50 && !subSelected && myElementRef.toArray()[i] && myElementRef.toArray()[i].nativeElement && myElementRef.toArray()[i].nativeElement.classList.contains('showMore')"> 
+              View More
+             </button> 
         <button class="next-prev" (click)="scrollNext(i)" *ngIf="gamesData[category].length > 8 && !subSelected && !myElementRef.toArray()[i]?.nativeElement?.classList.contains('showMore')"><svg width="1em" height="1em" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="rem:stroke-[4px] text-trunks rem:text-[10px]  "><path d="M11.5 7L20.5 16L11.5 25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
     </div>
 </ng-container>

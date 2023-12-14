@@ -27,7 +27,8 @@ export class DHomeComponent implements OnInit {
   gamesData: { [key: string]: any[] } = {};
   backgamesData: { [key: string]: any[] } = {};
   selected: any = { mainCat: 'AllGames' };
-  subSelected:string= '';
+  subSelected: string = '';
+  defaultSlice:number = 20;
   images = [
     '/assets/images/Cashback.png',
     '/assets/images/WELCOME BONUS.png',
@@ -55,7 +56,6 @@ export class DHomeComponent implements OnInit {
       this.filteredResults[item] = data;
 
     });
-
   }
 
   gameListOne(item: any) {
@@ -95,7 +95,6 @@ export class DHomeComponent implements OnInit {
       this.subCategory.forEach((item: { GameCategory: string; }) => {
         this.gameListAll(item);
       })
-
     });
   }
 
@@ -103,11 +102,12 @@ export class DHomeComponent implements OnInit {
     this.router.navigate(['/games', param]);
   }
   showMoreF(item: number) {
+    this.defaultSlice = 20;
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     if (nativeElement) {
-      if(nativeElement.classList.contains('showMore')){
+      if (nativeElement.classList.contains('showMore')) {
         this.renderer.removeClass(nativeElement, 'showMore');
-        return ;
+        return;
       }
       this.renderer.addClass(nativeElement, 'showMore');
     }
@@ -125,21 +125,18 @@ export class DHomeComponent implements OnInit {
     } else {
       this.gamesData = { ...this.filteredResults };
     }
-
   }
 
   scrollPrev(item: number) {
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     nativeElement.scrollLeft -= 300;
-    // if (nativeElement) {
-    //   this.renderer.addClass(nativeElement, 'showMore');
-    // }
   }
   scrollNext(item: number) {
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     nativeElement.scrollLeft += 300;
-    // if (nativeElement) {
-    //   this.renderer.addClass(nativeElement, 'showMore');
-    // }
+  }
+
+  updateSlice(){
+    this.defaultSlice += 20;
   }
 }
