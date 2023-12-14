@@ -67,6 +67,7 @@ import { OnlineSportsBettingComponent } from './main/desktop/footer-content/spor
     PopRegisterComponent,
     BottomNavbarComponent,
      LoginpopupComponent,
+     
      CricketBettingComponent,
      FootballBettingComponent,
      TennisBettingComponent,
