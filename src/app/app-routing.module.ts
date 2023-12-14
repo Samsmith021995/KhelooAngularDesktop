@@ -27,6 +27,8 @@ import { TermConditionComponent } from './main/desktop/footer-content/security/t
 import { CookiePolicyComponent } from './main/desktop/footer-content/security/cookie-policy/cookie-policy.component';
 import { DisconnectionPolicyComponent } from './main/desktop/footer-content/security/disconnection-policy/disconnection-policy.component';
 import { PrivacyPolicyComponent } from './main/desktop/footer-content/security/privacy-policy/privacy-policy.component';
+import { CricketBettingComponent } from './main/desktop/footer-content/sports/cricket-betting/cricket-betting.component';
+import { FootballBettingComponent } from './main/desktop/footer-content/sports/football-betting/football-betting.component';
 const commonSer = new CommonServiceService();
 const routes: Routes = [
   {
@@ -137,6 +139,14 @@ const routes: Routes = [
       {
         path:'disconnection-policy',
         component:DisconnectionPolicyComponent
+      },
+      {
+        path:'cricket-betting',
+        component:CricketBettingComponent
+      },
+      {
+        path:'football-betting',
+        component:FootballBettingComponent
       },
       // {
       //   path: '**',

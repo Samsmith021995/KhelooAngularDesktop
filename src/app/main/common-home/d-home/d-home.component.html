@@ -28,12 +28,15 @@
     <div *ngIf="gamesData[category]">
         <span style="color: white;" class="category-btn">
             <h2>{{ category }}({{gamesData[category].length}})</h2>
-            <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 8 && !subSelected" >Show More</button>
+            <!-- <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 8 && !subSelected" >Show More</button> -->
             <!-- <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 8 && !subSelected"> 
                 {{myElementRef.toArray()[i].nativeElement.classList.contains('showMore')?'Show Less':'Show More'}}
              </button> -->
+             <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 8 && !subSelected"> 
+                {{myElementRef.toArray()[i] && myElementRef.toArray()[i].nativeElement && myElementRef.toArray()[i].nativeElement.classList.contains('showMore')?'Show Less':'Show More'}}
+             </button> 
         </span>
-        <button class="prev-next" *ngIf="gamesData[category].length > 8 && !subSelected" (click)="scrollPrev(i)" ><svg width="1em" height="1em" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="rem:stroke-[4px] text-trunks rem:text-[10px]  "><path d="M20.5 25L11.5 16L20.5 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        <button class="prev-next" *ngIf="gamesData[category].length > 8 && !subSelected && !myElementRef.toArray()[i]?.nativeElement?.classList.contains('showMore')" (click)="scrollPrev(i)" ><svg width="1em" height="1em" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="rem:stroke-[4px] text-trunks rem:text-[10px]  "><path d="M20.5 25L11.5 16L20.5 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
         <div style=" display: flex; margin-right: 4px; overflow-x: auto; width: 100%; color: white;" #showMore
             class="ashu" [ngClass]="{'showMore':subSelected}">
             <div *ngFor="let game of gamesData[category]">
@@ -48,7 +51,8 @@
                 </div>
             </div>
         </div>
-        <button class="next-prev" (click)="scrollNext(i)" *ngIf="gamesData[category].length > 8 && !subSelected"><svg width="1em" height="1em" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="rem:stroke-[4px] text-trunks rem:text-[10px]  "><path d="M11.5 7L20.5 16L11.5 25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+       
+        <button class="next-prev" (click)="scrollNext(i)" *ngIf="gamesData[category].length > 8 && !subSelected && !myElementRef.toArray()[i]?.nativeElement?.classList.contains('showMore')"><svg width="1em" height="1em" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="rem:stroke-[4px] text-trunks rem:text-[10px]  "><path d="M11.5 7L20.5 16L11.5 25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
     </div>
 </ng-container>
 
