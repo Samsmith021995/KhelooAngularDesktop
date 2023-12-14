@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +16,6 @@ import { FaqComponent } from './main/desktop/footer-content/general/faq/faq.comp
 import { InviteFriendComponent } from './main/desktop/footer-content/general/invite-friend/invite-friend.component';
 import { AffiliateComponent } from './main/desktop/footer-content/general/affiliate/affiliate.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PrivacyPolicyComponent } from './main/mobile/privacy-policy/privacy-policy.component';
 import { ContactWithUsComponent } from './main/desktop/footer-content/contact-with-us/contact-with-us.component';
 import { DisclaimerComponent } from './main/desktop/footer-content/security/disclaimer/disclaimer.component';
 import { TermConditionComponent } from './main/desktop/footer-content/security/term-condition/term-condition.component';
@@ -25,13 +24,7 @@ import { DisconnectionPolicyComponent } from './main/desktop/footer-content/secu
 import { CasinoComponent } from './main/desktop/footer-content/games/casino/casino.component';
 import { TeenpattiComponent } from './main/desktop/footer-content/games/teenpatti/teenpatti.component';
 import { AndarBaharComponent } from './main/desktop/footer-content/games/andar-bahar/andar-bahar.component';
-import { SlotsComponent } from './main/desktop/footer-content/games/slots/slots.component';
-import { BaccaratComponent } from './main/desktop/footer-content/games/baccarat/baccarat.component';
-import { RouletteComponent } from './main/desktop/footer-content/games/roulette/roulette.component';
-import { BlackjackComponent } from './main/desktop/footer-content/games/blackjack/blackjack.component';
-import { PokerComponent } from './main/desktop/footer-content/games/poker/poker.component';
 import { RegisterComponent } from './main/desktop/auth/register/register.component';
-import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './main/desktop/auth/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/forgot-password.component';
@@ -39,6 +32,11 @@ import { GamePlatformComponent } from './main/desktop/game-platform/game-platfor
 import { PopRegisterComponent } from './main/mobile/pop-register/pop-register.component';
 import { BottomNavbarComponent } from './main/footer/m-footer/bottom-navbar/bottom-navbar.component';
 import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.component';
+import { CricketBettingComponent } from './main/desktop/footer-content/sports/cricket-betting/cricket-betting.component';
+import { FootballBettingComponent } from './main/desktop/footer-content/sports/football-betting/football-betting.component';
+import { TennisBettingComponent } from './main/desktop/footer-content/sports/tennis-betting/tennis-betting.component';
+import { IplBettingComponent } from './main/desktop/footer-content/sports/ipl-betting/ipl-betting.component';
+import { OnlineSportsBettingComponent } from './main/desktop/footer-content/sports/online-sports-betting/online-sports-betting.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +52,6 @@ import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.compone
     FaqComponent,
     InviteFriendComponent,
     AffiliateComponent,
-    PrivacyPolicyComponent,
     ContactWithUsComponent,
     DisclaimerComponent,
     TermConditionComponent,
@@ -63,11 +60,6 @@ import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.compone
     CasinoComponent,
     TeenpattiComponent,
     AndarBaharComponent,
-    SlotsComponent,
-    BaccaratComponent,
-    RouletteComponent,
-    BlackjackComponent,
-    PokerComponent,
     RegisterComponent,
     LoginComponent,
     ForgotPasswordComponent,
@@ -76,6 +68,11 @@ import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.compone
     BottomNavbarComponent,
      LoginpopupComponent,
      
+     CricketBettingComponent,
+     FootballBettingComponent,
+     TennisBettingComponent,
+     IplBettingComponent,
+     OnlineSportsBettingComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +82,7 @@ import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.compone
   
 ,  ],
   providers: [],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

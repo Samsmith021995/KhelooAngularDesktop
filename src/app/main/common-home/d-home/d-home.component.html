@@ -1,38 +1,25 @@
 @if(gamelist){
 <app-loader></app-loader>
-}@else {
-
+}@else {   
 <div style=" background-color: gray;color: white;  display: flex;">
-    <div style=" display: flex; justify-content: space-around;width: 50%;">
+    <div style=" display: flex; justify-content: space-around;width: 50%; padding: 5px 4px;">
         @for (item of mainCategory; track $index) {
-        <a (click)="getAllCategory({mainCat:item})">
+        <a (click)="getAllCategory({mainCat:item})" [ngClass]="{'selected':selected==item}">
             <p>{{item}}</p>
         </a>
         }
     </div>
     <div style=" width: 50%; padding: 0.1rem;">
         <input type="text" style="float: right;background: black;
-    color: white; width: 30%; height: 40px">
+    color: white; width: 30%; height: 40px" [(ngModel)]="searchTerm" (input)="onSearch()">
     </div>
 </div>
-
-<div class="swiper" #swiper>
-    <div class="swiper-wrapper">
-        <ng-container *ngFor="let img of images">
-            <div class="swiper-slide"><img [src]="img" alt="" width="100%"></div>
-        </ng-container>
-    </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-scrollbar"></div>
-</div>
+<app-banner [images]="images"></app-banner>
 <div style="display: flex; overflow-x: auto; width: 100%; color: white;">
     <ng-container *ngIf="selected != 'AllGames'">
         <ng-container *ngFor="let category of subCategory">
-
             <div>
-                <button (click)="gameListOne(category)">{{category}}</button>
+                <button (click)="gameListOne(category)" class="subCat-btn" [ngClass]="{'subSele':subSelected == category}">{{category}}</button>
             </div>
         </ng-container>
     </ng-container>
@@ -41,10 +28,17 @@
     <div *ngIf="gamesData[category]">
         <span style="color: white;" class="category-btn">
             <h2>{{ category }}({{gamesData[category].length}})</h2>
-            <button (click)="showMoreF(i)" class="btn-show">ShowMore </button>
+            <!-- <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 8 && !subSelected" >Show More</button> -->
+            <!-- <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 8 && !subSelected"> 
+                {{myElementRef.toArray()[i].nativeElement.classList.contains('showMore')?'Show Less':'Show More'}}
+             </button> -->
+             <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 8 && !subSelected"> 
+                {{myElementRef.toArray()[i] && myElementRef.toArray()[i].nativeElement && myElementRef.toArray()[i].nativeElement.classList.contains('showMore')?'Show Less':'Show More'}}
+             </button> 
         </span>
+        <button class="prev-next" *ngIf="gamesData[category].length > 8 && !subSelected && !myElementRef.toArray()[i]?.nativeElement?.classList.contains('showMore')" (click)="scrollPrev(i)" ><svg width="1em" height="1em" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="rem:stroke-[4px] text-trunks rem:text-[10px]  "><path d="M20.5 25L11.5 16L20.5 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
         <div style=" display: flex; margin-right: 4px; overflow-x: auto; width: 100%; color: white;" #showMore
-            class="ashu">
+            class="ashu" [ngClass]="{'showMore':subSelected}">
             <div *ngFor="let game of gamesData[category]">
                 <div style="margin-right: 4px; " class="casino-game-item">
                     <img [src]="game.url_thumb" alt="" width="250px">
@@ -57,7 +51,25 @@
                 </div>
             </div>
         </div>
+       
+        <button class="next-prev" (click)="scrollNext(i)" *ngIf="gamesData[category].length > 8 && !subSelected && !myElementRef.toArray()[i]?.nativeElement?.classList.contains('showMore')"><svg width="1em" height="1em" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="rem:stroke-[4px] text-trunks rem:text-[10px]  "><path d="M11.5 7L20.5 16L11.5 25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
     </div>
 </ng-container>
 
+}
+
+@if(selected === 'Poker' || subSelected ==='Poker'){
+    <app-poker></app-poker>
+}
+@if(selected === 'Baccarat' || subSelected ==='Baccarat'){
+    <app-baccarat></app-baccarat>
+}
+@if(selected === 'Blackjack' || subSelected ==='Blackjack'){
+   <app-blackjack></app-blackjack>
+}
+@if(selected === 'Roulette' || subSelected ==='Roulette'){
+   <app-roulette></app-roulette>
+}
+@if(selected === 'Slots' || subSelected ==='Slots'){
+   <app-slots></app-slots>
 }

@@ -22,14 +22,27 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { LoaderComponent } from './loader/loader.component';
+import { BannerComponent } from './banner/banner.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { PokerComponent } from '../desktop/footer-content/games/poker/poker.component';
+import { BaccaratComponent } from '../desktop/footer-content/games/baccarat/baccarat.component';
+import { BlackjackComponent } from '../desktop/footer-content/games/blackjack/blackjack.component';
+import { RouletteComponent } from '../desktop/footer-content/games/roulette/roulette.component';
+import { SlotsComponent } from '../desktop/footer-content/games/slots/slots.component';
+
 
 
 @NgModule({
   declarations: [
-    // DHomeComponent,
-    // MHomeComponent
+    BannerComponent,
+    LoaderComponent,
+    NotFoundComponent,
+    PokerComponent,
+    BaccaratComponent,
+    BlackjackComponent,
+    RouletteComponent,
+    SlotsComponent,
   
-    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +69,14 @@ import { LoaderComponent } from './loader/loader.component';
     MatDialogModule,
   ],
  exports:[
+  PokerComponent,
+  BaccaratComponent,
+  BlackjackComponent,
   LoaderComponent,
+  BannerComponent,
+  RouletteComponent,
+  NotFoundComponent,
+  SlotsComponent,
     CommonModule,
     FormsModule,
     HttpClientModule,
@@ -79,6 +99,6 @@ import { LoaderComponent } from './loader/loader.component';
     MatSlideToggleModule,
     MatCheckboxModule
  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
 export class SharedModule { }
