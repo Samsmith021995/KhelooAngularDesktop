@@ -29,6 +29,9 @@ import { DisconnectionPolicyComponent } from './main/desktop/footer-content/secu
 import { PrivacyPolicyComponent } from './main/desktop/footer-content/security/privacy-policy/privacy-policy.component';
 import { CricketBettingComponent } from './main/desktop/footer-content/sports/cricket-betting/cricket-betting.component';
 import { FootballBettingComponent } from './main/desktop/footer-content/sports/football-betting/football-betting.component';
+import { IplBettingComponent } from './main/desktop/footer-content/sports/ipl-betting/ipl-betting.component';
+import { OnlineSportsBettingComponent } from './main/desktop/footer-content/sports/online-sports-betting/online-sports-betting.component';
+import { TennisBettingComponent } from './main/desktop/footer-content/sports/tennis-betting/tennis-betting.component';
 const commonSer = new CommonServiceService();
 const routes: Routes = [
   {
@@ -147,6 +150,18 @@ const routes: Routes = [
       {
         path:'football-betting',
         component:FootballBettingComponent
+      },
+      {
+        path:'ipl-betting',
+        component:IplBettingComponent
+      },
+      {
+        path:'online-sports-betting',
+        component:OnlineSportsBettingComponent
+      },
+      {
+        path:'tennis-betting',
+        component:TennisBettingComponent
       },
       // {
       //   path: '**',
