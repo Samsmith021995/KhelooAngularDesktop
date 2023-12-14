@@ -10,6 +10,9 @@ import { BannerComponent } from './m-home/banner/banner.component';
 import { LangstripComponent } from '../mobile/langstrip/langstrip.component';
 import { JackpotComponent } from '../mobile/jackpot/jackpot.component';
 import { PromotionVideoComponent } from '../mobile/promotion-video/promotion-video.component';
+import { DepositComponent } from '../mobile/deposit/deposit.component';
+import { WithdrawComponent } from '../mobile/withdraw/withdraw.component';
+import { WithdrawinfoComponent } from '../mobile/withdrawinfo/withdrawinfo.component';
 
 
 
@@ -22,6 +25,9 @@ import { PromotionVideoComponent } from '../mobile/promotion-video/promotion-vid
    LangstripComponent,
    JackpotComponent,
    PromotionVideoComponent,
+   DepositComponent,
+     WithdrawComponent,
+     WithdrawinfoComponent,
   ],
   imports: [
     CommonModule,

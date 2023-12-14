@@ -1,0 +1,251 @@
+<div class="with_container ng-scope" ng-controller="WithdrawConroller">
+    <div class="heading">
+    <h2>WithDraw Details</h2>
+    </div>
+    <p class="help-text text-lg-right">
+    <a href="/Home/WithdrawInfo" style="color: #f4ad09;"> How to Withdraw <i class="fa fa-question-circle" aria-hidden="true"></i></a>
+    </p>
+    <div class="tab" role="tabpanel">
+    
+    <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+    <a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">Bank Details</a>
+    </li>
+    <li role="presentation">
+    <a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab">Withdrawal Status</a>
+    </li>
+    </ul>
+    
+    <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="Section1">
+    <div class="bank_form_container">
+    <h4>Bank Details</h4>
+    <div class="bank_input_container">
+    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="AccountHolderName" placeholder="Bank Account Holder Name">
+    </div>
+    <div class="bank_input_container">
+    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="AccountNumber" placeholder="Bank Account Number">
+    </div>
+    <div class="bank_input_container">
+    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="BankName" placeholder="Bank Name">
+    </div>
+    <div class="bank_input_container">
+    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="BranchName" placeholder="Branch Name">
+    </div>
+    <div class="bank_input_container">
+    <input type="tel" ng-model="Amount" class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Amount">
+    </div>
+    <div class="bank_input_container">
+    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="IfscCode" placeholder="IFSC Code">
+    </div>
+    <div class="dep_btn_container">
+    <button class="loginBtn" ng-click="SubmitWithdrawRequest();">Submit</button>
+    </div>
+    </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="Section2">
+    <h4>WithDraw Details</h4>
+    <div class="with_details_main_container">
+    <!-- ngRepeat: wd in WithdrwalStateMent --><div class="with_detail_ind_container ng-scope" ng-repeat="wd in WithdrwalStateMent">
+    <div class="with_amount_container">
+    <p class="ng-binding"><span>₹</span>1000</p>
+    </div>
+    <div class="with_details_sub_container">
+    <div class="row">
+    <div class="with_first_line_container col-sm-12">
+    <div class="with_status_container col-xs-4">
+    <p class="status_title_text">Status</p>
+    <p class="status_text pending_text ng-binding" ng-class="wd.StatusCode == 'P'?'pending_text':''">Rejected</p>
+    </div>
+    <div class="with_reverse_container col-xs-4">
+    <!-- ngIf: wd.StatusCode == 'P' -->
+    </div>
+    <div class="with_date_container col-xs-4">
+    <p class="date_title_text">Date &amp; Time</p>
+    <p class="date_text">
+    <span class="date_span_with ng-binding"> Dec 15, 2022</span>
+    <span class="time_span_with ng-binding">9:41 AM</span>
+    </p>
+    </div>
+    </div>
+    </div>
+    <div class="with_second_line_container">
+    <div class="with_comments_container">
+    <p class="comments_title_text">Comments</p>
+    <p class="comments_text ng-binding">Banking Error</p>
+    </div>
+    </div>
+    </div>
+    <div class="with_bank_container_link">
+    <div class="bank_link_container">
+    <a href="javascript:void(0);" class="author_bio_wrap_toggle">View Bank Details</a>
+    </div>
+    <div class="download_with_container">
+    <a ng-show="wd.FileNameServer" class="ng-hide"><img src="/images/pdf.png"></a>
+    </div>
+    </div>
+    <div class="author_bio_wrap" style="display: none;">
+    <div class="with_first_col_container">
+    <div class="with_account_container">
+    <p class="status_title_text">Account Holder Name</p>
+    <p class="account_name_with ng-binding">test Dont approve</p>
+    </div>
+    <div class="with_status_container">
+    <p class="status_title_text">Account Number</p>
+    <p class="account_name_with ng-binding">1234567890</p>
+    </div>
+    </div>
+    <div class="with_second_col_container">
+    <div class="with_bank_container">
+    <p class="date_title_text">IFSC Code</p>
+    <p class="date_text">
+    <span class="date_span_with ng-binding">Dont approve</span>
+    </p>
+    </div>
+    <div class="with_bank_detail_container">
+    <p class="date_title_text">Bank Name</p>
+    <p class="date_text">
+    <span class="date_span_with ng-binding">test Dont approve</span>
+    </p>
+    </div>
+    </div>
+    </div>
+    </div><!-- end ngRepeat: wd in WithdrwalStateMent --><div class="with_detail_ind_container ng-scope" ng-repeat="wd in WithdrwalStateMent">
+    <div class="with_amount_container">
+    <p class="ng-binding"><span>₹</span>1000</p>
+    </div>
+    <div class="with_details_sub_container">
+    <div class="row">
+    <div class="with_first_line_container col-sm-12">
+    <div class="with_status_container col-xs-4">
+    <p class="status_title_text">Status</p>
+    <p class="status_text pending_text ng-binding" ng-class="wd.StatusCode == 'P'?'pending_text':''">Rejected</p>
+    </div>
+    <div class="with_reverse_container col-xs-4">
+    <!-- ngIf: wd.StatusCode == 'P' -->
+    </div>
+    <div class="with_date_container col-xs-4">
+    <p class="date_title_text">Date &amp; Time</p>
+    <p class="date_text">
+    <span class="date_span_with ng-binding"> Mar 31, 2022</span>
+    <span class="time_span_with ng-binding">6:15 PM</span>
+    </p>
+    </div>
+    </div>
+    </div>
+    <div class="with_second_line_container">
+    <div class="with_comments_container">
+    <p class="comments_title_text">Comments</p>
+    <p class="comments_text ng-binding">Withdraw Cancelled by User</p>
+    </div>
+    </div>
+    </div>
+    <div class="with_bank_container_link">
+    <div class="bank_link_container">
+    <a href="javascript:void(0);" class="author_bio_wrap_toggle">View Bank Details</a>
+    </div>
+    <div class="download_with_container">
+    <a ng-show="wd.FileNameServer" class="ng-hide"><img src="/images/pdf.png"></a>
+    </div>
+    </div>
+    <div class="author_bio_wrap" style="display: none;">
+    <div class="with_first_col_container">
+    <div class="with_account_container">
+    <p class="status_title_text">Account Holder Name</p>
+    <p class="account_name_with ng-binding">test Dont approve</p>
+    </div>
+    <div class="with_status_container">
+    <p class="status_title_text">Account Number</p>
+    <p class="account_name_with ng-binding">1234567890</p>
+    </div>
+    </div>
+    <div class="with_second_col_container">
+    <div class="with_bank_container">
+    <p class="date_title_text">IFSC Code</p>
+    <p class="date_text">
+    <span class="date_span_with ng-binding">Dont approve</span>
+    </p>
+    </div>
+    <div class="with_bank_detail_container">
+    <p class="date_title_text">Bank Name</p>
+    <p class="date_text">
+    <span class="date_span_with ng-binding">test Dont approve</span>
+    </p>
+    </div>
+    </div>
+    </div>
+    </div><!-- end ngRepeat: wd in WithdrwalStateMent --><div class="with_detail_ind_container ng-scope" ng-repeat="wd in WithdrwalStateMent">
+    <div class="with_amount_container">
+    <p class="ng-binding"><span>₹</span>100</p>
+    </div>
+    <div class="with_details_sub_container">
+    <div class="row">
+    <div class="with_first_line_container col-sm-12">
+    <div class="with_status_container col-xs-4">
+    <p class="status_title_text">Status</p>
+    <p class="status_text pending_text ng-binding" ng-class="wd.StatusCode == 'P'?'pending_text':''">Rejected</p>
+    </div>
+    <div class="with_reverse_container col-xs-4">
+    <!-- ngIf: wd.StatusCode == 'P' -->
+    </div>
+    <div class="with_date_container col-xs-4">
+    <p class="date_title_text">Date &amp; Time</p>
+    <p class="date_text">
+    <span class="date_span_with ng-binding"> Feb 2, 2022</span>
+    <span class="time_span_with ng-binding">2:12 PM</span>
+    </p>
+    </div>
+    </div>
+    </div>
+    <div class="with_second_line_container">
+    <div class="with_comments_container">
+    <p class="comments_title_text">Comments</p>
+    <p class="comments_text ng-binding">Invalid IFSC code.</p>
+    </div>
+    </div>
+    </div>
+    <div class="with_bank_container_link">
+    <div class="bank_link_container">
+    <a href="javascript:void(0);" class="author_bio_wrap_toggle">View Bank Details</a>
+    </div>
+    <div class="download_with_container">
+    <a ng-show="wd.FileNameServer" class="ng-hide"><img src="/images/pdf.png"></a>
+    </div>
+    </div>
+    <div class="author_bio_wrap" style="display: none;">
+    <div class="with_first_col_container">
+    <div class="with_account_container">
+    <p class="status_title_text">Account Holder Name</p>
+    <p class="account_name_with ng-binding">test</p>
+    </div>
+    <div class="with_status_container">
+    <p class="status_title_text">Account Number</p>
+    <p class="account_name_with ng-binding">1234567890</p>
+    </div>
+    </div>
+    <div class="with_second_col_container">
+    <div class="with_bank_container">
+    <p class="date_title_text">IFSC Code</p>
+    <p class="date_text">
+    <span class="date_span_with ng-binding">test</span>
+    </p>
+    </div>
+    <div class="with_bank_detail_container">
+    <p class="date_title_text">Bank Name</p>
+    <p class="date_text">
+    <span class="date_span_with ng-binding">test</span>
+    </p>
+    </div>
+    </div>
+    </div>
+    </div><!-- end ngRepeat: wd in WithdrwalStateMent -->
+    <div class="with_detail_ind_container ng-hide" ng-show="NoWithdrawalFound">
+    <div class="with_amount_container">
+    <p><span></span>No withdraw request found.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>

@@ -74,7 +74,8 @@ import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.compone
     GamePlatformComponent,
     PopRegisterComponent,
     BottomNavbarComponent,
-     LoginpopupComponent
+     LoginpopupComponent,
+     
   ],
   imports: [
     BrowserModule,
