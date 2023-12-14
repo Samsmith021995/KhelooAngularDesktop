@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.refreshHeader(); 
+        window.scrollTo(0, 0);
       }
     });
     this.commonSer.myVariable$.subscribe((width)=>{
