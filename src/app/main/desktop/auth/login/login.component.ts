@@ -5,6 +5,7 @@ import { ApiService } from "src/app/main/service/api.service";
 import { CommonServiceService } from "src/app/main/service/common-service.service";
 import { config } from "src/app/main/service/config";
 import { Subscription ,catchError} from "rxjs";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -51,10 +52,8 @@ ngOnInit(): void {
  }
 
  login(){
-  // console.log("Ashutosh");
-   this.showsubmitbtn = true;
-   let param = this.loginform.getRawValue();
-  //  console.log(param);
+    this.showsubmitbtn = true;
+    let param = this.loginform.getRawValue();
    this.apiSer.apiRequest(config['login'],param).subscribe({
      next: data=>{
        if(data.ErrorCode == '1'){

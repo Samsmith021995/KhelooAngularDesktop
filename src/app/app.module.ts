@@ -15,7 +15,6 @@ import { ContactUsComponent } from './main/desktop/footer-content/general/contac
 import { FaqComponent } from './main/desktop/footer-content/general/faq/faq.component';
 import { InviteFriendComponent } from './main/desktop/footer-content/general/invite-friend/invite-friend.component';
 import { AffiliateComponent } from './main/desktop/footer-content/general/affiliate/affiliate.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactWithUsComponent } from './main/desktop/footer-content/contact-with-us/contact-with-us.component';
 import { DisclaimerComponent } from './main/desktop/footer-content/security/disclaimer/disclaimer.component';
 import { TermConditionComponent } from './main/desktop/footer-content/security/term-condition/term-condition.component';
@@ -66,7 +65,7 @@ import { OnlineSportsBettingComponent } from './main/desktop/footer-content/spor
     GamePlatformComponent,
     PopRegisterComponent,
     BottomNavbarComponent,
-     LoginpopupComponent,
+    LoginpopupComponent,
      
      CricketBettingComponent,
      FootballBettingComponent,

@@ -1,27 +1,52 @@
 <div class="topnavbar">
     <div class="logo_container">
-    <a href="/">
-    <img src="https://kheloo.com/images/logo.gif" class="img-fluid logo-color logoimage" alt="logo">
-    </a>
+        <a href="/">
+            <img src="https://kheloo.com/images/logo.gif" class="img-fluid logo-color logoimage" alt="logo">
+        </a>
     </div>
     <div class="login_container">
-    <ul>
-    <li class="customer_icon_container promotion_icon_container">
-    <a href="https://kheloo.com/#promotion_section_container" class="beforeLogin">
-    <img src="https://kheloo.com/images/promotion_icon.png" class="img-fluid" alt="customer support">
-    <span>Promotions</span>
-    </a>
-    </li>
-    <li class="sign_up_container">
-    <a mat-button (click)="openDialog()" id="LoginForm" class="LoginFormClass" data-toggle="modal" data-target="#LoginModal">
-    Login
-    </a>
-    </li>
-    </ul>
-    </div>
-    </div>
+        <ul>
+            <li class="customer_icon_container promotion_icon_container">
+                <a href="https://kheloo.com/#promotion_section_container" class="beforeLogin">
+                    <img src="https://kheloo.com/images/promotion_icon.png" class="img-fluid" alt="customer support">
+                    <span>Promotions</span>
+                </a>
+            </li>
+            <li class="sign_up_container">
+                <ng-container *ngIf="!checkLogin">
 
-   
-   <ng-template #login>
-       <app-loginpopup ></app-loginpopup>
-   </ng-template>
+                    <a mat-button (click)="openDialog()" id="LoginForm" class="LoginFormClass">
+                        Login
+                    </a>
+                </ng-container>
+                
+                <div class="loginbtn user" *ngIf="checkLogin ">
+                    <span class="UserName"><a (click)="showmenubar()"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi {{
+                        username }} <br /> <i class="fa fa-inr" aria-hidden="true"></i><!--INR--> {{ userBalance }}</a></span>
+                    <div class="col" *ngIf="showmenu">
+                      <ol class="sub-menu">
+                        <li class="menu-item">
+                          <a routerLink="/withdraw">Withdraws</a>
+                        </li>
+                        <li class="menu-item">
+                          <a routerLink="/statements">Statements</a>
+                        </li>
+                        <li class="menu-item">
+                          <a routerLink="/setting">Settings</a>
+                        </li>
+                        <li class="menu-item">
+                          <a (click)="logout()">Logout</a>
+                        </li>
+                      </ol>
+            
+                    </div>
+                  </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<ng-template #login>
+    <app-loginpopup (onCancel)="closePopup()" (loginCheck)="loginchecks()"></app-loginpopup>
+</ng-template> 

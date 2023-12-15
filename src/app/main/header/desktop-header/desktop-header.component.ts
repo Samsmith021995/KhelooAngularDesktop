@@ -6,6 +6,8 @@ import { CommonServiceService } from '../../service/common-service.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+
+
 @Component({
   selector: 'app-desktop-header',
   templateUrl: './desktop-header.component.html',
@@ -28,27 +30,26 @@ export class DesktopHeaderComponent implements OnInit {
       Mobile: ['', [Validators.required, Validators.maxLength(10)]],
       Password: ['', Validators.required],
     });
-    this.username = localStorage.getItem('UserName');
+    this.username = localStorage.getItem('name');
   }
   showmenubar() {
-    console.log("Ashutosh");
     this.showmenu = !this.showmenu;
   }
 
-  login() {
+   login() {
     this.showsubmitbtn = true;
-    let param = this.loginForm.value;
+    let param = this.loginForm.getRawValue();
     this.apiSer.apiRequest(config['login'], param).subscribe({
       next: data => {
         if (data.ErrorCode == '1') {
           this.showsubmitbtn = false;
           this.comSer.saveData('UserId', data.UserId);
           this.comSer.saveData('LoginToken', data.LoginToken);
-          this.comSer.saveData('UserName', data.UserName);
+          this.comSer.saveData('name', data.UserName);
           this.apiSer.showAlert(data.ErrorMessage, '', 'success');
           this.refreshHeader();
+          this.loginchecks();
           this.router.navigate(['/']);
-
         } else if (data.ErrorCode != '1') {
           this.apiSer.showAlert(data.ErrorMessage, '', 'error');
         }
@@ -59,15 +60,18 @@ export class DesktopHeaderComponent implements OnInit {
     });
   }
   loginchecks() {
-    console.log("Login Checkiing .....");
     this.logcheck = this.comSer.loging$.subscribe((loging: any = {}) => {
       this.checkLogin = ('login' in loging) ? true : false;
-      console.log(this.checkLogin);
-      if (!this.checkLogin || !localStorage.getItem('UserName')) {
+      if (!this.checkLogin || !localStorage.getItem('name')) {
         return;
       }
       this.checkLogin = true;
-      this.username = localStorage.getItem('UserName');
+      this.username = localStorage.getItem('name');
+      console.log(this.username);
+      if(!this.username){
+        this.checkLogin = false;
+        return;
+      }
       this.apiSer.apiRequest(config['balance']).subscribe({
         next: data => {
           if (data.ErrorCode == '0') {

@@ -23,8 +23,8 @@ import { WithdrawinfoComponent } from '../mobile/withdrawinfo/withdrawinfo.compo
    JackpotComponent,
    PromotionVideoComponent,
    DepositComponent,
-     WithdrawComponent,
-     WithdrawinfoComponent,
+    WithdrawComponent,
+    WithdrawinfoComponent,
   ],
   imports: [
     CommonModule,
