@@ -1,6 +1,6 @@
-import { Component, Inject, OnInit, Output ,EventEmitter} from '@angular/core';
+import { Component, Inject, OnInit, Output ,EventEmitter, ViewChild, TemplateRef} from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ApiService } from '../../service/api.service';
 import { CommonServiceService } from '../../service/common-service.service';
 import { Subscription } from 'rxjs';
@@ -14,9 +14,10 @@ import { ComFunService } from '../../service/com-fun.service';
   styleUrl: './loginpopup.component.css'
 })
 export class LoginpopupComponent implements OnInit{
+  @ViewChild('forgotPass') forgotPass !: TemplateRef<any>;
   @Output() onCancel = new EventEmitter<any>();
   @Output() loginCheck = new EventEmitter<any>();
-  constructor(private fb:FormBuilder,private apiSer:ApiService,private comSer:CommonServiceService,private router:Router,private cmnFun:ComFunService){}
+  constructor(private fb:FormBuilder,private apiSer:ApiService,private comSer:CommonServiceService,private router:Router,private dialog:MatDialog){}
   mobileLogin !:FormGroup;
   show = 'fa fa-eye';
   Mobile: string = "";
@@ -95,4 +96,11 @@ export class LoginpopupComponent implements OnInit{
     this.apiSer.logout();
   }
 
+  OpenForgot(){
+      let defRef = this.dialog.open(this.forgotPass);
+      defRef.afterClosed().subscribe(result => { });
+  }
+  closePopup(){
+    this.dialog.closeAll();
+    }
 }

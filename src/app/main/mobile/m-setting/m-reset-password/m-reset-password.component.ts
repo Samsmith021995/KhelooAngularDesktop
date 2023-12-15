@@ -1,43 +1,36 @@
-import { Component, OnInit,OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { Subscription } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
 import { ApiService } from 'src/app/main/service/api.service';
 import { config } from 'src/app/main/service/config';
+import { catchError,Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-change-password',
-  templateUrl: './change-password.component.html',
-  styleUrl: './change-password.component.css'
+  selector: 'app-m-reset-password',
+  templateUrl: './m-reset-password.component.html',
+  styleUrl: './m-reset-password.component.css'
 })
-export class ChangePasswordComponent {
+export class MResetPasswordComponent implements OnInit {
+  @Output() onCancel = new EventEmitter<any>();
   private loaderSubscriber !: Subscription;
-  private apiSubscriber: Subscription[]=[];
-  btnLoading = false;
-  forgotform !:FormGroup;
-  
- typepass:string= 'password';
- typepass1:string= 'password';
- 
-  constructor(private fb:FormBuilder,private apiService:ApiService,private router:Router) { }
-  ngOnInit() {
-    this.loaderSubscriber = this.apiService.loaderService.loading$.subscribe((loading:any={}) => {
-      this.btnLoading=('changePassword' in loading )?true:false;
-    });
-    this.forgotform = this.fb.group({
+  resetForm !:FormGroup;
+  btnLoading:boolean = false;
+  constructor( private fb:FormBuilder,private apiService:ApiService,private router:Router){}
+  ngOnInit(): void {
+    this.resetForm = this.fb.group({
       Password:["",[Validators.required]],
       NewPassword:["",[Validators.required]],
       ConfrimPassword:["",[Validators.required]],
     });
+    this.loaderSubscriber = this.apiService.loaderService.loading$.subscribe((loading:any={}) => {
+      this.btnLoading=('changePassword' in loading )?true:false;
+    });
   }
-
-  onSubmit(){
-    let param = this.forgotform.getRawValue();
-    let pass = this.forgotform.controls['Password'].value;
-    let pass1 = this.forgotform.controls['NewPassword'].value;
-    let pass2 = this.forgotform.controls['ConfrimPassword'].value;
+  ChangePassword(){
+let param = this.resetForm.getRawValue();
+    let pass = this.resetForm.controls['Password'].value;
+    let pass1 = this.resetForm.controls['NewPassword'].value;
+    let pass2 = this.resetForm.controls['ConfrimPassword'].value;
     if(!pass.trim()){
       this.apiService.showAlert('','Password Should not be Blank','warning')
       return;
@@ -65,24 +58,12 @@ export class ChangePasswordComponent {
         data =>{
           if(data.ErrorCode == '1'){
             this.apiService.showAlert('',data.ErrorMessage,'success');
+            this.onCancel.emit();
             this.router.navigate(['/']);
           }else{
             this.apiService.showAlert('',data.ErrorMessage,'error');
           }
         });
       
-  }
-  
-  showPass(type:any){
-    this.typepass = type === 'password'?'text':'password';
-  }
-
-  ngOnDestroy(): void {
-    if (this.loaderSubscriber) {
-      this.loaderSubscriber.unsubscribe();
-    }
-    if(this.apiSubscriber[0]) {
-      this.apiSubscriber[0].unsubscribe();
-    }
   }
 }

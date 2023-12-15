@@ -18,8 +18,7 @@
                 </div>
                 <div class="col-md-12">
                     <p class="small_text">
-                        <a href="javascript:void(0);" id="forgotForm" class="LoginFormClass" data-toggle="modal"
-                            data-target="#ForgotPasswordModal">
+                        <a href="javascript:void(0);" id="forgotForm" class="LoginFormClass" (click)="OpenForgot()">
                             Forgot Password?
                         </a>
                     </p>
@@ -40,3 +39,6 @@
         </div>
     </div>
 </section>
+<ng-template #forgotPass>
+<app-m-forgot-password (onCancel)= "closePopup()"></app-m-forgot-password>
+</ng-template>

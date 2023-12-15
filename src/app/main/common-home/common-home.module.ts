@@ -8,9 +8,7 @@ import { CommonHomeComponent } from './common-home.component';
 import { LangstripComponent } from '../mobile/langstrip/langstrip.component';
 import { JackpotComponent } from '../mobile/jackpot/jackpot.component';
 import { PromotionVideoComponent } from '../mobile/promotion-video/promotion-video.component';
-import { DepositComponent } from '../mobile/deposit/deposit.component';
-import { WithdrawComponent } from '../mobile/withdraw/withdraw.component';
-import { WithdrawinfoComponent } from '../mobile/withdrawinfo/withdrawinfo.component';
+
 
 
 
@@ -22,9 +20,6 @@ import { WithdrawinfoComponent } from '../mobile/withdrawinfo/withdrawinfo.compo
    LangstripComponent,
    JackpotComponent,
    PromotionVideoComponent,
-   DepositComponent,
-    WithdrawComponent,
-    WithdrawinfoComponent,
   ],
   imports: [
     CommonModule,

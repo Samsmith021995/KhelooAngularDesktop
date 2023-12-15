@@ -36,6 +36,8 @@ import { FootballBettingComponent } from './main/desktop/footer-content/sports/f
 import { TennisBettingComponent } from './main/desktop/footer-content/sports/tennis-betting/tennis-betting.component';
 import { IplBettingComponent } from './main/desktop/footer-content/sports/ipl-betting/ipl-betting.component';
 import { OnlineSportsBettingComponent } from './main/desktop/footer-content/sports/online-sports-betting/online-sports-betting.component';
+import { MForgotPasswordComponent } from './main/mobile/m-forgot-password/m-forgot-password.component';
+
 
 @NgModule({
   declarations: [
@@ -66,12 +68,13 @@ import { OnlineSportsBettingComponent } from './main/desktop/footer-content/spor
     PopRegisterComponent,
     BottomNavbarComponent,
     LoginpopupComponent,
-     
-     CricketBettingComponent,
-     FootballBettingComponent,
-     TennisBettingComponent,
-     IplBettingComponent,
-     OnlineSportsBettingComponent
+    CricketBettingComponent,
+    FootballBettingComponent,
+    TennisBettingComponent,
+    IplBettingComponent,
+    OnlineSportsBettingComponent,
+    MForgotPasswordComponent,
+    
   ],
   imports: [
     BrowserModule,

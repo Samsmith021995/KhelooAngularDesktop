@@ -169,7 +169,15 @@ const routes: Routes = [
       {
         path:'m-withdraw',
         component:WithdrawComponent
-      }
+      },
+      {
+        path:'m-setting',
+        loadChildren:()=>import('./main/mobile/m-setting/m-setting.module').then(m=>m.MSettingModule),
+      },
+      {
+        path:'m-withdraw',
+        loadChildren:()=>import('./main/mobile/withdraw/withdraw.module').then(m=>m.WithdrawModule),
+      },
 
       //Mobile End by Ashutosh
       // {

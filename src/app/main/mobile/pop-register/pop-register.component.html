@@ -1,1 +1,115 @@
-<p>pop-register works!</p>
+<section>
+    <div class="dialog-close" data-dismiss="modal"></div>
+    <div class="wizard">
+        <div class="login_logo_container">
+            <img src="/images/logo.gif" class="img-fluid logo-color" alt="logo">
+        </div>
+        <h3 class="RegisterFormComponent-form-title">SIGN UP</h3>
+        <div class="wizard-inner">
+            <div class="connecting-line"></div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a data-toggle="tab" aria-controls="step1" role="tab">
+                        <span class="round-tab">
+                        </span>
+                    </a>
+                </li>
+                <li role="presentation" class="disabled">
+                    <a data-toggle="tab" aria-controls="step2" role="tab">
+                        <span class="round-tab">
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <form role="form" class="ng-invalid ng-invalid-required ng-valid-maxlength ng-dirty ng-valid-parse"
+            data-gtm-form-interact-id="0" [formGroup]="registerForm">
+            <div class="tab-content">
+                <div class="tab-pane active" role="tabpanel" id="step1" *ngIf="!otpVerified">
+                    <div class="register_form">
+                        <div class="form_container">
+                            <div class="col-md-12">
+                                <div class="p-l-0 crossbar-contact-input-container mobile_input_container">
+                                    <input matInput type="number" 
+                                        placeholder="Mobile Number"
+                                        class="" formControlName="Mobile">
+                                </div>
+                                <div class="get_code_container">
+                                    <a role="button" class="getCodeBtn" (click)="GenerateOTP()">
+                                        <span class="ng-binding">Get Code</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-12 p-l-0 crossbar-contact-input-container" style="padding: 20px 15px;">
+                                <input matInput type="number" required="" placeholder="SMS Verification Code"
+                                    class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" formControlName="OTP">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <ul class="list-inline pull-right">
+                            <li>
+                                <button type="button" (click)="VerifyOTP()" class="next-step">
+                                    Next
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div ng-show="OTPVarified" class="OTPRegister" *ngIf="otpVerified">
+                    <div class="register_form">
+                        <div class="form_container">
+                            <div class="col-md-12 p-l-0 crossbar-contact-input-container">
+                                <input tmatInput ype="text" placeholder="User Name (Display Name)" ng-model="UserName"
+                                    class="ng-pristine ng-untouched ng-valid ng-empty" formControlName="UserName">
+                            </div>
+                            <div class="col-md-12 p-l-0 crossbar-contact-input-container">
+                                <input matInput type="text" placeholder="First Name" ng-model="FName"
+                                    class="ng-pristine ng-untouched ng-valid ng-empty" formControlName="FName">
+                            </div>
+                            <div class="col-md-12 p-l-0 crossbar-contact-input-container">
+                                <input matInput type="text" placeholder="Last Name" ng-model="LName"
+                                    class="ng-pristine ng-untouched ng-valid ng-empty" formControlName="LName"> 
+                            </div>
+                            <div class="col-md-12 p-l-0 crossbar-contact-input-container">
+                    
+                                    <input matInput type="date"  maxlength="2" required="" placeholder="DOB"
+                                        class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" formControlName="DOB">
+                                
+                                <!-- <div class="register_month">
+                                    <input type="tel" maxlength="2" ng-model="DOBMM" required="" placeholder="MM"
+                                        class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength">
+                                </div>
+                                <div class="register_month register_date">
+                                    <input type="tel" ng-model="DOBYYYY" maxlength="4" required="" placeholder="YYYY"
+                                        class="ng-valid-maxlength ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched"
+                                        data-gtm-form-interact-field-id="0">
+                                </div> -->
+                            </div>
+                            <div class="col-md-12 p-l-0 crossbar-contact-input-container">
+                                <input matInput type="password" placeholder="Password" 
+                                    class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched"
+                                    data-gtm-form-interact-field-id="1" formControlName="Password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <ul class="list-inline pull-right">
+                            <li>
+                                <button type="button" class="prev-step">
+                                    Previous
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="next-step" (click)="Signup()">
+                                    Sign Up
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </form>
+    </div>
+</section>

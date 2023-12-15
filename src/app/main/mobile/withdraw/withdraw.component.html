@@ -21,38 +21,42 @@
             <div role="tabpanel" class="tab-pane fade in active" id="Section1">
                 <div class="bank_form_container">
                     <h4>Bank Details</h4>
+                    <form action="" [formGroup]="withdrawForm">
+                   
                     <div class="bank_input_container">
                         <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty"
-                            ng-model="AccountHolderName" placeholder="Bank Account Holder Name">
+                            formControlName="AccountHolderName" placeholder="Bank Account Holder Name">
                     </div>
                     <div class="bank_input_container">
                         <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty"
-                            ng-model="AccountNumber" placeholder="Bank Account Number">
+                            formControlName="AccountNumber" placeholder="Bank Account Number">
                     </div>
                     <div class="bank_input_container">
                         <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty"
-                            ng-model="BankName" placeholder="Bank Name">
+                            formControlName="BankName" placeholder="Bank Name">
                     </div>
                     <div class="bank_input_container">
                         <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty"
-                            ng-model="BranchName" placeholder="Branch Name">
+                            formControlName="BranchName" placeholder="Branch Name">
                     </div>
                     <div class="bank_input_container">
-                        <input type="tel" ng-model="Amount"
+                        <input type="tel" formControlName="Amount"
                             class="form-control ng-pristine ng-untouched ng-valid ng-empty" placeholder="Amount">
                     </div>
                     <div class="bank_input_container">
                         <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty"
-                            ng-model="IfscCode" placeholder="IFSC Code">
+                            formControlName="IfscCode" placeholder="IFSC Code">
                     </div>
                     <div class="dep_btn_container">
-                        <button class="loginBtn" ng-click="SubmitWithdrawRequest();">Submit</button>
+                        <button class="loginBtn" (click)="SubmitWithdrawRequest();" [disabled]="withdrawForm.invalid">Submit</button>
                     </div>
+                         
+                </form>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="Section2">
                 <h4>WithDraw Details</h4>
-                <div class="with_details_main_container">
+                <div class="with_details_main_container" *ngIf="withdrawState"> 
                     <!-- ngRepeat: wd in WithdrwalStateMent -->
                     <div class="with_detail_ind_container ng-scope" ng-repeat="wd in WithdrwalStateMent">
                         <div class="with_amount_container">

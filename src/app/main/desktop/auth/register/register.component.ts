@@ -72,7 +72,7 @@ export class RegisterComponent {
     let param = this.registerForm.getRawValue();
     if (this.otpVerify) {
       this.otpVerify = false;
-      if (this.registerForm.controls['OTP'].value != '') {
+      if (this.registerForm.controls['OTP'].value) {
         this.apiSer.apiRequest(config['verifyOtp'], param).pipe(
           catchError((error) => {
             this.apiSer.showAlert('Something Went Wrong', 'Check Your Internet Connection', 'error');
@@ -109,7 +109,7 @@ export class RegisterComponent {
         this.apiSer.showAlert('Please Provide Correct Details', '', 'warning');
       }
     } else {
-      if (this.registerForm.controls['Mobile'].value != '') {
+      if (this.registerForm.controls['Mobile'].value) {
         this.apiSer.apiRequest(config['otp'], param).pipe(
           catchError((error) => {
             this.apiSer.showAlert('Something Went Wrong', 'Check Your Internet Connection', 'error');

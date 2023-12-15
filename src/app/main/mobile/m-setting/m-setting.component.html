@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+       <!-- <app-loader  *ngIf="isLoading"></app-loader> -->
+        <div class="main" *ngIf="!isLoading">
+            <div class="">
+                <label for="UserName">UserName</label>
+                <span>{{ userDetails.UserName }} </span><br>
+
+            </div>
+            <div class="">
+                <label for="mobile">Mobile</label>
+                <span>{{ userDetails.Mobile }} </span><br>
+
+            </div>
+            <div class="">
+                <label for="dob">DOB</label>
+                <span>{{ userDetails.DOB | date: 'mediumDate'}} </span>
+
+            </div>
+        </div>
+    </div>
+    <button type="button" class="sc-dhcObn pinkbtn center" > <a (click)="resetDialog()" >Reset Password</a></button>
+</div>
+
+<ng-template #changePass>
+    <app-m-reset-password (onCancel)="closePopup()"></app-m-reset-password>
+</ng-template>
