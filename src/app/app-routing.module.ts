@@ -32,6 +32,7 @@ import { FootballBettingComponent } from './main/desktop/footer-content/sports/f
 import { IplBettingComponent } from './main/desktop/footer-content/sports/ipl-betting/ipl-betting.component';
 import { OnlineSportsBettingComponent } from './main/desktop/footer-content/sports/online-sports-betting/online-sports-betting.component';
 import { TennisBettingComponent } from './main/desktop/footer-content/sports/tennis-betting/tennis-betting.component';
+import { WithdrawComponent } from './main/mobile/withdraw/withdraw.component';
 const commonSer = new CommonServiceService();
 const routes: Routes = [
   {
@@ -163,6 +164,14 @@ const routes: Routes = [
         path:'tennis-betting',
         component:TennisBettingComponent
       },
+      //Mobile Start by Ashutosh
+
+      {
+        path:'m-withdraw',
+        component:WithdrawComponent
+      }
+
+      //Mobile End by Ashutosh
       // {
       //   path: '**',
       //   loadChildren: () => import('./main/desktop/not-found-page/not-found-page.module').then(m => m.NotFoundPageModule),

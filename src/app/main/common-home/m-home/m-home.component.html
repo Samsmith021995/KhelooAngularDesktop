@@ -1,4 +1,44 @@
-<p>m-home works!</p>
 <app-banner [images]="images"></app-banner>
 <app-langstrip></app-langstrip>
 <app-jackpot></app-jackpot>
+<div class="col-lg-12">
+    <div class="heading">
+    <h2>Games</h2>
+    <img src="images/heading-border-effect.png" class="img-fluid" alt="effect">
+    </div>
+    </div>
+<ng-container *ngFor="let category of subCategory; let i=index;">
+    <div *ngIf="gamesData[category]">
+        <span style="color: white;" class="category-btn">
+            <h2>{{ category }}({{gamesData[category].length}})</h2>
+            <!-- <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 8 && !subSelected" >Show More</button> -->
+            <!-- <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 8 && !subSelected"> 
+                {{myElementRef.toArray()[i].nativeElement.classList.contains('showMore')?'Show Less':'Show More'}}
+             </button> -->
+            <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 4 && !subSelected">
+                {{myElementRef.toArray()[i] && myElementRef.toArray()[i].nativeElement &&
+                myElementRef.toArray()[i].nativeElement.classList.contains('showMore')?'Show Less':'Show More'}}
+            </button>
+        </span>
+
+        <div style=" color:white; display: flex; width: 100%; flex-wrap: wrap; " #showMore class="ashu"
+            [ngClass]="{'showMore':subSelected}">
+            <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]"
+                style="width: 47%; margin: 3px;" class="casino-game-item">
+                <img [src]="game.url_thumb" alt="" width="100%">
+                <a (click)="gameStart(game.game_id)">
+                    <div class="playbtn">
+                        <img src="https://kheloo.fun/img/play_icon_134504.png" alt="" class="casino-game-item-image-bc"
+                            class="play">
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        <button (click)="updateSlice(i)" class="btn-show"
+            *ngIf="gamesData[category].length > 10 && !subSelected && myElementRef.toArray()[i] && myElementRef.toArray()[i].nativeElement && myElementRef.toArray()[i].nativeElement.classList.contains('showMore')">
+            View More
+        </button>
+
+    </div>
+</ng-container>

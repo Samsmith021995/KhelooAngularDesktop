@@ -28,7 +28,7 @@ export class DHomeComponent implements OnInit {
   backgamesData: { [key: string]: any[] } = {};
   selected: any = { mainCat: 'AllGames' };
   subSelected: string = '';
-  defaultSlice:number = 20;
+  defaultSlices: number[] = [];
   images = [
     '/assets/images/Cashback.png',
     '/assets/images/WELCOME BONUS.png',
@@ -93,6 +93,7 @@ export class DHomeComponent implements OnInit {
       this.mainCategory = Array.from(categorySet);
       this.subCategory = Array.from(subCategorySet);
       this.subCategory.forEach((item: { GameCategory: string; }) => {
+        this.defaultSlices.push(20);
         this.gameListAll(item);
       })
     });
@@ -102,7 +103,7 @@ export class DHomeComponent implements OnInit {
     this.router.navigate(['/games', param]);
   }
   showMoreF(item: number) {
-    this.defaultSlice = 20;
+    this.defaultSlices[item] = 20;
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     if (nativeElement) {
       if (nativeElement.classList.contains('showMore')) {
@@ -136,7 +137,7 @@ export class DHomeComponent implements OnInit {
     nativeElement.scrollLeft += 300;
   }
 
-  updateSlice(){
-    this.defaultSlice += 20;
+  updateSlice(item:any){
+    this.defaultSlices[item] += 20;
   }
 }
