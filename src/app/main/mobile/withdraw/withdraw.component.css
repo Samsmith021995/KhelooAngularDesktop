@@ -1,1 +1,14 @@
 @import 'https://kheloo.com/Content/OurAssest/PageCss/WithdrawCss.css';
+.with_detail_ind_container {
+    padding: 15px 0 10px;
+    background: #1e0048;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.author_biowr{
+    display: none;
+}
+.view{
+    display: block !important;
+}

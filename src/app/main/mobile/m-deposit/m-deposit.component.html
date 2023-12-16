@@ -1,0 +1,79 @@
+<div class="deposit_container ng-scope">
+    <div class="dep_bal_main_cont">
+        <div class="dep_bal_container">
+            <div class="wallet_container">
+                <img src="https://kheloo.com/images/wallet.png">
+            </div>
+            <div class="deposit_bal_container">
+                <div class="dep_bal_content">
+                    <div class="dep_bal_text">
+                        My Balance
+                    </div>
+                </div>
+                <div class="dep_bal_withdraw">
+                    <a href="/m-withdraw">
+                        Withdraw
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dep_amt_add_main_container">
+        <div class="dep_form_elem_container">
+        </div>
+
+        <div *ngIf="paymentinput">
+            <form action="" [formGroup]="depositForm">
+                <div class="dep_form_elem_container">
+                    <span class="pay_title">Amount</span>
+                    <div class="input-group dep_input_container">
+                        <span class="input-group-addon">INR</span>
+                        <input id="msg" type="number" class="form-control" name="msg" placeholder="0.00"
+                            formControlName="Amount"><i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <button type="button" class="btn" (click)="setAmount(100)">₹ 100</button>
+                    <button type="button" class="btn" (click)="setAmount(2000)">₹ 2000</button>
+                    <button type="button" class="btn" (click)="setAmount(10000)">₹ 10000</button>
+                    <button type="button" class="btn" (click)="setAmount(25000)">₹ 25000</button>
+                </div>
+                <button style="width:100%;margin:auto;" class="b-core-ui-select"
+                    (click)="MrequestDeposit()">Pay</button>
+            </form>
+
+        </div>
+        <div>
+            <span class="back"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back </span>
+            <div class="banner">
+                <img src="https://kheloo.com//images/deposit-banner-new.png">
+            </div>
+
+            <ng-container *ngFor="let item of paymentGateway">
+                <a target="_blank" href="{{ item.PaymentUrl + transcationIdFinal}}">
+
+                    <div class="bl_promotion_list_main_container">
+                        <div class="bl_promotion_list_container">
+                            <div>
+                                <div class="bl_ind_promotion_container box">
+                                    <div class="ribbon ribbon-top-left">
+                                        <span class="ng-binding"> {{item.Tag}}</span>
+                                    </div>
+                                    <div class="bl_ind_prom_content_container">
+                                        <p class="bl_prom_title_container">
+                                            <span class="ng-binding">{{item.Title}}</span>
+                                        </p>
+                                        <p class="bl_prom_heading" style="color: #fff !important;">{{item.SubTitle}}</p>
+                                    </div>
+                                    <div class="bl_ind_img_container">
+                                        <img src="https://kheloo.com/{{ item.ImageUrl }}" class="bl_prom_image" alt=""
+                                            width="100" height="52">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- end ngRepeat: deposit in UserPaymentGetway -->
+                </a>
+            </ng-container>
+        </div>
+
+    </div>
+</div>

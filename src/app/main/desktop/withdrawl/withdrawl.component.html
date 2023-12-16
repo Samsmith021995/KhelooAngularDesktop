@@ -14,10 +14,10 @@
                   <div class="row">
                     <div class="col-lg-10 col-xl-7 mx-auto col-md-8 d-md-flex" >
                     <div class="col-md-6">
-                      <button _ngcontent-ng-c1731079979=""  type="button" class="btn btn-primary btn-lg mx-3" (click)="bankStatus()">Bank Details</button>
+                      <button type="button" class="btn btn-primary btn-lg mx-3" (click)="bankStatus()">Bank Details</button>
                     </div>
                     <div class="col-md-6">
-                      <button _ngcontent-ng-c1731079979=""  type="button" class="btn btn-primary btn-lg mx-3" (click)="withdrawStatus()">Withdraw Status</button>
+                      <button type="button" class="btn btn-primary btn-lg mx-3" (click)="withdrawStatus()">Withdraw Status</button>
   
                     </div>
                   </div>
@@ -71,7 +71,7 @@
                               <div class="card-head">{{statement.Amount}}</div>
                               <div class="card-body">
                                 <span>{{statement.StatusName}}</span>
-                                <span>{{statement.CreatedDate | date: 'yyyy-MM-d'}}</span>
+                                <span>{{statement.CreatedDate | date:'mediumDate'}}</span>
                               </div>
                               <div class="card-footer">
                                 <span>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './withdraw.component.css'
 })
 export class WithdrawComponent implements OnInit{
+  @ViewChildren('bankDetailShow') bankshow!:QueryList<ElementRef<any>>;
   private loaderSubscriber !: Subscription;
   private apiSubscriber: Subscription[] = [];
   withdrawForm!:FormGroup;
@@ -18,7 +19,8 @@ export class WithdrawComponent implements OnInit{
   isStatusLoading :boolean = false;
   withdrawStatement:any;
   withdrawState :boolean =false;
-  constructor(private fb:FormBuilder,private apiSer:ApiService){}
+  viewDetails :boolean =false;
+  constructor(private fb:FormBuilder,private apiSer:ApiService,private renderer:Renderer2){}
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.isLoading = ('withdrawReq' in loading) ? true : false;
@@ -29,7 +31,7 @@ export class WithdrawComponent implements OnInit{
       AccountNumber: ['',Validators.required],
       BankName: ['',Validators.required],
       BranchName: ['',Validators.required],
-      Amount: ['',Validators.required],
+      Amount: ['0',Validators.required],
       IfscCode: ['',Validators.required],
     });
   }
@@ -37,6 +39,30 @@ export class WithdrawComponent implements OnInit{
   SubmitWithdrawRequest(){
     this.showsubmitbtn = true;
     // this.api.loaderShow();
+    if(!this.withdrawForm.controls['AccountHolderName'].value){
+      this.apiSer.showAlert('Please Fill the Account Holder Name','','error');
+      return ;
+    }
+    if(!this.withdrawForm.controls['AccountNumber'].value){
+      this.apiSer.showAlert('Please Fill the Account Number','','error');
+      return ;
+    }
+    if(!this.withdrawForm.controls['BankName'].value){
+      this.apiSer.showAlert('Please Fill the Bank Name','','error');
+      return ;
+    }
+    if(!this.withdrawForm.controls['BranchName'].value){
+      this.apiSer.showAlert('Please Fill the Branch Name','','error');
+      return ;
+    }
+    if(this.withdrawForm.controls['Amount'].value < 1000){
+      this.apiSer.showAlert('Amount should be more than 1000','','error');
+      return ;
+    }
+    if(!this.withdrawForm.controls['IfscCode'].value){
+      this.apiSer.showAlert('Please Fill the IFSC Code','','error');
+      return ;
+    }
     this.apiSer.apiRequest(config['withdrawReq'], this.withdrawForm.getRawValue()).subscribe({
       next: data=>{
         if(data.ErrorCode == '1'){
@@ -62,6 +88,7 @@ export class WithdrawComponent implements OnInit{
       next:data=>{
         this.withdrawStatement = data;
         this.withdrawState = true;
+       
         // this.api.loaderHide();
       },
       error:err=>{
@@ -70,8 +97,20 @@ export class WithdrawComponent implements OnInit{
       }
     })
   }
+  reverseWithdraw(){
+    //pending
+  }
   bankStatus(){
     this.withdrawState = false;
   }
-
+  viewDetail(item:any){
+    let nativeElement = this.bankshow.toArray()[item].nativeElement;
+    if (nativeElement) {
+      if (nativeElement.classList.contains('view')) {
+        this.renderer.removeClass(nativeElement, 'view');
+        return;
+      }
+      this.renderer.addClass(nativeElement, 'view');
+    }
+  }
 }

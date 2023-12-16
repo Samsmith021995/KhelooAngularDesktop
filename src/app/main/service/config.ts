@@ -20,5 +20,9 @@ export const config:any = {
 
     // MyProfileApi/GetUrlBasedOnGameProvider?game_id=2231
 
+    
+    // https://kheloo.com/MyProfile/CancellWithdrawRequest
+    // Request Method:
+    // POST
 
 }

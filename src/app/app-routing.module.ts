@@ -167,10 +167,6 @@ const routes: Routes = [
       //Mobile Start by Ashutosh
 
       {
-        path:'m-withdraw',
-        component:WithdrawComponent
-      },
-      {
         path:'m-setting',
         loadChildren:()=>import('./main/mobile/m-setting/m-setting.module').then(m=>m.MSettingModule),
       },
@@ -178,6 +174,10 @@ const routes: Routes = [
         path:'m-withdraw',
         loadChildren:()=>import('./main/mobile/withdraw/withdraw.module').then(m=>m.WithdrawModule),
       },
+      {
+        path:'m-deposit',
+        loadChildren:()=>import('./main/mobile/m-deposit/m-deposit.module').then(m=>m.MDepositModule),
+      }
 
       //Mobile End by Ashutosh
       // {
