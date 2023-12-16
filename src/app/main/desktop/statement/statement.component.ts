@@ -54,8 +54,7 @@ getall(){
 
       }
         // this.apiservice.loaderHide();
-      }
-  );
+      });
 }
 
   setPaginator()

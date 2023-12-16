@@ -10,8 +10,8 @@ import { Subscription } from 'rxjs';
   styleUrl: './m-deposit.component.css'
 })
 export class MDepositComponent implements OnInit {
-  depositForm!:FormGroup;
-  showsubmitbtn:boolean = false;
+  depositForm!: FormGroup;
+  showsubmitbtn: boolean = false;
   transcationId: any;
   transcationIdFinal: any;
   paymentGateway: any[] = [];
@@ -20,13 +20,13 @@ export class MDepositComponent implements OnInit {
   isLoading: boolean = false;
   private loaderSubscriber !: Subscription;
   private apiSubscriber: Subscription[] = [];
-  constructor(private fb:FormBuilder,private apiSer:ApiService){}
+  constructor(private fb: FormBuilder, private apiSer: ApiService) { }
   ngOnInit(): void {
     this.depositForm = this.fb.group({
-      Amount:['',[Validators.required]]
+      Amount: ['', [Validators.required]]
     });
   }
-  MrequestDeposit(){
+  MrequestDeposit() {
     this.showsubmitbtn = true;
     this.apiSer.apiRequest(config['depositReq'], this.depositForm.getRawValue()).subscribe({
       next: data => {

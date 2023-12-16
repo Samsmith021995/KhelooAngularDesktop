@@ -33,7 +33,6 @@ export class MobileHeaderComponent implements OnInit {
     this.logcheck = this.comSer.loging$.subscribe((loging: any = {}) => {
       this.checkLogin = true;
       this.username = localStorage.getItem('name');
-      console.log(this.username);
       if(!this.username){
         this.checkLogin = false;
         return;
@@ -46,7 +45,6 @@ export class MobileHeaderComponent implements OnInit {
           } else {
             this.userBalance = data.Balance;
             // this.refreshHeader();
-            console.log(this.userBalance);
           }
         },
         error: err => {

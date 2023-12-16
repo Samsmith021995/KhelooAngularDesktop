@@ -24,6 +24,7 @@ export class DHomeComponent implements OnInit {
   categoryFetch = false;
   gamelist = false;
   showMore: boolean = false;
+  isDetailsVisible: boolean[] = [];
   gamesData: { [key: string]: any[] } = {};
   backgamesData: { [key: string]: any[] } = {};
   selected: any = { mainCat: 'AllGames' };
@@ -45,6 +46,7 @@ export class DHomeComponent implements OnInit {
 
 
   }
+
   gameListAll(item: any) {
     let param = { GameCategory: item };
     this.apiSer.apiRequest(config['gameList'], param).pipe(
@@ -62,11 +64,11 @@ export class DHomeComponent implements OnInit {
     this.subSelected = item;
     this.gamesData = {};
     let param = { GameCategory: item };
-    this.apiSer.apiRequest(config['gameList'], param).pipe(
+    this.apiSer.apiRequest(config['gameList'], param)?.pipe(
       catchError((error) => {
         throw error;
       })
-    ).subscribe(data => {
+    )?.subscribe(data => {
       this.gamesData[item] = data;
       this.filteredResults[item] = data;
     });
@@ -94,7 +96,9 @@ export class DHomeComponent implements OnInit {
       this.subCategory = Array.from(subCategorySet);
       this.subCategory.forEach((item: { GameCategory: string; }) => {
         this.defaultSlices.push(20);
+        this.isDetailsVisible.push(false);
         this.gameListAll(item);
+
       })
     });
   }
@@ -108,9 +112,11 @@ export class DHomeComponent implements OnInit {
     if (nativeElement) {
       if (nativeElement.classList.contains('showMore')) {
         this.renderer.removeClass(nativeElement, 'showMore');
+        this.isDetailsVisible[item] = false;
         return;
       }
       this.renderer.addClass(nativeElement, 'showMore');
+      this.isDetailsVisible[item] = true;
     }
   }
 
@@ -137,7 +143,9 @@ export class DHomeComponent implements OnInit {
     nativeElement.scrollLeft += 300;
   }
 
-  updateSlice(item:any){
+  updateSlice(item: any) {
     this.defaultSlices[item] += 20;
   }
+
+
 }

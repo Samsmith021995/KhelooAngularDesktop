@@ -1,0 +1,67 @@
+<section class="statement_main_container">
+    <div class="loyalty-table">
+        <div class="table_main_container">
+            <div class="table_container">
+                <div class="table_heading_container">
+                    <div class="table_heading statement_action">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </div>
+                    <div class="table_heading statement_bet">
+                        Bet
+                    </div>
+                    <div class="table_heading statement_win">
+                        Win
+                    </div>
+                    <div class="table_heading statement_bal">
+                        Bal
+                    </div>
+                    <div class="table_heading statement_time">
+                        Time
+                    </div>
+                </div>
+                <div class="table_body_container">
+                    <div class="table_body" ng-repeat="stat in UserStatement">
+                        <ng-container *ngFor="let item of details; let i = index;">
+                            <div class="cilckable_row">
+                                <div class="table_row">
+                                    <div class="table_col statement_action">
+                                        <a (click)="showDescription(i)">
+                                            <img src="https://kheloo.com/images/dots.png">
+                                        </a>
+                                    </div>
+                                    <div class="table_col statement_bet ">
+                                        {{item.Debit}}
+                                    </div>
+                                    <div class="table_col statement_win ">
+                                        {{item.Credit}}
+                                    </div>
+                                    <div class="table_col statement_bal ">
+                                        {{item.Balance}}
+                                    </div>
+                                    <div class="table_col statement_time ">
+                                        {{item.CreatedDate | date:'mediumTime'}}<br>
+                                        {{item.CreatedDate | date:'dd MMM'}}
+                                    </div>
+                                </div>
+                                <div class="statement_info_containe" #description>
+                                    <div class="statement_inner">
+                                        <ul class="statement_inner_ul">
+                                            <li class="statement_inner_list">
+                                                <p class="statement_list_title">Description: </p>
+                                                <p class="statememt_list_content ">{{item.Description}}</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+
+                        <div class="viewmore" *ngIf="details.length <= ttl">
+                            <button class="btn" (click)="CallMore()">View More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

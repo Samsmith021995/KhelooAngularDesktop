@@ -1,6 +1,6 @@
-import {Component, Inject, OnInit, Renderer2,ViewChildren,QueryList,ElementRef} from '@angular/core';
+import { Component, Inject, OnInit, Renderer2, ViewChildren, QueryList, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { ApiService } from '../../service/api.service';
-import { Subscription,catchError } from 'rxjs';
+import { Subscription, catchError } from 'rxjs';
 import { config } from '../../service/config';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './m-home.component.html',
   styleUrl: './m-home.component.css'
 })
-export class MHomeComponent implements OnInit{
+export class MHomeComponent implements OnInit {
   images = [
     'https://kheloo.com/images/10minwith.png',
     'https://kheloo.com/images/Banner11.jpg',
@@ -23,7 +23,7 @@ export class MHomeComponent implements OnInit{
     'https://kheloo.com/images/Banner11.jpg',
     'https://kheloo.com/images/Banner18.jpg',
     'https://kheloo.com/images/Dil-se-kheloo_375x250.jpg',
-    
+
   ];
   mainCategory: any[] = [];
   subCategory: any[] = [];
@@ -37,9 +37,10 @@ export class MHomeComponent implements OnInit{
   defaultSlices: number[] = [];
   searchTerm: string = '';
   allResults: any[] = [];
+  isDetailsVisible: boolean[] = [];
   filteredResults: { [key: string]: any[] } = {};
   private loaderSubscriber !: Subscription;
-  constructor(private apiSer:ApiService,private renderer: Renderer2,private router:Router){}
+  constructor(private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef) { }
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
@@ -55,8 +56,11 @@ export class MHomeComponent implements OnInit{
         throw error;
       })
     ).subscribe(data => {
-      this.gamesData[item] = data;
-      this.filteredResults[item] = data;
+      if (data) {
+        this.gamesData[item] = data;
+        this.filteredResults[item] = data;
+      }
+      // this.cdr.detectChanges();
 
     });
   }
@@ -97,6 +101,7 @@ export class MHomeComponent implements OnInit{
       this.subCategory = Array.from(subCategorySet);
       this.subCategory.forEach((item: { GameCategory: string; }) => {
         this.defaultSlices.push(4);
+        this.isDetailsVisible.push(false);
         this.gameListAll(item);
       })
     });
@@ -111,10 +116,12 @@ export class MHomeComponent implements OnInit{
       if (nativeElement.classList.contains('showMore')) {
         this.defaultSlices[item] = 4;
         this.renderer.removeClass(nativeElement, 'showMore');
+        this.isDetailsVisible[item] = false;
         return;
       }
       this.defaultSlices[item] += 20;
       this.renderer.addClass(nativeElement, 'showMore');
+      this.isDetailsVisible[item] = true;
     }
   }
 
@@ -131,8 +138,8 @@ export class MHomeComponent implements OnInit{
       this.gamesData = { ...this.filteredResults };
     }
   }
-  
-  updateSlice(item:number){
+
+  updateSlice(item: number) {
     this.defaultSlices[item] += 20;
   }
 

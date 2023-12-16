@@ -177,6 +177,10 @@ const routes: Routes = [
       {
         path:'m-deposit',
         loadChildren:()=>import('./main/mobile/m-deposit/m-deposit.module').then(m=>m.MDepositModule),
+      },
+      {
+        path:'m-statements',
+        loadChildren:()=>import('./main/mobile/m-statement/m-statement.module').then(m=>m.MStatementModule),
       }
 
       //Mobile End by Ashutosh
