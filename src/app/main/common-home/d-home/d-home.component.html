@@ -1,8 +1,8 @@
 @if(gamelist){
 <app-loader></app-loader>
 }@else {   
-<div style=" background-color: gray;color: white;  display: flex;">
-    <div style=" display: flex; justify-content: space-around;width: 50%; padding: 5px 4px;">
+<div class="gamenavebar" style=" background-color: gray;color: white;  display: flex;">
+    <div class="gamenavmenu">
         @for (item of mainCategory; track $index) {
         <a (click)="getAllCategory({mainCat:item})" [ngClass]="{'selected':selected==item}">
             <p>{{item}}</p>
@@ -10,8 +10,7 @@
         }
     </div>
     <div style=" width: 50%; padding: 0.1rem;">
-        <input type="text" style="float: right;background: black;
-    color: white; width: 30%; height: 40px" [(ngModel)]="searchTerm" (input)="onSearch()">
+        <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="onSearch()">
     </div>
 </div>
 <app-banner [images]="images"></app-banner>
@@ -25,7 +24,7 @@
     </ng-container>
 </div>
 <ng-container *ngFor="let category of subCategory; let i=index;">
-    <div *ngIf="gamesData[category]">
+    <div *ngIf="gamesData[category]" class="gamelist">
         <span style="color: white;" class="category-btn">
             <h2>{{ category }}({{gamesData[category].length}})</h2>
             <!-- <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 8 && !subSelected" >Show More</button> -->
@@ -41,7 +40,7 @@
             class="ashu" [ngClass]="{'showMore':subSelected}">
             <div *ngFor="let game of gamesData[category]">
                 <div style="margin-right: 4px; " class="casino-game-item">
-                    <img [src]="game.url_thumb" alt="" width="250px">
+                    <img [src]="game.url_thumb" alt="" width="250px" class="thgame">
                     <a (click)="gameStart(game.game_id)">
                         <div class="playbtn">
                             <img src="https://kheloo.fun/img/play_icon_134504.png" alt=""

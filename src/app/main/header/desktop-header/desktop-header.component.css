@@ -21,6 +21,7 @@
   text-align: right;
 }
 
+
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
   background: #000c24 !important;
   margin: 0;
@@ -36,11 +37,16 @@ img.promotion-icon {
   height: 100%;
   object-fit: contain; */
   border-radius: 4px;
+  border-radius: 4px;
+  text-align: center;
+  margin: 0px auto -20px;
+  display: block;
 }
 
 button.btn.btn-primary.btn-lg {
   background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
   border: none;
+  font-size: 13px;
 }
 
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.pd10-50 {
@@ -100,16 +106,25 @@ a {
 }
 
 input {
-  width: 200px;
+  width: 220px;
   margin-right: 4px;
-  height: 40px;
+  height: 37px;
+  border: 1px solid #fff;
   border-radius: 4px;
+  background: transparent;
+  vertical-align: bottom;
+  color: #fff;
+}
+::placeholder{
+  padding: 10px;
+  color: #fff;
 }
 
 button {
+
   height: 100%;
-  padding: 13px 10px;
-  margin-right: 10px;
+  padding: 9px 20px;
+  margin-right: -10px;
   border-radius: 5px;
 }
 
@@ -142,4 +157,10 @@ button {
 .menu-item a {
   text-decoration: none;
   color: white;
+}
+span.font7 {
+  font-size: 9px;
+}
+.me-2 {
+    margin-right: 30.5rem!important;
 }
