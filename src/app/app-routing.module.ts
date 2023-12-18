@@ -33,6 +33,8 @@ import { IplBettingComponent } from './main/desktop/footer-content/sports/ipl-be
 import { OnlineSportsBettingComponent } from './main/desktop/footer-content/sports/online-sports-betting/online-sports-betting.component';
 import { TennisBettingComponent } from './main/desktop/footer-content/sports/tennis-betting/tennis-betting.component';
 import { WithdrawComponent } from './main/mobile/withdraw/withdraw.component';
+import { MobileGuard } from './guard/mobile.guard';
+import { DesktopGuard } from './guard/desktop.guard';
 const commonSer = new CommonServiceService();
 const routes: Routes = [
   {
@@ -46,27 +48,28 @@ const routes: Routes = [
       {
         path: 'change-password',
         loadChildren: () => import('./main/desktop/auth/change-password/change-password.module').then(m => m.ChangePasswordModule),
-        canActivate:[AuthGuard]
+        canActivate:[AuthGuard,DesktopGuard]
       },
       {
         path: 'setting',
         loadChildren: () => import('./main/desktop/setting/setting.module').then(m => m.SettingModule),
-        canActivate:[AuthGuard]
+        canActivate:[AuthGuard,DesktopGuard],
+        
       },
       {
         path: 'statements',
         loadChildren: () => import('./main/desktop/statement/statement.module').then(m => m.StatementModule),
-        canActivate:[AuthGuard]
+        canActivate:[AuthGuard,DesktopGuard]
       },
       {
         path: 'withdraw',
         loadChildren: () => import('./main/desktop/withdrawl/withdrawl.module').then(m => m.WithdrawlModule),
-        canActivate:[AuthGuard]
+        canActivate:[AuthGuard,DesktopGuard]
       },
       {
         path: 'deposit',
         loadChildren: () => import('./main/desktop/deposit/deposit.module').then(m => m.DepositModule),
-        canActivate:[AuthGuard]
+        canActivate:[AuthGuard,DesktopGuard]
       },
       {
         path: 'promotion',
@@ -169,18 +172,22 @@ const routes: Routes = [
       {
         path:'m-setting',
         loadChildren:()=>import('./main/mobile/m-setting/m-setting.module').then(m=>m.MSettingModule),
+        canActivate:[MobileGuard]
       },
       {
         path:'m-withdraw',
         loadChildren:()=>import('./main/mobile/withdraw/withdraw.module').then(m=>m.WithdrawModule),
+        canActivate:[MobileGuard]
       },
       {
         path:'m-deposit',
         loadChildren:()=>import('./main/mobile/m-deposit/m-deposit.module').then(m=>m.MDepositModule),
+        canActivate:[MobileGuard]
       },
       {
         path:'m-statements',
         loadChildren:()=>import('./main/mobile/m-statement/m-statement.module').then(m=>m.MStatementModule),
+        canActivate:[MobileGuard]
       }
 
       //Mobile End by Ashutosh
@@ -210,11 +217,8 @@ const routes: Routes = [
     component: GamePlatformComponent,
     canActivate:[AuthGuard]
   },
-  {
-    path: '**',
-    component: NotFoundComponent,
-
-  },
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404', pathMatch: 'full' }
 
 
 ];

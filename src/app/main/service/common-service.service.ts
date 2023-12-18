@@ -85,4 +85,10 @@ export class CommonServiceService {
     localStorage.clear();
   }
 
+  private searchSubject = new Subject<any>();
+  search$ = this.searchSubject.asObservable();
+
+  sendSearchData(search: any) {
+    this.searchSubject.next(search);
+  }
 }

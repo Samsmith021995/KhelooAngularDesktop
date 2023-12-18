@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
-import { Observable, throwError, of } from 'rxjs';
+import { Observable, throwError, of,Subject,BehaviorSubject } from 'rxjs';
 import { catchError, tap, delay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -19,7 +19,19 @@ export class ApiService {
   hideApp: boolean = false;
   public options: any;
   public headers_object: any;
-  constructor(public http: HttpClient,private router: Router,public loaderService: LoaderService,public commonSer:CommonServiceService) { }
+  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  isLoggedIn$ = this.isLoggedInSubject.asObservable();
+  constructor(public http: HttpClient,private router: Router,public loaderService: LoaderService,public commonSer:CommonServiceService) {
+    const storedValue = localStorage.getItem('UserId');
+    if (storedValue) {
+      this.isLoggedInSubject.next(storedValue === 'true');
+      this.updateLoginStatus(true);
+    }
+   }
+
+   updateLoginStatus(isLoggedIn: boolean) {
+    this.isLoggedInSubject.next(isLoggedIn);
+  }
   initHeaders() {
     this.headers_object = new HttpHeaders();
     if (localStorage.getItem('UserId')) {
@@ -74,6 +86,8 @@ export class ApiService {
       }
       return throwError(() => new Error(errorMsg));
     }
+
+    
 
     checkLogin(){
       if (localStorage.getItem('UserId')) {

@@ -3,6 +3,7 @@ import { ApiService } from '../../service/api.service';
 import { Subscription, catchError } from 'rxjs';
 import { config } from '../../service/config';
 import { Router } from '@angular/router';
+import { CommonServiceService } from '../../service/common-service.service';
 
 @Component({
   selector: 'app-m-home',
@@ -40,7 +41,7 @@ export class MHomeComponent implements OnInit {
   isDetailsVisible: boolean[] = [];
   filteredResults: { [key: string]: any[] } = {};
   private loaderSubscriber !: Subscription;
-  constructor(private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef) { }
+  constructor(private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef,private comSer:CommonServiceService) { }
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
@@ -48,6 +49,9 @@ export class MHomeComponent implements OnInit {
       this.gamelist = ('gameList' in loading) ? true : false;
     });
     this.getAllCategory(this.selected);
+    this.comSer.search$.subscribe((search: any) => {
+      this.onSearch(search);
+    });
   }
   gameListAll(item: any) {
     let param = { GameCategory: item };
@@ -125,18 +129,25 @@ export class MHomeComponent implements OnInit {
     }
   }
 
-  onSearch() {
-    if (this.searchTerm.trim() !== '') {
+  onSearch(itemSeach:any) {
+    if (itemSeach.trim() !== '') {
       let param = { GameCategory: this.selected }
       for (let item of this.subCategory) {
         const filteredApiResults = this.filteredResults[item].filter(result =>
-          result.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+          result.name.toLowerCase().includes(itemSeach.toLowerCase()) || 
+          result.groupname.toLowerCase().includes(itemSeach.toLowerCase()) || 
+          result.gamecategory.toLowerCase().includes(itemSeach.toLowerCase())
         );
         this.gamesData[item] = filteredApiResults;
       }
     } else {
       this.gamesData = { ...this.filteredResults };
     }
+    window.scrollTo({
+      top: 900,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 
   updateSlice(item: number) {

@@ -37,6 +37,7 @@ import { TennisBettingComponent } from './main/desktop/footer-content/sports/ten
 import { IplBettingComponent } from './main/desktop/footer-content/sports/ipl-betting/ipl-betting.component';
 import { OnlineSportsBettingComponent } from './main/desktop/footer-content/sports/online-sports-betting/online-sports-betting.component';
 import { MForgotPasswordComponent } from './main/mobile/m-forgot-password/m-forgot-password.component';
+import { ApiService } from './main/service/api.service';
 
 
 @NgModule({
@@ -83,7 +84,7 @@ import { MForgotPasswordComponent } from './main/mobile/m-forgot-password/m-forg
     BrowserAnimationsModule
   
 ,  ],
-  providers: [],
+  providers: [ApiService],
  
   bootstrap: [AppComponent]
 })
