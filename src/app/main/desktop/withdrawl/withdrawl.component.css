@@ -25,8 +25,7 @@ h3.display-4.logintitle {
 
 .rounded-pill {
   border-radius: 4px !important;
-  padding: 2.375rem 0.75rem !important;
-  font-size: 14px;
+ 
   border: 1px solid white !important;
   width: 100%;
   background: transparent;
@@ -61,9 +60,9 @@ h3.display-4.logintitle {
 button.btn.btn-primary.btn-lg[_ngcontent-ng-c1731079979] {
   width: 100%;
   background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
-  padding: 16px;
+  padding: 16px 0;
   border: none;
-  margin: 0 !important;
+  font-size: 14px;
 }
 #showeye{
   float: right;

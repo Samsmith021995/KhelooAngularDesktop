@@ -256,18 +256,20 @@ casino-game-item {
     }
 }
 .btn-show {
-    margin: 5px;
-    padding: 3px 13px;
-    border-radius: 25px;
+    margin: 12px 0;
+    padding: 3px 8px;
+    border-radius: 6px;
     background: none;
-    color: white;
-    border: 1px solid gray;
+    color: #a9a9a9;
+    border: 1px solid #a9a9a9;
 }
 .category-btn {
     display: flex;
     justify-content: space-between;
 }
-
+.gamelist {
+    margin: 2%;
+}
 .prev-next{
     background: none;
     border: none;
@@ -312,4 +314,37 @@ svg{
 
 .subSele{
     color: yellow;
+}
+.gamenavebar {
+    background: #7800AC !important;
+    border-top: 1px solid #f6c553;
+    border-bottom: 1px solid #f6c553;
+    
+}
+input.ng-untouched.ng-pristine.ng-valid {
+    float: right;
+    background: transparent;
+    color: white;
+    width: 40%;
+    border-radius: 7px;
+    margin: 7px 76px;
+    height: 40px;
+    border: 1px solid #fff;
+}
+::placeholder
+{
+    padding: 10px 20px;
+    color: #fff;;
+}
+.gamenavmenu{
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    padding: 17px 4px 0;
+    vertical-align: bottom;
+}
+.casino-game-item img.thgame {
+    border: 2px solid #f4ad09;
+    border-radius: 5px;
+    margin-right: 5px;
 }

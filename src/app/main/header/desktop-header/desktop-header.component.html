@@ -6,7 +6,10 @@
     <a class="navbar-brand me-2" routerLink="/promotion">
       <img src="https://cmsbetconstruct.com/storage/medias/vbet/media_4_4ac7eaa91a5473d2e549c9fd4cdaa78e.gif"
         class="promotion-icon" />
+       <br>
+       <span class="font7">Promotions</span>
     </a>
+   
     <div class="" id="navbarSupportedContent">
       <span class="navbar-nav me-auto mb-2 mb-lg-0">
 
@@ -18,7 +21,7 @@
 
         <div *ngIf="!checkLogin">
           <input type="text" name="" id="mob" placeholder="Mobile" autocomplete="off" formControlName="Mobile">
-          <input type="password" name="" id="pass" placeholder="Mobile" autocomplete="off" formControlName="Password">
+          <input type="password" name="" id="pass" placeholder="Password" autocomplete="off" formControlName="Password">
           <button type="button" class="btn btn-primary btn-lg" (click)="login()">
             LOGIN
           </button>
