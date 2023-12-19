@@ -11,6 +11,7 @@ import { CommonServiceService } from '../../service/common-service.service';
   styleUrl: './m-home.component.css'
 })
 export class MHomeComponent implements OnInit {
+  slidesPerViewn:number = 1;
   images = [
     'https://kheloo.com/images/10minwith.png',
     'https://kheloo.com/images/Banner11.jpg',

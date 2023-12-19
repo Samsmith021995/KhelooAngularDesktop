@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark pd10-50">
   <div class="container-fluid">
     <a class="navbar-brand fw-bold" href="/">
-      <img src="https://kheloo.com/images/logo.gif" class="logo">
+      <img src="/assets/images/logo.gif" class="logo">
     </a>
     <a class="navbar-brand me-2" routerLink="/promotion">
       <img src="https://cmsbetconstruct.com/storage/medias/vbet/media_4_4ac7eaa91a5473d2e549c9fd4cdaa78e.gif"
@@ -20,7 +20,7 @@
       <form [formGroup]="loginForm">
 
         <div *ngIf="!checkLogin">
-          <input type="text" name="" id="mob" placeholder="Mobile" autocomplete="off" formControlName="Mobile">
+          <input type="number" name="" id="mob" placeholder="Mobile" autocomplete="off" formControlName="Mobile">
           <input type="password" name="" id="pass" placeholder="Password" autocomplete="off" formControlName="Password">
           <button type="button" class="btn btn-primary btn-lg" (click)="login()">
             LOGIN
@@ -32,7 +32,9 @@
       </form>
       <div class="loginbtn user" *ngIf="checkLogin ">
         <span class="UserName"><a (click)="showmenubar()"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi {{
-            username }} <br /> <i class="fa fa-inr" aria-hidden="true"></i><!--INR--> {{ userBalance }}</a></span>
+            username }} <br /> <i class="fa fa-inr" aria-hidden="true"></i><!--INR--> {{ userBalance }}</a>
+          <img src="/assets/images/profile.png" alt="">  
+          </span>
         <div class="col" *ngIf="showmenu">
           <ol class="sub-menu">
             <li class="menu-item">

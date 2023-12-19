@@ -12,17 +12,20 @@
                     <span>Promotions</span>
                 </a>
             </li>
-            <li class="sign_up_container">
+            <li class="sign_up_containers">
                 <ng-container *ngIf="!checkLogin">
 
                     <a mat-button (click)="openDialog()" id="LoginForm" class="LoginFormClass">
                         Login
                     </a>
                 </ng-container>
-                
+              
                 <div class="loginbtn user" *ngIf="checkLogin ">
-                    <span class="UserName"><a (click)="showmenubar()"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi {{
-                        username }} <br /> <i class="fa fa-inr" aria-hidden="true"></i><!--INR--> {{ userBalance }}</a></span>
+                    <span class="UserName"><a (click)="showmenubar()" class="header-btns"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi {{
+                        username }} <br /> <i class="fa fa-inr" aria-hidden="true"></i><!--INR--> {{ userBalance }}
+                      <img src="/assets/images/profile.png" alt="">    
+                      </a>
+                      </span>
                     <div class="col" *ngIf="showmenu">
                       <ol class="sub-menu">
                         <li class="menu-item">

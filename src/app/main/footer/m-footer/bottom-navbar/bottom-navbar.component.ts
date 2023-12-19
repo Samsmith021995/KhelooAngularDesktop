@@ -34,7 +34,7 @@ updateData(search:any){
 }
 ngOnDestroy() {
   // Unsubscribe to avoid memory leaks
-  this.isLoggedInSubscription.unsubscribe();
+  // this.isLoggedInSubscription.unsubscribe();
 }
 
 }

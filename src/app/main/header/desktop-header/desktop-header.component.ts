@@ -76,6 +76,7 @@ export class DesktopHeaderComponent implements OnInit {
         next: data => {
           if (data.ErrorCode == '0') {
             this.apiSer.showAlert('', data.ErrorMessage, 'error');
+            this.apiSer.logout();
             this.comSer.clearLocalVars();
           } else {
             this.userBalance = data.Balance;

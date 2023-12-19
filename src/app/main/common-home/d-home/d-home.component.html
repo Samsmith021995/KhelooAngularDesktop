@@ -13,7 +13,7 @@
         <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="onSearch()">
     </div>
 </div>
-<app-banner [images]="images"></app-banner>
+<app-banner [images]="images" [slidesPerView] = "slidesPerViewn"></app-banner>
 <div style="display: flex; overflow-x: auto; width: 100%; color: white;">
     <ng-container *ngIf="selected != 'AllGames'">
         <ng-container *ngFor="let category of subCategory">
@@ -91,3 +91,17 @@
 @if(selected === 'Slots' || subSelected ==='Slots'){
 <app-slots></app-slots>
 }
+<div class="row">
+ 
+        <app-jackpot></app-jackpot>
+        <div class="col-12 d-flex">
+            <div class="col-lg-5 col-md-5">
+                <app-promotion-video></app-promotion-video>
+            </div>
+            <div class="col-lg-5 col-md-5">
+                <app-promotion-video></app-promotion-video>   
+            </div>
+        </div>
+    
+
+</div>

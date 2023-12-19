@@ -1,4 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Lato&subset=latin-ext);
+/* @media (max-width:767px) {
+  
+  @import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css';
+} */
+/* @import 'https://kheloo.com/Content/OurAssest/Common/style.css';  */
+/* @import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; */
 .nSrBz {
   width: 100%;
   display: flex;
@@ -179,25 +185,41 @@
   color: rgb(255, 255, 255);
   font-size: 17px;
 }
-.fjVnzR {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 0rem 17rem 2.5rem;
-  align-items: flex-start;
+@media (min-width:767px) {
+  .fjVnzR {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 17rem 2.5rem;
+    align-items: flex-start;
+  }
+  .fjVnzR p {
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+  }
+  
 }
-.fjVnzR p {
-  /* //   display: flex; */
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-  justify-content: center;
-  color: rgb(255, 255, 255);
-  font-size: 21px;
-  /* //   line-height: 30px;
-  //   gap: 5px;
-  //   text-align: justify;
-  //   margin: 13px 0px; */
+@media (max-width:767px) {
+  .fjVnzR {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 1rem 2rem;
+    align-items: flex-start;
+  }
+  .fjVnzR p {
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+  }
+  
 }
+
 .fjVnzR span {
   font-size: 21px;
 }
@@ -211,7 +233,6 @@
   font-size: 28px !important;
   color: rgb(189 8 198);
   font-size: 17px;
-  /* font-family: Inter-Bold; */
   display: block;
   margin: 5px 0 30px;
   font-family: "Poppins", sans-serif;
@@ -235,41 +256,85 @@ tr.head {
   padding: 20px !important;
   background-color: #ef008a;
 }
-div.title {
-  width: 100%;
-  height: 100px;
-  margin-top: 100px;
-}
-.sd:after {
-  content: "";
-  width: 190px;
-  height: 10px;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
-    center center / cover no-repeat;
-  display: block;
-  margin: -25px auto;
-  /* position: absolute; */
-}
-span.sd {
-  color: #7814a1;
-  display: block;
-  font-size: 76px;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 1.9;
-  font-weight: 900;
-  text-transform: uppercase;
-  &::before {
-    content: "Term & Conditions";
-    color: rgb(75 16 79 / 50%);
-    font-size: 130px;
-    /* //width: 350px; */
-    display: block;
-    margin: -160px 0px;
-    font-weight: 900;
-
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+@media (min-width:767px) {
+  div.title {
+    width: 100%;
+    height: 100px;
+    margin-top: 100px;
   }
+  .sd:after {
+    content: "";
+    width: 190px;
+    height: 10px;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+      center center / cover no-repeat;
+    display: block;
+    margin: -25px auto;
+  }
+  
+}
+@media (max-width:767px) {
+  div.title {
+    width: 100%;
+    height: 100px;
+    /* margin-top: 100px; */
+  }
+  .sd:after {
+    content: "";
+    width: 190px;
+    height: 10px;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+      center center / cover no-repeat;
+    display: block;
+    margin:auto;
+  }
+  
+}
+@media (min-width:767px) {
+  span.sd {
+    color: #7814a1;
+    display: block;
+    font-size: 76px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    &::before {
+      content: "Term & Conditions";
+      color: rgb(75 16 79 / 50%);
+      font-size: 130px;
+      display: block;
+      margin: -160px 0px;
+      font-weight: 900;
+  
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+}
+@media (max-width:767px) {
+  span.sd {
+    color: #7814a1;
+    display: block;
+    /* font-size: 76px; */
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    &::before {
+      /* content: "Term & Conditions"; */
+      color: rgb(75 16 79 / 50%);
+      font-size: 130px;
+      display: block;
+      /* margin: -160px 0px; */
+      font-weight: 900;
+  
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
 }
 .pinkbtn {
   box-shadow: 0px 0px 8px #fdb600;
@@ -360,9 +425,8 @@ td img {
 	float:right;
 }
 .ref_url_copied{
-	/*display: none;*/
+
 	margin: 0 auto;
-    /*position: relative;*/
     text-align: center;
     width: 100px;
     position: absolute;
@@ -391,7 +455,7 @@ td img {
 	background: #36D467;
 }
 .ref_url_copied2{
-	/*display: none;*/
+
 	position: absolute;
     background: #333399;
     color:#fff;

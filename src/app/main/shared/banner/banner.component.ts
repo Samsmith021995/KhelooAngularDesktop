@@ -9,6 +9,7 @@ export class BannerComponent implements AfterViewInit {
   @ViewChild('swiper', { static: false }) swiperEl?: ElementRef;
   swiper?: Swiper;
  @Input() images:any = [];
+ @Input() slidesPerView:any = [];
   ngOnInit(): void {
 
   }
@@ -29,7 +30,9 @@ export class BannerComponent implements AfterViewInit {
           delay: 5000,
           disableOnInteraction: true,
         },
-        loop: true
+        loop: true,
+        slidesPerView: this.slidesPerView,
+        spaceBetween: 3,
       });
     }
 

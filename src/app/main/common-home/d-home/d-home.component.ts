@@ -11,6 +11,7 @@ import Swiper from 'swiper';
   styleUrl: './d-home.component.css'
 })
 export class DHomeComponent implements OnInit {
+  slidesPerViewn : number = 1;
   searchTerm: string = '';
   allResults: any[] = [];
   filteredResults: { [key: string]: any[] } = {};
