@@ -15,7 +15,7 @@ import { config } from 'src/app/main/service/config';
 export class ForgotPasswordComponent {
   private loaderSubscriber !: Subscription;
   private apiSubscriber: Subscription[]=[];
-  btnLoading = false;
+  btnLoading :boolean = false;
   forgotform !:FormGroup;
   otpVerify:boolean=false;
   
@@ -25,34 +25,36 @@ export class ForgotPasswordComponent {
   constructor(private fb:FormBuilder,private apiService:ApiService,private router:Router) { }
   ngOnInit() {
     this.loaderSubscriber = this.apiService.loaderService.loading$.subscribe((loading:any={}) => {
-      this.btnLoading=('resetpassword' in loading || 'forgot' in loading )?true:false;
+      this.btnLoading=('verifyOtppass' in loading || 'generateForpass' in loading )?true:false;
     });
     this.forgotform = this.fb.group({
-      Mobile:["",[Validators.required]],
-      Password:["",[Validators.required]],
-      OTP:["",[Validators.required]],
+      Mobile:["",[]],
+      Password:["",[]],
+      OTP:["",[]],
     });
   }
 
   onSubmit(){
     let param = this.forgotform.getRawValue();
+    console.log();
     if(this.otpVerify){
-      this.otpVerify=false;
+      
       if(this.forgotform.controls['OTP'].value){
         this.apiService.apiRequest(config['verifyOtppass'],param).pipe(
           catchError((error)=>{
-            this.apiService.showAlert('Something Went Wrong','Check your Internet Connection','error');
+            this.apiService.showAlert('Something Went Wrong','','error');
             this.btnLoading=false; 
             throw error
           })
         ).subscribe(
           data =>{
-            if(data.ErrorCode == '1'){
-              this.apiService.showAlert('',data.ErrorMessage,'success');
+            if(data.n == '1'){
+              this.apiService.showAlert('',data.Msg,'success');
               this.router.navigate(['/']);
             }else{
-              this.apiService.showAlert('',data.ErrorMessage,'error');
+              this.apiService.showAlert('',data.Msg,'error');
             }
+            // this.otpVerify=false;
           });
       }else{
         this.otpVerify=true;
@@ -63,12 +65,12 @@ export class ForgotPasswordComponent {
         this.apiService.apiRequest(config['generateForpass'],param).pipe(
           catchError((error)=>{
             this.apiService.showAlert('Something Went Wrong','Check your Internet Connection','error');
-            this.btnLoading=false; 
+            // this.btnLoading=false; 
             console.error('An error occurred:', error);
             throw error
           })
         ).subscribe((data)=>{
-          if(data.ErrorCode == '1'){
+          if(data.n == '1'){
             this.otpVerify=true;
           }else{
             this.apiService.showAlert('',data.ErrorMessage,'error');

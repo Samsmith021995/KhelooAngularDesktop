@@ -126,3 +126,23 @@ input.mat-mdc-input-element.form-control {
 .form-control:focus {
   box-shadow: unset !important;
 }
+ 
+
+/* loader start*/
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+i-feather[class="loader"] {
+  margin-top: 10%;
+  margin-left: 45%;
+  width: 40px; 
+  height: auto;
+}
+
+i-feather[name="loader"]{
+  
+  animation: spin 2s linear infinite; 
+}
+/* loader end */

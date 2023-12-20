@@ -32,8 +32,8 @@ import { SlotsComponent } from '../desktop/footer-content/games/slots/slots.comp
 import { DJackpotComponent } from '../desktop/d-jackpot/d-jackpot.component';
 import { DPromotionalComponent } from '../desktop/d-promotional/d-promotional.component';
 
-
-
+import { FeatherModule } from 'angular-feather';
+import { allIcons } from 'angular-feather/icons';
 @NgModule({
   declarations: [
     BannerComponent,
@@ -71,6 +71,7 @@ import { DPromotionalComponent } from '../desktop/d-promotional/d-promotional.co
     MatSlideToggleModule,
     MatCheckboxModule,
     MatDialogModule,
+    FeatherModule.pick(allIcons),
   ],
  exports:[
   PokerComponent,
@@ -103,7 +104,8 @@ import { DPromotionalComponent } from '../desktop/d-promotional/d-promotional.co
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSlideToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    FeatherModule,
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
