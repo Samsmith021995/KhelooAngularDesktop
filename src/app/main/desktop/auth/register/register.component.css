@@ -53,8 +53,9 @@ h3.display-4.logintitle {
   margin: 16px 0;
 }
 .bg-image {
-  /* //background-image: url("https://res.cloudinary.com/mhmd/image/upload/v1555917661/art-colorful-contemporary-2047905_dxtao7.jpg"); */
-  background-image: url("/assets/images/background_login.png");
+  /* background-image: url("https://res.cloudinary.com/mhmd/image/upload/v1555917661/art-colorful-contemporary-2047905_dxtao7.jpg"); */
+  /* background-image: url("/assets/images/background_login.png"); */
+  background-image: url("/assets/images/login-bg2.jpg");
   background-size: cover;
   background-position: center center;
 }
@@ -114,3 +115,10 @@ input[type=number] {
     border-radius: 8px;
     font-weight: 500;
   }
+  .submit {
+    width: 100%;
+    background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
+    padding: 16px;
+    border: none;
+    margin: 0 !important;
+}

@@ -25,9 +25,9 @@ h3.display-4.logintitle {
 
 .rounded-pill {
   border-radius: 4px !important;
-  padding: 2.375rem 0.75rem !important;
+  /* padding: 2.375rem 0.75rem !important; */
   font-size: 14px;
-  border: 1px solid #2b2b2b !important;
+  /* border: 1px solid #2b2b2b !important; */
   width: 100%;
   background: transparent;
   color: #fff !important;
@@ -54,7 +54,8 @@ h3.display-4.logintitle {
 }
 .bg-image {
   /* //background-image: url("https://res.cloudinary.com/mhmd/image/upload/v1555917661/art-colorful-contemporary-2047905_dxtao7.jpg"); */
-  background-image: url("/assets/images/background_login.png");
+  /* background-image: url("/assets/images/background_login.png"); */
+  background-image: url("/assets/images/login-bg2.jpg");
   background-size: cover;
   background-position: center center;
 }
