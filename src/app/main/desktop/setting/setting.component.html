@@ -23,9 +23,10 @@
 
 
         <div class="container-fluid">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="userdetailscards">
-                <div class="col-md-4 side_bar">
+                    <div class="col-md-4"></div>
+                <div class="col-md-4 side_bar col align-self-center">
                     <div class="user_profile_card">
                         <div class="user_profile_img">
                             <img src="https://cdn.discordapp.com/attachments/948596391855394826/1108367985539817512/user_avtaar.png"
@@ -33,20 +34,20 @@
                         </div>
                         <div class="user_details">
                             <div class="user_profile_name">
-                                <h5>Piyush Bansal</h5>
+                                <h5>{{userDetails.FName +" " + userDetails.LName}}</h5>
                             </div>
                             <div class="user_profile_userID">
-                                <h5>UserName<span> {{ userDetails.UserName }}</span></h5>
+                                <h5>UserName: <span> {{ userDetails.UserName }}</span></h5>
                             </div>
                             <div class="user_profile_userID">
-                                <h5>Mobile<span> {{ userDetails.Mobile }}</span></h5>
+                                <h5>Mobile: <span> {{ userDetails.Mobile }}</span></h5>
                             </div>
                             <div class="user_profile_userID">
-                                <h5>DOB<span> {{ userDetails.DOB | date: 'mediumDate'}}</span></h5>
+                                <h5>DOB: <span> {{ userDetails.DOB | date: 'mediumDate'}}</span></h5>
                             </div>
                             
                             <div class="user_designation">
-                                <h5>ADMIN</h5>
+                                <a routerLink="/change-password"><h5>Reset Password</h5></a>
                             </div>
                         </div>
                         <div class="circle_decor1"></div>
@@ -65,5 +66,5 @@
 
 
     </div>
-    <button type="button" class="sc-dhcObn pinkbtn center"> <a routerLink="/change-password">Reset Password</a></button>
+    <!-- <button type="button" class="sc-dhcObn pinkbtn center"> <a routerLink="/change-password">Reset Password</a></button> -->
 </div>
