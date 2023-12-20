@@ -49,6 +49,7 @@ export class DHomeComponent implements OnInit {
   }
 
   gameListAll(item: any) {
+    this.subSelected = '';
     let param = { GameCategory: item };
     this.apiSer.apiRequest(config['gameList'], param).pipe(
       catchError((error) => {
@@ -59,9 +60,21 @@ export class DHomeComponent implements OnInit {
       this.filteredResults[item] = data;
 
     });
+    
+  }
+  sortGamesDataByMaxLength(): void {
+    const sortedGamesData = Object.keys(this.gamesData).sort((a, b) =>
+      this.gamesData[b].length - this.gamesData[a].length
+    );
+    const sortedGameDataObject: { [key: string]: any[] } = {};
+    sortedGamesData.forEach(key => {
+      sortedGameDataObject[key] = this.gamesData[key];
+    });
+    this.gamesData = sortedGameDataObject;
   }
 
   gameListOne(item: any) {
+    this.isDetailsVisible[0] = false;
     this.subSelected = item;
     this.gamesData = {};
     let param = { GameCategory: item };
@@ -73,6 +86,8 @@ export class DHomeComponent implements OnInit {
       this.gamesData[item] = data;
       this.filteredResults[item] = data;
     });
+    console.log(this.gamesData);
+    console.log(item);
   }
   getAllCategory(cat?: any) {
     this.apiSer.apiRequest(config['gameCategory']).pipe(
@@ -95,12 +110,14 @@ export class DHomeComponent implements OnInit {
       this.selected = cat.mainCat;
       this.mainCategory = Array.from(categorySet);
       this.subCategory = Array.from(subCategorySet);
+    this.subCategory = this.subCategory.sort().reverse();
       this.subCategory.forEach((item: { GameCategory: string; }) => {
         this.defaultSlices.push(20);
         this.isDetailsVisible.push(false);
         this.gameListAll(item);
 
       })
+      // this.sortGamesDataByMaxLength();
     });
   }
 
@@ -108,6 +125,7 @@ export class DHomeComponent implements OnInit {
     this.router.navigate(['/games', param]);
   }
   showMoreF(item: number) {
+    console.log(item);
     this.defaultSlices[item] = 20;
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     if (nativeElement) {
