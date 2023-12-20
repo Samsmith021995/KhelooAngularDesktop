@@ -40,6 +40,8 @@ import { MForgotPasswordComponent } from './main/mobile/m-forgot-password/m-forg
 import { ApiService } from './main/service/api.service';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +77,8 @@ import { ApiService } from './main/service/api.service';
     IplBettingComponent,
     OnlineSportsBettingComponent,
     MForgotPasswordComponent,
+  
+    
     
   ],
   imports: [

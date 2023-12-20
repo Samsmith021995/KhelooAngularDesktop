@@ -17,6 +17,7 @@ export const config:any = {
     "getPaymentGateway":{endURL:"AppPayment/GetPaymentGatewayMasterDetails",type:"GET",keyL:"getPaymentGateway"},
     "getProvider":{endURL:"MyProfileApi/GetUrlBasedOnGameProvider",type:"GET",keyL:"getProvider"},
     "balance":{endURL:"MyProfileAPI/GetUserBalance",type:"GET",keyL:"balance"},
+    "recent":{endURL:"GameV1/GetRecentWithdraw",type:"GET",keyL:"recent"},
 
     // MyProfileApi/GetUrlBasedOnGameProvider?game_id=2231
 
