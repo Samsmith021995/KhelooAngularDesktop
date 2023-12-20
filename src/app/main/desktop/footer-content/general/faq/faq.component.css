@@ -461,48 +461,49 @@ td img {
     width: 100%;
     color: white;
     overflow: hidden;
-    
-    &-label {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px;
-     /* //// background: $midnight; */
-      font-weight: bold;
-      cursor: pointer;
-      /* Icon */
-     
-      &::after {
-        content: "\276F";
-        width: 1em;
-        height: 1em;
-        text-align: center;
-        transition: all .35s;
-      }
-    }
-    &-content {
-      max-height: 0;
-      padding: 0 1em;
-      /* // color: $midnight; */
-      background: #2a0b47;
-      transition: all .35s;
-    }
-    &-close {
-      display: flex;
-      justify-content: flex-end;
-      padding: 1em;
-      font-size: 0.75em;
-     /* // background: $midnight; */
-      cursor: pointer;
-      &:hover {
-       /* // background: darken($midnight, 10%); */
-      }
-    }
   }
   
+  .tab label {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 10px;
+    /* //// background: $midnight; */
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .tab label::after {
+    content: "\276F";
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    transition: all 0.35s;
+  }
+  
+  .tab-content {
+    max-height: 0;
+    padding: 0 1em;
+    /* // color: $midnight; */
+    background: #2a0b47;
+    transition: all 0.35s;
+  }
+  
+  .tab-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    font-size: 0.75em;
+    /* // background: $midnight; */
+    cursor: pointer;
+  }
+  
+  .tab-close:hover {
+    /* // background: darken($midnight, 10%); */
+  }
   /* // :checked */
-  input:checked {
+  /* // background: darken($midnight, 10%); */
+  /* input:checked {
     + .tab-label {
-     /* // background: darken($midnight, 10%); */
       &::after {
         transform: rotate(90deg);
       }
@@ -511,7 +512,30 @@ td img {
       max-height: 100vh;
       padding: 1em;
     }
-  }
+  } */
+     /* :checked */
+     input:checked ~ .tab-label {
+      background-color: rgb(189, 8, 198);
+      &::after {
+        transform: rotate(90deg);
+      }
+    }
+    
+    input:not(:checked) ~ .tab-label::after {
+      transform: rotate(0deg);
+    }
+    
+    /* :checked */
+    input:checked ~ .tab-content {
+      max-height: 100vh;
+      padding: 1em;
+    }
+    
+    /* Additional styles for non-checked state */
+    input:not(:checked) ~ .tab-content {
+      max-height: 0;
+      padding: 0;
+    }
 
   #m-main{
     color: rgb(189, 8, 198);
@@ -521,7 +545,7 @@ td img {
   }
   .tab-label{
     color: white;
-
+    /* display: flex; */
     background-color:rgb(120 20 161); 
     /* // border-top-right-radius: 56px;
     // border-bottom-right-radius: 56px;

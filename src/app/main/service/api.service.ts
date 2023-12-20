@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 import { Observable, throwError, of,Subject,BehaviorSubject } from 'rxjs';
@@ -30,7 +30,7 @@ export class ApiService {
    }
 
    updateLoginStatus(isLoggedIn: boolean) {
-    this.isLoggedInSubject.next(isLoggedIn);
+      this.isLoggedInSubject.next(isLoggedIn);
   }
   initHeaders() {
     this.headers_object = new HttpHeaders();

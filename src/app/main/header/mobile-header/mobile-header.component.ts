@@ -12,6 +12,7 @@ import { config } from '../../service/config';
 })
 export class MobileHeaderComponent implements OnInit {
   @ViewChild('login') login!: TemplateRef<any>;
+  slidesPerViewn:number = 4;
   constructor(public dialog: MatDialog, private comSer: CommonServiceService, private apiSer: ApiService) { }
   private logcheck !: Subscription;
   checkLogin: boolean = false;
@@ -37,11 +38,15 @@ export class MobileHeaderComponent implements OnInit {
         this.checkLogin = false;
         return;
       }
+      if(this.checkLogin){
+        this.apiSer.updateLoginStatus(this.checkLogin);
+      }
       this.apiSer.apiRequest(config['balance']).subscribe({
         next: data => {
           if (data.ErrorCode == '0') {
             this.apiSer.showAlert('', data.ErrorMessage, 'error');
             this.comSer.clearLocalVars();
+            this.apiSer.logout();
           } else {
             this.userBalance = data.Balance;
             // this.refreshHeader();

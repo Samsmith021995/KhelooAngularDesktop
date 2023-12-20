@@ -40,6 +40,7 @@ export class MStatementComponent implements OnInit {
     })).subscribe((data) => {
       if (data.ErrorCode == '0') {
         this.apiservice.showAlert('', data.ErrorMessage, 'error');
+        this.apiservice.logout();
         this.router.navigate(['/']);
         return;
       }
