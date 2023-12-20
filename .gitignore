@@ -413,3 +413,5 @@ Thumbs.db
 
 /tmp
 /out-tsc
+src/app/main/header/desktop-header/desktop-header.component.css
+*.css

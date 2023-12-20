@@ -31,8 +31,10 @@
         </div>
       </form>
       <div class="loginbtn user" *ngIf="checkLogin ">
-        <span class="UserName"><a (click)="showmenubar()"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi {{
-            username }} <br /> <i class="fa fa-inr" aria-hidden="true"></i><!--INR--> {{ userBalance }}</a></span>
+        <a (click)="showmenubar()">
+        <span class="UserName"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi {{
+            username }} <br /> <i class="fa fa-inr" aria-hidden="true"></i><!--INR-->₹ {{ userBalance }}</span>
+             <img src="https://kheloo.com/images/profile.png" class="profileicon"></a>
         <div class="col" *ngIf="showmenu">
           <ol class="sub-menu">
             <li class="menu-item">

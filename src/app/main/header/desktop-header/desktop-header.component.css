@@ -164,3 +164,8 @@ span.font7 {
 .me-2 {
     margin-right: 30.5rem!important;
 }
+img.profileicon {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+}
