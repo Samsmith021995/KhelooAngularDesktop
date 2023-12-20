@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
-       <!-- <app-loader  *ngIf="isLoading"></app-loader> -->
-        <div class="main" *ngIf="!isLoading">
+        <!-- <app-loader  *ngIf="isLoading"></app-loader> -->
+        <!-- <div class="main" *ngIf="!isLoading">
             <div class="">
                 <label for="UserName">UserName</label>
                 <span>{{ userDetails.UserName }} </span><br>
@@ -17,7 +17,53 @@
                 <span>{{ userDetails.DOB | date: 'mediumDate'}} </span>
 
             </div>
+        </div> -->
+
+
+
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="userdetailscards">
+                <div class="col-md-4 side_bar">
+                    <div class="user_profile_card">
+                        <div class="user_profile_img">
+                            <img src="https://cdn.discordapp.com/attachments/948596391855394826/1108367985539817512/user_avtaar.png"
+                                alt="user_image" class="user_profile_avtaar" width="60">
+                        </div>
+                        <div class="user_details">
+                            <div class="user_profile_name">
+                                <h5>Piyush Bansal</h5>
+                            </div>
+                            <div class="user_profile_userID">
+                                <h5>UserName<span> {{ userDetails.UserName }}</span></h5>
+                            </div>
+                            <div class="user_profile_userID">
+                                <h5>Mobile<span> {{ userDetails.Mobile }}</span></h5>
+                            </div>
+                            <div class="user_profile_userID">
+                                <h5>DOB<span> {{ userDetails.DOB | date: 'mediumDate'}}</span></h5>
+                            </div>
+                            
+                            <div class="user_designation">
+                                <h5>ADMIN</h5>
+                            </div>
+                        </div>
+                        <div class="circle_decor1"></div>
+                        <div class="circle_decor2"></div>
+                        <div class="circle_decor3"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
+
+
+
+
+
+
+
     </div>
-    <button type="button" class="sc-dhcObn pinkbtn center" > <a routerLink="/change-password">Reset Password</a></button>
+    <button type="button" class="sc-dhcObn pinkbtn center"> <a routerLink="/change-password">Reset Password</a></button>
 </div>

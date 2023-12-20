@@ -19,6 +19,7 @@
   color: #fff;
   font-size: 15px;
   text-align: right;
+  display: flex;
 }
 
 
@@ -168,4 +169,7 @@ img.profileicon {
   position: absolute;
   top: 25px;
   right: 20px;
+}
+.mr20{
+  margin-left: 20px;
 }

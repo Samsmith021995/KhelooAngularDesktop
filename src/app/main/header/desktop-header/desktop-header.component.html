@@ -6,10 +6,10 @@
     <a class="navbar-brand me-2" routerLink="/promotion">
       <img src="https://cmsbetconstruct.com/storage/medias/vbet/media_4_4ac7eaa91a5473d2e549c9fd4cdaa78e.gif"
         class="promotion-icon" />
-       <br>
-       <span class="font7">Promotions</span>
+      <br>
+      <span class="font7">Promotions</span>
     </a>
-   
+
     <div class="" id="navbarSupportedContent">
       <span class="navbar-nav me-auto mb-2 mb-lg-0">
 
@@ -31,10 +31,12 @@
         </div>
       </form>
       <div class="loginbtn user" *ngIf="checkLogin ">
-        <span class="UserName"><a (click)="showmenubar()"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi {{
-            username }} <br /> <i class="fa fa-inr" aria-hidden="true"></i><!--INR--> {{ userBalance }}</a>
-          <img src="/assets/images/profile.png" alt="">  
+       <span class="UserName"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi {{
+            username }} <br /> <i class="fa fa-inr" aria-hidden="true"></i><!--INR--> {{ userBalance }}
+           
           </span>
+          <a (click)="showmenubar()" class="mr20"><img src="/assets/images/profile.png" alt=""></a>
+        
         <div class="col" *ngIf="showmenu">
           <ol class="sub-menu">
             <li class="menu-item">

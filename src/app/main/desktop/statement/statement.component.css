@@ -60,7 +60,8 @@ td img {
 }
 
 .pagination {
-  background-color: #f4f4f4;
+  background-color: #130023;
+  
   margin: 0 0 20px 0;
  
   justify-content: center;
@@ -105,4 +106,20 @@ td img {
 .page-select {
   margin-left: 5px;
   padding: 5px;
+  background: #220436;
+  color: #fff;
+}
+.page-link {
+  position: relative;
+  display: block;
+  padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
+  font-size: var(--bs-pagination-font-size);
+  color: #fff;
+  text-decoration: none;
+  background-color: #40046a;
+  border: var(--bs-pagination-border-width) solid #21062c;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+span#total-items {
+  color: #fff;
 }

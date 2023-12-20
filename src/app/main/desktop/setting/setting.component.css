@@ -1,4 +1,4 @@
-label,span{
+/* label,span{
     color: white;
     font-size: 18px;
     
@@ -33,4 +33,116 @@ label,span{
   a{
     text-decoration: none;
     color: white;
-  }
+  } */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.user_profile_card {
+  margin-top: 30px;
+  margin-left: 10px;
+  background: #2b0444;
+  background-size: cover;
+  /* background-color: white; */
+  padding: 16px 8px;
+  border-radius: 16px;
+  box-shadow: 5px 5px 10px #4d4d4d17, -5px -5px 10px #4545450e;
+  display: flex;
+  position: relative;
+}
+
+.circle_decor1 {
+  position: absolute;
+  width: 80px;
+  height: 90px;
+  background-color: #FFF0;
+  border-radius: 0 0 0 100%;
+  border: 3px solid #b4ffe61c;
+  border-top: 0;
+  border-right: 0;
+  right: 0px;
+  top: 0px;
+}
+
+.circle_decor2 {
+  position: absolute;
+  width: 50px;
+  height: 60px;
+  background-color: #FFF0;
+  border-radius: 0 0 0 100%;
+  border: 3px solid #b4ffe617;
+  border-top: 0;
+  border-right: 0;
+  right: 0px;
+  top: 0px;
+}
+
+.circle_decor3 {
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  background-color: #FFF0;
+  border-radius: 0 0 0 100%;
+  border: 3px solid #b4ffe61a;
+  border-top: 0;
+  border-right: 0;
+  right: 0px;
+  top: 0px;
+}
+
+.user_profile_card .user_profile_img {
+  border-radius: 50%;
+  background-color: #E3FFF5;
+  margin: 10px;
+  width: 80px;
+  height: 80px;
+  /* margin: 5px auto 10px auto; */
+}
+
+.user_profile_card .user_profile_img img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.user_details {
+  text-align: left;
+  padding: 8px 0 0 10px;
+}
+
+.user_details .user_profile_name h5 {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.user_details .user_profile_userID h5 {
+  font-size: 14px;
+  color: #a1fadc;
+  margin-bottom: 5px;
+}
+
+.user_details .user_profile_userID h5 span {
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.user_details .user_profile_mail h5 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #b6ffe7;
+  margin-bottom: 14px;
+}
+
+.user_details .user_designation h5 {
+  font-size: 12px;
+  background-color: #c3ffeb;
+  color: #00885a;
+  padding: 2px 8px;
+  border-radius: 12px;
+  display: inline;
+}
