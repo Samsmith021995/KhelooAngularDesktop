@@ -20,7 +20,7 @@
                                 <div class="form-group mb-3 anu-class">
                                 <mat-form-field  style="width: 100%;" >
 
-                                    <input id="inputEmail" type="number" placeholder="Mobile Number" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" matInput formControlName="Mobile" maxlength="10">
+                                    <input id="inputEmail" type="number" placeholder="Mobile Number" required="" autofocus="" class="form-control rounded-pill border-0 px-4" matInput formControlName="Mobile" maxlength="10">
                                     <!-- <div style="color: red;" *ngIf="loginform.controls['Mobile'].hasError('required')">This is required field</div> -->
                                     <!-- <div *ngIf="loginform.controls('Mobile')?.hasError('maxlength')">
                                         Check thus
@@ -30,11 +30,27 @@
                                 </mat-form-field>
                                 </div>
                                 <div class="form-group mb-3 anu-class">
+                                    <mat-form-field  style="width: 100%;" >
+    
+                                        <input id="inputPassword" type="{{ password }}" placeholder="Password" required="" class="form-control rounded-pill border-0 px-4" matInput formControlName="password" maxlength="10">
+                                        <button class="btn" type="button" (click)="showpassword( )" id="showeye">
+                                            <i class="{{show}}" aria-hidden="true" ></i>
+                                           </button>
+                                        <!-- <div style="color: red;" *ngIf="loginform.controls['Mobile'].hasError('required')">This is required field</div> -->
+                                        <!-- <div *ngIf="loginform.controls('Mobile')?.hasError('maxlength')">
+                                            Check thus
+                                        </div> -->
+                                        <!-- {{ loginform.get('Mobile')?.errors | json }} -->
+                                        <mat-error *ngIf="loginform.controls['Mobile'].hasError('required')">This is required field</mat-error>
+                                    </mat-form-field>
+                                    </div>
+                                <!-- <div class="form-group mb-3 anu-class">
+                                    
                                     <input id="inputPassword" type="{{ password }}" placeholder="Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" formControlName="Password">
                                     <button class="btn" type="button" (click)="showpassword( )" id="showeye">
                                      <i class="{{show}}" aria-hidden="true" ></i>
                                     </button>
-                                </div>
+                                </div> -->
                                 <p class="text-muted mb-4 loginsubtitle"><a class="ftr-n-link-bc undefined" routerLink="/forgot-password">Forgot your password?</a></p>
                                 <button _ngcontent-ng-c1731079979="" type="button" class="btn btn-primary btn-lg mx-3" (click)="login()" [disabled]="loginform.invalid">
                                     <span *ngIf="!showsubmitbtn">SIGNIN</span>
