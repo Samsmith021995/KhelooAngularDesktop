@@ -29,6 +29,8 @@ import { BaccaratComponent } from '../desktop/footer-content/games/baccarat/bacc
 import { BlackjackComponent } from '../desktop/footer-content/games/blackjack/blackjack.component';
 import { RouletteComponent } from '../desktop/footer-content/games/roulette/roulette.component';
 import { SlotsComponent } from '../desktop/footer-content/games/slots/slots.component';
+import { DJackpotComponent } from '../desktop/d-jackpot/d-jackpot.component';
+import { DPromotionalComponent } from '../desktop/d-promotional/d-promotional.component';
 
 
 
@@ -42,6 +44,8 @@ import { SlotsComponent } from '../desktop/footer-content/games/slots/slots.comp
     BlackjackComponent,
     RouletteComponent,
     SlotsComponent,
+    DJackpotComponent,
+    DPromotionalComponent
   
   ],
   imports: [
@@ -77,6 +81,8 @@ import { SlotsComponent } from '../desktop/footer-content/games/slots/slots.comp
   RouletteComponent,
   NotFoundComponent,
   SlotsComponent,
+  DJackpotComponent,
+  DPromotionalComponent,
     CommonModule,
     FormsModule,
     HttpClientModule,

@@ -1,0 +1,78 @@
+<div class="row p-4">
+    <div class="col-md-6">
+      <div class="casinoJackpotWrapper-bc VGS jackpot-page-widget">
+        <div class="line">
+          <!-- <h1 class="jackpot-title">Jackpot</h1> -->
+          <h1 class="withdrawal-title">Jackpot</h1>
+          <h1 class="jp-number">₹ {{ number | number:'1.0-0' }}</h1>
+        </div>
+  
+        <div class="row">
+          <h1 class="withdrawal-title">LIVE WITHDRAWAL</h1>
+          <div>
+            <!-- <h3 class="quote">{{Quote}}</h3> -->
+          </div>
+          <div class="marquee">
+            <div class="marquee--inner">
+              <span>
+                <div class="col-md-3 w-card" *ngFor="let sd of result">
+                  <div class="live_icon_container col-md-3">
+                    <img src="https://kheloo.com/images/user.svg">
+                  </div>
+                  <div class="live_para col-md-9">
+                    <p class="live_title ng-binding">
+                      {{ sd.Name }}
+      
+      
+                    </p>
+                    <span>₹</span>{{ sd.Amount }}
+                    <p class="live_small_text ng-binding">{{ sd.TimeAgo }} seconds ago</p>
+                  </div>
+                </div>
+              </span>
+              <span>
+                <div class="col-md-3 w-card" *ngFor="let sd of result">
+                  <div class="live_icon_container col-md-3">
+                    <img src="https://kheloo.com/images/user.svg">
+                  </div>
+                  <div class="live_para col-md-9">
+                    <p class="live_title ng-binding">
+                      {{ sd.Name }}
+      
+      
+                    </p>
+                    <span>₹</span>{{ sd.Amount }}
+                    <p class="live_small_text ng-binding">{{ sd.TimeAgo }} seconds ago</p>
+                  </div>
+                </div>
+              </span>
+  
+            </div>
+          </div>
+  
+          <!-- <div class="marquee">
+  
+            <div class="col-md-3 w-card" *ngFor="let sd of result">
+              <div class="live_icon_container col-md-3">
+                <img src="https://kheloo.com/images/user.svg">
+              </div>
+              <div class="live_para col-md-9">
+                <p class="live_title ng-binding">
+                  {{ sd.Name }}
+  
+  
+                </p>
+                <span>₹</span>{{ sd.Amount }}
+                <p class="live_small_text ng-binding">{{ sd.TimeAgo }} seconds ago</p>
+              </div>
+            </div>
+            
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <!-- <h1 class="withdrawal-title">Promotions</h1> -->
+  <app-d-promotional></app-d-promotional>
+    </div>
+  </div>

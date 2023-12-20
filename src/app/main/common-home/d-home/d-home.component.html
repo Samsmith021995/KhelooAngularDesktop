@@ -32,7 +32,7 @@
             <!-- <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 8 && !subSelected"> 
                 {{myElementRef.toArray()[i].nativeElement.classList.contains('showMore')?'Show Less':'Show More'}}
              </button> -->
-            <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 8 && !subSelected">
+            <button (click)="showMoreF(subSelected?0:i)" class="btn-show" *ngIf="gamesData[category].length > 8 ">
                 {{isDetailsVisible[i]?'Show Less':'Show More'}}
             </button>
         </span>
@@ -43,7 +43,7 @@
                 </path>
             </svg></button>
         <div style=" display: flex; margin-right: 4px; overflow-x: auto; width: 100%; color: white;" #showMore
-            class="ashu" [ngClass]="{'showMore':subSelected}">
+            class="ashu" >
             <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]">
                 <div style="margin-right: 4px; " class="casino-game-item">
                     <img [src]="game.url_thumb" alt="" width="250px" class="thgame">
@@ -57,9 +57,10 @@
             </div>
 
         </div>
+        
         @if(defaultSlices[i]<=gamesData[category].length){
             <button (click)="updateSlice(i)" class="btn-show"
-                *ngIf="gamesData[category].length > 50 && !subSelected && isDetailsVisible[i]">
+                *ngIf="gamesData[category].length > 50 && isDetailsVisible[subSelected?0:i]">
                 View More
             </button>
 
@@ -91,17 +92,17 @@
 @if(selected === 'Slots' || subSelected ==='Slots'){
 <app-slots></app-slots>
 }
-<div class="row">
+<!-- <div class="row"> -->
+    <app-d-jackpot></app-d-jackpot>
  
-        <app-jackpot></app-jackpot>
-        <div class="col-12 d-flex">
-            <div class="col-lg-5 col-md-5">
-                <app-promotion-video></app-promotion-video>
+    <div class="col-12 d-flex">
+        <div class="col-lg-5 col-md-5">
+            <!-- <app-promotion-video></app-promotion-video> -->
             </div>
             <div class="col-lg-5 col-md-5">
-                <app-promotion-video></app-promotion-video>   
+                <!-- <app-promotion-video></app-promotion-video>    -->
             </div>
         </div>
     
 
-</div>
+<!-- </div> -->
