@@ -11,91 +11,95 @@
   
                 <!-- Demo content-->
                 <div class="container">
-                  <div class="row">
-                    <div class="col-lg-10 col-xl-7 mx-auto col-md-8 d-md-flex" >
-                    <div class="col-md-6">
-                      <button type="button" class="btn btn-primary btn-lg mx-3" (click)="bankStatus()">Bank Details</button>
+                 
+
+                    <div class="row">
+                      <div class="col-lg-10 col-xl-7 mx-auto col-md-8 d-md-flex" >
+                        <div class="col-md-6">
+                          <button type="button" class="btn btn-primary btn-lg" (click)="bankStatus()">Bank Details</button>
+                        </div>
+                        <div class="col-md-6">
+                          <button type="button" class="btn btn-primary btn-lg" (click)="withdrawStatus()">Withdraw Status</button>
+                          
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-6">
-                      <button type="button" class="btn btn-primary btn-lg mx-3" (click)="withdrawStatus()">Withdraw Status</button>
-  
-                    </div>
-                  </div>
-                  </div>
                     <div class="row">
                       
-                        <div class="col-lg-10 mx-auto" *ngIf="!withdrawState">
-                           
-                            <h3 class="display-4 logintitle">Bank Details</h3>
-                           
-                            <form [formGroup]="withdrawform" >
-                                <div class="form-group mb-3">
-
-                                    <input id="AccountHolderName" type="text" placeholder="Bank Holder Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="AccountHolderName">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <input id="AccountNumber" type="number" placeholder="Account Number" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="AccountNumber">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <input id="BankName" type="text" placeholder="Bank Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="BankName">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <input id="BranchName" type="text" placeholder="Branch Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="BranchName">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <input id="Amount" type="number" placeholder="Amount" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="Amount">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <input id="IfscCode" type="text" placeholder="IFSC Code" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="IfscCode">
-                                </div>
-                               
-                               
-                                <button _ngcontent-ng-c1731079979="" type="button" class="btn btn-primary btn-lg mx-3" (click)="withdraw()" [disabled]="withdrawform.invalid">
-                                  <span *ngIf="!showsubmitbtn">Submit</span>
-                                      <span *ngIf="showsubmitbtn"><i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i></span>
-                                
-                                </button>
-  
-                            </form>
-          
-  
-                        </div>
-  
-                        <div class="col-lg-10 col-xl-7 mx-auto" *ngIf="withdrawState">
-                          <!-- <app-loader *ngIf="isLoading"></app-loader> -->
-                          <h3 class="display-4 logintitle">WithDrawStatus Details</h3>
-  
-                          <ng-container *ngFor=" let statement of withdrawStatement">
-  
-                            <div class="card">
-                              <div class="card-head">{{statement.Amount}}</div>
-                              <div class="card-body">
-                                <span>{{statement.StatusName}}</span>
-                                <span>{{statement.CreatedDate | date:'mediumDate'}}</span>
-                              </div>
-                              <div class="card-footer">
-                                <span>
-                                  {{statement.AccountHolderName}}
-                                </span>
-                                <span>
-                                  {{statement.AccountNumber}}
-                                </span>
-                                <span>
-                                  {{statement.BankName}}
-                                </span>
-                                <span>
-                                  {{statement.IfscCode}}
-                                </span>
-                              </div>
+                      <div class="col-lg-10 mx-auto" *ngIf="!withdrawState">
+                        
+                        <h3 class="display-4 logintitle">Bank Details</h3>
+                        
+                        <form [formGroup]="withdrawform" >
+                          <div class="form-group mb-3">
+                            
+                            <input id="AccountHolderName" type="text" placeholder="Bank Holder Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="AccountHolderName">
+                          </div>
+                          <div class="form-group mb-3">
+                            <input id="AccountNumber" type="number" placeholder="Account Number" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="AccountNumber">
+                          </div>
+                          <div class="form-group mb-3">
+                            <input id="BankName" type="text" placeholder="Bank Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="BankName">
+                          </div>
+                          <div class="form-group mb-3">
+                            <input id="BranchName" type="text" placeholder="Branch Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="BranchName">
+                          </div>
+                          <div class="form-group mb-3">
+                            <input id="Amount" type="number" placeholder="Amount" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="Amount">
+                          </div>
+                          <div class="form-group mb-3">
+                            <input id="IfscCode" type="text" placeholder="IFSC Code" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="IfscCode">
+                          </div>
+                          
+                          
+                          <button _ngcontent-ng-c1731079979="" type="button" class="btn btn-primary btn-lg" (click)="withdraw()" [disabled]="withdrawform.invalid">
+                            <span *ngIf="!showsubmitbtn">Submit</span>
+                            <span *ngIf="showsubmitbtn"><i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i></span>
+                            
+                          </button>
+                          
+                        </form>
+                        
+                        
+                      </div>
+                      
+                      <div class="col-lg-10 col-xl-7 mx-auto" *ngIf="withdrawState">
+                        <!-- <app-loader *ngIf="isLoading"></app-loader> -->
+                        <h3 class="display-4 logintitle">WithDrawStatus Details</h3>
+                        
+                        <ng-container *ngFor=" let statement of withdrawStatement">
+                          
+                          <div class="card">
+                            <div class="card-head">{{statement.Amount}}</div>
+                            <div class="card-body">
+                              <span>{{statement.StatusName}}</span>
+                              <span>{{statement.CreatedDate | date:'mediumDate'}}</span>
                             </div>
-                          </ng-container>
-                        </div>
+                            <div class="card-footer">
+                              <span>
+                                {{statement.AccountHolderName}}
+                              </span>
+                              <span>
+                                {{statement.AccountNumber}}
+                              </span>
+                              <span>
+                                {{statement.BankName}}
+                              </span>
+                              <span>
+                                {{statement.IfscCode}}
+                              </span>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </div>
                     </div>
-                </div><!-- End -->
-  
+                  
+                  </div><!-- End -->
+                  
+                </div>
+              </div><!-- End -->
+              
             </div>
-        </div><!-- End -->
-  
-    </div>
-  </div>
-  
+          </div>
+          
+      

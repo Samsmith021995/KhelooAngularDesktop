@@ -123,3 +123,7 @@ td img {
 span#total-items {
   color: #fff;
 }
+.table tbody td{
+
+  font-size: 16px;
+}
