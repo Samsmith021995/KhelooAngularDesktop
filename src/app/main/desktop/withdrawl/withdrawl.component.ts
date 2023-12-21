@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,ViewChildren ,QueryList,ElementRef, Renderer2} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
@@ -10,14 +10,16 @@ import { Subscription } from 'rxjs';
   styleUrl: './withdrawl.component.css'
 })
 export class WithdrawlComponent {
+  @ViewChildren('bankDeskDetailShow') bankshow!: QueryList<ElementRef<any>>;
   private loaderSubscriber !: Subscription;
   private apiSubscriber: Subscription[] = [];
+  viewDeskDetails: boolean = false;
   withdrawStatement:any;
   isLoading :boolean = false;
   isStatusLoading :boolean = false;
   showsubmitbtn :boolean = false;
 withdrawState :boolean =false;
-  constructor(private fb:FormBuilder,private apiSer:ApiService){
+  constructor(private fb:FormBuilder,private apiSer:ApiService,private renderer :Renderer2){
     
   }
   ngOnInit(): void {
@@ -75,5 +77,17 @@ withdrawState :boolean =false;
   }
   bankStatus(){
     this.withdrawState = false;
+  }
+
+  viewDeskDetail(item: any) {
+    console.log("view"+item);
+    let nativeElement = this.bankshow.toArray()[item].nativeElement;
+    if (nativeElement) {
+      if (nativeElement.classList.contains('viewDesk')) {
+        this.renderer.removeClass(nativeElement, 'viewDesk');
+        return;
+      }
+      this.renderer.addClass(nativeElement, 'viewDesk');
+    }
   }
 }

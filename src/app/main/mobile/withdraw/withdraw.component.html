@@ -100,11 +100,10 @@
                                 <a  class="author_bio_wrap_tog" (click)="viewDetail(i)"> View Bank Details</a>
                             </div>
                             <div class="download_with_container">
-                                <a ng-show="wd.FileNameServer" class="ng-hide"><img src="/images/pdf.png"></a>
+                                <!-- <a ng-show="wd.FileNameServer" class="ng-hide"><img src="https:/kheloo.com/images/pdf.png"></a> -->
                             </div>
                         </div>
-                        {{viewDetails}}
-                        <div class="author_biowr" [ngClass]="{'view':viewDetails}" #bankDetailShow>
+                        <div class="author_bio_wrap" [ngClass]="{'view':viewDetails}" #bankDetailShow>
                             <div class="with_first_col_container">
                                 <div class="with_account_container">
                                     <p class="status_title_text">Account Holder Name</p>

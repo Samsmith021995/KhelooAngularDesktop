@@ -1,104 +1,166 @@
 <div class="container-fluid">
-    <div class="row no-gutter">
-        <!-- The image half -->
-        <div class="col-md-7 d-none d-md-flex bg-image"></div>
-  
-  
-        <!-- The content half -->
-        <div class="col-md-5 bg-light">
-            <div class="login d-flex align-items-center py-4">
-  
-                <!-- Demo content-->
-                <div class="container">
-                 
+  <div class="row no-gutter">
+    <!-- The image half -->
+    <div class="col-md-7 d-none d-md-flex bg-image"></div>
 
-                    <div class="row">
-                      <div class="col-lg-10 col-xl-7 mx-auto col-md-8 d-md-flex" >
-                        <div class="col-md-6">
-                          <button type="button" class="btn btn-primary btn-lg" (click)="bankStatus()">Bank Details</button>
-                        </div>
-                        <div class="col-md-6">
-                          <button type="button" class="btn btn-primary btn-lg" (click)="withdrawStatus()">Withdraw Status</button>
-                          
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      
-                      <div class="col-lg-10 mx-auto" *ngIf="!withdrawState">
-                        
-                        <h3 class="display-4 logintitle">Bank Details</h3>
-                        
-                        <form [formGroup]="withdrawform" >
-                          <div class="form-group mb-3">
-                            
-                            <input id="AccountHolderName" type="text" placeholder="Bank Holder Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="AccountHolderName">
-                          </div>
-                          <div class="form-group mb-3">
-                            <input id="AccountNumber" type="number" placeholder="Account Number" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="AccountNumber">
-                          </div>
-                          <div class="form-group mb-3">
-                            <input id="BankName" type="text" placeholder="Bank Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="BankName">
-                          </div>
-                          <div class="form-group mb-3">
-                            <input id="BranchName" type="text" placeholder="Branch Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="BranchName">
-                          </div>
-                          <div class="form-group mb-3">
-                            <input id="Amount" type="number" placeholder="Amount" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="Amount">
-                          </div>
-                          <div class="form-group mb-3">
-                            <input id="IfscCode" type="text" placeholder="IFSC Code" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="IfscCode">
-                          </div>
-                          
-                          
-                          <button _ngcontent-ng-c1731079979="" type="button" class="btn btn-primary btn-lg" (click)="withdraw()" [disabled]="withdrawform.invalid">
-                            <span *ngIf="!showsubmitbtn">Submit</span>
-                            <span *ngIf="showsubmitbtn"><i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i></span>
-                            
-                          </button>
-                          
-                        </form>
-                        
-                        
-                      </div>
-                      
-                      <div class="col-lg-10 col-xl-7 mx-auto" *ngIf="withdrawState">
-                        <!-- <app-loader *ngIf="isLoading"></app-loader> -->
-                        <h3 class="display-4 logintitle">WithDrawStatus Details</h3>
-                        
-                        <ng-container *ngFor=" let statement of withdrawStatement">
-                          
-                          <div class="card">
-                            <div class="card-head">{{statement.Amount}}</div>
-                            <div class="card-body">
-                              <span>{{statement.StatusName}}</span>
-                              <span>{{statement.CreatedDate | date:'mediumDate'}}</span>
-                            </div>
-                            <div class="card-footer">
-                              <span>
-                                {{statement.AccountHolderName}}
-                              </span>
-                              <span>
-                                {{statement.AccountNumber}}
-                              </span>
-                              <span>
-                                {{statement.BankName}}
-                              </span>
-                              <span>
-                                {{statement.IfscCode}}
-                              </span>
-                            </div>
-                          </div>
-                        </ng-container>
-                      </div>
-                    </div>
-                  
-                  </div><!-- End -->
-                  
-                </div>
-              </div><!-- End -->
-              
+
+    <!-- The content half -->
+    <div class="col-md-5 bg-light">
+      <div class="login d-flex align-items-center py-4">
+
+        <!-- Demo content-->
+        <div class="container">
+
+
+          <div class="row">
+            <div class="col-lg-10 col-xl-7 mx-auto col-md-8 d-md-flex">
+              <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-lg" (click)="bankStatus()">Bank Details</button>
+              </div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-lg" (click)="withdrawStatus()">Withdraw Status</button>
+
+              </div>
             </div>
           </div>
+          <div class="row">
+
+            <div class="col-lg-10 mx-auto" *ngIf="!withdrawState">
+
+              <h3 class="display-4 logintitle">Bank Details</h3>
+
+              <form [formGroup]="withdrawform">
+                <div class="form-group mb-3">
+
+                  <input id="AccountHolderName" type="text" placeholder="Bank Holder Name" required="" autofocus=""
+                    class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="AccountHolderName">
+                </div>
+                <div class="form-group mb-3">
+                  <input id="AccountNumber" type="number" placeholder="Account Number" required="" autofocus=""
+                    class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="AccountNumber">
+                </div>
+                <div class="form-group mb-3">
+                  <input id="BankName" type="text" placeholder="Bank Name" required="" autofocus=""
+                    class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="BankName">
+                </div>
+                <div class="form-group mb-3">
+                  <input id="BranchName" type="text" placeholder="Branch Name" required="" autofocus=""
+                    class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="BranchName">
+                </div>
+                <div class="form-group mb-3">
+                  <input id="Amount" type="number" placeholder="Amount" required="" autofocus=""
+                    class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="Amount">
+                </div>
+                <div class="form-group mb-3">
+                  <input id="IfscCode" type="text" placeholder="IFSC Code" required="" autofocus=""
+                    class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="IfscCode">
+                </div>
+
+
+                <button _ngcontent-ng-c1731079979="" type="button" class="btn btn-primary btn-lg" (click)="withdraw()"
+                  [disabled]="withdrawform.invalid">
+                  <span *ngIf="!showsubmitbtn">Submit</span>
+                  <span *ngIf="showsubmitbtn"><i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i></span>
+
+                </button>
+
+              </form>
+
+
+            </div>
+
+            <div class="col-lg-10 col-xl-7 mx-auto" *ngIf="withdrawState">
+              <!-- <app-loader *ngIf="isLoading"></app-loader> -->
+              <h3 class="display-4 logintitle">WithDrawStatus Details</h3>
+
+              <ng-container *ngFor=" let statement of withdrawStatement; let i =index;">
+
+                <div class="with_detail_ind_container ng-scope" ng-repeat="wd in WithdrwalStateMent">
+                  <div class="with_amount_container">
+                    <p class="ng-binding"><span>₹</span>{{statement.Amount}}</p>
+                  </div>
+                  <div class="with_details_sub_container">
+                    <div class="row">
+                      <div class="with_first_line_container col-sm-12">
+                        <div class="with_status_container col-xs-4">
+                          <p class="status_title_text">Status</p>
+                          <p class="status_text pending_text ng-binding"
+                            ng-class="wd.StatusCode == 'P'?'pending_text':''">{{statement.StatusName}}</p>
+                        </div>
+                        <div class="with_reverse_container col-xs-4">
+                          <!-- ngIf: wd.StatusCode == 'P' -->
+                        </div>
+                        <div class="with_date_container col-xs-4">
+                          <p class="date_title_text">Date &amp; Time</p>
+                          <p class="date_text">
+                            <span class="date_span_with ng-binding"> {{statement.CreatedDate | date:'mediumDate'}}</span>
+                            <span class="time_span_with ng-binding">{{statement.CreatedDate | date:'shortTime'}}</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="with_second_line_container">
+                      <div class="with_comments_container">
+                        <p class="comments_title_text">Comments</p>
+                        <p class="comments_text ng-binding">{{statement.Description}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="with_bank_container_link">
+                    <div class="bank_link_container">
+                      <a class="author_bio_wrap_toggle" (click)="viewDeskDetail(i)">View Bank Details</a>
+                    </div>
+                    
+                  </div>
+                  <div class="author_biwr" [ngClass]="{'viewDesk':viewDeskDetails}" #bankDeskDetailShow>
+                    <div class="with_first_col_container">
+                      <div class="with_account_container">
+                        <p class="status_title_text">Account Holder Name</p>
+                        <p class="account_name_with ng-binding">{{statement.AccountHolderName}}</p>
+                      </div>
+                      <div class="with_status_container">
+                        <p class="status_title_text">Account Number</p>
+                        <p class="account_name_with ng-binding">{{statement.AccountNumber}}</p>
+                      </div>
+                    </div>
+                    <div class="with_second_col_container">
+                      <div class="with_bank_container">
+                        <p class="date_title_text">IFSC Code</p>
+                        <p class="date_text">
+                          <span class="date_span_with ng-binding">{{statement.IfscCode}}</span>
+                        </p>
+                      </div>
+                      <div class="with_bank_detail_container">
+                        <p class="date_title_text">Bank Name</p>
+                        <p class="date_text">
+                          <span class="date_span_with ng-binding">{{statement.BankName}}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
           
-      
+              </ng-container>
+            </div>
+          </div>
+
+        </div><!-- End -->
+
+      </div>
+    </div><!-- End -->
+
+  </div>
+</div>
