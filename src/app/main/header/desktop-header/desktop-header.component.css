@@ -115,6 +115,7 @@ input {
   background: transparent;
   vertical-align: bottom;
   color: #fff;
+  padding: 0px 15px;
 }
 ::placeholder{
   padding: 10px;

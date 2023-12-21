@@ -17,14 +17,18 @@
                                                 formControlName="Amount"
                                                 value="{{ deposits.controls['ramount'].value }}">
                                         </div>
-                                        <div>
+                                        <div class="bmi-calculator-height">
+                                            <input id="depoRange" type="range" min="0" max="50000" name="amount"
+                                                value="{{ deposits.controls['Amount'].value }}" class="slider"  formControlName="ramount" step="500">
+                                        </div>
+                                        <!-- <div>
                                             <input type="range" min="0" max="50000" name="amount" id="depoRange"
                                                 value="{{ deposits.controls['Amount'].value }}"
                                                 formControlName="ramount" step="500">
-                                        </div>
+                                        </div> -->
                                         <button type="button" class="btn" (click)="setAmount(100)"> ₹ 100 </button>
                                         <button type="button" class="btn" (click)="setAmount(500)"> ₹ 500 </button>
-                                        <button type="button" class="btn" (click)="setAmount(1000)"> ₹ 1000 </button>
+                                        <!-- <button type="button" class="btn" (click)="setAmount(1000)"> ₹ 1000 </button> -->
                                         <button type="button" class="btn" (click)="setAmount(2000)"> ₹ 2000 </button>
                                         <button type="button" class="btn" (click)="setAmount(5000)"> ₹ 5000 </button>
                                         <button type="button" class="btn" (click)="setAmount(10000)"> ₹ 10000 </button>
@@ -33,7 +37,8 @@
                                     <button _ngcontent-ng-c1731079979="" type="button"
                                         class="btn btn-primary btn-lg mx-3" (click)="requestDeposit()"> <span
                                             *ngIf="!showsubmitbtn">Deposit</span>
-                                        <span *ngIf="showsubmitbtn"><i-feather name="loader"></i-feather></span></button>
+                                        <span *ngIf="showsubmitbtn"><i-feather
+                                                name="loader"></i-feather></span></button>
                                 </form>
                             </ng-container>
                         </div>
