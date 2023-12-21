@@ -25,7 +25,7 @@ h3.display-4.logintitle {
 
 .rounded-pill {
   border-radius: 4px !important;
- 
+  padding: 16px;
   border: 1px solid white !important;
   width: 100%;
   background: transparent;

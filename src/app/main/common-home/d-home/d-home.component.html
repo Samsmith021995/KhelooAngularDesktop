@@ -9,8 +9,8 @@
         </a>
         }
     </div>
-    <div style="width: 50%; padding: 0.1rem;">
-        <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="onSearch()">
+    <div style=" width: 50%; padding: 0.1rem;">
+        <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="onSearch()" class="ng-untouched ng-pristine ng-valid">
     </div>
 </div>
 <app-banner [images]="images" [slidesPerView] = "slidesPerViewn"></app-banner>

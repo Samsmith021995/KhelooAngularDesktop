@@ -306,10 +306,13 @@ svg{
 }
 
 .subCat-btn{
-    background: darkgrey;
+    background: #440787;
     padding: 20px 30px;
     margin: 5px 3px;
     border-radius: 5px;
+    width: 200px;
+    color: #fff;
+    border: 1px solid;
 }
 
 .subSele{
@@ -330,7 +333,9 @@ input.ng-untouched.ng-pristine.ng-valid {
     margin: 7px 76px;
     height: 40px;
     border: 1px solid #fff;
+    padding: 10px;
 }
+
 ::placeholder
 {
     padding: 10px 20px;
@@ -347,4 +352,5 @@ input.ng-untouched.ng-pristine.ng-valid {
     border: 2px solid #f4ad09;
     border-radius: 5px;
     margin-right: 5px;
+
 }

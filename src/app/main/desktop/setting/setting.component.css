@@ -43,8 +43,7 @@ body {
 }
 
 .user_profile_card {
-  margin-top: 30px;
-  margin-left: 10px;
+  margin: 20% auto;
   background: #2b0444;
   background-size: cover;
   /* background-color: white; */
@@ -122,7 +121,7 @@ body {
 
 .user_details .user_profile_userID h5 {
   font-size: 14px;
-  color: #a1fadc;
+  color: #fffd00;
   margin-bottom: 5px;
 }
 
