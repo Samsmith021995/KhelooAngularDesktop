@@ -28,17 +28,15 @@ export class ForgotPasswordComponent {
       this.btnLoading=('verifyOtppass' in loading || 'generateForpass' in loading )?true:false;
     });
     this.forgotform = this.fb.group({
-      Mobile:["",[]],
-      Password:["",[]],
-      OTP:["",[]],
+      Mobile:["",[Validators.required]],
+      Password:["",[Validators.required]],
+      OTP:["",[Validators.required]],
     });
   }
 
   onSubmit(){
     let param = this.forgotform.getRawValue();
-    console.log();
     if(this.otpVerify){
-      
       if(this.forgotform.controls['OTP'].value){
         this.apiService.apiRequest(config['verifyOtppass'],param).pipe(
           catchError((error)=>{
@@ -58,14 +56,14 @@ export class ForgotPasswordComponent {
           });
       }else{
         this.otpVerify=true;
-        this.apiService.showAlert('','Please Fill the OTP','warning');
+        // this.apiService.showAlert('','Please Fill the OTP','warning');
       }
     }else{
       if(this.forgotform.controls['Mobile'].value){
         this.apiService.apiRequest(config['generateForpass'],param).pipe(
           catchError((error)=>{
-            this.apiService.showAlert('Something Went Wrong','Check your Internet Connection','error');
-            // this.btnLoading=false; 
+            this.apiService.showAlert('Something Went Wrong','','error');
+            this.btnLoading=false; 
             console.error('An error occurred:', error);
             throw error
           })
@@ -78,7 +76,7 @@ export class ForgotPasswordComponent {
         }
         );
       }else{
-        this.apiService.showAlert('','Please Fill the Mobile Number','warning');
+        // this.apiService.showAlert('','Please Fill the Mobile Number','warning');
       }
     }
   }

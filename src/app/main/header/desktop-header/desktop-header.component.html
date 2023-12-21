@@ -31,6 +31,9 @@
         </div>
       </form>
       <div class="loginbtn user" *ngIf="checkLogin ">
+        <button type="button" class="btn btn-success btn-lg mx-3 deposit" routerLink="/deposit">
+          Deposit
+        </button>
        <span class="UserName"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi {{
             username }} <br /> <i class="fa fa-inr" aria-hidden="true"></i><!--INR--> {{ userBalance }}
            
