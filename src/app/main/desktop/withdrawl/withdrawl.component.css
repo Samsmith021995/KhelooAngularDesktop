@@ -373,3 +373,10 @@ p{
     font-weight: 400;
     font-family: nunito,sans-serif;
 }
+button.btn.btn-primary.btn-lg {
+  border: 1px solid #3e0763;
+  font-size: 18px;
+  font-weight: 300;
+  background: #7800AC !important;
+  width: 170px;
+}

@@ -297,3 +297,22 @@ a{
 .bl_prom_title_container span{
   font-size: 20px;
 }
+
+
+
+
+.bmi-calculator-height, .bmi-calculator-weight {
+  margin-bottom: 2.2em;
+  width: 100%;
+}
+.slider{
+  -webkit-appearance: none;
+  width: 100%;
+  background: #c7c7c7;
+  outline: none;
+  height: 1px;
+  border-radius: 10px;
+  --vigo-color: #004bff;
+  opacity: .7;
+  transition: opacity .2s;
+}

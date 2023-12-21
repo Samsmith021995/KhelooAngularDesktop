@@ -144,4 +144,8 @@ body {
   padding: 2px 8px;
   border-radius: 12px;
   display: inline;
+ 
+}
+.col-md-4.side_bar.col.align-self-center {
+  margin: 0 auto;
 }
