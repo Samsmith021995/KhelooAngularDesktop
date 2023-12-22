@@ -3,7 +3,7 @@
         <h2>WithDraw Details</h2>
     </div>
     <p class="help-text text-lg-right">
-        <a href="/m-withdraw/withdraw-info" style="color: #f4ad09;"> How to Withdraw <i class="fa fa-question-circle"
+        <a href="/m-withdraw/withdraw-info" class="withPlay"> How to Withdraw <i class="fa fa-question-circle"
                 aria-hidden="true"></i></a>
     </p>
     <div class="tab" role="tabpanel">
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div  >
-                <div class="" *ngIf="withdrawState"> 
+                <div class="" *ngIf="withdrawState" style="margin-top: 20px;"> 
                     <h4>WithDraw Details</h4>
                     @if(withdrawStatement.length > 0){
 
@@ -83,8 +83,8 @@
                                     </div>
                                     <div class="with_reverse_container col-xs-4">
                                         <!-- ngIf: wd.StatusCode == 'P' -->
-                                        <ng-container *ngIf="item.StatusCode == 'A'">
-                                        <button (click)="reverseWithdraw()">Reverse</button>
+                                        <ng-container *ngIf="item.StatusCode == 'P'">
+                                            <button (click)="reverseWithdraw(item)">Reverse</button>
                                         </ng-container>
                                     </div>
                                     <div class="with_date_container col-xs-4">

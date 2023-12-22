@@ -149,7 +149,6 @@ img {
 [class*=" bc-i-"],
 [class^=bc-i-] {
     font-family: "BetConstruct-Icons" !important;
-    speak: never;
     font-style: normal;
     font-weight: 400;
     -webkit-font-feature-settings: normal;
@@ -353,4 +352,16 @@ input.ng-untouched.ng-pristine.ng-valid {
     border-radius: 5px;
     margin-right: 5px;
 
+}
+
+.min_max_container{
+    margin-top: -20px;
+    background-color: #65008d;
+    z-index: 56787898988;
+    position: absolute;
+    width: 248px;
+    text-align: center;
+}
+.minValue{
+    margin-right: 4px;
 }

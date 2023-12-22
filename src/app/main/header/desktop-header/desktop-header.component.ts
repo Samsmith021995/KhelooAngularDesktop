@@ -5,7 +5,7 @@ import { ApiService } from '../../service/api.service';
 import { CommonServiceService } from '../../service/common-service.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -107,9 +107,43 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
     this.router.navigate(['/'+item])
   }
   requestCallback(){
-    
+    Swal.fire({
+      title: "Request a call back ?",
+      icon: "warning",
+      iconColor: 'rgb(64 195 237)',
+      showCancelButton: true,
+      cancelButtonText: 'No',
+      confirmButtonColor: "##fc0",
+      cancelButtonColor: "rgb(170, 170, 170)",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.apiSer.apiRequest(config['callback']).subscribe({
+          next: (data) => {
+            if (data.ErrorCode == '1') {
+              Swal.fire({
+                title: "success",
+                text: data.ErrorMessage,
+                icon: "success"
+              });
+            } else {
+              Swal.fire({
+                title: "Oops!",
+                text: data.ErrorMessage,
+                icon: "error",
+                confirmButtonColor: "##fc0",
+              });
+            }
+          },
+          error: (err) => {
+            console.error(err)
+          }
+        })
+      }
+    });
   }
   ngOnDestroy(): void {
     this.showmenu = false;
   }
+
 }

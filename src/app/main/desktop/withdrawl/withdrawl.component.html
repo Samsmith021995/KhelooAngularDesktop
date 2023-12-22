@@ -9,18 +9,22 @@
       <div class="login d-flex align-items-center py-4">
         <!-- Demo content-->
         <div class="container">
-          
+
           <a class="navbar-brand fw-bold" href="/">
-            <img src="/assets/images/logo.gif" class="logo" width="200px" style="margin: auto;text-align: center; display: block;">
+            <img src="/assets/images/logo.gif" class="logo" width="200px"
+              style="margin: auto;text-align: center; display: block;">
           </a>
+          <a routerLink="withdraw-info" class="withlink">How to withdraw ?</a><br>
 
           <div class="row">
             <div class="col-lg-10 col-xl-7 mx-auto col-md-8 d-md-flex">
               <div class="col-md-6">
-                <button type="button" class="btn btn-primary btn-lg" (click)="bankStatus()" [ngClass]="{'active': !withdrawState}">Bank Details</button>
+                <button type="button" class="btn btn-primary btn-lg" (click)="bankStatus()"
+                  [ngClass]="{'active': !withdrawState}">Bank Details</button>
               </div>
               <div class="col-md-6">
-                <button type="button" class="btn btn-primary btn-lg" (click)="withdrawStatus()" [ngClass]="{'active': withdrawState}">Withdraw Status</button>
+                <button type="button" class="btn btn-primary btn-lg" (click)="withdrawStatus()"
+                  [ngClass]="{'active': withdrawState}">Withdraw Status</button>
 
               </div>
             </div>
@@ -71,7 +75,7 @@
 
             </div>
 
-            <div class="col-lg-10 col-xl-7 mx-auto with-scroll" *ngIf="withdrawState" >
+            <div class="col-lg-10 col-xl-7 mx-auto with-scroll" *ngIf="withdrawState">
               <!-- <app-loader *ngIf="isLoading"></app-loader> -->
               <h3 class="display-4 logintitle">WithDrawStatus Details</h3>
 
@@ -92,14 +96,15 @@
                         <div class="with_reverse_container col-xs-4">
                           <!-- ngIf: wd.StatusCode == 'P' -->
                           <ng-container *ngIf="statement.StatusCode == 'P'">
-                          <button (click)="cancelWithdraw(statement)" class="reversebtn">Reverse WithDraw</button>
+                            <button (click)="cancelWithdraw(statement)" class="reversebtn">Reverse WithDraw</button>
                           </ng-container>
-                          
+
                         </div>
                         <div class="with_date_container col-xs-4">
                           <p class="date_title_text">Date &amp; Time</p>
                           <p class="date_text">
-                            <span class="date_span_with ng-binding"> {{statement.CreatedDate | date:'mediumDate'}}</span>
+                            <span class="date_span_with ng-binding"> {{statement.CreatedDate |
+                              date:'mediumDate'}}</span>
                             <span class="time_span_with ng-binding">{{statement.CreatedDate | date:'shortTime'}}</span>
                           </p>
                         </div>
@@ -147,7 +152,7 @@
 
 
 
-          
+
               </ng-container>
             </div>
           </div>

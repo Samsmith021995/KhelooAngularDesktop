@@ -99,7 +99,6 @@
 }
 .tab .nav-tabs li {
   width: 50%;
-  float: left;
   display: inline-block;
 }
 
@@ -140,10 +139,7 @@
   float: right;
 }
 
-.with_first_line_container {
-  /* padding: 0 15px 7px;
-  padding-left: 0; */
-}
+
 
 p.status_title_text, p.date_title_text, p.comments_title_text {
   opacity: 0.5;
@@ -181,7 +177,6 @@ p.status_text {
 .with_first_col_container {
   width: 65%;
   display: inline-block;
-  float: left;
   padding-right: 15px;
 }
 
@@ -395,4 +390,11 @@ button.btn.btn-primary.btn-lg {
 
 .active{
   background: #e8aa0d !important;
+}
+.withlink{
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  color: #f4ad09;
+  font-size: 14px;
 }

@@ -52,6 +52,7 @@
 
 .tab .nav-tabs{
     border-bottom: 0 none;
+    justify-content: space-around;
 }
 .tab .nav-tabs li a{
     border: none;
@@ -74,7 +75,7 @@
 .tab .nav-tabs li.active a:focus,
 .tab .nav-tabs li.active a:hover{
     border: none;
-    background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
+    /* background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%); */
     color:#fff;
     margin: 0;
     transition: background 0.20s linear;
@@ -93,8 +94,7 @@
     padding: 30px 0 0;
 }
 .tab .nav-tabs li {
-    width: 50%;
-    float: left;
+  
     display: inline-block;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .bank_form_container {
-    padding: 0 15px;
+    padding: 15px;
 }
 
 .with_detail_ind_container {
@@ -115,7 +115,7 @@
 
 .with_amount_container p {
     color: #f4b52d;
-    font-size: 25px !important;
+    font-size: 20px !important;
     font-weight: bold;
     padding: 0 15px;
     display: inline-block;
@@ -134,11 +134,6 @@
 }
 .with_date_container, .download_with_container {
     float: right;
-}
-
-.with_first_line_container {
-    /* padding: 0 15px 7px;
-    padding-left: 0; */
 }
 
 p.status_title_text, p.date_title_text, p.comments_title_text {
@@ -177,7 +172,7 @@ p.status_text {
 .with_first_col_container {
     width: 65%;
     display: inline-block;
-    float: left;
+    /* float: left; */
     padding-right: 15px;
 }
 
@@ -308,3 +303,13 @@ p.status_text.pending_text {
    .active{
     background-color: #f4ad09 !important;
    }
+
+.withPlay{
+    color: #f4ad09;
+    text-align: center;
+    display: block;
+}
+
+.tab{
+    margin-top: 20px;
+}

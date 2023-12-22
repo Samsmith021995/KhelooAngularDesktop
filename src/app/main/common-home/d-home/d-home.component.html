@@ -1,6 +1,6 @@
 @if(gamelist){
 <app-loader></app-loader>
-}@else {   
+}@else {
 <div class="gamenavebar" style=" background-color: gray;color: white;  display: flex;">
     <div class="gamenavmenu">
         @for (item of mainCategory; track $index) {
@@ -10,10 +10,11 @@
         }
     </div>
     <div style=" width: 50%; padding: 0.1rem;">
-        <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="onSearch()" class="ng-untouched ng-pristine ng-valid">
+        <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="onSearch()"
+            class="ng-untouched ng-pristine ng-valid">
     </div>
 </div>
-<app-banner [images]="images" [slidesPerView] = "slidesPerViewn"></app-banner>
+<app-banner [images]="images" [slidesPerView]="slidesPerViewn"></app-banner>
 <div style="display: flex; overflow-x: auto; width: 100%; color: white;">
     <ng-container *ngIf="selected != 'AllGames'">
         <ng-container *ngFor="let category of subCategory">
@@ -43,10 +44,16 @@
                 </path>
             </svg></button>
         <div style=" display: flex; margin-right: 4px; overflow-x: auto; width: 100%; color: white;" #showMore
-            class="ashu" >
+            class="ashu">
             <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]">
                 <div style="margin-right: 4px; " class="casino-game-item">
                     <img [src]="game.url_thumb" alt="" width="250px" class="thgame">
+                    <div class="min_max_container">
+                        <span class="minValue">
+                            <span class="ng-binding"> Min.<i>₹</i>  {{game.MinAmount}} |</span>
+                        </span>
+                        <span class="maxValue ng-binding">Max.<i>₹</i>  {{game.MaxAmount>1000?game.MaxAmount+'k':game.MaxAmount}}</span>
+                    </div>
                     <a (click)="gameStart(game.game_id)">
                         <div class="playbtn">
                             <img src="https://kheloo.fun/img/play_icon_134504.png" alt=""
@@ -57,21 +64,21 @@
             </div>
 
         </div>
-        
-        @if(defaultSlices[i]<=gamesData[category].length){
-            <button (click)="updateSlice(i)" class="btn-show"
-                *ngIf="gamesData[category].length > 50 && isDetailsVisible[subSelected?0:i]">
-                View More
+
+        @if(defaultSlices[i]<=gamesData[category].length){ <button (click)="updateSlice(i)" class="btn-show"
+            *ngIf="gamesData[category].length > 50 && isDetailsVisible[subSelected?0:i]">
+            View More
             </button>
 
-        }
-        <button class="next-prev" (click)="scrollNext(i)"
-            *ngIf="gamesData[category].length > 8 && !subSelected && !isDetailsVisible[i]"><svg width="1em" height="1em"
-                viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
-                class="rem:stroke-[4px] text-trunks rem:text-[10px]  ">
-                <path d="M11.5 7L20.5 16L11.5 25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                </path>
-            </svg></button>
+            }
+            <button class="next-prev" (click)="scrollNext(i)"
+                *ngIf="gamesData[category].length > 8 && !subSelected && !isDetailsVisible[i]"><svg width="1em"
+                    height="1em" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="rem:stroke-[4px] text-trunks rem:text-[10px]  ">
+                    <path d="M11.5 7L20.5 16L11.5 25" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                    </path>
+                </svg></button>
     </div>
 </ng-container>
 
@@ -93,16 +100,16 @@
 <app-slots></app-slots>
 }
 <!-- <div class="row"> -->
-    <app-d-jackpot></app-d-jackpot>
- 
-    <div class="col-12 d-flex">
-        <div class="col-lg-5 col-md-5">
-            <!-- <app-promotion-video></app-promotion-video> -->
-            </div>
-            <div class="col-lg-5 col-md-5">
-                <!-- <app-promotion-video></app-promotion-video>    -->
-            </div>
-        </div>
-    
+<app-d-jackpot></app-d-jackpot>
+
+<div class="col-12 d-flex">
+    <div class="col-lg-5 col-md-5">
+        <!-- <app-promotion-video></app-promotion-video> -->
+    </div>
+    <div class="col-lg-5 col-md-5">
+        <!-- <app-promotion-video></app-promotion-video>    -->
+    </div>
+</div>
+
 
 <!-- </div> -->
