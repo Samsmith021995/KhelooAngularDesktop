@@ -37,7 +37,15 @@
                     <button type="button" class="btn" (click)="setAmount(25000)">₹ 25000</button>
                 </div>
                 <button style="width:100%;margin:auto;" class="b-core-ui-select"
-                    (click)="MrequestDeposit()">Pay</button>
+                    (click)="MrequestDeposit()">
+                    <ng-container *ngIf="isLoading; else content">
+                        <i-feather name="loader"></i-feather>
+                      </ng-container>
+                      <ng-template #content>
+                        Pay
+                      </ng-template>
+                    
+                    </button>
             </form>
 
         </div>

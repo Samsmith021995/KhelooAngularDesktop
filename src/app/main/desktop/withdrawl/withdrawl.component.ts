@@ -2,7 +2,7 @@ import { Component,OnInit,ViewChildren ,QueryList,ElementRef, Renderer2} from '@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
-import { Subscription } from 'rxjs';
+import { Subscription, catchError } from 'rxjs';
 
 @Component({
   selector: 'app-withdrawl',
@@ -51,6 +51,7 @@ withdrawState :boolean =false;
         }
         this.showsubmitbtn = false;
         // this.api.loaderHide();
+        this.withdrawform.reset();
       },
       error : err=>{
         this.apiSer.showAlert('Something Went Wrong','Please check your internet Connection','error');    
@@ -89,5 +90,19 @@ withdrawState :boolean =false;
       }
       this.renderer.addClass(nativeElement, 'viewDesk');
     }
+  }
+  cancelWithdraw(item:any){
+    let param = item;
+    this.apiSer.apiRequest(config['cancelReq'],param).pipe(catchError((error)=>{
+      throw error
+    })).subscribe((data)=>{
+      if(data.ErrorCode == '1'){
+        this.apiSer.showAlert(data.ErrorMessage,'','success');
+        this.withdrawStatus();
+      }else{
+        this.apiSer.showAlert(data.ErrorMessage,'','error');
+
+      }
+    });
   }
 }

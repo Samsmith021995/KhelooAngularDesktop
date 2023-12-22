@@ -304,3 +304,7 @@ p.status_text.pending_text {
     font-weight: 400;
     font-family: nunito,sans-serif;
    }
+
+   .active{
+    background-color: #f4ad09 !important;
+   }

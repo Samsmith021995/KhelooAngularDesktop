@@ -291,7 +291,7 @@
     font-weight: 900;
     text-transform: uppercase;
     &::before {
-      content: "Term & Conditions";
+      content: "Disconnection Policy";
       color: rgb(75 16 79 / 50%);
       font-size: 130px;
       display: block;

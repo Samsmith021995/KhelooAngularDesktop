@@ -10,10 +10,10 @@
 
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active">
-                <a    (click)="bankStatus()">Bank Details</a>
+                <a    (click)="bankStatus()" [ngClass]="{'active':!withdrawState}">Bank Details</a>
             </li>
             <li role="presentation">
-                <a   (click)="withdrawStatus()">Withdrawal Status</a>
+                <a   (click)="withdrawStatus()" [ngClass]="{'active':withdrawState}">Withdrawal Status</a>
             </li>
         </ul>
 
@@ -48,7 +48,15 @@
                             formControlName="IfscCode" placeholder="IFSC Code">
                     </div>
                     <div class="dep_btn_container">
-                        <button class="loginBtn" (click)="SubmitWithdrawRequest();">Submit</button>
+                        <button class="loginBtn" (click)="SubmitWithdrawRequest();">
+                        <ng-container *ngIf="isLoading; else content">
+                            <i-feather name="loader"></i-feather>
+                          </ng-container>
+                          <ng-template #content>
+                            Submit
+                          </ng-template>
+                        
+                        </button>
                     </div>
                          
                 </form>

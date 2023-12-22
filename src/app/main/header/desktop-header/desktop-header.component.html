@@ -10,6 +10,32 @@
       <span class="font7">Promotions</span>
     </a>
 
+<a href="#" class="button">
+  <span class="icon"><img src="https://kheloo.com/images/promotion_footer.svg"
+    class="promotion-icon1"/></span>
+   <div class="text">
+    <a class="navbar-brand" target="_blank" href="https://api.whatsapp.com/send/?phone=447897045261&text&app_absent=0" >
+      <img src="https://kheloo.com/images/Kheloo-whatsapp.png"
+      class="promotion-icon2" />
+      <br>
+      
+    </a>
+    <a class="navbar-brand" target="_blank" href="https://tawk.to/chat/60a22370185beb22b30ddc1d/1f5slks90" >
+      <img src="https://kheloo.com/images/chat.png"
+      class="promotion-icon2" />
+      <br>
+      
+    </a>
+    <a class="navbar-brand" target="_blank" (click)="requestCallback()" >
+      <img src="https://kheloo.com/images/call_support.png"
+      class="promotion-icon2" />
+      <br>
+      
+    </a>
+  </div>
+</a>
+
+
     <div class="" id="navbarSupportedContent">
       <span class="navbar-nav me-auto mb-2 mb-lg-0">
 
@@ -31,7 +57,7 @@
         </div>
       </form>
       <div class="loginbtn user" *ngIf="checkLogin ">
-        <button type="button" class="btn btn-success btn-lg mx-3 deposit" routerLink="/deposit">
+        <button type="button" class="btn btn-success btn-lg mx-3 deposit" (click)="navigate('deposit')">
           Deposit
         </button>
        <span class="UserName"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi {{
@@ -43,13 +69,13 @@
         <div class="col" *ngIf="showmenu">
           <ol class="sub-menu">
             <li class="menu-item">
-              <a routerLink="/withdraw">Withdraws</a>
+              <a (click)="navigate('withdraw')" >Withdraws</a>
             </li>
             <li class="menu-item">
-              <a routerLink="/statements">Statements</a>
+              <a (click)="navigate('statements')" >Statements</a>
             </li>
             <li class="menu-item">
-              <a routerLink="/setting">Settings</a>
+              <a (click)="navigate('setting')" >Settings</a>
             </li>
             <li class="menu-item">
               <a (click)="logout()">Logout</a>

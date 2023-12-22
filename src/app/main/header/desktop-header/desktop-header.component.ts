@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { config } from '../../service/config';
 import { ApiService } from '../../service/api.service';
@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './desktop-header.component.css',
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class DesktopHeaderComponent implements OnInit {
+export class DesktopHeaderComponent implements OnInit,OnDestroy {
   showmenu: boolean = false;
   showsubmitbtn: boolean = false;
   username: any = '';
@@ -31,6 +31,7 @@ export class DesktopHeaderComponent implements OnInit {
       Password: ['', Validators.required],
     });
     this.username = localStorage.getItem('name');
+    this.showmenu = false;
   }
   showmenubar() {
     this.showmenu = !this.showmenu;
@@ -93,11 +94,22 @@ export class DesktopHeaderComponent implements OnInit {
     this.apiSer.logout();
   }
   refreshHeader() {
+    this.showmenu = false;
     let LoginToken = localStorage.getItem('LoginToken');
     if (LoginToken != '' && LoginToken != null) {
       this.comSer?.startloging('login');
     } else {
       this.comSer?.stoploging('login');
     }
+  }
+  navigate(item:string){
+    this.showmenu = false;
+    this.router.navigate(['/'+item])
+  }
+  requestCallback(){
+    
+  }
+  ngOnDestroy(): void {
+    this.showmenu = false;
   }
 }

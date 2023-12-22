@@ -229,14 +229,14 @@ p.status_text.pending_text {
 
 .author_bio_wrap_toggle::after {
   position: absolute;
-  content: "\f078";
+  content: "\276F";
   top: 0;
   font-family: "FontAwesome";
   right: -15px;
 }
 
 .author_bio_wrap_toggle.arrow_class::after {
-  content: "\f077";
+  content: "\2304";
 }
 
 .with_container h4::after {
@@ -360,7 +360,7 @@ button.btn.btn-primary.btn-lg[_ngcontent-ng-c1731079979] {
   color: white; 
    font-size: large;
 }
-.author_biwr{
+.author_bio_wrap{
   display: none;
 }
 .viewDesk{
@@ -377,6 +377,22 @@ button.btn.btn-primary.btn-lg {
   border: 1px solid #3e0763;
   font-size: 18px;
   font-weight: 300;
-  background: #7800AC !important;
+  background: #7800AC;
   width: 170px;
+}
+.with-scroll{
+  height: 800px; 
+  overflow-y:auto;
+}
+
+.reversebtn{
+  color: #fff;
+  background: #612ba7;
+  border: 1px solid #6c41a5;
+  border-radius: 5px;
+  float: right;
+}
+
+.active{
+  background: #e8aa0d !important;
 }
