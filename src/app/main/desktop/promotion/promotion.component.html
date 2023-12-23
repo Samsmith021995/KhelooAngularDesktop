@@ -4,28 +4,32 @@
 
 <div class="sc-himrzO nSrBz" >
     
-    <div class="card mb-12" >
-        <div class="row g-0">
-          <div class="col-md-6 border-animation">
-            <img src="/assets/images/Banner7.jpeg" class="img-fluid rounded-start" alt="..." width="100%">
-          </div>
-          <div class="col-md-6">
-            <div class="card-body">
-              <h1 class="card-title">Live Casino 100% Welcome Bonus</h1>
-              <p class="card-text">Join our Live Casino today and get a 100% Welcome Bonus, instantly doubling your first deposit for an enhanced gaming experience!</p>
-              <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-              <button (click)="showContent()">{{showMor?'Read Less':'Read More'}}</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    <div class="sc-cKYHso eBOuzh" *ngIf="showMor">
-        
-        <div class="title">
-                <span class="sd">Live Casino 100% Welcome Bonus</span>
-            </div>
     
-            <div class="sc-fPJDME fjVnzR">
+    <div class="sc-cKYHso eBOuzh" >
+        <div class="card mb-12" >
+            <div class="row g-0">
+              <div class="col-md-6 border-animation">
+                <img src="/assets/images/Banner7.jpeg" class="img-fluid rounded-start" alt="..." width="100%">
+              </div>
+              <div class="col-md-6 bg-black">
+                <div class="card-body">
+                  <h1 class="card-title">Live Casino 100% Welcome Bonus</h1>
+                  <p class="card-text">Join our Live Casino today and get a 100% Welcome Bonus, instantly doubling your first deposit for an enhanced gaming experience!</p>
+                  <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  <button (click)="showContent()">{{showMor?'Read Less':'Read More'}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+          <br>
+        <div >
+        <!-- <div class="title">
+                <span class="sd">Live Casino 100% Welcome Bonus</span>
+            </div> -->
+    
+            <div class="sc-fPJDME fjVnzR" *ngIf="showMor">
              
                 <span class="sc-NUcrz jrxmYg">✪ How to participate ?</span>
                 
@@ -57,6 +61,7 @@
                 </ol>
                 
                 <span class="sc-NUcrz jrxmYg">✪ Event Details:</span>
+                <br>
                 <table >
                     <tbody>
                     <tr>
@@ -109,7 +114,7 @@
                     INR 5,000
                     </p>
                     </td>
-                    <td style="width: 82px; border-color: currentcolor black black currentcolor; border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 0cm 5.4pt;" valign="top">
+                    <td >
                     <p>
                     25X
                     </p>
@@ -117,10 +122,12 @@
                     </tr>
                     </tbody>
                     </table>
-                
+                <br>
+                <br>
 
                     <span class="sc-NUcrz jrxmYg">Example : </span>
-                    <table class="MsoNormalTable" style="margin-left: 27.75pt; border-collapse: collapse;" border="1" width="386" cellspacing="0" cellpadding="0">
+                    <br>
+                    <table class="MsoNormalTable" >
                     <tbody>
                     <tr>
                     <td colspan="2" valign="top" width="132">
@@ -196,12 +203,8 @@
                     </tbody>
                     </table>
 
-
-
-
-
-
-
+<br>
+<br>
                     <span class="sc-NUcrz jrxmYg" >Terms &amp; Conditions : <br></span>
                     <ol start="1" type="1">
                     <li>
@@ -307,8 +310,10 @@
                     <li>
                     <p>
                     Kheloo
-                    <a href="~/Home/TermsConditions">Terms &amp; Condition </a><a href="~/Home/TermsConditions">apply</a><a href="~/Home/TermsConditions">.</a>&nbsp;
+                    <a routerLink="/term-condition">Terms &amp; Condition </a>
+                    <!-- <a routerLink="/term-condition">apply</a>&nbsp; -->
                     </p>
                     </li>;
                     </ol>
             </div>
+        </div>
