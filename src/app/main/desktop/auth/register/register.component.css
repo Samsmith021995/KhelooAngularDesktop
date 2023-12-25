@@ -120,7 +120,7 @@ input[type=number] {
     border-radius: 8px;
     font-weight: 500;
   }
-  .submit {
+.submit {
     width: 100%;
     background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
     padding: 16px;

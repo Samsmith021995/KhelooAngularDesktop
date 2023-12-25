@@ -12,40 +12,42 @@
                     <span>Promotions</span>
                 </a>
             </li>
+            <ng-container *ngIf="!checkLogin">
             <li class="sign_up_containers">
-                <ng-container *ngIf="!checkLogin">
 
                     <a mat-button (click)="openDialog()" id="LoginForm" class="LoginFormClass">
                         Login
                     </a>
+                  </li>
                 </ng-container>
-              
                 <div class="loginbtn user" *ngIf="checkLogin ">
-                    <span class="UserName"><a (click)="showmenubar()" class="header-btns"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi {{
-                        username }} <br /> <i class="fa fa-inr" aria-hidden="true"></i><!--INR--> {{ userBalance }}
-                      <img src="/assets/images/profile.png" alt="">    
-                      </a>
-                      </span>
-                    <div class="col" *ngIf="showmenu">
-                      <ol class="sub-menu">
-                        <li class="menu-item">
-                          <a routerLink="/m-withdraw">Withdraws</a>
-                        </li>
-                        <li class="menu-item">
-                          <a routerLink="/m-statements">Statements</a>
-                        </li>
-                        <li class="menu-item">
-                          <a routerLink="/m-setting">Settings</a>
-                        </li>
-                        <li class="menu-item">
-                          <a (click)="logout()">Logout</a>
-                        </li>
-                      </ol>
-            
-                    </div>
-                  </div>
-            </li>
-        </ul>
+          <li>
+
+                <span class="UserName"><a (click)="showmenubar()" class="header-btns"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi {{
+                    username }} <br /> <i class="fa fa-inr" aria-hidden="true"></i><!--INR--> {{ userBalance }}
+                  <img src="/assets/images/profile.png" alt="">    
+                  </a>
+                  </span>
+                </li>
+                <div class="col" *ngIf="showmenu">
+                  <ol class="sub-menu">
+                    <li class="menu-item">
+                      <a routerLink="/m-withdraw">Withdraws</a>
+                    </li>
+                    <li class="menu-item">
+                      <a routerLink="/m-statements">Statements</a>
+                    </li>
+                    <li class="menu-item">
+                      <a routerLink="/m-setting">Settings</a>
+                    </li>
+                    <li class="menu-item">
+                      <a (click)="logout()">Logout</a>
+                    </li>
+                  </ol>
+        
+                </div>
+            </div>
+                </ul>
     </div>
 </div>
 

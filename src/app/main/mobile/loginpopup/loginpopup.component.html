@@ -1,9 +1,9 @@
-<section ng-hide="spribepopup">
-    <div class="dialog-close" data-dismiss="modal"></div>
+<section  class="loginPop">
+    <div  class="closePopInfo" (click)="closePopup()">X</div>
     <div class="login_form_wizard">
         <div class="loginPopupComponent-form-container">
             <div class="login_logo_container">
-                <img src="www.kheloo.com/images/logo.gif" class="img-fluid logo-color" alt="logo">
+                <img src="/assets/images/logo.gif" class="img-fluid logo-color" alt="logo">
             </div>
             <h3 class="RegisterFormComponent-form-title login_title">SIGN IN</h3>
             <form [formGroup]="mobileLogin">
