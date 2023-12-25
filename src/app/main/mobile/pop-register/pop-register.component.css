@@ -4,3 +4,9 @@ section{
 input{
     color: red;
 }
+
+.wizard{
+    background-color: #0b001c;
+    border: 2px solid #f3a432;
+    padding: 15px 15px 50px 15px;
+}

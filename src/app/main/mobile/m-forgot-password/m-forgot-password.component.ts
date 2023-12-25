@@ -84,4 +84,7 @@ export class MForgotPasswordComponent implements OnInit {
 
 
   }
+  closepopup(){
+    this.onCancel.emit();
+  }
 }

@@ -32,8 +32,10 @@ openRegister(){
 updateData(search:any){
   this.comSer.sendSearchData(search);
 }
+closeDial(){
+  this.dialog.closeAll();
+}
 ngOnDestroy() {
-  // Unsubscribe to avoid memory leaks
   // this.isLoggedInSubscription.unsubscribe();
 }
 

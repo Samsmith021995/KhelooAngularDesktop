@@ -485,9 +485,7 @@ td img {
     cursor: pointer;
   }
   
-  .tab-close:hover {
-   
-  }
+ 
   
   input:checked {
     + .tab-label {

@@ -23,6 +23,12 @@
             <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]" style="width: 47%; margin: 3px;"
                 class="casino-game-item">
                 <img [src]="game.url_thumb" alt="" width="100%">
+                <div class="min_max_container">
+                    <span class="minValue">
+                    <span ng-show="Item.MaxAmount" > Min.<i>₹</i>{{game.MinAmount}} </span>
+                    </span>
+                    <span class="maxValue ng-binding" ng-show="Item.MaxAmount">Max.<i>₹</i>{{game.MaxAmount>1000?game.MaxAmount/1000 +'k':game.MaxAmount}}</span>
+                    </div>
                 <a (click)="gameStart(game.game_id)">
                     <div class="playbtn">
                         <img src="https://kheloo.fun/img/play_icon_134504.png" alt="" class="casino-game-item-image-bc"

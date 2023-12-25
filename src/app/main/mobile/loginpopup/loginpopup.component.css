@@ -1,3 +1,43 @@
+/* @import url(https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css); */
+
 .fade:not(.show) {
     opacity: 1;
+}
+.loginPopupComponent-container section {
+    height: 100%;
+    background: none;
+    padding: 15px;
+}
+.loginPop{
+    width: 285px;
+    background-color: #0b001c;
+    max-height: 85vh;
+    top: 50%;
+    /* transform: translate(-50%, -50%); */
+    /* width: 100%; */
+    left: 50%;
+    background-size: cover;
+    height: 100%;
+    background-position: 50%;
+    border: 2px solid #f3a432;
+    border-radius: 10px;
+}
+
+.loginPopupComponent-form-container {
+    width: 100%;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.cdk-overlay-pane{
+    width: 300px !important;
+}
+.closePopInfo{
+    float: right;
+    color: white;
+    padding: 12px;
+    font-size: 20px;
+}
+.form_container{
+    padding: 10px;
 }

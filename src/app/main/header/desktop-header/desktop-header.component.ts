@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { config } from '../../service/config';
 import { ApiService } from '../../service/api.service';
 import { CommonServiceService } from '../../service/common-service.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './desktop-header.component.css',
   changeDetection: ChangeDetectionStrategy.Default
 })
-export class DesktopHeaderComponent implements OnInit {
+export class DesktopHeaderComponent implements OnInit,OnDestroy {
   showmenu: boolean = false;
   showsubmitbtn: boolean = false;
   username: any = '';
@@ -31,6 +31,7 @@ export class DesktopHeaderComponent implements OnInit {
       Password: ['', Validators.required],
     });
     this.username = localStorage.getItem('name');
+    this.showmenu = false;
   }
   showmenubar() {
     this.showmenu = !this.showmenu;
@@ -93,6 +94,7 @@ export class DesktopHeaderComponent implements OnInit {
     this.apiSer.logout();
   }
   refreshHeader() {
+    this.showmenu = false;
     let LoginToken = localStorage.getItem('LoginToken');
     if (LoginToken != '' && LoginToken != null) {
       this.comSer?.startloging('login');
@@ -100,4 +102,48 @@ export class DesktopHeaderComponent implements OnInit {
       this.comSer?.stoploging('login');
     }
   }
+  navigate(item:string){
+    this.showmenu = false;
+    this.router.navigate(['/'+item])
+  }
+  requestCallback(){
+    Swal.fire({
+      title: "Request a call back ?",
+      icon: "warning",
+      iconColor: 'rgb(64 195 237)',
+      showCancelButton: true,
+      cancelButtonText: 'No',
+      confirmButtonColor: "##fc0",
+      cancelButtonColor: "rgb(170, 170, 170)",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.apiSer.apiRequest(config['callback']).subscribe({
+          next: (data) => {
+            if (data.ErrorCode == '1') {
+              Swal.fire({
+                title: "success",
+                text: data.ErrorMessage,
+                icon: "success"
+              });
+            } else {
+              Swal.fire({
+                title: "Oops!",
+                text: data.ErrorMessage,
+                icon: "error",
+                confirmButtonColor: "##fc0",
+              });
+            }
+          },
+          error: (err) => {
+            console.error(err)
+          }
+        })
+      }
+    });
+  }
+  ngOnDestroy(): void {
+    this.showmenu = false;
+  }
+
 }

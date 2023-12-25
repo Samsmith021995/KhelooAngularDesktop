@@ -153,7 +153,6 @@ img {
 [class*=" bc-i-"],
 [class^=bc-i-] {
     font-family: "BetConstruct-Icons" !important;
-    speak: never;
     font-style: normal;
     font-weight: 400;
     -webkit-font-feature-settings: normal;
@@ -316,6 +315,10 @@ svg{
 
 .subSele{
     color: yellow;
+}
+
+.min_max_container{
+    bottom: -5px !important;
 }
 
 /* 

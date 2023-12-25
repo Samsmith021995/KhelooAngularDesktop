@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './pop-register.component.css'
 })
 export class PopRegisterComponent implements OnInit {
+  @Output() onCancel = new EventEmitter<any>();
   otpVerified:boolean = false;
   otpStart:boolean= false;
   registerForm !:FormGroup;
@@ -88,5 +89,8 @@ export class PopRegisterComponent implements OnInit {
     } else {
       this.apiSer.showAlert('Please Provide Correct Details', '', 'warning');
     }
+  }
+  closeDial(){
+    this.onCancel.emit();
   }
 }

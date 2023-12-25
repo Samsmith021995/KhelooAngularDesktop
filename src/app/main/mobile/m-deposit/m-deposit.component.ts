@@ -22,6 +22,10 @@ export class MDepositComponent implements OnInit {
   private apiSubscriber: Subscription[] = [];
   constructor(private fb: FormBuilder, private apiSer: ApiService) { }
   ngOnInit(): void {
+    this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
+      this.isLoading = ('depositReq' in loading) ? true : false;
+      
+    });
     this.depositForm = this.fb.group({
       Amount: ['', [Validators.required]]
     });

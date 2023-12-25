@@ -18,6 +18,8 @@ export const config:any = {
     "getProvider":{endURL:"MyProfileApi/GetUrlBasedOnGameProvider",type:"GET",keyL:"getProvider"},
     "balance":{endURL:"MyProfileAPI/GetUserBalance",type:"GET",keyL:"balance"},
     "recent":{endURL:"GameV1/GetRecentWithdraw",type:"GET",keyL:"recent"},
+    "cancelReq":{endURL:"MyProfileAPI/CancellWithdrawRequest",type:"POST",keyL:"cancelReq"},
+    "callback":{endURL:"MyProfileAPI/RequestCallback",type:"GET",keyL:"callback"},
 
     // MyProfileApi/GetUrlBasedOnGameProvider?game_id=2231
 

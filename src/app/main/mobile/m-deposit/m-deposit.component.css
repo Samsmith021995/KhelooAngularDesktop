@@ -1,3 +1,7 @@
+
+@import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css';
+@import 'https://kheloo.com/Content/OurAssest/Common/style.css'; 
+/* @import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; */
 .deposit_container {
     background: #000;
     margin-top: 60px;
@@ -219,8 +223,7 @@
     border-radius: 0 0 4px 4px
 }
 
-.custom-option:hover,
-.custom-option.selection {}
+
 
 .dep_amt_add_main_container {
     padding: 0 15px
@@ -243,7 +246,8 @@
 
 .input-group.dep_input_container {
     background: #1e0048;
-    border-radius: 8px
+    border-radius: 8px;
+    flex-wrap:nowrap !important;
 }
 
 .dep_inout_container span.input-group-addon {
@@ -259,7 +263,8 @@
     border-right: 0;
     border-radius: 8px;
     border-top-right-radius: 0;
-    border-bottom-right-radius: 0
+    border-bottom-right-radius: 0;
+    padding: 5px;
 }
 
 .dep_input_container .form-control {

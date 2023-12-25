@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } fro
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
-import { Subscription } from 'rxjs';
+import { Subscription,catchError } from 'rxjs';
 
 @Component({
   selector: 'app-withdraw',
@@ -90,8 +90,19 @@ export class WithdrawComponent implements OnInit {
       }
     })
   }
-  reverseWithdraw() {
-    //pending
+  reverseWithdraw(item:any) {
+    let param = item;
+    this.apiSer.apiRequest(config['cancelReq'],param).pipe(catchError((error)=>{
+      throw error
+    })).subscribe((data)=>{
+      if(data.ErrorCode == '1'){
+        this.apiSer.showAlert(data.ErrorMessage,'','success');
+        this.withdrawStatus();
+      }else{
+        this.apiSer.showAlert(data.ErrorMessage,'','error');
+
+      }
+    });
   }
   bankStatus() {
     this.withdrawState = false;
