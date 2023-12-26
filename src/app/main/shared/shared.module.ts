@@ -46,7 +46,6 @@ import { allIcons } from 'angular-feather/icons';
     SlotsComponent,
     DJackpotComponent,
     DPromotionalComponent
-  
   ],
   imports: [
   CommonModule,
