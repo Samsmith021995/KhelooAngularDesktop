@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class BottomNavbarComponent implements OnInit,OnDestroy {
 @ViewChild('register') register!:TemplateRef<any>;
+@ViewChild('mainMenu') mainMenu!:TemplateRef<any>;
 isLoggedIn: boolean = false;
 private isLoggedInSubscription!: Subscription;
 constructor(private dialog:MatDialog , private comSer:CommonServiceService,public apiSer:ApiService){}
@@ -28,9 +29,19 @@ openRegister(){
     panelClass: 'screen-dialog',
   });
 }
+openMenu(){
+  this.dialog.open(this.mainMenu, {
+    height: '900x',
+    width: '600px',
+    panelClass: 'screen-dialog',
+  });
+}
 
 updateData(search:any){
   this.comSer.sendSearchData(search);
+}
+seachData(item:any){
+  this.comSer.sendSearchData(item);
 }
 closeDial(){
   this.dialog.closeAll();

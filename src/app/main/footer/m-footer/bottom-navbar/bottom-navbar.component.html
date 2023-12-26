@@ -21,7 +21,7 @@
             </ul>
         </li>
         <li class="bottom_main_li horizontal_scroll_footer">
-            <div class="more_bottom_footer_options" data-toggle="modal" data-target="#moreBottomOptionsModal">
+            <div class="more_bottom_footer_options" (click)="openMenu()">
                 <i class="fa fa-plus"></i>
             </div>
             <ul id="scroll_bottom" class="swiper-scroll">
@@ -101,4 +101,7 @@
 </div>
 <ng-template #register>
     <app-pop-register (onCancel)="closeDial()"></app-pop-register>
+</ng-template>
+<ng-template #mainMenu>
+    <app-m-menu (onCancel)="closeDial()" (onFilter)="seachData($event)" ></app-m-menu >
 </ng-template>

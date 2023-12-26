@@ -38,6 +38,7 @@ import { IplBettingComponent } from './main/desktop/footer-content/sports/ipl-be
 import { OnlineSportsBettingComponent } from './main/desktop/footer-content/sports/online-sports-betting/online-sports-betting.component';
 import { MForgotPasswordComponent } from './main/mobile/m-forgot-password/m-forgot-password.component';
 import { ApiService } from './main/service/api.service';
+import { MMenuComponent } from './main/mobile/m-menu/m-menu.component';
 
 
 
@@ -77,6 +78,7 @@ import { ApiService } from './main/service/api.service';
     IplBettingComponent,
     OnlineSportsBettingComponent,
     MForgotPasswordComponent,
+    MMenuComponent,
   
     
     
