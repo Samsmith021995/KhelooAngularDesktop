@@ -193,15 +193,14 @@
 }
 .fjVnzR p {
   display: flex;
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-  justify-content: center;
-  color: rgb(255, 255, 255);
-  font-size: 21px;
-  line-height: 30px;
-  gap: 5px;
-  text-align: justify;
-  margin: 13px 0px;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    line-height: 30px;
+    gap: 5px;
+    text-align: justify;
+    margin: 3px 0px;
 }
 .fjVnzR span {
   font-size: 21px;
@@ -210,7 +209,7 @@
 .jrxmYg {
   font-size: 28px !important;
   color: rgb(189 8 198);
-  font-size: 17px;
+  font-size: 17px !important;
   /* font-family: Inter-Bold; */
   display: contents;
   font-family: "Poppins", sans-serif;
@@ -256,7 +255,7 @@ span.sd {
 ul ,li
 {
  margin: 0.75em 0;
- padding: 0 1em;
+ /* padding: 0 1em; */
  list-style: none;
 }
 
@@ -277,6 +276,7 @@ ul li::before {
 
 ol li::marker {
  content: "\2022";
+ color: #fff;
 }
 
 
@@ -285,8 +285,50 @@ li p{
     margin: -5px 0px 0px 10px !important;
 }
 p span{
-  color: rgb(189, 8, 198);
+  color: rgb(255, 255, 255);
   margin-left: 5px;
   font-weight: 600;
 
 }
+p.card-text {
+  width: 57%;
+  text-align: justify;
+}
+.card-body button {
+  background: #ffcd00;
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: unset;
+}
+h1.card-title, p.card-text {
+  color: #fff;
+}
+h1.card-title{
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.card-body {
+  padding: 18px 50px;
+}
+table {
+  font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+    margin-top: 10px;
+}
+
+td, th {
+  border: 1px solid #070431;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #2a0b47;
+}
+tr:nth-child(odd) {
+  background-color: #200b39;
+}
+
