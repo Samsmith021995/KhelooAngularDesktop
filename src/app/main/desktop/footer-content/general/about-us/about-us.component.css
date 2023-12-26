@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lato&subset=latin-ext);
+
 .nSrBz {
   width: 100%;
   display: flex;
@@ -6,6 +7,7 @@
   -webkit-box-pack: center;
   justify-content: center;
 }
+
 .fAmwxC {
   width: 100%;
   display: flex;
@@ -18,6 +20,7 @@
   max-width: 100%;
   transition: all 700ms ease 0s;
 }
+
 .fAmwxC .play {
   position: absolute;
   width: 14%;
@@ -37,55 +40,55 @@
   color: rgb(255, 255, 255);
 }
 
-.eIkrFH {
-  background: linear-gradient(
-      183.17deg,
-      rgb(178, 23, 100) 0%,
-      rgb(222, 17, 124) 50.52%,
-      rgb(198, 0, 103) 100%
-    ),
-    rgb(239, 65, 35);
-  box-shadow: rgba(255, 0, 133, 0.6) 0px 0px 32.8716px;
-  border-radius: 33.3444px;
-  width: auto;
-  height: auto;
-  padding: 10px 15px;
-  color: rgb(255, 255, 255);
-  outline: none;
-  font-size: 18px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  z-index: 99;
-  margin-top: 3rem;
-  cursor: pointer;
-}
-.eBOuzh {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  -webkit-box-align: center;
-  align-items: center;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
-    100% 5% / cover no-repeat;
-  padding: 4rem 0px;
+@media (min-width:767px) {
+  .eIkrFH {
+    background: linear-gradient(183.17deg,
+        rgb(178, 23, 100) 0%,
+        rgb(222, 17, 124) 50.52%,
+        rgb(198, 0, 103) 100%),
+      rgb(239, 65, 35);
+    box-shadow: rgba(255, 0, 133, 0.6) 0px 0px 32.8716px;
+    border-radius: 33.3444px;
+    width: auto;
+    height: auto;
+    padding: 10px 15px;
+    color: rgb(255, 255, 255);
+    outline: none;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    z-index: 99;
+    margin-top: 3rem;
+    cursor: pointer;
+  }
+
+  .eBOuzh {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg) 100% 5% / cover no-repeat;
+    padding: 4rem 0px;
+  }
 }
 
 .bLvAaE.funkytime {
   color: rgb(221, 18, 123);
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyenter.png)
-    center center / contain no-repeat;
+  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyenter.png) center center / contain no-repeat;
   height: 100px;
   width: 100%;
   font-size: 27px;
 }
+
 .bLvAaE::after {
   content: "";
   width: 190px;
   height: 10px;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
-    center center / cover no-repeat;
+  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png) center center / cover no-repeat;
 }
+
 .bmKVRh {
   text-transform: uppercase;
   font-size: 30px;
@@ -106,6 +109,7 @@
   text-align: center;
   font-family: Inter-Bold;
 }
+
 .boKhha::after {
   content: "";
   width: 73px;
@@ -113,17 +117,19 @@
   right: 0px;
   bottom: 0px;
   position: absolute;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/crazyCrashOrangeRIght.png)
-    center center / cover no-repeat;
+  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/crazyCrashOrangeRIght.png) center center / cover no-repeat;
 }
+
 .ggRmfc {
   width: 35%;
   display: flex;
   padding-top: 47px;
 }
+
 .ggRmfc img {
   max-width: 100%;
 }
+
 .agzbG {
   width: 50%;
   padding: 2rem;
@@ -134,6 +140,7 @@
   flex-direction: column;
   gap: 1.5rem;
 }
+
 .agzbG li {
   border: 2px solid rgb(221, 18, 123);
   display: flex;
@@ -143,22 +150,23 @@
   gap: 1.5rem;
   padding: 1.5rem;
   border-radius: 8.09632px;
-  background: linear-gradient(
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.004) 100%
-  );
+  background: linear-gradient(rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.004) 100%);
   mix-blend-mode: normal;
   backdrop-filter: blur(42.6023px);
 }
+
 .agzbG img {
   width: 98px;
   height: 98px;
 }
+
 .cfTlXS {
   width: 90%;
   display: flex;
   flex-direction: column;
 }
+
 .cfTlXS span {
   text-transform: uppercase;
   font-size: 18px;
@@ -170,6 +178,7 @@
   font-family: Inter-Bold;
   display: contents;
 }
+
 .cfTlXS p {
   margin: 10px 0px 0px;
 }
@@ -179,46 +188,106 @@
   color: rgb(255, 255, 255);
   font-size: 17px;
 }
-.fjVnzR {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 0rem 17rem 2.5rem;
-  align-items: flex-start;
+
+@media (min-width:767px) {
+  .fjVnzR {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 17rem 2.5rem;
+    align-items: flex-start;
+  }
+
+  .fjVnzR p {
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    line-height: 30px;
+    gap: 5px;
+    text-align: justify;
+    margin: 13px 0px;
+  }
+
+  .fjVnzR span {
+    font-size: 21px;
+  }
+
+  .jrxmYg {
+    font-size: 28px !important;
+    color: rgb(189 8 198);
+    font-size: 17px;
+    /* font-family: Inter-Bold; */
+    display: contents;
+    font-family: "Poppins", sans-serif;
 }
-.fjVnzR p {
-  display: flex;
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-  justify-content: center;
-  color: rgb(255, 255, 255);
-  font-size: 21px;
-  line-height: 30px;
-  gap: 5px;
-  text-align: justify;
-  margin: 13px 0px;
 }
-.fjVnzR span {
-  font-size: 21px;
+@media (max-width:767px) {
+  .fjVnzR {
+    /* width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 17rem 2.5rem; */
+    margin: 10px 20px;
+  }
+
+  .fjVnzR p {
+    /* display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    line-height: 30px;
+    gap: 5px;
+    text-align: justify;
+    margin: 13px 0px; */
+    justify-content: center;
+    color: #8f99a3;
+    line-height: 20px;
+    font-weight: 400;
+    font-family: nunito,sans-serif;
+    /* letter-spacing: 0.3px; */
+    /* margin: 0 20px 10px; */
+  }
+
+  .fjVnzR span {
+    font-size: 16px;
+  }
+
+  .jrxmYg {
+    font-size: 28px !important;
+    color: rgb(189 8 198);
+    font-size: 17px;
+    /* font-family: Inter-Bold; */
+    display: contents;
+    font-family: "Poppins", sans-serif;
+  }
 }
 
-.jrxmYg {
-  font-size: 28px !important;
-  color: rgb(189 8 198);
-  font-size: 17px;
-  /* font-family: Inter-Bold; */
-  display: contents;
-  font-family: "Poppins", sans-serif;
+@media (max-width:767px) {
+  .jrxmYg {
+    font-size: 16px !important;
+    color: white;
+    font-size: 17px;
+    /* font-family: Inter-Bold; */
+    display: contents;
+    font-family: "Poppins", sans-serif;
+  }
 }
+
 .table td,
 .table th {
   padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
 }
+
 th {
   text-align: inherit;
 }
+
 tbody,
 thead,
 tr.head {
@@ -229,11 +298,23 @@ tr.head {
   padding: 20px !important;
   background-color: #ef008a;
 }
-div.title {
-  width: 100%;
-  height: 100px;
-  margin-top: 100px;
+@media (min-width:767px) {
+  div.title {
+    width: 100%;
+    height: 100px;
+    margin-top: 100px;
+  }
+  
 }
+@media (max-width:767px) {
+  div.title {
+    width: 100%;
+    height: 100px;
+    /* margin-top: 100px; */
+  }
+  
+}
+
 .sd:after {
   content: "";
   width: 190px;
@@ -243,24 +324,36 @@ div.title {
   margin: -25px auto;
   /* position: absolute; */
 }
-span.sd {
-  color: #7814a1;
-  display: block;
-  font-size: 76px;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 1.9;
-  font-weight: 900;
-  text-transform: uppercase;
-  &::before {
-    content: "About";
-    color: rgb(75 16 79 / 50%);
-    font-size: 130px;
-    /* //width: 350px; */
-    display: block;
-    margin: -160px -110px;
-    font-weight: 900;
 
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+@media (min-width:767px) {
+
+  span.sd {
+    color: #7814a1;
+    display: block;
+    font-size: 76px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-weight: 900;
+    text-transform: uppercase;
+
+    &::before {
+      content: "About";
+      color: rgb(75 16 79 / 50%);
+      font-size: 130px;
+      /* //width: 350px; */
+      display: block;
+      margin: -160px -110px;
+      font-weight: 900;
+
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+}
+
+@media (max-width:767px) {
+  .mobile-img{
+    background-image: url(/assets/images/Banner11.jpeg);
   }
 }

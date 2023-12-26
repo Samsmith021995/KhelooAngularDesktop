@@ -60,15 +60,18 @@
   margin-top: 3rem;
   cursor: pointer;
 }
-.eBOuzh {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  -webkit-box-align: center;
-  align-items: center;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
-    100% 5% / cover no-repeat;
-  padding: 4rem 0px;
+@media (min-width:767px) {
+  .eBOuzh {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
+      100% 5% / cover no-repeat;
+    padding: 4rem 0px;
+  }
+  
 }
 
 .bLvAaE.funkytime {
@@ -245,26 +248,43 @@ div.title {
   margin: -25px auto;
   /* position: absolute; */
 }
-span.sd {
-  color: #7814a1;
-  display: block;
-  font-size: 76px;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 1.9;
-  font-weight: 900;
-  text-transform: uppercase;
-  &::before {
-    content: "CONTACT US";
-    color: rgb(75 16 79 / 50%);
-    font-size: 130px;
-    /* //width: 350px; */
+@media (min-width:767px) {
+  span.sd {
+    color: #7814a1;
     display: block;
-    margin: -160px 0px;
+    font-size: 76px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.9;
     font-weight: 900;
-
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    &::before {
+      content: "CONTACT US";
+      color: rgb(75 16 79 / 50%);
+      font-size: 130px;
+      /* //width: 350px; */
+      display: block;
+      margin: -160px 0px;
+      font-weight: 900;
+  
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
   }
+  
+}
+@media (max-width:767px) {
+  span.sd {
+    color: white;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-weight: 900;
+    text-transform: uppercase;
+ 
+  }
+  
 }
 
 .affiliates_y_icon_container.col-md-1 img {
@@ -304,49 +324,91 @@ td img {
     background-color: #7c0974;
 }
 
-.col p{
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    justify-content: center;
-    color: rgb(255, 255, 255);
-    font-size: 21px;
+
+@media (min-width:767px) {
+  .col p{
+      flex-wrap: wrap;
+      -webkit-box-pack: center;
+      justify-content: center;
+      color: rgb(255, 255, 255);
+      font-size: 21px;
+  }
+  .custom-row{
+      width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0rem 17rem 2.5rem;
+        align-items: flex-start;
+    }
+    #m-main:after {
+      content: "";
+      width: 190px;
+      height: 10px;
+      background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+        center center / cover no-repeat;
+      display: block;
+      margin: 5px auto;
+    }
+    #m-main{
+      color: rgb(189, 8, 198);
+      font-size: 25px;
+      font-weight: 700;
+      margin-bottom: 1em;
+      text-align: center;
+    
+    }
+    .input{
+      height: 50px;
+      width: 80%;
+      font-size: 14px;
+      border: none;
+      background: transparent;
+      margin: 4px;
+      border: 1px solid #710e65;
+      border-radius: 4px;
+      padding: 10px;
+    }
+    #mail-content{
+      height: 100px;
+      width: 80%;
+      font-size: 14px;
+      border: none;
+      border: 1px solid #8f99a3;
+      margin: 4px;
+      border-radius: 4px;
+      background: transparent;
+      width: 25em;
+      height: 10em;
+    }
 }
-.custom-row{
-    width: 100%;
-      display: flex;
-      flex-direction: column;
-      padding: 0rem 17rem 2.5rem;
-      align-items: flex-start;
-  }
-  #m-main{
-    color: rgb(189, 8, 198);
-    font-size: 25px;
-    font-weight: 700;
-    margin-bottom: 1em;
-    text-align: center;
-  }
 
-  #m-main:after {
-    content: "";
-    width: 190px;
-    height: 10px;
-    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
-      center center / cover no-repeat;
-    display: block;
-    margin: 5px auto;
+@media (max-width:767px) {
+      .input{
+      height: 50px;
+      width: 80%;
+      font-size: 14px;
+      border: none;
+      background: transparent;
+      margin: 4px;
+      border: 1px solid #8f99a3;
+      border-radius: 4px;
+      padding: 10px;
+    }
+    #m-main{
+      color: #8f99a3;
+      font-weight: 700;
+      margin-bottom: 1em;
+      text-align: center;
+      width: 19em;
+    height: 7em;
+    }
+    .col p{
+      flex-wrap: wrap;
+      -webkit-box-pack: center;
+      justify-content: center;
+      color: rgb(255, 255, 255);
+      font-size: 14px;
   }
-  .input{
-    height: 50px;
-    width: 80%;
-    font-size: 14px;
-    border: none;
-    background: transparent;
-    margin: 4px;
-    border: 1px solid #710e65;
-    border-radius: 4px;
-    padding: 10px;
-  }
-
   .btn-sub{
     width: auto;
     height: auto;
@@ -359,18 +421,35 @@ td img {
     font-size: 14px;
     text-transform: uppercase;
   }
+}
 
+@media (max-width:767px) {
   #mail-content{
     height: 100px;
     width: 80%;
     font-size: 14px;
     border: none;
-    border: 1px solid #710e65;
+    border: 1px solid #8f99a3;
     margin: 4px;
     border-radius: 4px;
     background: transparent;
+    width: 19em;
+    height: 6em;
   }
-
+  .btn-sub{
+    width: 100%;
+    height: auto;
+    background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
+    color: white;
+    border: 1px solid #ffd370;
+    border-radius: 4px;
+    padding: 10px 23px;
+    box-shadow: 0px 0px 8px #f7ad07;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  
+}
   #get-content{
     padding: 20px;
   }

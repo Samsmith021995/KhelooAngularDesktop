@@ -13,18 +13,18 @@ import { CommonServiceService } from '../../service/common-service.service';
 export class MHomeComponent implements OnInit {
   slidesPerViewn:number = 1;
   images = [
-    'https://kheloo.com/images/10minwith.png',
-    'https://kheloo.com/images/Banner11.jpg',
-    'https://kheloo.com/images/Banner18.jpg',
-    'https://kheloo.com/images/Dil-se-kheloo_375x250.jpg',
-    'https://kheloo.com/images/10minwith.png',
-    'https://kheloo.com/images/Banner11.jpg',
-    'https://kheloo.com/images/Banner18.jpg',
-    'https://kheloo.com/images/Dil-se-kheloo_375x250.jpg',
-    'https://kheloo.com/images/10minwith.png',
-    'https://kheloo.com/images/Banner11.jpg',
-    'https://kheloo.com/images/Banner18.jpg',
-    'https://kheloo.com/images/Dil-se-kheloo_375x250.jpg',
+    '/assets/images/10minwith.png',
+    '/assets/images/Banner11.jpeg',
+    '/assets/images/Banner18.jpeg',
+    '/assets/images/Dil-se-kheloo_375x250.jpeg',
+    '/assets/images/10minwith.png',
+    '/assets/images/Banner11.jpeg',
+    '/assets/images/Banner18.jpeg',
+    '/assets/images/Dil-se-kheloo_375x250.jpeg',
+    '/assets/images/10minwith.png',
+    '/assets/images/Banner11.jpeg',
+    '/assets/images/Banner18.jpeg',
+    '/assets/images/Dil-se-kheloo_375x250.jpeg',
 
   ];
   mainCategory: any[] = [];
@@ -116,6 +116,7 @@ export class MHomeComponent implements OnInit {
     this.router.navigate(['/games', param]);
   }
   showMoreF(item: number) {
+    console.log(item);
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     if (nativeElement) {
       if (nativeElement.classList.contains('showMore')) {
@@ -134,13 +135,16 @@ export class MHomeComponent implements OnInit {
     if (itemSeach.trim() !== '') {
       let param = { GameCategory: this.selected }
       for (let item of this.subCategory) {
-        const filteredApiResults = this.filteredResults[item].filter(result =>
-          result.name.toLowerCase().includes(itemSeach.toLowerCase()) || 
-          result.groupname.toLowerCase().includes(itemSeach.toLowerCase()) || 
-          result.gamecategory.toLowerCase().includes(itemSeach.toLowerCase())
-        );
-        this.gamesData[item] = filteredApiResults;
+          const filteredApiResults = this.filteredResults[item].filter(result =>
+            result.name.toLowerCase().includes(itemSeach.toLowerCase()) || 
+            result.groupname.toLowerCase().includes(itemSeach.toLowerCase()) || 
+            result.gamecategory.toLowerCase().includes(itemSeach.toLowerCase())
+            );
+              console.log(filteredApiResults.length);
+              this.gamesData[item] = filteredApiResults;
       }
+      this.subCategory = this.subCategory.filter(item => this.gamesData[item]?.length > 0);
+     
     } else {
       this.gamesData = { ...this.filteredResults };
     }
