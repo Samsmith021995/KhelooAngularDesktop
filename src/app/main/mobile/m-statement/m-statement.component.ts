@@ -46,7 +46,7 @@ export class MStatementComponent implements OnInit {
       }
       if (data) {
         this.details = data;
-        this.ttl = data[0].TotalCount ? data[0].TotalCount : 0;
+        this.ttl = data?.[0]?.TotalCount || 0;
       }
     });
   }

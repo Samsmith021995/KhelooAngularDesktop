@@ -115,3 +115,6 @@ img {
     right: auto;
     bottom: 10px;
 } */
+.secondary_navbar ul li a img.support_close_img, .secondary_navbar ul li a.customer_click .support_img {
+    display: block;
+}

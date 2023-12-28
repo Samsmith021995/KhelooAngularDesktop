@@ -35,16 +35,16 @@
                 <div class="col" *ngIf="showmenu">
                   <ol class="sub-menu">
                     <li class="menu-item">
-                      <a routerLink="/m-withdraw">Withdraws</a>
+                      <a  (click)= "navigate('/m-withdraw')">Withdraws</a>
                     </li>
                     <li class="menu-item">
-                      <a routerLink="/m-statements">Statements</a>
+                      <a (click)= "navigate('/m-statements')" >Statements</a>
                     </li>
                     <li class="menu-item">
-                      <a routerLink="/m-setting">Settings</a>
+                      <a (click)= "navigate('/m-setting')" >Settings</a>
                     </li>
                     <li class="menu-item">
-                      <a (click)="logout()">Logout</a>
+                      <a  (click)="logout()">Logout</a>
                     </li>
                   </ol>
         

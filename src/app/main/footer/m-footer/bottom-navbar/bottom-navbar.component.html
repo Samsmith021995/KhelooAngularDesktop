@@ -1,12 +1,12 @@
 <div class="bottom_navbar secondary_navbar">
     <ul>
         <li class="bottom_main_li customerLi">
-            <a href="javascript:void(0)" class="secondaryAnchor customerChat">
-                <img src="https://kheloo.com//images/promotion_footer.svg" class="support_img">
-                <img src="https://kheloo.com//images/close.png" class="support_close_img">
+            <a href="javascript:void(0)" class="secondaryAnchor customerChat" (click)="showSupport()">
+                <img src="https://kheloo.com//images/promotion_footer.svg" class="support_img" *ngIf="!showSp">
+                <img src="https://kheloo.com//images/close.png" class="support_close_img" *ngIf="showSp">
                 <span>Support</span>
             </a>
-            <ul class="ms-nav">
+            <ul class="ms-nav" [ngClass]="{'customer_show':showSp}">
                 <li class="ms-li ms-li3 ms-li-last">
                     <a target="_blank"
                         href="https://api.whatsapp.com/send/?phone=447897045261&amp;text&amp;app_absent=0">

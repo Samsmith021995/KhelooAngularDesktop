@@ -16,6 +16,7 @@ export class BottomNavbarComponent implements OnInit,OnDestroy {
 isLoggedIn: boolean = false;
 diaRef1:any;
 diaRef2:any;
+showSp:boolean = false;
 private isLoggedInSubscription!: Subscription;
 constructor(private dialog:MatDialog , private comSer:CommonServiceService,public apiSer:ApiService){}
 ngOnInit(): void {
@@ -55,6 +56,10 @@ closeDial1(){
 }
 ngOnDestroy() {
   // this.isLoggedInSubscription.unsubscribe();
+}
+
+showSupport(){
+this.showSp =!this.showSp;
 }
 
 }
