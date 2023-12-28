@@ -30,7 +30,7 @@
     height: 40px;
     border: 2px solid #f4ad09;
     border-radius: 8px;
-    color: #f4ad09;
+    color: #fff !important;
     font-size: 12px;
 }
 
@@ -63,9 +63,9 @@
     border-radius: 0;
     margin: 0;
 }
-.tab .nav-tabs li a:hover{
+/* .tab .nav-tabs li a:hover{
     background:#000;
-}
+} */
 .tab .nav-tabs li a i{
     font-size: 14px;
     display: block;
@@ -97,6 +97,7 @@
 .tab .nav-tabs li {
   
     display: inline-block;
+    width: 50%;
 }
 
 .tab .nav-tabs li a {
@@ -172,9 +173,7 @@ p.status_text {
 
 .with_first_col_container {
     width: 65%;
-    display: inline-block;
-    /* float: left; */
-    padding-right: 15px;
+    float: left;
 }
 
 .with_second_col_container {
@@ -309,8 +308,44 @@ p.status_text.pending_text {
     color: #f4ad09;
     text-align: center;
     display: block;
+    font-size: 14px;
 }
 
 .tab{
     margin-top: 20px;
+}
+.heading {
+    margin-bottom: 0;
+}
+.heading h2 {
+   
+    position: relative;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: anton,sans-serif;
+    background: -webkit-linear-gradient(#ffd370 0%,#f7ad07 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    z-index: 0;
+    padding-top: 5px;
+    padding-bottom: 0;
+    cursor: auto;
+    letter-spacing: -1px;
+    font-size: 28px;
+    letter-spacing: 0;
+    color: #d07909;
+    position: relative;
+    -webkit-text-fill-color: initial;
+    text-align: center;
+    background: -webkit-linear-gradient(#f08f0f 0%, #fff 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h4.wheading{
+    line-height: 25px;
+    padding: 30px 0 0;
+}
+.mat-typography p {
+    margin: 0;
 }

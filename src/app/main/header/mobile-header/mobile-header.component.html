@@ -7,7 +7,7 @@
     <div class="login_container">
         <ul>
             <li class="customer_icon_container promotion_icon_container">
-                <a href="https://kheloo.com/#promotion_section_container" class="beforeLogin">
+                <a routerLink="#" class="beforeLogin">
                     <img src="https://kheloo.com/images/promotion_icon.png" class="img-fluid" alt="customer support">
                     <span>Promotions</span>
                 </a>
@@ -23,11 +23,14 @@
                 <div class="loginbtn user" *ngIf="checkLogin ">
           <li>
 
-                <span class="UserName"><a (click)="showmenubar()" class="header-btns"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Hi {{
-                    username }} <br /> <i class="fa fa-inr" aria-hidden="true"></i><!--INR--> {{ userBalance }}
-                  <img src="/assets/images/profile.png" alt="">    
+                <span class="UserName"><a class="header-btns">{{
+                    username }} <br /> <span class="txt-yel"><!--<i class="fa fa-inr" aria-hidden="true"></i>-->INR {{ userBalance }}</span>
+                   
                   </a>
                   </span>
+                </li>
+                <li (click)="showmenubar()" class="header-btns">
+                  <img src="/assets/images/profile.png" alt="">  
                 </li>
                 <div class="col" *ngIf="showmenu">
                   <ol class="sub-menu">
