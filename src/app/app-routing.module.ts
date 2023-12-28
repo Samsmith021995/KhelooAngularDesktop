@@ -172,22 +172,22 @@ const routes: Routes = [
       {
         path:'m-setting',
         loadChildren:()=>import('./main/mobile/m-setting/m-setting.module').then(m=>m.MSettingModule),
-        canActivate:[MobileGuard]
+        canActivate:[AuthGuard,MobileGuard]
       },
       {
         path:'m-withdraw',
         loadChildren:()=>import('./main/mobile/withdraw/withdraw.module').then(m=>m.WithdrawModule),
-        canActivate:[MobileGuard]
+        canActivate:[AuthGuard,MobileGuard]
       },
       {
         path:'m-deposit',
         loadChildren:()=>import('./main/mobile/m-deposit/m-deposit.module').then(m=>m.MDepositModule),
-        canActivate:[MobileGuard]
+        canActivate:[AuthGuard,MobileGuard]
       },
       {
         path:'m-statements',
         loadChildren:()=>import('./main/mobile/m-statement/m-statement.module').then(m=>m.MStatementModule),
-        canActivate:[MobileGuard]
+        canActivate:[AuthGuard,MobileGuard]
       }
 
       //Mobile End by Ashutosh

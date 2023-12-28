@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonServiceService } from './service/common-service.service';
+import { UrlService } from './service/url.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -8,10 +10,22 @@ import { CommonServiceService } from './service/common-service.service';
 })
 export class MainComponent implements OnInit {
   isSmallScreen!:boolean;
-  constructor(private commonSer:CommonServiceService){}
+  isUrlPresent!:boolean;
+  private urlSubscription!: Subscription;
+  constructor(private commonSer:CommonServiceService,private urlSer:UrlService){}
   ngOnInit(): void {
     this.commonSer.myVariable$.subscribe((width)=>{
       this.isSmallScreen = width === "true";
     });
+    
+    this.urlSubscription = this.urlSer
+      .getIsUrlPresent().
+      subscribe((isUrlPresent1) => {
+        this.isUrlPresent = isUrlPresent1 === 'true';
+      });
+       
   }
+  // ngOnDestroy(): void {
+  //   this.urlSubscription.unsubscribe();
+  // }
 }

@@ -39,6 +39,7 @@ import { OnlineSportsBettingComponent } from './main/desktop/footer-content/spor
 import { MForgotPasswordComponent } from './main/mobile/m-forgot-password/m-forgot-password.component';
 import { ApiService } from './main/service/api.service';
 import { MMenuComponent } from './main/mobile/m-menu/m-menu.component';
+import { UrlService } from './main/service/url.service';
 
 
 
@@ -90,7 +91,7 @@ import { MMenuComponent } from './main/mobile/m-menu/m-menu.component';
     BrowserAnimationsModule
   
 ,  ],
-  providers: [ApiService],
+  providers: [ApiService,UrlService],
  
   bootstrap: [AppComponent]
 })
