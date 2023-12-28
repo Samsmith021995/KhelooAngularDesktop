@@ -53,7 +53,7 @@
             
             <ng-container *ngFor="let item of paymentGateway">
                 <ng-container *ngIf="paymentGateway">
-                    <span class="back"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back </span>
+                    <span class="back" (click)="backPage()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back </span>
                     <div class="banner">
                         <img src="https://kheloo.com//images/deposit-banner-new.png">
                     </div>

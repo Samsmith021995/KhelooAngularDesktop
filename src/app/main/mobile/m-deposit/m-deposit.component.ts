@@ -84,4 +84,8 @@ export class MDepositComponent implements OnInit {
   setAmount(amount: any) {
     this.depositForm.controls['Amount'].setValue(amount);
   }
+  backPage(){
+    this.paymentGateway = [];
+    this.paymentinput = true;
+  }
 }
