@@ -468,6 +468,3 @@ button.btn {
     border: 1px solid transparent;
     border-radius: 4px;
 }
-.btn:not(:disabled):not(.disabled) {
-    padding-bottom: 5px;
-}

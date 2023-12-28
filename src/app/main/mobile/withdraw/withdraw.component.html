@@ -62,10 +62,9 @@
                 </form>
                 </div>
             </div>
-            <div *ngIf="withdrawState">
-                <h4 class="wheading">WithDraw Details</h4>
-                <div class="with_details_main_container"  style="margin-top: 20px;"> 
-                   
+            <div  >
+                <div class="" *ngIf="withdrawState" style="margin-top: 20px;"> 
+                    <h4>WithDraw Details</h4>
                     @if(withdrawStatement.length > 0){
 
                    <ng-container *ngFor="let item of withdrawStatement; let i = index;">

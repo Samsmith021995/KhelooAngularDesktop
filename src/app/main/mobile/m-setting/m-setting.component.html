@@ -1,6 +1,6 @@
-<!-- <div class="container">
+<div class="container">
     <div class="row">
-       
+        <!-- <app-loader  *ngIf="isLoading"></app-loader> -->
         <div class="main" *ngIf="!isLoading">
             <div class="">
                 <label for="UserName">UserName</label>
@@ -19,65 +19,9 @@
             </div>
         </div>
     </div>
-    <button type="button" class="sc-dhcObn pinkbtn center"> >Reset Password</a></button>
-</div> -->
-
-<div class="settings_container ng-scope" ng-controller="SettingController">
-    <h4>Settings</h4>
-    <div class="bank_form_container">
-        <div class="setting_list">
-            <div class="setting_list_body">
-                <div class="setting_list_item">
-                    <div class="setting_list_line">
-                        <div class=" setting_list_content">Username</div>
-                        <div class="setting_list_extra">{{ userDetails.UserName }}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="setting_list">
-            <div class="setting_list_body">
-                <div class="setting_list_item">
-                    <div class="setting_list_line">
-                        <div class=" setting_list_content">Full Name</div>
-                        <div class="setting_list_extra ng-binding">{{ userDetails.FName + ' ' + userDetails.LName }}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="setting_list">
-            <div class="setting_list_body">
-                <div class="setting_list_item">
-                    <div class="setting_list_line">
-                        <div class=" setting_list_content">Mobile</div>
-                        <div class="setting_list_extra">{{ userDetails.Mobile }}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="setting_list">
-            <div class="setting_list_body">
-                <div class="setting_list_item">
-                    <div class="setting_list_line">
-                        <div class=" setting_list_content">DOB</div>
-                        <div class="setting_list_extra ng-binding">{{ userDetails.DOB | date: 'mediumDate'}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="setting_list">
-            <div class="setting_list_body">
-                <div class="setting_list_item">
-                    <div class="setting_list_line">
-                        <div class=" setting_list_content" (click)="resetDialog()">Reset
-                            Login Password</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-    </div>
+    <button type="button" class="sc-dhcObn pinkbtn center"> <a (click)="resetDialog()">Reset Password</a></button>
 </div>
+
 <ng-template #changePass>
     <app-m-reset-password (onCancel)="closePopup()"></app-m-reset-password>
 </ng-template>
