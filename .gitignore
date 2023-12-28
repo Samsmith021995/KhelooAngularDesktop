@@ -413,7 +413,4 @@ Thumbs.db
 
 /tmp
 /out-tsc
-#Ashutosh singh
-# src/app/main/header/desktop-header/desktop-header.component.css
-# *.css
-# src/app/main/desktop/auth/register/register.component.css
+
