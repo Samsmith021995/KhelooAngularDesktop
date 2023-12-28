@@ -22,7 +22,6 @@ export class MainComponent implements OnInit {
       .getIsUrlPresent().
       subscribe((isUrlPresent1) => {
         this.isUrlPresent = isUrlPresent1 === 'true';
-        console.log(this.isUrlPresent);
       });
        
   }

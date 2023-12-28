@@ -2,7 +2,7 @@
     <app-mobile-header></app-mobile-header>
     <router-outlet></router-outlet>
     <app-m-footer></app-m-footer>
-    @if(isUrlPresent){
+    @if(!isUrlPresent){
         <app-bottom-navbar></app-bottom-navbar>
     }
 } @else if(!isSmallScreen){
