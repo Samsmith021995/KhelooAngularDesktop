@@ -408,11 +408,11 @@ testem.log
 /typings
 
 # System Files
-*.DS_Store
+.DS_Store
 Thumbs.db
 
 /tmp
 /out-tsc
-# src/app/main/header/desktop-header/desktop-header.component.css
-# *.css
-# src/app/main/desktop/auth/register/register.component.css
+src/app/main/header/desktop-header/desktop-header.component.css
+*.css
+src/app/main/desktop/auth/register/register.component.css
