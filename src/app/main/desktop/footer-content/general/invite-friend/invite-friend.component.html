@@ -11,25 +11,25 @@
         </div> 
     
     <!-- <span class="sc-NUcrz jrxmYg center col-md-12">INVITE A FRIEND</span> -->
-        <p class="center">
-            Here’s your unique link - simply copy it below and share via email or social media. <br>
-            Your bonus will progress
-            once your first friend joins!
-        </p>
-        <div class="row">
-
-            <div class="col-md-3 offset-md-1">
-                <img src="https://opt-v3-files.raksahb.com/static/media/navImage/DROPDOWN_CASHBACKBONUS_NEW.png"
-                    class="w-100">
-            </div>
-            <div class="col-md-8">
-
-
-                <!-- just wanted to test share button i found in mozilla's documentation;  if you open the pen on mobile - there will be a green button. it triggers share window native to your mobile devise;-->
-
-                <div>
-                    <span class="sc-NUcrz jrxmYg col-md-12">Invite Friends With A Link</span>
-                    <ul class="ref_desc">
+    <div class="row invite-row">
+        
+        <div class="col-md-3 offset-md-1 invite-girl">
+            <img src="https://opt-v3-files.raksahb.com/static/media/navImage/DROPDOWN_CASHBACKBONUS_NEW.png"
+            class="w-100">
+        </div>
+        <div class="col-md-8 mobile-card">
+            
+            
+            <!-- just wanted to test share button i found in mozilla's documentation;  if you open the pen on mobile - there will be a green button. it triggers share window native to your mobile devise;-->
+            
+            <div>
+                <span class="sc-NUcrz jrxmYg col-md-12">Invite Friends With A Link</span>
+                <p class="center">
+                    Here’s your unique link - simply copy it below and share via email or social media. <br>
+                    Your bonus will progress
+                    once your first friend joins!
+                </p>
+                <ul class="ref_desc">
                         <li>1. Send your friend a referral link</li>
                         <li>2. Wait for them to register</li>
                         <li>3. Get Referral Bonus 🎉</li>
@@ -39,9 +39,9 @@
                 <div class="ref_container">
                     <div class="cool_btn">
                         <span class="ref_url">klo.link/invite/frnds</span>
-                        <span class="ref_url_btn" (click)="copyToClipboard()">Click to copy</span>
-                        <div class="ref_url_copied2" [hidden]="!isCopied">Copied</div>
                     </div>
+                    <button class="ref_url_btn" (click)="copyToClipboard()">{{isCopied?'Copied':'Copy'}}</button>
+                    <!-- <div class="ref_url_copied2" [hidden]="!isCopied">Copied</div> -->
                 </div>
             </div>
         </div>

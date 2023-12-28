@@ -28,7 +28,7 @@ export class InviteFriendComponent {
       // Hide the "Copied" message after a short delay
       setTimeout(() => {
         this.isCopied = false;
-      }, 1000);
+      }, 4000);
     }
   }
 }

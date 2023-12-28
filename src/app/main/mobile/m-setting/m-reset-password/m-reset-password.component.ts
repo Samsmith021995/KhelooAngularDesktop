@@ -66,4 +66,7 @@ let param = this.resetForm.getRawValue();
         });
       
   }
+  onClose(){
+    this.onCancel.emit();
+  }
 }

@@ -60,16 +60,7 @@
   margin-top: 3rem;
   cursor: pointer;
 }
-.eBOuzh {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  -webkit-box-align: center;
-  align-items: center;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
-    100% 5% / cover no-repeat;
-  padding: 4rem 0px;
-}
+
 
 .bLvAaE.funkytime {
   color: rgb(221, 18, 123);
@@ -179,160 +170,7 @@
   color: rgb(255, 255, 255);
   font-size: 17px;
 }
-@media (max-width:767px) {
-  .fjVnzR {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0rem 1rem 2rem;
-    align-items: flex-start;
-  }
-  .fjVnzR p {
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    justify-content: center;
-    color: rgb(255, 255, 255);
-    font-size: 16px;
-  }
-  
-}
-@media (min-width:767px) {
-  .fjVnzR {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0rem 17rem 2.5rem;
-    align-items: flex-start;
-  }
-  .fjVnzR p {
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    justify-content: center;
-    color: rgb(255, 255, 255);
-    font-size: 16px;
-  }
-  
-}
 
-
-
-.fjVnzR span {
-  font-size: 21px;
-}
-.center {
-    text-align: center;
-    margin: 0 auto !important;
-    display: block !important;
-    margin-bottom: 30px !important;
-}
-.jrxmYg {
-  font-size: 24px;
-  color: rgb(189 8 198);
-  font-size: 17px;
-  /* font-family: Inter-Bold; */
-  display: block;
-  /* margin: 5px 0 30px; */
-  font-family: "Poppins", sans-serif;
-}
-.table td,
-.table th {
-  padding: 1.75rem;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
-}
-th {
-  text-align: inherit;
-}
-tbody,
-thead,
-tr.head {
-  font-size: 20px;
-  border-color: inherit;
-  border-style: solid;
-  border-width: 0;
-  padding: 20px !important;
-  background-color: #ef008a;
-}
-@media (min-width:767px) {
-  div.title {
-    width: 100%;
-    height: 100px;
-    margin-top: 100px;
-  }
-  .sd:after {
-    content: "";
-    width: 190px;
-    height: 10px;
-    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
-      center center / cover no-repeat;
-    display: block;
-    margin: -25px auto;
-  }
-  
-}
-@media (max-width:767px) {
-  div.title {
-    width: 100%;
-    height: 100px;
-    /* margin-top: 100px; */
-  }
-  .sd:after {
-    content: "";
-    width: 190px;
-    height: 10px;
-    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
-      center center / cover no-repeat;
-    display: block;
-    margin:auto;
-  }
-  
-}
-@media (min-width:767px) {
-  span.sd {
-    color: #7814a1;
-    display: block;
-    font-size: 76px;
-    text-align: center;
-    margin: 0 auto;
-    line-height: 1.9;
-    font-weight: 900;
-    text-transform: uppercase;
-    &::before {
-      content: "Privacy Policy";
-      color: rgb(75 16 79 / 50%);
-      font-size: 130px;
-      display: block;
-      margin: -160px 0px;
-      font-weight: 900;
-  
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-    }
-  }
-  
-}
-@media (max-width:767px) {
-  span.sd {
-    color: #7814a1;
-    display: block;
-    /* font-size: 76px; */
-    text-align: center;
-    margin: 0 auto;
-    line-height: 1.9;
-    font-weight: 900;
-    text-transform: uppercase;
-    &::before {
-      /* content: "Term & Conditions"; */
-      color: rgb(75 16 79 / 50%);
-      font-size: 130px;
-      display: block;
-      /* margin: -160px 0px; */
-      font-weight: 900;
-  
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-    }
-  }
-  
-}
 .pinkbtn {
   box-shadow: 0px 0px 8px #fdb600;
   border-radius: 13.3444px;
@@ -491,4 +329,182 @@ td img {
     gap: 5px;
     text-align: justify;
     margin: 0px;
+
 }
+
+.center {
+    text-align: center;
+    margin: 0 auto !important;
+    display: block !important;
+    margin-bottom: 30px !important;
+}
+
+.table td,
+.table th {
+  padding: 1.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+th {
+  text-align: inherit;
+}
+tbody,
+thead,
+tr.head {
+  font-size: 20px;
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  padding: 20px !important;
+  background-color: #ef008a;
+}
+
+
+@media (max-width:767px) {
+  .jrxmYg {
+    color: #fff;
+    font-size: 13px;
+    display: block;
+    font-family: "Poppins", sans-serif;
+  }
+  .eBOuzh {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    /* align-items: center;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
+      100% 5% / cover no-repeat;*/
+    padding: 4rem 0px; 
+  }
+  .fjVnzR {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 1rem 2rem;
+    align-items: flex-start;
+  }
+  .fjVnzR p {
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: #8f99a3;;
+    font-size: 13px;
+    line-height: 20px !important;
+  }
+  span.sd {
+    color:#fff;;
+    display: block;
+    /* font-size: 76px; */
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    &::before {
+      /* content: "Term & Conditions"; */
+      color: rgb(75 16 79 / 50%);
+      font-size: 130px;
+      display: block;
+      /* margin: -160px 0px; */
+      font-weight: 900;
+  
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
+  }
+  div.title {
+    width: 100%;
+    height: 100px;
+    /* margin-top: 100px; */
+  }
+  .sd:after {
+    content: "";
+    width: 190px;
+    height: 10px;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+      center center / cover no-repeat;
+    display: block;
+    margin:auto;
+  }
+  
+}
+
+
+@media (min-width:767px) {
+  .jrxmYg {
+    font-size: 24px;
+    color: rgb(189 8 198);
+    font-size: 17px;
+    /* font-family: Inter-Bold; */
+    display: block;
+    /* margin: 5px 0 30px; */
+    font-family: "Poppins", sans-serif;
+  }
+  .fjVnzR span {
+    font-size: 21px;
+  }
+  .eBOuzh {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
+      100% 5% / cover no-repeat;
+    padding: 4rem 0px;
+  }
+  .fjVnzR {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 17rem 2.5rem;
+    align-items: flex-start;
+  }
+  .fjVnzR p {
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+  }
+  div.title {
+    width: 100%;
+    height: 100px;
+    margin-top: 100px;
+  }
+  .sd:after {
+    content: "";
+    width: 190px;
+    height: 10px;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+      center center / cover no-repeat;
+    display: block;
+    margin: -25px auto;
+  }
+  span.sd {
+    color: #7814a1;
+    display: block;
+    font-size: 76px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    &::before {
+      content: "Privacy Policy";
+      color: rgb(75 16 79 / 50%);
+      font-size: 130px;
+      display: block;
+      margin: -160px 0px;
+      font-weight: 900;
+  
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+}
+
+
+
+
+

@@ -60,16 +60,6 @@
   margin-top: 3rem;
   cursor: pointer;
 }
-.eBOuzh {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  -webkit-box-align: center;
-  align-items: center;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
-    100% 5% / cover no-repeat;
-  padding: 4rem 0px;
-}
 
 .bLvAaE.funkytime {
   color: rgb(221, 18, 123);
@@ -164,12 +154,7 @@
   font-size: 18px;
 }
 
-.jrxmYg {
-  color: rgb(221, 18, 123);
-  font-size: 17px;
-  font-family: Inter-Bold;
-  display: contents;
-}
+
 .cfTlXS p {
   margin: 10px 0px 0px;
 }
@@ -203,15 +188,7 @@
   font-size: 21px;
 }
 
-.jrxmYg {
-  font-size: 28px !important;
-  color: rgb(189 8 198);
-  font-size: 17px;
-  /* font-family: Inter-Bold; */
-  display: block;
-  margin: 5px 0 30px;
-  font-family: "Poppins", sans-serif;
-}
+
 .table td,
 .table th {
   padding: 1.75rem;
@@ -231,42 +208,9 @@ tr.head {
   padding: 20px !important;
   background-color: #ef008a;
 }
-div.title {
-  width: 100%;
-  height: 100px;
-  margin-top: 100px;
-}
-.sd:after {
-  content: "";
-  width: 190px;
-  height: 10px;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
-    center center / cover no-repeat;
-  display: block;
-  margin: -25px auto;
-  /* position: absolute; */
-}
-span.sd {
-  color: #7814a1;
-  display: block;
-  font-size: 76px;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 1.9;
-  font-weight: 900;
-  text-transform: uppercase;
-  &::before {
-    content: "Invite";
-    color: rgb(75 16 79 / 50%);
-    font-size: 130px;
-    /* //width: 350px; */
-    display: block;
-    margin: -160px 0px;
-    font-weight: 900;
 
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  }
-}
+
+
 .pinkbtn {
   box-shadow: 0px 0px 8px #fdb600;
   border-radius: 13.3444px;
@@ -321,20 +265,8 @@ td img {
 .table-striped>tbody>tr:nth-of-type(even) {
     background-color: #7c0974;
 }
-.ref_container{
-	position: relative;
-	max-width: 70%;
-}
-.cool_btn{
-  position: relative;
-  background: #19011c;
-  padding: 10px;
-  border-radius: 7px;
-  transition: 0.3s;
-  color: rgb(189, 8, 198);
-  border: 1px solid rgb(189, 8, 198);
 
-}
+
 .cool_btn:hover{
 	cursor: pointer;
 }
@@ -351,10 +283,7 @@ td img {
 	opacity: 0.8;
 }
 
-.ref_url_btn{
-	font-weight: 500;
-	float:right;
-}
+
 .ref_url_copied{
 	/*display: none;*/
 	margin: 0 auto;
@@ -425,4 +354,193 @@ td img {
     gap: 5px;
     text-align: justify;
     margin: 0px;
+}
+
+@media (min-width:767px) {
+  .ref_url_btn{
+    background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
+    padding: 8px 20px;
+    color: #15051c;
+    font-weight: bold;
+    border: 0;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 20px auto;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: block
+  }
+  .cool_btn{
+    position: relative;
+    background: #19011c;
+    padding: 10px;
+    border-radius: 7px;
+    transition: 0.3s;
+    color: rgb(189, 8, 198);
+    border: 1px solid rgb(189, 8, 198);
+  
+  }
+  .ref_container{
+    position: relative;
+    max-width: 70%;
+  }
+  .jrxmYg {
+    font-size: 28px !important;
+    color: rgb(189 8 198);
+    font-size: 17px;
+    /* font-family: Inter-Bold; */
+    display: block;
+    margin: 5px 0 30px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .jrxmYg {
+    color: rgb(221, 18, 123);
+    font-size: 17px;
+    font-family: Inter-Bold;
+    display: contents;
+  }
+  .sd:after {
+    content: "";
+    width: 190px;
+    height: 10px;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+      center center / cover no-repeat;
+    display: block;
+    margin: -25px auto;
+    /* position: absolute; */
+  }
+  div.title {
+    width: 100%;
+    height: 100px;
+    margin-top: 100px;
+  }
+  .eBOuzh {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
+      100% 5% / cover no-repeat;
+    padding: 4rem 0px;
+  }
+  span.sd {
+    color: #7814a1;
+    display: block;
+    font-size: 76px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    &::before {
+      content: "Invite";
+      color: rgb(75 16 79 / 50%);
+      font-size: 130px;
+      /* //width: 350px; */
+      display: block;
+      margin: -160px 0px;
+      font-weight: 900;
+  
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
+  }
+  .center{
+    text-align: left !important;
+  }
+  
+  /* */
+}
+@media (max-width:767px) {
+  .ref_url_btn{
+    background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
+    padding: 8px 20px;
+    color: #15051c;
+    font-weight: bold;
+    border: 0;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 20px auto;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: block
+  }
+  .invite-row{
+    padding:24px;
+  }
+  .mobile-card{
+    background-color: #0b001cc7;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+  }
+  .cool_btn{
+    position: relative;
+    background:transparent;
+    padding: 10px;
+    border-radius: 7px;
+    transition: 0.3s;
+    color: #fff;
+    border: 1px solid #3c3b3b;;
+  
+  }
+  .ref_container{
+    position: relative;
+    /* max-width: 70%; */
+  }
+.center{
+  font-size: 13px !important;
+  text-align: left !important;
+  color: #8f99a3;
+  line-height: 20px !important;
+}
+  .jrxmYg {
+    margin: 5px 0 8px;
+    color:#f4ad09;;
+    font-size: 13px;
+    font-family: "Poppins", sans-serif;
+    
+    display: block;
+    text-align: center;
+  }
+  .sd:after {
+    content: "";
+    width: 190px;
+    height: 10px;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+      center center / cover no-repeat;
+    display: block;
+    margin: -5px auto;
+    /* position: absolute; */
+  }
+  .invite-girl{
+    display: none;
+  }
+  div.title {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+  }
+  .eBOuzh {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    background: url( https://kheloo.com/images/toutnamentsBg.jpg)
+      100% 5% / cover no-repeat;
+    padding: 4rem 0px;
+  }
+  span.sd {
+    color: #fff;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    
+  }
 }

@@ -14,6 +14,8 @@ export class BottomNavbarComponent implements OnInit,OnDestroy {
 @ViewChild('register') register!:TemplateRef<any>;
 @ViewChild('mainMenu') mainMenu!:TemplateRef<any>;
 isLoggedIn: boolean = false;
+diaRef1:any;
+diaRef2:any;
 private isLoggedInSubscription!: Subscription;
 constructor(private dialog:MatDialog , private comSer:CommonServiceService,public apiSer:ApiService){}
 ngOnInit(): void {
@@ -23,18 +25,20 @@ ngOnInit(): void {
 
 }
 openRegister(){
-  this.dialog.open(this.register, {
+ this.diaRef1 =  this.dialog.open(this.register, {
     height: '900x',
     width: '600px',
     panelClass: 'screen-dialog',
   });
+  this.diaRef1.afterClosed().subscribe(() => { });
 }
 openMenu(){
-  this.dialog.open(this.mainMenu, {
+  this.diaRef2 = this.dialog.open(this.mainMenu, {
     height: '900x',
     width: '600px',
     panelClass: 'screen-dialog',
   });
+  this.diaRef2.afterClosed().subscribe(() => { });
 }
 
 updateData(search:any){
@@ -44,7 +48,10 @@ seachData(item:any){
   this.comSer.sendSearchData(item);
 }
 closeDial(){
-  this.dialog.closeAll();
+  this.diaRef1.close();
+}
+closeDial1(){
+  this.diaRef2.close();
 }
 ngOnDestroy() {
   // this.isLoggedInSubscription.unsubscribe();

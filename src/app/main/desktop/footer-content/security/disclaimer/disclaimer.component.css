@@ -60,16 +60,7 @@
   margin-top: 3rem;
   cursor: pointer;
 }
-.eBOuzh {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  -webkit-box-align: center;
-  align-items: center;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
-    100% 5% / cover no-repeat;
-  padding: 4rem 0px;
-}
+
 
 .bLvAaE.funkytime {
   color: rgb(221, 18, 123);
@@ -164,12 +155,7 @@
   font-size: 18px;
 }
 
-.jrxmYg {
-  color: rgb(221, 18, 123);
-  font-size: 17px;
-  font-family: Inter-Bold;
-  display: contents;
-}
+
 .cfTlXS p {
   margin: 10px 0px 0px;
 }
@@ -179,43 +165,9 @@
   color: rgb(255, 255, 255);
   font-size: 17px;
 }
-.fjVnzR {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 0rem 17rem 2.5rem;
-  align-items: flex-start;
-}
-.fjVnzR p {
-  /* //   display: flex; */
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-  justify-content: center;
-  color: rgb(255, 255, 255);
-  font-size: 21px;
-  /* //   line-height: 30px;
-  //   gap: 5px;
-  //   text-align: justify;
-  //   margin: 13px 0px; */
-}
-.fjVnzR span {
-  font-size: 21px;
-}
-.center {
-    text-align: center;
-    margin: 0 auto !important;
-    display: block !important;
-    margin-bottom: 30px !important;
-}
-.jrxmYg {
-  font-size: 28px !important;
-  color: rgb(189 8 198);
-  font-size: 17px;
-  /* font-family: Inter-Bold; */
-  display: block;
-  margin: 5px 0 30px;
-  font-family: "Poppins", sans-serif;
-}
+
+
+
 .table td,
 .table th {
   padding: 1.75rem;
@@ -235,42 +187,8 @@ tr.head {
   padding: 20px !important;
   background-color: #ef008a;
 }
-div.title {
-  width: 100%;
-  height: 100px;
-  margin-top: 100px;
-}
-.sd:after {
-  content: "";
-  width: 190px;
-  height: 10px;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
-    center center / cover no-repeat;
-  display: block;
-  margin: -25px auto;
-  /* position: absolute; */
-}
-span.sd {
-  color: #7814a1;
-  display: block;
-  font-size: 76px;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 1.9;
-  font-weight: 900;
-  text-transform: uppercase;
-  &::before {
-    content: "Disclaimer";
-    color: rgb(75 16 79 / 50%);
-    font-size: 130px;
-    /* //width: 350px; */
-    display: block;
-    margin: -160px 0px;
-    font-weight: 900;
 
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  }
-}
+
 .pinkbtn {
   box-shadow: 0px 0px 8px #fdb600;
   border-radius: 13.3444px;
@@ -429,4 +347,165 @@ td img {
     gap: 5px;
     text-align: justify;
     margin: 0px;
+}
+
+@media (min-width:767px) {
+  .sd:after {
+    content: "";
+    width: 190px;
+    height: 10px;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+      center center / cover no-repeat;
+    display: block;
+    margin: -25px auto;
+    /* position: absolute; */
+  }
+  
+  div.title {
+    width: 100%;
+    height: 100px;
+    margin-top: 100px;
+  }
+  .fjVnzR {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 17rem 2.5rem;
+    align-items: flex-start;
+  }
+  .fjVnzR p {
+    /* //   display: flex; */
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    /* //   line-height: 30px;
+    //   gap: 5px;
+    //   text-align: justify;
+    //   margin: 13px 0px; */
+  }
+  .fjVnzR span {
+    font-size: 21px;
+  }
+  .jrxmYg {
+    font-size: 28px !important;
+    color: rgb(189 8 198);
+    font-size: 17px;
+    /* font-family: Inter-Bold; */
+    display: block;
+    margin: 5px 0 30px;
+    font-family: "Poppins", sans-serif;
+  }
+ .eBOuzh {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
+      100% 5% / cover no-repeat;
+    padding: 4rem 0px;
+  }
+  span.sd {
+    color: #7814a1;
+    display: block;
+    font-size: 76px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    &::before {
+      content: "Disclaimer";
+      color: rgb(75 16 79 / 50%);
+      font-size: 130px;
+      /* //width: 350px; */
+      display: block;
+      margin: -160px 0px;
+      font-weight: 900;
+  
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
+  }
+  .center {
+    text-align: center;
+    margin: 0 auto !important;
+    display: block !important;
+    margin-bottom: 30px !important;
+}
+}
+
+
+
+@media (max-width:767px) {
+  .sd:after {
+    content: "";
+    width: 190px;
+    height: 10px;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+      center center / cover no-repeat;
+    display: block;
+    margin: -5px auto;
+    /* position: absolute; */
+  }
+  
+  div.title {
+    width: 100%;
+    height: 60px;
+    margin-top: 10px;
+  }
+  .center {
+    text-align: left;
+    margin: 0 auto !important;
+    display: block !important;
+    margin-bottom: 10px !important;
+}
+  .fjVnzR {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 10px 10px;
+    align-items: flex-start;
+  }
+  .fjVnzR p {
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: #8f99a3;;
+    font-size: 13px;
+    line-height: 20px !important;
+   
+  }
+
+  .jrxmYg {
+    font-size: 16px;
+    color:#fff;
+    /* font-family: Inter-Bold; */
+    display: block;
+    margin: 5px 0 30px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .eBOuzh {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    /* background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
+      100% 5% / cover no-repeat; */
+    padding: 4rem 0px;
+  }
+  span.sd {
+    color: #fff;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    
+  }
 }

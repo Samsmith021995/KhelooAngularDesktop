@@ -13,6 +13,7 @@ import { config } from '../../service/config';
 export class MobileHeaderComponent implements OnInit {
   @ViewChild('login') login!: TemplateRef<any>;
   slidesPerViewn:number = 4;
+  dialogRef:any;
   constructor(public dialog: MatDialog, private comSer: CommonServiceService, private apiSer: ApiService) { }
   private logcheck !: Subscription;
   checkLogin: boolean = false;
@@ -23,12 +24,12 @@ export class MobileHeaderComponent implements OnInit {
     this.loginchecks();
   }
   openDialog() {
-    let dialogRef = this.dialog.open(this.login)
-    dialogRef.afterClosed().subscribe(result => { })
+     this.dialogRef = this.dialog.open(this.login)
+    this.dialogRef.afterClosed().subscribe(() => { })
 
   }
   closePopup() {
-    this.dialog.closeAll();
+    this.dialogRef.close();
   }
   loginchecks() {
     this.logcheck = this.comSer.loging$.subscribe((loging: any = {}) => {

@@ -238,17 +238,17 @@ div.title {
   height: 100px;
   margin-top: 100px;
 }
-.sd:after {
-  content: "";
-  width: 190px;
-  height: 10px;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
-    center center / cover no-repeat;
-  display: block;
-  margin: -25px auto;
-  /* position: absolute; */
-}
 @media (min-width:767px) {
+  .sd:after {
+    content: "";
+    width: 190px;
+    height: 10px;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+      center center / cover no-repeat;
+    display: block;
+    margin: -25px auto;
+    /* position: absolute; */
+  }
   span.sd {
     color: #7814a1;
     display: block;
@@ -380,48 +380,20 @@ td img {
       width: 25em;
       height: 10em;
     }
+    .btn-sub{
+      width: auto;
+      height: auto;
+      background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
+      color: white;
+      border: 1px solid #ffd370;
+      border-radius: 4px;
+      padding: 10px 23px;
+      box-shadow: 0px 0px 8px #f7ad07;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
 }
 
-@media (max-width:767px) {
-      .input{
-      height: 50px;
-      width: 80%;
-      font-size: 14px;
-      border: none;
-      background: transparent;
-      margin: 4px;
-      border: 1px solid #8f99a3;
-      border-radius: 4px;
-      padding: 10px;
-    }
-    #m-main{
-      color: #8f99a3;
-      font-weight: 700;
-      margin-bottom: 1em;
-      text-align: center;
-      width: 19em;
-    height: 7em;
-    }
-    .col p{
-      flex-wrap: wrap;
-      -webkit-box-pack: center;
-      justify-content: center;
-      color: rgb(255, 255, 255);
-      font-size: 14px;
-  }
-  .btn-sub{
-    width: auto;
-    height: auto;
-    background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
-    color: white;
-    border: 1px solid #ffd370;
-    border-radius: 4px;
-    padding: 10px 23px;
-    box-shadow: 0px 0px 8px #f7ad07;
-    font-size: 14px;
-    text-transform: uppercase;
-  }
-}
 
 @media (max-width:767px) {
   #mail-content{
@@ -448,6 +420,53 @@ td img {
     font-size: 14px;
     text-transform: uppercase;
   }
+  .input{
+    height: 50px;
+    width: 80%;
+    font-size: 14px;
+    border: none;
+    background: transparent;
+    margin: 4px;
+    border: 1px solid #8f99a3;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  #m-main{
+    color: #8f99a3;
+    font-weight: 700;
+    margin-bottom: 1em;
+    text-align: center;
+    width: 19em;
+  height: 7em;
+  }
+  .col p{
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color:#8f99a3;
+    font-size: 14px;
+}
+.sd:after {
+  content: "";
+  width: 190px;
+  height: 10px;
+  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+    center center / cover no-repeat;
+  display: block;
+  margin: -6px auto;
+  /* position: absolute; */
+}
+  
+/* .sd:before {
+  content: "";
+  width: 100%;
+  height: 300px;
+  background: url(https://kheloo.com/images/Banner11.jpg)
+    center center / cover no-repeat;
+  display: block;
+  margin: -6px auto;
+   position: absolute; 
+} */
   
 }
   #get-content{

@@ -15,8 +15,11 @@ import { ComFunService } from '../../service/com-fun.service';
 })
 export class LoginpopupComponent implements OnInit{
   @ViewChild('forgotPass') forgotPass !: TemplateRef<any>;
+  @ViewChild('register') register !: TemplateRef<any>;
   @Output() onCancel = new EventEmitter<any>();
   @Output() loginCheck = new EventEmitter<any>();
+  defRef:any;
+  defRegister:any;
   constructor(private fb:FormBuilder,private apiSer:ApiService,private comSer:CommonServiceService,private router:Router,private dialog:MatDialog){}
   mobileLogin !:FormGroup;
   show = 'fa fa-eye';
@@ -97,10 +100,18 @@ export class LoginpopupComponent implements OnInit{
   }
 
   OpenForgot(){
-      let defRef = this.dialog.open(this.forgotPass);
-      defRef.afterClosed().subscribe(result => { });
+      this.defRef = this.dialog.open(this.forgotPass);
+      this.defRef.afterClosed().subscribe(() => { });
   }
   closePopup(){
-    this.dialog.closeAll();
+    this.defRef.close();
+    
+    }
+    openRegister(){
+      this.defRegister = this.dialog.open(this.register);
+      this.defRegister.afterClosed().subscribe(() => { });
+    }
+    closeCancel(){
+      this.defRegister.close();
     }
 }

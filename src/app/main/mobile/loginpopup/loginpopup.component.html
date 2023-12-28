@@ -1,5 +1,5 @@
-<section  class="loginPop">
-    <div  class="closePopInfo" (click)="closePopup()">X</div>
+<section class="loginPop">
+    <div class="closePopInfo" (click)="onBack()">X</div>
     <div class="login_form_wizard">
         <div class="loginPopupComponent-form-container">
             <div class="login_logo_container">
@@ -7,38 +7,43 @@
             </div>
             <h3 class="RegisterFormComponent-form-title login_title">SIGN IN</h3>
             <form [formGroup]="mobileLogin">
-            <div class="form_container">
-                <div class="col-md-12 p-l-0 crossbar-contact-input-container">
-                    <input class="login_mobile_input ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
-                        type="tel" required="" ng-model="Mobile" placeholder="Mobile Number" formControlName="Mobile"> 
+                <div class="form_container">
+                    <div class="col-md-12 p-l-0 crossbar-contact-input-container">
+                        <input
+                            class="login_mobile_input ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
+                            type="tel" required="" ng-model="Mobile" placeholder="Mobile Number"
+                            formControlName="Mobile">
+                    </div>
+                    <div class="col-md-12 p-l-0 crossbar-contact-input-container">
+                        <input type="password" ng-model="Password" required="" placeholder="Password"
+                            class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
+                            formControlName="Password">
+                    </div>
+                    <div class="col-md-12">
+                        <p class="small_text">
+                            <a href="javascript:void(0);" id="forgotForm" class="LoginFormClass" (click)="OpenForgot()">
+                                Forgot Password?
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-md-12">
+                        <button class="sign_up_container loginBtn" (click)="onLogin()">SIGN IN</button>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="small_text">
+                            <a href="javascript:void(0);" class="LoginFormClass center" (click)="openRegister()">
+                                Register Now
+                            </a>
+                        </p>
+                    </div>
                 </div>
-                <div class="col-md-12 p-l-0 crossbar-contact-input-container">
-                    <input type="password" ng-model="Password" required="" placeholder="Password"
-                        class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" formControlName="Password">
-                </div>
-                <div class="col-md-12">
-                    <p class="small_text">
-                        <a href="javascript:void(0);" id="forgotForm" class="LoginFormClass" (click)="OpenForgot()">
-                            Forgot Password?
-                        </a>
-                    </p>
-                </div>
-                <div class="col-md-12">
-                    <button class="sign_up_container loginBtn" (click)="onLogin()">SIGN IN</button>
-                </div>
-                <div class="col-md-12">
-                    <p class="small_text">
-                        <a href="javascript:void(0);" class="LoginFormClass center" data-toggle="modal"
-                            data-target="#registerModal">
-                            Register Now
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </form>
+            </form>
         </div>
     </div>
 </section>
 <ng-template #forgotPass>
-<app-m-forgot-password (onCancel)= "closePopup()"></app-m-forgot-password>
+    <app-m-forgot-password (onCancel)="closePopup()"></app-m-forgot-password>
+</ng-template>
+<ng-template #register>
+    <app-pop-register (onCancel)="closeCancel()"></app-pop-register>
 </ng-template>

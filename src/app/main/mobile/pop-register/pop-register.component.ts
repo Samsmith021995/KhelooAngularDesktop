@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class PopRegisterComponent implements OnInit {
   @Output() onCancel = new EventEmitter<any>();
+  // @Output() onBack = new EventEmitter<any>();
   otpVerified:boolean = false;
   otpStart:boolean= false;
   registerForm !:FormGroup;
