@@ -8,7 +8,7 @@
     </div>
 </div>
 <ng-container *ngFor="let category of subCategory; let i=index;">
-    <div *ngIf="gamesData[category]">
+    <div *ngIf="gamesData[category]" class="container">
         @if(gamesData[category].length>0){
 
         <span style="color: white;" class="category-btn">
@@ -39,7 +39,7 @@
 
         </div>
         @if( defaultSlices[i] <= gamesData[category].length){
-            <button (click)="updateSlice(i)" class="btn-show"
+            <button (click)="updateSlice(i)" class="btn-show viewmore"
                 *ngIf="gamesData[category].length > 10 && !subSelected && isDetailsVisible[i]">
                 View More
             </button>
