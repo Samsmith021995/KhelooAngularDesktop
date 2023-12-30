@@ -471,3 +471,80 @@ button.btn {
 .btn:not(:disabled):not(.disabled) {
     padding-bottom: 5px;
 }
+
+.bl_promotion_list_container {
+    padding: 15px 10px 10px;
+}
+.bl_ind_promotion_container {
+    display: flex;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #f4ad09;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+.bl_ind_promotion_container {
+    -webkit-animation: fadein 2s;
+    animation: fadein 2s;
+}
+ribbon.ribbon-top-left {
+    position: relative;
+}
+.ribbon.ribbon-top-left span {
+    position: absolute;
+    display: block;
+    width: 135px;
+    left: -8px;
+    top: -58px;
+    border-radius: 35px;
+    border: 0.5px solid #f4ad09;
+    padding: 0;
+    background-color: #1c0048;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+    color: #fccd09;
+    text-shadow: 0 1px 1px rgb(0 0 0 / 20%);
+    text-align: center;
+}
+.bl_ind_prom_content_container p {
+    margin-bottom: 0;
+}
+p.bl_prom_title_container {
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px !important;
+    margin: 13px 0;
+}
+p.bl_prom_title_container span {
+    font-weight: 500;
+    color: #fff;
+}
+.bl_ind_prom_content_container p {
+    margin-bottom: 0;
+}
+.bl_ind_img_container img {
+    filter: brightness();
+}
+body{
+  background:#000;
+}
+
+.ribbon.ribbon-top-left{
+    position: relative;
+}
+.ribbon.ribbon-top-left span {
+    position: absolute;
+    display: block;
+    width: 135px;
+    left: -8px;
+    top: -58px;
+    border-radius: 35px;
+    border: 0.5px solid #f4ad09;
+    padding: 0;
+    background-color: #1c0048;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+    color: #fccd09;
+    text-shadow: 0 1px 1px rgb(0 0 0 / 20%);
+    text-align: center;
+}
