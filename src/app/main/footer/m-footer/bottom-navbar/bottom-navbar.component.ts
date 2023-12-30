@@ -68,4 +68,5 @@ gameStart(param: any) {
 navigate(item:string){
   this.router.navigate(['m-deposit',item]);
 }
+
 }

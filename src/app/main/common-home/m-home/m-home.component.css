@@ -1,5 +1,5 @@
 @import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css';
-@import 'https://kheloo.com/Content/OurAssest/Common/style.css'; 
+@import 'https://kheloo.com/Content/OurAssest/Common/style.css';
 @import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
 
 @import 'swiper/css';
@@ -10,6 +10,7 @@
     /* max-width: 31%; */
     filter: invert(100%) sepia(0) saturate(0%) hue-rotate(0) brightness(100%) contrast(100%);
 }
+
 .playbtn {
     align-items: center;
     background: rgba(0, 0, 0, 0.7);
@@ -32,6 +33,7 @@
 a {
     cursor: pointer;
 }
+
 .hm-row-bc {
     display: grid;
     grid-gap: 10px;
@@ -64,6 +66,7 @@ a {
 .games-horiz {
     overflow: hidden;
 }
+
 .games-horiz {
     overflow: hidden;
 }
@@ -108,6 +111,12 @@ a {
     grid-gap: 10px;
 }
 
+button.btn-show.viewmore {
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+}
+
 .casino-game-item {
     width: 100%;
     height: 100%;
@@ -116,6 +125,7 @@ a {
     border-radius: 4px;
     overflow: hidden;
     position: relative;
+    border: 2px solid #f4ad09;
 }
 
 .casino-game-item-image-bc {
@@ -222,9 +232,10 @@ casino-game-item {
     height: 100%;
     /* padding-top: 70%; */
     background: rgba(var(--b-sc-rgb), .1) no-repeat 50%/contain;
-    border-radius: 4px;
+    border-radius: 10px;
     overflow: hidden;
     position: relative;
+    border: 2px solid #f4ad09 !important;
 }
 
 .playbtn .play {
@@ -250,14 +261,17 @@ casino-game-item {
 .casino-game-item:hover .playbtn {
     opacity: 1;
 }
+
 .showMore {
     flex-wrap: wrap;
+
     img {
         width: 200px;
         margin-right: 10px;
         margin-bottom: 10px;
     }
 }
+
 .btn-show {
     margin: 5px;
     padding: 3px 13px;
@@ -266,12 +280,33 @@ casino-game-item {
     color: white;
     border: 1px solid gray;
 }
+
+button.btn-show {
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-radius: 25px;
+    margin-left: 10px;
+    padding: 0 10px;
+    color: #fff;
+    background-color: #f4ad09;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    font-size: 12px;
+    min-width: 80px;
+    height: 38px;
+    line-height: 38px;
+}
+
 .category-btn {
     display: flex;
     justify-content: space-between;
 }
 
-.prev-next{
+.prev-next {
     background: none;
     border: none;
     color: white;
@@ -281,7 +316,8 @@ casino-game-item {
     z-index: 1034;
     font-size: 34px;
 }
-.next-prev{
+
+.next-prev {
     background: none;
     border: none;
     border-radius: 50%;
@@ -290,37 +326,66 @@ casino-game-item {
     margin-top: -100px;
     position: relative;
     z-index: 1034;
-    font-size: 34px; 
+    font-size: 34px;
     float: right;
 }
 
-svg{
+svg {
     background-color: white;
-    border:1px solid white;
+    border: 1px solid white;
     border-radius: 50%;
     color: gray;
 }
 
 
-.selected{
-    color:yellow;
+.selected {
+    color: yellow;
 }
 
-.subCat-btn{
+.subCat-btn {
     background: darkgrey;
     padding: 20px 30px;
     margin: 5px 3px;
     border-radius: 5px;
 }
 
-.subSele{
+.subSele {
     color: yellow;
 }
 
-.min_max_container{
+.min_max_container {
     bottom: -5px !important;
 }
 
+.heading {
+    margin-bottom: 0;
+    margin-top: 30px;
+}
+
+.heading h2 {
+    color: #d07909;
+    position: relative;
+    -webkit-text-fill-color: initial;
+    text-align: center;
+    background: -webkit-linear-gradient(#f08f0f 0%, #fff 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: anton, sans-serif;
+    text-transform: uppercase;
+    z-index: 0;
+    padding-top: 5px;
+    padding-bottom: 30px;
+    cursor: auto;
+    font-size: 28px;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.casino-game-item img {
+    height: 135px;
+}
 /* 
 
 Home css*/
