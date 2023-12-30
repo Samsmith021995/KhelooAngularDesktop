@@ -4,6 +4,7 @@ import { MHomeComponent } from 'src/app/main/common-home/m-home/m-home.component
 import { ApiService } from 'src/app/main/service/api.service';
 import { CommonServiceService } from 'src/app/main/service/common-service.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bottom-navbar',
@@ -16,8 +17,9 @@ export class BottomNavbarComponent implements OnInit,OnDestroy {
 isLoggedIn: boolean = false;
 diaRef1:any;
 diaRef2:any;
+showSp:boolean = false;
 private isLoggedInSubscription!: Subscription;
-constructor(private dialog:MatDialog , private comSer:CommonServiceService,public apiSer:ApiService){}
+constructor(private dialog:MatDialog , private comSer:CommonServiceService,public apiSer:ApiService,private router:Router){}
 ngOnInit(): void {
   this.isLoggedInSubscription = this.apiSer.isLoggedIn$.subscribe((value) => {
     this.isLoggedIn = value;
@@ -57,5 +59,13 @@ ngOnDestroy() {
   // this.isLoggedInSubscription.unsubscribe();
 }
 
-
+showSupport(){
+this.showSp =!this.showSp;
+}
+gameStart(param: any) {
+  this.router.navigate(['/games', param]);
+}
+navigate(item:string){
+  this.router.navigate(['m-deposit',item]);
+}
 }

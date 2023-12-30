@@ -17,5 +17,6 @@ export class MMenuComponent implements OnInit {
   }
   SelectGame(item:string){
     this.onFilter.emit(item);
+    this.onCancel.emit();
   }
 }

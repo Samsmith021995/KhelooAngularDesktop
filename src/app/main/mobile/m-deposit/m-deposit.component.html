@@ -51,13 +51,13 @@
         </div>
         <div>
             
+            <ng-container *ngIf="paymentGateway.length>0">
+                <span class="back" (click)="backPage()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back </span>
+                <div class="banner">
+                    <img src="https://kheloo.com//images/deposit-banner-new.png">
+                </div>
+            </ng-container>
             <ng-container *ngFor="let item of paymentGateway">
-                <ng-container *ngIf="paymentGateway">
-                    <span class="back" (click)="backPage()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back </span>
-                    <div class="banner">
-                        <img src="https://kheloo.com//images/deposit-banner-new.png">
-                    </div>
-                </ng-container>
                 <a target="_blank" href="{{ item.PaymentUrl + transcationIdFinal}}">
 
                     <div class="bl_promotion_list_main_container">

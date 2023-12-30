@@ -180,7 +180,7 @@ const routes: Routes = [
         canActivate:[AuthGuard,MobileGuard]
       },
       {
-        path:'m-deposit',
+        path:'m-deposit/:amount',
         loadChildren:()=>import('./main/mobile/m-deposit/m-deposit.module').then(m=>m.MDepositModule),
         canActivate:[AuthGuard,MobileGuard]
       },

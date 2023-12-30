@@ -29,6 +29,7 @@ export class MHomeComponent implements OnInit {
   ];
   mainCategory: any[] = [];
   subCategory: any[] = [];
+  subCategorybc: any[] = [];
   categoryFetch = false;
   gamelist = false;
   showMore: boolean = false;
@@ -104,6 +105,7 @@ export class MHomeComponent implements OnInit {
       this.selected = cat.mainCat;
       this.mainCategory = Array.from(categorySet);
       this.subCategory = Array.from(subCategorySet);
+      this.subCategorybc = Array.from(subCategorySet);
       this.subCategory.forEach((item: { GameCategory: string; }) => {
         this.defaultSlices.push(4);
         this.isDetailsVisible.push(false);
@@ -116,7 +118,6 @@ export class MHomeComponent implements OnInit {
     this.router.navigate(['/games', param]);
   }
   showMoreF(item: number) {
-    console.log(item);
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     if (nativeElement) {
       if (nativeElement.classList.contains('showMore')) {
@@ -134,16 +135,15 @@ export class MHomeComponent implements OnInit {
   onSearch(itemSeach:any) {
     if (itemSeach.trim() !== '') {
       let param = { GameCategory: this.selected }
-      for (let item of this.subCategory) {
-          const filteredApiResults = this.filteredResults[item].filter(result =>
+      for (let item of this.subCategorybc) {
+          const filteredApiResultsed = this.filteredResults[item].filter(result =>
             result.name.toLowerCase().includes(itemSeach.toLowerCase()) || 
             result.groupname.toLowerCase().includes(itemSeach.toLowerCase()) || 
             result.gamecategory.toLowerCase().includes(itemSeach.toLowerCase())
             );
-              console.log(filteredApiResults.length);
-              this.gamesData[item] = filteredApiResults;
+              this.gamesData[item] = filteredApiResultsed;
       }
-      this.subCategory = this.subCategory.filter(item => this.gamesData[item]?.length > 0);
+      this.subCategory = this.subCategorybc.filter(item => this.gamesData[item]?.length > 0);
      
     } else {
       this.gamesData = { ...this.filteredResults };

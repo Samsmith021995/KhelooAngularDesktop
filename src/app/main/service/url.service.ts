@@ -20,8 +20,8 @@ export class UrlService {
 
   private checkIfUrlIsPresent():boolean {
     const url = window.location.href;
-    console.log(url);
-    return (url.includes('/m-deposit') || url.includes('/m-withdraw') || url.includes('/m-setting') || url.includes('/m-statement'));
+    return (url.endsWith('/') || url === window.location.origin);
+    // return (url.includes('/m-deposit') || url.includes('/m-withdraw') || url.includes('/m-setting') || url.includes('/m-statement'));
   }
 
   getIsUrlPresent(){

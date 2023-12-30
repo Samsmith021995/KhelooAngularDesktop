@@ -4,6 +4,7 @@ import { CommonServiceService } from '../../service/common-service.service';
 import { Subscription } from 'rxjs';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mobile-header',
@@ -14,7 +15,7 @@ export class MobileHeaderComponent implements OnInit {
   @ViewChild('login') login!: TemplateRef<any>;
   slidesPerViewn:number = 4;
   dialogRef:any;
-  constructor(public dialog: MatDialog, private comSer: CommonServiceService, private apiSer: ApiService) { }
+  constructor(public dialog: MatDialog, private comSer: CommonServiceService, private apiSer: ApiService,private router:Router) { }
   private logcheck !: Subscription;
   checkLogin: boolean = false;
   showmenu: boolean = false;
@@ -63,7 +64,10 @@ export class MobileHeaderComponent implements OnInit {
   logout() {
     this.apiSer.logout();
   }
-
+  navigate(item:any){
+    this.router.navigate([item]);
+    this.showmenu =false;
+  }
   showmenubar() {
     this.showmenu = !this.showmenu;
   }

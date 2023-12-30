@@ -249,9 +249,15 @@ casino-game-item {
 .showMore {
     flex-wrap: wrap;
     img {
-        width: 200px;
+        width: 227px;
         margin-right: 10px;
         margin-bottom: 10px;
+    }
+    .min_max_container {
+        margin-top: -31px;
+       
+        width: 225px;
+       
     }
 }
 .btn-show {
@@ -355,7 +361,7 @@ input.ng-untouched.ng-pristine.ng-valid {
 }
 
 .min_max_container{
-    margin-top: -20px;
+    margin-top: -21px;
     background-color: #65008d;
     z-index: 56787898988;
     position: absolute;
