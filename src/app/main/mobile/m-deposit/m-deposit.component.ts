@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { config } from '../../service/config';
 import { ApiService } from '../../service/api.service';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-m-deposit',
@@ -20,14 +21,19 @@ export class MDepositComponent implements OnInit {
   isLoading: boolean = false;
   private loaderSubscriber !: Subscription;
   private apiSubscriber: Subscription[] = [];
-  constructor(private fb: FormBuilder, private apiSer: ApiService) { }
+  mainAmount:string ='';
+  constructor(private fb: FormBuilder, private apiSer: ApiService,private router:ActivatedRoute) { }
   ngOnInit(): void {
+    this.router.params.subscribe(params => {
+      this.mainAmount = params['amount'];
+  
+    });
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.isLoading = ('depositReq' in loading) ? true : false;
       
     });
     this.depositForm = this.fb.group({
-      Amount: ['', [Validators.required]]
+      Amount: [this.mainAmount, [Validators.required]]
     });
   }
   MrequestDeposit() {
