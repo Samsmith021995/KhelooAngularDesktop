@@ -22,7 +22,7 @@
   display: flex;
 }
 
-
+ 
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
   background: #000c24 !important;
   margin: 0;
@@ -193,6 +193,9 @@ button {
 }
 span.font7 {
   font-size: 9px;
+  color: #f6c859;
+  font-weight: bold;
+  text-transform: none;
 }
 .me-2 {
     margin-right: 30.5rem!important;

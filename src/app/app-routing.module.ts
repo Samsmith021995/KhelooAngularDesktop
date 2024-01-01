@@ -35,6 +35,8 @@ import { TennisBettingComponent } from './main/desktop/footer-content/sports/ten
 import { WithdrawComponent } from './main/mobile/withdraw/withdraw.component';
 import { MobileGuard } from './guard/mobile.guard';
 import { DesktopGuard } from './guard/desktop.guard';
+import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
+
 const commonSer = new CommonServiceService();
 const routes: Routes = [
   {
@@ -188,6 +190,11 @@ const routes: Routes = [
         path:'m-statements',
         loadChildren:()=>import('./main/mobile/m-statement/m-statement.module').then(m=>m.MStatementModule),
         canActivate:[AuthGuard,MobileGuard]
+      },
+      {
+        path:'m-promotion',
+        component:MPromotionComponent,
+        canActivate:[MobileGuard]
       }
 
       //Mobile End by Ashutosh

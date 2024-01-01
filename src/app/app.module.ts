@@ -40,6 +40,8 @@ import { MForgotPasswordComponent } from './main/mobile/m-forgot-password/m-forg
 import { ApiService } from './main/service/api.service';
 import { MMenuComponent } from './main/mobile/m-menu/m-menu.component';
 import { UrlService } from './main/service/url.service';
+import { PromotionPopupComponent } from './main/mobile/m-promotion/promotion-popup/promotion-popup.component';
+import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
 
 
 
@@ -80,6 +82,8 @@ import { UrlService } from './main/service/url.service';
     OnlineSportsBettingComponent,
     MForgotPasswordComponent,
     MMenuComponent,
+    PromotionPopupComponent,
+    MPromotionComponent,
   
     
     
