@@ -18,54 +18,22 @@
                 <div class="carousel-inner anim withdrawl_home_carousel_inner" role="listbox">
                     <div class="item active">
                         <div class="container with_car_container">
-                            <div class="col-xs-6 col-md-6 live_ind_container">
-                                <div class="live_icon_container">
-                                    <img src="https://kheloo.com/images/user.svg">
+                            <ng-container *ngFor="let item of dataDetails">
+                                <div class="col-xs-6 col-md-6 live_ind_container">
+                                    <div class="live_icon_container">
+                                        <img src="https://kheloo.com/images/user.svg">
+                                    </div>
+                                    <div class="live_para">
+                                        <p class="live_title ng-binding">
+                                            {{item.Name}}
+                                            <span>₹</span>{{item.Amount}}
+                                        </p>
+                                        <p class="live_small_text ng-binding">{{item.TimeAgo}} second ago</p>
+                                    </div>
                                 </div>
-                                <div class="live_para">
-                                    <p class="live_title ng-binding">
-                                        Vivaan
-                                        <span>₹</span>19950
-                                    </p>
-                                    <p class="live_small_text ng-binding">3 second ago</p>
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-md-6 live_ind_container">
-                                <div class="live_icon_container">
-                                    <img src="https://kheloo.com/images/user.svg">
-                                </div>
-                                <div class="live_para">
-                                    <p class="live_title ng-binding">
-                                        Vivaan
-                                        <span>₹</span>19950
-                                    </p>
-                                    <p class="live_small_text ng-binding">3 second ago</p>
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-md-6 live_ind_container">
-                                <div class="live_icon_container">
-                                    <img src="https://kheloo.com/images/user.svg">
-                                </div>
-                                <div class="live_para">
-                                    <p class="live_title ng-binding">
-                                        Vivaan
-                                        <span>₹</span>19950
-                                    </p>
-                                    <p class="live_small_text ng-binding">3 second ago</p>
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-md-6 live_ind_container">
-                                <div class="live_icon_container">
-                                    <img src="https://kheloo.com/images/user.svg">
-                                </div>
-                                <div class="live_para">
-                                    <p class="live_title ng-binding">
-                                        Vivaan
-                                        <span>₹</span>19950
-                                    </p>
-                                    <p class="live_small_text ng-binding">3 second ago</p>
-                                </div>
-                            </div> 
+                            </ng-container>
+                      
+                
                            
                             
                         </div>

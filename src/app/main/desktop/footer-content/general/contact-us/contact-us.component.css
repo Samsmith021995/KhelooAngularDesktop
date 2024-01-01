@@ -402,10 +402,10 @@ td img {
     font-size: 14px;
     border: none;
     border: 1px solid #8f99a3;
-    margin: 4px;
+    margin: 4px 27px 4px;
     border-radius: 4px;
     background: transparent;
-    width: 19em;
+    width: 20.6em;
     height: 6em;
   }
   .btn-sub{
@@ -426,7 +426,7 @@ td img {
     font-size: 14px;
     border: none;
     background: transparent;
-    margin: 4px;
+    margin: 4px 27px 4px;
     border: 1px solid #8f99a3;
     border-radius: 4px;
     padding: 10px;
