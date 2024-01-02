@@ -36,6 +36,8 @@ import { WithdrawComponent } from './main/mobile/withdraw/withdraw.component';
 import { MobileGuard } from './guard/mobile.guard';
 import { DesktopGuard } from './guard/desktop.guard';
 import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
+import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
+import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
 
 const commonSer = new CommonServiceService();
 const routes: Routes = [
@@ -168,6 +170,14 @@ const routes: Routes = [
       {
         path:'tennis-betting',
         component:TennisBettingComponent
+      },
+      {
+        path:'privileges',
+        component:KhelooPrivilegesComponent
+      },
+      {
+        path:'tournament',
+        component:TournamentsComponent
       },
       //Mobile Start by Ashutosh
 

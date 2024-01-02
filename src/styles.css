@@ -146,3 +146,45 @@ i-feather[name="loader"]{
   animation: spin 2s linear infinite; 
 }
 /* loader end */
+
+
+.Ashutosh{
+  
+  border: 1px solid #f4ad09;
+  color: #f4ad09 !important;
+  background-color: #000;
+  div:where(.swal2-icon).swal2-success .swal2-success-ring {
+    position: absolute;
+    z-index: 2;
+    top: -0.25em;
+    left: -0.25em;
+    box-sizing: content-box;
+    width: 100%;
+    height: 100%;
+    border: 0.25em solid #f4ad09;
+    border-radius: 50%;
+}
+div:where(.swal2-icon).swal2-success [class^=swal2-success-line] {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  height: 0.3125em;
+  border-radius: 0.125em;
+  background-color: #f4ad09;
+}
+div:where(.swal2-icon).swal2-error {
+  border-color:  #f4ad09;
+  color:  #f4ad09;
+}
+div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line] {
+  display: block;
+  position: absolute;
+  top: 2.3125em;
+  width: 2.9375em;
+  height: 0.3125em;
+  border-radius: 0.125em;
+  background-color: #f4ad09;
+}
+}
+
+

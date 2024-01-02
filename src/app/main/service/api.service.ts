@@ -106,9 +106,16 @@ export class ApiService {
         title: titleTest,
         text: msg,
         icon: iconText,
-        timer: 2000,
-        color: iconText=='success'?'#28a745':'#af0101',
-        confirmButtonColor:iconText=='success'?'#28a745':'#af0101',
+        // timer: 2000,
+        color:'#f4ad09',
+        confirmButtonColor:'#f4ad09',
+        showClass:
+        {
+          popup: 'swal2-show ashu',
+          backdrop: 'swal2-backdrop-show',
+          icon: 'swal2-icon-show'
+        },
+  customClass:'Ashutosh'
       });
     }
 
