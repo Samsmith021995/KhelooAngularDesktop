@@ -2,20 +2,20 @@
     <ul>
         <li class="bottom_main_li customerLi">
             <a href="javascript:void(0)" class="secondaryAnchor customerChat" (click)="showSupport()">
-                <img src="https://kheloo.com//images/promotion_footer.svg" class="support_img" *ngIf="!showSp">
-                <img src="https://kheloo.com//images/close.png" class="support_close_img" *ngIf="showSp">
+                <img src="/assets/images/promotion_footer.png" class="support_img" *ngIf="!showSp">
+                <img src="/assets/images/close.png" class="support_close_img" *ngIf="showSp">
                 <span>Support</span>
             </a>
             <ul class="ms-nav" [ngClass]="{'customer_show':showSp}">
                 <li class="ms-li ms-li3 ms-li-last">
                     <a target="_blank"
                         href="https://api.whatsapp.com/send/?phone=447897045261&amp;text&amp;app_absent=0">
-                        <img src="https://kheloo.com//images/Kheloo-whatsapp.png">
+                        <img src="/assets/images/whatsapp.png">
                     </a>
                 </li>
                 <li class="ms-li ms-li3 ms-li-last">
                     <a target="_blank" href="https://tawk.to/chat/60a22370185beb22b30ddc1d/1f5slks90">
-                        <img src="https://kheloo.com//images/chat.png">
+                        <img src="/assets/images/chat.png">
                     </a>
                 </li>
             </ul>
@@ -27,7 +27,7 @@
             <ul id="scroll_bottom" class="swiper-scroll">
                 <li>
                     <a (click)="gameStart(3306)">
-                        <img src="https://kheloo.com//images/sports-new.png">
+                        <img src="/assets/images/sports-new.png">
                         <span>
                             Sports
                         </span>
@@ -35,7 +35,7 @@
                 </li>
                 <li>
                     <a (click)="updateData('Casino')">
-                        <img src="https://kheloo.com//images/Casino.svg">
+                        <img src="/assets/images/Casino.png">
                         <span>
                             Live Casino
                         </span>
@@ -43,7 +43,7 @@
                 </li>
                 <li>
                     <a (click)="updateData('Sports')">
-                        <img src="https://kheloo.com//images/Football.svg">
+                        <img src="/assets/images/Football.png">
                         <span>
                             E-Sports
                         </span>
@@ -51,19 +51,19 @@
                 </li>
                 <li>
                     <a (click)="updateData('Slots')">
-                        <img src="https://kheloo.com//images/777.svg">
+                        <img src="/assets/images/svg/slots.svg">
                         <span>Slots</span>
                     </a>
                 </li>
                 <li>
                     <a (click)="updateData('Lottery')">
-                        <img src="https://kheloo.com//images/Lottery.svg">
+                        <img src="/assets/images/svg/Lottery.svg">
                         <span>Lottery</span>
                     </a>
                 </li>
                 <li>
                     <a (click)="updateData('Table Games')">
-                        <img src="https://kheloo.com//images/Dice.svg">
+                        <img src="/assets/images/Dice.png">
                         <span>
                             Table Games
                         </span>
@@ -71,7 +71,7 @@
                 </li>
                 <li>
                     <a (click)="updateData('Poker')">
-                        <img src="https://kheloo.com//images/Poker.svg">
+                        <img src="/assets/images/svg/poker.svg">
                         <span>
                             Poker
                         </span>
@@ -83,39 +83,39 @@
             @if(isLoggedIn){
             <a href="javascript:void(0);" class="secondaryAnchor"
                 onclick="document.getElementById('circularMenu').classList.toggle('active');">
-                <img src="https://kheloo.com//images/deposit.svg">
+                <img src="/assets/images/deposit.png">
                 <span>Deposit</span>
             </a>
 
             <div id="circularMenu" class="circular-menu">
                 <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
                     <i class="closedDi">X</i>
-                    <img src="https://kheloo.com//images/depositMenu.svg" class="img-fluid" alt="effect">
+                    <img src="/assets/images/depositMenu.svg" class="img-fluid" alt="effect">
                 </a>
                 <div class="outer_bg_circle"></div>
                 <div class="outer_circle_menu">
                     <ul class="items-wrapper deposit_exists_pie_menu">
                         <li>
                             <a (click)="navigate('100')" class="menu-item">
-                                <img src="https://kheloo.com//images/blue_chip.svg" class="img-fluid chipImg" alt="effect">
+                                <img src="/assets/images/svg/blue_chip.svg" class="img-fluid chipImg" alt="effect">
                                 <span>₹100</span>
                             </a>
                         </li>
                         <li>
                             <a (click)="navigate('1000')" class="menu-item">
-                                <img src="https://kheloo.com//images/green_chip.svg" class="img-fluid chipImg" alt="effect">
+                                <img src="/assets/images/green_chip.png" class="img-fluid chipImg" alt="effect">
                                 <span>₹1,000</span>
                             </a>
                         </li>
                         <li>
                             <a (click)="navigate('5000')" class="menu-item">
-                                <img src="https://kheloo.com//images/red_chip.svg" class="img-fluid chipImg" alt="effect">
+                                <img src="/assets/images/red_chip.png" class="img-fluid chipImg" alt="effect">
                                 <span>₹5,000</span>
                             </a>
                         </li>
                         <li>
                             <a (click)="navigate('10000')" class="menu-item">
-                                <img src="https://kheloo.com//images/black_chip.svg" class="img-fluid chipImg" alt="effect">
+                                <img src="/assets/images/black_chip.png" class="img-fluid chipImg" alt="effect">
                                 <span>₹10,000</span>
                             </a>
                         </li>
@@ -125,7 +125,7 @@
             }@else {
 
             <a href="javascript:void(0);" class="secondaryAnchor registerFormClass" (click)="openRegister()">
-                <img src="https://kheloo.com//images/register_footer.svg">
+                <img src="/assets/images/register_footer.png">
                 <span>Register</span>
             </a>
             }
