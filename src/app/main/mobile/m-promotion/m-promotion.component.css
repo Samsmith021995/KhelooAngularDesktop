@@ -1,0 +1,60 @@
+
+@import url(https://kheloo.com/Content/OurAssest/PageCss/PromotionCss.css);
+/* .promotion_body_container {
+    background-color: #000;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.promotion_card {
+    text-align: center;
+    margin: 0;
+    position: relative;
+    display: block;
+    border-radius: 2px;
+    min-width: 0;
+    padding-bottom: 30px;
+    img{
+        width: 100%;
+    }
+}
+
+.promotion_border {
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.promotion_img_container {
+    position: relative;
+    padding-top: 10%;
+    width: 100%;
+}
+.promotion_border::after {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: 41px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background: #a1902e;
+    background: -webkit-gradient(left top,right bottom,color-stop(0,#a1902e),color-stop(35%,#ffdb66),color-stop(40%,#baa73e),color-stop(44%,#fff8d4),color-stop(48%,#6e5706),color-stop(52%,#574300),color-stop(56%,#fff6c7),color-stop(76%,#ab8f00),color-stop(100%,#ab8f00));
+    background: linear-gradient(135deg,#a1902e,#ffdb66 35%,#baa73e 40%,#fff8d4 44%,#6e5706 48%,#574300 52%,#fff6c7 56%,#ab8f00 76%,#ab8f00);
+    -webkit-animation: BorderAnimation 5s linear infinite;
+    animation: BorderAnimation 5s linear infinite;
+    border-radius: 10px;
+}
+
+@keyframes BorderAnimation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .p-img{
+    position: relative;
+  } */
