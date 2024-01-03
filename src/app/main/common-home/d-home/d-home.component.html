@@ -46,8 +46,8 @@
         <div style=" display: flex; margin-right: 4px; overflow-x: auto; width: 100%; color: white;" #showMore
             class="ashu">
             <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]">
-                <div style="margin-right: 4px;margin-bottom:10px; " class="casino-game-item">
-                    <img [src]="game.url_thumb" alt="" width="250px" class="thgame">
+                <div style="margin-right: 4px;margin-bottom:10px;" class="casino-game-item shimmerBG">
+                    <img [src]="game.url_thumb" alt="" width="100%" class="thgame ">
                     <div class="min_max_container">
                         <span class="minValue">
                             <span class="ng-binding"> Min.<i>₹</i>  {{game.MinAmount}} |</span>

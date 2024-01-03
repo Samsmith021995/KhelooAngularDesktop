@@ -42,6 +42,8 @@ import { MMenuComponent } from './main/mobile/m-menu/m-menu.component';
 import { UrlService } from './main/service/url.service';
 import { PromotionPopupComponent } from './main/mobile/m-promotion/promotion-popup/promotion-popup.component';
 import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
+import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
+import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
 
 
 
@@ -84,6 +86,8 @@ import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.compo
     MMenuComponent,
     PromotionPopupComponent,
     MPromotionComponent,
+    KhelooPrivilegesComponent,
+    TournamentsComponent,
   
     
     

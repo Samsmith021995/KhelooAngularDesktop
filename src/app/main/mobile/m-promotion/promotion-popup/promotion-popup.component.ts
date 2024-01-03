@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-promotion-popup',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './promotion-popup.component.css'
 })
 export class PromotionPopupComponent {
+@Output() onCancel = new EventEmitter<any>;
 
+  Onclose(){
+    this.onCancel.emit();
+  }
 }

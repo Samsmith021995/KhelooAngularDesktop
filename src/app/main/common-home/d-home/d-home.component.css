@@ -213,9 +213,9 @@ img {
     transform: rotate(45deg);
 }
 
-casino-game-item {
-    width: 100%;
-    height: 100%;
+.casino-game-item {
+    width:250px ;
+    height:168px;
     /* padding-top: 70%; */
     background: rgba(var(--b-sc-rgb), .1) no-repeat 50%/contain;
     border-radius: 4px;
@@ -259,6 +259,26 @@ casino-game-item {
         width: 225px;
        
     }
+    .casino-game-item {
+        width:228px ;
+        height:153px;
+        /* padding-top: 70%; */
+        background: rgba(var(--b-sc-rgb), .1) no-repeat 50%/contain;
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+    }
+    .shimmerBG {
+        animation-duration: 1.2s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: shimmer;
+        animation-timing-function: linear;
+        background: #ddd;
+        background: linear-gradient(to right, #F6F6F6 8%, #e4dcdc 18%, #F6F6F6 33%);
+        background-size: 1200px 100%;
+    }
+    
 }
 .btn-show {
     margin: 12px 0;
@@ -370,4 +390,29 @@ input.ng-untouched.ng-pristine.ng-valid {
 }
 .minValue{
     margin-right: 4px;
+}
+
+
+
+
+@-webkit-keyframes shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1200px 0;
+    }
+    100% {
+        background-position: 1200px 0;
+    }
+}
+  
+    .media {
+    height: 200px;
 }

@@ -17,7 +17,7 @@
    
 }
 .live_sub_container {
-    background: url(https://kheloo.com/images/Withdrawl-Board_9.png) round;
+    background: url('/assets/images/Withdrawl-Board_9.png') round;
     padding: 0;
     padding-bottom: 23px;
     border-radius: 22px;

@@ -1,0 +1,12 @@
+.modal-header{
+    margin-top: 44px !important;
+    /* text-align: end; */
+    display: block;
+    padding: 20px !important;
+    top: 10%;
+   
+}
+
+.modal-header .close{
+    margin-top: 10px !important;
+}
