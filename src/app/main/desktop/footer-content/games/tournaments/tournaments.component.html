@@ -165,7 +165,7 @@
                                                                                                                 class="subTimer">
                                                                                                                 <span
                                                                                                                     class="timer_title"
-                                                                                                                    id="days">-1253</span>
+                                                                                                                    id="days">{{ondays}}</span>
                                                                                                                 <span
                                                                                                                     class="timer_text">Days</span>
                                                                                                             </div>
@@ -180,7 +180,7 @@
                                                                                                                 class="subTimer">
                                                                                                                 <span
                                                                                                                     class="timer_title"
-                                                                                                                    id="hours">-16</span>
+                                                                                                                    id="hours">{{onHour}}</span>
                                                                                                                 <span
                                                                                                                     class="timer_text">Hours</span>
                                                                                                             </div>
@@ -195,7 +195,7 @@
                                                                                                                 class="subTimer">
                                                                                                                 <span
                                                                                                                     class="timer_title"
-                                                                                                                    id="minutes">-46</span>
+                                                                                                                    id="minutes">{{onMin}}</span>
                                                                                                                 <span
                                                                                                                     class="timer_text">Mins</span>
                                                                                                             </div>
@@ -210,7 +210,7 @@
                                                                                                                 class="subTimer">
                                                                                                                 <span
                                                                                                                     class="timer_title"
-                                                                                                                    id="seconds">-53</span>
+                                                                                                                    id="seconds">{{onSec}}</span>
                                                                                                                 <span
                                                                                                                     class="timer_text">Secs</span>
                                                                                                             </div>
@@ -768,62 +768,8 @@
                     </div>
                 </div>
                 <script>
-                    const second = 1000,
-                        minute = second * 60,
-                        hour = minute * 60,
-                        day = hour * 24;
-
-                    let ongoing_countDown = new Date('Jul 29, 2020 00:00:00').getTime(),
-                        x = setInterval(function () {
-                            let now = new Date().getTime(),
-                                distance = ongoing_countDown - now;
-
-                            document.getElementById('days').innerText = Math.floor(distance / (day)),
-                                document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
-                                document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-                                document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
-
-                            //do something later when date is reached
-                            //if (distance < 0) {
-                            //  clearInterval(x);
-                            //  'IT'S MY BIRTHDAY!;
-                            //}
-
-                        }, second)
-                    let upcoming_countDown = new Date('Jul 29, 2020 00:00:00').getTime(),
-                        y = setInterval(function () {
-                            let now = new Date().getTime(),
-                                distance = upcoming_countDown - now;
-
-                            document.getElementById('upcoming_days').innerText = Math.floor(distance / (day)),
-                                document.getElementById('upcoming_hours').innerText = Math.floor((distance % (day)) / (hour)),
-                                document.getElementById('upcoming_minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-                                document.getElementById('upcoming_seconds').innerText = Math.floor((distance % (minute)) / second);
-
-                            //do something later when date is reached
-                            //if (distance < 0) {
-                            //  clearInterval(x);
-                            //  'IT'S MY BIRTHDAY!;
-                            //}
-
-                        }, second)
-                    let quick_upcoming_days = new Date('Jul 29, 2020 00:00:00').getTime(),
-                        z = setInterval(function () {
-                            let now = new Date().getTime(),
-                                distance = quick_upcoming_days - now;
-
-                            document.getElementById('quick_upcoming_days').innerText = Math.floor(distance / (day)),
-                                document.getElementById('quick_upcoming_hours').innerText = Math.floor((distance % (day)) / (hour)),
-                                document.getElementById('quick_upcoming_minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-                                document.getElementById('quick_upcoming_seconds').innerText = Math.floor((distance % (minute)) / second);
-
-                            //do something later when date is reached
-                            //if (distance < 0) {
-                            //  clearInterval(x);
-                            //  'IT'S MY BIRTHDAY!;
-                            //}
-
-                        }, second)
+               
+                  
                 </script>
             </div>
         </div>

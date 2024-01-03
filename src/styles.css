@@ -149,10 +149,11 @@ i-feather[name="loader"]{
 
 
 .Ashutosh{
-  
+ 
   border: 1px solid #f4ad09;
   color: #f4ad09 !important;
   background-color: #000;
+
   div:where(.swal2-icon).swal2-success .swal2-success-ring {
     position: absolute;
     z-index: 2;
@@ -184,7 +185,51 @@ div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line] {
   height: 0.3125em;
   border-radius: 0.125em;
   background-color: #f4ad09;
+  
+
 }
+div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line][class$=left] {
+  top: -0.4375em;
+  left: -2.0635em;
+  transform: rotate(-45deg);
+  transform-origin: 3.75em 3.75em;
+  border-radius: 7.5em 0 0 7.5em;
+  background: none !important;
 }
+div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line][class$=right] {
+  top: -0.6875em;
+  left: 1.875em;
+  transform: rotate(-45deg);
+  transform-origin: 0 3.75em;
+  border-radius: 0 7.5em 7.5em 0;
+  background: none !important;
+ 
+  
+}
+div:where(.swal2-icon).swal2-success .swal2-success-fix {
+  position: absolute;
+  z-index: 1;
+  top: 0.5em;
+  left: 1.625em;
+  width: 0.4375em;
+  height: 5.625em;
+  transform: rotate(-45deg);
+  background: none !important;
+}
+/* div:where(.swal2-container) button:where(.swal2-styled) {
+  margin: 0.3125em;
+  padding: 1em 2em;
+  transition: box-shadow .1s;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0);
+  font-weight: 500;
+} */
 
 
+
+
+.custom-btn{
+  font-size: 17px;
+
+}
+
+}

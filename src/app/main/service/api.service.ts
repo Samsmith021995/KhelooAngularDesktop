@@ -111,11 +111,14 @@ export class ApiService {
         confirmButtonColor:'#f4ad09',
         showClass:
         {
-          popup: 'swal2-show ashu',
+          popup: 'swal2-show Ashutosh',
           backdrop: 'swal2-backdrop-show',
           icon: 'swal2-icon-show'
         },
-  customClass:'Ashutosh'
+  // customClass:'Ashutosh',
+  customClass:{
+    confirmButton:'custom-btn'
+  }
       });
     }
 

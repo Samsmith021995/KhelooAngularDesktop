@@ -176,7 +176,7 @@ const routes: Routes = [
         component:KhelooPrivilegesComponent
       },
       {
-        path:'tournament',
+        path:'tournaments',
         component:TournamentsComponent
       },
       //Mobile Start by Ashutosh
