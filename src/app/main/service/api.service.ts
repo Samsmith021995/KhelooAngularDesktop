@@ -106,9 +106,13 @@ export class ApiService {
         title: titleTest,
         text: msg,
         icon: iconText,
-        timer: 2000,
-        color: iconText=='success'?'#28a745':'#af0101',
-        confirmButtonColor:iconText=='success'?'#28a745':'#af0101',
+       // timer: 2000,
+        background: 'black',
+        color: iconText=='success'?'#f4ad09':'#af0101',
+        confirmButtonColor:iconText=='success'?'#f4ad09':'#af0101',
+        customClass: {
+          container: 'custom-swal-modal', // Apply the custom CSS class here
+        },
       });
     }
 

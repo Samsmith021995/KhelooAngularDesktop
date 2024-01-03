@@ -49,7 +49,9 @@ export class LoginpopupComponent implements OnInit{
     this.showsubmitbtn = true;
     let param = this.mobileLogin.getRawValue();
     this.apiSer.apiRequest(config['login'],param).subscribe({
+      
       next: data=>{
+        
         if(data.ErrorCode == '1'){
           this.showsubmitbtn = false;
           this.comSer.saveData('UserId',data.UserId);

@@ -3,12 +3,14 @@
 .fade:not(.show) {
     opacity: 1;
 }
+
 .loginPopupComponent-container section {
     height: 100%;
     background: none;
     padding: 15px;
 }
-.loginPop{
+
+.loginPop {
     width: 285px;
     background-color: #0b001c;
     max-height: 85vh;
@@ -29,15 +31,41 @@
     margin-top: 30px;
 }
 
-.cdk-overlay-pane{
+.cdk-overlay-pane {
     width: 300px !important;
 }
-.closePopInfo{
+
+.closePopInfo {
     float: right;
     color: white;
     padding: 12px;
     font-size: 20px;
 }
-.form_container{
+
+.form_container {
     padding: 10px;
+}
+
+button.swal2-confirm.swal2-styled.swal2-default-outline {
+    background: #f3a432 !important;
+}
+
+div:where(.swal2-icon).swal2-success .swal2-success-ring {
+    position: absolute;
+    z-index: 2;
+    top: -0.25em;
+    left: -0.25em;
+    box-sizing: content-box;
+    width: 100%;
+    height: 100%;
+    border: 0.25em solid rgb(255 215 0 / 81%);
+    border-radius: 50%;
+}
+
+button.swal2-confirm.swal2-styled.swal2-default-outline {
+    background: #f3a432 !important;
+}
+
+h2#swal2-title {
+    color: #efd832 !important;
 }
