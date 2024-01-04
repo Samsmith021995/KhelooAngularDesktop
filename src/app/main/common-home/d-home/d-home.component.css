@@ -393,7 +393,11 @@ input.ng-untouched.ng-pristine.ng-valid {
 }
 
 
-
+button.btn-show.viewmore {
+    margin: 9px auto;
+    text-align: center;
+    display: block;
+}
 
 @-webkit-keyframes shimmer {
     0% {
