@@ -106,7 +106,7 @@ export class ApiService {
         title: titleTest,
         text: msg,
         icon: iconText,
-        // timer: 2000,
+         timer: 2000,
         color:'#f4ad09',
         confirmButtonColor:'#f4ad09',
         showClass:

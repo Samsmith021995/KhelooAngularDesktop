@@ -72,14 +72,7 @@
   padding: 4rem 0px;
 }
 
-.bLvAaE.funkytime {
-  color: rgb(221, 18, 123);
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyenter.png)
-    center center / contain no-repeat;
-  height: 100px;
-  width: 100%;
-  font-size: 27px;
-}
+
 .bLvAaE::after {
   content: "";
   width: 190px;
