@@ -65,7 +65,7 @@
 
         </div>
 
-        @if(defaultSlices[i]<=gamesData[category].length){ <button (click)="updateSlice(i)" class="btn-show"
+        @if(defaultSlices[i]<=gamesData[category].length){ <button (click)="updateSlice(i)" class="btn-show viewmore"
             *ngIf="gamesData[category].length > 50 && isDetailsVisible[subSelected?0:i]">
             View More
             </button>
