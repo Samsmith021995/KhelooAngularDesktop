@@ -101,7 +101,7 @@ export class RegisterComponent {
         ).subscribe(data => {
           // if (data.ErrorCode != '1') {
             // this.apiSer.showAlert('', data.ErrorMessage, 'warning');
-            this.router.navigate(['/thanks-registration']);
+            this.router.navigate(['/']);
             // return;
           // }
         });

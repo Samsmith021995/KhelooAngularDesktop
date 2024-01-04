@@ -23,9 +23,7 @@ export class AppComponent implements OnInit {
     });
     this.commonSer.myVariable$.subscribe((width)=>{
       this.isSmallScreen = width === "true";
-    });
-
-    
+    });    
   }
 
   refreshHeader(){

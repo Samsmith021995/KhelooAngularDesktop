@@ -1,0 +1,37 @@
+.getC{
+    float: inline-end;
+    border-radius: 5px;
+    color: white;
+    background-color: green;
+}
+.logo{
+    width: 150px;
+}
+.container{
+    background: transparent;
+    border-radius: 10px;
+    border: none;
+    overflow-y: unset;
+    z-index: 9;
+    top: 560px !important;
+    position: absolute;
+    
+}
+
+button.next-step {
+    position: relative;
+    background: #7a1295;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    font-weight: 400;
+    font-size: 12px;
+    color: #fff;
+    letter-spacing: 0.2em;
+    box-shadow: 0 8px 32px rgb(0 0 0 / 20%);
+    transition: all 0.2s ease;
+    padding:12px;
+    width: 100%;
+}
