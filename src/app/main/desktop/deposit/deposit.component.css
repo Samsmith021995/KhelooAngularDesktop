@@ -304,15 +304,14 @@ a {
 }
 
 .ribbon {
-  top: -61px;
-    border: 1.5px solid #ffd370;
-    border-radius: 20px;
-    width: 130px;
-    left: 22px;
-    padding: 3px 0 3px;
-    text-align: center;
-    background-color: black;
-    position: relative;
+  top: -67px;
+  border: 1.5px solid #ffd370;
+  border-radius: 6px;
+  width: 130px;
+  padding: 3px 0 3px;
+  text-align: center;
+  background-color: black;
+  position: relative;
 
 }
 
