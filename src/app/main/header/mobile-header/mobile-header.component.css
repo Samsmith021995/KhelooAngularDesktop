@@ -1,9 +1,8 @@
-
+@import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css';
 /* @import 'https://kheloo.com/Content/OurAssest/Common/style.css';  */
 @import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css';
-/* @import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; */
+@import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
 @import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css';
-/* @import 'assets/css/HomeCss.css'; */
 
 .header-btns {
   line-height: normal;
