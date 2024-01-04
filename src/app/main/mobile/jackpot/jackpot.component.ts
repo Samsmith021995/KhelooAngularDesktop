@@ -18,7 +18,7 @@ export class JackpotComponent implements OnInit, OnDestroy {
     this.getRecentWith();
     setInterval(() => {
       this.getRecentWith()
-    }, 60000);
+    }, 30000);
     this.intervalId = setInterval(() => {
       this.countDownValue++;
     

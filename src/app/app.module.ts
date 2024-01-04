@@ -1,4 +1,4 @@
-import { NgModule} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -44,6 +44,10 @@ import { PromotionPopupComponent } from './main/mobile/m-promotion/promotion-pop
 import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
 import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
 import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
+import { LangPopupComponent } from './main/mobile/langstrip/lang-popup/lang-popup.component';
+import { LangstripComponent } from './main/mobile/langstrip/langstrip.component';
+import { GameHeaderComponent } from './main/desktop/game-platform/game-header/game-header.component';
+
 
 
 
@@ -88,8 +92,10 @@ import { TournamentsComponent } from './main/desktop/footer-content/games/tourna
     MPromotionComponent,
     KhelooPrivilegesComponent,
     TournamentsComponent,
-  
-    
+    GameHeaderComponent,
+    // LangstripComponent,
+    // LangPopupComponent,
+
     
   ],
   imports: [
@@ -97,8 +103,8 @@ import { TournamentsComponent } from './main/desktop/footer-content/games/tourna
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule
-  
-,  ],
+   ],
+   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [ApiService,UrlService],
  
   bootstrap: [AppComponent]
