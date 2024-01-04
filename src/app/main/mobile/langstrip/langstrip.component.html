@@ -1,38 +1,43 @@
 <div class="lang_container notranslate">
     <div class="lang_sub_container">
-    <div class="lang_div">
-    <a href="#" ng-click="changelanguage('en')">
-    <div class="lang_text">English</div>
-    </a>
+        <div class="lang_div">
+            <a  (click)="changelanguage('en')">
+                <div class="lang_text">English</div>
+            </a>
+        </div>
+        <div class="lang_div">
+            <a  (click)="changelanguage('hi')">
+                <div class="lang_text">हिन्दी</div>
+            </a>
+        </div>
+        <div class="lang_div">
+            <a  (click)="changelanguage('te')">
+                <div class="lang_text">తెలుగు</div>
+            </a>
+        </div>
+        <div class="lang_div">
+            <a  (click)="changelanguage('kn')">
+                <div class="lang_text">
+                    ಕನ್ನಡ
+                </div>
+            </a>
+        </div>
+        <div class="lang_div">
+            <a  (click)="changelanguage('mr')">
+                <div class="lang_text">
+                    मराठी
+                </div>
+            </a>
+        </div>
+        <div class="lang_div" style="padding-right:0;">
+            <a (click)="openDialog()">
+                <div class="lang_text">...</div>
+            </a>
+        </div>
     </div>
-    <div class="lang_div">
-    <a href="#" ng-click="changelanguage('hi')">
-    <div class="lang_text">हिन्दी</div>
-    </a>
-    </div>
-    <div class="lang_div">
-    <a href="#" ng-click="changelanguage('te')">
-    <div class="lang_text">తెలుగు</div>
-    </a>
-    </div>
-    <div class="lang_div">
-    <a href="#" ng-click="changelanguage('kn')">
-    <div class="lang_text">
-    ಕನ್ನಡ
-    </div>
-    </a>
-    </div>
-    <div class="lang_div">
-    <a href="#" ng-click="changelanguage('mr')">
-    <div class="lang_text">
-    मराठी
-    </div>
-    </a>
-    </div>
-    <div class="lang_div" style="padding-right:0;">
-    <a href="javascript:void(0)" data-toggle="modal" data-target="#languageModal">
-    <div class="lang_text">...</div>
-    </a>
-    </div>
-    </div>
-    </div>
+</div>
+
+<ng-template #langstripPop>
+    <!-- <app-lang (onCancel)="Onclose()"></app-poker> -->
+        <app-lang-popup></app-lang-popup>
+</ng-template>

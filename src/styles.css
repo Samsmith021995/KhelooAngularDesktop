@@ -232,3 +232,7 @@ div:where(.swal2-icon).swal2-success .swal2-success-fix {
 }
 
 }
+
+/* .goog-te-banner-frame, .goog-te-menu-value ,.skiptranslate{
+  display: none !important;
+} */

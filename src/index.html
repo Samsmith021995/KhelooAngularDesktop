@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -8,10 +8,64 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'hi' }, 'google_translate_element');
+    }
+  </script>
+ 
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body class="mat-typography">
-  <app-root></app-root>
+  <div id="google_translate_element">
+    <app-root></app-root>
 
+  </div>
 
+<script>googleTranslateElementInit();</script>
 </body>
+</html> -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Kheloo</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <script type="text/javascript" ></script>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+    }
+
+    // function loadGoogleTranslateScript() {
+    //   const script = document.createElement('script');
+    //   script.type = 'text/javascript';
+    //   script.src = 'https://translate.google.com/translate_a/element.js';
+    //   script.onload = function () {
+     
+    //     window.load('translate', { callback: googleTranslateElementInit });
+    //   };
+    //   document.head.appendChild(script);
+    // }
+  </script>
+</head>
+
+<body class="mat-typography">
+  <!-- <div id="google_translate_element"> -->
+    <app-root></app-root>
+  <!-- </div> -->
+
+  <script type="text/javascript">
+    // loadGoogleTranslateScript();
+    googleTranslateElementInit();
+  </script>
+</body>
+
 </html>

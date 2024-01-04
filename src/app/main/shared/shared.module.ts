@@ -34,6 +34,9 @@ import { DPromotionalComponent } from '../desktop/d-promotional/d-promotional.co
 
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
+import { LangstripComponent } from '../mobile/langstrip/langstrip.component';
+import { LangPopupComponent } from '../mobile/langstrip/lang-popup/lang-popup.component';
+
 @NgModule({
   declarations: [
     BannerComponent,
@@ -45,7 +48,9 @@ import { allIcons } from 'angular-feather/icons';
     RouletteComponent,
     SlotsComponent,
     DJackpotComponent,
-    DPromotionalComponent
+    DPromotionalComponent,
+    LangstripComponent,
+    LangPopupComponent
   ],
   imports: [
   CommonModule,
@@ -83,6 +88,8 @@ import { allIcons } from 'angular-feather/icons';
   SlotsComponent,
   DJackpotComponent,
   DPromotionalComponent,
+  LangstripComponent,
+  LangPopupComponent,
   CommonModule,
   FormsModule,
   HttpClientModule,

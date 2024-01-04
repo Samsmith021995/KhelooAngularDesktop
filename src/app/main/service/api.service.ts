@@ -122,4 +122,54 @@ export class ApiService {
       });
     }
 
+
+    async loadTranslateScript(){
+    // Define a unique ID for the script tag
+  const scriptId = 'google-translate-script';
+
+  // Check if the script tag already exists
+  const existingScript = document.getElementById(scriptId);
+  if (existingScript) {
+    // Remove the existing script if it's found
+    existingScript.remove();
+  }
+
+  // Create a new script tag
+  const script = document.createElement('script');
+  script.id = scriptId; // Set the unique ID to the script
+  script.type = 'text/javascript';
+  script.src = 'https://translate.google.com/translate_a/element.js';
+
+  // Append the script tag to the document head
+  document.head.appendChild(script);
+    }
+  
+    // googleTranslateElementInit(): void {
+    //   new (window as any).google.translate.TranslateElement({ pageLanguage: 'hi' }, 'google_translate_element');
+    // }
+   async googleTranslateElementInit(target:string){
+    return  new (window as any).google.translate.TranslateElement({
+        pageLanguage:target,
+        layout: (window as any).google.translate.TranslateElement.InlineLayout.SIMPLE
+      });
+      // const googleTranslateElement = new (window as any).google.translate.TranslateElement({
+      //   pageLanguage: 'hi'
+      // });
+      // const selectField = document.querySelector(".goog-te-combo");
+      // if(selectField) {
+      //   selectField.nodeValue = target;
+      //   selectField.dispatchEvent(new Event('change'));
+      // }
+    
+    }
+    // translatePage(language) {
+    //   const googleTranslateElement = new (window as any).google.translate.TranslateElement({
+    //     pageLanguage: 'hi'
+    //   });
+    //   const selectField = document.querySelector(".goog-te-combo");
+    //   if(selectField) {
+    //     selectField.value = language;
+    //     selectField.dispatchEvent(new Event('change'));
+    //   }
+    // }
 }
