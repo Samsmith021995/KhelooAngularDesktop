@@ -1,7 +1,4 @@
 
-@import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css';
-@import 'https://kheloo.com/Content/OurAssest/Common/style.css'; 
-/* @import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; */
 .deposit_container {
     background: #000;
     margin-top: 60px;
@@ -547,4 +544,19 @@ body{
     color: #fccd09;
     text-shadow: 0 1px 1px rgb(0 0 0 / 20%);
     text-align: center;
+}
+.banner img {
+    width: 100%;
+}
+.banner {
+    margin-top: 7px;
+}
+:not(.btn-check)+.btn:active {
+    color: #000;
+    background: #f4ad09;
+    padding: 4px 17px;
+    border: 1px solid #f4ad09;
+}
+span.back {
+    color: #fff;
 }

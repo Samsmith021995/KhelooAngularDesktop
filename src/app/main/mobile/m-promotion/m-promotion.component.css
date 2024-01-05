@@ -1,13 +1,22 @@
 
-@import url(https://kheloo.com/Content/OurAssest/PageCss/PromotionCss.css);
 .promotion_body_container {
-    margin: 83px 0 !important;
+    background-color: #000;
+    padding-left: 20px;
+    padding-right: 20px
 }
 
-.heading h2:after{
-    bottom: -5px !important;
+.promotion_body_container h2 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 30px;
+    text-align: center
 }
-/* 
+
+.promotion_gallery_container {
+    -webkit-box-flex: 1;
+    flex: 1 1 auto
+}
+
 .promotion_card {
     text-align: center;
     margin: 0;
@@ -15,10 +24,13 @@
     display: block;
     border-radius: 2px;
     min-width: 0;
-    padding-bottom: 30px;
-    img{
-        width: 100%;
-    }
+    padding-bottom: 30px
+}
+
+.promotion_img_container {
+    position: relative;
+    padding-top: 50%;
+    width: 100%
 }
 
 .promotion_border {
@@ -28,36 +40,90 @@
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     border-radius: 10px;
-    overflow: hidden;
+    overflow: hidden
 }
-.promotion_img_container {
-    position: relative;
-    padding-top: 10%;
-    width: 100%;
-}
+
 .promotion_border::after {
     content: "";
     position: absolute;
     left: -2px;
-    top: 41px;
+    top: -2px;
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     background: #a1902e;
-    background: -webkit-gradient(left top,right bottom,color-stop(0,#a1902e),color-stop(35%,#ffdb66),color-stop(40%,#baa73e),color-stop(44%,#fff8d4),color-stop(48%,#6e5706),color-stop(52%,#574300),color-stop(56%,#fff6c7),color-stop(76%,#ab8f00),color-stop(100%,#ab8f00));
-    background: linear-gradient(135deg,#a1902e,#ffdb66 35%,#baa73e 40%,#fff8d4 44%,#6e5706 48%,#574300 52%,#fff6c7 56%,#ab8f00 76%,#ab8f00);
-    -webkit-animation: BorderAnimation 5s linear infinite;
-    animation: BorderAnimation 5s linear infinite;
-    border-radius: 10px;
+    background: -webkit-gradient(left top, right bottom, color-stop(0, #a1902e), color-stop(35%, #ffdb66), color-stop(40%, #baa73e), color-stop(44%, #fff8d4), color-stop(48%, #6e5706), color-stop(52%, #574300), color-stop(56%, #fff6c7), color-stop(76%, #ab8f00), color-stop(100%, #ab8f00));
+    background: linear-gradient(135deg, #a1902e, #ffdb66 35%, #baa73e 40%, #fff8d4 44%, #6e5706 48%, #574300 52%, #fff6c7 56%, #ab8f00 76%, #ab8f00);
+    -webkit-animation: BorderAnimation-data-v-3e160cee 5s linear infinite;
+    animation: BorderAnimation-data-v-3e160cee 5s linear infinite;
+    border-radius: 10px
 }
 
-@keyframes BorderAnimation {
+.promotion_img_container img {
+    width: 100%;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%
+}
+
+.promotion_gallery_container:last-child .promotion_card {
+    padding-bottom: 0
+}
+
+@-webkit-keyframes BorderAnimation-data-v-3e160cee {
     0% {
-      transform: rotate(0deg);
+        -webkit-transform: scale3d(2, 2, 1) rotate(0deg);
+        transform: scale3d(2, 2, 1) rotate(0deg)
     }
-    100% {
-      transform: rotate(360deg);
+
+    to {
+        -webkit-transform: scale3d(2, 2, 1) rotate(1turn);
+        transform: scale3d(2, 2, 1) rotate(1turn)
     }
-  }
-  .p-img{
-    position: relative;
-  } */
+}
+
+@keyframes BorderAnimation-data-v-3e160cee {
+    0% {
+        -webkit-transform: scale3d(2, 2, 1) rotate(0deg);
+        transform: scale3d(2, 2, 1) rotate(0deg)
+    }
+
+    to {
+        -webkit-transform: scale3d(2, 2, 1) rotate(1turn);
+        transform: scale3d(2, 2, 1) rotate(1turn)
+    }
+}
+
+@media(min-width:768px) and (max-width:1024px) {
+    .promotion_gallery_container {
+        -webkit-box-flex: 1;
+        flex: 1 1 auto;
+        flex-basis: 50%;
+        -webkit-box-flex: 0;
+        flex-grow: 0;
+        max-width: 50%;
+        padding: 10px !important
+    }
+}
+
+.promotion_body_container {
+    margin: 83px 0 !important;
+}
+
+.heading h2:after {
+    bottom: -5px !important;
+}
+
+.modal-header {
+    margin-top: 44px !important;
+    /* text-align: end; */
+    display: block;
+    padding: 20px !important;
+    top: 10%;
+
+}
+
+.modal-header .close {
+    margin-top: 30px !important;
+}
