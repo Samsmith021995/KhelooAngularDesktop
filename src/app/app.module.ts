@@ -47,6 +47,7 @@ import { TournamentsComponent } from './main/desktop/footer-content/games/tourna
 import { LangPopupComponent } from './main/mobile/langstrip/lang-popup/lang-popup.component';
 import { LangstripComponent } from './main/mobile/langstrip/langstrip.component';
 import { GameHeaderComponent } from './main/desktop/game-platform/game-header/game-header.component';
+import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
 
 
 
@@ -93,6 +94,7 @@ import { GameHeaderComponent } from './main/desktop/game-platform/game-header/ga
     KhelooPrivilegesComponent,
     TournamentsComponent,
     GameHeaderComponent,
+    MSignupComponent,
     // LangstripComponent,
     // LangPopupComponent,
 

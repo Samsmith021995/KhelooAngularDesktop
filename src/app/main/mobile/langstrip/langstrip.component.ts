@@ -14,19 +14,18 @@ export class LangstripComponent implements OnInit {
   constructor(private dialog:MatDialog,private apiSer:ApiService){
 
   }
-ngOnInit(): void {
-  this.apiSer.loadTranslateScript();
+  ngOnInit(): void {
+  // this.apiSer.loadTranslateScript();
 }
 
 openDialog(){
   this.defref = this.dialog.open(this.langstripPop);
   this.defref.afterClosed().subscribe(()=>{});
 }
-  Onclose(){
-    this.defref.close();
-  }
-  changelanguage(item:string){
-    
+Onclose(){
+  this.defref.close();
+}
+changelanguage(item:string){    
     this.apiSer.googleTranslateElementInit(item);
   }
 }

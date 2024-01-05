@@ -1,4 +1,5 @@
-
+/* /* /* @import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css'; */
+/* @import 'https://kheloo.com/Content/OurAssest/Common/style.css'; */ */
 .show-desktop {
     display: none;
     @media (min-width: 721px) { 
@@ -233,6 +234,9 @@ div:where(.swal2-icon).swal2-success .swal2-success-fix {
 
 }
 
-/* .goog-te-banner-frame, .goog-te-menu-value ,.skiptranslate{
+.skiptranslate{
   display: none !important;
-} */
+}
+.swiper-pagination-bullet{
+  background: red !important; /* Example: change bullet color */
+}

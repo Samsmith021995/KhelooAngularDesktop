@@ -38,6 +38,7 @@ import { DesktopGuard } from './guard/desktop.guard';
 import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
 import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
 import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
+import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
 
 const commonSer = new CommonServiceService();
 const routes: Routes = [
@@ -213,6 +214,11 @@ const routes: Routes = [
       //   loadChildren: () => import('./main/desktop/not-found-page/not-found-page.module').then(m => m.NotFoundPageModule),
       // },
     ]
+  },
+  {
+    path: 'signup',
+    component: MSignupComponent,
+    canActivate:[]
   },
   {
     path: 'login',
