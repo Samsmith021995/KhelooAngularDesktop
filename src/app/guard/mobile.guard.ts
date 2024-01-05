@@ -31,7 +31,7 @@ export class MobileGuard implements CanActivate {
     if(this.isSmallScreen){
       return true;
     }else{
-      console.log('Redirecting to 404 page');
+      // console.log('Redirecting to 404 page');
       return this.router.navigate(['/404']);
       
     }

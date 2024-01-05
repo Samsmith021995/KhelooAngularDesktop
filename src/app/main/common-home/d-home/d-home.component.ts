@@ -87,8 +87,8 @@ export class DHomeComponent implements OnInit {
       this.gamesData[item] = data;
       this.filteredResults[item] = data;
     });
-    console.log(this.gamesData);
-    console.log(item);
+    // console.log(this.gamesData);
+    // console.log(item);
   }
   getAllCategory(cat?: any) {
     this.apiSer.apiRequest(config['gameCategory']).pipe(

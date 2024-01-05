@@ -68,7 +68,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
       }
       this.checkLogin = true;
       this.username = localStorage.getItem('name');
-      console.log(this.username);
+      // console.log(this.username);
       if(!this.username){
         this.checkLogin = false;
         return;

@@ -4,3 +4,6 @@
 .lang_modal_header{
     display: block;
 }
+div#languageModal {
+    overflow: auto !important;
+}
