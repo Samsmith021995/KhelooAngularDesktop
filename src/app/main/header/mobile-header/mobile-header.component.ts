@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-mobile-header',
   templateUrl: './mobile-header.component.html',
-  styleUrl: './mobile-header.component.css'
+  // styleUrl: './mobile-header.component.css',
+  styleUrls: ['./mobile-header.component.css']
 })
 export class MobileHeaderComponent implements OnInit {
   @ViewChild('login') login!: TemplateRef<any>;
