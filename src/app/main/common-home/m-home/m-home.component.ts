@@ -154,7 +154,9 @@ export class MHomeComponent implements OnInit {
       behavior: 'smooth'
     });
   }
-
+  searching(){
+    this.onSearch(this.searchTerm);
+  }
   updateSlice(item: number) {
     this.defaultSlices[item] += 20;
   }

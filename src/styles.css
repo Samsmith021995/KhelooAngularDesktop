@@ -1,5 +1,6 @@
 /* /* /* @import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css'; */
-/* @import 'https://kheloo.com/Content/OurAssest/Common/style.css'; */ */
+/* @import 'https://kheloo.com/Content/OurAssest/Common/style.css'; */ 
+/* @import url('assets/css/HomeCss.css'); */
 .show-desktop {
     display: none;
     @media (min-width: 721px) { 
@@ -239,4 +240,7 @@ div:where(.swal2-icon).swal2-success .swal2-success-fix {
 }
 .swiper-pagination-bullet{
   background: red !important; /* Example: change bullet color */
+}
+body.mat-typography {
+  top: 0 !important;
 }

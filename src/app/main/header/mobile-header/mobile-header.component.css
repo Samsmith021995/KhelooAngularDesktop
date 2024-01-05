@@ -1,7 +1,9 @@
 
 @import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css';
-@import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css';
+/* @import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css'; */
 /* @import '../../../../assets/css/HomeCss.css'; */
+@import url('http://localhost:4200/assets/css/HomeCss.css');
+
 
 .header-btns {
   line-height: normal;

@@ -14,6 +14,7 @@ export class DHomeComponent implements OnInit {
   slidesPerViewn : number = 1;
   searchTerm: string = '';
   allResults: any[] = [];
+  subCategorybc: any[] = [];
   filteredResults: { [key: string]: any[] } = {};
   private loaderSubscriber !: Subscription;
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
@@ -110,6 +111,9 @@ export class DHomeComponent implements OnInit {
       this.selected = cat.mainCat;
       this.mainCategory = Array.from(categorySet);
       this.subCategory = Array.from(subCategorySet);
+      this.subCategorybc = Array.from(subCategorySet);
+     
+    this.subCategorybc = this.subCategorybc.sort().reverse();
     this.subCategory = this.subCategory.sort().reverse();
       this.subCategory.forEach((item: { GameCategory: string; }) => {
         this.defaultSlices.push(20);
@@ -142,12 +146,21 @@ export class DHomeComponent implements OnInit {
   onSearch() {
     if (this.searchTerm.trim() !== '') {
       let param = { GameCategory: this.selected }
-      for (let item of this.subCategory) {
-        const filteredApiResults = this.filteredResults[item].filter(result =>
-          result.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-        );
-        this.gamesData[item] = filteredApiResults;
-      }
+      // for (let item of this.subCategory) {
+      //   const filteredApiResults = this.filteredResults[item].filter(result =>
+      //     result.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      //   );
+      //   this.gamesData[item] = filteredApiResults;
+      // }
+      for (let item of this.subCategorybc) {
+        const filteredApiResultsed = this.filteredResults[item].filter(result =>
+          result.name.toLowerCase().includes(this.searchTerm.toLowerCase()) || 
+          result.groupname.toLowerCase().includes(this.searchTerm.toLowerCase()) || 
+          result.gamecategory.toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+            this.gamesData[item] = filteredApiResultsed;
+    }
+    this.subCategory = this.subCategorybc.filter(item => this.gamesData[item]?.length > 0);
     } else {
       this.gamesData = { ...this.filteredResults };
     }
