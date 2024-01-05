@@ -60,16 +60,7 @@
   margin-top: 3rem;
   cursor: pointer;
 }
-.eBOuzh {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  -webkit-box-align: center;
-  align-items: center;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
-    100% 5% / cover no-repeat;
-  padding: 4rem 0px;
-}
+
 
 .bLvAaE.funkytime {
   color: rgb(221, 18, 123);
@@ -179,38 +170,7 @@
   color: rgb(255, 255, 255);
   font-size: 17px;
 }
-.fjVnzR {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 0rem 17rem 2.5rem;
-  align-items: flex-start;
-}
-.fjVnzR p {
-  /* //   display: flex; */
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-  justify-content: center;
-  color: rgb(255, 255, 255);
-  font-size: 21px;
-  /* //   line-height: 30px;
-  //   gap: 5px;
-  //   text-align: justify;
-  //   margin: 13px 0px; */
-}
-.fjVnzR span {
-  font-size: 21px;
-}
 
-.jrxmYg {
-  font-size: 28px !important;
-  color: rgb(189 8 198);
-  font-size: 17px;
-  /* font-family: Inter-Bold; */
-  display: block;
-  margin: 5px 0 30px;
-  font-family: "Poppins", sans-serif;
-}
 .table td,
 .table th {
   padding: 1.75rem;
@@ -220,70 +180,9 @@
 th {
   text-align: inherit;
 }
-tbody,
-thead,
-tr.head {
-  font-size: 20px;
-  border-color: inherit;
-  border-style: solid;
-  border-width: 0;
-  padding: 20px !important;
-  background-color: #ef008a;
-}
-div.title {
-  width: 100%;
-  height: 100px;
-  margin-top: 100px;
-}
-.sd:after {
-  content: "";
-  width: 190px;
-  height: 10px;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
-    center center / cover no-repeat;
-  display: block;
-  margin: -25px auto;
-  /* position: absolute; */
-}
-span.sd {
-  color: #7814a1;
-  display: block;
-  font-size: 76px;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 1.9;
-  font-weight: 900;
-  text-transform: uppercase;
-  &::before {
-    content: "Affiliates";
-    color: rgb(75 16 79 / 50%);
-    font-size: 130px;
-    /* //width: 350px; */
-    display: block;
-    margin: -160px 0px;
-    font-weight: 900;
 
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  }
-}
-.pinkbtn {
-  box-shadow: 0px 0px 8px #fdb600;
-  border-radius: 13.3444px;
-  width: auto;
-  height: auto;
-  padding: 10px 15px;
-  color: rgb(255, 255, 255);
-  outline: none;
-  font-size: 18px;
-  font-weight: 700;
-  border: 1px solid #855705;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  z-index: 99;
-  margin-top: 3rem;
-  cursor: pointer;
-  background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
-}
+
+
 .affiliates_y_icon_container.col-md-1 img {
   width: 100%;
 }
@@ -301,9 +200,7 @@ span.sc-NUcrz.jrxmYg.center.col-md-12:after {
   display: block;
   margin: 0px auto;
 }
-td img {
-  width: 5%;
-}
+
 .table {
     --bs-table-bg: unset;
     --bs-table-color: #ffffff;
@@ -320,3 +217,255 @@ td img {
 .table-striped>tbody>tr:nth-of-type(even) {
     background-color: #7c0974;
 }
+
+
+@media (min-width:767px) {
+  td img {
+    width: 5%;
+  }
+  .pinkbtn {
+    box-shadow: 0px 0px 8px #fdb600;
+    border-radius: 13.3444px;
+    width: auto;
+    height: auto;
+    padding: 10px 15px;
+    color: rgb(255, 255, 255);
+    outline: none;
+    font-size: 18px;
+    font-weight: 700;
+    border: 1px solid #855705;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    z-index: 99;
+    margin-top: 3rem;
+    cursor: pointer;
+    background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
+  }
+  .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+.table-striped>tbody>tr:nth-of-type(even) {
+    background-color: #7c0974;
+}
+
+  tbody,
+thead,
+tr.head {
+  font-size: 20px;
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  padding: 20px !important;
+  background-color: #ef008a;
+}
+  div.title {
+    width: 100%;
+    height: 100px;
+    margin-top: 100px;
+  }
+  .sd:after {
+    content: "";
+    width: 190px;
+    height: 10px;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+      center center / cover no-repeat;
+    display: block;
+    margin: -25px auto;
+    /* position: absolute; */
+  }
+  span.sd {
+    color: #7814a1;
+    display: block;
+    font-size: 76px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    &::before {
+      content: "Affiliates";
+      color: rgb(75 16 79 / 50%);
+      font-size: 130px;
+      /* //width: 350px; */
+      display: block;
+      margin: -160px 0px;
+      font-weight: 900;
+  
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
+  }
+  .fjVnzR {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 17rem 2.5rem;
+    align-items: flex-start;
+  }
+  .fjVnzR p {
+    /* //   display: flex; */
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    /* //   line-height: 30px;
+    //   gap: 5px;
+    //   text-align: justify;
+    //   margin: 13px 0px; */
+  }
+  .fjVnzR span {
+    font-size: 21px;
+  }
+  
+  .jrxmYg {
+    font-size: 28px !important;
+    color: rgb(189 8 198);
+    font-size: 17px;
+    /* font-family: Inter-Bold; */
+    display: block;
+    margin: 5px 0 30px;
+    font-family: "Poppins", sans-serif;
+  }
+  .eBOuzh {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
+      100% 5% / cover no-repeat;
+    padding: 4rem 0px;
+  }
+  
+}
+@media (max-width:767px) {
+  td img {
+    width: 10%;
+  }
+  .aboutPg:after{
+    content: "";
+    height: 250px;
+    width: 100%;
+    background: url('/assets/images/Banner11.jpeg');
+    display: block;
+    margin: 11px 0 0;
+  }
+  
+  .pinkbtn{
+    height: 60px;
+    width: 200px;
+    font-size: 1rem;
+    margin:10px auto;
+    background: rgb(90,0,105);
+    background: linear-gradient(90deg, rgba(90,0,105,1) 0%, rgba(130,0,195,1) 44%, rgba(90,0,105,1) 100%);
+    border-radius: 25px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+    color: #fff;
+    line-height: 60px;
+    font-size: 14px;
+  }
+  .table-striped>tbody>tr:first-child {
+    border-bottom: 1px solid  #181818 !important;
+}
+  .table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: #181818;
+}
+  .table-striped>tbody>tr:nth-child(even)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: #1f1f1f ;
+}
+
+
+  tbody,
+thead,
+tr.head {
+  font-size: 14px;
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  padding: 20px !important;
+  background-color: #181818;
+}
+  div.title {
+    width: 100%;
+    height: 100px;
+    margin-top: 30px;
+  }
+  .sd:after {
+    content: "";
+    width: 190px;
+    height: 10px;
+    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+      center center / cover no-repeat;
+    display: block;
+    margin: -10px auto;
+    /* position: absolute; */
+  }
+  span.sd {
+    color: #fff;
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.9;
+    font-weight: 900;
+    text-transform: uppercase;
+    &::before {
+      content: "";
+      color: rgb(75 16 79 / 50%);
+      font-size: 130px;
+      /* //width: 350px; */
+      display: block;
+      margin: 30px 0px;
+      font-weight: 900;
+  
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
+  }
+  .fjVnzR {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 1rem 2.5rem;
+    align-items: flex-start;
+  }
+  .fjVnzR p {
+    /* //   display: flex; */
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: #8f99a3;
+    font-size: 14px;
+    /* //   line-height: 30px;
+    //   gap: 5px;
+    //   text-align: justify;
+    //   margin: 13px 0px; */
+  }
+  .fjVnzR span {
+    font-size: 21px;
+  }
+  
+  .jrxmYg {
+    font-size: 20px !important;
+    color: #fff;
+    font-size: 17px;
+    /* font-family: Inter-Bold; */
+    display: block;
+    margin: 5px 0 30px;
+    font-family: "Poppins", sans-serif;
+  }
+  .eBOuzh {
+    width: 100%;
+    /* display: flex; */
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    /* background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
+      100% 5% / cover no-repeat; */
+    padding: 1rem 0px;
+  }
+  
+}
+
