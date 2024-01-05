@@ -80,7 +80,7 @@
   width: 25px;
   height: 25px;
   margin-left: 10px;
-  background-image: url(../../../images/right_arrow.png);
+  /* background-image: url(../../../images/right_arrow.png); */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
