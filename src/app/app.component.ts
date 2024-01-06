@@ -3,6 +3,7 @@ import { CommonServiceService } from './main/service/common-service.service';
 import { register } from 'swiper/element/bundle';
 // import { CommonServiceService } from './service/common-service.service';
 import { Router,NavigationEnd } from '@angular/router';
+import { ApiService } from './main/service/api.service';
 register();
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ register();
 export class AppComponent implements OnInit {
   title = 'KhelooAngularDesktop';
   isSmallScreen!:boolean;
-  constructor(private router:Router,private commonSer:CommonServiceService){}
+  constructor(private router:Router,private commonSer:CommonServiceService,private apiSer:ApiService){}
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
@@ -23,7 +24,9 @@ export class AppComponent implements OnInit {
     });
     this.commonSer.myVariable$.subscribe((width)=>{
       this.isSmallScreen = width === "true";
-    });    
+    });   
+    
+   
   }
 
   refreshHeader(){

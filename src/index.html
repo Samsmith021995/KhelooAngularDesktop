@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script type="text/javascript">
     function googleTranslateElementInit() {
-      new window.google.translate.TranslateElement({ pageLanguage: 'en'}, 'google_translate_element');
+      new window.google.translate.TranslateElement({ defaultLanguage: 'en', pageLanguage: 'en'}, 'google_translate_element');
     }
   </script>
   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -18,5 +18,6 @@
 
 <body class="mat-typography">
     <app-root></app-root>
+    <script>googleTranslateElementInit();</script>
 </body>
 </html>

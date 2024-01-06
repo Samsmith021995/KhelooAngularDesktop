@@ -20,6 +20,8 @@ export class ApiService {
   public options: any;
   public headers_object: any;
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  private targetLanguageSubject = new BehaviorSubject<string>('en');
+  targetLanguage$ = this.targetLanguageSubject.asObservable();
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
   constructor(public http: HttpClient, private router: Router, public loaderService: LoaderService, public commonSer: CommonServiceService) {
     const storedValue = localStorage.getItem('UserId');
@@ -115,7 +117,6 @@ export class ApiService {
         backdrop: 'swal2-backdrop-show',
         icon: 'swal2-icon-show'
       },
-      // customClass:'Ashutosh',
       customClass: {
         confirmButton: 'custom-btn'
       }
@@ -123,36 +124,27 @@ export class ApiService {
   }
 
 
-   loadTranslateScript():void {
-
-    const scriptId = 'google-translate-script';
-
-    const existingScript = document.getElementById(scriptId);
-    if (existingScript) {
-
-      existingScript.remove();
-    }
-
-
-    const script = document.createElement('script');
-    script.id = scriptId;
-    script.type = 'text/javascript';
-    script.src = 'https://translate.google.com/translate_a/element.js';
-    document.head.appendChild(script);
+  setTargetLanguage(languageCode: string): void {
+    this.targetLanguageSubject.next(languageCode);
+    localStorage.setItem('selectedLanguage', languageCode);
   }
 
-
-  googleTranslateElementInit(target: string) :void {
+  deleteCookie(name: string): void {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;';
+  }
+  googleTranslateElementInit(target: string): void {
     this.router.navigate(['/'], { fragment: 'googtrans(en|' + target + ')' }).then(() => {
-      // Force page reload
       window.location.reload();
     });
-    
-    new (window as any).google.translate.TranslateElement({
-      pageLanguage: target
-    });
-  
-
+    if (target != 'en') {
+      new (window as any).google.translate.TranslateElement({
+        pageLanguage: target,
+        includedLanguages: target
+      });
+    } else {
+      let cookieName = 'googtrans';
+      this.deleteCookie(cookieName);
+    }
   }
 
 

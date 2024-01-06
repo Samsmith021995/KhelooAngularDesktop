@@ -652,9 +652,7 @@ ol li::marker {
     background-color:unset; 
    
   }
-  input:checked + .tab-label {
-    /* background-color: ; */
-  }
+
   .custom-row{
     width: 100%;
       display: flex;

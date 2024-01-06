@@ -26,6 +26,7 @@ Onclose(){
   this.defref.close();
 }
 changelanguage(item:string){    
-    this.apiSer.googleTranslateElementInit(item);
+  // this.apiSer.setTargetLanguage(item);
+  this.apiSer.googleTranslateElementInit(item);
   }
 }
