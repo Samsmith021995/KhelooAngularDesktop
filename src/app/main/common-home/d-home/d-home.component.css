@@ -412,3 +412,13 @@ input.ng-untouched.ng-pristine.ng-valid {
     .media {
     height: 200px;
 }
+
+.btn-show1{
+    display: block;
+    padding: 3px 8px;
+    margin: 12px auto;
+    border-radius: 6px;
+    background: none;
+    color: #a9a9a9;
+    border: 1px solid #a9a9a9;
+}

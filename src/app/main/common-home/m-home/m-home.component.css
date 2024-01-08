@@ -403,12 +403,30 @@ svg {
     border-radius: 7px;
 }
 
+.shimmerBG {
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shimmers;
+    animation-timing-function: linear;
+    background: #ddd;
+    background: linear-gradient(to right, #F6F6F6 8%, #e4dcdc 18%, #F6F6F6 33%);
+    background-size: 1200px 100%;
+}
 @keyframes shimmer {
     0% {
         transform: translateX(-50%);
     }
     100% {
         transform: translateX(100%);
+    }
+}
+@keyframes shimmers {
+    0% {
+        background-position: -1200px 0;
+    }
+    100% {
+        background-position: 1200px 0;
     }
 }
 .container{
