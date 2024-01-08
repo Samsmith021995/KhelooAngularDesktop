@@ -1988,7 +1988,7 @@ p.live_title span {
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     transition: all .3s ease;
-    background: url(/assets/images/lights.png);
+    background: url('/assets/images/lights.png');
     border-radius: 0;
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
