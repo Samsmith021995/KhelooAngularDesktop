@@ -238,9 +238,21 @@ div:where(.swal2-icon).swal2-success .swal2-success-fix {
 .skiptranslate{
   display: none !important;
 }
-.swiper-pagination-bullet{
-  background: red !important; /* Example: change bullet color */
+
+.swiper-pagination-bullet:after{
+  content: "-";
+  width: 10px;
+  height: 10px;
+  font-size: 5rem;
 }
+.swiper-pagination-bullet-active{
+  color: #f7ae06;
+}
+.swiper-button-prev{
+  margin-top: -50px !important;
+ top: var(--swiper-navigation-top-offset, 44%) !important;
+}
+
 body.mat-typography {
   top: 0 !important;
 }

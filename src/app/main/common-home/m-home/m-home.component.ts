@@ -17,14 +17,14 @@ export class MHomeComponent implements OnInit {
     '/assets/images/Banner11.jpeg',
     '/assets/images/Banner18.jpeg',
     '/assets/images/Dil-se-kheloo_375x250.jpeg',
-    '/assets/images/10minwith.png',
-    '/assets/images/Banner11.jpeg',
-    '/assets/images/Banner18.jpeg',
-    '/assets/images/Dil-se-kheloo_375x250.jpeg',
-    '/assets/images/10minwith.png',
-    '/assets/images/Banner11.jpeg',
-    '/assets/images/Banner18.jpeg',
-    '/assets/images/Dil-se-kheloo_375x250.jpeg',
+    // '/assets/images/10minwith.png',
+    // '/assets/images/Banner11.jpeg',
+    // '/assets/images/Banner18.jpeg',
+    // '/assets/images/Dil-se-kheloo_375x250.jpeg',
+    // '/assets/images/10minwith.png',
+    // '/assets/images/Banner11.jpeg',
+    // '/assets/images/Banner18.jpeg',
+    // '/assets/images/Dil-se-kheloo_375x250.jpeg',
 
   ];
   mainCategory: any[] = [];

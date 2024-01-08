@@ -1,4 +1,4 @@
-<section class="loginPop">
+<div class="loginPop">
     <div class="closePopInfo" (click)="onBack()">X</div>
     <div class="login_form_wizard">
         <div class="loginPopupComponent-form-container">
@@ -26,10 +26,10 @@
                             </a>
                         </p>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 btnDiv">
                         <button class="sign_up_container loginBtn" (click)="onLogin()">SIGN IN</button>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 btnReg">
                         <p class="small_text">
                             <a href="javascript:void(0);" class="LoginFormClass center" (click)="openRegister()">
                                 Register Now
@@ -40,7 +40,7 @@
             </form>
         </div>
     </div>
-</section>
+</div>
 <ng-template #forgotPass>
     <app-m-forgot-password (onCancel)="closePopup()"></app-m-forgot-password>
 </ng-template>

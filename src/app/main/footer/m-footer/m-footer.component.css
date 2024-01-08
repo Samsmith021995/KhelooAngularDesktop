@@ -6,3 +6,15 @@
     text-align: center;
     padding: 0 0 120px 0 !important;
 }
+.swiper-pagination{
+    display: none !important;
+}
+.swiper-pagination-bullet:after{
+    content: "" !important;
+    width: 10px;
+    height: 10px;
+    font-size: 5rem;
+  }
+  a .left carousel-control, a .right carousel-control{
+    display: none !important;
+  }

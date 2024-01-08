@@ -384,12 +384,17 @@ ol li::marker {
 li p{
     justify-content: left !important;
     margin: -5px 0px 0px 10px !important;
-}
-
-.table-handler-div{
+    color: #8f99a3;
+  }
+  
+  .table-handler-div{
   overflow: auto;
   width: 370px;
 }
 .table-handler-div tr td p{
   font-size: 12px !important;
+}
+.titleP{
+  color: #fff !important;
+
 }
