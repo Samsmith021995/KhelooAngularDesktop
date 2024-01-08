@@ -128,3 +128,14 @@ th {
   height: 30px;
   width: 100%;
 }
+.viewmore{
+    text-align: center;
+}
+
+.viewbtn{
+    border: 1px solid white;
+    color: white;
+    margin: 10px 0;
+    padding: 7px 30px;
+    border-radius: 5px;
+}

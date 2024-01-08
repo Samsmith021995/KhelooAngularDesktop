@@ -129,7 +129,7 @@ export class DHomeComponent implements OnInit {
     this.router.navigate(['/games', param]);
   }
   showMoreF(item: number) {
-    console.log(item);
+    // console.log(item);
     this.defaultSlices[item] = 20;
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     if (nativeElement) {

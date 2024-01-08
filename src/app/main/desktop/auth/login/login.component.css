@@ -2,14 +2,13 @@
   width: 120px;
   margin: 35px auto;
   display: block
+
 }
 .login,
 .image {
   min-height: 100vh;
 }
-.bg-light {
-  background-image: linear-gradient(#6612a5, #2c003a);
-}
+
 p.text-muted.mb-4.loginsubtitle {
   font-size: 14px;
   color: #fff !important;
@@ -135,3 +134,50 @@ button.btn.btn-primary.btn-lg[_ngcontent-ng-c1731079979] {
       text-decoration: none;
       color: #fff;
     }
+
+
+    @media (min-width:767px) {
+      .bg-light {
+        background-image: linear-gradient(#6612a5, #2c003a);
+      }
+      .logintitle:after{
+        content: "Sign in, we are waiting for you";
+      }
+    }
+    @media (max-width:767px) {
+      .bg-light{
+        background: url(https://kheloo.com/images/login_pop_bg.png);
+        background-size: cover;
+        background-position: center;
+
+      }
+
+    .mobileRow{
+        max-height: 470px;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        padding: 30px 0;
+        width: 80%;
+        background: #0b001c;
+        border-radius: 10px;
+        border: 2px solid #f5c14a;
+        overflow-y: auto;
+        text-align: center;
+      }
+      .logintitle:after{
+        content: "LOGIN";
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .logo{
+        position: absolute;
+        top: 0;
+        margin: 10px auto;
+        display: block;
+    
+      }
+    }
+      
+    

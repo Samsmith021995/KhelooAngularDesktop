@@ -54,8 +54,8 @@ export class WithdrawComponent implements OnInit {
       this.apiSer.showAlert('Please Fill the Branch Name', '', 'error');
       return;
     }
-    if (this.withdrawForm.controls['Amount'].value < 1000) {
-      this.apiSer.showAlert('Amount should be more than 1000', '', 'error');
+    if (this.withdrawForm.controls['Amount'].value < 100) {
+      this.apiSer.showAlert('Amount should be more than 100', '', 'error');
       return;
     }
     if (!this.withdrawForm.controls['IfscCode'].value) {
