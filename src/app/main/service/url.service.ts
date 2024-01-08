@@ -20,7 +20,7 @@ export class UrlService {
 
   private checkIfUrlIsPresent():boolean {
     const url = window.location.href;
-    return (url.endsWith('/') || url === window.location.origin);
+    return (url.endsWith('/') || url === window.location.origin ||  url.split('#')[0] ===  window.location.origin+'/');
     // return (url.includes('/m-deposit') || url.includes('/m-withdraw') || url.includes('/m-setting') || url.includes('/m-statement'));
   }
 
