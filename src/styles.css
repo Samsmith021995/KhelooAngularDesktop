@@ -1,6 +1,3 @@
-/* /* /* @import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css'; */
-/* @import 'https://kheloo.com/Content/OurAssest/Common/style.css'; */ 
-/* @import url('assets/css/HomeCss.css'); */
 .show-desktop {
     display: none;
     @media (min-width: 721px) { 
@@ -99,9 +96,9 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-} */
+} 
 
-/* Firefox */
+
 input[type=number] {
   -moz-appearance: textfield;
 }
@@ -146,7 +143,6 @@ i-feather[name="loader"]{
   
   animation: spin 2s linear infinite; 
 }
-/* loader end */
 
 
 .Ashutosh{
@@ -217,13 +213,6 @@ div:where(.swal2-icon).swal2-success .swal2-success-fix {
   transform: rotate(-45deg);
   background: none !important;
 }
-/* div:where(.swal2-container) button:where(.swal2-styled) {
-  margin: 0.3125em;
-  padding: 1em 2em;
-  transition: box-shadow .1s;
-  box-shadow: 0 0 0 3px rgba(0,0,0,0);
-  font-weight: 500;
-} */
 
 
 
