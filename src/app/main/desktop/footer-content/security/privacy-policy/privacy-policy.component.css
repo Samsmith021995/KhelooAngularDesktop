@@ -388,7 +388,7 @@ tr.head {
     flex-wrap: wrap;
     -webkit-box-pack: center;
     justify-content: center;
-    color: #8f99a3;;
+    color: #8f99a3;
     font-size: 13px;
     line-height: 20px !important;
   }
@@ -432,17 +432,12 @@ tr.head {
 
 @media (min-width:767px) {
   .jrxmYg {
-    font-size: 24px;
-    color: rgb(189 8 198);
-    font-size: 17px;
-    /* font-family: Inter-Bold; */
+    font-size: 18px;
+    color: #fff;
     display: block;
-    /* margin: 5px 0 30px; */
     font-family: "Poppins", sans-serif;
   }
-  .fjVnzR span {
-    font-size: 21px;
-  }
+ 
   .eBOuzh {
     width: 100%;
     display: flex;
@@ -457,15 +452,15 @@ tr.head {
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0rem 17rem 2.5rem;
+    padding: 0rem 3rem 2.5rem;
     align-items: flex-start;
   }
   .fjVnzR p {
     flex-wrap: wrap;
     -webkit-box-pack: center;
     justify-content: center;
-    color: rgb(255, 255, 255);
-    font-size: 16px;
+    color: #8f99a3;
+    font-size: 14px;
   }
   div.title {
     width: 100%;
@@ -482,9 +477,9 @@ tr.head {
     margin: -25px auto;
   }
   span.sd {
-    color: #7814a1;
+    color: #fff;
     display: block;
-    font-size: 76px;
+    font-size: 55px;
     text-align: center;
     margin: 0 auto;
     line-height: 1.9;
@@ -493,9 +488,9 @@ tr.head {
     &::before {
       content: "Privacy Policy";
       color: rgb(75 16 79 / 50%);
-      font-size: 130px;
+      font-size: 80px;
       display: block;
-      margin: -160px 0px;
+      margin: -100px 0px;
       font-weight: 900;
   
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);

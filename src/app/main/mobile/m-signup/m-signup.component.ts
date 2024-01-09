@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
 import { Router } from '@angular/router';
-import { retry } from 'rxjs';
+import { Subscription, retry } from 'rxjs';
 
 @Component({
   selector: 'app-m-signup',
@@ -14,23 +14,32 @@ export class MSignupComponent implements OnInit {
   getcodeBtn:boolean = false;
   otpVerify:boolean  = false;
   inputText: string = '';
+  refText: any;
+  btnLoading:boolean=false;
   inputVerify:boolean  = false;
   verificationCode:boolean  = false;
   signUp !:FormGroup;
   slidesPerViewn:number = 1;
   images = [
-    'https://kheloo.com/images/sign-up-bg-new1.jpg',
-    'https://kheloo.com/images/sign-up-bg-new2.jpg',
-    'https://kheloo.com/images/sign-up-bg-new3.jpg',
-    'https://kheloo.com/images/sign-up-bg-new4.jpg',
+    '/assets/images/sign-up-bg-new1.jpg',
+    '/assets/images/sign-up-bg-new2.jpg',
+    '/assets/images/sign-up-bg-new3.jpg',
+    '/assets/images/sign-up-bg-new4.jpg',
   ];
+  private loaderSubscriber !: Subscription;
+  private apiSubscriber: Subscription[]=[];
   constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router){}
   ngOnInit(): void {
+    let ref = localStorage.getItem('Ref');
+    if(ref){
+      this.refText =  ref;
+    }
     this.signUp = this.fb.group({
       UserName:['',[Validators.required]],
       FName:['',[Validators.required]],
       LName:['',[Validators.required]],
       DOB:['',[Validators.required]],
+      Ref:[this.refText,],
       Password:['',[Validators.required]],
       Mobile:['',[Validators.required]],
       OTP:['',[Validators.required]],
@@ -43,6 +52,9 @@ export class MSignupComponent implements OnInit {
         this.getcodeBtn = true;
     }
     });
+    this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading:any={}) => {
+      this.btnLoading=('otp' in loading || 'verifyOtp' in loading || 'signUp' in loading)?true:false;
+    });
   }
   getCode(){
     let param = this.signUp.getRawValue();
@@ -52,8 +64,10 @@ export class MSignupComponent implements OnInit {
     }
     this.apiSer.apiRequest(config['otp'],param).subscribe({
       next:(data)=>{
-       
-        this.inputVerify = true;
+        this.apiSer.showAlert('',data.ErrorMessage,'error');
+        if(data.ErrorCode != '1'){
+          this.inputVerify = true;
+        }
       },
       error:(err)=>{
         console.error(err);

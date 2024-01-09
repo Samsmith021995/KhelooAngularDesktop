@@ -1,47 +1,89 @@
 <div class="container-fluid">
-    <app-banner [images]="images" [slidesPerView] = "slidesPerViewn"></app-banner>
+    <app-banner [images]="images" [slidesPerView]="slidesPerViewn"></app-banner>
     <div class="container">
         <!-- <a class="navbar-brand fw-bold" href="/">
             <img src="/assets/images/logo.gif" class="logo" >
           </a>  -->
-          <div class="row">
-              <form [formGroup]="signUp">
+        <div class="row ">
+            <form [formGroup]="signUp">
                 @if(!otpVerify){
+                <div class="signForm">
                     <mat-form-field style="width: 100%;">
-                        <input matInput type="number" name="" id="" formControlName="Mobile" [(ngModel)]="inputText"  > 
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <input matInput type="number" name="" id="" formControlName="Mobile">
                         <button (click)="getCode()" class="getC" *ngIf="getcodeBtn">Get Code</button>
                     </mat-form-field>
+
+                </div>
                 }
                 @if(inputVerify){
+                <div class="signForm">
                     <mat-form-field style="width: 100%;">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                         <input matInput type="number" name="" id="" formControlName="OTP">
                     </mat-form-field>
+                </div>
 
                 }
                 @if(otpVerify && verificationCode){
-                <mat-form-field style="width: 100%;">
-                    <input matInput type="text" name="" id="" formControlName="UserName">
-                    <mat-error *ngIf="signUp.controls['UserName'].hasError('required')">This field is mandatory</mat-error>
-                </mat-form-field>
-                <mat-form-field style="width: 100%;">
-                    <input matInput type="text" name="" id="" formControlName="FName">
-                    <mat-error *ngIf="signUp.controls['FName'].hasError('required')">This field is mandatory</mat-error>
-                </mat-form-field>
-                <mat-form-field style="width: 100%;">
-                    <input matInput type="text" name="" id="" formControlName="LName">
-                    <mat-error *ngIf="signUp.controls['LName'].hasError('required')">This field is mandatory</mat-error>
-                </mat-form-field>
-                <mat-form-field style="width: 100%;">
-                    <input matInput type="text" name="" id="" formControlName="DOB">
-                    <mat-error *ngIf="signUp.controls['DOB'].hasError('required')">This field is mandatory</mat-error>
-                </mat-form-field>
-                <mat-form-field style="width: 100%;">
-                    <input matInput type="text" name="" id="" formControlName="Password">
-                    <mat-error *ngIf="signUp.controls['Password'].hasError('required')">This field is mandatory</mat-error>
-                </mat-form-field>
-            }
-                <button (click)="onSubmit()" class="next-step">Submit</button>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="UserName">
+                        <mat-error *ngIf="signUp.controls['UserName'].hasError('required')">This field is
+                            mandatory</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="FName">
+                        <mat-error *ngIf="signUp.controls['FName'].hasError('required')">This field is
+                            mandatory</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="LName">
+                        <mat-error *ngIf="signUp.controls['LName'].hasError('required')">This field is
+                            mandatory</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="DOB">
+                        <mat-error *ngIf="signUp.controls['DOB'].hasError('required')">This field is
+                            mandatory</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <!-- <input matInput type="text" name="" id="" formControlName="Ref" [(ngModel)]="refText"> -->
+                        <input matInput type="text" name="" id="" formControlName="Ref">
+                        <!-- <mat-error *ngIf="signUp.controls['DOB'].hasError('required')">This field is mandatory</mat-error> -->
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="Password">
+                        <mat-error *ngIf="signUp.controls['Password'].hasError('required')">This field is
+                            mandatory</mat-error>
+                    </mat-form-field>
+                </div>
+                }
+                <button (click)="onSubmit()" class="next-step">
+                   <ng-container *ngIf="btnLoading; else content">
+                          <i-feather name="loader"></i-feather>
+                        </ng-container>
+                        <ng-template #content>
+                          {{ !otpVerify ? 'Next' : 'Submit' }}
+                        </ng-template>
+                </button>
             </form>
-          </div>
+        </div>
     </div>
 </div>

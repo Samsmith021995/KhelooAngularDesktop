@@ -92,7 +92,7 @@ import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
     KhelooPrivilegesComponent,
     TournamentsComponent,
     GameHeaderComponent,
-    MSignupComponent, 
+    MSignupComponent,
   ],
   imports: [
     BrowserModule,
