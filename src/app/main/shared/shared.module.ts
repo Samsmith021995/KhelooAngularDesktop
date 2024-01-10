@@ -36,6 +36,7 @@ import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
 import { LangstripComponent } from '../mobile/langstrip/langstrip.component';
 import { LangPopupComponent } from '../mobile/langstrip/lang-popup/lang-popup.component';
+import { TableGameComponent } from '../desktop/footer-content/games/table-game/table-game.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { LangPopupComponent } from '../mobile/langstrip/lang-popup/lang-popup.co
     DJackpotComponent,
     DPromotionalComponent,
     LangstripComponent,
-    LangPopupComponent
+    LangPopupComponent,
+    TableGameComponent
   ],
   imports: [
   CommonModule,
@@ -90,6 +92,7 @@ import { LangPopupComponent } from '../mobile/langstrip/lang-popup/lang-popup.co
   DPromotionalComponent,
   LangstripComponent,
   LangPopupComponent,
+  TableGameComponent,
   CommonModule,
   FormsModule,
   HttpClientModule,

@@ -39,6 +39,7 @@ import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.compo
 import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
 import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
 import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
+import { TableGameComponent } from './main/desktop/footer-content/games/table-game/table-game.component';
 
 const commonSer = new CommonServiceService();
 const routes: Routes = [
@@ -113,11 +114,11 @@ const routes: Routes = [
         component:BlackjackComponent
       },
       {
-        path:'about',
+        path:'about-us',
         component:AboutUsComponent
       },
       {
-        path:'contact',
+        path:'contact-us',
         component:ContactUsComponent
       },
       {
@@ -180,6 +181,10 @@ const routes: Routes = [
         path:'tournaments',
         component:TournamentsComponent
       },
+      {
+        path:'table-game',
+        component:TableGameComponent
+      },
       //Mobile Start by Ashutosh
 
       {
@@ -218,7 +223,7 @@ const routes: Routes = [
   {
     path: 'signup',
     component: MSignupComponent,
-    canActivate:[]
+    canActivate:[MobileGuard]
   },
   {
     path: 'login',

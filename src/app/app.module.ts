@@ -47,10 +47,6 @@ import { TournamentsComponent } from './main/desktop/footer-content/games/tourna
 import { GameHeaderComponent } from './main/desktop/game-platform/game-header/game-header.component';
 import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,6 +89,7 @@ import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
     TournamentsComponent,
     GameHeaderComponent,
     MSignupComponent,
+    
   ],
   imports: [
     BrowserModule,
