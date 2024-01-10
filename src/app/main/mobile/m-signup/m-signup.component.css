@@ -38,29 +38,7 @@ button.next-step {
     width: 100%;
 }
 
-.signForm{
-    .mdc-text-field--filled:not(.mdc-text-field--disabled){
-        background-color: var(--mdc-filled-text-field-container-color);
-        background: transparent;
-        border: 1px solid #3f3f3f;
-        color: white !important;
-    }
-     .mdc-text-field--filled:not(.mdc-text-field--disabled):after {
-        animation: shine 1.6s ease infinite;
-    }
-    
-    .mdc-text-field{
-        padding: 0 !important;
-    }
-     .mdc-text-field--no-label:not(.mdc-text-field--textarea) .mat-mdc-form-field-input-control.mdc-text-field__input, .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
-        
-        color: #fff !important;
-    }
-     .mdc-text-field__input{
-        width: 60% !important;
-        padding-left: 10px !important;
-    }
-}
+
 .signForm span:nth-child(1) {
     position: absolute;
     top: 0;
