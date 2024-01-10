@@ -146,7 +146,7 @@ button.btn.btn-primary.btn-lg[_ngcontent-ng-c1731079979] {
     }
     @media (max-width:767px) {
       .bg-light{
-        background: url(https://kheloo.com/images/login_pop_bg.png);
+        background: url('/assets/images/login_pop_bg.png');
         background-size: cover;
         background-position: center;
 

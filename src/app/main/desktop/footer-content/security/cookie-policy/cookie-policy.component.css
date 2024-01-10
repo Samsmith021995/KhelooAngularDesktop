@@ -64,7 +64,7 @@
 
 .bLvAaE.funkytime {
   color: rgb(221, 18, 123);
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyenter.png)
+  background: url('/assets/images/funkyenter.png')
     center center / contain no-repeat;
   height: 100px;
   width: 100%;
@@ -104,7 +104,7 @@
   right: 0px;
   bottom: 0px;
   position: absolute;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/crazyCrashOrangeRIght.png)
+  background: url('/assets/images/crazyCrashOrangeRIght.png')
     center center / cover no-repeat;
 }
 .ggRmfc {
@@ -214,7 +214,7 @@
     flex-direction: column;
     -webkit-box-align: center;
     align-items: center;
-    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
+    background: url('/assets/images/funkyContentWrapperBg.png')
       100% 5% / cover no-repeat;
     padding: 4rem 0px;
   }

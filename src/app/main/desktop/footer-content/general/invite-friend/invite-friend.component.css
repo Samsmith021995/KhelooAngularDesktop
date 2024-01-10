@@ -421,7 +421,7 @@ td img {
     flex-direction: column;
     -webkit-box-align: center;
     align-items: center;
-    background: url('/assets/images/funkyContentWrapperBg.jpg')
+    background: url('/assets/images/funkyContentWrapperBg.png')
       100% 5% / cover no-repeat;
     padding: 4rem 0px;
   }

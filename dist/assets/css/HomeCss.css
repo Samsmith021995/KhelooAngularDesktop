@@ -3285,7 +3285,7 @@ ul.listStyle p {
     box-shadow: 0 0 70px -10px rgba(0, 0, 0, .75);
     -webkit-box-shadow: 0 0 70px -10px rgba(0, 0, 0, .75);
     -moz-box-shadow: 0 0 70px -10px rgba(0, 0, 0, .75);
-    background-image: url(https://jwcm.imgix.net/tournament/static-assets/background.jpg);
+    /* background-image: url(https://jwcm.imgix.net/tournament/static-assets/background.jpg); */
 }
 
 .tournamentCardWrapper .contentWrapper .tournamentInfoWrapper {
