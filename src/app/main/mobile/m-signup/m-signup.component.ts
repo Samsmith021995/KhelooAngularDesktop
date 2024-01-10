@@ -17,9 +17,11 @@ export class MSignupComponent implements OnInit {
   refText: any;
   btnLoading:boolean=false;
   inputVerify:boolean  = false;
+  showTimer:boolean  = false;
   verificationCode:boolean  = false;
   signUp !:FormGroup;
   slidesPerViewn:number = 1;
+  startSec:any;
   images = [
     '/assets/images/sign-up-bg-new1.jpg',
     '/assets/images/sign-up-bg-new2.jpg',
@@ -62,12 +64,25 @@ export class MSignupComponent implements OnInit {
       this.apiSer.showAlert('Mobile should not be blank','','error');
       return;
     }
+    this.showTimer = true;
+    let seconds = 60;
+
+    const intervalId = setInterval(() => {
+      if (seconds > 0) {
+        seconds--;
+        this.startSec = seconds;
+      } else {
+        clearInterval(intervalId);
+        this.showTimer = false;
+      }
+    }, 1000);
     this.apiSer.apiRequest(config['otp'],param).subscribe({
       next:(data)=>{
-        this.apiSer.showAlert('',data.ErrorMessage,'error');
         if(data.ErrorCode != '1'){
-          this.inputVerify = true;
+          this.apiSer.showAlert('',data.ErrorMessage,'error');
+          return ;
         }
+        this.inputVerify = true;
       },
       error:(err)=>{
         console.error(err);

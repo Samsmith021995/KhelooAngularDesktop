@@ -157,7 +157,6 @@
 
 .jrxmYg {
   color: rgb(221, 18, 123);
-  font-size: 17px;
   font-family: Inter-Bold;
   display: contents;
 }
@@ -304,9 +303,8 @@
   }
   
   .jrxmYg {
-    font-size: 28px !important;
+    font-size: 28px ;
     color: rgb(189 8 198);
-    font-size: 17px;
     /* font-family: Inter-Bold; */
     display: contents;
     font-family: "Poppins", sans-serif;

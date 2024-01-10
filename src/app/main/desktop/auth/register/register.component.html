@@ -75,7 +75,9 @@
                           is mandatory</mat-error>
                       </mat-form-field>
                     </ng-container>
-
+                    <mat-form-field style="width: 100%;" *ngIf="formDetails">
+                      <input matInput type="text" placeholder="Refferal Code" formControlName="Ref">
+                    </mat-form-field>
                     <ng-container *ngIf="otpVerify">
                       <mat-form-field style="width: 100%;" *ngIf="otpVerify">
                         <input matInput type="number" placeholder="Verify OTP" formControlName="OTP">

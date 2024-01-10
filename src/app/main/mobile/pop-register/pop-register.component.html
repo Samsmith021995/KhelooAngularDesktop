@@ -38,7 +38,8 @@
                                 </div>
                                 <div class="get_code_container">
                                     <a role="button" class="getCodeBtn" (click)="GenerateOTP()">
-                                        <span class="ng-binding">Get Code</span>
+                                        <span class="ng-binding" *ngIf="!showTimer">Get Code</span>
+                                        <span class="ng-binding" *ngIf="showTimer">{{startSec}}</span>
                                     </a>
                                 </div>
                             </div>
@@ -52,7 +53,13 @@
                         <ul class="list-inline pull-right">
                             <li>
                                 <button type="button" (click)="VerifyOTP()" class="next-step">
-                                    Next
+                                    <ng-container *ngIf="btnLoading; else content">
+                                        <i-feather name="loader"></i-feather>
+                                      </ng-container>
+                                      <ng-template #content>
+                                        Next
+                                      </ng-template>
+                                  
                                 </button>
                             </li>
                         </ul>
@@ -93,6 +100,10 @@
                                     class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched"
                                     data-gtm-form-interact-field-id="1" formControlName="Password">
                             </div>
+                            <div class="col-md-12 p-l-0 crossbar-contact-input-container">
+                                <input matInput type="text" placeholder="Refferal Code" 
+                                    class="ng-pristine ng-untouched ng-valid ng-empty" formControlName="Ref"> 
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -104,7 +115,12 @@
                             </li>
                             <li>
                                 <button type="button" class="next-step" (click)="Signup()">
-                                    Sign Up
+                                    <ng-container *ngIf="btnLoading; else content">
+                                        <i-feather name="loader"></i-feather>
+                                      </ng-container>
+                                      <ng-template #content>
+                                        Submit
+                                      </ng-template>
                                 </button>
                             </li>
                         </ul>

@@ -25,6 +25,7 @@ export class RegisterComponent {
   private apiSubscriber: Subscription[] = [];
   registerForm !: FormGroup;
    mobilenumber : any;
+   refText:string='';
    otpVerify: boolean = false;
    formDetails: boolean = false;
    typepass: string = 'password';
@@ -45,6 +46,10 @@ export class RegisterComponent {
   }
 
   ngOnInit(): void {
+    let ref = localStorage.getItem('Ref');
+    if(ref){
+      this.refText =  ref;
+    }
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.isAuthLoading = ('verifyOtp' in loading || 'otp' in loading || 'signUp' in loading) ? true : false;
     });
@@ -54,6 +59,7 @@ export class RegisterComponent {
       LName: ["", [Validators.required]],
       Mobile: ["", [Validators.required]],
       Password: ["", [Validators.required]],
+      Ref: [this.refText,],
       ConfirmPassword: ["", [Validators.required]],
       DOB: ["", [Validators.required]],
       OTP: ["", [Validators.required]],

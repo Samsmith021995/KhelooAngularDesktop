@@ -14,7 +14,11 @@
                         <span></span>
                         <span></span>
                         <input matInput type="number" name="" id="" formControlName="Mobile">
-                        <button (click)="getCode()" class="getC" *ngIf="getcodeBtn">Get Code</button>
+                        <button (click)="getCode()" class="getC" *ngIf="getcodeBtn">
+                            <p *ngIf="!showTimer">Get Code</p>
+                            <p *ngIf="showTimer">{{startSec}}</p>
+                            
+                        </button>
                     </mat-form-field>
 
                 </div>
