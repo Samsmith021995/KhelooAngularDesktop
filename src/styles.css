@@ -267,3 +267,7 @@ body.mat-typography {
       
     }
 }
+
+:root {
+  --mdc-filled-text-field-container-color: transparent !important;
+}
