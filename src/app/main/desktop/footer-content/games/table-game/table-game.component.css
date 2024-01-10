@@ -384,7 +384,7 @@ li p{
       font-weight: 900;
       text-transform: uppercase;
       &::before {
-        content: "Slots";
+        content: "Table Game";
         color: rgb(75 16 79 / 50%);
         font-size: 130px;
         /* //width: 350px; */
