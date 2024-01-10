@@ -269,5 +269,25 @@ body.mat-typography {
 }
 
 :root {
-  --mdc-filled-text-field-container-color: transparent !important;
+  /* --mdc-filled-text-field-container-color: transparent !important; */
+  .mdc-text-field--filled:not(.mdc-text-field--disabled){
+    background: transparent;
+    border: 1px solid #3f3f3f;
+    color: white !important;
+}
+ .mdc-text-field--filled:not(.mdc-text-field--disabled):after {
+    animation: shine 1.6s ease infinite;
+}
+
+.mdc-text-field{
+    padding: 0 !important;
+}
+ .mdc-text-field--no-label:not(.mdc-text-field--textarea) .mat-mdc-form-field-input-control.mdc-text-field__input, .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+    
+    color: #fff !important;
+}
+ .mdc-text-field__input{
+    width: 60% !important;
+    padding-left: 10px !important;
+}
 }
