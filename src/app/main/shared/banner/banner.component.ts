@@ -12,6 +12,7 @@ export class BannerComponent implements AfterViewInit {
  @Input() slidesPerView:any = [];
  @Input() pagination:boolean = true;
  @Input() prevNext:boolean = true;
+ @Input() location:boolean = false;
   ngOnInit(): void {
 
   }

@@ -31,7 +31,7 @@ export class WithdrawComponent implements OnInit {
       AccountNumber: ['', Validators.required],
       BankName: ['', Validators.required],
       BranchName: ['', Validators.required],
-      Amount: ['0', Validators.required],
+      Amount: ['', Validators.required],
       IfscCode: ['', Validators.required],
     });
   }

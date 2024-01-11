@@ -75,9 +75,7 @@ img {
 .cilckable_row {
     padding: 15px 0;
 }
-/* .statement_main_container .table_body:nth-child(even) {
-    background: rgba(255,255,255,.03);
-} */
+
 
 .cilckable_row:nth-child(even){
     background: rgba(255,255,255,7%);
@@ -138,4 +136,13 @@ th {
     margin: 10px 0;
     padding: 7px 30px;
     border-radius: 5px;
+}
+.table_heading {
+    i-feather{
+        color:#f9bb22;
+    }
+}
+.statement_list_title{
+    color:#f9bb22;
+
 }
