@@ -6,9 +6,10 @@
                 <img src="/assets/images/close.png" class="support_close_img" *ngIf="showSp">
                 <span>Support</span>
             </a>
-            <ul class="ms-nav" [ngClass]="{'customer_show':showSp}">
-                <li class="ms-li ms-li3 ms-li-last">
-                    <a target="_blank"
+            @if(showSp){
+                <ul class="ms-nav" [ngClass]="{'customer_show':showSp}">
+                    <li class="ms-li ms-li3 ms-li-last">
+                        <a target="_blank"
                         href="https://api.whatsapp.com/send/?phone=447897045261&amp;text&amp;app_absent=0">
                         <img src="/assets/images/whatsapp.png">
                     </a>
@@ -19,6 +20,7 @@
                     </a>
                 </li>
             </ul>
+             }
         </li>
         <li class="bottom_main_li horizontal_scroll_footer">
             <div class="more_bottom_footer_options" (click)="openMenu()">
@@ -81,14 +83,15 @@
         </li>
         <li class="bottom_main_li">
             @if(isLoggedIn){
-            <a href="javascript:void(0);" class="secondaryAnchor"
-                onclick="document.getElementById('circularMenu').classList.toggle('active');">
+            <a  class="secondaryAnchor"
+                (click)="circularOpen()">
                 <img src="/assets/images/deposit.png">
                 <span>Deposit</span>
             </a>
+            @if(circular){
 
-            <div id="circularMenu" class="circular-menu">
-                <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
+            <div id="circularMenu" class="circular-menu" [ngClass]="{'active':circular}">
+                <a class="floating-btn" (click)="circularOpen()">
                     <i class="closedDi">X</i>
                     <img src="/assets/images/depositMenu.svg" class="img-fluid" alt="effect">
                 </a>
@@ -122,9 +125,11 @@
                     </ul>
                 </div>
             </div>
+
+        }
             }@else {
 
-            <a href="javascript:void(0);" class="secondaryAnchor registerFormClass" (click)="openRegister()">
+            <a  class="secondaryAnchor registerFormClass" (click)="openRegister()">
                 <img src="/assets/images/register_footer.png">
                 <span>Register</span>
             </a>
