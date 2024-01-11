@@ -19,6 +19,7 @@ diaRef1:any;
 diaRef2:any;
 showSp:boolean = false;
 private isLoggedInSubscription!: Subscription;
+selectedMenu:string = '';
 constructor(private dialog:MatDialog , private comSer:CommonServiceService,public apiSer:ApiService,private router:Router){}
 ngOnInit(): void {
   this.isLoggedInSubscription = this.apiSer.isLoggedIn$.subscribe((value) => {
@@ -44,11 +45,12 @@ openMenu(){
 }
 
 updateData(search:any){
+  this.selectedMenu = search;
   this.comSer.sendSearchData(search);
 }
-seachData(item:any){
-  this.comSer.sendSearchData(item);
-}
+// seachData(item:any){
+//   this.comSer.sendSearchData(item);
+// }
 closeDial(){
   this.diaRef1.close();
 }

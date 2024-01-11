@@ -9,6 +9,7 @@
     position: relative;
     transition-property: transform;
     display: block;
+    
 }
 swiper-container{
     width: 100%;
@@ -31,4 +32,7 @@ swiper-container{
   .swiper-button-next{
     margin-top: -10px !important;
    top: var(--swiper-navigation-top-offset, 40%) !important;
+}
+.padd{
+  padding: 0 15px !important;
 }

@@ -25,7 +25,7 @@
                 <i-feather name="plus"> </i-feather>
             </div>
             <ul id="scroll_bottom" class="swiper-scroll">
-                <li>
+                <li >
                     <a (click)="gameStart(3306)">
                         <img src="/assets/images/sports-new.png">
                         <span>
@@ -33,7 +33,7 @@
                         </span>
                     </a>
                 </li>
-                <li>
+                <li [ngClass]="{'active':selectedMenu=='Casino'}">
                     <a (click)="updateData('Casino')">
                         <img src="/assets/images/Casino.png">
                         <span>
@@ -41,7 +41,7 @@
                         </span>
                     </a>
                 </li>
-                <li>
+                <li [ngClass]="{'active':selectedMenu=='Sports'}">
                     <a (click)="updateData('Sports')">
                         <img src="/assets/images/Football.png">
                         <span>
@@ -49,27 +49,27 @@
                         </span>
                     </a>
                 </li>
-                <li>
+                <li [ngClass]="{'active':selectedMenu=='Slots'}">
                     <a (click)="updateData('Slots')">
                         <img src="/assets/images/svg/slots.svg">
                         <span>Slots</span>
                     </a>
                 </li>
-                <li>
+                <li [ngClass]="{'active':selectedMenu=='Lottery'}">
                     <a (click)="updateData('Lottery')">
                         <img src="/assets/images/svg/Lottery.svg">
                         <span>Lottery</span>
                     </a>
                 </li>
-                <li>
-                    <a (click)="updateData('Table Games')">
+                <li [ngClass]="{'active':selectedMenu=='TableGames'}"> 
+                    <a (click)="updateData('TableGames')">
                         <img src="/assets/images/Dice.png">
                         <span>
                             Table Games
                         </span>
                     </a>
                 </li>
-                <li>
+                <li [ngClass]="{'active':selectedMenu=='Poker'}">
                     <a (click)="updateData('Poker')">
                         <img src="/assets/images/svg/poker.svg">
                         <span>
@@ -136,6 +136,6 @@
     <app-pop-register (onCancel)="closeDial()"></app-pop-register>
 </ng-template>
 <ng-template #mainMenu>
-    <app-m-menu (onCancel)="closeDial1()" (onFilter)="seachData($event)"></app-m-menu>
+    <app-m-menu (onCancel)="closeDial1()"></app-m-menu>
 </ng-template>
 <!-- Ashutosh -->

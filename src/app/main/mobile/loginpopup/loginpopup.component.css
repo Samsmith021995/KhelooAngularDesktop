@@ -11,9 +11,9 @@
 }
 
 .loginPop {
-    width: 300px;
+    width: 288px;
     background-color: #0b001c;
-    max-height: 85vh;
+    /* max-height: 85vh; */
     top: 50%;
     /* transform: translate(-50%, -50%); */
     /* width: 100%; */
@@ -101,3 +101,8 @@ h2#swal2-title {
     }
 }
 
+:root{
+    .mat-mdc-dialog-container .mdc-dialog__surface{
+        background: black;
+    }
+}

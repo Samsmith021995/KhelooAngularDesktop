@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 export class MFooterComponent {
   pagination:boolean = false;
   prevNxt:boolean = false;
+  footer:boolean = true;
   slidesPerViewn:number = 3;
   images = [
     '/assets/images/game_provider1.png',

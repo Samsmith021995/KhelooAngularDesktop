@@ -149,7 +149,7 @@ export class MHomeComponent implements OnInit {
       this.gamesData = { ...this.filteredResults };
     }
     window.scrollTo({
-      top: 900,
+      top: 1000,
       left: 0,
       behavior: 'smooth'
     });
