@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit{
  Mobile: string = "";
  UserPassword: string = "";
  password = "password";
- showsubmitbtn :boolean = false
  private loaderSubscriber !: Subscription;
  private apiSubscriber: Subscription[]=[];
  loginform  !:FormGroup
@@ -52,12 +51,10 @@ ngOnInit(): void {
  }
 
  login(){
-    this.showsubmitbtn = true;
     let param = this.loginform.getRawValue();
    this.apiSer.apiRequest(config['login'],param).subscribe({
      next: data=>{
        if(data.ErrorCode == '1'){
-         this.showsubmitbtn = false;
          this.comSer.saveData('UserId',data.UserId);
          this.comSer.saveData('LoginToken',data.LoginToken);
          this.comSer.saveData('name',data.UserName);
@@ -71,6 +68,7 @@ ngOnInit(): void {
      },
      error: err => {
        this.apiSer.showAlert('Something Went Wrong','','error');
+       this.btnLoading = false;
      }
    });
  }

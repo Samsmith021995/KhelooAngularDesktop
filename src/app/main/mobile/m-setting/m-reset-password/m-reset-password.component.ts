@@ -20,7 +20,7 @@ export class MResetPasswordComponent implements OnInit {
     this.resetForm = this.fb.group({
       Password:["",[Validators.required]],
       NewPassword:["",[Validators.required]],
-      ConfrimPassword:["",[Validators.required]],
+      ConfirmPassword:["",[Validators.required]],
     });
     this.loaderSubscriber = this.apiService.loaderService.loading$.subscribe((loading:any={}) => {
       this.btnLoading=('changePassword' in loading )?true:false;
@@ -30,7 +30,7 @@ export class MResetPasswordComponent implements OnInit {
 let param = this.resetForm.getRawValue();
     let pass = this.resetForm.controls['Password'].value;
     let pass1 = this.resetForm.controls['NewPassword'].value;
-    let pass2 = this.resetForm.controls['ConfrimPassword'].value;
+    let pass2 = this.resetForm.controls['ConfirmPassword'].value;
     if(!pass.trim()){
       this.apiService.showAlert('','Password Should not be Blank','warning')
       return;
@@ -61,6 +61,7 @@ let param = this.resetForm.getRawValue();
             this.onCancel.emit();
             this.router.navigate(['/']);
           }else{
+  
             this.apiService.showAlert('',data.ErrorMessage,'error');
           }
         });

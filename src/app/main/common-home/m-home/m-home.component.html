@@ -13,44 +13,46 @@
 <div class="col-lg-12">
     <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="searching()" class="search-class">
 </div>
+<div class="gameing">
 
-<ng-container *ngFor="let category of subCategory; let i=index;">
-    <div *ngIf="gamesData[category]" class="container">
-        @if(gamesData[category].length>0){
-
-        <span style="color: white;" class="category-btn game_ind_heading_container">
-            <h2>{{ category }}({{gamesData[category].length}})</h2>
-            <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 4 && !subSelected">
-                {{isDetailsVisible[i]?'Show Less':'Show More'}}
-            </button>
-        </span>
-
-        <div style=" color:white; display: flex; width: 100%; flex-wrap: wrap; " #showMore class="ashu"
-            [ngClass]="{'showMore':subSelected}">
-            <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]" style="width: 47%; margin: 3px;"
+    <ng-container *ngFor="let category of subCategory; let i=index;">
+        <div *ngIf="gamesData[category]" class="container">
+            @if(gamesData[category].length>0){
+                
+                <span style="color: white;" class="category-btn game_ind_heading_container">
+                    <h2>{{ category }} ({{gamesData[category].length}})</h2>
+                    <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 4 && !subSelected">
+                        {{isDetailsVisible[i]?'Show Less':'Show More'}}
+                    </button>
+                </span>
+                
+                <div style=" color:white; display: flex; width: 100%; flex-wrap: wrap; " #showMore class="ashu"
+                [ngClass]="{'showMore':subSelected}">
+                <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]" style="width: 47%; margin: 3px;"
                 class="casino-game-item shimmerBG">
                 <img [src]="game.url_thumb" alt="" width="100%">
                 <div class="min_max_container">
                     <span class="minValue">
-                    <span ng-show="Item.MaxAmount" > Min.<i>₹</i>{{game.MinAmount}} </span>
+                        <span ng-show="Item.MaxAmount" > Min.<i>₹</i>{{game.MinAmount}} </span>
                     </span>
                     <span class="maxValue ng-binding" ng-show="Item.MaxAmount">Max.<i>₹</i>{{game.MaxAmount>1000?game.MaxAmount/1000 +'k':game.MaxAmount}}</span>
-                    </div>
+                </div>
                 <a (click)="gameStart(game.game_id)">
                     <div class="playbtn">
                         <img src="/assets/images/play_icon.png" alt="" class="casino-game-item-image-bc"
-                            class="play">
+                        class="play">
                     </div>
                 </a>
             </div>
-
+            
         </div>
         @if( defaultSlices[i] <= gamesData[category].length){
             <button (click)="updateSlice(i)" class="btn-show viewmore"
-                *ngIf="gamesData[category].length > 10 && !subSelected && isDetailsVisible[i]">
-                View More
-            </button>
-        }
+            *ngIf="gamesData[category].length > 10 && !subSelected && isDetailsVisible[i]">
+            View More
+        </button>
     }
-    </div>
+}
+</div>
 </ng-container>
+</div>

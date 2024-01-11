@@ -53,6 +53,9 @@ button.btn.btn-primary.btn-lg[_ngcontent-ng-c1731079979] {
   padding: 16px;
   border: none;
   margin: 0 !important;
+  .btn-loader{
+    line-height: 0px !important;
+  }
 }
 #showeye{
   float: right;
@@ -180,4 +183,4 @@ button.btn.btn-primary.btn-lg[_ngcontent-ng-c1731079979] {
       }
     }
       
-    
+ 
