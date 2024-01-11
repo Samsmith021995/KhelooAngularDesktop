@@ -21,3 +21,10 @@
   .footer_best_online_line,.footer_responsible_text_container{
     color: white ;
   }
+
+  .download_app_main_container h4 {
+    font-weight: 700;
+}
+.payment-download-wrapper{
+    margin-top:-63px !important;
+}
