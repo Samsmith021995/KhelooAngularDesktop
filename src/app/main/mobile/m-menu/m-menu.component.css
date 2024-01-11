@@ -7,3 +7,7 @@
 .bottom_more_options_container{
     padding-bottom: 128px;
 }
+a:focus {
+    outline: unset;
+    outline-offset: -2px;
+}
