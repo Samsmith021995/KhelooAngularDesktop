@@ -342,7 +342,7 @@ svg {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 24px;
-    font-weight: 400;
+    font-weight: 700;
     font-family: anton, sans-serif;
     text-transform: uppercase;
     z-index: 0;
@@ -418,4 +418,6 @@ svg {
 }
 
 
-
+.gameing{
+    margin-bottom: 60px;
+}
