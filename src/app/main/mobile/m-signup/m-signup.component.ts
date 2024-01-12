@@ -114,7 +114,7 @@ export class MSignupComponent implements OnInit {
     }else{
       this.apiSer.apiRequest(config['signUp'],param).subscribe({
         next:(data)=>{
-          this.router.navigate(['/']);
+          this.router.navigate(['/thank-you']);
         },
         error:(err)=>{
 
