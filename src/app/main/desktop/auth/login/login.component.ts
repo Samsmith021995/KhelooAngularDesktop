@@ -1,10 +1,11 @@
-import { Component ,ChangeDetectorRef, OnInit} from "@angular/core";
+import { Component ,ChangeDetectorRef, OnInit, ViewChild, TemplateRef} from "@angular/core";
 import { FormBuilder,FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ApiService } from "src/app/main/service/api.service";
 import { CommonServiceService } from "src/app/main/service/common-service.service";
 import { config } from "src/app/main/service/config";
 import { Subscription ,catchError} from "rxjs";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,9 @@ import { Subscription ,catchError} from "rxjs";
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit{
- //password: any;
+  @ViewChild('forgotPass') forgotPass !: TemplateRef<any>;
+  defClose:any;
+  isSmallScreen!:boolean;
  show = 'fa fa-eye';
  Mobile: string = "";
  UserPassword: string = "";
@@ -22,10 +25,13 @@ export class LoginComponent implements OnInit{
  loginform  !:FormGroup
  btnLoading:boolean = false;
 
- constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router,private cdr: ChangeDetectorRef,private comSer:CommonServiceService){
+ constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router,private cdr: ChangeDetectorRef,private comSer:CommonServiceService,private dialog:MatDialog){
    
   }
 ngOnInit(): void {
+  this.comSer.myVariable$.subscribe((width)=>{
+    this.isSmallScreen = width === "true";
+  });
   this.loaderSubscriber = this.apiSer.loaderService.loading$.pipe(
     catchError((error)=>{
     throw error
@@ -71,5 +77,12 @@ ngOnInit(): void {
        this.btnLoading = false;
      }
    });
+ }
+ forgotPassword(){
+  this.defClose = this.dialog.open(this.forgotPass);
+  this.defClose.afterClosed().subscribe({});
+ }
+ closePopup(){
+  this.defClose.close();
  }
 }

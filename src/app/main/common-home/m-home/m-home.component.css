@@ -237,7 +237,7 @@ casino-game-item {
     flex-wrap: wrap;
 
     img {
-        width: 200px;
+        width: 151px;
         margin-right: 10px;
         margin-bottom: 10px;
     }
@@ -420,4 +420,47 @@ svg {
 
 .gameing{
     margin-bottom: 60px;
+}
+
+.gameing .ashu .casino-game-item:nth-child(n):before {
+    position: absolute;
+    content: '';
+    top: 2px;
+    width: 100px;
+    height: 60px;
+    background: url('/assets/images/game_golden_min_1.png');
+    /* right: -20px; */
+    border-top-left-radius: 9px;
+    transform: rotate(0deg);
+    z-index: 1;
+}
+.gameing .ashu .casino-game-item:nth-child(2n):before {
+    position: absolute;
+    content: '';
+    top: 20px;
+    width: 100px;
+    height: 60px;
+    background: url('/assets/images/game_golden_min_1.png');
+    right: -20px;
+    border-top-left-radius: 9px;
+    transform: rotate(90deg);
+    z-index: 1;
+}
+.gameing .ashu .casino-game-item:nth-child(2n+1):before {
+    position: absolute;
+    content: '';
+    /* top: 20px; */
+    width: 100px;
+    height: 60px;
+    background: url('/assets/images/game_golden_min_1.png');
+    /* right: -20px; */
+    border-top-left-radius: 9px;
+    transform: rotate(-90deg);
+    z-index: 1;
+}
+.gameing .ashu .casino-game-item:nth-child(3n)::before {
+    top: initial;
+    bottom: 20px;
+    transform: rotate(-90deg);
+    left: -20px;
 }

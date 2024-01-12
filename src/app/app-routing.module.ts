@@ -238,7 +238,7 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     component: ForgotPasswordComponent,
-    canActivate:[LoginGuard]
+    canActivate:[LoginGuard,DesktopGuard]
   },
   {
     path: 'games/:id',

@@ -36,8 +36,17 @@
                                     </mat-form-field>
                                 </div>
                                 
-                                <p class="text-muted mb-4 loginsubtitle"><a class="ftr-n-link-bc undefined"
-                                        routerLink="/forgot-password">Forgot your password?</a></p>
+                                <p class="text-muted mb-4 loginsubtitle">
+                                    @if(!isSmallScreen){
+                                        <a class="ftr-n-link-bc undefined"
+                                            routerLink="/forgot-password">Forgot your password?</a>
+                                            
+                                        }@else {
+                                        <a class="ftr-n-link-bc undefined"
+                                            (click)="forgotPassword()">Forgot your password?</a>
+
+                                    }
+                                    </p>
                                 <button _ngcontent-ng-c1731079979="" type="button" class="btn btn-primary btn-lg mx-3 "
                                     (click)="login()" [disabled]="loginform.invalid">
                                     <ng-container *ngIf="btnLoading; else content">
@@ -63,3 +72,7 @@
 
     </div>
 </div>
+
+<ng-template #forgotPass>
+    <app-m-forgot-password (onCancel)="closePopup()"></app-m-forgot-password>
+</ng-template>

@@ -269,7 +269,7 @@ body.mat-typography {
 
   .mdc-text-field--filled:not(.mdc-text-field--disabled){
     background: transparent;
-    border: 1px solid #3f3f3f;
+    border: 2px solid #f4ad09 !important;
     color: white !important;
 }
  .mdc-text-field--filled:not(.mdc-text-field--disabled):after {
@@ -292,4 +292,8 @@ body.mat-typography {
 .mat-mdc-dialog-container .mdc-dialog__surface{
   background: none !important;
 }
+}
+
+input:focus-visible {
+  outline: unset;
 }
