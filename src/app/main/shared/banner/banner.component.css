@@ -16,27 +16,7 @@ swiper-container {
   width: 100%;
   height: 100%;
 }
-
-
-.swiper-pagination-bullet {
-  background: #000 !important;
-  /* Example: change bullet color */
+.padd{
+  padding: 0 15px !important;
+  
 }
-
-.swiper {
-  padding-bottom: 70px;
-}
-
-.swiper-button-prev {
-  margin-top: -10px !important;
-  top: var(--swiper-navigation-top-offset, 40%) !important;
-}
-
-.swiper-button-next {
-  margin-top: -10px !important;
-  top: var(--swiper-navigation-top-offset, 40%) !important;
-}
-
-/* .swiper .swiper-wrapper .swiper-slide img {
-  width: 78% !important;
-} */
