@@ -9,10 +9,18 @@
 
 .modal-header .close{
     margin-top: 10px !important;
+    padding-top: 20px;
+    font-size: 14px;
+}
+button.close {
+    outline: unset;
 }
 .promotionModal{
     max-height: 80%;
 }
 .promotion_modal_header{
-    padding: 15px !important;
+    margin-top: 10px;
+}
+p {
+    color: #fff;
 }
