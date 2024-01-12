@@ -269,7 +269,7 @@ body.mat-typography {
 
   .mdc-text-field--filled:not(.mdc-text-field--disabled){
     background: transparent;
-    border: 2px solid #f4ad09 !important;
+    border: 1px solid #3f3f3f;
     color: white !important;
 }
  .mdc-text-field--filled:not(.mdc-text-field--disabled):after {
@@ -295,5 +295,5 @@ body.mat-typography {
 }
 
 input:focus-visible {
-  outline: unset;
+    outline: unset;
 }

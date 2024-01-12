@@ -16,7 +16,7 @@
                                 <div class="form-group mb-3 anu-class">
                                     <mat-form-field style="width: 100%;">
                                         <input id="inputEmail" type="number" placeholder="Mobile Number"
-                                            class="form-control rounded-pill border-0 px-4" matInput
+                                            class="form-control rounded-pill border-0 px-4 login" matInput
                                             formControlName="Mobile" maxlength="10">
                                         <mat-error *ngIf="loginform.controls['Mobile'].hasError('required')">This is
                                             required field</mat-error>
@@ -26,7 +26,7 @@
                                 <div class="form-group mb-3 anu-class">
                                     <mat-form-field style="width: 100%;">
                                         <input id="inputPassword" type="{{ password }}" placeholder="Password"
-                                            required="" class="form-control rounded-pill border-0 px-4" matInput
+                                            required="" class="form-control rounded-pill border-0 px-4 login" matInput
                                             formControlName="Password" maxlength="10">
                                         <button class="btn" type="button" (click)="showpassword( )" id="showeye">
                                             <i class="{{show}}" aria-hidden="true"></i>

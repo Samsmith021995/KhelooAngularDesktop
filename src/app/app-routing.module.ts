@@ -239,7 +239,7 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
-    canActivate:[LoginGuard]
+    canActivate:[LoginGuard,DesktopGuard]
   },
   {
     path: 'forgot-password',

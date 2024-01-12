@@ -160,3 +160,8 @@ button.next-step:after {
   .container-fluid{
     padding: 0px !important;
   }
+  /* :root .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background: transparent;
+    border: 2px solid #5c5b59!important;
+    color: #fff!important;
+} */
