@@ -78,7 +78,7 @@ export class ApiService {
   handleError(error: HttpErrorResponse) {
     if (error.status == 401) {
       this.commonSer.clearLocalVars();
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
     }
     let errorMsg: string;
     if (error.error instanceof ErrorEvent) {

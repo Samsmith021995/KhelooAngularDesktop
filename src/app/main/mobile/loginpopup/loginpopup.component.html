@@ -27,7 +27,17 @@
                         </p>
                     </div>
                     <div class="col-md-12 btnDiv">
-                        <button class="sign_up_container loginBtn" (click)="onLogin()">SIGN IN</button>
+                        <button class="sign_up_container loginBtn" (click)="onLogin()">
+                            <ng-container *ngIf="btnLoading; else content">
+                                <i-feather name="loader" class="btn-loader"></i-feather>
+                            </ng-container>
+                            <ng-template #content>
+                                <span>
+                                    SIGN IN
+                                </span> 
+                            </ng-template>
+                         
+                        </button>
                     </div>
                     <div class="col-md-12 btnReg">
                         <p class="small_text">

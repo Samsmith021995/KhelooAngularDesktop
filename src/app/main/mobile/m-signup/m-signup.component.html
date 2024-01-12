@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <app-banner [images]="images" [slidesPerView]="slidesPerViewn"></app-banner>
+    <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [pagination]="pagination"></app-banner>
     <div class="container">
         <!-- <a class="navbar-brand fw-bold" href="/">
             <img src="/assets/images/logo.gif" class="logo" >
@@ -13,7 +13,7 @@
                         <span></span>
                         <span></span>
                         <span></span>
-                        <input matInput type="number" name="" id="" formControlName="Mobile">
+                        <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="Mobile">
                         <button (click)="getCode()" class="getC" *ngIf="getcodeBtn">
                             <p *ngIf="!showTimer">Get Code</p>
                             <p *ngIf="showTimer">{{startSec}}</p>
@@ -30,7 +30,7 @@
                         <span></span>
                         <span></span>
                         <span></span>
-                        <input matInput type="number" name="" id="" formControlName="OTP">
+                        <input matInput type="number" name="" id="" formControlName="OTP" placeholder="OTP">
                     </mat-form-field>
                 </div>
 
@@ -38,30 +38,30 @@
                 @if(otpVerify && verificationCode){
                 <div class="signForm">
                     <mat-form-field style="width: 100%;">
-                        <input matInput type="text" name="" id="" formControlName="UserName">
-                        <mat-error *ngIf="signUp.controls['UserName'].hasError('required')">This field is
-                            mandatory</mat-error>
+                        <input matInput type="text" name="" id="" formControlName="UserName" placeholder="UserName">
+                        <!-- <mat-error *ngIf="signUp.controls['UserName'].hasError('required')">This field is
+                            mandatory</mat-error> -->
                     </mat-form-field>
                 </div>
                 <div class="signForm">
                     <mat-form-field style="width: 100%;">
-                        <input matInput type="text" name="" id="" formControlName="FName">
-                        <mat-error *ngIf="signUp.controls['FName'].hasError('required')">This field is
-                            mandatory</mat-error>
+                        <input matInput type="text" name="" id="" formControlName="FName" placeholder="FName">
+                        <!-- <mat-error *ngIf="signUp.controls['FName'].hasError('required')">This field is
+                            mandatory</mat-error> -->
                     </mat-form-field>
                 </div>
                 <div class="signForm">
                     <mat-form-field style="width: 100%;">
                         <input matInput type="text" name="" id="" formControlName="LName">
-                        <mat-error *ngIf="signUp.controls['LName'].hasError('required')">This field is
-                            mandatory</mat-error>
+                        <!-- <mat-error *ngIf="signUp.controls['LName'].hasError('required')">This field is
+                            mandatory</mat-error> -->
                     </mat-form-field>
                 </div>
                 <div class="signForm">
                     <mat-form-field style="width: 100%;">
                         <input matInput type="text" name="" id="" formControlName="DOB">
-                        <mat-error *ngIf="signUp.controls['DOB'].hasError('required')">This field is
-                            mandatory</mat-error>
+                        <!-- <mat-error *ngIf="signUp.controls['DOB'].hasError('required')">This field is
+                            mandatory</mat-error> -->
                     </mat-form-field>
                 </div>
                 <div class="signForm">
@@ -74,8 +74,8 @@
                 <div class="signForm">
                     <mat-form-field style="width: 100%;">
                         <input matInput type="text" name="" id="" formControlName="Password">
-                        <mat-error *ngIf="signUp.controls['Password'].hasError('required')">This field is
-                            mandatory</mat-error>
+                        <!-- <mat-error *ngIf="signUp.controls['Password'].hasError('required')">This field is
+                            mandatory</mat-error> -->
                     </mat-form-field>
                 </div>
                 }
