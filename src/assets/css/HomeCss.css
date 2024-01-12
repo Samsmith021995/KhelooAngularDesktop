@@ -5028,15 +5028,19 @@ p.settlement_next_text {
     padding-bottom: 10px;
     padding-top: 10px;
 }
+
 .lang_text {
     color: #f6c553;
 }
+
 #settlement #settledSettlement .with_detail_ind_container {
     margin-bottom: 10px;
     margin-left: 10px;
     border-radius: 15px;
     margin-right: 10px;
 }
+
+
 
 @media (min-width: 768px) {
 
