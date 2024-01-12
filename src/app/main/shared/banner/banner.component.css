@@ -1,17 +1,6 @@
 @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
-<<<<<<< Updated upstream
-.swiper-slide{
-    flex-shrink: 0;
-    width: 100%;
-    height: 100%;
-    margin-top: 0px;
-    position: relative;
-    transition-property: transform;
-    display: block;
-    
-=======
 
 .swiper-slide {
   flex-shrink: 0;
@@ -21,22 +10,12 @@
   position: relative;
   transition-property: transform;
   display: block;
->>>>>>> Stashed changes
 }
 
 swiper-container {
   width: 100%;
   height: 100%;
 }
-<<<<<<< Updated upstream
-  .swiper-button-next{
-    margin-top: -10px !important;
-   top: var(--swiper-navigation-top-offset, 40%) !important;
-}
-.padd{
-  padding: 0 15px !important;
-}
-=======
 
 
 .swiper-pagination-bullet {
@@ -61,4 +40,3 @@ swiper-container {
 /* .swiper .swiper-wrapper .swiper-slide img {
   width: 78% !important;
 } */
->>>>>>> Stashed changes
