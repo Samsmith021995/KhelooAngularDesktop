@@ -37,6 +37,7 @@ import { allIcons } from 'angular-feather/icons';
 import { LangstripComponent } from '../mobile/langstrip/langstrip.component';
 import { LangPopupComponent } from '../mobile/langstrip/lang-popup/lang-popup.component';
 import { TableGameComponent } from '../desktop/footer-content/games/table-game/table-game.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { TableGameComponent } from '../desktop/footer-content/games/table-game/t
     DPromotionalComponent,
     LangstripComponent,
     LangPopupComponent,
-    TableGameComponent
+    TableGameComponent,
+    ThankYouComponent
   ],
   imports: [
   CommonModule,

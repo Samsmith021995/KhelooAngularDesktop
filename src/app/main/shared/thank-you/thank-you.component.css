@@ -1,0 +1,34 @@
+h1.thankyou {
+    text-align: center;
+    font-family: Poppins,sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    padding: 0;
+    color: #fff;
+}
+
+h1.notfound, h5 {
+    text-align: center;
+    color: #fff;
+}
+
+.pd {
+    padding: 15% 0;
+}
+@media screen and (max-width: 560px) and (min-width:220px) {
+    .pd {
+        padding: 40% 0;
+    }
+}
+
+
+a.home {
+    color: #fff;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.preloader {
+    display: none;
+}

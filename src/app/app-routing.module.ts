@@ -40,6 +40,7 @@ import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/k
 import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
 import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
 import { TableGameComponent } from './main/desktop/footer-content/games/table-game/table-game.component';
+import { ThankYouComponent } from './main/shared/thank-you/thank-you.component';
 
 const commonSer = new CommonServiceService();
 const routes: Routes = [
@@ -211,6 +212,11 @@ const routes: Routes = [
         path:'m-promotion',
         component:MPromotionComponent,
         canActivate:[MobileGuard]
+      },
+      {
+        path:'thank-you',
+        component:ThankYouComponent,
+        canActivate:[]
       }
 
       //Mobile End by Ashutosh
