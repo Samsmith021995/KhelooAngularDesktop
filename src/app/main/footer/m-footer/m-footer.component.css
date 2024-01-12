@@ -1,30 +1,47 @@
 .footer_logo_container {
-    width: 150px;
-    margin: 0 auto;
+  width: 150px;
+  margin: 0 auto;
 }
-.footer_gaming_logo_container {
-    text-align: center;
-    padding: 0 0 120px 0 !important;
-}
-.swiper-pagination{
-    display: none !important;
-}
-.swiper-pagination-bullet:after{
-    content: "" !important;
-    width: 10px;
-    height: 10px;
-    font-size: 5rem;
-  }
-  a .left carousel-control, a .right carousel-control{
-    display: none !important;
-  }
-  .footer_best_online_line,.footer_responsible_text_container{
-    color: white ;
-  }
 
-  .download_app_main_container h4 {
-    font-weight: 700;
+.footer_gaming_logo_container {
+  text-align: center;
+  padding: 0 0 120px 0 !important;
 }
-.payment-download-wrapper{
-    margin-top:-63px !important;
+
+.swiper-pagination {
+  display: none !important;
+}
+
+.swiper-pagination-bullet:after {
+  content: "" !important;
+  width: 10px;
+  height: 10px;
+  font-size: 5rem;
+}
+
+a .left carousel-control,
+a .right carousel-control {
+  display: none !important;
+}
+
+.footer_best_online_line,
+.footer_responsible_text_container {
+  color: white;
+}
+
+.download_app_main_container h4 {
+  font-weight: 700;
+}
+
+.footer_second_ul {
+  margin-bottom: 0;
+  padding-bottom: 30px;
+  list-style: none;
+}
+.footer_sub_ul {
+  width: 100%;
+  list-style: none;
+}
+.payment-download-wrapper {
+  margin-top: -63px !important;
 }
