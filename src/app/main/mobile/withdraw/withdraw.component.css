@@ -353,13 +353,11 @@ h4.wheading{
 .with_first_line_container{
     padding: 0px 2px !important;
 }
-<<<<<<< Updated upstream
 .withPlay{
     i-feather{
         width:14px !important;
     }
-=======
-
+}
 a.active::after {
     content: "";
     position: absolute;
@@ -368,5 +366,4 @@ a.active::after {
     border: 12px solid transparent;
     border-top-color: #000;
     transform: rotate(180deg);
->>>>>>> Stashed changes
 }
