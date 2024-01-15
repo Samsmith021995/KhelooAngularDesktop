@@ -13,7 +13,7 @@
                         <span></span>
                         <span></span>
                         <span></span>
-                        <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="Mobile">
+                        <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="Mobile" (keydown)="validateNumber($event)">
                         <button (click)="getCode()" class="getC" *ngIf="getcodeBtn">
                             <p *ngIf="!showTimer">Get Code</p>
                             <p *ngIf="showTimer">{{startSec}}</p>

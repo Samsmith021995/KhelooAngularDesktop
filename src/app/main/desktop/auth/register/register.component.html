@@ -61,7 +61,7 @@
 
                     <ng-container *ngIf="!otpVerify || formDetails">
                       <mat-form-field *ngIf="!otpVerify || formDetails" style="width: 100%;">
-                        <input matInput type="number" placeholder="Mobile" formControlName="Mobile">
+                        <input matInput type="number" placeholder="Mobile" formControlName="Mobile" (keydown)="validateNumber($event)">
                         <mat-error *ngIf="registerForm.controls['Mobile'].hasError('required')" class="errorMsg">This
                           Field is mandatory</mat-error>
                       </mat-form-field>

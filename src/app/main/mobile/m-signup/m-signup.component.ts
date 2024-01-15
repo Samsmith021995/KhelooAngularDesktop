@@ -60,6 +60,12 @@ export class MSignupComponent implements OnInit {
       this.btnLoading=('verifyOtp' in loading || 'signUp' in loading)?true:false;
     });
   }
+  validateNumber(event: KeyboardEvent) {
+    const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'];
+    if (!allowedKeys.includes(event.key)) {
+      event.preventDefault();
+    }
+  }
   getCode(){
     let param = this.signUp.getRawValue();
     if(!this.signUp.controls['Mobile'].value){
