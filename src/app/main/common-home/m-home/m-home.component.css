@@ -462,15 +462,39 @@ svg {
     transform: rotate(0deg);
     z-index: 1;
 }
-.gameing .ashu .casino-game-item:nth-child(3n)::before {
+/* .gameing .ashu .casino-game-item:nth-child(3n)::before {
     top: initial;
     bottom: 20px;
     transform: rotate(-90deg);
     left: -20px;
-}
+} */
 .gameing .ashu .casino-game-item:nth-child(4n)::before {
     top: initial;
     bottom: 0px;
     transform: rotate(180deg);
     right: 0px;
+}
+.gameing .ashu .casino-game-item:nth-child(4n+2):before {
+    position: absolute;
+    content: '';
+    top: 20px;
+    width: 100px;
+    height: 60px;
+    background: url('/assets/images/game_golden_min_1.png');
+    right: -20px;
+    border-top-left-radius: 9px;
+    transform: rotate(90deg);
+    z-index: 1;
+}
+.gameing .ashu .casino-game-item:nth-child(4n+3):before {
+    position: absolute;
+    content: '';
+    top: 50px;
+    width: 100px;
+    left: -20px;
+    height: 60px;
+    background: url(/assets/images/game_golden_min_1.png);
+    border-top-left-radius: 9px;
+    transform: rotate(-90deg);
+    z-index: 1;
 }
