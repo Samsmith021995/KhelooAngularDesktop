@@ -379,12 +379,10 @@ svg {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.8) 50%,
-        rgba(255, 255, 255, 0) 100%
-    );
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.8) 50%,
+            rgba(255, 255, 255, 0) 100%);
     animation: shimmer 1s infinite;
     border-radius: 7px;
 }
@@ -399,33 +397,38 @@ svg {
     background: linear-gradient(to right, #F6F6F6 8%, #e4dcdc 18%, #F6F6F6 33%);
     background-size: 1200px 100%;
 }
+
 @keyframes shimmer {
     0% {
         transform: translateX(-50%);
     }
+
     100% {
         transform: translateX(100%);
     }
 }
+
 @keyframes shimmers {
     0% {
         background-position: -1200px 0;
     }
+
     100% {
         background-position: 1200px 0;
     }
 }
-.container{
+
+.container {
     margin-top: 10px;
 
 }
 
 
-.gameing{
+.gameing {
     margin-bottom: 60px;
 }
 
- .gameing .ashu .casino-game-item:nth-child(3n+1):before {
+.gameing .ashu .casino-game-item:nth-child(3n+1):before {
     position: absolute;
     content: '';
     top: 200px;
@@ -433,10 +436,10 @@ svg {
     height: 60px;
     background: url('/assets/images/game_golden_min_1.png');
     /* right: -20px; */
-     border-top-left-radius: 9px;
+    border-top-left-radius: 9px;
     transform: rotate(0deg);
     z-index: 1;
-} 
+}
 
 
 .gameing .ashu .casino-game-item:nth-child(2n):before {
@@ -473,4 +476,11 @@ svg {
     bottom: 0px;
     transform: rotate(180deg);
     right: 0px;
+}
+
+
+
+.casino-game-item.shimmerBG {
+    border-radius: 10px !important;
+    margin: 5px !important;
 }
