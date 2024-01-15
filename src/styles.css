@@ -292,8 +292,24 @@ body.mat-typography {
 .mat-mdc-dialog-container .mdc-dialog__surface{
   background: none !important;
 }
+.mdc-text-field--filled.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+  border: none !important;
+}
+.mdc-text-field--filled.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+  
+  border: none !important;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+  /* border-bottom-color: var(--mdc-filled-text-field-focus-active-indicator-color); */
+  border: none !important;
 }
 
+}
 input:focus-visible {
     outline: unset;
+}
+
+:root .mat-input-element::placeholder {
+  color: #fff !important;
+  opacity: 1 !important;
 }

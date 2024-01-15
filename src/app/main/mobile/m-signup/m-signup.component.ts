@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
@@ -8,7 +8,8 @@ import { Subscription, retry } from 'rxjs';
 @Component({
   selector: 'app-m-signup',
   templateUrl: './m-signup.component.html',
-  styleUrl: './m-signup.component.css'
+  styleUrl: './m-signup.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class MSignupComponent implements OnInit {
   getcodeBtn:boolean = false;
@@ -22,6 +23,7 @@ export class MSignupComponent implements OnInit {
   signUp !:FormGroup;
   slidesPerViewn:number = 1;
   startSec:any;
+  pagination:boolean = false;
   images = [
     '/assets/images/sign-up-bg-new1.jpg',
     '/assets/images/sign-up-bg-new2.jpg',
@@ -55,7 +57,7 @@ export class MSignupComponent implements OnInit {
     }
     });
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading:any={}) => {
-      this.btnLoading=('otp' in loading || 'verifyOtp' in loading || 'signUp' in loading)?true:false;
+      this.btnLoading=('verifyOtp' in loading || 'signUp' in loading)?true:false;
     });
   }
   getCode(){
@@ -100,9 +102,16 @@ export class MSignupComponent implements OnInit {
       this.apiSer.showAlert('OTP should not be blank','','error');
       return;
     }
-    if(this.otpVerify && !this.verificationCode){
+
+
+
+    if(!this.otpVerify && !this.verificationCode){
       this.apiSer.apiRequest(config['verifyOtp'],param).subscribe({
         next:(data)=>{
+          if(data.ErrorCode != '1'){
+            this.apiSer.showAlert('',data.ErrorMessage,'error');
+            return;
+          }
           this.otpVerify = true;
           this.inputVerify = false;
           this.verificationCode = true;
@@ -112,6 +121,26 @@ export class MSignupComponent implements OnInit {
         }
       });
     }else{
+      if(!this.signUp.controls['UserName'].value){
+        this.apiSer.showAlert('UserName should not be blank','','error');
+        return;
+      }
+      if(!this.signUp.controls['FName'].value){
+        this.apiSer.showAlert('FName should not be blank','','error');
+        return;
+      }
+      if(!this.signUp.controls['LName'].value){
+        this.apiSer.showAlert('LName should not be blank','','error');
+        return;
+      }
+      if(!this.signUp.controls['DOB'].value){
+        this.apiSer.showAlert('DOB should not be blank','','error');
+        return;
+      }
+      if(!this.signUp.controls['Password'].value){
+        this.apiSer.showAlert('Password should not be blank','','error');
+        return;
+      }
       this.apiSer.apiRequest(config['signUp'],param).subscribe({
         next:(data)=>{
           this.router.navigate(['/thank-you']);

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ApiService } from '../../service/api.service';
 import { CommonServiceService } from '../../service/common-service.service';
-import { Subscription } from 'rxjs';
+import { Subscription ,catchError} from 'rxjs';
 import { config } from '../../service/config';
 import { Router } from '@angular/router';
 import { ComFunService } from '../../service/com-fun.service';
@@ -27,6 +27,7 @@ export class LoginpopupComponent implements OnInit{
   UserPassword: string = "";
   password = "password";
   showsubmitbtn :boolean = false
+  btnLoading :boolean = false
   private loaderSubscriber !: Subscription;
   private apiSubscriber: Subscription[]=[];
 
@@ -37,6 +38,13 @@ export class LoginpopupComponent implements OnInit{
   username: any = '';
   userBalance!: number;
   ngOnInit(): void {
+    this.loaderSubscriber = this.apiSer.loaderService.loading$.pipe(
+      catchError((error)=>{
+      throw error
+    })
+    ).subscribe((loading:any={}) => {
+      this.btnLoading=('login' in loading)?true:false;
+    });
     this.mobileLogin = this.fb.group({
       Mobile : ['',[Validators.required]],
       Password : ['',Validators.required],
