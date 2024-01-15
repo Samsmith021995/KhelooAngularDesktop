@@ -417,3 +417,4 @@ Thumbs.db
 # src/app/main/header/desktop-header/desktop-header.component.css
 # *.css
 # src/app/main/desktop/auth/register/register.component.css
+src/app/main/common-home/m-home/m-home.component.css
