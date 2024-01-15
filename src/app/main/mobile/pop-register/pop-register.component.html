@@ -34,7 +34,7 @@
                                 <div class="p-l-0 crossbar-contact-input-container mobile_input_container">
                                     <input matInput type="number" 
                                         placeholder="Mobile Number"
-                                        class="" formControlName="Mobile">
+                                        class="" formControlName="Mobile"  (keydown)="validateNumber($event)">
                                 </div>
                                 <div class="get_code_container">
                                     <a role="button" class="getCodeBtn" (click)="GenerateOTP()">

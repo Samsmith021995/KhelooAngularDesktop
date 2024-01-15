@@ -30,6 +30,21 @@ export class MForgotPasswordComponent implements OnInit {
       Password: ["", [Validators.required]],
       OTP: ["", [Validators.required]],
     });
+    this.forgotForm.controls['Mobile'].valueChanges.subscribe(value=>{
+      let strMo = String(value).trim();
+      let digitsOnly = strMo.replace(/\D/g, '');
+      if (digitsOnly && digitsOnly.length >= 10) {
+        let trimmedValue = digitsOnly.substring(0, 10);
+        this.forgotForm.controls['Mobile'].setValue(trimmedValue, { emitEvent: false });
+    }
+    });
+  }
+  
+  validateNumber(event: KeyboardEvent) {
+    const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'];
+    if (!allowedKeys.includes(event.key)) {
+      event.preventDefault();
+    }
   }
   GenerateOTP() {
     let param = this.forgotForm.getRawValue();

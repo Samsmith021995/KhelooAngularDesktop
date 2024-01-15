@@ -12,7 +12,7 @@
                         <input
                             class="login_mobile_input ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
                             type="tel" required="" ng-model="Mobile" placeholder="Mobile Number"
-                            formControlName="Mobile">
+                            formControlName="Mobile"  (keydown)="validateNumber($event)">
                     </div>
                     <div class="col-md-12 p-l-0 crossbar-contact-input-container">
                         <input type="password" ng-model="Password" required="" placeholder="Password"

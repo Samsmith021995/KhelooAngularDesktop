@@ -17,7 +17,7 @@
                                     <mat-form-field style="width: 100%;">
                                         <input id="inputEmail" type="number" placeholder="Mobile Number"
                                             class="form-control rounded-pill border-0 px-4" matInput
-                                            formControlName="Mobile" maxlength="10">
+                                            formControlName="Mobile" maxlength="10" (keydown)="validateNumber($event)">
                                         <mat-error *ngIf="loginform.controls['Mobile'].hasError('required')">This is
                                             required field</mat-error>
                                     </mat-form-field>

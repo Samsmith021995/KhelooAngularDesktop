@@ -138,7 +138,7 @@ a {
 }
 
 input {
-  width: 220px;
+  width: 180px;
   margin-right: 4px;
   height: 37px;
   border: 1px solid #fff;
@@ -306,3 +306,24 @@ img.promotion-icon3 {
   display: block;
   width: 22px;
 }
+
+ /* @media screen and (min-width: 980px) and (max-width:1024px) {
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.pd10-50 {
+    padding: 10px 35px !important;
+}
+ } */
+ @media screen and (min-width: 767px) and (max-width:1050px) {
+  #navbarSupportedContent{
+    width: 200px;
+  }
+  input{
+    margin-bottom: 4px;
+  }
+
+}
+ /* @media screen and (max-width: 800px) and (min-width:550px) {
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.pd10-50 {
+    padding: 10px 40px !important;
+}
+
+} */
