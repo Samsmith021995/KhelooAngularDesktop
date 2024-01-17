@@ -2,12 +2,13 @@ import { Injectable, NgZone } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 import { Observable, throwError, of, Subject, BehaviorSubject } from 'rxjs';
-import { catchError, tap, delay } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { catchError, tap, delay, filter } from 'rxjs/operators';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CommonServiceService } from './common-service.service';
 import { LoaderService } from './loader.service';
 import { environment } from 'src/env/environments';
+import { Meta, Title } from '@angular/platform-browser';
 
 
 @Injectable({
@@ -23,7 +24,7 @@ export class ApiService {
   private targetLanguageSubject = new BehaviorSubject<string>('en');
   targetLanguage$ = this.targetLanguageSubject.asObservable();
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
-  constructor(public http: HttpClient, private router: Router, public loaderService: LoaderService, public commonSer: CommonServiceService) {
+  constructor(public http: HttpClient, private router: Router, public loaderService: LoaderService, public commonSer: CommonServiceService,private titleSer:Title,private metaSer:Meta,private route: ActivatedRoute) {
     const storedValue = localStorage.getItem('UserId');
     if (storedValue) {
       this.isLoggedInSubject.next(storedValue === 'true');
@@ -147,6 +148,33 @@ export class ApiService {
     }
   }
 
+  updateMetaTags() {
+      let activatedRoute = this.getDeepestActivatedRoute(this.router.routerState.root);
+      let routeData = this.getRouteDataWithInheritance(activatedRoute);
+      let title = routeData.title; 
+      let description = routeData.description || 'India\'s largest online gaming website with 8.5+ Million players. For 18+ players only. You can find everything on Kheloo.com, from slot games to table games, from progressive jackpots to card games Register and get Rs 1,000 as bonus on the first deposit'; 
+      
+      this.titleSer.setTitle(title || 'Kheloo');
+      this.metaSer.updateTag({ name: 'title', content: title || 'India\'s largest online gaming website' });
+      this.metaSer.updateTag({ name: 'description', content: description });
+  }
 
+  private getDeepestActivatedRoute(route: ActivatedRoute): ActivatedRoute {
+    let child = route.firstChild;
 
+    while (child?.firstChild) {
+      child = child.firstChild;
+    }
+
+    return child || route;
+  }
+
+  private getRouteDataWithInheritance(route: ActivatedRoute): any {
+    let data = route.snapshot.data;
+    while (route.parent) {
+      data = { ...route.parent.snapshot.data, ...data };
+      route = route.parent;
+    }
+    return data;
+  }
 }
