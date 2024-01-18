@@ -14,7 +14,10 @@
   flex-direction: column;
   position: relative;
 }
-
+/* p{
+  display: flex;
+  flex-wrap: wrap;
+} */
 .fAmwxC img {
   max-width: 100%;
   transition: all 700ms ease 0s;
@@ -251,6 +254,13 @@
       font-weight: 600;
   
   }
+
+    p span h4{
+      color :#f7ad07;
+      margin-left: 5px;
+      font-weight: 600;
+  
+  }
   ul li::before {
     content: "";
     border:  #f7ad07;
@@ -298,10 +308,10 @@
     text-align: justify;
     margin: 13px 0px;
   }
-  .fjVnzR span {
+  /* .fjVnzR span {
     font-size: 21px;
   }
-  
+   */
   .jrxmYg {
     font-size: 28px ;
     color: rgb(189 8 198);

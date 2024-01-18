@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         this.refreshHeader(); 
         window.scrollTo(0, 0);
+        this.apiSer.updateMetaTags();
       }
     });
     this.commonSer.myVariable$.subscribe((width)=>{

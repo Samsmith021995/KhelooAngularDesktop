@@ -200,6 +200,12 @@ li p{
     font-weight: 600;
 
 }
+  h3 span{
+    color: #f7ad07;;
+    margin-left: 5px;
+    font-weight: 600;
+    font-size: 18px !important;
+}
   .eBOuzh {
     width: 100%;
     display: flex;
@@ -231,7 +237,9 @@ li p{
     margin: 13px 0px;
   }
  
-  
+  h3{
+    color: #8f99a3;
+  }
   .jrxmYg {
     font-size: 20px !important;
     color:#fff;
@@ -300,10 +308,20 @@ li p{
 
 
 @media (min-width:767px) {
+  h3{
+    color: #fff;
+  }
   p span{
     color: rgb(189, 8, 198);
     margin-left: 5px;
     font-weight: 600;
+
+}
+  h3 span{
+    color: rgb(189, 8, 198);
+    margin-left: 5px;
+    font-weight: 600;
+    font-size: 18px !important;
 
 }
   .eBOuzh {
@@ -350,7 +368,7 @@ li p{
     margin: 13px 0px;
   }
   .fjVnzR span {
-    font-size: 21px;
+    font-size: 18px;
   }
   
   .jrxmYg {
