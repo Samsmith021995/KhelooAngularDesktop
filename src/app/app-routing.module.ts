@@ -81,6 +81,10 @@ const routes: Routes = [
       {
         path: 'promotion',
         loadChildren: () => import('./main/desktop/promotion/promotion.module').then(m => m.PromotionModule),
+        data:{
+          title:'Kheloo- Promotion',
+          description:''
+        }
       },
       {
         path:'poker',
@@ -275,12 +279,6 @@ const routes: Routes = [
         component:ThankYouComponent,
         canActivate:[]
       }
-
-      //Mobile End by Ashutosh
-      // {
-      //   path: '**',
-      //   loadChildren: () => import('./main/desktop/not-found-page/not-found-page.module').then(m => m.NotFoundPageModule),
-      // },
     ]
   },
   {
@@ -296,7 +294,11 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
-    canActivate:[LoginGuard,DesktopGuard]
+    canActivate:[LoginGuard,DesktopGuard],
+    data:{
+      title:'Register- Kheloo',
+      description:''
+    }
   },
   {
     path: 'forgot-password',
