@@ -16,9 +16,9 @@ import { PromotionVideoComponent } from '../mobile/promotion-video/promotion-vid
   declarations: [
     CommonHomeComponent,
     DHomeComponent,
-   MHomeComponent,
-   JackpotComponent,
-   PromotionVideoComponent,
+    MHomeComponent,
+    JackpotComponent,
+    PromotionVideoComponent,
   ],
   imports: [
     CommonModule,

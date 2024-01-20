@@ -24,7 +24,7 @@ export class ApiService {
   private targetLanguageSubject = new BehaviorSubject<string>('en');
   targetLanguage$ = this.targetLanguageSubject.asObservable();
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
-  constructor(public http: HttpClient, private router: Router, public loaderService: LoaderService, public commonSer: CommonServiceService,private titleSer:Title,private metaSer:Meta,private route: ActivatedRoute) {
+  constructor(public http: HttpClient, private router: Router, public loaderService: LoaderService, public commonSer: CommonServiceService, private titleSer: Title, private metaSer: Meta, private route: ActivatedRoute) {
     const storedValue = localStorage.getItem('UserId');
     if (storedValue) {
       this.isLoggedInSubject.next(storedValue === 'true');
@@ -149,14 +149,14 @@ export class ApiService {
   }
 
   updateMetaTags() {
-      let activatedRoute = this.getDeepestActivatedRoute(this.router.routerState.root);
-      let routeData = this.getRouteDataWithInheritance(activatedRoute);
-      let title = routeData.title; 
-      let description = routeData.description || 'India\'s largest online gaming website with 8.5+ Million players. For 18+ players only. You can find everything on Kheloo.com, from slot games to table games, from progressive jackpots to card games Register and get Rs 1,000 as bonus on the first deposit'; 
-      
-      this.titleSer.setTitle(title || 'Kheloo');
-      this.metaSer.updateTag({ name: 'title', content: title || 'India\'s largest online gaming website' });
-      this.metaSer.updateTag({ name: 'description', content: description });
+    let activatedRoute = this.getDeepestActivatedRoute(this.router.routerState.root);
+    let routeData = this.getRouteDataWithInheritance(activatedRoute);
+    let title = routeData.title;
+    let description = routeData.description || 'India\'s largest online gaming website with 8.5+ Million players. For 18+ players only. You can find everything on Kheloo.com, from slot games to table games, from progressive jackpots to card games Register and get Rs 1,000 as bonus on the first deposit';
+
+    this.titleSer.setTitle(title || 'Kheloo');
+    this.metaSer.updateTag({ name: 'title', content: title || 'India\'s largest online gaming website' });
+    this.metaSer.updateTag({ name: 'description', content: description });
   }
 
   private getDeepestActivatedRoute(route: ActivatedRoute): ActivatedRoute {

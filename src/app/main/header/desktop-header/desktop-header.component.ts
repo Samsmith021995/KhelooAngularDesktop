@@ -52,6 +52,14 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
   }
 
    login() {
+    if(!this.loginForm.controls['Mobile'].value){
+      this.apiSer.showAlert('','Provide Mobile number','warning');
+      return;
+    }
+    if(!this.loginForm.controls['Password'].value){
+      this.apiSer.showAlert('','Provide Password','warning');
+      return;
+    }
     this.showsubmitbtn = true;
     let param = this.loginForm.getRawValue();
     this.apiSer.apiRequest(config['login'], param).subscribe({
