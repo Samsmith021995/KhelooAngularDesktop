@@ -473,7 +473,7 @@ svg {
 } */
 .gameing .ashu .casino-game-item:nth-child(4n)::before {
     top: initial;
-    bottom: 0px;
+    bottom: 12px;
     transform: rotate(180deg);
     right: 0px;
 }
