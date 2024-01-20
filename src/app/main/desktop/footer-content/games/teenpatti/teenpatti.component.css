@@ -200,7 +200,7 @@
   margin: 13px 0px;
 }
 .fjVnzR span {
-  font-size: 21px;
+  font-size:18px;
 }
 
 .jrxmYg {
@@ -283,4 +283,13 @@ p span{
     margin-left: 5px;
     font-weight: 600;
 
+}
+h3 span{
+    color: rgb(189, 8, 198);
+    margin-left: 5px;
+    font-weight: 600;
+
+}
+h3{
+ color: #fff;
 }

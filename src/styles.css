@@ -313,3 +313,15 @@ input:focus-visible {
   color: #fff !important;
   opacity: 1 !important;
 }
+.register-btn-c{
+  width: 100%;
+    height: 55px;
+    font-size: 18px;
+    border-radius: 25px;
+    background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
+    max-width: 600px;
+}
+.register-div{
+  width: 100%;
+  text-align: center;
+}
