@@ -23,7 +23,7 @@
     display: table;
 }
 .statement_main_container .table_heading {
-    width: 16%;
+    /* width: 16%; */
     text-align: center;
     padding: 10px 17px;
     text-transform: uppercase;
@@ -47,7 +47,7 @@ ul.statement_inner_ul {
     padding: 15px 0;
 }
 .statement_main_container .statement_action {
-    width: 13%;
+    width: 15%;
     padding-left: 10px;
 }
 .statement_main_container .table_col {
@@ -143,6 +143,13 @@ th {
     }
 }
 .statement_list_title{
-    color:#f9bb22;
+    color:#f4ad09;
+    text-transform: uppercase;
+    font-weight: 500;
+    
 
+}
+.statement_info_containe{
+    border-top: 1px solid #212326;
+    font-size: 12px;
 }

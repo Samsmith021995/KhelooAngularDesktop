@@ -80,10 +80,10 @@ export class WithdrawComponent implements OnInit {
 
   withdrawStatus() {
     // this.api.loaderShow();
+    this.withdrawState = true;
     this.apiSer.apiRequest(config['withdrawState']).subscribe({
       next: data => {
         this.withdrawStatement = data;
-        this.withdrawState = true;
       },
       error: err => {
         this.apiSer.showAlert('Something Went Wrong', 'Please check your internet Connection', 'error');

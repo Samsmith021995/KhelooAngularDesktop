@@ -86,3 +86,9 @@ background-image: none !important ;
     background-position: center;
     background-size: cover;
 }
+.more_bottom_footer_options{
+    i-feather{
+        width: 17px;
+        stroke-width: 3.5px;
+    }
+}

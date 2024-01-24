@@ -249,7 +249,8 @@ casino-game-item {
     border-radius: 25px;
     background: none;
     color: white;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
+    border:  none;
 }
 
 button.btn-show {
@@ -343,7 +344,7 @@ svg {
     -webkit-text-fill-color: transparent;
     line-height: 24px;
     font-weight: 700;
-    font-family: anton, sans-serif;
+    font-family: anton, sans-serif !important;
     text-transform: uppercase;
     z-index: 0;
     padding-top: 5px;
@@ -352,6 +353,9 @@ svg {
     font-size: 28px;
     letter-spacing: 0;
     text-align: center;
+}
+#h2{
+    font-family: anton, sans-serif !important;
 }
 
 .casino-game-item img {

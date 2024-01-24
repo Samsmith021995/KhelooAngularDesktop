@@ -22,7 +22,7 @@
       <div class="loginbtn user" *ngIf="checkLogin ">
         <li>
           <span class="UserName"><a class="header-btns">{{
-              username }} <br /> <span class="txt-yel">INR {{ userBalance }}</span>
+              username }} <br /> <span class="txt-yel">INR {{ userBalance | number:'1.2-2' }}</span>
             </a>
           </span>
         </li>

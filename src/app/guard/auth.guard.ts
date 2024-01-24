@@ -32,7 +32,7 @@ export class AuthGuard implements CanActivate {
   
     if (!userHasAccess) {
       // Redirect to login page for any other unauthorized access
-      return this.router.parseUrl('/login');
+      return this.router.parseUrl('/');
     }
   
     // Allow access for authorized users
