@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-promotion-popup',
@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class PromotionPopupComponent {
 @Output() onCancel = new EventEmitter<any>;
-
+@Input() promoref!:string;
   Onclose(){
     this.onCancel.emit();
   }
