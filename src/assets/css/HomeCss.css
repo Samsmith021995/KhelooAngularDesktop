@@ -1005,7 +1005,7 @@ div.footer_spinner i:nth-child(7) {
     display: flex;
     flex-wrap: wrap;
     height: auto;
-    line-height: 38px;
+    line-height: 48px;
     margin: 12px 0 16px 0;
 }
 
@@ -1018,7 +1018,7 @@ div.footer_spinner i:nth-child(7) {
     white-space: nowrap;
     font-weight: normal;
     color: #fff;
-    line-height: 38px;
+    line-height: 48px !important;
     margin-top: 0;
 }
 

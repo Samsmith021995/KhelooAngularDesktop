@@ -20,7 +20,7 @@
             @if(gamesData[category].length>0){
                 
                 <span style="color: white;" class="category-btn game_ind_heading_container">
-                    <h2>{{ category }} ({{gamesData[category].length}})</h2>
+                    <h2 class="h2-heading">{{ category }} ({{gamesData[category].length}})</h2>
                     <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 4 && !subSelected">
                         {{isDetailsVisible[i]?'Show Less':'Show More'}}
                     </button>
@@ -28,7 +28,7 @@
                 
                 <div style=" color:white; display: flex; width: 100%; flex-wrap: wrap; " #showMore class="ashu"
                 [ngClass]="{'showMore':subSelected}">
-                <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]" style="width: 47%; margin: 3px;"
+                <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]" style=""
                 class="casino-game-item shimmerBG">
                 <img [src]="game.url_thumb" alt="" width="100%">
                 <div class="min_max_container">
