@@ -62,7 +62,15 @@ export class MSignupComponent implements OnInit {
   }
   validateNumber(event: KeyboardEvent) {
     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'];
-    if (!allowedKeys.includes(event.key)) {
+    
+    const isCopy = event.ctrlKey && event.key === 'c';
+    const isPaste = event.ctrlKey && event.key === 'v';
+    const isCmdCopy = event.metaKey && event.key === 'c'; 
+    const isCmdPaste = event.metaKey && event.key === 'v'; 
+    const isCmdselect = event.metaKey && event.key === 'a'; 
+    const isSelect = event.ctrlKey && event.key === 'a'; 
+  
+    if (!allowedKeys.includes(event.key) && !isCopy && !isPaste && !isCmdCopy && !isCmdPaste && !isCmdselect && !isSelect) {
       event.preventDefault();
     }
   }

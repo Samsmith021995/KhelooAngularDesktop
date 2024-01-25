@@ -2,3 +2,9 @@
 .aboutUs_main_container{
     text-align: center;
 }
+.img-fluid{
+    width: 37%;
+}
+.testimonial-item{
+    text-align: left;
+}
