@@ -239,8 +239,9 @@ div:where(.swal2-icon).swal2-success .swal2-success-fix {
   content: "-";
   width: 10px;
   height: 10px;
-  font-size: 7rem;
+  font-size: 3.25rem;
   font-weight: 100 !important;
+  font-family: monospace;
 }
 .swiper-pagination-bullet-active{
   color: #f7ae06;
@@ -337,3 +338,8 @@ input:focus-visible {
   text-align: center;
 }
 
+@font-face {
+  font-family: anton;
+  src: url('assets/fonts/Anton-Regular.ttf');
+  font-weight:normal;
+}

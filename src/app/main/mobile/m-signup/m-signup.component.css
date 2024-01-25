@@ -166,3 +166,36 @@ button.next-step:after {
     color: #fff!important;
 } */
 
+#mat-input-0::placeholder{
+  color: #8b8b8b;
+  }
+#mat-input-1::placeholder{
+  color: #8b8b8b;
+  }
+#mat-input-2::placeholder{
+  color: #8b8b8b;
+  }
+#mat-input-3::placeholder{
+  color: #8b8b8b;
+  }
+#mat-input-4::placeholder{
+  color: #8b8b8b;
+  }
+#mat-input-5::placeholder{
+  color: #8b8b8b;
+  }
+#mat-input-6::placeholder{
+  color: #8b8b8b;
+  }
+#mat-input-7::placeholder{
+  color: #8b8b8b;
+  }
+#mat-input-8::placeholder{
+  color: #8b8b8b;
+  }
+#mat-input-9::placeholder{
+  color: #8b8b8b;
+  }
+#mat-input-10::placeholder{
+  color: #8b8b8b;
+  }
