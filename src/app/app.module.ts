@@ -30,7 +30,7 @@ import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/for
 import { GamePlatformComponent } from './main/desktop/game-platform/game-platform.component';
 import { PopRegisterComponent } from './main/mobile/pop-register/pop-register.component';
 import { BottomNavbarComponent } from './main/footer/m-footer/bottom-navbar/bottom-navbar.component';
-import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.component';
+// import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.component';
 import { CricketBettingComponent } from './main/desktop/footer-content/sports/cricket-betting/cricket-betting.component';
 import { FootballBettingComponent } from './main/desktop/footer-content/sports/football-betting/football-betting.component';
 import { TennisBettingComponent } from './main/desktop/footer-content/sports/tennis-betting/tennis-betting.component';
@@ -75,7 +75,7 @@ import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
     GamePlatformComponent,
     PopRegisterComponent,
     BottomNavbarComponent,
-    LoginpopupComponent,
+    // LoginpopupComponent,
     CricketBettingComponent,
     FootballBettingComponent,
     TennisBettingComponent,

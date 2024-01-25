@@ -1,9 +1,11 @@
-import { Component, Inject, OnInit, Renderer2, ViewChildren, QueryList, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, Inject, OnInit, Renderer2, ViewChildren, QueryList, ElementRef, ChangeDetectorRef, ViewChild, TemplateRef } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 import { Subscription, catchError } from 'rxjs';
 import { config } from '../../service/config';
 import { Router } from '@angular/router';
 import { CommonServiceService } from '../../service/common-service.service';
+import { ViewportScrollPosition } from '@angular/cdk/scrolling';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-m-home',
@@ -43,7 +45,11 @@ export class MHomeComponent implements OnInit {
   isDetailsVisible: boolean[] = [];
   filteredResults: { [key: string]: any[] } = {};
   private loaderSubscriber !: Subscription;
-  constructor(private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef,private comSer:CommonServiceService) { }
+  isLoggedIn: boolean = false;
+  private isLoggedInSubscription!: Subscription;
+  @ViewChild('loginPop') loginPop!: TemplateRef<any>;
+  diaRef3: any;
+  constructor(private dialog: MatDialog,private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef,private comSer:CommonServiceService) { }
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
@@ -53,6 +59,9 @@ export class MHomeComponent implements OnInit {
     this.getAllCategory(this.selected);
     this.comSer.search$.subscribe((search: any) => {
       this.onSearch(search);
+    });
+    this.isLoggedInSubscription = this.apiSer.isLoggedIn$.subscribe((value) => {
+      this.isLoggedIn = value;
     });
   }
   gameListAll(item: any) {
@@ -115,6 +124,11 @@ export class MHomeComponent implements OnInit {
   }
 
   gameStart(param: any) {
+    if(!this.isLoggedIn){
+      this.diaRef3 = this.dialog.open(this.loginPop);
+      this.diaRef3.afterClosed().subscribe(() => { });
+      return
+    }
     this.router.navigate(['/games', param]);
   }
   showMoreF(item: number) {
@@ -148,6 +162,7 @@ export class MHomeComponent implements OnInit {
     } else {
       this.gamesData = { ...this.filteredResults };
     }
+    // this.viewPortSc.top(0,1000)
     window.scrollTo({
       top: 1000,
       left: 0,
@@ -160,5 +175,7 @@ export class MHomeComponent implements OnInit {
   updateSlice(item: number) {
     this.defaultSlices[item] += 20;
   }
-
+closeDial2(){
+  this.diaRef3.close();
+}
 }

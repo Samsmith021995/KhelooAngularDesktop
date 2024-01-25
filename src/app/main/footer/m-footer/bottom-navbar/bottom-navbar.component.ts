@@ -13,9 +13,11 @@ import { Router } from '@angular/router';
 export class BottomNavbarComponent implements OnInit, OnDestroy {
   @ViewChild('register') register!: TemplateRef<any>;
   @ViewChild('mainMenu') mainMenu!: TemplateRef<any>;
+  @ViewChild('loginPop') loginPop!: TemplateRef<any>;
   isLoggedIn: boolean = false;
   diaRef1: any;
   diaRef2: any;
+  diaRef3: any;
   showSp: boolean = false;
   private isLoggedInSubscription!: Subscription;
   selectedMenu: string = '';
@@ -65,6 +67,11 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
     this.showSp = !this.showSp;
   }
   gameStart(param: any) {
+    if(!this.isLoggedIn){
+       this.diaRef3 = this.dialog.open(this.loginPop);
+       this.diaRef3.afterClosed().subscribe(() => { });
+      return
+    }
     this.router.navigate(['/games', param]);
   }
   navigate(item: string) {
@@ -72,5 +79,8 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
   }
   circularOpen() {
     this.circular = !this.circular;
+  }
+  closeDial2(){
+    this.diaRef3.close();
   }
 }

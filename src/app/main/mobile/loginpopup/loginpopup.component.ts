@@ -77,6 +77,14 @@ export class LoginpopupComponent implements OnInit{
     this.onCancel.emit();
   }
   onLogin(){
+    if(!this.mobileLogin.controls['Mobile'].value){
+      this.apiSer.showAlert('','Mobile no. should not be blank','warning');
+      return
+    }
+    if(!this.mobileLogin.controls['Password'].value){
+      this.apiSer.showAlert('','Password should not be blank','warning');
+      return
+    }
     this.showsubmitbtn = true;
     let param = this.mobileLogin.getRawValue();
     this.apiSer.apiRequest(config['login'],param).subscribe({

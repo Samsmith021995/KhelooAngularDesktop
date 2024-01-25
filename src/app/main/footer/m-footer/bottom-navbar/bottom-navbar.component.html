@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li [ngClass]="{'active':selectedMenu=='TableGames'}"> 
-                    <a (click)="updateData('TableGames')">
+                    <a (click)="updateData('TableGame')">
                         <img src="/assets/images/Dice.png">
                         <span>
                             Table Games
@@ -142,5 +142,8 @@
 </ng-template>
 <ng-template #mainMenu>
     <app-m-menu (onCancel)="closeDial1()"></app-m-menu>
+</ng-template>
+<ng-template #loginPop>
+    <app-loginpopup (onCancel)="closeDial2()"></app-loginpopup>
 </ng-template>
 <!-- Ashutosh -->

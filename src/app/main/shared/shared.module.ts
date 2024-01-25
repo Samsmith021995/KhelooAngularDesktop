@@ -38,6 +38,7 @@ import { LangstripComponent } from '../mobile/langstrip/langstrip.component';
 import { LangPopupComponent } from '../mobile/langstrip/lang-popup/lang-popup.component';
 import { TableGameComponent } from '../desktop/footer-content/games/table-game/table-game.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+import { LoginpopupComponent } from '../mobile/loginpopup/loginpopup.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
     LangstripComponent,
     LangPopupComponent,
     TableGameComponent,
-    ThankYouComponent
+    ThankYouComponent,
+    LoginpopupComponent
   ],
   imports: [
   CommonModule,
@@ -95,6 +97,7 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
   LangstripComponent,
   LangPopupComponent,
   TableGameComponent,
+  LoginpopupComponent,
   CommonModule,
   FormsModule,
   HttpClientModule,
