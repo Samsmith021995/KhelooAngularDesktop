@@ -36,7 +36,7 @@ import { FootballBettingComponent } from './main/desktop/footer-content/sports/f
 import { TennisBettingComponent } from './main/desktop/footer-content/sports/tennis-betting/tennis-betting.component';
 import { IplBettingComponent } from './main/desktop/footer-content/sports/ipl-betting/ipl-betting.component';
 import { OnlineSportsBettingComponent } from './main/desktop/footer-content/sports/online-sports-betting/online-sports-betting.component';
-import { MForgotPasswordComponent } from './main/mobile/m-forgot-password/m-forgot-password.component';
+// import { MForgotPasswordComponent } from './main/mobile/m-forgot-password/m-forgot-password.component';
 import { ApiService } from './main/service/api.service';
 import { MMenuComponent } from './main/mobile/m-menu/m-menu.component';
 import { UrlService } from './main/service/url.service';
@@ -45,7 +45,6 @@ import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.compo
 import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
 import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
 import { GameHeaderComponent } from './main/desktop/game-platform/game-header/game-header.component';
-import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
 
 @NgModule({
   declarations: [
@@ -73,23 +72,18 @@ import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
     LoginComponent,
     ForgotPasswordComponent,
     GamePlatformComponent,
-    PopRegisterComponent,
     BottomNavbarComponent,
-    // LoginpopupComponent,
     CricketBettingComponent,
     FootballBettingComponent,
     TennisBettingComponent,
     IplBettingComponent,
     OnlineSportsBettingComponent,
-    MForgotPasswordComponent,
     MMenuComponent,
     PromotionPopupComponent,
     MPromotionComponent,
     KhelooPrivilegesComponent,
     TournamentsComponent,
-    GameHeaderComponent,
-    MSignupComponent,
-    
+    GameHeaderComponent,  
   ],
   imports: [
     BrowserModule,

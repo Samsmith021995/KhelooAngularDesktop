@@ -37,7 +37,9 @@ export class PopRegisterComponent implements OnInit {
       UserName:['',[Validators.required]],
       FName:['',[Validators.required]],
       LName:['',[Validators.required]],
-      DOB:['',[Validators.required]],
+      DD:['',[Validators.required]],
+      MM:['',[Validators.required]],
+      year:['',[Validators.required]],
       Password:['',[Validators.required]],
       Ref:[this.refText],
     });
@@ -101,6 +103,15 @@ export class PopRegisterComponent implements OnInit {
       );
   
   }
+  getDOB(): string {
+    const day = this.registerForm.controls['DD'].value;
+    const month = this.registerForm.controls['MM'].value;
+    const year = this.registerForm.controls['year'].value;
+    const formattedDay = day.toString().padStart(2, '0');
+    const formattedMonth = month.toString().padStart(2, '0');
+      return `${formattedDay}/${formattedMonth}/${year}`;
+    
+  }
   VerifyOTP(){
     let param = this.registerForm.getRawValue();
     if (this.registerForm.controls['OTP'].value && this.registerForm.controls['Mobile'].value)  {
@@ -127,24 +138,24 @@ export class PopRegisterComponent implements OnInit {
     }
   }
   Signup(){
-    let param = this.registerForm.getRawValue();
-    if(this.registerForm.controls['UserName'].value){
+    let param = {...this.registerForm.getRawValue(),DOB:this.getDOB()};
+    if(!this.registerForm.controls['UserName'].value){
       this.apiSer.showAlert('Please Provide the UserName', '', 'warning')
       return;
     }
-    if(this.registerForm.controls['FName'].value){
+    if(!this.registerForm.controls['FName'].value){
       this.apiSer.showAlert('Please Provide the FName', '', 'warning')
       return;
     }
-    if(this.registerForm.controls['LName'].value){
+    if(!this.registerForm.controls['LName'].value){
       this.apiSer.showAlert('Please Provide the LName', '', 'warning')
       return;
     }
-    if(this.registerForm.controls['DOB'].value){
+    if(!this.registerForm.controls['DD'].value || !this.registerForm.controls['MM'].value || !this.registerForm.controls['year'].value){
       this.apiSer.showAlert('Please Provide the DOB', '', 'warning')
       return;
     }
-    if(this.registerForm.controls['Password'].value){
+    if(!this.registerForm.controls['Password'].value){
       this.apiSer.showAlert('Please Provide the Password', '', 'warning')
       return;
     }
@@ -169,5 +180,8 @@ export class PopRegisterComponent implements OnInit {
   }
   closeDial(){
     this.onCancel.emit();
+  }
+  prevStep(){
+    this.otpVerified = !this.otpVerified;
   }
 }

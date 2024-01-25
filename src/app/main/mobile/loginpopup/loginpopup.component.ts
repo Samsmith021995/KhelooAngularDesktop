@@ -61,7 +61,6 @@ export class LoginpopupComponent implements OnInit{
   
   validateNumber(event: KeyboardEvent) {
     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'];
-    
     const isCopy = event.ctrlKey && event.key === 'c';
     const isPaste = event.ctrlKey && event.key === 'v';
     const isCmdCopy = event.metaKey && event.key === 'c'; 
@@ -149,6 +148,7 @@ export class LoginpopupComponent implements OnInit{
     
     }
     openRegister(){
+      console.log('Ashu')
       this.defRegister = this.dialog.open(this.register);
       this.defRegister.afterClosed().subscribe(() => { });
     }

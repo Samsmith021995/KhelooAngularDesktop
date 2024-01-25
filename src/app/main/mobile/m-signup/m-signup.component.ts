@@ -42,7 +42,9 @@ export class MSignupComponent implements OnInit {
       UserName:['',[Validators.required]],
       FName:['',[Validators.required]],
       LName:['',[Validators.required]],
-      DOB:['',[Validators.required]],
+      DD:['',[Validators.required]],
+      MM:['',[Validators.required]],
+      year:['',[Validators.required]],
       Ref:[this.refText,],
       Password:['',[Validators.required]],
       Mobile:['',[Validators.required]],
@@ -73,6 +75,15 @@ export class MSignupComponent implements OnInit {
     if (!allowedKeys.includes(event.key) && !isCopy && !isPaste && !isCmdCopy && !isCmdPaste && !isCmdselect && !isSelect) {
       event.preventDefault();
     }
+  }
+  getDOB(): string {
+    const day = this.signUp.controls['DD'].value;
+    const month = this.signUp.controls['MM'].value;
+    const year = this.signUp.controls['year'].value;
+    const formattedDay = day.toString().padStart(2, '0');
+    const formattedMonth = month.toString().padStart(2, '0');
+      return `${formattedDay}/${formattedMonth}/${year}`;
+    
   }
   getCode(){
     let param = this.signUp.getRawValue();
@@ -107,7 +118,7 @@ export class MSignupComponent implements OnInit {
     });
   }
   onSubmit(){
-    let param = this.signUp.getRawValue();
+    let param = {...this.signUp.getRawValue(),DOB:this.getDOB()};
     if(!this.signUp.controls['Mobile'].value){
       this.apiSer.showAlert('Mobile should not be blank','','error');
       return;
@@ -147,7 +158,7 @@ export class MSignupComponent implements OnInit {
         this.apiSer.showAlert('LName should not be blank','','error');
         return;
       }
-      if(!this.signUp.controls['DOB'].value){
+      if(!this.signUp.controls['DD'].value || !this.signUp.controls['MM'].value || !this.signUp.controls['year'].value){
         this.apiSer.showAlert('DOB should not be blank','','error');
         return;
       }

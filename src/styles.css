@@ -239,7 +239,8 @@ div:where(.swal2-icon).swal2-success .swal2-success-fix {
   content: "-";
   width: 10px;
   height: 10px;
-  font-size: 5rem;
+  font-size: 7rem;
+  font-weight: 100 !important;
 }
 .swiper-pagination-bullet-active{
   color: #f7ae06;

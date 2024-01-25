@@ -39,6 +39,10 @@ import { LangPopupComponent } from '../mobile/langstrip/lang-popup/lang-popup.co
 import { TableGameComponent } from '../desktop/footer-content/games/table-game/table-game.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { LoginpopupComponent } from '../mobile/loginpopup/loginpopup.component';
+import { MSignupComponent } from '../mobile/m-signup/m-signup.component';
+import { PopRegisterComponent } from '../mobile/pop-register/pop-register.component';
+import { MForgotPasswordComponent } from '../mobile/m-forgot-password/m-forgot-password.component';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +60,10 @@ import { LoginpopupComponent } from '../mobile/loginpopup/loginpopup.component';
     LangPopupComponent,
     TableGameComponent,
     ThankYouComponent,
-    LoginpopupComponent
+    LoginpopupComponent,
+    MSignupComponent,
+    PopRegisterComponent,
+    MForgotPasswordComponent
   ],
   imports: [
   CommonModule,
@@ -98,6 +105,9 @@ import { LoginpopupComponent } from '../mobile/loginpopup/loginpopup.component';
   LangPopupComponent,
   TableGameComponent,
   LoginpopupComponent,
+  MSignupComponent,
+  PopRegisterComponent,
+  MForgotPasswordComponent,
   CommonModule,
   FormsModule,
   HttpClientModule,

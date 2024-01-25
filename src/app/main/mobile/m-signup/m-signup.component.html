@@ -55,8 +55,18 @@
                     </mat-form-field>
                 </div>
                 <div class="signForm">
-                    <mat-form-field style="width: 100%;">
-                        <input matInput type="text" name="" id="" formControlName="DOB">
+                    <mat-form-field style="width: 30%; margin-right: 5px;">
+                        <input matInput type="text" name="" id="" formControlName="DD">
+                        <!-- <mat-error *ngIf="signUp.controls['DOB'].hasError('required')">This field is
+                            mandatory</mat-error> -->
+                    </mat-form-field>
+                    <mat-form-field style="width: 30%; margin-right: 5px;">
+                        <input matInput type="text" name="" id="" formControlName="MM">
+                        <!-- <mat-error *ngIf="signUp.controls['DOB'].hasError('required')">This field is
+                            mandatory</mat-error> -->
+                    </mat-form-field>
+                    <mat-form-field style="width: 30%; margin-right: 3px;">
+                        <input matInput type="text" name="" id="" formControlName="year">
                         <!-- <mat-error *ngIf="signUp.controls['DOB'].hasError('required')">This field is
                             mandatory</mat-error> -->
                     </mat-form-field>
