@@ -367,3 +367,6 @@ a.active::after {
     border-top-color: #000;
     transform: rotate(180deg);
 }
+.heading h2{
+    font-family: anton, sans-serif !important;
+    }
