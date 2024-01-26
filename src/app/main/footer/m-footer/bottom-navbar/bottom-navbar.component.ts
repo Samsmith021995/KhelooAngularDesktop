@@ -47,8 +47,10 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
   }
 
   updateData(search: any) {
+    this.apiSer.updatePromotion(false);
     this.selectedMenu = search;
     this.comSer.sendSearchData(search);
+    // this.router.navigate(['/']);
   }
   // seachData(item:any){
   //   this.comSer.sendSearchData(item);

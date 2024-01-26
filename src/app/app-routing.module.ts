@@ -270,11 +270,6 @@ const routes: Routes = [
         canActivate:[AuthGuard,MobileGuard]
       },
       {
-        path:'m-promotion',
-        component:MPromotionComponent,
-        canActivate:[MobileGuard]
-      },
-      {
         path:'thank-you',
         component:ThankYouComponent,
         canActivate:[]

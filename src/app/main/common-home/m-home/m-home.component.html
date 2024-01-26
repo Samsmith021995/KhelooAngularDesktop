@@ -1,9 +1,10 @@
 <br>
 <br>
 <br>
-<app-banner [images]="images" [slidesPerView] = "slidesPerViewn"></app-banner>
+<app-banner [images]="images" [slidesPerView]="slidesPerViewn"></app-banner>
 <app-langstrip></app-langstrip>
 <app-jackpot></app-jackpot>
+<ng-container *ngIf="!isPromo">
 <div class="col-lg-12">
     <div class="heading">
         <h2 id="h2">Games</h2>
@@ -18,45 +19,50 @@
     <ng-container *ngFor="let category of subCategory; let i=index;">
         <div *ngIf="gamesData[category]" class="container">
             @if(gamesData[category].length>0){
-                
-                <span style="color: white;" class="category-btn game_ind_heading_container">
-                    <h2 class="h2-heading">{{ category }} ({{gamesData[category].length}})</h2>
-                    <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 4 && !subSelected">
-                        {{isDetailsVisible[i]?'Show Less':'Show More'}}
-                    </button>
-                </span>
-                
-                <div style=" color:white; display: flex; width: 100%; flex-wrap: wrap; " #showMore class="ashu"
+
+            <span style="color: white;" class="category-btn game_ind_heading_container">
+                <h2 class="h2-heading">{{ category }} ({{gamesData[category].length}})</h2>
+                <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 4 && !subSelected">
+                    {{isDetailsVisible[i]?'Show Less':'Show More'}}
+                </button>
+            </span>
+
+            <div style=" color:white; display: flex; width: 100%; flex-wrap: wrap; " #showMore class="ashu"
                 [ngClass]="{'showMore':subSelected}">
                 <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]" style=""
-                class="casino-game-item shimmerBG">
-                <img [src]="game.url_thumb" alt="" width="100%">
-                <div class="min_max_container">
-                    <span class="minValue">
-                        <span ng-show="Item.MaxAmount" > Min.<i>₹</i>{{game.MinAmount}} </span>
-                    </span>
-                    <span class="maxValue ng-binding" ng-show="Item.MaxAmount">Max.<i>₹</i>{{game.MaxAmount>1000?game.MaxAmount/1000 +'k':game.MaxAmount}}</span>
-                </div>
-                <a (click)="gameStart(game.game_id)">
-                    <div class="playbtn">
-                        <img src="/assets/images/play_icon.png" alt="" class="casino-game-item-image-bc"
-                        class="play">
+                    class="casino-game-item shimmerBG">
+                    <img [src]="game.url_thumb" alt="" width="100%">
+                    <div class="min_max_container">
+                        <span class="minValue">
+                            <span ng-show="Item.MaxAmount"> Min.<i>₹</i>{{game.MinAmount}} </span>
+                        </span>
+                        <span class="maxValue ng-binding"
+                            ng-show="Item.MaxAmount">Max.<i>₹</i>{{game.MaxAmount>1000?game.MaxAmount/1000
+                            +'k':game.MaxAmount}}</span>
                     </div>
-                </a>
+                    <a (click)="gameStart(game.game_id)">
+                        <div class="playbtn">
+                            <img src="/assets/images/play_icon.png" alt="" class="casino-game-item-image-bc"
+                                class="play">
+                        </div>
+                    </a>
+                </div>
+
             </div>
-            
+            @if( defaultSlices[i] <= gamesData[category].length){ <button (click)="updateSlice(i)"
+                class="btn-show viewmore"
+                *ngIf="gamesData[category].length > 10 && !subSelected && isDetailsVisible[i]">
+                View More
+                </button>
+                }
+                }
         </div>
-        @if( defaultSlices[i] <= gamesData[category].length){
-            <button (click)="updateSlice(i)" class="btn-show viewmore"
-            *ngIf="gamesData[category].length > 10 && !subSelected && isDetailsVisible[i]">
-            View More
-        </button>
-    }
-}
+    </ng-container>
 </div>
 </ng-container>
+<div *ngIf="isPromo">
+    <app-m-promotion></app-m-promotion>
 </div>
-
 <ng-template #loginPop>
     <app-loginpopup (onCancel)="closeDial2()"></app-loginpopup>
 </ng-template>

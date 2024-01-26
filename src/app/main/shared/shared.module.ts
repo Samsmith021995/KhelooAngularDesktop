@@ -42,6 +42,8 @@ import { LoginpopupComponent } from '../mobile/loginpopup/loginpopup.component';
 import { MSignupComponent } from '../mobile/m-signup/m-signup.component';
 import { PopRegisterComponent } from '../mobile/pop-register/pop-register.component';
 import { MForgotPasswordComponent } from '../mobile/m-forgot-password/m-forgot-password.component';
+import { MPromotionComponent } from '../mobile/m-promotion/m-promotion.component';
+import { PromotionPopupComponent } from '../mobile/m-promotion/promotion-popup/promotion-popup.component';
 
 
 @NgModule({
@@ -63,7 +65,10 @@ import { MForgotPasswordComponent } from '../mobile/m-forgot-password/m-forgot-p
     LoginpopupComponent,
     MSignupComponent,
     PopRegisterComponent,
-    MForgotPasswordComponent
+    MForgotPasswordComponent,
+    MPromotionComponent,
+    PromotionPopupComponent,
+    
   ],
   imports: [
   CommonModule,
@@ -108,6 +113,8 @@ import { MForgotPasswordComponent } from '../mobile/m-forgot-password/m-forgot-p
   MSignupComponent,
   PopRegisterComponent,
   MForgotPasswordComponent,
+  MPromotionComponent,
+  PromotionPopupComponent,
   CommonModule,
   FormsModule,
   HttpClientModule,

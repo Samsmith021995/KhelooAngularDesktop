@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, Renderer2, ViewChildren, QueryList, ElementRef, ChangeDetectorRef, ViewChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChildren, QueryList, ElementRef, ChangeDetectorRef, ViewChild, TemplateRef, AfterViewChecked } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 import { Subscription, catchError } from 'rxjs';
 import { config } from '../../service/config';
@@ -18,16 +18,7 @@ export class MHomeComponent implements OnInit {
     '/assets/images/10minwith.png',
     '/assets/images/Banner11.jpeg',
     '/assets/images/Banner18.jpeg',
-    '/assets/images/Dil-se-kheloo_375x250.jpeg',
-    // '/assets/images/10minwith.png',
-    // '/assets/images/Banner11.jpeg',
-    // '/assets/images/Banner18.jpeg',
-    // '/assets/images/Dil-se-kheloo_375x250.jpeg',
-    // '/assets/images/10minwith.png',
-    // '/assets/images/Banner11.jpeg',
-    // '/assets/images/Banner18.jpeg',
-    // '/assets/images/Dil-se-kheloo_375x250.jpeg',
-
+    '/assets/images/Dil-se-kheloo_375x250.jpeg'
   ];
   mainCategory: any[] = [];
   subCategory: any[] = [];
@@ -49,6 +40,7 @@ export class MHomeComponent implements OnInit {
   private isLoggedInSubscription!: Subscription;
   @ViewChild('loginPop') loginPop!: TemplateRef<any>;
   diaRef3: any;
+  isPromo:boolean = false;
   constructor(private dialog: MatDialog,private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef,private comSer:CommonServiceService) { }
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   ngOnInit(): void {
@@ -63,7 +55,11 @@ export class MHomeComponent implements OnInit {
     this.isLoggedInSubscription = this.apiSer.isLoggedIn$.subscribe((value) => {
       this.isLoggedIn = value;
     });
+    this.apiSer.ispromoPage$.subscribe((value)=>{
+      this.isPromo = value ===true;
+    });
   }
+
   gameListAll(item: any) {
     let param = { GameCategory: item };
     this.apiSer.apiRequest(config['gameList'], param).pipe(
@@ -75,8 +71,6 @@ export class MHomeComponent implements OnInit {
         this.gamesData[item] = data;
         this.filteredResults[item] = data;
       }
-      // this.cdr.detectChanges();
-
     });
   }
 
@@ -147,6 +141,7 @@ export class MHomeComponent implements OnInit {
   }
 
   onSearch(itemSeach:any) {
+    this.apiSer.updatePromotion(false);
     if (itemSeach.trim() !== '') {
       let param = { GameCategory: this.selected }
       for (let item of this.subCategorybc) {

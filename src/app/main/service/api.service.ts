@@ -21,9 +21,11 @@ export class ApiService {
   public options: any;
   public headers_object: any;
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  private isPromotion = new BehaviorSubject<boolean>(false);
   private targetLanguageSubject = new BehaviorSubject<string>('en');
   targetLanguage$ = this.targetLanguageSubject.asObservable();
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
+  ispromoPage$ = this.isPromotion.asObservable();
   constructor(public http: HttpClient, private router: Router, public loaderService: LoaderService, public commonSer: CommonServiceService, private titleSer: Title, private metaSer: Meta, private route: ActivatedRoute) {
     const storedValue = localStorage.getItem('UserId');
     if (storedValue) {
@@ -177,4 +179,9 @@ export class ApiService {
     }
     return data;
   }
+
+  updatePromotion(value: boolean){
+      this.isPromotion.next(value);
+    }
+  
 }

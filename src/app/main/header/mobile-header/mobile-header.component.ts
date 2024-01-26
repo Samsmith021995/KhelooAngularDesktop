@@ -81,5 +81,8 @@ export class MobileHeaderComponent implements OnInit {
       this.comSer?.stoploging('login');
     }
   }
+  promotins(){
+    this.apiSer.updatePromotion(true);
+  }
 
 }

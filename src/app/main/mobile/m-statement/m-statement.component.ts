@@ -53,6 +53,7 @@ export class MStatementComponent implements OnInit {
   CallMore() {
     this.pages.RecordCount += 10;
     this.getall();
+    window.scrollBy(0, -200)
 
   }
 

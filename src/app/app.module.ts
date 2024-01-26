@@ -40,8 +40,8 @@ import { OnlineSportsBettingComponent } from './main/desktop/footer-content/spor
 import { ApiService } from './main/service/api.service';
 import { MMenuComponent } from './main/mobile/m-menu/m-menu.component';
 import { UrlService } from './main/service/url.service';
-import { PromotionPopupComponent } from './main/mobile/m-promotion/promotion-popup/promotion-popup.component';
-import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
+// import { PromotionPopupComponent } from './main/mobile/m-promotion/promotion-popup/promotion-popup.component';
+// import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
 import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
 import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
 import { GameHeaderComponent } from './main/desktop/game-platform/game-header/game-header.component';
@@ -79,8 +79,8 @@ import { GameHeaderComponent } from './main/desktop/game-platform/game-header/ga
     IplBettingComponent,
     OnlineSportsBettingComponent,
     MMenuComponent,
-    PromotionPopupComponent,
-    MPromotionComponent,
+    // PromotionPopupComponent,
+    // MPromotionComponent,
     KhelooPrivilegesComponent,
     TournamentsComponent,
     GameHeaderComponent,  
