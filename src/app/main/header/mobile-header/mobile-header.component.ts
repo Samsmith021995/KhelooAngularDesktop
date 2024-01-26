@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
 import { Router } from '@angular/router';
+import { UrlService } from '../../service/url.service';
 
 @Component({
   selector: 'app-mobile-header',
@@ -16,14 +17,21 @@ export class MobileHeaderComponent implements OnInit {
   @ViewChild('login') login!: TemplateRef<any>;
   slidesPerViewn:number = 4;
   dialogRef:any;
-  constructor(public dialog: MatDialog, private comSer: CommonServiceService, private apiSer: ApiService,private router:Router) { }
+  constructor(public dialog: MatDialog, private comSer: CommonServiceService, private apiSer: ApiService,private router:Router, private urlSer:UrlService) { }
   private logcheck !: Subscription;
   checkLogin: boolean = false;
   showmenu: boolean = false;
   username: any = '';
   userBalance!: number;
+  isUrlPresent!:boolean;
+  private urlSubscription!: Subscription;
   ngOnInit(): void {
     this.loginchecks();
+    this.urlSubscription = this.urlSer
+    .getIsUrlPresent().
+    subscribe((isUrlPresent1) => {
+      this.isUrlPresent = isUrlPresent1 === 'true';
+    });
   }
   openDialog() {
      this.dialogRef = this.dialog.open(this.login)

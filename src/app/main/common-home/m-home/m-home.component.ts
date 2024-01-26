@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { CommonServiceService } from '../../service/common-service.service';
 import { ViewportScrollPosition } from '@angular/cdk/scrolling';
 import { MatDialog } from '@angular/material/dialog';
+import { UrlService } from '../../service/url.service';
 
 @Component({
   selector: 'app-m-home',
@@ -39,9 +40,10 @@ export class MHomeComponent implements OnInit {
   isLoggedIn: boolean = false;
   private isLoggedInSubscription!: Subscription;
   @ViewChild('loginPop') loginPop!: TemplateRef<any>;
+ 
   diaRef3: any;
   isPromo:boolean = false;
-  constructor(private dialog: MatDialog,private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef,private comSer:CommonServiceService) { }
+  constructor(private dialog: MatDialog,private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef,private comSer:CommonServiceService,private urlSer:UrlService) { }
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
@@ -58,6 +60,8 @@ export class MHomeComponent implements OnInit {
     this.apiSer.ispromoPage$.subscribe((value)=>{
       this.isPromo = value ===true;
     });
+ 
+     
   }
 
   gameListAll(item: any) {

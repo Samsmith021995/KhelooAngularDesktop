@@ -6,7 +6,7 @@
   </div>
   <div class="login_container">
     <ul>
-      <li class="customer_icon_container promotion_icon_container">
+      <li class="customer_icon_container promotion_icon_container" *ngIf="isUrlPresent">
         <a (click)="promotins()" class="beforeLogin">
           <img src="/assets/images/promotion_icon.png" class="img-fluid" alt="customer support">
           <span>Promotions</span>
@@ -49,7 +49,6 @@
     </ul>
   </div>
 </div>
-
 
 <ng-template #login>
   <app-loginpopup (onCancel)="closePopup()" (loginCheck)="loginchecks()"></app-loginpopup>
