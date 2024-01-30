@@ -133,7 +133,7 @@ export class ApiService {
   }
 
   deleteCookie(name: string): void {
-    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;';
+    document.cookie = name + '=; Path=/; Domain=.kheloo.com; Expires=Thu, 01 Jan 1970 00:00:00 GMT;';
   }
   googleTranslateElementInit(target: string): void {
     this.router.navigate(['/'], { fragment: 'googtrans(en|' + target + ')' }).then(() => {
