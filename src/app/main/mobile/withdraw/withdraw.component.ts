@@ -66,6 +66,7 @@ export class WithdrawComponent implements OnInit {
       next: data => {
         if (data.ErrorCode == '1') {
           this.apiSer.showAlert(data.Result, data.ErrorMessage, 'success');
+          this.withdrawForm.reset();
         } else {
           this.apiSer.showAlert('', data.ErrorMessage, 'error');
         }

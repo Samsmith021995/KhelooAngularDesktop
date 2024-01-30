@@ -73,19 +73,7 @@ export class PopRegisterComponent implements OnInit {
       this.apiSer.showAlert('Please Provide the Mobile Number', '', 'warning');
       return;
     } 
-    this.showTimer = true;
-    let seconds = 60;
 
-    const intervalId = setInterval(() => {
-      if (seconds > 0) {
-        seconds--;
-        this.startSec = seconds;
-      } else {
-        clearInterval(intervalId);
-        this.showTimer = false;
-      }
-    }, 1000);
- 
       this.apiSer.apiRequest(config['otp'], param).pipe(
         catchError((error) => {
           this.apiSer.showAlert('Something Went Wrong', 'Check Your Internet Connection', 'error');
@@ -99,6 +87,17 @@ export class PopRegisterComponent implements OnInit {
           return;
         }
         this.otpStart = true;
+        this.showTimer = true;
+        let seconds = 60;
+        const intervalId = setInterval(() => {
+          if (seconds > 0) {
+            seconds--;
+            this.startSec = seconds;
+          } else {
+            clearInterval(intervalId);
+            this.showTimer = false;
+          }
+        }, 1000);
       }
       );
   
@@ -109,7 +108,7 @@ export class PopRegisterComponent implements OnInit {
     const year = this.registerForm.controls['year'].value;
     const formattedDay = day.toString().padStart(2, '0');
     const formattedMonth = month.toString().padStart(2, '0');
-      return `${formattedDay}/${formattedMonth}/${year}`;
+      return `${formattedMonth}/${formattedDay}/${year}`;
     
   }
   VerifyOTP(){
@@ -167,12 +166,14 @@ export class PopRegisterComponent implements OnInit {
           throw error;
         })
       ).subscribe(data => {
-        // if (data.ErrorCode != '1') {
+        if (data.ErrorCode != '1') {
           // this.apiSer.showAlert('', data.ErrorMessage, 'warning');
           // this.router.navigate(['/thanks-registration']);
           this.router.navigate(['/']);
           // return;
-        // }
+          this.closeDial();
+          this.registerForm.reset();
+        }
       });
     } else {
       this.apiSer.showAlert('Please Provide Correct Details', '', 'warning');

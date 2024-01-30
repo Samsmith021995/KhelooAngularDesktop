@@ -82,7 +82,7 @@ export class MSignupComponent implements OnInit {
     const year = this.signUp.controls['year'].value;
     const formattedDay = day.toString().padStart(2, '0');
     const formattedMonth = month.toString().padStart(2, '0');
-      return `${formattedDay}/${formattedMonth}/${year}`;
+      return `${formattedMonth}/${formattedDay}/${year}`;
     
   }
   getCode(){
