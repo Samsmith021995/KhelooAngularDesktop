@@ -29,22 +29,37 @@ export class MDepositComponent implements OnInit {
   
     });
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
-      this.isLoading = ('depositReq' in loading) ? true : false;
+      this.isLoading = ('depositReq1' in loading) ? true : false;
       
     });
     this.depositForm = this.fb.group({
       Amount: [this.mainAmount, [Validators.required]]
     });
   }
+
   MrequestDeposit() {
+    this.paymentinput = false;
+    this.apiSer.apiRequest(config['getPaymentGateway']).subscribe({
+      next: data => {
+        if (data) {
+          this.paymentGateway = data
+        }
+      },
+      error: err => {
+        this.apiSer.showAlert('Something Went Wrong', 'Please check your Internet Connection', 'error');
+      }
+    });
+  }
+  finalDepositPro(item:any){
     this.showsubmitbtn = true;
-    this.apiSer.apiRequest(config['depositReq'], this.depositForm.getRawValue()).subscribe({
+    let param = {"Amount":this.depositForm.controls['Amount'].value,"SiteName":item.SiteName}
+      this.apiSer.apiRequest(config['depositReq1'], param).subscribe({
       next: data => {
         if (data.ErrorCode == '1') {
           let trans = data.Result.split("=");
           this.transcationId = trans[1];
           this.paymentinput = false;
-          this.getFinalId({ transactionid: this.transcationId })
+          window.location.href = item.PaymentUrl + this.transcationId;
         } else {
           this.apiSer.showAlert(data.ErrorMessage, '', 'error');
         }
@@ -58,35 +73,7 @@ export class MDepositComponent implements OnInit {
       }
     });
   }
-  getFinalId(param: any) {
-    this.apiSer.apiRequest(config['getTranscationId'], param).subscribe({
-      next: data => {
-        if (data.ErrorCode == '1') {
-          let trans = data.Result.split("=");
-          this.transcationIdFinal = trans[1];
-          this.paymentinput = false;
-          this.getPaymentGateway();
-        } else {
-          this.apiSer.showAlert(data.ErrorMessage, '', 'error');
-        }
-      },
-      error: err => {
-        this.apiSer.showAlert('Something Went Wrong', 'Please check your Internet Connection', 'error');
-      }
-    });
-  }
-  getPaymentGateway() {
-    this.apiSer.apiRequest(config['getPaymentGateway']).subscribe({
-      next: data => {
-        if (data) {
-          this.paymentGateway = data
-        }
-      },
-      error: err => {
-        this.apiSer.showAlert('Something Went Wrong', 'Please check your Internet Connection', 'error');
-      }
-    });
-  }
+
   setAmount(amount: any) {
     this.depositForm.controls['Amount'].setValue(amount);
   }

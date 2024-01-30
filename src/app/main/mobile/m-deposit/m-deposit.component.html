@@ -58,7 +58,8 @@
                 </div>
             </ng-container>
             <ng-container *ngFor="let item of paymentGateway">
-                <a  href="{{ item.PaymentUrl + transcationIdFinal}}">
+                <!-- <a  href="{{ item.PaymentUrl + transcationIdFinal}}" (click)="finalDepositPro(paymentGateway)" > -->
+                <a   (click)="finalDepositPro(item)" >
 
                     <div class="bl_promotion_list_main_container">
                         <div class="bl_promotion_list_container">
