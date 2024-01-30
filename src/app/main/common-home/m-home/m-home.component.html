@@ -15,7 +15,10 @@
     <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="searching()" class="search-class">
 </div>
 <div class="gameing">
-
+    <div  class="loaderMian" *ngIf="gamelist">
+        
+        <i-feather name="loader"></i-feather>
+    </div>
     <ng-container *ngFor="let category of subCategory; let i=index;">
         <div *ngIf="gamesData[category]" class="container">
             @if(gamesData[category].length>0){

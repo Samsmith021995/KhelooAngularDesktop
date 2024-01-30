@@ -521,3 +521,14 @@ svg {
 .h2-heading{
     line-height: 48px !important;
 }
+
+.loaderMian{
+    text-align: center;
+    color: white;
+    i-feather{
+        width: 55px;
+        height: 55px;
+
+    }
+
+}
