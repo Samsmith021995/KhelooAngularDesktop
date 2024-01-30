@@ -31,7 +31,7 @@ export class DepositComponent implements OnInit {
   }
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
-      this.isLoading = ('depositReq' in loading || 'getTranscationId' in loading || 'getPaymentGateway' in loading) ? true : false;
+      this.isLoading = ('depositReq1' in loading || 'getTranscationId' in loading || 'getPaymentGateway' in loading) ? true : false;
     });
   }
   deposits = this.fb.group({
@@ -52,14 +52,48 @@ export class DepositComponent implements OnInit {
   }
 
   requestDeposit() {
+    this.paymentinput = false;
     this.showsubmitbtn = true;
-    this.apiSer.apiRequest(config['depositReq'], this.deposits.value).subscribe({
+    this.apiSer.apiRequest(config['getPaymentGateway']).subscribe({
+      next: data => {
+        if (data) {
+          this.paymentGateway = data
+        }
+      },
+      error: err => {
+        this.apiSer.showAlert('Something Went Wrong', 'Please check your Internet Connection', 'error');
+      }
+    });
+    // this.apiSer.apiRequest(config['depositReq'], this.deposits.value).subscribe({
+    //   next: data => {
+    //     if (data.ErrorCode == '1') {
+    //       let trans = data.Result.split("=");
+    //       this.transcationId = trans[1];
+    //       this.paymentinput = false;
+    //       // this.getFinalId({ transactionid: this.transcationId })
+    //     } else {
+    //       this.apiSer.showAlert(data.ErrorMessage, '', 'error');
+    //     }
+    //     this.paymenting = data;
+    //     this.showsubmitbtn = false;
+    //   },
+    //   error: err => {
+    //     this.showsubmitbtn = false;
+    //     this.apiSer.showAlert('Something Went Wrong', 'Please check your internet connection', 'error');
+
+    //   }
+    // });
+  }
+  finalpayProcess(item:any){
+    let param = {"Amount":this.deposits.controls['Amount'].value,"SiteName":item.SiteName}
+      this.apiSer.apiRequest(config['depositReq1'], param).subscribe({
       next: data => {
         if (data.ErrorCode == '1') {
           let trans = data.Result.split("=");
           this.transcationId = trans[1];
           this.paymentinput = false;
-          this.getFinalId({ transactionid: this.transcationId })
+          // this.getFinalId({ transactionid: this.transcationId })
+          window.location.href = item.PaymentUrl + this.transcationId;
         } else {
           this.apiSer.showAlert(data.ErrorMessage, '', 'error');
         }
@@ -75,36 +109,35 @@ export class DepositComponent implements OnInit {
   }
 
 
+  // getFinalId(param: any) {
+  //   this.apiSer.apiRequest(config['getTranscationId'], param).subscribe({
+  //     next: data => {
+  //       if (data.ErrorCode == '1') {
+  //         let trans = data.Result.split("=");
+  //         this.transcationIdFinal = trans[1];
+  //         this.paymentinput = false;
+  //         this.getPaymentGateway();
+  //       } else {
+  //         this.apiSer.showAlert(data.ErrorMessage, '', 'error');
+  //       }
+  //     },
+  //     error: err => {
+  //       this.apiSer.showAlert('Something Went Wrong', 'Please check your Internet Connection', 'error');
+  //     }
+  //   });
+  // }
 
-  getFinalId(param: any) {
-    this.apiSer.apiRequest(config['getTranscationId'], param).subscribe({
-      next: data => {
-        if (data.ErrorCode == '1') {
-          let trans = data.Result.split("=");
-          this.transcationIdFinal = trans[1];
-          this.paymentinput = false;
-          this.getPaymentGateway();
-        } else {
-          this.apiSer.showAlert(data.ErrorMessage, '', 'error');
-        }
-      },
-      error: err => {
-        this.apiSer.showAlert('Something Went Wrong', 'Please check your Internet Connection', 'error');
-      }
-    });
-  }
 
-
-  getPaymentGateway() {
-    this.apiSer.apiRequest(config['getPaymentGateway']).subscribe({
-      next: data => {
-        if (data) {
-          this.paymentGateway = data
-        }
-      },
-      error: err => {
-        this.apiSer.showAlert('Something Went Wrong', 'Please check your Internet Connection', 'error');
-      }
-    });
-  }
+  // getPaymentGateway() {
+  //   this.apiSer.apiRequest(config['getPaymentGateway']).subscribe({
+  //     next: data => {
+  //       if (data) {
+  //         this.paymentGateway = data
+  //       }
+  //     },
+  //     error: err => {
+  //       this.apiSer.showAlert('Something Went Wrong', 'Please check your Internet Connection', 'error');
+  //     }
+  //   });
+  // }
 }

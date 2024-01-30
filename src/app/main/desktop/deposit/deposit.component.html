@@ -49,7 +49,8 @@
                         <div class="col-lg-10 col-xl-7 mx-auto">
                             <ng-container *ngFor="let item of paymentGateway">
 
-                                <a target="_blank" href="{{ item.PaymentUrl + transcationIdFinal}}">
+                                <!-- <a target="_blank" href="{{ item.PaymentUrl + transcationIdFinal}}"> -->
+                                <a (click)="finalpayProcess(item)">
 
                                     <div class="bl_promotion_list_main_container ng-scope"
                                         ng-repeat="deposit in UserPaymentGetway">
