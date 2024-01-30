@@ -281,6 +281,7 @@ const routes: Routes = [
     component: MSignupComponent,
     canActivate:[MobileGuard]
   },
+  { path: 'SignUp', redirectTo: '/signup', pathMatch: 'full' },
   {
     path: 'login',
     component: LoginComponent,
