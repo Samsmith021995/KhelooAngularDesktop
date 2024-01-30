@@ -59,6 +59,11 @@ export class MHomeComponent implements OnInit {
     });
     this.apiSer.ispromoPage$.subscribe((value)=>{
       this.isPromo = value ===true;
+      window.scrollTo({
+        top: 1000,
+        left: 0,
+        behavior: 'smooth'
+      });
     });
  
      
