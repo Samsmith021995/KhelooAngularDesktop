@@ -4,7 +4,8 @@ import { ApiService } from 'src/app/main/service/api.service';
 import { CommonServiceService } from 'src/app/main/service/common-service.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
+import { config } from 'src/app/main/service/config';
 @Component({
   selector: 'app-bottom-navbar',
   templateUrl: './bottom-navbar.component.html',
@@ -84,5 +85,71 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
   }
   closeDial2(){
     this.diaRef3.close();
+  }
+  requestCallback(){
+    this.showSp = false;
+    Swal.fire({
+      title: "Request a call back ?",
+      icon: "warning",
+      iconColor: '#f4ad09',
+      showCancelButton: true,
+      cancelButtonText: 'No',
+      confirmButtonColor: "#f4ad09",
+      cancelButtonColor: "rgb(170, 170, 170)",
+      confirmButtonText: "Yes!",
+      reverseButtons: true,
+      showClass:
+      {
+        popup: 'swal2-show Ashutosh Ashu',
+        backdrop: 'swal2-backdrop-show',
+        icon: 'swal2-icon-show'
+      },
+      customClass: {
+        confirmButton: 'custom-btn-cancel',
+        cancelButton: 'custom-btn-cancel'
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.apiSer.apiRequest(config['callback']).subscribe({
+          next: (data) => {
+            if (data.ErrorCode == '1') {
+              Swal.fire({
+                title: "success",
+                text: data.ErrorMessage,
+                icon: "success",
+                showClass:
+                {
+                  popup: 'swal2-show Ashutosh',
+                  backdrop: 'swal2-backdrop-show',
+                  icon: 'swal2-icon-show'
+                },
+                customClass: {
+                  confirmButton: 'secondcofirm',
+                }
+              });
+            } else {
+              Swal.fire({
+                title: "Oops!",
+                text: data.ErrorMessage,
+                icon: "error",
+                confirmButtonColor: "#f4ad09",
+                showClass:
+                {
+                  popup: 'swal2-show Ashutosh',
+                  backdrop: 'swal2-backdrop-show',
+                  icon: 'swal2-icon-show'
+                },
+                customClass: {
+                  confirmButton: 'custom-btn-cancel',
+                }
+              });
+            }
+          },
+          error: (err) => {
+            console.error(err)
+          }
+        })
+      }
+    });
   }
 }

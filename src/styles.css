@@ -153,7 +153,11 @@ i-feather[name="loader"]{
   
   animation: spin 2s linear infinite; 
 }
-
+.Ashu{
+  #swal2-title {
+    font-size: 27px !important;
+  }
+}
 
 .Ashutosh{
  
@@ -226,7 +230,15 @@ div:where(.swal2-icon).swal2-success .swal2-success-fix {
 
 .custom-btn{
   font-size: 17px;
+}
 
+.custom-btn-cancel{ 
+  font-size: 17px;
+}
+.secondcofirm{
+  background-color: #f4ad09;
+  color: #fff;
+  font-size: 17px;
 }
 
 }
