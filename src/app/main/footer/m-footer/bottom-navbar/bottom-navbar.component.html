@@ -19,6 +19,14 @@
                         <img src="/assets/images/chat.png">
                     </a>
                 </li>
+                @if(isLoggedIn){
+                <li class="ms-li ms-li3 ms-li-last">
+                    <a class="call-supp" target="_blank" (click)="requestCallback()">
+                        <img src="/assets/images/call_support.png" class="support-c" />
+                        <br>
+                      </a>
+                </li>
+            }
             </ul>
              }
         </li>
