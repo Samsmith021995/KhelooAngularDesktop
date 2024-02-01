@@ -32,7 +32,7 @@ export class MobileGuard implements CanActivate {
       return true;
     }else{
       // console.log('Redirecting to 404 page');
-      return this.router.navigate(['/404']);
+      return this.router.navigate(['/']);
       
     }
   }
