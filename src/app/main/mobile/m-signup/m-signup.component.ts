@@ -91,24 +91,24 @@ export class MSignupComponent implements OnInit {
       this.apiSer.showAlert('Mobile should not be blank','','error');
       return;
     }
-    this.showTimer = true;
-    let seconds = 60;
 
-    const intervalId = setInterval(() => {
-      if (seconds > 0) {
-        seconds--;
-        this.startSec = seconds;
-      } else {
-        clearInterval(intervalId);
-        this.showTimer = false;
-      }
-    }, 1000);
     this.apiSer.apiRequest(config['otp'],param).subscribe({
       next:(data)=>{
         if(data.ErrorCode != '1'){
           this.apiSer.showAlert('',data.ErrorMessage,'error');
           return ;
         }
+        this.showTimer = true;
+        let seconds = 60;
+        const intervalId = setInterval(() => {
+          if (seconds > 0) {
+            seconds--;
+            this.startSec = seconds;
+          } else {
+            clearInterval(intervalId);
+            this.showTimer = false;
+          }
+        }, 1000);
         this.inputVerify = true;
       },
       error:(err)=>{

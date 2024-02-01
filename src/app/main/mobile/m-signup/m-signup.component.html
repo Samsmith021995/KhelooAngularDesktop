@@ -18,6 +18,7 @@
                         </button>
                     </mat-form-field>
 
+                   
                 </div>
                 }
                 @if(inputVerify){
@@ -95,6 +96,12 @@
                         </ng-template>
                 </button>
             </form>
+            @if(!otpVerify){
+            <div style="margin-top: 10px;">
+                <span style="color: #6c757d;">  Already have account ? </span> <a  href="/login" style="text-decoration: none;color: #fff;">Login</a>
+
+            </div>
+        }
         </div>
     </div>
 </div>

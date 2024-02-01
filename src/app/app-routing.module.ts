@@ -307,7 +307,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   { path: '404', component: NotFoundComponent },
-  { path: '**', redirectTo: '/', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 
 
 ];
