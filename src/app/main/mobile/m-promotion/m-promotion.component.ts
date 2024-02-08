@@ -14,6 +14,7 @@ image = [
 '/assets/images/Banner7.jpeg',
 '/assets/images/promotion1.jpeg',
 '/assets/images/promotion2.jpeg',
+'/assets/images/promotion4.jpeg',
 ];
 constructor(private dialog:MatDialog){
 
@@ -28,6 +29,8 @@ openInfo(index:number){
     this.promotionRef = 'depositBonus';
   }else if(index === 2){
     this.promotionRef = 'lossbackBonus';
+  }else if(index === 3){
+    this.promotionRef = 'viplossbackBonus';
   }
   this.defref = this.dialog.open(this.promoinfo);
   this.defref.afterClosed().subscribe(() => { });

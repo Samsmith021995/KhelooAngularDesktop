@@ -38,15 +38,18 @@ export class MDepositComponent implements OnInit {
   }
 
   MrequestDeposit() {
+    this.showsubmitbtn = true;
     this.paymentinput = false;
     this.apiSer.apiRequest(config['getPaymentGateway']).subscribe({
       next: data => {
         if (data) {
           this.paymentGateway = data
+          this.showsubmitbtn = false;
         }
       },
       error: err => {
         this.apiSer.showAlert('Something Went Wrong', 'Please check your Internet Connection', 'error');
+        this.showsubmitbtn = false;
       }
     });
   }
