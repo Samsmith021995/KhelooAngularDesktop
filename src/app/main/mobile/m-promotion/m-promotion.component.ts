@@ -11,10 +11,10 @@ export class MPromotionComponent implements OnInit{
 promotionRef:string='';
 defref:any
 image = [
-'/assets/images/Banner7.jpeg',
-'/assets/images/promotion1.jpeg',
-'/assets/images/promotion2.jpeg',
-'/assets/images/promotion4.jpeg',
+  {name:'viplossbackBonus',src:'/assets/images/promotion4.jpeg'},
+  {name:'welcomeBonus',src:'/assets/images/Banner7.jpeg'},
+  {name:'depositBonus',src:'/assets/images/promotion1.jpeg'},
+  {name:'lossbackBonus',src:'/assets/images/promotion2.jpeg'}
 ];
 constructor(private dialog:MatDialog){
 
@@ -22,16 +22,8 @@ constructor(private dialog:MatDialog){
 ngOnInit(): void {
 }
 
-openInfo(index:number){
-  if(index === 0){
-    this.promotionRef = 'welcomeBonus';
-  }else if(index === 1){
-    this.promotionRef = 'depositBonus';
-  }else if(index === 2){
-    this.promotionRef = 'lossbackBonus';
-  }else if(index === 3){
-    this.promotionRef = 'viplossbackBonus';
-  }
+openInfo(index:any){
+ this.promotionRef = index;
   this.defref = this.dialog.open(this.promoinfo);
   this.defref.afterClosed().subscribe(() => { });
 }

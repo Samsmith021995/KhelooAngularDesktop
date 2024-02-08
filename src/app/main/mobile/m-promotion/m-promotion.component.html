@@ -6,10 +6,10 @@
         <ng-container *ngFor="let item of image; let i=index;">
             <div class="promotion_gallery_container">
                 <div class="promotion_card">
-                    <a (click)="openInfo(i)">
+                    <a (click)="openInfo(item.name)">
                         <div class="promotion_img_container promotion_container_4" >
                             <div class="promotion_border"></div>
-                            <img [src]="item" class="p-img">
+                            <img [src]="item.src" class="p-img">
                         </div>
                     </a>
                 </div>
