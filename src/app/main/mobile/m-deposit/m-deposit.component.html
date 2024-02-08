@@ -57,6 +57,7 @@
                     <img src="/assets/images/deposit-banner-new.png">
                 </div>
             </ng-container>
+            @if(!showsubmitbtn){
             <ng-container *ngFor="let item of paymentGateway">
                 <!-- <a  href="{{ item.PaymentUrl + transcationIdFinal}}" (click)="finalDepositPro(paymentGateway)" > -->
                 <a   (click)="finalDepositPro(item)" >
@@ -84,7 +85,9 @@
                     </div>
                 </a>
             </ng-container>
+        }
         </div>
-
+        <!-- <i-feather name="loader" *ngIf="!showsubmitbtn"></i-feather> -->
+        <app-loader *ngIf="showsubmitbtn"></app-loader>
     </div>
 </div>
