@@ -12,7 +12,7 @@ promotionRef:string='';
 defref:any
 image = [
   {name:'viplossbackBonus',src:'/assets/images/promotion4.jpeg'},
-  {name:'welcomeBonus',src:'/assets/images/Banner7.jpeg'},
+  {name:'firstDeposit',src:'/assets/images/promotionNew.jpeg'},
   {name:'depositBonus',src:'/assets/images/promotion1.jpeg'},
   {name:'lossbackBonus',src:'/assets/images/promotion2.jpeg'}
 ];
