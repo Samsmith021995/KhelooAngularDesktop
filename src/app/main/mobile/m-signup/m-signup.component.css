@@ -199,3 +199,10 @@ button.next-step:after {
 #mat-input-10::placeholder{
   color: #8b8b8b;
   }
+  .cont{
+    top: 72%;
+    width: 100%;
+    position: absolute;
+    z-index: 9999;
+    margin: auto;
+  }

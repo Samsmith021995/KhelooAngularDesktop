@@ -1,7 +1,10 @@
 <div class="container-fluid">
-    <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [pagination]="pagination"></app-banner>
-    <div class="container">
-        <div class="row ">
+    @if(isSmallScreen){
+         <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [pagination]="pagination"></app-banner>
+    }
+    <div class="">
+        <div class="row cont">
+            <div>
             <form [formGroup]="signUp">
                 @if(!otpVerify){
                 <div class="signForm">
@@ -102,6 +105,7 @@
 
             </div>
         }
+    </div>
         </div>
     </div>
 </div>

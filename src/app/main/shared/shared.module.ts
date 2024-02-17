@@ -44,7 +44,7 @@ import { PopRegisterComponent } from '../mobile/pop-register/pop-register.compon
 import { MForgotPasswordComponent } from '../mobile/m-forgot-password/m-forgot-password.component';
 import { MPromotionComponent } from '../mobile/m-promotion/m-promotion.component';
 import { PromotionPopupComponent } from '../mobile/m-promotion/promotion-popup/promotion-popup.component';
-
+import {LayoutModule} from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -94,6 +94,7 @@ import { PromotionPopupComponent } from '../mobile/m-promotion/promotion-popup/p
   MatCheckboxModule,
   MatDialogModule,
   FeatherModule.pick(allIcons),
+  LayoutModule
   ],
  exports:[
   PokerComponent,
@@ -137,6 +138,7 @@ import { PromotionPopupComponent } from '../mobile/m-promotion/promotion-popup/p
   MatSlideToggleModule,
   MatCheckboxModule,
   FeatherModule,
+  LayoutModule
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
