@@ -4,7 +4,8 @@ import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
 import { Router } from '@angular/router';
 import { Subscription, retry } from 'rxjs';
-
+import { CommonServiceService } from '../../service/common-service.service';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 @Component({
   selector: 'app-m-signup',
   templateUrl: './m-signup.component.html',
@@ -32,8 +33,14 @@ export class MSignupComponent implements OnInit {
   ];
   private loaderSubscriber !: Subscription;
   private apiSubscriber: Subscription[]=[];
-  constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router){}
+  isSmallScreen!:boolean;
+  constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router,private commonSer:CommonServiceService,private breakpointObserver:BreakpointObserver){}
   ngOnInit(): void {
+    this.commonSer.myVariable$.subscribe((width)=>{
+      this.isSmallScreen = width === "true";
+      // let isSmallScreen2 = this.breakpointObserver.isMatched('(max-width: 767px)');
+      // console.log(isSmallScreen2);
+    });
     let ref = localStorage.getItem('Ref');
     if(ref){
       this.refText =  ref;
