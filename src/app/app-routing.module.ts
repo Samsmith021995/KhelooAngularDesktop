@@ -32,10 +32,8 @@ import { FootballBettingComponent } from './main/desktop/footer-content/sports/f
 import { IplBettingComponent } from './main/desktop/footer-content/sports/ipl-betting/ipl-betting.component';
 import { OnlineSportsBettingComponent } from './main/desktop/footer-content/sports/online-sports-betting/online-sports-betting.component';
 import { TennisBettingComponent } from './main/desktop/footer-content/sports/tennis-betting/tennis-betting.component';
-import { WithdrawComponent } from './main/mobile/withdraw/withdraw.component';
 import { MobileGuard } from './guard/mobile.guard';
 import { DesktopGuard } from './guard/desktop.guard';
-import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
 import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
 import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
 import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
@@ -160,43 +158,83 @@ const routes: Routes = [
       },
       {
         path: 'about-us',
-        component: AboutUsComponent
+        component: AboutUsComponent,
+        data: {
+          title: 'About Kheloo | Know all about Kheloo Online Casino, Sports Betting',
+          description: 'Want to know more about Kheloo Online Casino site? Find out why we are one of the best, and most trusted online casinos & sports betting sites in India.'
+        }
       },
       {
         path: 'contact-us',
-        component: ContactUsComponent
+        component: ContactUsComponent,
+        data: {
+          title: 'Contact Kheloo - Best Gaming App in India ',
+          description: 'If you have any query about how the Kheloo online gaming app works, how to deposit or claim a bonus, or if you have any other issue, get in touch with us.'
+        }
       },
       {
         path: 'affiliates',
-        component: AffiliateComponent
+        component: AffiliateComponent,
+        data: {
+          title: 'Affiliates',
+          description: ''
+        }
       },
       {
         path: 'faq',
-        component: FaqComponent
+        component: FaqComponent,
+        data: {
+          title: 'FAQs',
+          description: ''
+        }
       },
       {
         path: 'invite-friend',
-        component: InviteFriendComponent
+        component: InviteFriendComponent,
+        data: {
+          title: 'InviteFriend',
+          description: ''
+        }
       },
       {
         path: 'disclaimer',
-        component: DisclaimerComponent
+        component: DisclaimerComponent,
+        data: {
+          title: 'Disclaimer',
+          description: ''
+        }
       },
       {
         path: 'term-condition',
-        component: TermConditionComponent
+        component: TermConditionComponent,
+        data: {
+          title: 'TermsConditions',
+          description: ''
+        }
       },
       {
         path: 'privacy-policy',
-        component: PrivacyPolicyComponent
+        component: PrivacyPolicyComponent,
+        data: {
+          title: 'PrivacyPolicy ',
+          description: ''
+        }
       },
       {
         path: 'cookie-policy',
-        component: CookiePolicyComponent
+        component: CookiePolicyComponent,
+        data: {
+          title: 'CookiePolicy',
+          description: ''
+        }
       },
       {
         path: 'disconnection-policy',
-        component: DisconnectionPolicyComponent
+        component: DisconnectionPolicyComponent,
+        data: {
+          title: 'DisconnectionPolicy',
+          description: ''
+        }
       },
       {
         path: 'cricket-betting',
@@ -241,7 +279,11 @@ const routes: Routes = [
       },
       {
         path: 'privileges',
-        component: KhelooPrivilegesComponent
+        component: KhelooPrivilegesComponent,
+        data: {
+          title: 'Privileges',
+          description: ''
+        }
       },
       {
         path: 'tournaments',
@@ -270,7 +312,7 @@ const routes: Routes = [
         canActivate: [AuthGuard, MobileGuard]
       },
       {
-        path: 'thank-you',
+        path: 'thankyou',
         component: ThankYouComponent,
         canActivate: []
       }
