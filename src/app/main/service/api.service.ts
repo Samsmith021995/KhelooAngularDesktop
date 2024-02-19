@@ -156,7 +156,7 @@ export class ApiService {
     let title = routeData.title;
     let description = routeData.description || 'India\'s largest online gaming website with 8.5+ Million players. For 18+ players only. You can find everything on Kheloo.com, from slot games to table games, from progressive jackpots to card games Register and get Rs 1,000 as bonus on the first deposit';
 
-    this.titleSer.setTitle(title || 'Kheloo');
+    this.titleSer.setTitle(title || 'Kheloo- Best Online Sports Betting Sites | Play Casino Games Online');
     this.metaSer.updateTag({ name: 'title', content: title || 'India\'s largest online gaming website' });
     this.metaSer.updateTag({ name: 'description', content: description });
   }

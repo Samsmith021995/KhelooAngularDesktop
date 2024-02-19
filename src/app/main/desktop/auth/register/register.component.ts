@@ -126,7 +126,7 @@ export class RegisterComponent {
         ).subscribe(data => {
           // if (data.ErrorCode != '1') {
             // this.apiSer.showAlert('', data.ErrorMessage, 'warning');
-            this.router.navigate(['/thank-you']);
+            this.router.navigate(['/thankyou']);
             // return;
           // }
         });
