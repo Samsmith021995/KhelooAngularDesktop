@@ -18,6 +18,7 @@ export class PopRegisterComponent implements OnInit {
   otpVerified:boolean = false;
   otpStart:boolean= false;
   btnLoading:boolean= false;
+  btnLoading1:boolean= false;
   showTimer:boolean= false;
   startSec:any;
   registerForm !:FormGroup;
@@ -25,7 +26,8 @@ export class PopRegisterComponent implements OnInit {
   constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router){}
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading:any={}) => {
-      this.btnLoading=('otp' in loading || 'verifyOtp' in loading || 'signUp' in loading)?true:false;
+      this.btnLoading=('otp' in loading || 'signUp' in loading)?true:false;
+      this.btnLoading1=('verifyOtp' in loading)?true:false;
     });
     let ref = localStorage.getItem('Ref');
     if(ref){
@@ -167,13 +169,13 @@ export class PopRegisterComponent implements OnInit {
         })
       ).subscribe(data => {
         if (data.ErrorCode != '1') {
-          // this.apiSer.showAlert('', data.ErrorMessage, 'warning');
-          // this.router.navigate(['/thanks-registration']);
-          this.router.navigate(['/thankyou']);
-          // return;
-          this.closeDial();
-          this.registerForm.reset();
+          this.apiSer.showAlert(data.ErrorMessage, '', 'error');
+          return;
         }
+          this.closeDial();
+          this.router.navigate(['/thankyou']);
+          this.registerForm.reset();
+      
       });
     } else {
       this.apiSer.showAlert('Please Provide Correct Details', '', 'warning');

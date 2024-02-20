@@ -53,7 +53,7 @@
                         <ul class="list-inline pull-right">
                             <li>
                                 <button type="button" (click)="VerifyOTP()" class="next-step">
-                                    <ng-container *ngIf="btnLoading; else content">
+                                    <ng-container *ngIf="btnLoading1; else content">
                                         <i-feather name="loader"></i-feather>
                                       </ng-container>
                                       <ng-template #content>
@@ -117,10 +117,10 @@
                             </li>
                             <li>
                                 <button type="button" class="next-step" (click)="Signup()">
-                                    <ng-container *ngIf="btnLoading; else content">
+                                    <ng-container *ngIf="btnLoading; else content1">
                                         <i-feather name="loader"></i-feather>
                                       </ng-container>
-                                      <ng-template #content>
+                                      <ng-template #content1>
                                         Submit
                                       </ng-template>
                                 </button>
