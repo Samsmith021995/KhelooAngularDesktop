@@ -169,7 +169,7 @@ export class PopRegisterComponent implements OnInit {
         if (data.ErrorCode != '1') {
           // this.apiSer.showAlert('', data.ErrorMessage, 'warning');
           // this.router.navigate(['/thanks-registration']);
-          this.router.navigate(['/']);
+          this.router.navigate(['/thankyou']);
           // return;
           this.closeDial();
           this.registerForm.reset();
