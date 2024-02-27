@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
 import { Router } from '@angular/router';
-import { Subscription, retry } from 'rxjs';
+import { Subscription, catchError, retry } from 'rxjs';
 import { CommonServiceService } from '../../service/common-service.service';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 @Component({
@@ -20,6 +20,7 @@ export class MSignupComponent implements OnInit {
   btnLoading:boolean=false;
   inputVerify:boolean  = false;
   showTimer:boolean  = false;
+  getTimer:boolean  = false;
   verificationCode:boolean  = false;
   signUp !:FormGroup;
   slidesPerViewn:number = 1;
@@ -68,6 +69,9 @@ export class MSignupComponent implements OnInit {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading:any={}) => {
       this.btnLoading=('verifyOtp' in loading || 'signUp' in loading)?true:false;
     });
+    this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading:any={}) => {
+      this.getTimer=('otp' in loading)?true:false;
+    });
   }
   validateNumber(event: KeyboardEvent) {
     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'];
@@ -93,13 +97,17 @@ export class MSignupComponent implements OnInit {
     
   }
   getCode(){
+    
     let param = this.signUp.getRawValue();
     if(!this.signUp.controls['Mobile'].value){
       this.apiSer.showAlert('Mobile should not be blank','','error');
       return;
     }
 
-    this.apiSer.apiRequest(config['otp'],param).subscribe({
+    this.apiSer.apiRequest(config['otp'],param).pipe(catchError((error) => {
+      this.apiSer.showAlert('','You may only perform this action every 30 seconds','error');
+      throw error;
+    })).subscribe({
       next:(data)=>{
         if(data.ErrorCode != '1'){
           this.apiSer.showAlert('',data.ErrorMessage,'error');
@@ -140,13 +148,13 @@ export class MSignupComponent implements OnInit {
     if(!this.otpVerify && !this.verificationCode){
       this.apiSer.apiRequest(config['verifyOtp'],param).subscribe({
         next:(data)=>{
+          this.otpVerify = true;
+          this.inputVerify = false;
+          this.verificationCode = true;
           if(data.ErrorCode != '1'){
             this.apiSer.showAlert('',data.ErrorMessage,'error');
             return;
           }
-          this.otpVerify = true;
-          this.inputVerify = false;
-          this.verificationCode = true;
         },
         error:(err)=>{
           console.error(err);
