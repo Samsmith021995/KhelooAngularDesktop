@@ -180,7 +180,7 @@
                         <!-- <input matInput [matDatepicker]="datepicker">
   <mat-hint>MM/DD/YYYY</mat-hint> -->
                         <mat-form-field style="width: 49%; margin-right: 5px;" class="materialI material2">
-                            <input matInput formControlName="DOB" placeholder="DOB" [matDatepicker]="picker">
+                            <input matInput formControlName="DOB" placeholder="DOB" [matDatepicker]="picker" (focus)="picker.open()">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
 
