@@ -355,3 +355,12 @@ input:focus-visible {
   src: url('assets/fonts/Anton-Regular.ttf');
   font-weight:normal;
 }
+
+.material2
+.mdc-text-field__input{
+  width: 100% !important;
+}
+
+.signFormnew .mdc-text-field__input{
+  padding-left: 5px !important;
+}

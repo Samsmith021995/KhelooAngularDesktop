@@ -45,7 +45,8 @@ import { MForgotPasswordComponent } from '../mobile/m-forgot-password/m-forgot-p
 import { MPromotionComponent } from '../mobile/m-promotion/m-promotion.component';
 import { PromotionPopupComponent } from '../mobile/m-promotion/promotion-popup/promotion-popup.component';
 import {LayoutModule} from '@angular/cdk/layout';
-
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 @NgModule({
   declarations: [
     BannerComponent,
@@ -94,7 +95,8 @@ import {LayoutModule} from '@angular/cdk/layout';
   MatCheckboxModule,
   MatDialogModule,
   FeatherModule.pick(allIcons),
-  LayoutModule
+  LayoutModule,
+  MatMomentDateModule
   ],
  exports:[
   PokerComponent,
@@ -138,8 +140,12 @@ import {LayoutModule} from '@angular/cdk/layout';
   MatSlideToggleModule,
   MatCheckboxModule,
   FeatherModule,
-  LayoutModule
+  LayoutModule,
+  MatMomentDateModule
  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'en-US' },
+  ]
 })
 export class SharedModule { }
