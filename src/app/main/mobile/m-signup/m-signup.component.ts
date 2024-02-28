@@ -148,13 +148,13 @@ export class MSignupComponent implements OnInit {
     if (!this.otpVerify && !this.verificationCode) {
       this.apiSer.apiRequest(config['verifyOtp'], param).subscribe({
         next: (data) => {
-          this.otpVerify = true;
-          this.inputVerify = false;
-          this.verificationCode = true;
           if (data.ErrorCode != '1') {
             this.apiSer.showAlert('', data.ErrorMessage, 'error');
             return;
           }
+          this.otpVerify = true;
+          this.inputVerify = false;
+          this.verificationCode = true;
         },
         error: (err) => {
           console.error(err);
