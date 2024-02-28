@@ -4,9 +4,10 @@
   color: white;
   background-image: linear-gradient(to right, #ebcd76, #ca9421);
   border: none;
-  width: 95px;
-  height: 35px;
-  margin-right: 10px;
+  width: 87px;
+  height: 27px;
+  margin-right: 7px;
+  font-size: 12px;
 }
 
 .logo {
@@ -287,12 +288,12 @@ button.next-step:active {
   display: block;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width:968px) {
   .overlay-content {
-    width: 25%;
+    width: 38%;
     position: absolute;
-    top: 30%;
-    right: 10%;
+    top: 10%;
+    right: 3%;
     border: 2px solid #998c98;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.2);
@@ -300,6 +301,47 @@ button.next-step:active {
     border-radius: 25px;
     box-shadow: black 2px 2px 2px;
 
+  }
+
+  .getC {
+    width: 67px !important;
+  }
+}
+
+@media (min-width:968px) and (max-width:1024px) {
+  .overlay-content {
+    width: 35%;
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    border: 2px solid #998c98;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: black 2px 2px 2px;
+
+  }
+
+}
+
+@media (min-width:1024px) {
+  .overlay-content {
+    width: 30%;
+    position: absolute;
+    top: 25%;
+    right: 8%;
+    border: 2px solid #998c98;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: black 2px 2px 2px;
+
+  }
+
+  .getC {
+    width: 80px !important;
   }
 }
 
@@ -378,13 +420,33 @@ button.next-step:active {
   top: 20% !important;
 }
 
-@media (max-width: 768px) {
+/* .overlay-content {
+  width: 100%;
+  position: absolute;
+  bottom: 5vh; 
+  padding: 1em;
+  text-align: center;
+  box-shadow: black 2px 2px 2px;
+} */
+/* @media (min-width:539px ) and  (max-width:767px) {
+  .overlay-content {
+    text-align: center;
+    box-shadow: black 2px 2px 2px;
+    width: 100%;
+    position: absolute;
+     bottom: -41vh; 
+    padding: 1em;
+  }
+} */
+
+@media (max-width: 767px) {
 
   .overlay-content {
     width: 100%;
-    position: absolute;
-    top: 68%;
-    padding: 20px;
+    position: relative;
+    /* bottom: 0vh;  */
+    top: -18rem;
+    padding: 1em;
     text-align: center;
     box-shadow: black 2px 2px 2px;
   }
@@ -413,11 +475,27 @@ button.next-step:active {
   .mat-icon {
     width: 20px !important;
     padding-top: 5px !important;
-  
+
   }
 
   .logo {
     left: 33% !important
+  }
+
+  .material2 .mdc-text-field__input {
+    width: 100% !important;
+    padding-left: 10 !important;
+    height: 26px !important;
+  }
+
+  .mdc-text-field__input {
+    font-size: 14px !important;
+
+  }
+
+  .mat-mdc-form-field-icon-prefix>.mat-icon {
+    padding: 4px 12px !important;
+    height: 30px;
   }
 }
 
@@ -427,6 +505,14 @@ button.next-step:active {
   margin: 10px auto;
   display: block;
 
+}
+
+.mat-datepicker-toggle {
+  color: #fff !important;
+}
+
+.mat-mdc-icon-button {
+  padding-top: 2px !important;
 }
 
 /* new Form Signup Design */
