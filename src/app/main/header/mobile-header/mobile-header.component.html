@@ -4,7 +4,7 @@
       <img src="/assets/images/logo.gif" class="img-fluid logo-color logoimage" alt="logo">
     </a>
   </div>
-  <div class="login_container">
+  <div class="login_container" style="display: flex !important;">
     <ul>
       <li class="customer_icon_container promotion_icon_container" *ngIf="isUrlPresent">
         <a (click)="promotins()" class="beforeLogin">
@@ -28,7 +28,7 @@
         </li>
         <li (click)="showmenubar()" class="header-btns">
           <img src="/assets/images/profile.png" alt="">
-       
+        </li>
         <div class="col" *ngIf="showmenu">
           <ol class="sub-menu">
             <li class="menu-item">
@@ -45,7 +45,6 @@
             </li>
           </ol>
         </div>
-      </li>
     </div>
   </ul>
   </div>
