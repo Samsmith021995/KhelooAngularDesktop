@@ -33,10 +33,10 @@ export class DHomeComponent implements OnInit {
   subSelected: string = '';
   defaultSlices: number[] = [];
   images = [
-    '/assets/images/Cashback.png',
-    '/assets/images/WELCOME BONUS.png',
-    '/assets/images/VIP offers.png',
-    '/assets/images/LUCK.png',
+    {src:'/assets/images/Cashback.png'},
+    {src:'/assets/images/WELCOME BONUS.png'},
+    {src:'/assets/images/VIP offers.png'},
+    {src:'/assets/images/LUCK.png'},
   ];
 
   ngOnInit(): void {

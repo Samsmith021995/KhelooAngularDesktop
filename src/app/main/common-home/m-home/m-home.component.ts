@@ -15,10 +15,10 @@ import { UrlService } from '../../service/url.service';
 export class MHomeComponent implements OnInit {
   slidesPerViewn:number = 1;
   images = [
-    '/assets/images/10minwith.png',
-    '/assets/images/Banner11.jpeg',
-    '/assets/images/Banner18.jpeg',
-    '/assets/images/Dil-se-kheloo_375x250.jpeg'
+    {src:'/assets/images/10minwith.png'},
+    {src:'/assets/images/Banner11.jpeg'},
+    {src:'/assets/images/Banner18.jpeg'},
+    {src:'/assets/images/Dil-se-kheloo_375x250.jpeg'}
   ];
   
   mainCategory: any[] = [];
@@ -76,14 +76,12 @@ export class MHomeComponent implements OnInit {
       //   behavior: 'smooth'
       // });
     });
- 
-     
   }
 
   scrollToElement(param:any): void {
     const element = this.elementRef.nativeElement.querySelector('#'+param);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest',offset:-200});
+      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'});
     }
   }
   gameListAll(item: any) {
@@ -174,7 +172,8 @@ export class MHomeComponent implements OnInit {
           const filteredApiResultsed = this.filteredResults[item].filter(result =>
             result.name.toLowerCase().includes(itemSeach.toLowerCase()) || 
             result.groupname.toLowerCase().includes(itemSeach.toLowerCase()) || 
-            result.gamecategory.toLowerCase().includes(itemSeach.toLowerCase())
+            result.gamecategory.toLowerCase().includes(itemSeach.toLowerCase() ) ||
+            result.product.toLowerCase().includes(itemSeach.toLowerCase() )
             );
               this.gamesData[item] = filteredApiResultsed;
       }
@@ -199,8 +198,4 @@ export class MHomeComponent implements OnInit {
 closeDial2(){
   this.diaRef3.close();
 }
-// @HostListener('window:scroll', ['$event'])
-// onScroll(event: any) {
-//   this.scrollPosition = 1000;
-// }
 }

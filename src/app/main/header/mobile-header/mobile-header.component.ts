@@ -6,6 +6,7 @@ import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
 import { Router } from '@angular/router';
 import { UrlService } from '../../service/url.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-mobile-header',
@@ -71,7 +72,32 @@ export class MobileHeaderComponent implements OnInit {
     });
   }
   logout() {
-    this.apiSer.logout();
+    Swal.fire({
+      title: "Are you sure to logout?",
+      icon: "warning",
+      iconColor: '#f4ad09',
+      showCancelButton: true,
+      cancelButtonText: 'No',
+      confirmButtonColor: "#f4ad09",
+      cancelButtonColor: "rgb(170, 170, 170)",
+      confirmButtonText: "Yes!",
+      reverseButtons: true,
+      showClass:
+      {
+        popup: 'swal2-show Ashutosh Ashu',
+        backdrop: 'swal2-backdrop-show',
+        icon: 'swal2-icon-show'
+      },
+      customClass: {
+        confirmButton: 'custom-btn-cancel',
+        cancelButton: 'custom-btn-cancel'
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.apiSer.logout(); 
+      }
+      this.showmenu =false;
+    });
   }
   navigate(item:any){
     this.router.navigate([item]);

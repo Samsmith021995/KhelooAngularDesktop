@@ -1,5 +1,7 @@
 import { Component, ViewChild, ElementRef, AfterViewInit, OnInit, Input } from '@angular/core';
 import Swiper from 'swiper';
+import { CommonServiceService } from '../../service/common-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
@@ -16,6 +18,7 @@ export class BannerComponent implements AfterViewInit {
   ngOnInit(): void {
 
   }
+  constructor(private comSer:CommonServiceService,private router:Router){}
    
     ngAfterViewInit() {
       this.swiper = new Swiper(this.swiperEl?.nativeElement, {
@@ -45,5 +48,9 @@ export class BannerComponent implements AfterViewInit {
         spaceBetween: 3,
       });
     }
-
+    searchData(search:any){
+      // localStorage.setItem('search',search);
+      this.comSer.sendSearchData(search);
+      this.router.navigate(['/']);
+    }
 }
