@@ -364,3 +364,7 @@ input:focus-visible {
 .signFormnew .mdc-text-field__input{
   padding-left: 5px !important;
 }
+
+input, button, select, a {
+  -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
+}
