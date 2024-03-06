@@ -10,6 +10,26 @@ import { Router } from '@angular/router';
 export class BannerComponent implements AfterViewInit {
   @ViewChild('swiper', { static: false }) swiperEl?: ElementRef;
   swiper?: Swiper;
+  bannersClick = [
+    'play\'n go',
+    'casino',
+    'evolution',
+    'play\'n go',
+    'casino',
+    'evolution',
+    'play\'n go',
+    'casino',
+    'evolution',
+    'play\'n go',
+    'casino',
+    'evolution',
+    'play\'n go',
+    'casino',
+    'evolution',
+    'play\'n go',
+    'casino',
+    'evolution',
+  ]
  @Input() images:any = [];
  @Input() slidesPerView:any = [];
  @Input() pagination:boolean = true;
@@ -50,7 +70,7 @@ export class BannerComponent implements AfterViewInit {
     }
     searchData(search:any){
       // localStorage.setItem('search',search);
-      this.comSer.sendSearchData(search);
-      this.router.navigate(['/']);
+      // this.comSer.sendSearchData(search);
+      this.router.navigate(['game-provider',search]);
     }
 }

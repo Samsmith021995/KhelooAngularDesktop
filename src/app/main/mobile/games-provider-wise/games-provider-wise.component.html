@@ -1,0 +1,41 @@
+<div class="container-main">
+    <div class="col-lg-12">
+        <div class="heading">
+            <h2 id="h2">Games</h2>
+            <img src="/assets/images/heading-border-effect.png" class="img-fluid" alt="effect">
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <input type="text" placeholder="Search..." [(ngModel)]="searchGame" (input)="searching()" class="search-class">
+    </div>
+    <div class="gameing">
+        <div class="loaderMian" *ngIf="gamelist">
+            <i-feather name="loader"></i-feather>
+        </div>
+        <div class="container">
+            <div style=" color:white; display: flex; width: 100%; flex-wrap: wrap; " #showMore class="ashu">
+                <div *ngFor="let game of gamesData" class="casino-game-item shimmerBG">
+                    <img [src]="game.url_thumb" alt="" width="100%">
+                    <div class="min_max_container">
+                        <span class="minValue">
+                            <span ng-show="Item.MaxAmount"> Min.<i>₹</i>{{game.MinAmount}} </span>
+                        </span>
+                        <span class="maxValue ng-binding"
+                            ng-show="Item.MaxAmount">Max.<i>₹</i>{{game.MaxAmount>1000?game.MaxAmount/1000
+                            +'k':game.MaxAmount}}</span>
+                    </div>
+                    <a (click)="gameStart(game.game_id)">
+                        <div class="playbtn">
+                            <img src="/assets/images/play_icon.png" alt="" class="casino-game-item-image-bc"
+                                class="play">
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #loginPop>
+    <app-loginpopup (onCancel)="closeDial2()"></app-loginpopup>
+</ng-template>

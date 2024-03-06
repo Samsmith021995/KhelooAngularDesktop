@@ -15,11 +15,17 @@ import { UrlService } from '../../service/url.service';
 export class MHomeComponent implements OnInit {
   slidesPerViewn:number = 1;
   images = [
-    {src:'/assets/images/10minwith.png'},
-    {src:'/assets/images/Banner11.jpeg'},
-    {src:'/assets/images/Banner18.jpeg'},
-    {src:'/assets/images/Dil-se-kheloo_375x250.jpeg'}
+    '/assets/images/10minwith.png',
+    '/assets/images/Banner11.jpeg',
+    '/assets/images/Banner18.jpeg',
+    '/assets/images/Dil-se-kheloo_375x250.jpeg'
   ];
+  // images = [
+  //   {src:'/assets/images/10minwith.png'},
+  //   {src:'/assets/images/Banner11.jpeg'},
+  //   {src:'/assets/images/Banner18.jpeg'},
+  //   {src:'/assets/images/Dil-se-kheloo_375x250.jpeg'}
+  // ];
   
   mainCategory: any[] = [];
   subCategory: any[] = [];

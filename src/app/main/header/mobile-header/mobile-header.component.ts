@@ -1,4 +1,4 @@
-import { Component, Inject, ViewChild, ElementRef, TemplateRef, OnInit } from '@angular/core';
+import { Component, Inject, ViewChild, ElementRef, TemplateRef, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CommonServiceService } from '../../service/common-service.service';
 import { Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
   // styleUrl: './mobile-header.component.css',
   styleUrls: ['./mobile-header.component.css']
 })
-export class MobileHeaderComponent implements OnInit {
+export class MobileHeaderComponent implements OnInit,OnDestroy {
   @ViewChild('login') login!: TemplateRef<any>;
   slidesPerViewn:number = 4;
   dialogRef:any;
@@ -22,11 +22,15 @@ export class MobileHeaderComponent implements OnInit {
   private logcheck !: Subscription;
   checkLogin: boolean = false;
   showmenu: boolean = false;
+  private showSubscription!: Subscription;
   username: any = '';
   userBalance!: number;
   isUrlPresent!:boolean;
   private urlSubscription!: Subscription;
   ngOnInit(): void {
+    this.showSubscription = this.apiSer.getShowMenu().subscribe(value=>{
+      this.showmenu= value;
+    });
     this.loginchecks();
     this.urlSubscription = this.urlSer
     .getIsUrlPresent().
@@ -102,9 +106,11 @@ export class MobileHeaderComponent implements OnInit {
   navigate(item:any){
     this.router.navigate([item]);
     this.showmenu =false;
+    this.apiSer.setShowMenu(this.showmenu);
   }
   showmenubar() {
     this.showmenu = !this.showmenu;
+    this.apiSer.setShowMenu(this.showmenu);
   }
 
   refreshHeader() {
@@ -116,7 +122,11 @@ export class MobileHeaderComponent implements OnInit {
     }
   }
   promotins(){
+    this.apiSer.setShowMenu(false);
     this.apiSer.updatePromotion(true);
+  }
+  ngOnDestroy(): void {
+    this.showSubscription.unsubscribe();
   }
 
 }
