@@ -40,6 +40,7 @@ import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
 import { TableGameComponent } from './main/desktop/footer-content/games/table-game/table-game.component';
 import { ThankYouComponent } from './main/shared/thank-you/thank-you.component';
 import { GamesProviderWiseComponent } from './main/mobile/games-provider-wise/games-provider-wise.component';
+import { PaymentcheckComponent } from './main/paymentcheck/paymentcheck.component';
 
 const commonSer = new CommonServiceService();
 const routes: Routes = [
@@ -353,6 +354,11 @@ const routes: Routes = [
     path: 'games/:id',
     component: GamePlatformComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'paymentGate',
+    component: PaymentcheckComponent,
+    // canActivate: [AuthGuard]
   },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
