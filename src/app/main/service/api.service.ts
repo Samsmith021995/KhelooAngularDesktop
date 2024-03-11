@@ -19,6 +19,8 @@ export class ApiService {
   showOptions: boolean = false;
   hideApp: boolean = false;
   public options: any;
+  private showMenuSubject = new BehaviorSubject<boolean>(false);
+  showMenu$: Observable<boolean> = this.showMenuSubject.asObservable();
   public headers_object: any;
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   private isPromotion = new BehaviorSubject<boolean>(false);
@@ -33,7 +35,13 @@ export class ApiService {
       this.updateLoginStatus(true);
     }
   }
+  setShowMenu(value: boolean): void {
+    this.showMenuSubject.next(value);
+  }
 
+  getShowMenu(): Observable<boolean> {
+    return this.showMenu$;
+  }
   updateLoginStatus(isLoggedIn: boolean) {
     this.isLoggedInSubject.next(isLoggedIn);
   }

@@ -1,5 +1,5 @@
 <div class="deposit_container">
-    <div class="dep_bal_main_cont">
+    <!-- <div class="dep_bal_main_cont">
         <div class="dep_bal_container">
             <div class="wallet_container">
                 <img src="/assets/images/wallet.png">
@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="dep_amt_add_main_container">
         <div class="dep_form_elem_container">
         </div>
@@ -31,10 +31,13 @@
                         <input id="msg" type="number" class="form-control" name="msg" placeholder="0.00"
                             formControlName="Amount"><i class="fa-solid fa-pen-to-square"></i>
                     </div>
-                    <button type="button" class="btn" (click)="setAmount(100)">₹ 100</button>
-                    <button type="button" class="btn" (click)="setAmount(2000)">₹ 2000</button>
+                    @for (item of displayedButtons; track $index) {
+                        <button type="button" class="btn" (click)="setAmount(item)">₹ {{item}}</button>
+
+                    }
+                    <!-- <button type="button" class="btn" (click)="setAmount(2000)">₹ 2000</button>
                     <button type="button" class="btn" (click)="setAmount(10000)">₹ 10000</button>
-                    <button type="button" class="btn" (click)="setAmount(25000)">₹ 25000</button>
+                    <button type="button" class="btn" (click)="setAmount(25000)">₹ 25000</button> -->
                 </div>
                 <button style="width:100%;margin:auto;" class="b-core-ui-select"
                     (click)="MrequestDeposit()">
@@ -52,7 +55,7 @@
         <div>
             
             <ng-container *ngIf="paymentGateway.length>0">
-                <span class="back" (click)="backPage()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back </span>
+                <span class="back" (click)="backPage()"><i-feather name="arrow-left"></i-feather> Back </span>
                 <div class="banner">
                     <img src="/assets/images/deposit-banner-new.png">
                 </div>
