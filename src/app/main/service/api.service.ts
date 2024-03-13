@@ -140,24 +140,41 @@ export class ApiService {
     localStorage.setItem('selectedLanguage', languageCode);
   }
 
+  // deleteCookie(name: string): void {
+  //   document.cookie = name + '=; Path=/; Domain=.kheloo.com; Expires=Thu, 01 Jan 1970 00:00:00 GMT;';
+  // }
+  // googleTranslateElementInit(target: string): void {
+  //   this.router.navigate(['/'], { fragment: 'googtrans(en|' + target + ')' }).then(() => {
+  //     window.location.reload();
+  //   });
+  //   if (target != 'en') {
+  //     new (window as any).google.translate.TranslateElement({
+  //       pageLanguage: target,
+  //       includedLanguages: target
+  //     });
+  //   } else {
+  //     let cookieName = 'googtrans';
+  //     this.deleteCookie(cookieName);
+  //   }
+  // }
+
   deleteCookie(name: string): void {
-    document.cookie = name + '=; Path=/; Domain=.kheloo.com; Expires=Thu, 01 Jan 1970 00:00:00 GMT;';
+    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 UTC;';
   }
+  
   googleTranslateElementInit(target: string): void {
-    this.router.navigate(['/'], { fragment: 'googtrans(en|' + target + ')' }).then(() => {
-      window.location.reload();
-    });
-    if (target != 'en') {
-      new (window as any).google.translate.TranslateElement({
-        pageLanguage: target,
-        includedLanguages: target
-      });
-    } else {
-      let cookieName = 'googtrans';
+    const cookieName = 'googtrans';
+    if (target === 'en') {
       this.deleteCookie(cookieName);
+      const urlWithoutFragment = window.location.href.split('#')[0];
+      window.location.href = urlWithoutFragment;
+    } else {
+      document.cookie = `googtrans=en|${target}; Path=/; Domain=.kheloo.com;`;
+      this.router.navigate(['/'], { fragment: `googtrans(en|${target})` }).then(() => {
+        window.location.reload();
+      });
     }
   }
-
   updateMetaTags() {
     let activatedRoute = this.getDeepestActivatedRoute(this.router.routerState.root);
     let routeData = this.getRouteDataWithInheritance(activatedRoute);
