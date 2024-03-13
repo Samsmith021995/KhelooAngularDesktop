@@ -164,14 +164,11 @@ export class ApiService {
   
   googleTranslateElementInit(target: string): void {
     const cookieName = 'googtrans';
-    
-    // First, delete the cookie if the target language is English
     if (target === 'en') {
       this.deleteCookie(cookieName);
       const urlWithoutFragment = window.location.href.split('#')[0];
       window.location.href = urlWithoutFragment;
     } else {
-      // Set the language cookie and reload the page with the new language
       document.cookie = `googtrans=en|${target}; Path=/; Domain=.kheloo.com;`;
       this.router.navigate(['/'], { fragment: `googtrans(en|${target})` }).then(() => {
         window.location.reload();
