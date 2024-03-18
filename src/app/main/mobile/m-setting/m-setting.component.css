@@ -86,3 +86,18 @@
   background-position: 50% 50%;
   visibility: visible
 }
+
+.setReset-b{
+  
+  border-radius: 40px;
+}
+.setReset-i{
+  background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
+  border-radius: 40px;
+}
+.setReset-c{
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+}
+

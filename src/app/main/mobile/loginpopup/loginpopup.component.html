@@ -1,5 +1,5 @@
 <div class="loginPop">
-    <div class="closePopInfo" (click)="onBack()">X</div>
+    <div class="closePopInfo dialog-close" (click)="onBack()"></div>
     <div class="login_form_wizard">
         <div class="loginPopupComponent-form-container">
             <div class="login_logo_container">
@@ -15,9 +15,10 @@
                             formControlName="Mobile"  (keydown)="validateNumber($event)">
                     </div>
                     <div class="col-md-12 p-l-0 crossbar-contact-input-container">
-                        <input type="password" ng-model="Password" required="" placeholder="Password"
+                        <input [type]="showPass?'text':'password'" required="" placeholder="Password"
                             class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
                             formControlName="Password">
+                          <button (click)="showPass=!showPass" class="btn-show"> <i-feather [name]="showPass?'eye-off':'eye'" class="eyebtton"></i-feather></button>
                     </div>
                     <div class="col-md-12">
                         <p class="small_text">

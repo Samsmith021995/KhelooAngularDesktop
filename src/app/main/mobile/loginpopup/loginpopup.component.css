@@ -106,3 +106,17 @@ h2#swal2-title {
         background: black;
     }
 }
+.eyebtton{
+    position: relative;
+    float: right;
+    margin-top: -3.5rem;
+    margin-right: 1rem;
+    color: #bbb
+}
+.btn-show{
+    /* position:absolute; */
+    z-index:  9999;
+    border: none;
+    background: none;
+    float: right;
+}

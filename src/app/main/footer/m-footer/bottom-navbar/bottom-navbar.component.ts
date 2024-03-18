@@ -25,6 +25,7 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
   circular: boolean = false;
   constructor(private dialog: MatDialog, private comSer: CommonServiceService, public apiSer: ApiService, private router: Router) { }
   ngOnInit(): void {
+     this.apiSer.setShowMenu(false);
     this.isLoggedInSubscription = this.apiSer.isLoggedIn$.subscribe((value) => {
       this.isLoggedIn = value;
     });
@@ -39,6 +40,9 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
     this.diaRef1.afterClosed().subscribe(() => { });
   }
   openMenu() {
+    this.apiSer.setShowMenu(false);
+    this.circular = false;
+    this.showSp = false;
     this.diaRef2 = this.dialog.open(this.mainMenu, {
       height: '900x',
       width: '600px',
@@ -48,6 +52,7 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
   }
 
   updateData(search: any) {
+    this.apiSer.setShowMenu(false);
     this.apiSer.updatePromotion(false);
     this.selectedMenu = search;
     this.comSer.sendSearchData(search);
@@ -67,6 +72,8 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
   }
 
   showSupport() {
+    this.circular = false;
+    this.apiSer.setShowMenu(false);
     this.showSp = !this.showSp;
   }
   gameStart(param: any) {
@@ -78,9 +85,12 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
     this.router.navigate(['/games', param]);
   }
   navigate(item: string) {
+    this.apiSer.setShowMenu(false);
     this.router.navigate(['m-deposit', item]);
   }
   circularOpen() {
+    this.showSp = false;
+    this.apiSer.setShowMenu(false);
     this.circular = !this.circular;
   }
   closeDial2(){

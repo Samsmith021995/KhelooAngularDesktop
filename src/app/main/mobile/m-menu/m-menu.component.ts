@@ -17,11 +17,11 @@ export class MMenuComponent implements OnInit {
   }
   SelectGame(item:string){
     this.comSer.sendSearchData(item);
+    this.onCancel.emit();
     // window.scrollTo({
     //   top: 1000,
     //   left: 0,
     //   behavior: 'smooth'
     // });
-    this.onCancel.emit();
   }
 }

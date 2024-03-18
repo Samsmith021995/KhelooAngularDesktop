@@ -95,6 +95,11 @@ export class MForgotPasswordComponent implements OnInit {
       this.otpVerify = true;
       return;
     }
+    if (this.forgotForm.controls['Password'].value.length < 6) {
+      this.apiSer.showAlert('', 'Password should be at least 6 characters long.' , 'warning');
+      this.otpVerify = true;
+      return;
+    }
 
     this.apiSer.apiRequest(config['verifyOtppass'], param).pipe(
       catchError((error) => {

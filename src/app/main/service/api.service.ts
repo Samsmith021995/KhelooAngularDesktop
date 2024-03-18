@@ -19,6 +19,8 @@ export class ApiService {
   showOptions: boolean = false;
   hideApp: boolean = false;
   public options: any;
+  private showMenuSubject = new BehaviorSubject<boolean>(false);
+  showMenu$: Observable<boolean> = this.showMenuSubject.asObservable();
   public headers_object: any;
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   private isPromotion = new BehaviorSubject<boolean>(false);
@@ -33,7 +35,13 @@ export class ApiService {
       this.updateLoginStatus(true);
     }
   }
+  setShowMenu(value: boolean): void {
+    this.showMenuSubject.next(value);
+  }
 
+  getShowMenu(): Observable<boolean> {
+    return this.showMenu$;
+  }
   updateLoginStatus(isLoggedIn: boolean) {
     this.isLoggedInSubject.next(isLoggedIn);
   }
@@ -145,11 +153,29 @@ export class ApiService {
         includedLanguages: target
       });
     } else {
+      // document.cookie = `googtrans=en|${target}; Path=/;`;
       let cookieName = 'googtrans';
       this.deleteCookie(cookieName);
     }
   }
 
+  // deleteCookie(name: string): void {
+  //   document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+  // }
+  
+  // googleTranslateElementInit(target: string): void {
+  //   const cookieName = 'googtrans';
+  //   if (target === 'en') {
+  //     this.deleteCookie(cookieName);
+  //     const urlWithoutFragment = window.location.href.split('#')[0];
+  //     window.location.href = urlWithoutFragment;
+  //   } else {
+  //     document.cookie = `googtrans=en|${target}; Path=/; Domain=.kheloo.com;`;
+  //     this.router.navigate(['/'], { fragment: `googtrans(en|${target})` }).then(() => {
+  //       window.location.reload();
+  //     });
+  //   }
+  // }
   updateMetaTags() {
     let activatedRoute = this.getDeepestActivatedRoute(this.router.routerState.root);
     let routeData = this.getRouteDataWithInheritance(activatedRoute);

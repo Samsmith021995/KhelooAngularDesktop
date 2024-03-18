@@ -14,7 +14,7 @@
                     into having fun.</p>
             </div>
 
-           <div class="row">
+           <div class="container">
            
                 <span id="m-main">Get In Touch</span>
          
@@ -26,13 +26,31 @@
                
                 <div class="col">
                     <form id="contact" autocomplete="off" [formGroup]="contactus">
-                        <input type="text" placeholder="Name" id="name" class="input" formControlName="first_name">
-                        <input type="email" placeholder="Email" id="email" class="input" formControlName="email"><br>
-                        <input type="text" placeholder="Subject" id="subject" class="input" formControlName="subject"><br>
-                        <textarea name="" id="mail-content" >
+                        <mat-form-field style="width: 90%;background: none !important;" class="custom">
+                            <!-- <mat-label>Name</mat-label> -->
+                            <input matInput type="text" placeholder="Name" id="name" class="input" formControlName="first_name">
+                            <!-- <mat-error *ngIf="this.contactus.controls['first_name'].hasError('required')">This field is required</mat-error> -->
+                        </mat-form-field>
+                        <mat-form-field style="width: 90%" class="custom">
+                            <input matInput type="email" placeholder="Email" id="email" class="input" formControlName="email"><br>
+                            <!-- <mat-error *ngIf="this.contactus.controls['email'].hasError('pattern')">Email is not valid</mat-error> -->
+                            
+                        </mat-form-field>
+                        <mat-form-field style="width: 90%" class="custom">
+                            <input matInput type="text" placeholder="Subject" id="subject" class="input" formControlName="subject"><br>
+                            
+                            <!-- <mat-error *ngIf="this.contactus.controls['subject'].hasError('required')">This field is required</mat-error> -->
+                        </mat-form-field>
+                        
+                            <textarea matInput name="" id="mail-content" formControlName="description" >
+    
+                            </textarea><br>
 
-                        </textarea><br>
-                        <button type="button" class="btn-sub">Submit</button>
+                        
+                        <div class="sub-btn">
+                            <button type="button" class="btn-sub" (click)="onSubmit()">Submit</button>
+
+                        </div>
                     </form>
                 </div>
             </div>
