@@ -31,10 +31,13 @@
                         <input id="msg" type="number" class="form-control" name="msg" placeholder="0.00"
                             formControlName="Amount"><i class="fa-solid fa-pen-to-square"></i>
                     </div>
-                    <button type="button" class="btn" (click)="setAmount(100)">₹ 100</button>
-                    <button type="button" class="btn" (click)="setAmount(2000)">₹ 2000</button>
+                    @for (item of displayedButtons; track $index) {
+                        <button type="button" class="btn" (click)="setAmount(item)">₹ {{item}}</button>
+
+                    }
+                    <!-- <button type="button" class="btn" (click)="setAmount(2000)">₹ 2000</button>
                     <button type="button" class="btn" (click)="setAmount(10000)">₹ 10000</button>
-                    <button type="button" class="btn" (click)="setAmount(25000)">₹ 25000</button>
+                    <button type="button" class="btn" (click)="setAmount(25000)">₹ 25000</button> -->
                 </div>
                 <button style="width:100%;margin:auto;" class="b-core-ui-select"
                     (click)="MrequestDeposit()">

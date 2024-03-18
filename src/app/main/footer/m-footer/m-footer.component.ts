@@ -12,8 +12,6 @@ export class MFooterComponent {
   footer:boolean = true;
   slidesPerViewn:number = 3;
   images = [
-    '/assets/images/evolution_logo.svg',
-    '/assets/images/ezugi.svg',
     '/assets/images/game_provider1.png',
     '/assets/images/game_prover_2.png',
     '/assets/images/game_prover_3.png',
@@ -30,9 +28,9 @@ export class MFooterComponent {
     '/assets/images/game_prover_14.png',
     '/assets/images/game_prover_15.png',
     '/assets/images/game_prover_16.png',
-    // '/assets/images/game_prover_17.png',
-    // '/assets/images/game_prover_18.png',
-  ]
+    '/assets/images/game_prover_17.png',
+    '/assets/images/game_prover_18.png',
+  ];
   // images = [
   //   {src:'/assets/images/game_provider1.png',search:'play\'n go'},
   //   {src: '/assets/images/game_prover_2.png',search:'play\'n go'},

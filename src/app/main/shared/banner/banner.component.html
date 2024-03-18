@@ -2,11 +2,11 @@
   <div class="swiper-wrapper">
     <ng-container *ngFor="let img of images; let i=index">
       <div class="swiper-slide" [ngClass]="{'padd':location}">
-        @if(location){
+        <!-- @if(location){
          <a (click)="searchData(bannersClick[i])"> <img [src]="img" alt="" width="100%"></a>
-        } @else {  
+        } @else {   -->
           <img [src]="img" alt="" width="100%">
-        }
+        <!-- } -->
       </div>
     </ng-container>
   </div>

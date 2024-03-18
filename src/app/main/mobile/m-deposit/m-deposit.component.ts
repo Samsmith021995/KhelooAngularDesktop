@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,OnDestroy} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { config } from '../../service/config';
 import { ApiService } from '../../service/api.service';
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './m-deposit.component.html',
   styleUrl: './m-deposit.component.css'
 })
-export class MDepositComponent implements OnInit {
+export class MDepositComponent implements OnInit, OnDestroy {
   depositForm!: FormGroup;
   showsubmitbtn: boolean = false;
   transcationId: any;
@@ -22,10 +22,26 @@ export class MDepositComponent implements OnInit {
   private loaderSubscriber !: Subscription;
   private apiSubscriber: Subscription[] = [];
   mainAmount:string ='';
+  amountChecker:number = 0
+  buttonsNumber:any = [
+    100,
+    500,
+    1000,
+    2000,
+    10000,
+    25000,
+    30000,
+    50000,
+    75000,
+  ]
+  numberOfButtonsToShow: number = 0;
+  displayedButtons: any = [];
   constructor(private fb: FormBuilder, private apiSer: ApiService,private router:ActivatedRoute) { }
   ngOnInit(): void {
     this.router.params.subscribe(params => {
+      this.amountChecker = parseInt(params['amount']);
       this.mainAmount = params['amount'];
+      this.setDisplayedButtons(this.amountChecker);
   
     });
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
@@ -36,10 +52,20 @@ export class MDepositComponent implements OnInit {
       Amount: [this.mainAmount, [Validators.required]]
     });
   }
-
+  setDisplayedButtons(amount: number): void {
+    let filteredButtons = this.buttonsNumber.filter((button:any) => button > amount);
+    this.displayedButtons = filteredButtons.slice(0, 4);
+  }
   MrequestDeposit() {
+    if(this.depositForm.controls['Amount'].value <100){
+      this.apiSer.showAlert('oops!','Deposit Amount should be ateast 100','warning');
+      return ;
+    }
     this.showsubmitbtn = true;
     this.paymentinput = false;
+    let reqAmount = this.depositForm.controls['Amount'].value;
+    localStorage.setItem("Amount",reqAmount);
+    // this.apiSer.initHeaders.apply('Amount',reqAmount);
     this.apiSer.apiRequest(config['getPaymentGateway']).subscribe({
       next: data => {
         if (data) {
@@ -84,4 +110,8 @@ export class MDepositComponent implements OnInit {
     this.paymentGateway = [];
     this.paymentinput = true;
   }
+  ngOnDestroy(): void {
+    localStorage.removeItem('Amount');
+  }
+  
 }

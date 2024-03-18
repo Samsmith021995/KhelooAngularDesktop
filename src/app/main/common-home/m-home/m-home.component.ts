@@ -175,11 +175,11 @@ export class MHomeComponent implements OnInit {
     if (itemSeach.trim() !== '') {
       let param = { GameCategory: this.selected }
       for (let item of this.subCategorybc) {
-          const filteredApiResultsed = this.filteredResults[item].filter(result =>
-            result.name.toLowerCase().includes(itemSeach.toLowerCase()) || 
-            result.groupname.toLowerCase().includes(itemSeach.toLowerCase()) || 
-            result.gamecategory.toLowerCase().includes(itemSeach.toLowerCase() ) ||
-            result.product.toLowerCase().includes(itemSeach.toLowerCase() )
+          const filteredApiResultsed = this.filteredResults[item]?.filter(result =>
+            (result.name.toLowerCase().includes(itemSeach.toLowerCase())) || 
+            (result.groupname && result.groupname.toLowerCase().includes(itemSeach.toLowerCase())) || 
+            (result.gamecategory && result.gamecategory.toLowerCase().includes(itemSeach.toLowerCase() )) ||
+            (result.product && result.product.toLowerCase().includes(itemSeach.toLowerCase() ))
             );
               this.gamesData[item] = filteredApiResultsed;
       }

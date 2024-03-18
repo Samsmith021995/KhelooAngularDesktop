@@ -11,6 +11,6 @@ export class ThankYouComponent  implements OnInit{
 ngOnInit(): void {
   setTimeout(() => {
     this.router.navigate(['/']); 
-  }, 3000);
+  }, 5000);
 }
 }

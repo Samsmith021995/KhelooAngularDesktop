@@ -51,6 +51,9 @@ export class ApiService {
       this.headers_object = this.headers_object.append('Token', localStorage.getItem('LoginToken'));
       this.headers_object = this.headers_object.append('userid', localStorage.getItem('UserId'));
       let urlPath = window.location.pathname;
+      if(localStorage.getItem('Amount')){
+        this.headers_object = this.headers_object.append('Amount',localStorage.getItem('Amount'));
+      }
       this.headers_object = this.headers_object.append('sitePath', urlPath);
     }
     this.options = {
@@ -153,11 +156,29 @@ export class ApiService {
         includedLanguages: target
       });
     } else {
+      // document.cookie = `googtrans=en|${target}; Path=/;`;
       let cookieName = 'googtrans';
       this.deleteCookie(cookieName);
     }
   }
 
+  // deleteCookie(name: string): void {
+  //   document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+  // }
+  
+  // googleTranslateElementInit(target: string): void {
+  //   const cookieName = 'googtrans';
+  //   if (target === 'en') {
+  //     this.deleteCookie(cookieName);
+  //     const urlWithoutFragment = window.location.href.split('#')[0];
+  //     window.location.href = urlWithoutFragment;
+  //   } else {
+  //     document.cookie = `googtrans=en|${target}; Path=/; Domain=.kheloo.com;`;
+  //     this.router.navigate(['/'], { fragment: `googtrans(en|${target})` }).then(() => {
+  //       window.location.reload();
+  //     });
+  //   }
+  // }
   updateMetaTags() {
     let activatedRoute = this.getDeepestActivatedRoute(this.router.routerState.root);
     let routeData = this.getRouteDataWithInheritance(activatedRoute);

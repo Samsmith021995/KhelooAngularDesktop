@@ -38,3 +38,19 @@ iframe {
     background: #fdc600;
     border-radius: 10px;
 }
+
+.arrow-cl{
+    color: #fdc601;
+    text-align: center;
+    a {
+        text-decoration: none;
+        color: #fdc601;
+    }
+}
+.btn-slider{
+    background: none;
+    border: none;
+}
+.disable-cl{
+    color: #968855 !important;
+}

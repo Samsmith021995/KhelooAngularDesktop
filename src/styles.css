@@ -368,3 +368,15 @@ input:focus-visible {
 input, button, select, a {
   -webkit-tap-highlight-color: transparent; /* Disable tap highlight */
 }
+
+.custom .mat-mdc-form-field-infix {
+  /* min-height: var(--mat-form-field-container-height); */
+  padding-top: 0px !important;
+   padding-bottom: 0px !important;
+}
+:root
+.custom  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    /* background: transparent; */
+    border: 1px solid #fff !important;
+    /* color: white !important; */
+}
