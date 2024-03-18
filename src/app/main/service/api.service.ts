@@ -153,9 +153,9 @@ export class ApiService {
         includedLanguages: target
       });
     } else {
-      document.cookie = `googtrans=en|${target}; Path=/;`;
-      // let cookieName = 'googtrans';
-      // this.deleteCookie(cookieName);
+      // document.cookie = `googtrans=en|${target}; Path=/;`;
+      let cookieName = 'googtrans';
+      this.deleteCookie(cookieName);
     }
   }
 
