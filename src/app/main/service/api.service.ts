@@ -51,6 +51,9 @@ export class ApiService {
       this.headers_object = this.headers_object.append('Token', localStorage.getItem('LoginToken'));
       this.headers_object = this.headers_object.append('userid', localStorage.getItem('UserId'));
       let urlPath = window.location.pathname;
+      if(localStorage.getItem('Amount')){
+        this.headers_object = this.headers_object.append('Amount',localStorage.getItem('Amount'));
+      }
       this.headers_object = this.headers_object.append('sitePath', urlPath);
     }
     this.options = {

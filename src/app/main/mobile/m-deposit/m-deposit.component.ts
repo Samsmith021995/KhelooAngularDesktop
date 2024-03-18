@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,OnDestroy} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { config } from '../../service/config';
 import { ApiService } from '../../service/api.service';
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './m-deposit.component.html',
   styleUrl: './m-deposit.component.css'
 })
-export class MDepositComponent implements OnInit {
+export class MDepositComponent implements OnInit, OnDestroy {
   depositForm!: FormGroup;
   showsubmitbtn: boolean = false;
   transcationId: any;
@@ -63,6 +63,9 @@ export class MDepositComponent implements OnInit {
     }
     this.showsubmitbtn = true;
     this.paymentinput = false;
+    let reqAmount = this.depositForm.controls['Amount'].value;
+    localStorage.setItem("Amount",reqAmount);
+    // this.apiSer.initHeaders.apply('Amount',reqAmount);
     this.apiSer.apiRequest(config['getPaymentGateway']).subscribe({
       next: data => {
         if (data) {
@@ -107,4 +110,8 @@ export class MDepositComponent implements OnInit {
     this.paymentGateway = [];
     this.paymentinput = true;
   }
+  ngOnDestroy(): void {
+    localStorage.removeItem('Amount');
+  }
+  
 }
