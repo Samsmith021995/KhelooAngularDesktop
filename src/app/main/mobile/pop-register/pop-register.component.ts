@@ -160,6 +160,10 @@ export class PopRegisterComponent implements OnInit {
       this.apiSer.showAlert('Please Provide the Password', '', 'warning')
       return;
     }
+    if(this.registerForm.controls['Password'].value.length < 6){
+      this.apiSer.showAlert('Password should be at least 6 characters long.', '', 'warning')
+      return;
+    }
     if (this.registerForm.valid) {
       this.apiSer.apiRequest(config['signUp'], param).pipe(
         catchError((error) => {

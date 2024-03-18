@@ -20,6 +20,7 @@ export class LoginpopupComponent implements OnInit{
   @Output() loginCheck = new EventEmitter<any>();
   defRef:any;
   defRegister:any;
+  showPass:boolean=false;
   constructor(private fb:FormBuilder,private apiSer:ApiService,private comSer:CommonServiceService,private router:Router,private dialog:MatDialog){}
   mobileLogin !:FormGroup;
   show = 'fa fa-eye';
@@ -74,6 +75,10 @@ export class LoginpopupComponent implements OnInit{
   }
   onBack(){
     this.onCancel.emit();
+  }
+  showPassword(){
+    this.showPass = !this.showPass;
+    console.log(this.showPass)
   }
   onLogin(){
     if(!this.mobileLogin.controls['Mobile'].value){

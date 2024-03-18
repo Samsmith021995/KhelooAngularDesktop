@@ -22,10 +22,26 @@ export class MDepositComponent implements OnInit {
   private loaderSubscriber !: Subscription;
   private apiSubscriber: Subscription[] = [];
   mainAmount:string ='';
+  amountChecker:number = 0
+  buttonsNumber:any = [
+    100,
+    500,
+    1000,
+    2000,
+    10000,
+    25000,
+    30000,
+    50000,
+    75000,
+  ]
+  numberOfButtonsToShow: number = 0;
+  displayedButtons: any = [];
   constructor(private fb: FormBuilder, private apiSer: ApiService,private router:ActivatedRoute) { }
   ngOnInit(): void {
     this.router.params.subscribe(params => {
+      this.amountChecker = parseInt(params['amount']);
       this.mainAmount = params['amount'];
+      this.setDisplayedButtons(this.amountChecker);
   
     });
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
@@ -36,8 +52,15 @@ export class MDepositComponent implements OnInit {
       Amount: [this.mainAmount, [Validators.required]]
     });
   }
-
+  setDisplayedButtons(amount: number): void {
+    let filteredButtons = this.buttonsNumber.filter((button:any) => button > amount);
+    this.displayedButtons = filteredButtons.slice(0, 4);
+  }
   MrequestDeposit() {
+    if(this.depositForm.controls['Amount'].value <100){
+      this.apiSer.showAlert('oops!','Deposit Amount should be ateast 100','warning');
+      return ;
+    }
     this.showsubmitbtn = true;
     this.paymentinput = false;
     this.apiSer.apiRequest(config['getPaymentGateway']).subscribe({

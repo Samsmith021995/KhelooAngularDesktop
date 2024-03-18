@@ -1,10 +1,9 @@
-import { Component, OnInit, Renderer2, ViewChildren, QueryList, ElementRef, ChangeDetectorRef, ViewChild, TemplateRef, AfterViewChecked } from '@angular/core';
+import { Component,OnInit, Renderer2, ViewChildren, QueryList, ElementRef, ChangeDetectorRef, ViewChild, TemplateRef } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 import { Subscription, catchError } from 'rxjs';
 import { config } from '../../service/config';
 import { Router } from '@angular/router';
 import { CommonServiceService } from '../../service/common-service.service';
-import { ViewportScrollPosition } from '@angular/cdk/scrolling';
 import { MatDialog } from '@angular/material/dialog';
 import { UrlService } from '../../service/url.service';
 
@@ -21,6 +20,13 @@ export class MHomeComponent implements OnInit {
     '/assets/images/Banner18.jpeg',
     '/assets/images/Dil-se-kheloo_375x250.jpeg'
   ];
+  // images = [
+  //   {src:'/assets/images/10minwith.png'},
+  //   {src:'/assets/images/Banner11.jpeg'},
+  //   {src:'/assets/images/Banner18.jpeg'},
+  //   {src:'/assets/images/Dil-se-kheloo_375x250.jpeg'}
+  // ];
+  
   mainCategory: any[] = [];
   subCategory: any[] = [];
   subCategorybc: any[] = [];
@@ -39,11 +45,16 @@ export class MHomeComponent implements OnInit {
   private loaderSubscriber !: Subscription;
   isLoggedIn: boolean = false;
   private isLoggedInSubscription!: Subscription;
+  
   @ViewChild('loginPop') loginPop!: TemplateRef<any>;
  
   diaRef3: any;
   isPromo:boolean = false;
-  constructor(private dialog: MatDialog,private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef,private comSer:CommonServiceService,private urlSer:UrlService) { }
+  constructor(private dialog: MatDialog,private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef,private comSer:CommonServiceService,private urlSer:UrlService,private elementRef: ElementRef) { 
+ 
+
+  }
+
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
@@ -52,6 +63,9 @@ export class MHomeComponent implements OnInit {
     });
     this.getAllCategory(this.selected);
     this.comSer.search$.subscribe((search: any) => {
+      setTimeout(() => {
+        this.scrollToElement('scrollToElement');
+      }, 100);
       this.onSearch(search);
     });
     this.isLoggedInSubscription = this.apiSer.isLoggedIn$.subscribe((value) => {
@@ -59,16 +73,23 @@ export class MHomeComponent implements OnInit {
     });
     this.apiSer.ispromoPage$.subscribe((value)=>{
       this.isPromo = value ===true;
-      window.scrollTo({
-        top: 1000,
-        left: 0,
-        behavior: 'smooth'
-      });
+      setTimeout(() => {
+        this.scrollToElement('promo');
+      }, 100);
+      // window.scrollTo({
+      //   top: 1000,
+      //   left: 0,
+      //   behavior: 'smooth'
+      // });
     });
- 
-     
   }
 
+  scrollToElement(param:any): void {
+    const element = this.elementRef.nativeElement.querySelector('#'+param);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'});
+    }
+  }
   gameListAll(item: any) {
     let param = { GameCategory: item };
     this.apiSer.apiRequest(config['gameList'], param).pipe(
@@ -154,10 +175,11 @@ export class MHomeComponent implements OnInit {
     if (itemSeach.trim() !== '') {
       let param = { GameCategory: this.selected }
       for (let item of this.subCategorybc) {
-          const filteredApiResultsed = this.filteredResults[item].filter(result =>
-            result.name.toLowerCase().includes(itemSeach.toLowerCase()) || 
-            result.groupname.toLowerCase().includes(itemSeach.toLowerCase()) || 
-            result.gamecategory.toLowerCase().includes(itemSeach.toLowerCase())
+          const filteredApiResultsed = this.filteredResults[item]?.filter(result =>
+            (result.name.toLowerCase().includes(itemSeach.toLowerCase())) || 
+            (result.groupname && result.groupname.toLowerCase().includes(itemSeach.toLowerCase())) || 
+            (result.gamecategory && result.gamecategory.toLowerCase().includes(itemSeach.toLowerCase() )) ||
+            (result.product && result.product.toLowerCase().includes(itemSeach.toLowerCase() ))
             );
               this.gamesData[item] = filteredApiResultsed;
       }
@@ -166,12 +188,12 @@ export class MHomeComponent implements OnInit {
     } else {
       this.gamesData = { ...this.filteredResults };
     }
-    // this.viewPortSc.top(0,1000)
-    window.scrollTo({
-      top: 1000,
-      left: 0,
-      behavior: 'smooth'
-    });
+   
+    // window.scrollTo({
+    //   top: 1000,
+    //   left: 0,
+    //   behavior: 'smooth'
+    // });
   }
   searching(){
     this.onSearch(this.searchTerm);

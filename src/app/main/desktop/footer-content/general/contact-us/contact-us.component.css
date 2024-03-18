@@ -389,18 +389,19 @@ td img {
 @media (max-width:767px) {
   #mail-content{
     height: 100px;
-    width: 80%;
+    width: 90%;
     font-size: 14px;
     border: none;
     border: 1px solid #8f99a3;
-    margin: 4px 27px 4px;
+    margin: 4px 16px 4px;
     border-radius: 4px;
     background: transparent;
-    width: 20.6em;
+    /* width: 26.6em; */
     height: 6em;
   }
   .btn-sub{
-    width: 100%;
+    margin-left: 10px;
+    width: 95%;
     height: auto;
     background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
     color: white;
@@ -413,11 +414,11 @@ td img {
   }
   .input{
     height: 50px;
-    width: 80%;
+    width: 100% !important;
     font-size: 14px;
     border: none;
     background: transparent;
-    margin: 4px 27px 4px;
+    margin: 4px 0px 4px;
     border: 1px solid #8f99a3;
     border-radius: 4px;
     padding: 10px;
@@ -451,3 +452,32 @@ td img {
   #get-content{
     padding: 20px;
   }
+  .col{
+    color: #fff;
+    text-align: center;
+  }
+  .custom .mat-mdc-form-field-infix {
+    /* min-height: var(--mat-form-field-container-height); */
+    padding-top: 0px !important;
+     padding-bottom: 0px !important;
+}
+:root
+.custom  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    /* background: transparent; */
+    border: 1px solid #fff !important;
+    /* color: white !important; */
+}
+#m-main{
+  margin-left: 2rem;
+    font-size: 2rem;
+
+}
+ :ng-deep #mat-input-0::placeholder {
+  color: #fff !important;
+}
+input[type="text"]::placeholder {
+  color: #fff !important;
+}
+input[type="email"]::placeholder {
+  color: #fff !important;
+}

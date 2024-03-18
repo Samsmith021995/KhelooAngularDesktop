@@ -39,6 +39,7 @@ import { TournamentsComponent } from './main/desktop/footer-content/games/tourna
 import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
 import { TableGameComponent } from './main/desktop/footer-content/games/table-game/table-game.component';
 import { ThankYouComponent } from './main/shared/thank-you/thank-you.component';
+import { GamesProviderWiseComponent } from './main/mobile/games-provider-wise/games-provider-wise.component';
 
 const commonSer = new CommonServiceService();
 const routes: Routes = [
@@ -310,6 +311,11 @@ const routes: Routes = [
         path: 'm-statements',
         loadChildren: () => import('./main/mobile/m-statement/m-statement.module').then(m => m.MStatementModule),
         canActivate: [AuthGuard, MobileGuard]
+      },
+      {
+        path: 'game-provider/:provider',
+        component: GamesProviderWiseComponent,
+        canActivate: [ MobileGuard]
       },
       {
         path: 'thankyou',

@@ -39,6 +39,10 @@ let param = this.resetForm.getRawValue();
       this.apiService.showAlert('','New Password Should not be Blank','warning')
       return;
     }
+    if(pass1.trim().length<6){
+      this.apiService.showAlert('','New Password Should be at least 6 characters long','warning')
+      return;
+    }
     if(!pass2.trim()){
       this.apiService.showAlert('','Confirm Password Should not be Blank','warning')
       return;

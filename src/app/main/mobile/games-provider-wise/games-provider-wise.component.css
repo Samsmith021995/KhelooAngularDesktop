@@ -1,3 +1,7 @@
+.container-main {
+    margin-top: 9rem;
+}
+
 .playbtn .play {
     filter: invert(100%) sepia(0) saturate(0%) hue-rotate(0) brightness(100%) contrast(100%);
 }
@@ -110,7 +114,7 @@ button.btn-show.viewmore {
 .casino-game-item {
     /* width: 100%; */
     /* height: 100%; */
-    width: 46%; 
+    width: 46%;
     margin-right: 4%;
     margin-bottom: 4.1%;
     background: rgba(var(--b-sc-rgb), .1) no-repeat 50%/contain;
@@ -236,7 +240,7 @@ casino-game-item {
     filter: invert(100%) sepia(0) saturate(0%) hue-rotate(0) brightness(100%) contrast(100%);
 }
 
-.playbtn img{
+.playbtn img {
     height: 56%;
 }
 
@@ -257,7 +261,7 @@ casino-game-item {
     background: none;
     color: white;
     /* border: 1px solid gray; */
-    border:  none;
+    border: none;
 }
 
 button.btn-show {
@@ -361,7 +365,8 @@ svg {
     letter-spacing: 0;
     text-align: center;
 }
-#h2{
+
+#h2 {
     font-family: anton, sans-serif !important;
 }
 
@@ -465,6 +470,7 @@ svg {
     transform: rotate(90deg);
     z-index: 1;
 }
+
 .gameing .ashu .casino-game-item:nth-child(2n+1):before {
     position: absolute;
     content: '';
@@ -476,6 +482,7 @@ svg {
     transform: rotate(0deg);
     z-index: 1;
 }
+
 /* .gameing .ashu .casino-game-item:nth-child(3n)::before {
     top: initial;
     bottom: 20px;
@@ -488,6 +495,7 @@ svg {
     transform: rotate(180deg);
     right: 0px;
 }
+
 .gameing .ashu .casino-game-item:nth-child(4n+2):before {
     position: absolute;
     content: '';
@@ -500,6 +508,7 @@ svg {
     transform: rotate(90deg);
     z-index: 1;
 }
+
 .gameing .ashu .casino-game-item:nth-child(4n+3):before {
     position: absolute;
     content: '';
@@ -514,23 +523,18 @@ svg {
 
 }
 
-/* .casino-game-item.shimmerBG {
-    border-radius: 10px !important;
-    margin: 5px !important;
-} */
-.h2-heading{
+.h2-heading {
     line-height: 48px !important;
 }
 
-.loaderMian{
+.loaderMian {
     text-align: center;
     color: white;
-    i-feather{
+
+    i-feather {
         width: 55px;
         height: 55px;
 
     }
-
-    
 
 }
