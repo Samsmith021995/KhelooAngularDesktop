@@ -213,14 +213,14 @@
 <div class="container-fluid newSign">
     <div class="overlay-content" [ngClass]="{otpVeri:otpVerify && !isSmallScreen}" >
         <a class="navbar-brand fw-bold" href="/" >
-                <div>
-                <img src="/assets/images/logo.gif" class="logo" style="position: absolute;">
-            </div>
+                <div style="margin-top: 36%;">
+                <img src="/assets/images/logo.gif" class="logo" >
+                </div>
             </a>
 
         <div class="row cont1">
             <div class="sign">
-                <h4 style="color: #fff; font-size: 1.5rem;">Sign Up</h4>
+                <h4 style="color: #fff; font-size: 1.5rem;margin-bottom: 2rem;">Sign Up</h4>
                 <form [formGroup]="signUp">
                     @if(!otpVerify && !inputVerify){
                     <div class="signFormnew">
@@ -341,7 +341,7 @@
 
                     }
                 </form>
-                @if(!otpVerify){
+                @if(!otpVerify && !inputVerify){
                 <div style="margin-top: 10px;">
                     <span style="color: #ccc;"> Already have an account ? </span> <a href="/login"
                         style="text-decoration: none;color: #e7950e;">Login</a>

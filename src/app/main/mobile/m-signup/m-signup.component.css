@@ -501,11 +501,12 @@ button.next-step:active {
 
 .logo {
   width: 190px;
-  left: 28% !important;
-  position: absolute;
+  /* position: absolute; */
+  /* left: 28% !important;
   top: 0;
   margin: 7rem 0 auto;
-  display: block;
+  display: block; */
+  /* margin-top: 3%; */
 }
 
 .mat-datepicker-toggle {
@@ -529,7 +530,7 @@ button.next-step:active {
 
 }
 .cont1{
-  margin-top: 16rem;
+  margin-top: 2rem;
 }
 .privacy-box{
   display: flex;
