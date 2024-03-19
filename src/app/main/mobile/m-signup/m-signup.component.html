@@ -299,7 +299,7 @@
                         </mat-form-field>
                     </div>
                     }
-                    <button (click)="onSubmit()" class="next-step1" [disabled]="!showTimer">
+                    <button (click)="onSubmit()" class="next-step12" [disabled]="!showTimer">
                         <ng-container *ngIf="btnLoading; else content">
                             <i-feather name="loader"></i-feather>
 
@@ -312,7 +312,7 @@
                 @if(!otpVerify){
                 <div style="margin-top: 10px;">
                     <span style="color: #ccc;"> Already have an account ? </span> <a href="/login"
-                        style="text-decoration: none;color: #fff;">Login</a>
+                        style="text-decoration: none;color: #e7950e;">Login</a>
                 </div>
                 }
             </div>
