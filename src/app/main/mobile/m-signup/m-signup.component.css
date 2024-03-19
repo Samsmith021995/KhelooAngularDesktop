@@ -289,7 +289,7 @@ button.next-step:active {
 @media (min-width: 768px) and (max-width:968px) {
   .overlay-content {
     width: 38%;
-    /* position: absolute; */
+    position: absolute;
     top: 10%;
     right: 3%;
     border: 2px solid #998c98;
@@ -309,7 +309,7 @@ button.next-step:active {
 @media (min-width:968px) and (max-width:1024px) {
   .overlay-content {
     width: 35%;
-    /* position: absolute; */
+    position: absolute;
     top: 20%;
     right: 5%;
     border: 2px solid #998c98;
@@ -326,9 +326,9 @@ button.next-step:active {
 @media (min-width:1024px) {
   .overlay-content {
     width: 30%;
-    /* position: absolute; */
-    top: 25%;
-    right: 8%;
+    position: absolute;
+    top: 17%;
+    right: 25%;
     border: 2px solid #998c98;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.2);
@@ -391,8 +391,9 @@ button.next-step:active {
 }
 
 :root .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  border: 1px solid #998c98 !important;
+  border: 1px solid #1a0927 !important;
   border-radius: 5px;
+  background: #2a2a2a;
 }
 
 .icon-border-right {
@@ -450,7 +451,10 @@ button.next-step:active {
   }
 
   .mat-mdc-form-field-icon-prefix>.mat-icon {
-    background-color: rgba(255, 255, 255, 0.2);
+    /* background-color: rgba(255, 255, 255, 0.2); */
+
+
+    border: none;
 
   }
 
@@ -462,12 +466,12 @@ button.next-step:active {
   }
 
   .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
-    padding-top: 6px !important;
-    padding-bottom: 10px !important;
+    padding-top: 14px !important;
+    /* padding-bottom: 10px !important; */
   }
 
   .materialI {
-    height: 60px !important;
+    height: 75px !important;
   }
 
   .mat-icon {
@@ -481,11 +485,11 @@ button.next-step:active {
   .material2 .mdc-text-field__input {
     width: 100% !important;
     padding-left: 10 !important;
-    height: 26px !important;
+    height: 32px !important;
   }
 
   .mdc-text-field__input {
-    font-size: 14px !important;
+    font-size: 18px !important;
 
   }
 
@@ -497,10 +501,10 @@ button.next-step:active {
 
 .logo {
   width: 190px;
-  left: 26% !important;
+  left: 28% !important;
   position: absolute;
   top: 0;
-  margin: 12rem 0 auto;
+  margin: 7rem 0 auto;
   display: block;
 }
 
@@ -525,7 +529,7 @@ button.next-step:active {
 
 }
 .cont1{
-  margin-top: 20rem;
+  margin-top: 16rem;
 }
 .privacy-box{
   display: flex;
@@ -539,6 +543,7 @@ button.next-step:active {
 }
 .mdc-form-field>label {
   color: #fff !important;
+  text-align: left
 }
 .next-step12 {
   width: 100%;
@@ -546,7 +551,7 @@ button.next-step:active {
   background-color: #e7950e;
   color: white;
   border: none;
-  padding: 10px 30px;
+  padding: 1rem 2rem;
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
@@ -556,10 +561,30 @@ button.next-step:active {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  font-size: 1rem;
 }
 
 .mdc-checkbox:hover .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background{
   background-color:#e7950e !important;
-  border: #e7950e;
+  border-color: #e7950e !important;
+  border-radius: 50% !important;
+  
+}
+.mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background{
+  background-color:#e7950e !important;
+  border-color: #e7950e !important;
+  border-radius: 50% !important;
+}
+.mdc-checkbox:hover .mdc-checkbox__native-control:checked~.mdc-checkbox__ripple{
+  
+  background-color:#e7950e !important;
+}
+.mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+  border-color: #e7950e !important;
+  border-radius: 50% !important;
 
+}
+.mdc-text-field--no-label:not(.mdc-text-field--textarea) .mat-mdc-form-field-input-control.mdc-text-field__input, .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+  /* color: #fff !important; */
+  margin-left: 1rem;
 }

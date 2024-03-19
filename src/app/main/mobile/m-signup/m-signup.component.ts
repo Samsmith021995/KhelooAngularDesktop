@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation,ViewChild,ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
@@ -14,6 +14,12 @@ import * as moment from 'moment';
   encapsulation: ViewEncapsulation.None
 })
 export class MSignupComponent implements OnInit {
+  // @ViewChild('digit2Input' , { static: false }) digit2Input!: ElementRef<HTMLInputElement>;
+  // @ViewChild('digit2Input2' , { static: false }) digit2Input2!: ElementRef<HTMLInputElement>;
+  // @ViewChild('digit2Input3' , { static: false }) digit2Input3!: ElementRef<HTMLInputElement>;
+  // @ViewChild('digit2Input4' , { static: false }) digit2Input4!: ElementRef<HTMLInputElement>;
+  // @ViewChild('digit2Input5' , { static: false }) digit2Input5!: ElementRef<HTMLInputElement>;
+  // @ViewChild('digit2Input6' , { static: false }) digit2Input6!: ElementRef<HTMLInputElement>;
   getcodeBtn: boolean = false;
   otpVerify: boolean = false;
   inputText: string = '';
@@ -56,7 +62,13 @@ export class MSignupComponent implements OnInit {
       Ref: [this.refText,],
       Password: ['', [Validators.required]],
       Mobile: ['', [Validators.required]],
-      OTP: ['', [Validators.required]],
+      OTP1: ['', [Validators.required]],
+      OTP2: ['', [Validators.required]],
+      OTP3: ['', [Validators.required]],
+      OTP4: ['', [Validators.required]],
+      OTP5: ['', [Validators.required]],
+      OTP6: ['', [Validators.required]],
+      acceptterm: [false, [Validators.required]],
     });
     this.signUp.controls['Mobile'].valueChanges.subscribe(value => {
       let strMo = String(value);
@@ -66,12 +78,90 @@ export class MSignupComponent implements OnInit {
         this.getcodeBtn = true;
       }
     });
+    this.signUp.controls['OTP6'].valueChanges.subscribe(value => {
+      let strMo = String(value);
+      if (strMo && strMo.length >= 0) {
+        let trimmedValue = strMo.substring(0, 1);
+        this.signUp.controls['OTP6'].setValue(trimmedValue, { emitEvent: false });
+        // this.getcodeBtn = true;
+      }
+    });
+    this.signUp.controls['OTP1'].valueChanges.subscribe(value => {
+      let strMo = String(value);
+      if (strMo && strMo.length >= 0) {
+        let trimmedValue = strMo.substring(0, 1);
+        this.signUp.controls['OTP1'].setValue(trimmedValue, { emitEvent: false });
+        // this.getcodeBtn = true;
+      }
+    });
+    this.signUp.controls['OTP2'].valueChanges.subscribe(value => {
+      let strMo = String(value);
+      if (strMo && strMo.length >= 0) {
+        let trimmedValue = strMo.substring(0, 1);
+        this.signUp.controls['OTP2'].setValue(trimmedValue, { emitEvent: false });
+        // this.getcodeBtn = true;
+      }
+    });
+    this.signUp.controls['OTP3'].valueChanges.subscribe(value => {
+      let strMo = String(value);
+      if (strMo && strMo.length >= 0) {
+        let trimmedValue = strMo.substring(0, 1);
+        this.signUp.controls['OTP3'].setValue(trimmedValue, { emitEvent: false });
+        // this.getcodeBtn = true;
+      }
+    });
+    this.signUp.controls['OTP4'].valueChanges.subscribe(value => {
+      let strMo = String(value);
+      if (strMo && strMo.length >= 0) {
+        let trimmedValue = strMo.substring(0, 1);
+        this.signUp.controls['OTP4'].setValue(trimmedValue, { emitEvent: false });
+        // this.getcodeBtn = true;
+      }
+    });
+    this.signUp.controls['OTP5'].valueChanges.subscribe(value => {
+      let strMo = String(value);
+      if (strMo && strMo.length >= 0) {
+        let trimmedValue = strMo.substring(0, 1);
+        this.signUp.controls['OTP5'].setValue(trimmedValue, { emitEvent: false });
+        // this.getcodeBtn = true;
+      }
+    });
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.btnLoading = ('verifyOtp' in loading || 'signUp' in loading) ? true : false;
     });
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.getTimer = ('otp' in loading) ? true : false;
     });
+  }
+  mergeOtpValues() {
+    const otp1 = this.signUp.controls['OTP1']?.value || '';
+    const otp2 = this.signUp.controls['OTP2']?.value || '';
+    const otp3 = this.signUp.controls['OTP3']?.value || '';
+    const otp4 = this.signUp.controls['OTP4']?.value || '';
+    const otp5 = this.signUp.controls['OTP5']?.value || '';
+    const otp6 = this.signUp.controls['OTP5']?.value || '';
+
+    const mergedOtp = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
+    // Assign the merged OTP to another form control if needed
+    return mergedOtp;
+    // console.log(mergedOtp);
+    // this.signUp.controls['OTP'].setValue(mergedOtp);
+  }
+  focusNext(event: any, nextField: number) {
+    const inputValue = event.target.value;
+    if (inputValue.length > 0) {
+      const nextInput = document.getElementById(`OTP${nextField}`) as HTMLInputElement;
+      if (nextInput) {
+        nextInput.focus();
+      }
+    }
+  }
+  onLastInput(event: any) {
+    const inputValue = event.target.value;
+    if (inputValue.length > 0) {
+      // Perform action for the last input field, e.g., submit OTP
+      console.log('Last Input:', this.signUp.value);
+    }
   }
   validateNumber(event: KeyboardEvent) {
     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'];
@@ -97,7 +187,10 @@ export class MSignupComponent implements OnInit {
 
   // }
   getCode() {
-
+    if(!this.signUp.controls['acceptterm'].value){
+      this.apiSer.showAlert('','Please Accept term & Condition','warning')
+      return
+    }
     let param = this.signUp.getRawValue();
     if (!this.signUp.controls['Mobile'].value) {
       this.apiSer.showAlert('Mobile should not be blank', '', 'error');
@@ -132,15 +225,36 @@ export class MSignupComponent implements OnInit {
 
     });
   }
+ 
   onSubmit() {
+    // if(!this.inputVerify){
+    //   console.log("Ashu");
+    //     this.showTimer = true;
+    //   this.inputVerify = true;
+    // }else{
+this.mergeOtpValues();
     let param = this.signUp.getRawValue();
-    param.DOB = param.DOB ? moment(this.signUp.controls['DOB'].value).format('MM/DD/YYYY') : ''
+    console.log(param);
 
+    param.DOB = param.DOB ? moment(this.signUp.controls['DOB'].value).format('MM/DD/YYYY') : ''
+    param.OTP = this.mergeOtpValues();
     if (!this.signUp.controls['Mobile'].value) {
       this.apiSer.showAlert('Mobile should not be blank', '', 'error');
       return;
     }
-    if (!this.signUp.controls['OTP'].value) {
+    if (!this.signUp.controls['OTP1'].value) {
+      this.apiSer.showAlert('OTP should not be blank', '', 'error');
+      return;
+    }
+    if (!this.signUp.controls['OTP2'].value) {
+      this.apiSer.showAlert('OTP should not be blank', '', 'error');
+      return;
+    }
+    if (!this.signUp.controls['OTP3'].value) {
+      this.apiSer.showAlert('OTP should not be blank', '', 'error');
+      return;
+    }
+    if (!this.signUp.controls['OTP4'].value) {
       this.apiSer.showAlert('OTP should not be blank', '', 'error');
       return;
     }
@@ -190,7 +304,10 @@ export class MSignupComponent implements OnInit {
 
         }
       })
-    }
+    // }
+
+  }
+
   }
   // onInput(): void {
   //   // Limit the input length to 10 characters

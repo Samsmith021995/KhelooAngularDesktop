@@ -211,20 +211,23 @@
 </div> -->
 
 <div class="container-fluid newSign">
-    <a class="navbar-brand fw-bold" href="/" >
-        <img src="/assets/images/logo.gif" class="logo" style="position: absolute;">
-    </a>
     <div class="overlay-content" [ngClass]="{otpVeri:otpVerify && !isSmallScreen}" >
+        <a class="navbar-brand fw-bold" href="/" >
+                <div>
+                <img src="/assets/images/logo.gif" class="logo" style="position: absolute;">
+            </div>
+            </a>
+
         <div class="row cont1">
             <div class="sign">
-                <h4 style="color: #fff;">Sign Up</h4>
+                <h4 style="color: #fff; font-size: 1.5rem;">Sign Up</h4>
                 <form [formGroup]="signUp">
-                    @if(!otpVerify){
+                    @if(!otpVerify && !inputVerify){
                     <div class="signFormnew">
                         <mat-form-field style="width: 100%;" class="materialI">
                             <mat-icon matPrefix class="icon-border-right"><i-feather
-                                    name="smartphone"></i-feather></mat-icon>
-                            <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="Mobile"
+                                    name="phone"></i-feather></mat-icon>
+                            <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="Mobile number"
                                 (keydown)="validateNumber($event)">
                             <!-- <button (click)="getCode()" class="getC" *ngIf="getcodeBtn"
                                 [disabled]="showTimer || getTimer">
@@ -240,10 +243,10 @@
                             </button> -->
                         </mat-form-field>
                     </div>
-                    <div class="signFormnew">
+                    <div class="signFormnew" style="margin-bottom:2.3rem ">
                         <!-- <mat-form-field style="width: 100%;" class="materialI"> -->
                             <!-- <div class="privacy-box"> -->
-                                 <mat-checkbox class="example-margin">
+                                 <mat-checkbox class="example-margin" formControlName="acceptterm">
                                 <!-- <p class="privacy-statement"> -->
                                     By Signing up you accept the term & services & privacy policy
                                 <!-- </p> -->
@@ -256,8 +259,23 @@
                     }
                     @if(inputVerify){
                     <div class="signFormnew">
-                        <mat-form-field style="width: 100%;" class="materialI">
-                            <input matInput type="number" name="" id="" formControlName="OTP" placeholder="OTP">
+                        <mat-form-field style="width: 15%;margin:0.1rem;" class="materialI">
+                            <input matInput type="number" name="" id="" formControlName="OTP1" maxlength="1" (input)="focusNext($event, 2)"> 
+                        </mat-form-field>
+                        <mat-form-field style="width: 15%;margin:0.1rem;" class="materialI">
+                            <input matInput type="number" name="" id="" formControlName="OTP2"  maxlength="1" id="OTP2" (input)="focusNext($event, 3)">
+                        </mat-form-field>
+                        <mat-form-field style="width: 15%;margin:0.1rem;" class="materialI">
+                            <input matInput type="number" name="" id="" formControlName="OTP3"  maxlength="1" id="OTP3" (input)="focusNext($event, 4)">
+                        </mat-form-field>
+                        <mat-form-field style="width: 15%;margin:0.1rem;" class="materialI">
+                            <input matInput type="number" name="" id="" formControlName="OTP4"  maxlength="1" id="OTP4" (input)="focusNext($event, 5)">
+                        </mat-form-field>
+                        <mat-form-field style="width: 15%;margin:0.1rem;" class="materialI">
+                            <input matInput type="number" name="" id="" formControlName="OTP5"  maxlength="1" id="OTP5" (input)="focusNext($event, 6)" >
+                        </mat-form-field>
+                        <mat-form-field style="width: 15%;margin:0.1rem;" class="materialI">
+                            <input matInput type="number" name="" id="" formControlName="OTP6"  maxlength="1" id="OTP6" (input)="onLastInput($event)">
                         </mat-form-field>
                     </div>
 
@@ -299,15 +317,29 @@
                         </mat-form-field>
                     </div>
                     }
-                    <button (click)="onSubmit()" class="next-step12" [disabled]="!showTimer">
-                        <ng-container *ngIf="btnLoading; else content">
-                            <i-feather name="loader"></i-feather>
+                    @if(!otpVerify && !inputVerify){
+                        <button (click)="getCode()" class="next-step12" >
+                            <ng-container *ngIf="getTimer; else content">
+                                <i-feather name="loader"></i-feather>
+    
+                            </ng-container>
+                            <ng-template #content>
+                                Get Otp
+                            </ng-template>
+                        </button>
 
-                        </ng-container>
-                        <ng-template #content>
-                            {{ !otpVerify ? 'Get OTP' : 'Submit' }}
-                        </ng-template>
-                    </button>
+                    } @else {
+                        <button (click)="onSubmit()" class="next-step12" >
+                            <ng-container *ngIf="btnLoading; else content">
+                                <i-feather name="loader"></i-feather>
+    
+                            </ng-container>
+                            <ng-template #content>
+                                {{ !otpVerify ? 'Next' : 'Submit' }}
+                            </ng-template>
+                        </button>
+
+                    }
                 </form>
                 @if(!otpVerify){
                 <div style="margin-top: 10px;">
