@@ -96,7 +96,7 @@ import { MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/materia
   MatDialogModule,
   FeatherModule.pick(allIcons),
   LayoutModule,
-  MatMomentDateModule
+  MatMomentDateModule,
   ],
  exports:[
   PokerComponent,
@@ -142,6 +142,7 @@ import { MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/materia
   FeatherModule,
   LayoutModule,
   MatMomentDateModule
+
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [

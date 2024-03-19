@@ -10,9 +10,7 @@
   font-size: 12px;
 }
 
-.logo {
-  width: 150px;
-}
+
 
 .container {
   background: transparent;
@@ -280,7 +278,7 @@ button.next-step:active {
   } */
 
 .image-overlay-container {
-  position: relative;
+  /* position: revert-layer; */
 }
 
 .background-image {
@@ -291,7 +289,7 @@ button.next-step:active {
 @media (min-width: 768px) and (max-width:968px) {
   .overlay-content {
     width: 38%;
-    position: absolute;
+    /* position: absolute; */
     top: 10%;
     right: 3%;
     border: 2px solid #998c98;
@@ -311,7 +309,7 @@ button.next-step:active {
 @media (min-width:968px) and (max-width:1024px) {
   .overlay-content {
     width: 35%;
-    position: absolute;
+    /* position: absolute; */
     top: 20%;
     right: 5%;
     border: 2px solid #998c98;
@@ -328,7 +326,7 @@ button.next-step:active {
 @media (min-width:1024px) {
   .overlay-content {
     width: 30%;
-    position: absolute;
+    /* position: absolute; */
     top: 25%;
     right: 8%;
     border: 2px solid #998c98;
@@ -442,13 +440,13 @@ button.next-step:active {
 @media (max-width: 767px) {
 
   .overlay-content {
-    width: 100%;
-    position: relative;
+    /* width: 100%; */
+    /* position: relative; */
     /* bottom: 0vh;  */
-    top: -18rem;
+    /* top: -18rem; */
     padding: 1em;
     text-align: center;
-    box-shadow: black 2px 2px 2px;
+    /* box-shadow: black 2px 2px 2px; */
   }
 
   .mat-mdc-form-field-icon-prefix>.mat-icon {
@@ -478,9 +476,7 @@ button.next-step:active {
 
   }
 
-  .logo {
-    left: 33% !important
-  }
+
 
   .material2 .mdc-text-field__input {
     width: 100% !important;
@@ -500,11 +496,12 @@ button.next-step:active {
 }
 
 .logo {
+  width: 190px;
+  left: 26% !important;
   position: absolute;
   top: 0;
-  margin: 10px auto;
+  margin: 12rem 0 auto;
   display: block;
-
 }
 
 .mat-datepicker-toggle {
@@ -516,3 +513,30 @@ button.next-step:active {
 }
 
 /* new Form Signup Design */
+
+
+
+/* new Design */
+.newSign{
+  width: 100% !important;
+  height: 100% !important;
+  background:#242323 ;
+  
+
+}
+.cont1{
+  margin-top: 20rem;
+}
+.privacy-box{
+  display: flex;
+}
+/* .example-margin{
+  color: white;
+
+} */
+.example-margin {
+  margin: 0 12px;
+}
+.mdc-form-field>label {
+  color: #fff !important;
+}
