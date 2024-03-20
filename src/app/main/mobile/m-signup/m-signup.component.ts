@@ -186,7 +186,7 @@ export class MSignupComponent implements OnInit {
   //     return `${formattedMonth}/${formattedDay}/${year}`;
 
   // }
-  getCode() {
+  getCode(check?:boolean) {
     if(!this.signUp.controls['acceptterm'].value){
       this.apiSer.showAlert('','Please Accept term & Condition','warning')
       return
@@ -206,6 +206,17 @@ export class MSignupComponent implements OnInit {
           this.apiSer.showAlert('', data.ErrorMessage, 'error');
           return;
         }
+        this.signUp.controls['OTP1'].setValue(''); 
+        this.signUp.controls['OTP2'].setValue(''); 
+        this.signUp.controls['OTP3'].setValue(''); 
+        this.signUp.controls['OTP4'].setValue(''); 
+        this.signUp.controls['OTP5'].setValue(''); 
+        this.signUp.controls['OTP6'].setValue(''); 
+        if(check){
+          this.apiSer.showAlert('', data.ErrorMessage, 'success');
+
+        }
+        
         this.showTimer = true;
         let seconds = 60;
         const intervalId = setInterval(() => {
