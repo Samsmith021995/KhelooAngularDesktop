@@ -596,3 +596,8 @@ button.next-step:active {
   /* color: #fff !important; */
   margin-left: 1rem;
 }
+.lock-svg{
+  rect{
+    fill:currentColor;
+  }
+}

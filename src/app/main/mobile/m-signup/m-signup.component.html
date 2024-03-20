@@ -296,33 +296,32 @@
 
                         </mat-form-field>
                     </div>
-                    <div class="signFormnew">
-                        <mat-form-field style="width: 49%;margin-right: 5px;" class="materialI material2">
+                    <div class="signFormnew" style="display: inline-flex;">
+                        <mat-form-field style="width: 45%;margin-right: 0.5rem;" class="materialI material2">
                             <mat-icon matPrefix class="icon-border-right"><i-feather name="user"  style="fill: currentColor;"></i-feather></mat-icon>
                             <input matInput type="text" name="" id="" formControlName="FName" placeholder="First Name">
                         </mat-form-field>
-                        <mat-form-field style="width: 49%;" class="materialI">
+                        <mat-form-field style="width: 43%;" class="materialI">
                             <input matInput type="text" name="" id="" formControlName="LName" placeholder="Last Name">
                         </mat-form-field>
                     </div>
-                    <div class="signFormnew">
-                        <mat-form-field style="width: 49%; margin-right: 5px;" class="materialI material2">
+                    <div class="signFormnew" style="display: inline-flex;">
+                        <mat-form-field style="width: 45%; margin-right: 5px;" class="materialI material2">
                             <input matInput formControlName="DOB" placeholder="DOB" [matDatepicker]="picker" (focus)="picker.open()" (click)="picker.open()">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
 
                         </mat-form-field>
-                        <mat-form-field style="width: 49%;" class="materialI">
+                        <mat-form-field style="width: 44%;" class="materialI">
                             <input matInput type="text" name="" id="" formControlName="Ref" placeholder="Refferal">
                         </mat-form-field>
                     </div>
-                    <div class="signFormnew">
-                    </div>
+                   
                     <div class="signFormnew">
                         <mat-form-field style="width: 100%;" class="materialI">
-                            <mat-icon matPrefix class="icon-border-right"><i-feather name="lock"></i-feather></mat-icon>
+                            <mat-icon matPrefix class="icon-border-right"><i-feather name="lock" class="lock-svg"></i-feather></mat-icon>
                             <input matInput [type]="passwordShow?'password':'text'" name="" id="" formControlName="Password" placeholder="Password">
-                            <i-feather [name]="passwordShow?'eye':'eye-off'" style="margin-left: 6rem;" (click)="this.passwordShow = !this.passwordShow;"></i-feather>
+                            <i-feather [name]="passwordShow?'eye':'eye-off'" style="margin-left: 4rem;" (click)="this.passwordShow = !this.passwordShow;"></i-feather>
                         </mat-form-field>
                     </div>
                     }
