@@ -220,7 +220,13 @@
 
         <div class="row cont1">
             <div class="sign">
-                <h4 style="color: #fff; font-size: 1.5rem;margin-bottom: 2rem;">Sign Up</h4>
+                @if(otpVerify && verificationCode){
+                    <h4 style="color: #fff; font-size: 1.5rem;margin-bottom: 2rem;">Create New Account</h4>
+
+                }@else{
+                    <h4 style="color: #fff; font-size: 1.5rem;margin-bottom: 2rem;">{{(!otpVerify && !inputVerify)?'Sign Up':'Verify Otp'}}</h4>
+
+                }
                 <form [formGroup]="signUp">
                     @if(!otpVerify && !inputVerify){
                     <div class="signFormnew">
@@ -278,6 +284,8 @@
                             <input matInput type="number" name="" id="" formControlName="OTP6"  maxlength="1" id="OTP6" (input)="onLastInput($event)">
                         </mat-form-field>
                     </div>
+
+                    <a (click)="getCode()"  style="text-decoration: none;color: #e7950e;margin-bottom: 2rem;">Resend Otp</a>
 
                     }
                     @if(otpVerify && verificationCode){

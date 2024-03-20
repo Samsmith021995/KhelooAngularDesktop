@@ -221,6 +221,12 @@ button.next-step:active {
 #mat-input-10::placeholder {
   color: #aaa;
 }
+#mat-input-11::placeholder {
+  color: #aaa;
+}
+#mat-input-12::placeholder {
+  color: #aaa;
+}
 
 /* #mat-input-0::placeholder{
   color: #8b8b8b;
@@ -547,6 +553,7 @@ button.next-step:active {
   text-align: left
 }
 .next-step12 {
+  margin-top: 1rem;
   width: 100%;
   /* background-image: linear-gradient(to right, #ebcd76, #ca9421); */
   background-color: #e7950e;
