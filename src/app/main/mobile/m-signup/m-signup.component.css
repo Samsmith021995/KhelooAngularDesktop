@@ -504,6 +504,7 @@ button.next-step:active {
   top: 0;
   margin: 10px auto;
   display: block;
+  z-index: 999;
 
 }
 
