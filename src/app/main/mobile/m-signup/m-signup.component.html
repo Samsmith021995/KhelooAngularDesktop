@@ -232,7 +232,7 @@
                     <div class="signFormnew">
                         <mat-form-field style="width: 100%;" class="materialI">
                             <mat-icon matPrefix class="icon-border-right"><i-feather
-                                    name="phone"></i-feather></mat-icon>
+                                    name="phone" style="fill: currentColor;"></i-feather></mat-icon>
                             <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="Mobile number"
                                 (keydown)="validateNumber($event)">
                             <!-- <button (click)="getCode()" class="getC" *ngIf="getcodeBtn"
@@ -249,7 +249,7 @@
                             </button> -->
                         </mat-form-field>
                     </div>
-                    <div class="signFormnew" style="margin-bottom:2.3rem ">
+                    <div class="signFormnew" style="margin-bottom:2.3rem;margin-left: -1rem; ">
                         <!-- <mat-form-field style="width: 100%;" class="materialI"> -->
                             <!-- <div class="privacy-box"> -->
                                  <mat-checkbox class="example-margin" formControlName="acceptterm">
@@ -264,7 +264,7 @@
                     </div>
                     }
                     @if(inputVerify){
-                    <div class="signFormnew">
+                    <div class="signFormnew signFormnew1">
                         <mat-form-field style="width: 15%;margin:0.1rem;" class="materialI">
                             <input matInput type="number" name="" id="" formControlName="OTP1" maxlength="1" (input)="focusNext($event, 2)"> 
                         </mat-form-field>
@@ -291,14 +291,14 @@
                     @if(otpVerify && verificationCode){
                     <div class="signFormnew">
                         <mat-form-field style="width: 100%;" class="materialI">
-                            <mat-icon matPrefix class="icon-border-right"><i-feather name="user"></i-feather></mat-icon>
+                            <mat-icon matPrefix class="icon-border-right"><i-feather name="user"  style="fill: currentColor;"></i-feather></mat-icon>
                             <input matInput type="text" name="" id="" formControlName="UserName" placeholder="UserName">
 
                         </mat-form-field>
                     </div>
                     <div class="signFormnew">
                         <mat-form-field style="width: 49%;margin-right: 5px;" class="materialI material2">
-                            <mat-icon matPrefix class="icon-border-right"><i-feather name="user"></i-feather></mat-icon>
+                            <mat-icon matPrefix class="icon-border-right"><i-feather name="user"  style="fill: currentColor;"></i-feather></mat-icon>
                             <input matInput type="text" name="" id="" formControlName="FName" placeholder="First Name">
                         </mat-form-field>
                         <mat-form-field style="width: 49%;" class="materialI">
@@ -321,7 +321,8 @@
                     <div class="signFormnew">
                         <mat-form-field style="width: 100%;" class="materialI">
                             <mat-icon matPrefix class="icon-border-right"><i-feather name="lock"></i-feather></mat-icon>
-                            <input matInput type="text" name="" id="" formControlName="Password" placeholder="Password">
+                            <input matInput [type]="passwordShow?'password':'text'" name="" id="" formControlName="Password" placeholder="Password">
+                            <i-feather [name]="passwordShow?'eye':'eye-off'" style="margin-left: 6rem;" (click)="this.passwordShow = !this.passwordShow;"></i-feather>
                         </mat-form-field>
                     </div>
                     }
@@ -350,7 +351,7 @@
                     }
                 </form>
                 @if(!otpVerify && !inputVerify){
-                <div style="margin-top: 10px;">
+                <div style="margin-top: 1.5rem;">
                     <span style="color: #ccc;"> Already have an account ? </span> <a href="/login"
                         style="text-decoration: none;color: #e7950e;">Login</a>
                 </div>
@@ -358,10 +359,12 @@
             </div>
         </div>
         <br>
+        @if(!otpVerify && !inputVerify){
         <div>
             <a href="https://tawk.to/chat/60a22370185beb22b30ddc1d/1f5slks90" target="_blank"><img src="/assets/images/call_support.png" alt="" width="30px"></a>&nbsp;&nbsp;
           <a href="https://api.whatsapp.com/send/?phone=447897045261&text&app_absent=0" target="_blank">  <img src="/assets/images/whatsapp.png" alt="" width="30px"></a>
 
         </div>
+    }
     </div>
 </div>

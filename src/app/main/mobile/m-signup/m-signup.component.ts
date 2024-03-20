@@ -34,6 +34,7 @@ export class MSignupComponent implements OnInit {
   startSec: any;
   pagination: boolean = false;
   datepicker: any = new Date();
+  passwordShow:boolean= true;
   images = [
     '/assets/images/sign-up-bg-new1.jpg',
     '/assets/images/sign-up-bg-new2.jpg',
@@ -159,8 +160,7 @@ export class MSignupComponent implements OnInit {
   onLastInput(event: any) {
     const inputValue = event.target.value;
     if (inputValue.length > 0) {
-      // Perform action for the last input field, e.g., submit OTP
-      console.log('Last Input:', this.signUp.value);
+      // console.log('Last Input:', this.signUp.value);
     }
   }
   validateNumber(event: KeyboardEvent) {
@@ -196,7 +196,10 @@ export class MSignupComponent implements OnInit {
       this.apiSer.showAlert('Mobile should not be blank', '', 'error');
       return;
     }
-
+    if (!(this.signUp.controls['Mobile'].value).length) {
+      this.apiSer.showAlert('Please Enter Valid Mobile Number', '', 'error');
+      return;
+    }
     this.apiSer.apiRequest(config['otp'], param).pipe(catchError((error) => {
       this.apiSer.showAlert('', 'You may only perform this action every 30 seconds', 'error');
       throw error;
@@ -273,10 +276,10 @@ this.mergeOtpValues();
     if (!this.otpVerify && !this.verificationCode) {
       this.apiSer.apiRequest(config['verifyOtp'], param).subscribe({
         next: (data) => {
-          if (data.ErrorCode != '1') {
-            this.apiSer.showAlert('', data.ErrorMessage, 'error');
-            return;
-          }
+          // if (data.ErrorCode != '1') {
+          //   this.apiSer.showAlert('', data.ErrorMessage, 'error');
+          //   return;
+          // }
           this.otpVerify = true;
           this.inputVerify = false;
           this.verificationCode = true;
