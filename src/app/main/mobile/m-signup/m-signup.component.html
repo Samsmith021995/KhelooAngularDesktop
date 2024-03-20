@@ -213,7 +213,7 @@
 <div class="container-fluid newSign">
     <div class="overlay-content" [ngClass]="{otpVeri:otpVerify && !isSmallScreen}" >
         <a class="navbar-brand fw-bold" href="/" >
-                <div style="margin-top: 36%;">
+                <div class="img-cont" >
                 <img src="/assets/images/logo.gif" class="logo" >
                 </div>
             </a>
@@ -296,23 +296,23 @@
 
                         </mat-form-field>
                     </div>
-                    <div class="signFormnew" style="display: inline-flex;">
-                        <mat-form-field style="width: 45%;margin-right: 0.5rem;" class="materialI material2">
+                    <div class="signFormnew" style="display: inline-flex;width: 100%;">
+                        <mat-form-field style="width: 48%;margin-right: 0.5rem;" class="materialI material2">
                             <mat-icon matPrefix class="icon-border-right"><i-feather name="user"  style="fill: currentColor;"></i-feather></mat-icon>
                             <input matInput type="text" name="" id="" formControlName="FName" placeholder="First Name">
                         </mat-form-field>
-                        <mat-form-field style="width: 43%;" class="materialI">
+                        <mat-form-field style="width: 48%;" class="materialI">
                             <input matInput type="text" name="" id="" formControlName="LName" placeholder="Last Name">
                         </mat-form-field>
                     </div>
-                    <div class="signFormnew" style="display: inline-flex;">
-                        <mat-form-field style="width: 45%; margin-right: 5px;" class="materialI material2">
+                    <div class="signFormnew" style="display: inline-flex;width: 100%;">
+                        <mat-form-field style="width: 48%; margin-right: 5px;" class="materialI material2">
                             <input matInput formControlName="DOB" placeholder="DOB" [matDatepicker]="picker" (focus)="picker.open()" (click)="picker.open()">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
 
                         </mat-form-field>
-                        <mat-form-field style="width: 44%;" class="materialI">
+                        <mat-form-field style="width: 48%;" class="materialI">
                             <input matInput type="text" name="" id="" formControlName="Ref" placeholder="Refferal">
                         </mat-form-field>
                     </div>

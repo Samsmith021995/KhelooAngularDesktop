@@ -601,3 +601,17 @@ button.next-step:active {
     fill:currentColor;
   }
 }
+@media (min-width:280px) and (max-width:375px) {
+  
+  .img-cont{
+    margin-top: 18%;
+  }
+  
+}
+@media (min-width:376px){
+  
+  .img-cont{
+    margin-top: 36%;
+  }
+  
+}
