@@ -297,7 +297,7 @@ button.next-step:active {
     width: 38%;
     position: absolute;
     top: 10%;
-    right: 3%;
+    right: 30%;
     border: 2px solid #998c98;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.2);
@@ -310,14 +310,18 @@ button.next-step:active {
   .getC {
     width: 67px !important;
   }
+     
+  .img-cont{
+    margin-top: 10%;
+  }
 }
 
 @media (min-width:968px) and (max-width:1024px) {
   .overlay-content {
     width: 35%;
     position: absolute;
-    top: 20%;
-    right: 5%;
+    top: 8%;
+    right: 30%;
     border: 2px solid #998c98;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.2);
@@ -326,6 +330,10 @@ button.next-step:active {
     box-shadow: black 2px 2px 2px;
 
   }
+     
+  .img-cont{
+    margin-top: 10%;
+  }
 
 }
 
@@ -333,8 +341,8 @@ button.next-step:active {
   .overlay-content {
     width: 30%;
     position: absolute;
-    top: 17%;
-    right: 25%;
+    top: 8%;
+    right: 32%;
     border: 2px solid #998c98;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.2);
@@ -346,6 +354,10 @@ button.next-step:active {
 
   .getC {
     width: 80px !important;
+  }
+    
+  .img-cont{
+    margin-top: 10%;
   }
 }
 
@@ -608,10 +620,10 @@ button.next-step:active {
   }
   
 }
-@media (min-width:376px){
+@media (min-width:376px) and (max-width:767px){
   
   .img-cont{
-    margin-top: 36%;
+    margin-top: 24%;
   }
   
 }
