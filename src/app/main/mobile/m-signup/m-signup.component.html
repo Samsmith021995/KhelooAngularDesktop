@@ -99,7 +99,7 @@
     </div>
 </div> -->
 
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <a class="navbar-brand fw-bold" href="/">
 
         <img src="/assets/images/logo.gif" class="logo">
@@ -160,25 +160,13 @@
                             <input matInput type="text" name="" id="" formControlName="FName" placeholder="First Name">
                         </mat-form-field>
                         <mat-form-field style="width: 49%;" class="materialI">
-                            <!-- <mat-icon matPrefix class="icon-border-right"><i-feather name="user"></i-feather></mat-icon> -->
+                            
                             <input matInput type="text" name="" id="" formControlName="LName" placeholder="Last Name">
                         </mat-form-field>
                     </div>
-                    <!-- <div class="signFormnew">
-                </div> -->
+                  
                     <div class="signFormnew">
-                        <!-- <mat-form-field style="width: 30%; margin-right: 5px;" class="materialI">
-                        <input matInput type="date" name="" id="" formControlName="DD" placeholder="DD">  
-                    </mat-form-field>
-                    <mat-form-field style="width: 30%; margin-right: 5px;" class="materialI">
-                        <input matInput type="text" name="" id="" formControlName="MM" placeholder="MM">
-                        
-                    </mat-form-field> 
-                    <mat-form-field style="width: 30%; margin-right: 3px;" class="materialI">
-                        <input matInput type="text" name="" id="" formControlName="year" placeholder="year">
-                    </mat-form-field>-->
-                        <!-- <input matInput [matDatepicker]="datepicker">
-  <mat-hint>MM/DD/YYYY</mat-hint> -->
+                     
                         <mat-form-field style="width: 49%; margin-right: 5px;" class="materialI material2">
                             <input matInput formControlName="DOB" placeholder="DOB" [matDatepicker]="picker" (focus)="picker.open()" (click)="picker.open()">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -221,6 +209,106 @@
             <a href="https://tawk.to/chat/60a22370185beb22b30ddc1d/1f5slks90" target="_blank"><img src="/assets/images/call_support.png" alt="" width="30px"></a>&nbsp;&nbsp;
           <a href="https://api.whatsapp.com/send/?phone=447897045261&text&app_absent=0" target="_blank">  <img src="/assets/images/whatsapp.png" alt="" width="30px"></a>
 
+        </div>
+    </div>
+</div> -->\
+
+
+<div class="container-fluid">
+    <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [pagination]="pagination"></app-banner>
+    <div class="container">
+        <!-- <a class="navbar-brand fw-bold" href="/">
+            <img src="/assets/images/logo.gif" class="logo" >
+          </a>  -->
+        <div class="row ">
+            <form [formGroup]="signUp">
+                @if(!otpVerify){
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="Mobile number">
+                        <button (click)="getCode()" class="getC" *ngIf="getcodeBtn">
+                             <ng-container *ngIf="showTimer; else content1">
+                            {{startSec}}
+                        </ng-container>
+                        <ng-template #content1>
+                            <i-feather name="loader" *ngIf="getTimer"></i-feather>
+                            @if (!getTimer) {
+                            Get Code
+                            }
+                        </ng-template></button>
+                    </mat-form-field>
+
+                </div>
+                }
+                @if(inputVerify){
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <input matInput type="number" name="" id="" formControlName="OTP">
+                    </mat-form-field>
+                </div>
+
+                }
+                @if(otpVerify && verificationCode){
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="UserName">
+                        <mat-error *ngIf="signUp.controls['UserName'].hasError('required')">This field is
+                            mandatory</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="FName">
+                        <mat-error *ngIf="signUp.controls['FName'].hasError('required')">This field is
+                            mandatory</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="LName">
+                        <mat-error *ngIf="signUp.controls['LName'].hasError('required')">This field is
+                            mandatory</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="DOB">
+                        <mat-error *ngIf="signUp.controls['DOB'].hasError('required')">This field is
+                            mandatory</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <!-- <input matInput type="text" name="" id="" formControlName="Ref" [(ngModel)]="refText"> -->
+                        <input matInput type="text" name="" id="" formControlName="Ref">
+                        <!-- <mat-error *ngIf="signUp.controls['DOB'].hasError('required')">This field is mandatory</mat-error> -->
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="Password">
+                        <mat-error *ngIf="signUp.controls['Password'].hasError('required')">This field is
+                            mandatory</mat-error>
+                    </mat-form-field>
+                </div>
+                }
+                <button (click)="onSubmit()" class="next-step">
+                   <ng-container *ngIf="btnLoading; else content">
+                          <i-feather name="loader"></i-feather>
+                        </ng-container>
+                        <ng-template #content>
+                          {{ !otpVerify ? 'Next' : 'Submit' }}
+                        </ng-template>
+                </button>
+            </form>
         </div>
     </div>
 </div>
