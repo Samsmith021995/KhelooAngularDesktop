@@ -1,9 +1,11 @@
-import { Component, Inject, OnInit, Renderer2, ViewChildren, QueryList, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component,OnInit, Renderer2, ViewChildren, QueryList, ElementRef, ChangeDetectorRef, ViewChild, TemplateRef } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 import { Subscription, catchError } from 'rxjs';
 import { config } from '../../service/config';
 import { Router } from '@angular/router';
 import { CommonServiceService } from '../../service/common-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { UrlService } from '../../service/url.service';
 
 @Component({
   selector: 'app-m-home',
@@ -16,19 +18,18 @@ export class MHomeComponent implements OnInit {
     '/assets/images/10minwith.png',
     '/assets/images/Banner11.jpeg',
     '/assets/images/Banner18.jpeg',
-    '/assets/images/Dil-se-kheloo_375x250.jpeg',
-    '/assets/images/10minwith.png',
-    '/assets/images/Banner11.jpeg',
-    '/assets/images/Banner18.jpeg',
-    '/assets/images/Dil-se-kheloo_375x250.jpeg',
-    '/assets/images/10minwith.png',
-    '/assets/images/Banner11.jpeg',
-    '/assets/images/Banner18.jpeg',
-    '/assets/images/Dil-se-kheloo_375x250.jpeg',
-
+    '/assets/images/Dil-se-kheloo_375x250.jpeg'
   ];
+  // images = [
+  //   {src:'/assets/images/10minwith.png'},
+  //   {src:'/assets/images/Banner11.jpeg'},
+  //   {src:'/assets/images/Banner18.jpeg'},
+  //   {src:'/assets/images/Dil-se-kheloo_375x250.jpeg'}
+  // ];
+  
   mainCategory: any[] = [];
   subCategory: any[] = [];
+  subCategorybc: any[] = [];
   categoryFetch = false;
   gamelist = false;
   showMore: boolean = false;
@@ -42,7 +43,18 @@ export class MHomeComponent implements OnInit {
   isDetailsVisible: boolean[] = [];
   filteredResults: { [key: string]: any[] } = {};
   private loaderSubscriber !: Subscription;
-  constructor(private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef,private comSer:CommonServiceService) { }
+  isLoggedIn: boolean = false;
+  private isLoggedInSubscription!: Subscription;
+  
+  @ViewChild('loginPop') loginPop!: TemplateRef<any>;
+ 
+  diaRef3: any;
+  isPromo:boolean = false;
+  constructor(private dialog: MatDialog,private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef,private comSer:CommonServiceService,private urlSer:UrlService,private elementRef: ElementRef) { 
+ 
+
+  }
+
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
@@ -51,8 +63,32 @@ export class MHomeComponent implements OnInit {
     });
     this.getAllCategory(this.selected);
     this.comSer.search$.subscribe((search: any) => {
+      setTimeout(() => {
+        this.scrollToElement('scrollToElement');
+      }, 100);
       this.onSearch(search);
     });
+    this.isLoggedInSubscription = this.apiSer.isLoggedIn$.subscribe((value) => {
+      this.isLoggedIn = value;
+    });
+    this.apiSer.ispromoPage$.subscribe((value)=>{
+      this.isPromo = value ===true;
+      setTimeout(() => {
+        this.scrollToElement('promo');
+      }, 100);
+      // window.scrollTo({
+      //   top: 1000,
+      //   left: 0,
+      //   behavior: 'smooth'
+      // });
+    });
+  }
+
+  scrollToElement(param:any): void {
+    const element = this.elementRef.nativeElement.querySelector('#'+param);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'});
+    }
   }
   gameListAll(item: any) {
     let param = { GameCategory: item };
@@ -65,8 +101,6 @@ export class MHomeComponent implements OnInit {
         this.gamesData[item] = data;
         this.filteredResults[item] = data;
       }
-      // this.cdr.detectChanges();
-
     });
   }
 
@@ -104,6 +138,7 @@ export class MHomeComponent implements OnInit {
       this.selected = cat.mainCat;
       this.mainCategory = Array.from(categorySet);
       this.subCategory = Array.from(subCategorySet);
+      this.subCategorybc = Array.from(subCategorySet);
       this.subCategory.forEach((item: { GameCategory: string; }) => {
         this.defaultSlices.push(4);
         this.isDetailsVisible.push(false);
@@ -113,10 +148,14 @@ export class MHomeComponent implements OnInit {
   }
 
   gameStart(param: any) {
+    if(!this.isLoggedIn){
+      this.diaRef3 = this.dialog.open(this.loginPop);
+      this.diaRef3.afterClosed().subscribe(() => { });
+      return
+    }
     this.router.navigate(['/games', param]);
   }
   showMoreF(item: number) {
-    console.log(item);
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     if (nativeElement) {
       if (nativeElement.classList.contains('showMore')) {
@@ -132,31 +171,37 @@ export class MHomeComponent implements OnInit {
   }
 
   onSearch(itemSeach:any) {
+    this.apiSer.updatePromotion(false);
     if (itemSeach.trim() !== '') {
       let param = { GameCategory: this.selected }
-      for (let item of this.subCategory) {
-          const filteredApiResults = this.filteredResults[item].filter(result =>
-            result.name.toLowerCase().includes(itemSeach.toLowerCase()) || 
-            result.groupname.toLowerCase().includes(itemSeach.toLowerCase()) || 
-            result.gamecategory.toLowerCase().includes(itemSeach.toLowerCase())
+      for (let item of this.subCategorybc) {
+          const filteredApiResultsed = this.filteredResults[item]?.filter(result =>
+            (result.name.toLowerCase().includes(itemSeach.toLowerCase())) || 
+            (result.groupname && result.groupname.toLowerCase().includes(itemSeach.toLowerCase())) || 
+            (result.gamecategory && result.gamecategory.toLowerCase().includes(itemSeach.toLowerCase() )) ||
+            (result.product && result.product.toLowerCase().includes(itemSeach.toLowerCase() ))
             );
-              console.log(filteredApiResults.length);
-              this.gamesData[item] = filteredApiResults;
+              this.gamesData[item] = filteredApiResultsed;
       }
-      this.subCategory = this.subCategory.filter(item => this.gamesData[item]?.length > 0);
+      this.subCategory = this.subCategorybc.filter(item => this.gamesData[item]?.length > 0);
      
     } else {
       this.gamesData = { ...this.filteredResults };
     }
-    window.scrollTo({
-      top: 900,
-      left: 0,
-      behavior: 'smooth'
-    });
+   
+    // window.scrollTo({
+    //   top: 1000,
+    //   left: 0,
+    //   behavior: 'smooth'
+    // });
   }
-
+  searching(){
+    this.onSearch(this.searchTerm);
+  }
   updateSlice(item: number) {
     this.defaultSlices[item] += 20;
   }
-
+closeDial2(){
+  this.diaRef3.close();
+}
 }

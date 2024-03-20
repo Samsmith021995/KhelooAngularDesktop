@@ -12,7 +12,7 @@ import { config } from 'src/app/main/service/config';
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.css'
 })
-export class ForgotPasswordComponent {
+export class ForgotPasswordComponent  implements OnInit{
   private loaderSubscriber !: Subscription;
   private apiSubscriber: Subscription[]=[];
   btnLoading :boolean = false;
@@ -32,6 +32,28 @@ export class ForgotPasswordComponent {
       Password:["",[Validators.required]],
       OTP:["",[Validators.required]],
     });
+    this.forgotform.controls['Mobile'].valueChanges.subscribe(value=>{
+      let strMo = String(value).trim();
+      let digitsOnly = strMo.replace(/\D/g, '');
+      if (digitsOnly && digitsOnly.length >= 10) {
+        let trimmedValue = digitsOnly.substring(0, 10);
+        this.forgotform.controls['Mobile'].setValue(trimmedValue, { emitEvent: false });
+    }
+    });
+  }
+  validateNumber(event: KeyboardEvent) {
+    const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'];
+    
+    const isCopy = event.ctrlKey && event.key === 'c';
+    const isPaste = event.ctrlKey && event.key === 'v';
+    const isCmdCopy = event.metaKey && event.key === 'c'; 
+    const isCmdPaste = event.metaKey && event.key === 'v'; 
+    const isCmdselect = event.metaKey && event.key === 'a'; 
+    const isSelect = event.ctrlKey && event.key === 'a'; 
+  
+    if (!allowedKeys.includes(event.key) && !isCopy && !isPaste && !isCmdCopy && !isCmdPaste && !isCmdselect && !isSelect) {
+      event.preventDefault();
+    }
   }
 
   onSubmit(){

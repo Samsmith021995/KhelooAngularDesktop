@@ -1,4 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ApiService } from '../../service/api.service';
+import { config } from '../../service/config';
 
 @Component({
   selector: 'app-jackpot',
@@ -9,9 +11,14 @@ export class JackpotComponent implements OnInit, OnDestroy {
   countDownValue = 6598326;
   displayValue=this.countDownValue.toString();
   private intervalId: any;
-  
+  dataDetails:any;
+  constructor(private apiSer:ApiService){}
 
   ngOnInit(): void {
+    this.getRecentWith();
+    setInterval(() => {
+      this.getRecentWith()
+    }, 30000);
     this.intervalId = setInterval(() => {
       this.countDownValue++;
     
@@ -24,6 +31,18 @@ export class JackpotComponent implements OnInit, OnDestroy {
     }, 1000)
   }
 
+  getRecentWith(){
+    this.apiSer.apiRequest(config['recent']).subscribe({
+      next:data=>{
+        if(data){
+          this.dataDetails = data;
+        }
+      },
+      error:err=>{
+        console.error(err);
+      }
+    });
+  }
   ngOnDestroy(): void {
     if (this.intervalId) {
       clearInterval(this.intervalId);

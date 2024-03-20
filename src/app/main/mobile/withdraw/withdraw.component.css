@@ -1,7 +1,4 @@
 
-@import 'https://kheloo.com/Content/OurAssest/PageCss/HomeCss.css';
-@import 'https://kheloo.com/Content/OurAssest/Common/style.css'; 
-
 .with_container {
     background: #000;
     margin-top: 60px;
@@ -30,7 +27,7 @@
     height: 40px;
     border: 2px solid #f4ad09;
     border-radius: 8px;
-    color: #f4ad09;
+    color: #fff !important;
     font-size: 12px;
 }
 
@@ -63,9 +60,9 @@
     border-radius: 0;
     margin: 0;
 }
-.tab .nav-tabs li a:hover{
+/* .tab .nav-tabs li a:hover{
     background:#000;
-}
+} */
 .tab .nav-tabs li a i{
     font-size: 14px;
     display: block;
@@ -81,15 +78,7 @@
     margin: 0;
     transition: background 0.20s linear;
 }
-.tab .nav-tabs li.active:after{
-    content: "";
-    position: absolute;
-    top: 18px;
-    left: 40%;
-    border: 12px solid transparent;
-    border-top-color: #000;
-    transform: rotate(180deg);
-}
+
 .tab .tab-content{
     line-height: 25px;
     padding: 30px 0 0;
@@ -97,6 +86,7 @@
 .tab .nav-tabs li {
   
     display: inline-block;
+    width: 50%;
 }
 
 .tab .nav-tabs li a {
@@ -172,9 +162,7 @@ p.status_text {
 
 .with_first_col_container {
     width: 65%;
-    display: inline-block;
-    /* float: left; */
-    padding-right: 15px;
+    float: left;
 }
 
 .with_second_col_container {
@@ -309,8 +297,76 @@ p.status_text.pending_text {
     color: #f4ad09;
     text-align: center;
     display: block;
+    font-size: 14px;
 }
 
 .tab{
     margin-top: 20px;
 }
+.heading {
+    margin-bottom: 0;
+}
+.heading h2 {
+   
+    position: relative;
+    line-height: 24px;
+    font-weight: 700;
+    font-family: anton,sans-serif;
+    background: -webkit-linear-gradient(#ffd370 0%,#f7ad07 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    z-index: 0;
+    padding-top: 5px;
+    padding-bottom: 0;
+    cursor: auto;
+    letter-spacing: -1px;
+    font-size: 28px;
+    letter-spacing: 0;
+    color: #d07909;
+    position: relative;
+    -webkit-text-fill-color: initial;
+    text-align: center;
+    background: -webkit-linear-gradient(#f08f0f 0%, #fff 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h4.wheading{
+    line-height: 25px;
+    padding: 30px 0 0;
+}
+.mat-typography p {
+    margin: 0;
+}
+.reversebtn{ 
+    background: transparent;
+    border: 1px solid #f4ad09;
+    padding: 5px 13px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #f4ad0e;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 0 20px #c4a300;
+}
+
+.with_first_line_container{
+    padding: 0px 2px !important;
+}
+.withPlay{
+    i-feather{
+        width:14px !important;
+    }
+}
+a.active::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 40%;
+    border: 12px solid transparent;
+    border-top-color: #000;
+    transform: rotate(180deg);
+}
+.heading h2{
+    font-family: anton, sans-serif !important;
+    }

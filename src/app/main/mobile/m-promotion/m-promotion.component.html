@@ -1,0 +1,23 @@
+<div class="promotion_body_container">
+    <div class="heading">
+        <h2>Promotions</h2>
+    </div>
+    <div class="promotion_gal_main_container">
+        <ng-container *ngFor="let item of image; let i=index;">
+            <div class="promotion_gallery_container">
+                <div class="promotion_card">
+                    <a (click)="openInfo(item.name)">
+                        <div class="promotion_img_container promotion_container_4" >
+                            <div class="promotion_border"></div>
+                            <img [src]="item.src" class="p-img">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<ng-template #promoinfo>
+    <app-promotion-popup (onCancel)="closePo()" [promoref]="promotionRef"></app-promotion-popup>
+</ng-template>

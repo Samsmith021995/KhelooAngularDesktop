@@ -1,4 +1,4 @@
-import { NgModule} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,19 +30,21 @@ import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/for
 import { GamePlatformComponent } from './main/desktop/game-platform/game-platform.component';
 import { PopRegisterComponent } from './main/mobile/pop-register/pop-register.component';
 import { BottomNavbarComponent } from './main/footer/m-footer/bottom-navbar/bottom-navbar.component';
-import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.component';
+// import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.component';
 import { CricketBettingComponent } from './main/desktop/footer-content/sports/cricket-betting/cricket-betting.component';
 import { FootballBettingComponent } from './main/desktop/footer-content/sports/football-betting/football-betting.component';
 import { TennisBettingComponent } from './main/desktop/footer-content/sports/tennis-betting/tennis-betting.component';
 import { IplBettingComponent } from './main/desktop/footer-content/sports/ipl-betting/ipl-betting.component';
 import { OnlineSportsBettingComponent } from './main/desktop/footer-content/sports/online-sports-betting/online-sports-betting.component';
-import { MForgotPasswordComponent } from './main/mobile/m-forgot-password/m-forgot-password.component';
+// import { MForgotPasswordComponent } from './main/mobile/m-forgot-password/m-forgot-password.component';
 import { ApiService } from './main/service/api.service';
 import { MMenuComponent } from './main/mobile/m-menu/m-menu.component';
 import { UrlService } from './main/service/url.service';
-
-
-
+// import { PromotionPopupComponent } from './main/mobile/m-promotion/promotion-popup/promotion-popup.component';
+// import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
+import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
+import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
+import { GameHeaderComponent } from './main/desktop/game-platform/game-header/game-header.component';
 
 @NgModule({
   declarations: [
@@ -70,27 +72,26 @@ import { UrlService } from './main/service/url.service';
     LoginComponent,
     ForgotPasswordComponent,
     GamePlatformComponent,
-    PopRegisterComponent,
     BottomNavbarComponent,
-    LoginpopupComponent,
     CricketBettingComponent,
     FootballBettingComponent,
     TennisBettingComponent,
     IplBettingComponent,
     OnlineSportsBettingComponent,
-    MForgotPasswordComponent,
     MMenuComponent,
-  
-    
-    
+    // PromotionPopupComponent,
+    // MPromotionComponent,
+    KhelooPrivilegesComponent,
+    TournamentsComponent,
+    GameHeaderComponent,  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule
-  
-,  ],
+   ],
+   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [ApiService,UrlService],
  
   bootstrap: [AppComponent]

@@ -28,9 +28,7 @@
   height: 1px;
   border-radius: 10px;
   background: var(--slider-color);
-  /* Light grey background. */
   outline: none;
-  /* Remove outline. */
 }
 
 a.ftc {
@@ -59,7 +57,7 @@ input[type=range]::-ms-track {
   cursor: pointer;
 }
 
-/* Special styling for WebKit/Blink */
+
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 2.5px solid var(--vigo-color);
@@ -71,9 +69,7 @@ input[type=range]::-webkit-slider-thumb {
   margin-top: 0px;
 }
 
-/* All the same stuff for Firefox */
 input[type=range]::-moz-range-thumb {
-  /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
   border: 2.5px solid var(--vigo-color);
   height: 20px;
   width: 20px;
@@ -82,9 +78,7 @@ input[type=range]::-moz-range-thumb {
   cursor: pointer;
 }
 
-/* All the same stuff for IE */
 input[type=range]::-ms-thumb {
-  /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
   border: 2.5px solid var(--vigo-color);
   height: 20px;
   width: 20px;
@@ -97,13 +91,10 @@ input[type=range]::-ms-thumb {
   cursor: pointer;
 }
 
-/* INPUT TYPE NUMBER STYLING*/
+
 input[type=number] {
   -moz-appearance: none;
-  /* Override default CSS styles */
   -webkit-appearance: none;
-  /* cursor: pointer;*/
-  /* Real styling part :D */
   background: var(--input-number-color);
   border-style: none;
   height: 30px;
@@ -117,7 +108,6 @@ input[type=number] {
 
 input[type=number]:focus {
   outline: none;
-  /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
 }
 
 .gumb {
@@ -194,8 +184,6 @@ input[type=number]:focus {
 }
 
 .bg-light {
-  /* //  background: #000 !important;
-  // background-image: linear-gradient(#6612a5, #2c003a); */
   background-image: linear-gradient(#6612a5, #2c003a);
 }
 
@@ -211,30 +199,24 @@ h3.display-4.logintitle {
 
 .rounded-pill {
   border-radius: 4px !important;
-  /* padding: 2.375rem 0.75rem !important; */
   font-size: 14px;
   border: 1px solid #2b2b2b !important;
   width: 100%;
-  /* background: transparent; */
   color: #000000 !important;
   max-width: none;
   padding: 18px;
 }
 
 ::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #818181;
   opacity: 1;
-  /* Firefox */
 }
 
 :-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
   color: #2b2b2b;
 }
 
 ::-ms-input-placeholder {
-  /* Microsoft Edge */
   color: #2b2b2b;
 }
 
@@ -244,7 +226,6 @@ h3.display-4.logintitle {
 }
 
 .bg-image {
-  /* //background-image: url("https://res.cloudinary.com/mhmd/image/upload/v1555917661/art-colorful-contemporary-2047905_dxtao7.jpg"); */
   background-image: url("/assets/images/login-bg2.jpg");
   background-size: cover;
   background-position: center center;
@@ -293,7 +274,7 @@ a {
     padding: 6px;
     background: #9b11ec;
     border-radius: 14px;
-    background: url(https://kheloo.com/images/Withdrawl-Board_9.png) round;
+    background: url('/assets/images/Withdrawl-Board_9.png') round;
     padding: 0;
     padding-bottom: 23px;
     border-radius: 22px;
@@ -329,10 +310,8 @@ a {
 
 .bl_prom_image {
   max-width: 100px;
-  /* Limit image width */
   height: auto;
   filter: brightness(9);
-  /* Maintain aspect ratio */
 }
 
 .bl_prom_title_container span {

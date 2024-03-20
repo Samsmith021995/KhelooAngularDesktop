@@ -33,7 +33,6 @@ export class DJackpotComponent implements OnInit {
   getQuote() {
     this.apiService.apiRequest(config['recent']).subscribe(
       (data: any) => {
-        console.log(data);
         this.result = data;
       },
       (error) => {
@@ -42,7 +41,7 @@ export class DJackpotComponent implements OnInit {
     );
   }
   syncNumber() {
-    const startNumber = 5910072; // Specify the initial number
+    const startNumber = 5910072; 
     const endNumber = 9999999;
     const resetNumber = 8889989;
 

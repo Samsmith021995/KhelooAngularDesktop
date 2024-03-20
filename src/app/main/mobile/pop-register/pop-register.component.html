@@ -1,4 +1,6 @@
-<section>
+<!-- <section>
+    <div class="popreg"> -->
+
     <div class="dialog-close" (click)="closeDial()"></div>
     <div class="wizard">
         <div class="login_logo_container">
@@ -32,11 +34,12 @@
                                 <div class="p-l-0 crossbar-contact-input-container mobile_input_container">
                                     <input matInput type="number" 
                                         placeholder="Mobile Number"
-                                        class="" formControlName="Mobile">
+                                        class="" formControlName="Mobile"  (keydown)="validateNumber($event)">
                                 </div>
                                 <div class="get_code_container">
                                     <a role="button" class="getCodeBtn" (click)="GenerateOTP()">
-                                        <span class="ng-binding">Get Code</span>
+                                        <span class="ng-binding" *ngIf="!showTimer">Get Code</span>
+                                        <span class="ng-binding" *ngIf="showTimer">{{startSec}}</span>
                                     </a>
                                 </div>
                             </div>
@@ -50,7 +53,13 @@
                         <ul class="list-inline pull-right">
                             <li>
                                 <button type="button" (click)="VerifyOTP()" class="next-step">
-                                    Next
+                                    <ng-container *ngIf="btnLoading1; else content">
+                                        <i-feather name="loader"></i-feather>
+                                      </ng-container>
+                                      <ng-template #content>
+                                        Next
+                                      </ng-template>
+                                  
                                 </button>
                             </li>
                         </ul>
@@ -71,38 +80,49 @@
                                 <input matInput type="text" placeholder="Last Name" ng-model="LName"
                                     class="ng-pristine ng-untouched ng-valid ng-empty" formControlName="LName"> 
                             </div>
-                            <div class="col-md-12 p-l-0 crossbar-contact-input-container">
-                    
-                                    <input matInput type="date"  maxlength="2" required="" placeholder="DOB"
-                                        class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" formControlName="DOB">
-                                
-                                <!-- <div class="register_month">
-                                    <input type="tel" maxlength="2" ng-model="DOBMM" required="" placeholder="MM"
-                                        class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength">
+                            <br>
+                            <span style="color: white;">Date Of Birth</span>
+                            <div class="col-md-12 p-l-0 crossbar-contact-input-container rat">
+                                <div class="register_month">
+                                    <input type="number"  maxlength="2" required="" placeholder="dd"
+                                        class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" formControlName="DD">
+                                </div>
+                               <div class="register_month">
+                                    <input type="number" maxlength="2" ng-model="DOBMM" required="" placeholder="MM"
+                                        class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" formControlName="MM">
                                 </div>
                                 <div class="register_month register_date">
-                                    <input type="tel" ng-model="DOBYYYY" maxlength="4" required="" placeholder="YYYY"
+                                    <input type="number" ng-model="DOBYYYY" maxlength="4" required="" placeholder="YYYY"
                                         class="ng-valid-maxlength ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched"
-                                        data-gtm-form-interact-field-id="0">
-                                </div> -->
+                                        data-gtm-form-interact-field-id="0" formControlName="year">
+                                </div>
                             </div>
                             <div class="col-md-12 p-l-0 crossbar-contact-input-container">
                                 <input matInput type="password" placeholder="Password" 
                                     class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched"
                                     data-gtm-form-interact-field-id="1" formControlName="Password">
                             </div>
+                            <div class="col-md-12 p-l-0 crossbar-contact-input-container">
+                                <input matInput type="text" placeholder="Refferal Code" 
+                                    class="ng-pristine ng-untouched ng-valid ng-empty" formControlName="Ref"> 
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <ul class="list-inline pull-right">
                             <li>
-                                <button type="button" class="prev-step">
+                                <button type="button" class="prev-step" (click)="prevStep()">
                                     Previous
                                 </button>
                             </li>
                             <li>
                                 <button type="button" class="next-step" (click)="Signup()">
-                                    Sign Up
+                                    <ng-container *ngIf="btnLoading; else content1">
+                                        <i-feather name="loader"></i-feather>
+                                      </ng-container>
+                                      <ng-template #content1>
+                                        Submit
+                                      </ng-template>
                                 </button>
                             </li>
                         </ul>
@@ -112,4 +132,6 @@
             </div>
         </form>
     </div>
-</section>
+
+<!-- </div>
+</section> -->

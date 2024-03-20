@@ -32,12 +32,42 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
     });
     this.username = localStorage.getItem('name');
     this.showmenu = false;
+    this.loginForm.controls['Mobile'].valueChanges.subscribe(value=>{
+      let strMo = String(value).trim();
+      let digitsOnly = strMo.replace(/\D/g, '');
+      if (digitsOnly && digitsOnly.length >= 10) {
+        let trimmedValue = digitsOnly.substring(0, 10);
+        this.loginForm.controls['Mobile'].setValue(trimmedValue, { emitEvent: false });
+    }
+    });
+  }
+  validateNumber(event: KeyboardEvent) {
+    const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'];
+    
+    const isCopy = event.ctrlKey && event.key === 'c';
+    const isPaste = event.ctrlKey && event.key === 'v';
+    const isCmdCopy = event.metaKey && event.key === 'c'; 
+    const isCmdPaste = event.metaKey && event.key === 'v'; 
+    const isCmdselect = event.metaKey && event.key === 'a'; 
+    const isSelect = event.ctrlKey && event.key === 'a'; 
+  
+    if (!allowedKeys.includes(event.key) && !isCopy && !isPaste && !isCmdCopy && !isCmdPaste && !isCmdselect && !isSelect) {
+      event.preventDefault();
+    }
   }
   showmenubar() {
     this.showmenu = !this.showmenu;
   }
 
    login() {
+    if(!this.loginForm.controls['Mobile'].value){
+      this.apiSer.showAlert('','Provide Mobile number','warning');
+      return;
+    }
+    if(!this.loginForm.controls['Password'].value){
+      this.apiSer.showAlert('','Provide Password','warning');
+      return;
+    }
     this.showsubmitbtn = true;
     let param = this.loginForm.getRawValue();
     this.apiSer.apiRequest(config['login'], param).subscribe({
@@ -68,7 +98,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
       }
       this.checkLogin = true;
       this.username = localStorage.getItem('name');
-      console.log(this.username);
+      // console.log(this.username);
       if(!this.username){
         this.checkLogin = false;
         return;

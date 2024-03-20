@@ -1,5 +1,5 @@
-<section class="loginPop">
-    <div class="closePopInfo" (click)="onBack()">X</div>
+<div class="loginPop">
+    <div class="closePopInfo dialog-close" (click)="onBack()"></div>
     <div class="login_form_wizard">
         <div class="loginPopupComponent-form-container">
             <div class="login_logo_container">
@@ -12,12 +12,13 @@
                         <input
                             class="login_mobile_input ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
                             type="tel" required="" ng-model="Mobile" placeholder="Mobile Number"
-                            formControlName="Mobile">
+                            formControlName="Mobile"  (keydown)="validateNumber($event)">
                     </div>
                     <div class="col-md-12 p-l-0 crossbar-contact-input-container">
-                        <input type="password" ng-model="Password" required="" placeholder="Password"
+                        <input [type]="showPass?'text':'password'" required="" placeholder="Password"
                             class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
                             formControlName="Password">
+                          <button (click)="showPass=!showPass" class="btn-show"> <i-feather [name]="showPass?'eye-off':'eye'" class="eyebtton"></i-feather></button>
                     </div>
                     <div class="col-md-12">
                         <p class="small_text">
@@ -26,10 +27,20 @@
                             </a>
                         </p>
                     </div>
-                    <div class="col-md-12">
-                        <button class="sign_up_container loginBtn" (click)="onLogin()">SIGN IN</button>
+                    <div class="col-md-12 btnDiv">
+                        <button class="sign_up_container loginBtn" (click)="onLogin()">
+                            <ng-container *ngIf="btnLoading; else content">
+                                <i-feather name="loader" class="btn-loader"></i-feather>
+                            </ng-container>
+                            <ng-template #content>
+                                <span>
+                                    SIGN IN
+                                </span> 
+                            </ng-template>
+                         
+                        </button>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 btnReg">
                         <p class="small_text">
                             <a href="javascript:void(0);" class="LoginFormClass center" (click)="openRegister()">
                                 Register Now
@@ -40,7 +51,7 @@
             </form>
         </div>
     </div>
-</section>
+</div>
 <ng-template #forgotPass>
     <app-m-forgot-password (onCancel)="closePopup()"></app-m-forgot-password>
 </ng-template>

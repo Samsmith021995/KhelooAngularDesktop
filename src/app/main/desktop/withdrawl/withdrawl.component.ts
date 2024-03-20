@@ -81,7 +81,7 @@ withdrawState :boolean =false;
   }
 
   viewDeskDetail(item: any) {
-    console.log("view"+item);
+    // console.log("view"+item);
     let nativeElement = this.bankshow.toArray()[item].nativeElement;
     if (nativeElement) {
       if (nativeElement.classList.contains('viewDesk')) {

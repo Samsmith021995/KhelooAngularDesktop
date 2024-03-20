@@ -43,11 +43,11 @@
                 <path d="M20.5 25L11.5 16L20.5 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                 </path>
             </svg></button>
-        <div style=" display: flex; margin-right: 4px; overflow-x: auto; width: 100%; color: white;" #showMore
+        <div style=" display: flex; margin: auto 4px; overflow-x: auto; width: 100%; color: white;" #showMore
             class="ashu">
             <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]">
-                <div style="margin-right: 4px; " class="casino-game-item">
-                    <img [src]="game.url_thumb" alt="" width="250px" class="thgame">
+                <div style="margin-right: 4px;margin-bottom:10px;" class="casino-game-item shimmerBG">
+                    <img [src]="game.url_thumb" alt="" width="100%" class="thgame ">
                     <div class="min_max_container">
                         <span class="minValue">
                             <span class="ng-binding"> Min.<i>₹</i>  {{game.MinAmount}} |</span>
@@ -56,7 +56,7 @@
                     </div>
                     <a (click)="gameStart(game.game_id)">
                         <div class="playbtn">
-                            <img src="https://kheloo.fun/img/play_icon_134504.png" alt=""
+                            <img src="/assets/images/play_icon.png" alt=""
                                 class="casino-game-item-image-bc" class="play">
                         </div>
                     </a>
@@ -65,7 +65,7 @@
 
         </div>
 
-        @if(defaultSlices[i]<=gamesData[category].length){ <button (click)="updateSlice(i)" class="btn-show"
+        @if(defaultSlices[i]<=gamesData[category].length){ <button (click)="updateSlice(i)" class="btn-show1"
             *ngIf="gamesData[category].length > 50 && isDetailsVisible[subSelected?0:i]">
             View More
             </button>
@@ -98,6 +98,9 @@
 }
 @if(selected === 'Slots' || subSelected ==='Slots'){
 <app-slots></app-slots>
+}
+@if(selected === 'TableGame' || subSelected ==='TableGame'){
+<app-table-game></app-table-game>
 }
 <!-- <div class="row"> -->
 <app-d-jackpot></app-d-jackpot>

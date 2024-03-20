@@ -1,0 +1,23 @@
+.promotionModal{
+    margin-top: 50px !important;
+}
+.lang_modal_header{
+    display: block;
+}
+div#languageModal {
+    overflow: auto !important;
+}
+.lang_modal_header p {
+    display: inline-block;
+    margin: 0;
+    font-size: 18px !important;
+    font-weight: bold;
+    padding-bottom: 15px;
+    color: #fff;
+}
+.lang_modal_header button.close {
+    color: #fff;
+    opacity: 1;
+    outline: unset;
+    font-size: 14px;
+}

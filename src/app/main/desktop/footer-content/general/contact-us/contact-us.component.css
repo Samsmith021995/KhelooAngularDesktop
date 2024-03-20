@@ -67,7 +67,7 @@
     flex-direction: column;
     -webkit-box-align: center;
     align-items: center;
-    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyContentWrapperBg.jpg)
+    background: url('/assets/images/funkyContentWrapperBg.png')
       100% 5% / cover no-repeat;
     padding: 4rem 0px;
   }
@@ -76,7 +76,7 @@
 
 .bLvAaE.funkytime {
   color: rgb(221, 18, 123);
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/funkyenter.png)
+  background: url('/assets/images/funkyenter.png')
     center center / contain no-repeat;
   height: 100px;
   width: 100%;
@@ -86,7 +86,7 @@
   content: "";
   width: 190px;
   height: 10px;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+  background: url('/assets/images/tittleLine.png')
     center center / cover no-repeat;
 }
 .bmKVRh {
@@ -116,7 +116,7 @@
   right: 0px;
   bottom: 0px;
   position: absolute;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/crazyCrashOrangeRIght.png)
+  background: url('/assets/images/crazyCrashOrangeRIght.png')
     center center / cover no-repeat;
 }
 .ggRmfc {
@@ -169,7 +169,6 @@
 
 .jrxmYg {
   color: rgb(221, 18, 123);
-  font-size: 17px;
   font-family: Inter-Bold;
   display: contents;
 }
@@ -190,26 +189,19 @@
   align-items: flex-start;
 }
 .fjVnzR p {
-  /* //   display: flex; */
   flex-wrap: wrap;
   -webkit-box-pack: center;
   justify-content: center;
   color: rgb(255, 255, 255);
   font-size: 21px;
-  /* //   line-height: 30px;
-  //   gap: 5px;
-  //   text-align: justify;
-  //   margin: 13px 0px; */
 }
 .fjVnzR span {
   font-size: 21px;
 }
 
 .jrxmYg {
-  font-size: 28px !important;
+  font-size: 28px;
   color: rgb(189 8 198);
-  font-size: 17px;
-  /* font-family: Inter-Bold; */
   display: block;
   margin: 5px 0 30px;
   font-family: "Poppins", sans-serif;
@@ -243,11 +235,10 @@ div.title {
     content: "";
     width: 190px;
     height: 10px;
-    background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+    background: url('/assets/images/tittleLine.png')
       center center / cover no-repeat;
     display: block;
     margin: -25px auto;
-    /* position: absolute; */
   }
   span.sd {
     color: #7814a1;
@@ -299,7 +290,7 @@ span.sc-NUcrz.jrxmYg.center.col-md-12:after {
   content: "";
   width: 190px;
   height: 10px;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+  background: url('/assets/images/tittleLine.png')
     center center/cover no-repeat;
   display: block;
   margin: 0px auto;
@@ -331,20 +322,20 @@ td img {
       -webkit-box-pack: center;
       justify-content: center;
       color: rgb(255, 255, 255);
-      font-size: 21px;
+      font-size: 14px;
   }
   .custom-row{
       width: 100%;
         display: flex;
         flex-direction: column;
-        padding: 0rem 17rem 2.5rem;
+        padding: 0rem 2rem 2.5rem;
         align-items: flex-start;
     }
     #m-main:after {
       content: "";
       width: 190px;
       height: 10px;
-      background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+      background: url('/assets/images/tittleLine.png')
         center center / cover no-repeat;
       display: block;
       margin: 5px auto;
@@ -398,18 +389,19 @@ td img {
 @media (max-width:767px) {
   #mail-content{
     height: 100px;
-    width: 80%;
+    width: 90%;
     font-size: 14px;
     border: none;
     border: 1px solid #8f99a3;
-    margin: 4px;
+    margin: 4px 16px 4px;
     border-radius: 4px;
     background: transparent;
-    width: 19em;
+    /* width: 26.6em; */
     height: 6em;
   }
   .btn-sub{
-    width: 100%;
+    margin-left: 10px;
+    width: 95%;
     height: auto;
     background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
     color: white;
@@ -422,11 +414,11 @@ td img {
   }
   .input{
     height: 50px;
-    width: 80%;
+    width: 100% !important;
     font-size: 14px;
     border: none;
     background: transparent;
-    margin: 4px;
+    margin: 4px 0px 4px;
     border: 1px solid #8f99a3;
     border-radius: 4px;
     padding: 10px;
@@ -450,25 +442,42 @@ td img {
   content: "";
   width: 190px;
   height: 10px;
-  background: url(https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/tittleLine.png)
+  background: url('/assets/images/tittleLine.png')
     center center / cover no-repeat;
   display: block;
   margin: -6px auto;
-  /* position: absolute; */
 }
-  
-/* .sd:before {
-  content: "";
-  width: 100%;
-  height: 300px;
-  background: url(https://kheloo.com/images/Banner11.jpg)
-    center center / cover no-repeat;
-  display: block;
-  margin: -6px auto;
-   position: absolute; 
-} */
   
 }
   #get-content{
     padding: 20px;
   }
+  .col{
+    color: #fff;
+    text-align: center;
+  }
+  .custom .mat-mdc-form-field-infix {
+    /* min-height: var(--mat-form-field-container-height); */
+    padding-top: 0px !important;
+     padding-bottom: 0px !important;
+}
+:root
+.custom  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    /* background: transparent; */
+    border: 1px solid #fff !important;
+    /* color: white !important; */
+}
+#m-main{
+  margin-left: 2rem;
+    font-size: 2rem;
+
+}
+ :ng-deep #mat-input-0::placeholder {
+  color: #fff !important;
+}
+input[type="text"]::placeholder {
+  color: #fff !important;
+}
+input[type="email"]::placeholder {
+  color: #fff !important;
+}

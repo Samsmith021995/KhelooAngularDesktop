@@ -1,77 +1,93 @@
 <div class="bottom_navbar secondary_navbar">
     <ul>
         <li class="bottom_main_li customerLi">
-            <a href="javascript:void(0)" class="secondaryAnchor customerChat">
-                <img src="https://kheloo.com//images/promotion_footer.svg" class="support_img">
-                <img src="https://kheloo.com//images/close.png" class="support_close_img">
+            <a href="javascript:void(0)" class="secondaryAnchor customerChat" (click)="showSupport()">
+                <img src="/assets/images/promotion_footer.png" class="support_img" *ngIf="!showSp">
+                <img src="/assets/images/close.png" class="support_close_img" *ngIf="showSp">
                 <span>Support</span>
             </a>
-            <ul class="ms-nav">
-                <li class="ms-li ms-li3 ms-li-last">
-                    <a target="_blank"
+            @if(showSp){
+                <ul class="ms-nav" [ngClass]="{'customer_show':showSp}">
+                    <li class="ms-li ms-li3 ms-li-last">
+                        <a target="_blank"
+                        href="https://t.me/+447897045261">
+                        <img src="/assets/images/telegram.png">
+                    </a>
+                </li>
+                    <li class="ms-li ms-li3 ms-li-last">
+                        <a target="_blank"
                         href="https://api.whatsapp.com/send/?phone=447897045261&amp;text&amp;app_absent=0">
-                        <img src="https://kheloo.com//images/Kheloo-whatsapp.png">
+                        <img src="/assets/images/whatsapp.png">
                     </a>
                 </li>
                 <li class="ms-li ms-li3 ms-li-last">
                     <a target="_blank" href="https://tawk.to/chat/60a22370185beb22b30ddc1d/1f5slks90">
-                        <img src="https://kheloo.com//images/chat.png">
+                        <img src="/assets/images/chat.png">
                     </a>
                 </li>
+                @if(isLoggedIn){
+                <li class="ms-li ms-li3 ms-li-last">
+                    <a class="call-supp" target="_blank" (click)="requestCallback()">
+                        <img src="/assets/images/call_support.png" class="support-c" />
+                        <br>
+                      </a>
+                </li>
+            }
             </ul>
+             }
         </li>
         <li class="bottom_main_li horizontal_scroll_footer">
             <div class="more_bottom_footer_options" (click)="openMenu()">
-                <i class="fa fa-plus"></i>
+                <i-feather name="plus"> </i-feather>
             </div>
             <ul id="scroll_bottom" class="swiper-scroll">
-                <li>
-                    <a href="javascript:void(0);" data-toggle="modal" data-target="#LoginModal">
-                        <img src="https://kheloo.com//images/sports-new.png">
+                <li >
+                    <a (click)="gameStart(3306)">
+                        <img src="/assets/images/sports-new.png">
                         <span>
                             Sports
                         </span>
                     </a>
                 </li>
-                <li>
+                <li [ngClass]="{'active':selectedMenu=='Casino'}">
                     <a (click)="updateData('Casino')">
-                        <img src="https://kheloo.com//images/Casino.svg">
+                        <img src="/assets/images/Casino.png">
                         <span>
                             Live Casino
                         </span>
                     </a>
                 </li>
-                <li>
+                <li [ngClass]="{'active':selectedMenu=='Sports'}">
                     <a (click)="updateData('Sports')">
-                        <img src="https://kheloo.com//images/Football.svg">
+                        <img src="/assets/images/Football.png">
                         <span>
                             E-Sports
                         </span>
                     </a>
                 </li>
-                <li>
+                <li [ngClass]="{'active':selectedMenu=='Slots'}">
                     <a (click)="updateData('Slots')">
-                        <img src="https://kheloo.com//images/777.svg">
+                        <img src="/assets/images/svg/slots.svg">
                         <span>Slots</span>
                     </a>
                 </li>
-                <li>
+                <li [ngClass]="{'active':selectedMenu=='Lottery'}">
                     <a (click)="updateData('Lottery')">
-                        <img src="https://kheloo.com//images/Lottery.svg">
+                        <img src="/assets/images/svg/Lottery.svg">
                         <span>Lottery</span>
                     </a>
                 </li>
-                <li>
-                    <a (click)="updateData('Table Games')">
-                        <img src="https://kheloo.com//images/Dice.svg">
+                <li [ngClass]="{'active':selectedMenu=='TableGames'}"> 
+                    <a (click)="updateData('TableGame')">
+                        <img src="/assets/images/Dice.png">
                         <span>
                             Table Games
                         </span>
                     </a>
                 </li>
-                <li>
+                <li [ngClass]="{'active':selectedMenu=='Poker'}">
                     <a (click)="updateData('Poker')">
-                        <img src="https://kheloo.com//images/Poker.svg">
+                        <img src="/assets/images/svg/poker.svg">
                         <span>
                             Poker
                         </span>
@@ -81,18 +97,54 @@
         </li>
         <li class="bottom_main_li">
             @if(isLoggedIn){
-
-                
-                <a href="javascript:void(0);"  class="secondaryAnchor registerFormClass"
-                >
-                <img src="https://kheloo.com/images/deposit.svg">
+            <a  class="secondaryAnchor"
+                (click)="circularOpen()">
+                <img src="/assets/images/deposit.png">
                 <span>Deposit</span>
             </a>
-        }@else {
-            
-            <a href="javascript:void(0);"  class="secondaryAnchor registerFormClass"
-                 (click)="openRegister()">
-                <img src="https://kheloo.com//images/register_footer.svg">
+            @if(circular){
+
+            <div id="circularMenu" class="circular-menu" [ngClass]="{'active':circular}">
+                <a class="floating-btn" (click)="circularOpen()">
+                    <i class="closedDi">X</i>
+                    <img src="/assets/images/depositMenu.svg" class="img-fluid" alt="effect">
+                </a>
+                <div class="outer_bg_circle"></div>
+                <div class="outer_circle_menu">
+                    <ul class="items-wrapper deposit_exists_pie_menu">
+                        <li>
+                            <a (click)="navigate('100')" class="menu-item">
+                                <img src="/assets/images/svg/blue_chip.svg" class="img-fluid chipImg" alt="effect">
+                                <span>₹100</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a (click)="navigate('1000')" class="menu-item">
+                                <img src="/assets/images/green_chip.png" class="img-fluid chipImg" alt="effect">
+                                <span>₹1,000</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a (click)="navigate('5000')" class="menu-item">
+                                <img src="/assets/images/red_chip.png" class="img-fluid chipImg" alt="effect">
+                                <span>₹5,000</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a (click)="navigate('10000')" class="menu-item">
+                                <img src="/assets/images/black_chip.png" class="img-fluid chipImg" alt="effect">
+                                <span>₹10,000</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        }
+            }@else {
+
+            <a  class="secondaryAnchor registerFormClass" (click)="openRegister()">
+                <img src="/assets/images/register_footer.png">
                 <span>Register</span>
             </a>
             }
@@ -103,5 +155,9 @@
     <app-pop-register (onCancel)="closeDial()"></app-pop-register>
 </ng-template>
 <ng-template #mainMenu>
-    <app-m-menu (onCancel)="closeDial1()" (onFilter)="seachData($event)" ></app-m-menu >
+    <app-m-menu (onCancel)="closeDial1()"></app-m-menu>
 </ng-template>
+<ng-template #loginPop>
+    <app-loginpopup (onCancel)="closeDial2()"></app-loginpopup>
+</ng-template>
+<!-- Ashutosh -->

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { CommonServiceService } from '../../service/common-service.service';
 
 @Component({
   selector: 'app-m-menu',
@@ -7,8 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class MMenuComponent implements OnInit {
   @Output() onCancel = new EventEmitter<any>();
-  @Output() onFilter = new EventEmitter<any>();
-  constructor(){}
+  constructor(private comSer:CommonServiceService){}
   ngOnInit(): void {
     
   }
@@ -16,6 +16,12 @@ export class MMenuComponent implements OnInit {
     this.onCancel.emit();
   }
   SelectGame(item:string){
-    this.onFilter.emit(item);
+    this.comSer.sendSearchData(item);
+    this.onCancel.emit();
+    // window.scrollTo({
+    //   top: 1000,
+    //   left: 0,
+    //   behavior: 'smooth'
+    // });
   }
 }

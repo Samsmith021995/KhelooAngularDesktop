@@ -1,14 +1,19 @@
-<div class="swiper" #swiper >
-    <div class="swiper-wrapper">
-      <ng-container *ngFor="let img of images">
-        <div class="swiper-slide"><img [src]="img" alt="" width="100%"></div>
-      </ng-container>
-    </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-scrollbar"></div>
+<div class="swiper" #swiper>
+  <div class="swiper-wrapper">
+    <ng-container *ngFor="let img of images; let i=index">
+      <div class="swiper-slide" [ngClass]="{'padd':location}">
+        <!-- @if(location){
+         <a (click)="searchData(bannersClick[i])"> <img [src]="img" alt="" width="100%"></a>
+        } @else {   -->
+          <img [src]="img" alt="" width="100%">
+        <!-- } -->
+      </div>
+    </ng-container>
   </div>
-  
-
-  
+  <div class="swiper-pagination"></div>
+  @if(prevNext){
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  }
+  <div class="swiper-scrollbar"></div>
+</div>

@@ -18,10 +18,10 @@
                     <h4>General Info</h4>
                     <ul class="footer_sub_ul">
                         <li class="footer_sub_ul_li">
-                            <a routerLink="/about">About Us</a>
+                            <a routerLink="/about-us">About Us</a>
                         </li>
                         <li class="footer_sub_ul_li">
-                            <a routerLink="/contact">Contact Us</a>
+                            <a routerLink="/contact-us">Contact Us</a>
                         </li>
                         <li class="footer_sub_ul_li">
                             <a href="https://blog.kheloo.com/">Blog</a>
@@ -46,23 +46,23 @@
                     <h4>Games</h4>
                     <ul class="footer_sub_ul">
                         <li class="footer_sub_ul_li">
-                            <a href="#">Online Casino Games</a>
+                            <a routerLink="/casino">Online Casino Games</a>
                         </li>
                         <li class="footer_sub_ul_li">
-                            <a href="#">Casino Slot Games</a>
+                            <a routerLink="/slots">Casino Slot Games</a>
                         </li>
                         <li class="footer_sub_ul_li">
-                            <a href="#">Casino Table Games</a>
+                            <a routerLink="/table-game">Casino Table Games</a>
                         </li>
-                        <li class="footer_sub_ul_li">
+                        <!-- <li class="footer_sub_ul_li">
                             <a href="#">Casino Bonus &amp; Offers</a>
-                        </li>
+                        </li> -->
                         <li class="footer_sub_ul_li">
-                            <a href="https://kheloo.com/Home/Privileges">Kheloo Privileges</a>
+                            <a routerLink="/privileges">Kheloo Privileges</a>
                         </li>
-                        <li class="footer_sub_ul_li">
-                            <a href="https://kheloo.com/Home/Tournaments">Tournaments</a>
-                        </li>
+                        <!-- <li class="footer_sub_ul_li">
+                            <a routerLink="/tournaments">Tournaments</a>
+                        </li> -->
                     </ul>
                 </li>
                 <li class="footer_li_menu">
@@ -92,31 +92,40 @@
                         <li class="footer_social_icon_li">
                             <a href="https://in.pinterest.com/kheloo_com/" target="_blank"
                                 class="social_icon_a pin_footer_icon">
-                                <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                <img src="/assets/icons/pinterest.svg">
+                                <!-- <i class="fa fa-pinterest" aria-hidden="true"></i> -->
                             </a>
                         </li>
                         <li class="footer_social_icon_li">
                             <a href="https://www.instagram.com/kheloo_com/" target="_blank"
                                 class="social_icon_a insta_footer_icon">
-                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                                <!-- <i class="fa fa-instagram" aria-hidden="true"></i> -->
+                                <img
+                    src="https://opt-v3-files.raksahb.com/static/media/InstIcon.svg">
                             </a>
                         </li>
                         <li class="footer_social_icon_li">
                             <a href="https://twitter.com/kheloo_21" target="_blank"
                                 class="social_icon_a twitter_footer_icon">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                <!-- <i class="fa fa-twitter" aria-hidden="true"></i> -->
+                                <img
+                    src="https://opt-v3-files.raksahb.com/static/media/TwitterIcon.svg">
                             </a>
                         </li>
                         <li class="footer_social_icon_li">
                             <a href="https://www.youtube.com/channel/UCKJgEqUZ3J50jvL0UAe6ieA" target="_blank"
                                 class="social_icon_a pin_footer_icon">
-                                <i class="fa fa-youtube" aria-hidden="true"></i>
+                                <!-- <i class="fa fa-youtube" aria-hidden="true"></i> -->
+                                <img
+                    src="https://opt-v3-files.raksahb.com/static/media/YoutubeIcon.svg">
                             </a>
                         </li>
                         <li class="footer_social_icon_li">
                             <a href="https://www.linkedin.com/company/kheloo_21/" target="_blank"
                                 class="social_icon_a mail_footer_icon">
-                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                <!-- <i class="fa fa-linkedin" aria-hidden="true"></i> -->
+                                <img
+                    src="/assets/icons/linkedin.svg">
                             </a>
                         </li>
                     </ul>
@@ -128,144 +137,10 @@
             <div class="game_providers_main_container">
                 <h4>Game Providers</h4>
                 <div id="gameCarousel" class="carousel slide">
-                    <app-banner [images]="images" [slidesPerView]="slidesPerViewn"></app-banner>
-                    <!-- <ol class="carousel-indicators">
-    <li data-target="#gameCarousel" data-slide-to="0" class=""></li>
-    <li data-target="#gameCarousel" data-slide-to="1" class="active"></li>
-    <li data-target="#gameCarousel" data-slide-to="2" class=""></li>
-    </ol>
-    
-    <div class="carousel-inner">
-    <div class="item">
-    <div class="row-fluid">
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_provider1.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_2.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_3.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    </div>
-    
-    </div>
-    
-    <div class="item active">
-    <div class="row-fluid">
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_4.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_5.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_6.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    </div>
-    
-    </div>
-    
-    <div class="item">
-    <div class="row-fluid">
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_7.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_8.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_9.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    </div>
-    
-    </div>
-    
-    <div class="item">
-    <div class="row-fluid">
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_10.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_11.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_12.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    </div>
-    
-    </div>
-    
-    <div class="item">
-    <div class="row-fluid">
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_13.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_14.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_15.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    </div>
-    
-    </div>
-    
-    <div class="item">
-    <div class="row-fluid">
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_16.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_17.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    <div class="col-xs-4">
-    <div class="game_provider_thumbnail">
-    <img src="https://kheloo.com/images/game_prover_18.png" alt="Image" style="max-width:100%;">
-    </div>
-    </div>
-    </div>
-    
-    </div>
-    
-    </div> -->
+                    <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [pagination]="pagination" [prevNext]="prevNxt" [location]="footer"></app-banner>
 
-                    <a class="left carousel-control" href="#gameCarousel" data-slide="prev">?</a>
-                    <a class="right carousel-control" href="#gameCarousel" data-slide="next">?</a>
+                    <!-- <a class="left carousel-control" href="#gameCarousel" data-slide="prev">?</a>
+                    <a class="right carousel-control" href="#gameCarousel" data-slide="next">?</a> -->
                 </div>
 
             </div>
@@ -283,16 +158,16 @@
                             <img alt="Neteller" class="neteller" src="/assets/images/PhonePe.png" lazy="loaded">
                         </li>
                         <li>
-                            <img alt="RupeeO" class="rupeeO" src="/assets/images/upi.png" lazy="loaded">
+                            <img alt="RupeeO" class="rupeeO" src="/assets/images/upi.svg" lazy="loaded">
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="download_app_main_container">
                 <h4>Get it on</h4>
-                <div class="download_ios_container">
+                <!-- <div class="download_ios_container">
                     <img src="/assets/images/ios.png">
-                </div>
+                </div> -->
                 <div class="download_ios_container">
                     <a href="https://cdn.kheloo.com/khelooapp.apk"> <img src="/assets/images/android.png"> </a>
                 </div>

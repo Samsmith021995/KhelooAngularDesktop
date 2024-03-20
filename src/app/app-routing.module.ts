@@ -32,9 +32,15 @@ import { FootballBettingComponent } from './main/desktop/footer-content/sports/f
 import { IplBettingComponent } from './main/desktop/footer-content/sports/ipl-betting/ipl-betting.component';
 import { OnlineSportsBettingComponent } from './main/desktop/footer-content/sports/online-sports-betting/online-sports-betting.component';
 import { TennisBettingComponent } from './main/desktop/footer-content/sports/tennis-betting/tennis-betting.component';
-import { WithdrawComponent } from './main/mobile/withdraw/withdraw.component';
 import { MobileGuard } from './guard/mobile.guard';
 import { DesktopGuard } from './guard/desktop.guard';
+import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
+import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
+import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
+import { TableGameComponent } from './main/desktop/footer-content/games/table-game/table-game.component';
+import { ThankYouComponent } from './main/shared/thank-you/thank-you.component';
+import { GamesProviderWiseComponent } from './main/mobile/games-provider-wise/games-provider-wise.component';
+
 const commonSer = new CommonServiceService();
 const routes: Routes = [
   {
@@ -48,177 +54,308 @@ const routes: Routes = [
       {
         path: 'change-password',
         loadChildren: () => import('./main/desktop/auth/change-password/change-password.module').then(m => m.ChangePasswordModule),
-        canActivate:[AuthGuard,DesktopGuard]
+        canActivate: [AuthGuard, DesktopGuard]
       },
       {
         path: 'setting',
         loadChildren: () => import('./main/desktop/setting/setting.module').then(m => m.SettingModule),
-        canActivate:[AuthGuard,DesktopGuard],
-        
+        canActivate: [AuthGuard, DesktopGuard],
+
       },
       {
         path: 'statements',
         loadChildren: () => import('./main/desktop/statement/statement.module').then(m => m.StatementModule),
-        canActivate:[AuthGuard,DesktopGuard]
+        canActivate: [AuthGuard, DesktopGuard]
       },
       {
         path: 'withdraw',
         loadChildren: () => import('./main/desktop/withdrawl/withdrawl.module').then(m => m.WithdrawlModule),
-        canActivate:[AuthGuard,DesktopGuard]
+        canActivate: [AuthGuard, DesktopGuard]
       },
       {
         path: 'deposit',
         loadChildren: () => import('./main/desktop/deposit/deposit.module').then(m => m.DepositModule),
-        canActivate:[AuthGuard,DesktopGuard]
+        canActivate: [AuthGuard, DesktopGuard]
       },
       {
         path: 'promotion',
         loadChildren: () => import('./main/desktop/promotion/promotion.module').then(m => m.PromotionModule),
+        data: {
+          title: 'Kheloo- Promotion',
+          description: ''
+        }
       },
       {
-        path:'poker',
-        component:PokerComponent
+        path: 'poker',
+        component: PokerComponent,
+        data: {
+          title: 'Kheloo- Best Online Poker Games to Earn Real Money',
+          description: 'Play Online Poker to win some exciting cash rewards and bonuses. Explore the variety of Poker games available on Kheloo.com. 24/7 customer support.'
+        }
       },
       {
-        path:'casino',
-        component:CasinoComponent
+        path: 'casino',
+        component: CasinoComponent,
+        data: {
+          title: 'Kheloo-Best Online Casino in India to earn real money',
+          description: 'Kheloo offers the best online casino games like Teen Patti, Blackjack, Slots, Baccarat, Roulette, Poker, and more. Get a welcome bonus of ₹50,000.'
+        }
       },
       {
-        path:'teenpatti',
-        component:TeenpattiComponent
+        path: 'teenpatti',
+        component: TeenpattiComponent,
+        data: {
+          title: 'Kheloo-Play Teen Patti Casino Game Online and Win Real Money',
+          description: 'Play the Teen Patti Game at Kheloo.com and earn real money. Play with friends and people across the world. 24/7 customer support via different means.'
+        }
       },
       {
-        path:'andar-bahar',
-        component:AndarBaharComponent
+        path: 'andar-bahar',
+        component: AndarBaharComponent,
+        data: {
+          title: 'Kheloo- Andar Bahar Online game to win real money',
+          description: 'Play a variety of Andar Bahar games like Super Andar Bahar, Live Andar Bahar, and One Touch Andar Bahar. Get exciting rewards and cash bonuses.'
+        }
       },
       {
-        path:'slots',
-        component:SlotsComponent
+        path: 'slots',
+        component: SlotsComponent,
+        data: {
+          title: 'Best Online Slot Games to Earn Real Money at Kheloo',
+          description: 'Explore a huge range of slot games like 3 Reel Slots, 5 Reel Slots, 7&9 Reel Slots, and 3D Slots. Visit Kheloo.com now to learn more about slots.'
+        }
       },
       {
-        path:'baccarat',
-        component:BaccaratComponent
+        path: 'baccarat',
+        component: BaccaratComponent,
+        data: {
+          title: 'Kheloo-Top Online Baccarat Games to win real money',
+          description: 'Kheloo offers all top-rated Baccarat games where players can play with their friends and online players 24/7. Earn huge bonuses and other rewards.'
+        }
       },
       {
-        path:'roulette',
-        component:RouletteComponent
+        path: 'roulette',
+        component: RouletteComponent,
+        data: {
+          title: 'Kheloo-Play Online Roulette and Win Real Money',
+          description: 'Play some of the best Roulette games at Kheloo. European, French, 3D, and Live Roulette are some of the popular games. Join and start earning today!'
+        }
       },
       {
-        path:'blackjack',
-        component:BlackjackComponent
+        path: 'blackjack',
+        component: BlackjackComponent,
+        data: {
+          title: 'Kheloo-Play Online Blackjack for Real Money in India',
+          description: 'Explore Kheloo for the best online and live Blackjack games like single, multi-hand, and European Blackjack! Get big cash bonuses and rewards.'
+        }
       },
       {
-        path:'about',
-        component:AboutUsComponent
+        path: 'table-game',
+        component: TableGameComponent,
+        data: {
+          title: 'Kheloo- Top Online Casino Table Games in India',
+          description: 'Choose from a huge range of online casino table games at Kheloo. Take advantage of the thrilling bonuses and offers. 24/7 customer support assistance.'
+        }
       },
       {
-        path:'contact',
-        component:ContactUsComponent
+        path: 'about-us',
+        component: AboutUsComponent,
+        data: {
+          title: 'About Kheloo | Know all about Kheloo Online Casino, Sports Betting',
+          description: 'Want to know more about Kheloo Online Casino site? Find out why we are one of the best, and most trusted online casinos & sports betting sites in India.'
+        }
       },
       {
-        path:'affiliates',
-        component:AffiliateComponent
+        path: 'contact-us',
+        component: ContactUsComponent,
+        data: {
+          title: 'Contact Kheloo - Best Gaming App in India ',
+          description: 'If you have any query about how the Kheloo online gaming app works, how to deposit or claim a bonus, or if you have any other issue, get in touch with us.'
+        }
       },
       {
-        path:'faq',
-        component:FaqComponent
+        path: 'affiliates',
+        component: AffiliateComponent,
+        data: {
+          title: 'Affiliates',
+          description: ''
+        }
       },
       {
-        path:'invite-friend',
-        component:InviteFriendComponent
+        path: 'faq',
+        component: FaqComponent,
+        data: {
+          title: 'FAQs',
+          description: ''
+        }
       },
       {
-        path:'disclaimer',
-        component:DisclaimerComponent
+        path: 'invite-friend',
+        component: InviteFriendComponent,
+        data: {
+          title: 'InviteFriend',
+          description: ''
+        }
       },
       {
-        path:'term-condition',
-        component:TermConditionComponent
+        path: 'disclaimer',
+        component: DisclaimerComponent,
+        data: {
+          title: 'Disclaimer',
+          description: ''
+        }
       },
       {
-        path:'privacy-policy',
-        component:PrivacyPolicyComponent
+        path: 'term-condition',
+        component: TermConditionComponent,
+        data: {
+          title: 'TermsConditions',
+          description: ''
+        }
       },
       {
-        path:'cookie-policy',
-        component:CookiePolicyComponent
+        path: 'privacy-policy',
+        component: PrivacyPolicyComponent,
+        data: {
+          title: 'PrivacyPolicy ',
+          description: ''
+        }
       },
       {
-        path:'disconnection-policy',
-        component:DisconnectionPolicyComponent
+        path: 'cookie-policy',
+        component: CookiePolicyComponent,
+        data: {
+          title: 'CookiePolicy',
+          description: ''
+        }
       },
       {
-        path:'cricket-betting',
-        component:CricketBettingComponent
+        path: 'disconnection-policy',
+        component: DisconnectionPolicyComponent,
+        data: {
+          title: 'DisconnectionPolicy',
+          description: ''
+        }
       },
       {
-        path:'football-betting',
-        component:FootballBettingComponent
+        path: 'cricket-betting',
+        component: CricketBettingComponent,
+        data: {
+          title: 'Kheloo- The Best Online Cricket Betting Site',
+          description: 'Have fun betting on top cricket tournaments like IPL, ODI, Twenty20 Cricket World Cup, and more. Top Features include secure payments and bonuses.'
+        }
       },
       {
-        path:'ipl-betting',
-        component:IplBettingComponent
+        path: 'football-betting',
+        component: FootballBettingComponent,
+        data: {
+          title: 'Online Football Betting app in India- Kheloo',
+          description: 'Kheloo offers a range of football betting markets including all leagues worldwide. UEFA Champions League and La Liga are some of the prominent leagues.'
+        }
+
       },
       {
-        path:'online-sports-betting',
-        component:OnlineSportsBettingComponent
+        path: 'ipl-betting',
+        component: IplBettingComponent,
+        data: {
+          title: 'Top Site for IPL Betting- Kheloo',
+          description: 'Explore the world of cricket betting and bet on the finest cricket tournament, the Indian Premier League. Get the latest updates and insights.'
+        }
       },
       {
-        path:'tennis-betting',
-        component:TennisBettingComponent
+        path: 'online-sports-betting',
+        component: OnlineSportsBettingComponent,
+        data: {
+          title: 'Best Online Sports Betting Platform- Kheloo',
+          description: 'Looking for the best site to play sports betting games? Kheloo is here! Bet on different sports like Cricket, Football, Tennis, Kabaddi and more.'
+        }
+      },
+      {
+        path: 'tennis-betting',
+        component: TennisBettingComponent,
+        data: {
+          title: 'Online Tennis Betting Betting Game in India- Kheloo',
+          description: 'Take advantage of top tennis odds, a range of tennis betting markets, and live betting options at Kheloo. Top tournaments- Grand Slam, Davis Cup.'
+        }
+      },
+      {
+        path: 'privileges',
+        component: KhelooPrivilegesComponent,
+        data: {
+          title: 'Privileges',
+          description: ''
+        }
+      },
+      {
+        path: 'tournaments',
+        component: TournamentsComponent
       },
       //Mobile Start by Ashutosh
 
       {
-        path:'m-setting',
-        loadChildren:()=>import('./main/mobile/m-setting/m-setting.module').then(m=>m.MSettingModule),
-        canActivate:[AuthGuard,MobileGuard]
+        path: 'm-setting',
+        loadChildren: () => import('./main/mobile/m-setting/m-setting.module').then(m => m.MSettingModule),
+        canActivate: [AuthGuard, MobileGuard]
       },
       {
-        path:'m-withdraw',
-        loadChildren:()=>import('./main/mobile/withdraw/withdraw.module').then(m=>m.WithdrawModule),
-        canActivate:[AuthGuard,MobileGuard]
+        path: 'm-withdraw',
+        loadChildren: () => import('./main/mobile/withdraw/withdraw.module').then(m => m.WithdrawModule),
+        canActivate: [AuthGuard, MobileGuard]
       },
       {
-        path:'m-deposit',
-        loadChildren:()=>import('./main/mobile/m-deposit/m-deposit.module').then(m=>m.MDepositModule),
-        canActivate:[AuthGuard,MobileGuard]
+        path: 'm-deposit/:amount',
+        loadChildren: () => import('./main/mobile/m-deposit/m-deposit.module').then(m => m.MDepositModule),
+        canActivate: [AuthGuard, MobileGuard]
       },
       {
-        path:'m-statements',
-        loadChildren:()=>import('./main/mobile/m-statement/m-statement.module').then(m=>m.MStatementModule),
-        canActivate:[AuthGuard,MobileGuard]
+        path: 'm-statements',
+        loadChildren: () => import('./main/mobile/m-statement/m-statement.module').then(m => m.MStatementModule),
+        canActivate: [AuthGuard, MobileGuard]
+      },
+      {
+        path: 'game-provider/:provider',
+        component: GamesProviderWiseComponent,
+        canActivate: [ MobileGuard]
+      },
+      {
+        path: 'thankyou',
+        component: ThankYouComponent,
+        canActivate: []
       }
-
-      //Mobile End by Ashutosh
-      // {
-      //   path: '**',
-      //   loadChildren: () => import('./main/desktop/not-found-page/not-found-page.module').then(m => m.NotFoundPageModule),
-      // },
     ]
   },
   {
+    path: 'signup',
+    component: MSignupComponent,
+    canActivate: []
+  },
+  { path: 'SignUp', redirectTo: '/signup', pathMatch: 'full' },
+  {
     path: 'login',
     component: LoginComponent,
-    canActivate:[LoginGuard]
+    canActivate: [LoginGuard]
   },
   {
     path: 'register',
     component: RegisterComponent,
-    canActivate:[LoginGuard]
+    canActivate: [LoginGuard, DesktopGuard],
+    data: {
+      title: 'Register- Kheloo',
+      description: ''
+    }
   },
   {
     path: 'forgot-password',
     component: ForgotPasswordComponent,
-    canActivate:[LoginGuard]
+    canActivate: [LoginGuard, DesktopGuard]
   },
   {
     path: 'games/:id',
     component: GamePlatformComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
   { path: '404', component: NotFoundComponent },
-  { path: '**', redirectTo: '/404', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 
 
 ];

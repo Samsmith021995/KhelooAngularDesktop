@@ -3,8 +3,7 @@
         <h2>WithDraw Details</h2>
     </div>
     <p class="help-text text-lg-right">
-        <a href="/m-withdraw/withdraw-info" class="withPlay"> How to Withdraw <i class="fa fa-question-circle"
-                aria-hidden="true"></i></a>
+        <a href="/m-withdraw/withdraw-info" class="withPlay"> How to Withdraw <i-feather name="help-circle"></i-feather></a>
     </p>
     <div class="tab" role="tabpanel">
 
@@ -28,7 +27,7 @@
                             formControlName="AccountHolderName" placeholder="Bank Account Holder Name">
                     </div>
                     <div class="bank_input_container">
-                        <input matInput type="number" class="form-control"
+                        <input matInput type="text" class="form-control"
                             formControlName="AccountNumber" placeholder="Bank Account Number">
                     </div>
                     <div class="bank_input_container">
@@ -84,14 +83,14 @@
                                     <div class="with_reverse_container col-xs-4">
                                         <!-- ngIf: wd.StatusCode == 'P' -->
                                         <ng-container *ngIf="item.StatusCode == 'P'">
-                                            <button (click)="reverseWithdraw(item)">Reverse</button>
+                                            <button (click)="reverseWithdraw(item)" class="reversebtn">Reverse</button>
                                         </ng-container>
                                     </div>
                                     <div class="with_date_container col-xs-4">
                                         <p class="date_title_text">Date &amp; Time</p>
                                         <p class="date_text">
                                             <span class="date_span_with"> {{item.CreatedDate | date:'mediumDate'}}</span>
-                                            <span class="time_span_with">{{item.CreatedDate | date:'shortTime'}}</span>
+                                            <span class="time_span_with">  {{item.CreatedDate | date:'shortTime'}}</span>
                                         </p>
                                     </div>
                                 </div>

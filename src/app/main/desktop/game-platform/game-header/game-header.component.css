@@ -1,0 +1,106 @@
+.header-container {
+    background-color: #100c25;
+    align-items: center;
+    padding: 0px 10px;
+    position: relative;
+  }
+  
+  button {
+    background: -webkit-linear-gradient(top, #f4c84b, #ffd400, #ff9200);
+    margin: 0px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-family: inherit;
+    font-weight: 400;
+    letter-spacing: unset;
+    text-transform: capitalize;
+    color: #000;
+    border: none;
+    padding: 5px 25px;
+  
+    i-feather {
+      width: 20px;
+      height: 20px;
+  
+    }
+    @media (max-width:300px) {
+      padding: 2px 2px;
+    }
+  }
+  
+  .header-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .join-button {
+    position: absolute;
+    right: 95px;
+  }
+  
+  .login-button {
+    position: absolute;
+    right: 10px;
+  }
+  
+  
+  .sp-icon {
+    width: 20px !important;
+    stroke-width: 3px !important;
+  }
+  
+  @media (max-width: 350px) {
+    .join-button,
+    .login-button {
+      position: static;
+    }
+  
+    #container {
+      margin-top: 30px;
+    }
+  }
+  
+  .logout-btn {
+    float: right;
+    padding-top: 5px;
+  
+  }
+  
+  .login-user {
+    font-weight: 500;
+    color: #ffb202;
+    float: right;
+    margin-right: 10px;
+  
+    font-size: 14px;
+  }
+  
+  .user-details {
+    padding-top: 5px;
+  }
+  
+  .user-cir {
+    height: 16px !important;
+    width: 16px !important;
+  }
+  
+  
+  .inner-con {
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  i-feather[name="power"] {
+    stroke-width: 3px;
+    padding: 2px 3px;
+  }
+
+  .logo {
+    width: 100px;
+  }
+  .logout-btn{
+    margin-top: 10px
+  }

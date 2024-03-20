@@ -31,7 +31,7 @@ export class WithdrawComponent implements OnInit {
       AccountNumber: ['', Validators.required],
       BankName: ['', Validators.required],
       BranchName: ['', Validators.required],
-      Amount: ['0', Validators.required],
+      Amount: ['', Validators.required],
       IfscCode: ['', Validators.required],
     });
   }
@@ -54,8 +54,8 @@ export class WithdrawComponent implements OnInit {
       this.apiSer.showAlert('Please Fill the Branch Name', '', 'error');
       return;
     }
-    if (this.withdrawForm.controls['Amount'].value < 1000) {
-      this.apiSer.showAlert('Amount should be more than 1000', '', 'error');
+    if (this.withdrawForm.controls['Amount'].value < 100) {
+      this.apiSer.showAlert('Amount should be more than 100', '', 'error');
       return;
     }
     if (!this.withdrawForm.controls['IfscCode'].value) {
@@ -66,6 +66,7 @@ export class WithdrawComponent implements OnInit {
       next: data => {
         if (data.ErrorCode == '1') {
           this.apiSer.showAlert(data.Result, data.ErrorMessage, 'success');
+          this.withdrawForm.reset();
         } else {
           this.apiSer.showAlert('', data.ErrorMessage, 'error');
         }
@@ -80,10 +81,10 @@ export class WithdrawComponent implements OnInit {
 
   withdrawStatus() {
     // this.api.loaderShow();
+    this.withdrawState = true;
     this.apiSer.apiRequest(config['withdrawState']).subscribe({
       next: data => {
         this.withdrawStatement = data;
-        this.withdrawState = true;
       },
       error: err => {
         this.apiSer.showAlert('Something Went Wrong', 'Please check your internet Connection', 'error');

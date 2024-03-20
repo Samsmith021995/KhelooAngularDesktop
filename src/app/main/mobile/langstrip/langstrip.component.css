@@ -1,0 +1,12 @@
+.lang_div a{
+    text-decoration: none;
+    color: #ebb361;
+}
+.lang_container {
+    background: url('/assets/images/langstrip.png');
+    padding: 25px 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+

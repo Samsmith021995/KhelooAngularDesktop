@@ -1,4 +1,5 @@
 export const environment = {
-    production: false,
-    apiUrl: 'https://kheloo.com/api/'
+    production: true,
+    apiUrl: 'https://userapi.kheloo.com/api/'
+    // apiUrl: 'https://dev.kheloo.com/api/'
 };

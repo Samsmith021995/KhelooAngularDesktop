@@ -13,6 +13,7 @@ export const config:any = {
     "withdrawReq":{endURL:"MyProfileAPI/WithdrawRequest",type:"POST",keyL:"withdrawReq"},
     "withdrawState":{endURL:"MyProfileAPI/GetWithdrawalStatement",type:"GET",keyL:"withdrawState"},
     "depositReq":{endURL:"MyProfileAPI/DepositeUserAmount",type:"POST",keyL:"depositReq"},
+    "depositReq1":{endURL:"MyProfileAPI/DepositeUserAmountV1",type:"POST",keyL:"depositReq1"},
     "getTranscationId":{endURL:"AppPayment/DepositUserPaymentTransaction",type:"GET",keyL:"getTranscationId"},
     "getPaymentGateway":{endURL:"AppPayment/GetPaymentGatewayMasterDetails",type:"GET",keyL:"getPaymentGateway"},
     "getProvider":{endURL:"MyProfileApi/GetUrlBasedOnGameProvider",type:"GET",keyL:"getProvider"},
@@ -20,12 +21,6 @@ export const config:any = {
     "recent":{endURL:"GameV1/GetRecentWithdraw",type:"GET",keyL:"recent"},
     "cancelReq":{endURL:"MyProfileAPI/CancellWithdrawRequest",type:"POST",keyL:"cancelReq"},
     "callback":{endURL:"MyProfileAPI/RequestCallback",type:"GET",keyL:"callback"},
-
-    // MyProfileApi/GetUrlBasedOnGameProvider?game_id=2231
-
-    
-    // https://kheloo.com/MyProfile/CancellWithdrawRequest
-    // Request Method:
-    // POST
+  
 
 }

@@ -34,6 +34,19 @@ import { DPromotionalComponent } from '../desktop/d-promotional/d-promotional.co
 
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
+import { LangstripComponent } from '../mobile/langstrip/langstrip.component';
+import { LangPopupComponent } from '../mobile/langstrip/lang-popup/lang-popup.component';
+import { TableGameComponent } from '../desktop/footer-content/games/table-game/table-game.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
+import { LoginpopupComponent } from '../mobile/loginpopup/loginpopup.component';
+import { MSignupComponent } from '../mobile/m-signup/m-signup.component';
+import { PopRegisterComponent } from '../mobile/pop-register/pop-register.component';
+import { MForgotPasswordComponent } from '../mobile/m-forgot-password/m-forgot-password.component';
+import { MPromotionComponent } from '../mobile/m-promotion/m-promotion.component';
+import { PromotionPopupComponent } from '../mobile/m-promotion/promotion-popup/promotion-popup.component';
+import {LayoutModule} from '@angular/cdk/layout';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 @NgModule({
   declarations: [
     BannerComponent,
@@ -45,7 +58,18 @@ import { allIcons } from 'angular-feather/icons';
     RouletteComponent,
     SlotsComponent,
     DJackpotComponent,
-    DPromotionalComponent
+    DPromotionalComponent,
+    LangstripComponent,
+    LangPopupComponent,
+    TableGameComponent,
+    ThankYouComponent,
+    LoginpopupComponent,
+    MSignupComponent,
+    PopRegisterComponent,
+    MForgotPasswordComponent,
+    MPromotionComponent,
+    PromotionPopupComponent,
+    
   ],
   imports: [
   CommonModule,
@@ -71,6 +95,8 @@ import { allIcons } from 'angular-feather/icons';
   MatCheckboxModule,
   MatDialogModule,
   FeatherModule.pick(allIcons),
+  LayoutModule,
+  MatMomentDateModule
   ],
  exports:[
   PokerComponent,
@@ -83,6 +109,15 @@ import { allIcons } from 'angular-feather/icons';
   SlotsComponent,
   DJackpotComponent,
   DPromotionalComponent,
+  LangstripComponent,
+  LangPopupComponent,
+  TableGameComponent,
+  LoginpopupComponent,
+  MSignupComponent,
+  PopRegisterComponent,
+  MForgotPasswordComponent,
+  MPromotionComponent,
+  PromotionPopupComponent,
   CommonModule,
   FormsModule,
   HttpClientModule,
@@ -105,7 +140,12 @@ import { allIcons } from 'angular-feather/icons';
   MatSlideToggleModule,
   MatCheckboxModule,
   FeatherModule,
+  LayoutModule,
+  MatMomentDateModule
  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'en-US' },
+  ]
 })
 export class SharedModule { }

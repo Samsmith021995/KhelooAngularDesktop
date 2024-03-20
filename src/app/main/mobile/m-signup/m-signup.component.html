@@ -1,0 +1,234 @@
+<!-- <div class="container-fluid">
+    @if(isSmallScreen){
+         <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [pagination]="pagination"></app-banner>
+    }
+    <div class="">
+        <div class="row cont">
+            <div>
+            <form [formGroup]="signUp">
+                @if(!otpVerify){
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="Mobile" (keydown)="validateNumber($event)">
+                        <button (click)="getCode()" class="getC" *ngIf="getcodeBtn">
+                            <p *ngIf="!showTimer">Get Code</p>
+                            <p *ngIf="showTimer">{{startSec}}</p>
+                            
+                        </button>
+                    </mat-form-field>
+
+                   
+                </div>
+                }
+                @if(inputVerify){
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <input matInput type="number" name="" id="" formControlName="OTP" placeholder="OTP">
+                    </mat-form-field>
+                </div>
+
+                }
+                @if(otpVerify && verificationCode){
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="UserName" placeholder="UserName">
+                        
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="FName" placeholder="FName">
+                        
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="LName" placeholder="LName">
+                        
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 30%; margin-right: 5px;">
+                        <input matInput type="text" name="" id="" formControlName="DD" placeholder="DD">
+                        
+                    </mat-form-field>
+                    <mat-form-field style="width: 30%; margin-right: 5px;">
+                        <input matInput type="text" name="" id="" formControlName="MM" placeholder="MM">
+                        
+                    </mat-form-field>
+                    <mat-form-field style="width: 30%; margin-right: 3px;">
+                        <input matInput type="text" name="" id="" formControlName="year" placeholder="year">
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="Ref" placeholder="Refferal">
+                    </mat-form-field>
+                </div>
+                <div class="signForm">
+                    <mat-form-field style="width: 100%;">
+                        <input matInput type="text" name="" id="" formControlName="Password" placeholder="Password">
+                    </mat-form-field>
+                </div>
+                }
+                <button (click)="onSubmit()" class="next-step">
+                   <ng-container *ngIf="btnLoading; else content">
+                          <i-feather name="loader"></i-feather>
+                        </ng-container>
+                        <ng-template #content>
+                          {{ !otpVerify ? 'Next' : 'Submit' }}
+                        </ng-template>
+                </button>
+            </form>
+            @if(!otpVerify){
+            <div style="margin-top: 10px;">
+                <span style="color: #6c757d;">  Already have account ? </span> <a  href="/login" style="text-decoration: none;color: #fff;">Login</a>
+
+            </div>
+        }
+    </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container-fluid">
+    @if(!isSmallScreen){
+    <a class="navbar-brand fw-bold" href="/">
+
+        <img src="/assets/images/logo.gif" class="logo">
+    </a>
+}
+    <div class="image-overlay-container">
+        <!-- @if(isSmallScreen){
+        <img src="/assets/images/mobileSingupNew.jpeg" alt="" class="background-image">
+        } @else{
+        <img src="/assets/images/signupNew.jpeg" alt="" class="background-image">
+        } -->
+        @if(isSmallScreen){
+            <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [pagination]="pagination"></app-banner>
+       }
+       @else{
+        <img src="/assets/images/signupNew.jpeg" alt="" class="background-image">
+        } 
+    </div>
+    <div class="overlay-content" [ngClass]="{otpVeri:otpVerify && !isSmallScreen}">
+        <div class="row cont1">
+            <div class="sign">
+                <h2 style="color: #fff;">Create New Account</h2>
+                <form [formGroup]="signUp">
+                    @if(!otpVerify){
+                    <div class="signFormnew">
+                        <mat-form-field style="width: 100%;" class="materialI">
+                            <mat-icon matPrefix class="icon-border-right"><i-feather
+                                    name="smartphone"></i-feather></mat-icon>
+                            <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="Mobile"
+                                (keydown)="validateNumber($event)">
+                            <button (click)="getCode()" class="getC" *ngIf="getcodeBtn"
+                                [disabled]="showTimer || getTimer">
+                                <ng-container *ngIf="showTimer; else content1">
+                                    {{startSec}}
+                                </ng-container>
+                                <ng-template #content1>
+                                    <i-feather name="loader" *ngIf="getTimer"></i-feather>
+                                    @if (!getTimer) {
+                                    Get Code
+                                    }
+                                </ng-template>
+                            </button>
+                        </mat-form-field>
+                    </div>
+                    }
+                    @if(inputVerify){
+                    <div class="signFormnew">
+                        <mat-form-field style="width: 100%;" class="materialI">
+                            <input matInput type="number" name="" id="" formControlName="OTP" placeholder="OTP">
+                        </mat-form-field>
+                    </div>
+
+                    }
+                    @if(otpVerify && verificationCode){
+                    <div class="signFormnew">
+                        <mat-form-field style="width: 100%;" class="materialI">
+                            <mat-icon matPrefix class="icon-border-right"><i-feather name="user"></i-feather></mat-icon>
+                            <input matInput type="text" name="" id="" formControlName="UserName" placeholder="UserName">
+
+                        </mat-form-field>
+                    </div>
+                    <div class="signFormnew">
+                        <mat-form-field style="width: 49%;margin-right: 5px;" class="materialI material2">
+                            <mat-icon matPrefix class="icon-border-right"><i-feather name="user"></i-feather></mat-icon>
+                            <input matInput type="text" name="" id="" formControlName="FName" placeholder="First Name">
+                        </mat-form-field>
+                        <mat-form-field style="width: 49%;" class="materialI">
+                            <!-- <mat-icon matPrefix class="icon-border-right"><i-feather name="user"></i-feather></mat-icon> -->
+                            <input matInput type="text" name="" id="" formControlName="LName" placeholder="Last Name">
+                        </mat-form-field>
+                    </div>
+                    <!-- <div class="signFormnew">
+                </div> -->
+                    <div class="signFormnew">
+                        <!-- <mat-form-field style="width: 30%; margin-right: 5px;" class="materialI">
+                        <input matInput type="date" name="" id="" formControlName="DD" placeholder="DD">  
+                    </mat-form-field>
+                    <mat-form-field style="width: 30%; margin-right: 5px;" class="materialI">
+                        <input matInput type="text" name="" id="" formControlName="MM" placeholder="MM">
+                        
+                    </mat-form-field> 
+                    <mat-form-field style="width: 30%; margin-right: 3px;" class="materialI">
+                        <input matInput type="text" name="" id="" formControlName="year" placeholder="year">
+                    </mat-form-field>-->
+                        <!-- <input matInput [matDatepicker]="datepicker">
+  <mat-hint>MM/DD/YYYY</mat-hint> -->
+                        <mat-form-field style="width: 49%; margin-right: 5px;" class="materialI material2">
+                            <input matInput formControlName="DOB" placeholder="DOB" [matDatepicker]="picker" (focus)="picker.open()" (click)="picker.open()">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+
+                        </mat-form-field>
+                        <mat-form-field style="width: 49%;" class="materialI">
+                            <input matInput type="text" name="" id="" formControlName="Ref" placeholder="Refferal">
+                        </mat-form-field>
+                    </div>
+                    <div class="signFormnew">
+                    </div>
+                    <div class="signFormnew">
+                        <mat-form-field style="width: 100%;" class="materialI">
+                            <mat-icon matPrefix class="icon-border-right"><i-feather name="lock"></i-feather></mat-icon>
+                            <input matInput type="text" name="" id="" formControlName="Password" placeholder="Password">
+                        </mat-form-field>
+                    </div>
+                    }
+                    <button (click)="onSubmit()" class="next-step1" [disabled]="!showTimer">
+                        <ng-container *ngIf="btnLoading; else content">
+                            <i-feather name="loader"></i-feather>
+
+                        </ng-container>
+                        <ng-template #content>
+                            {{ !otpVerify ? 'Next' : 'Submit' }}
+                        </ng-template>
+                    </button>
+                </form>
+                @if(!otpVerify){
+                <div style="margin-top: 10px;">
+                    <span style="color: #ccc;"> Already have an account ? </span> <a href="/login"
+                        style="text-decoration: none;color: #fff;">Login</a>
+                </div>
+                }
+            </div>
+        </div>
+        <br>
+        <div>
+            <a href="https://tawk.to/chat/60a22370185beb22b30ddc1d/1f5slks90" target="_blank"><img src="/assets/images/call_support.png" alt="" width="30px"></a>&nbsp;&nbsp;
+          <a href="https://api.whatsapp.com/send/?phone=447897045261&text&app_absent=0" target="_blank">  <img src="/assets/images/whatsapp.png" alt="" width="30px"></a>
+
+        </div>
+    </div>
+</div>

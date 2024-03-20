@@ -1,7 +1,155 @@
-@import url(https://kheloo.com/Content/OurAssest/PageCss/StatementCss.css);
 .statement_info_containe{
     display: none;
 }
 .showMore{
     display: block;
+}
+
+.statement_main_container .table_container {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: hsla(0,0%,100%,.03);
+    color: #8f99a3;
+    display: table;
+}
+.statement_main_container .table_container{    border-collapse: collapse;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #000;
+    color: #8f99a3;
+    display: table;
+}
+.statement_main_container .table_heading {
+    /* width: 16%; */
+    text-align: center;
+    padding: 10px 17px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+    line-height: normal;
+    vertical-align: middle;
+    display: table-cell;
+}
+.statement_main_container .table_heading_container {
+    border-bottom: 1px solid #f9bb22;
+    background: #0e0e0e;
+    WIDTH: 100%;
+}
+ul.statement_inner_ul {
+    padding: 15px 15px 0;
+    margin: 10px 20px;
+    list-style: none;
+}
+.statement_main_container .table_body {
+    padding: 15px 0;
+}
+.statement_main_container .statement_action {
+    width: 15%;
+    padding-left: 10px;
+}
+.statement_main_container .table_col {
+    word-break: break-all;
+    font-size: 12px;
+    display: table-cell;
+    padding: 5px 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+img {
+    max-width: 100%;
+}
+.statement_main_container .statement_bet {
+    width: 19%;
+}
+.statement_main_container .table_col {
+    word-break: break-all;
+    font-size: 12px;
+    display: table-cell;
+    padding: 5px 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+.cilckable_row {
+    padding: 15px 0;
+}
+
+
+.cilckable_row:nth-child(even){
+    background: rgba(255,255,255,7%);
+}
+.loyalty-table {
+    margin: 56px 0 !important;
+    overflow-x: scroll;
+}
+
+.view1{
+    text-align: center;
+    display: block;
+}
+
+
+.loading-shimmer {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
+    background-size: 1000px 100%;
+}
+
+th {
+ text-align: left; 
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -100px 0;
+    }
+    100% {
+        background-position: 100px 0;
+    }
+}
+
+
+.circle {
+  height: 70px;
+  width: 70px;
+  border-radius: 35px;
+}
+
+.box {
+  height: 70px;
+  width: 70px;  
+}
+
+.line {
+  height: 30px;
+  width: 100%;
+}
+.viewmore{
+    text-align: center;
+}
+
+.viewbtn{
+    border: 1px solid white;
+    color: white;
+    margin: 10px 0;
+    padding: 7px 30px;
+    border-radius: 5px;
+}
+.table_heading {
+    i-feather{
+        color:#f9bb22;
+    }
+}
+.statement_list_title{
+    color:#f4ad09;
+    text-transform: uppercase;
+    font-weight: 500;
+    
+
+}
+.statement_info_containe{
+    border-top: 1px solid #212326;
+    font-size: 12px;
 }

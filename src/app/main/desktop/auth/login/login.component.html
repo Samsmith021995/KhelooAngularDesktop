@@ -7,17 +7,17 @@
                     <a class="navbar-brand fw-bold" href="/">
                         <img src="/assets/images/logo.gif" class="logo" >
                       </a>
-                    <div class="row">
+                    <div class="row mobileRow">
                         <div class="col-lg-10 col-xl-7 mx-auto">
 
-                            <h3 class="display-4 logintitle">Sign in, we are waiting for you</h3>
+                            <h3 class="display-4 logintitle"></h3>
                             <p class="text-muted mb-4 loginsubtitle">Already have an account?</p>
                             <form [formGroup]="loginform">
                                 <div class="form-group mb-3 anu-class">
                                     <mat-form-field style="width: 100%;">
                                         <input id="inputEmail" type="number" placeholder="Mobile Number"
                                             class="form-control rounded-pill border-0 px-4" matInput
-                                            formControlName="Mobile" maxlength="10">
+                                            formControlName="Mobile" maxlength="10" (keydown)="validateNumber($event)">
                                         <mat-error *ngIf="loginform.controls['Mobile'].hasError('required')">This is
                                             required field</mat-error>
                                     </mat-form-field>
@@ -36,13 +36,28 @@
                                     </mat-form-field>
                                 </div>
                                 
-                                <p class="text-muted mb-4 loginsubtitle"><a class="ftr-n-link-bc undefined"
-                                        routerLink="/forgot-password">Forgot your password?</a></p>
-                                <button _ngcontent-ng-c1731079979="" type="button" class="btn btn-primary btn-lg mx-3"
-                                    (click)="login()" [disabled]="loginform.invalid">
-                                    <span *ngIf="!showsubmitbtn">SIGNIN</span>
-                                    <span *ngIf="showsubmitbtn"><i-feather name="loader"></i-feather></span>
+                                <p class="text-muted mb-4 loginsubtitle">
+                                    @if(!isSmallScreen){
+                                        <a class="ftr-n-link-bc undefined"
+                                            routerLink="/forgot-password">Forgot your password?</a>
+                                            
+                                        }@else {
+                                        <a class="ftr-n-link-bc undefined"
+                                            (click)="forgotPassword()">Forgot your password?</a>
 
+                                    }
+                                    </p>
+                                <button _ngcontent-ng-c1731079979="" type="button" class="btn btn-primary btn-lg mx-3 "
+                                    (click)="login()" [disabled]="loginform.invalid">
+                                    <ng-container *ngIf="btnLoading; else content">
+                                        <i-feather name="loader" class="btn-loader"></i-feather>
+                                    </ng-container>
+                                    <ng-template #content>
+                                        <span>
+                                            SIGNIN
+                                        </span> 
+                                    </ng-template>
+                                   
                                 </button>
 
                             </form>
@@ -57,3 +72,7 @@
 
     </div>
 </div>
+
+<ng-template #forgotPass>
+    <app-m-forgot-password (onCancel)="closePopup()"></app-m-forgot-password>
+</ng-template>

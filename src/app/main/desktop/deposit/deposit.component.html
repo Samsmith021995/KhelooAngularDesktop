@@ -49,7 +49,8 @@
                         <div class="col-lg-10 col-xl-7 mx-auto">
                             <ng-container *ngFor="let item of paymentGateway">
 
-                                <a target="_blank" href="{{ item.PaymentUrl + transcationIdFinal}}">
+                                <!-- <a target="_blank" href="{{ item.PaymentUrl + transcationIdFinal}}"> -->
+                                <a (click)="finalpayProcess(item)">
 
                                     <div class="bl_promotion_list_main_container ng-scope"
                                         ng-repeat="deposit in UserPaymentGetway">
@@ -68,7 +69,7 @@
                                                         <p class="bl_prom_heading">{{item.SubTitle}}</p>
                                                     </div>
                                                     <div class="bl_ind_img_container">
-                                                        <img src="https://kheloo.com/{{ item.ImageUrl }}"
+                                                        <img src="/assets/{{ item.ImageUrl }}"
                                                             class="bl_prom_image" alt="" width="100" height="52">
                                                     </div>
                                                 </div>

@@ -25,6 +25,7 @@ export class RegisterComponent {
   private apiSubscriber: Subscription[] = [];
   registerForm !: FormGroup;
    mobilenumber : any;
+   refText:string='';
    otpVerify: boolean = false;
    formDetails: boolean = false;
    typepass: string = 'password';
@@ -45,6 +46,10 @@ export class RegisterComponent {
   }
 
   ngOnInit(): void {
+    let ref = localStorage.getItem('Ref');
+    if(ref){
+      this.refText =  ref;
+    }
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.isAuthLoading = ('verifyOtp' in loading || 'otp' in loading || 'signUp' in loading) ? true : false;
     });
@@ -54,6 +59,7 @@ export class RegisterComponent {
       LName: ["", [Validators.required]],
       Mobile: ["", [Validators.required]],
       Password: ["", [Validators.required]],
+      Ref: [this.refText,],
       ConfirmPassword: ["", [Validators.required]],
       DOB: ["", [Validators.required]],
       OTP: ["", [Validators.required]],
@@ -64,9 +70,28 @@ export class RegisterComponent {
     }
     );
 
+    this.registerForm.controls['Mobile'].valueChanges.subscribe(value=>{
+      let strMo = String(value).trim();
+      let digitsOnly = strMo.replace(/\D/g, '');
+      if (digitsOnly && digitsOnly.length >= 10) {
+        let trimmedValue = digitsOnly.substring(0, 10);
+        this.registerForm.controls['Mobile'].setValue(trimmedValue, { emitEvent: false });
+    }
+    });
+  }
+  validateNumber(event: KeyboardEvent) {
+    const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'];
     
-    
-    
+    const isCopy = event.ctrlKey && event.key === 'c';
+    const isPaste = event.ctrlKey && event.key === 'v';
+    const isCmdCopy = event.metaKey && event.key === 'c'; 
+    const isCmdPaste = event.metaKey && event.key === 'v'; 
+    const isCmdselect = event.metaKey && event.key === 'a'; 
+    const isSelect = event.ctrlKey && event.key === 'a'; 
+  
+    if (!allowedKeys.includes(event.key) && !isCopy && !isPaste && !isCmdCopy && !isCmdPaste && !isCmdselect && !isSelect) {
+      event.preventDefault();
+    }
   }
   onSubmit(){
     let param = this.registerForm.getRawValue();
@@ -101,7 +126,7 @@ export class RegisterComponent {
         ).subscribe(data => {
           // if (data.ErrorCode != '1') {
             // this.apiSer.showAlert('', data.ErrorMessage, 'warning');
-            this.router.navigate(['/thanks-registration']);
+            this.router.navigate(['/thankyou']);
             // return;
           // }
         });

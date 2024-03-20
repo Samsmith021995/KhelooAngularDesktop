@@ -46,13 +46,14 @@ export class MStatementComponent implements OnInit {
       }
       if (data) {
         this.details = data;
-        this.ttl = data[0].TotalCount ? data[0].TotalCount : 0;
+        this.ttl = data?.[0]?.TotalCount || 0;
       }
     });
   }
   CallMore() {
     this.pages.RecordCount += 10;
     this.getall();
+    window.scrollBy(0, -200)
 
   }
 

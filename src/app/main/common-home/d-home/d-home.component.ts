@@ -14,6 +14,7 @@ export class DHomeComponent implements OnInit {
   slidesPerViewn : number = 1;
   searchTerm: string = '';
   allResults: any[] = [];
+  subCategorybc: any[] = [];
   filteredResults: { [key: string]: any[] } = {};
   private loaderSubscriber !: Subscription;
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
@@ -32,10 +33,10 @@ export class DHomeComponent implements OnInit {
   subSelected: string = '';
   defaultSlices: number[] = [];
   images = [
-    '/assets/images/Cashback.png',
-    '/assets/images/WELCOME BONUS.png',
-    '/assets/images/VIP offers.png',
-    '/assets/images/LUCK.png',
+    {src:'/assets/images/Cashback.png'},
+    {src:'/assets/images/WELCOME BONUS.png'},
+    {src:'/assets/images/VIP offers.png'},
+    {src:'/assets/images/LUCK.png'},
   ];
 
   ngOnInit(): void {
@@ -86,8 +87,8 @@ export class DHomeComponent implements OnInit {
       this.gamesData[item] = data;
       this.filteredResults[item] = data;
     });
-    console.log(this.gamesData);
-    console.log(item);
+    // console.log(this.gamesData);
+    // console.log(item);
   }
   getAllCategory(cat?: any) {
     this.apiSer.apiRequest(config['gameCategory']).pipe(
@@ -110,6 +111,9 @@ export class DHomeComponent implements OnInit {
       this.selected = cat.mainCat;
       this.mainCategory = Array.from(categorySet);
       this.subCategory = Array.from(subCategorySet);
+      this.subCategorybc = Array.from(subCategorySet);
+     
+    this.subCategorybc = this.subCategorybc.sort().reverse();
     this.subCategory = this.subCategory.sort().reverse();
       this.subCategory.forEach((item: { GameCategory: string; }) => {
         this.defaultSlices.push(20);
@@ -125,7 +129,7 @@ export class DHomeComponent implements OnInit {
     this.router.navigate(['/games', param]);
   }
   showMoreF(item: number) {
-    console.log(item);
+    // console.log(item);
     this.defaultSlices[item] = 20;
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     if (nativeElement) {
@@ -142,12 +146,21 @@ export class DHomeComponent implements OnInit {
   onSearch() {
     if (this.searchTerm.trim() !== '') {
       let param = { GameCategory: this.selected }
-      for (let item of this.subCategory) {
-        const filteredApiResults = this.filteredResults[item].filter(result =>
-          result.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-        );
-        this.gamesData[item] = filteredApiResults;
-      }
+      // for (let item of this.subCategory) {
+      //   const filteredApiResults = this.filteredResults[item].filter(result =>
+      //     result.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      //   );
+      //   this.gamesData[item] = filteredApiResults;
+      // }
+      for (let item of this.subCategorybc) {
+        const filteredApiResultsed = this.filteredResults[item].filter(result =>
+          result.name.toLowerCase().includes(this.searchTerm.toLowerCase()) || 
+          result.groupname.toLowerCase().includes(this.searchTerm.toLowerCase()) || 
+          result.gamecategory.toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+            this.gamesData[item] = filteredApiResultsed;
+    }
+    this.subCategory = this.subCategorybc.filter(item => this.gamesData[item]?.length > 0);
     } else {
       this.gamesData = { ...this.filteredResults };
     }

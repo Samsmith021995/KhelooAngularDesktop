@@ -1,0 +1,29 @@
+.modal-header{
+    /* margin-top: 60px !important; */
+    /* text-align: end; */
+    display: block;
+    /* padding: 20px 0 !important; */
+    position: relative;
+   
+}
+
+.modal-header .close{
+    margin-top: 10px !important;
+    padding-top: 20px;
+    font-size: 14px;
+}
+button.close {
+    outline: unset;
+}
+.promotionModal{
+    max-height: 80%;
+}
+.promotion_modal_header{
+    margin-top: 10px;
+}
+p {
+    color: #fff;
+}
+.promotion_modal_content{
+    color: #8f99a3;
+}

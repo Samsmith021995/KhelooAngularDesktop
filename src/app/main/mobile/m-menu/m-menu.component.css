@@ -1,0 +1,13 @@
+.wizard{
+    background-color: #0b001c;
+    border: 2px solid #f3a432;
+    padding: 15px;
+}
+
+.bottom_more_options_container{
+    padding-bottom: 128px;
+}
+a:focus {
+    outline: unset;
+    outline-offset: -2px;
+}

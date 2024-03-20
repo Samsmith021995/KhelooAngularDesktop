@@ -2,7 +2,7 @@
     font-size: 36px;
     position: relative;
     line-height: 24px;
-    font-weight: 400;
+    font-weight: 700;
     font-family: anton,sans-serif;
     background: -webkit-linear-gradient(#f08f0f 0%, #fff 50%);
     -webkit-background-clip: text;
@@ -17,7 +17,7 @@
    
 }
 .live_sub_container {
-    background: url(https://kheloo.com/images/Withdrawl-Board_9.png) round;
+    background: url('/assets/images/Withdrawl-Board_9.png') round;
     padding: 0;
     padding-bottom: 23px;
     border-radius: 22px;
@@ -39,12 +39,21 @@
     margin-top: 15px;
     position: relative;
     min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 .live_icon_container {
     padding: 5px;
     border: 3px solid #d57f23;
     height: 38px;
     border-radius: 50%;
+}
+.live_title,.live_small_text{
+color: white;
+}
+.jackpotMainContainer {
+    padding-top:  60px;
+}
+.live_main_withdraw_container {
+    margin-top: 30px;
 }
