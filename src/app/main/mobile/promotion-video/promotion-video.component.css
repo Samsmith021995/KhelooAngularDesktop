@@ -8,7 +8,7 @@
 .slides > div {
     scroll-snap-align: start;
     flex-shrink: 0;
-    width: 100%;
+    width: 85%;
     margin-right: 10px;
     border-radius: 0;
     transform-origin: center center;
@@ -24,7 +24,7 @@
 .slides23 > div {
     scroll-snap-align: start;
     flex-shrink: 0;
-    width: 100%;
+    width: 85%;
     margin-right: 10px;
     border-radius: 0;
     transform-origin: center center;
@@ -76,4 +76,21 @@ iframe {
 }
 .disable-cl{
     background-color: #745404 !important;
+}
+.mat-dialog-container {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  @media (max-width: 599px)
+  {
+      .cdk-overlay-pane.mat-mdc-dialog-panel {
+          /* max-width: var(--mat-dialog-container-small-max-width, 100vw); */
+          max-width: 100% !important;
+      }
+          
+}
+
+::ng-deep .cdk-overlay-pane.mat-mdc-dialog-panel {
+    max-width: 100% !important;
+    /* min-width: var(--mat-dialog-container-min-width, 0); */
 }

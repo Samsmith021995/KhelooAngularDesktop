@@ -7,29 +7,15 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './promotion-video.component.html',
   styleUrl: './promotion-video.component.css'
 })
-export class PromotionVideoComponent implements AfterViewInit{
+export class PromotionVideoComponent{
+  @ViewChild('iframe') iframe!: ElementRef<HTMLIFrameElement>;
   @ViewChild('slides') slide!: ElementRef<any>;
-  @ViewChild('video1') video1!: ElementRef<HTMLIFrameElement>;
-  @ViewChild('video2') video2!: ElementRef<HTMLIFrameElement>;
   @ViewChild('videoiframe') videoI!: TemplateRef<any>
   @ViewChild('videoiframe1') videoI1!: TemplateRef<any>
   left:boolean = true;
   right:boolean = false;
-  constructor(private renderer: Renderer2,private dailog:MatDialog) { }
-  ngAfterViewInit() {
-    // this.attachEventListeners(this.video1.nativeElement);
-    this.video1.nativeElement.addEventListener('load', () => {
-      const contentWindow = this.video1.nativeElement.contentWindow;
-      console.log(contentWindow);
-      if (contentWindow) {
-        const videoElement = contentWindow.document.querySelector('video');
-        if (videoElement) {
-          // Access the video element and perform actions here
-        }
-      }
-    });
-    // this.attachEventListeners(this.video2.nativeElement);
-  }
+  constructor(private dailog:MatDialog) { }
+
   scrollLeft() {
     this.left = !this.left;
     this.right = !this.right;
@@ -50,43 +36,30 @@ export class PromotionVideoComponent implements AfterViewInit{
     return this.slide.nativeElement.scrollLeft === (this.slide.nativeElement.scrollWidth - this.slide.nativeElement.clientWidth);
   }
   
-  // attachEventListeners(iframe: HTMLIFrameElement) {
-  //   console.log(iframe);
-  //   iframe.addEventListener('play', () => {
-  //     this.renderer.setStyle(iframe, 'width', '100%');
-  //   });
-
-  //   iframe.addEventListener('pause', () => {
-  //     this.renderer.setStyle(iframe, 'width', '85%');
-  //   });
-  // }
-  attachEventListeners(iframe: HTMLIFrameElement) {
-    iframe.addEventListener('load', () => {
-      const contentWindow = iframe.contentWindow;
-      if (contentWindow) {
-        console.log(contentWindow);
-        
-        // const videoElement = contentWindow.document.querySelector('video');
-        // if (videoElement) {
-        //   videoElement.addEventListener('playing', () => {
-        //     this.renderer.setStyle(iframe, 'width', '100%');
-        //   });
-        //   videoElement.addEventListener('pause', () => {
-        //     this.renderer.setStyle(iframe, 'width', '85%');
-        //   });
-        // }
-      }
-    });
-  }
   openVideo(param:string){
+    let dialogRef :any;
     if(param == '1'){
-      this.dailog.open(this.videoI);
+      dialogRef = this.dailog.open(this.videoI,{width:'100%'});
     
       
     }else if(param == '2'){
-      this.dailog.open(this.videoI1);
+      dialogRef = this.dailog.open(this.videoI1,{width:'100%'});
 
     }
+    dialogRef.afterOpened().subscribe(() => {
+      // When the dialog is opened, trigger the play action on the video
+      const iframeElement = this.iframe.nativeElement;
+      iframeElement.addEventListener('load', () => {
+        const contentWindow = iframeElement.contentWindow;
+        if (contentWindow) {
+          const videoElement = contentWindow.document.querySelector('video');
+          if (videoElement) {
+            // Play the video when the iframe content is loaded
+            videoElement.play();
+          }
+        }
+      });
+    });
   }
 }
 
