@@ -29,8 +29,8 @@ export class MSignupComponent implements OnInit {
   pagination: boolean = false;
   datepicker: any = new Date();
   images = [
-    '/assets/images/sign-up-bg-new1.jpg',
     '/assets/images/sign-up-bg-new2.jpg',
+    '/assets/images/sign-up-bg-new1.jpg',
     '/assets/images/sign-up-bg-new3.jpg',
     '/assets/images/sign-up-bg-new4.jpg',
   ];
@@ -148,10 +148,10 @@ export class MSignupComponent implements OnInit {
     if (!this.otpVerify && !this.verificationCode) {
       this.apiSer.apiRequest(config['verifyOtp'], param).subscribe({
         next: (data) => {
-          // if (data.ErrorCode != '1') {
-          //   this.apiSer.showAlert('', data.ErrorMessage, 'error');
-          //   return;
-          // }
+          if (data.ErrorCode != '1') {
+            this.apiSer.showAlert('', data.ErrorMessage, 'error');
+            return;
+          }
           this.otpVerify = true;
           this.inputVerify = false;
           this.verificationCode = true;
