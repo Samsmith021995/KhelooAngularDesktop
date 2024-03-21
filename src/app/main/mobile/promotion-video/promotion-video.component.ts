@@ -1,5 +1,6 @@
 import { HtmlParser } from '@angular/compiler';
-import { Component, ElementRef, ViewChild,Renderer2, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild,Renderer2, AfterViewInit, TemplateRef } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-promotion-video',
@@ -10,9 +11,11 @@ export class PromotionVideoComponent implements AfterViewInit{
   @ViewChild('slides') slide!: ElementRef<any>;
   @ViewChild('video1') video1!: ElementRef<HTMLIFrameElement>;
   @ViewChild('video2') video2!: ElementRef<HTMLIFrameElement>;
+  @ViewChild('videoiframe') videoI!: TemplateRef<any>
+  @ViewChild('videoiframe1') videoI1!: TemplateRef<any>
   left:boolean = true;
   right:boolean = false;
-  constructor(private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2,private dailog:MatDialog) { }
   ngAfterViewInit() {
     // this.attachEventListeners(this.video1.nativeElement);
     this.video1.nativeElement.addEventListener('load', () => {
@@ -74,6 +77,16 @@ export class PromotionVideoComponent implements AfterViewInit{
         // }
       }
     });
+  }
+  openVideo(param:string){
+    if(param == '1'){
+      this.dailog.open(this.videoI);
+    
+      
+    }else if(param == '2'){
+      this.dailog.open(this.videoI1);
+
+    }
   }
 }
 

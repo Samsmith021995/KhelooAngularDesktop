@@ -1,12 +1,18 @@
 <div>
     <div class="slides" #slides >
         <div id="slide-1" class="slider"  >
-            <iframe src="https://player.vimeo.com/video/759401631?h=27f2be5876" width="640" height="270" frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""  #video1></iframe>
+            <a (click)="openVideo('1')">
+            <img src="/assets/images/promotion1.jpg" alt="" width="100%"> 
+        </a>
+        <!-- <iframe src="https://player.vimeo.com/video/759401631?h=27f2be5876" width="640" height="270" frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""  #video1></iframe> -->
         </div>
         <div id="slide-2" class="slider" >
-            <iframe src="https://player.vimeo.com/video/661405333?h=5cdfbec4d0" width="640" height="270" frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""  #video2 ></iframe>
+            <a (click)="openVideo('2')">
+                <img src="/assets/images/promotion1.jpg" alt="" width="100%"> 
+            </a>
+            <!-- <iframe src="https://player.vimeo.com/video/661405333?h=5cdfbec4d0" width="640" height="270" frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""  #video2 ></iframe> -->
         </div>
     </div>
     <div class="arrow-cl">
@@ -14,3 +20,16 @@
       <button (click)="scrollRight()"    [disabled]="right" [ngClass]="{'disable-cl':right}" class="btn-slider">  <i-feather name="arrow-right"></i-feather></button>
     </div>
 </div>
+
+<ng-template #videoiframe style="margin: 0px !important; padding: 0px !important; width: 100%;">
+    <div id="slide-1" class="slider23"  >
+        <iframe src="https://player.vimeo.com/video/759401631?h=27f2be5876" width="640" height="270" frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""  #video1></iframe>
+    </div>
+</ng-template>
+<ng-template #videoiframe1 style="margin: 0px !important; padding: 0px !important; width: 100%;">
+    <div id="slide-2" class="slider23"  >
+        <iframe src="https://player.vimeo.com/video/661405333?h=5cdfbec4d0" width="640" height="270" frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""   ></iframe>
+    </div>
+</ng-template>
