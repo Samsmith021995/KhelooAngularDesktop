@@ -444,11 +444,12 @@ button.next-step:active {
   .overlay-content {
     width: 100%;
     position: relative;
-    /* bottom: 0vh;  */
-    top: -18rem;
+    bottom: 460px;
+    top: 60%;
     padding: 1em;
     text-align: center;
-    box-shadow: black 2px 2px 2px;
+    /* box-shadow: black 2px 2px 2px; */
+    z-index: 99;
   }
 
   .mat-mdc-form-field-icon-prefix>.mat-icon {
