@@ -13,9 +13,9 @@ defref:any
 image = [
   {name:'lossback25',src:'/assets/images/lossback25.jpeg'},
   {name:'cashbackextra',src:'/assets/images/cashbackextra.jpeg'},
+  {name:'bonus300',src:'/assets/images/bonus300.jpeg'},
   {name:'bonus200',src:'/assets/images/bonus200.jpeg'},
   {name:'bonus150',src:'/assets/images/bonus150.jpeg'},
-  {name:'bonus300',src:'/assets/images/bonus300.jpeg'},
   // {name:'viplossbackBonus',src:'/assets/images/promotion4.jpeg'},
   {name:'firstDeposit',src:'/assets/images/promotionNew.jpeg'},
   {name:'depositBonus',src:'/assets/images/promotion1.jpeg'},
