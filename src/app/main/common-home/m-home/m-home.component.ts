@@ -18,6 +18,7 @@ export class MHomeComponent implements OnInit {
     '/assets/images/lassback25.jpeg',
     '/assets/images/banner10extra.jpeg',
     '/assets/images/extracashbackbanner5.jpeg',
+    '/assets/images/promo7.jpeg',
     '/assets/images/10minwith.png',
     '/assets/images/Banner11.jpeg',
     '/assets/images/Banner18.jpeg',
