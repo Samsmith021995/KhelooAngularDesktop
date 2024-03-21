@@ -8,7 +8,7 @@
 .slides > div {
     scroll-snap-align: start;
     flex-shrink: 0;
-    width: 100%;
+    width: 85%;
     margin-right: 10px;
     border-radius: 0;
     transform-origin: center center;
@@ -35,22 +35,29 @@ iframe {
     height: 3px;
 }
 .slides::-webkit-scrollbar-thumb {
-    background: #fdc600;
+    background: #f5ad60;
     border-radius: 10px;
 }
 
 .arrow-cl{
     color: #fdc601;
     text-align: center;
+    margin-top: 1rem;
     a {
         text-decoration: none;
-        color: #fdc601;
+        color: #fff;
     }
 }
 .btn-slider{
-    background: none;
+    color:#fff;
+    background: #f7ad08;
+    border-radius: 50%;
+    height: 35px;
     border: none;
+    i-feather{
+        stroke-width: 3px !important;
+    }
 }
 .disable-cl{
-    color: #968855 !important;
+    background-color: #745404 !important;
 }
