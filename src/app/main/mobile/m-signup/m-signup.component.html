@@ -100,16 +100,24 @@
 </div> -->
 
 <div class="container-fluid">
+    @if(!isSmallScreen){
     <a class="navbar-brand fw-bold" href="/">
 
         <img src="/assets/images/logo.gif" class="logo">
     </a>
+}
     <div class="image-overlay-container">
-        @if(isSmallScreen){
+        <!-- @if(isSmallScreen){
         <img src="/assets/images/mobileSingupNew.jpeg" alt="" class="background-image">
         } @else{
         <img src="/assets/images/signupNew.jpeg" alt="" class="background-image">
-        }
+        } -->
+        @if(isSmallScreen){
+            <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [pagination]="pagination"></app-banner>
+       }
+       @else{
+        <img src="/assets/images/signupNew.jpeg" alt="" class="background-image">
+        } 
     </div>
     <div class="overlay-content" [ngClass]="{otpVeri:otpVerify && !isSmallScreen}">
         <div class="row cont1">
