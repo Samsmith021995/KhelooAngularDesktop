@@ -16,7 +16,7 @@ export class MHomeComponent implements OnInit {
   slidesPerViewn:number = 1;
   images = [
     '/assets/images/lassback25.jpeg',
-    '/assets/images/banner10extra.jpeg',
+    '/assets/images/checkban.png',
     '/assets/images/extracashbackbanner5.jpeg',
     '/assets/images/promo7.jpeg',
     '/assets/images/10minwith.png',
