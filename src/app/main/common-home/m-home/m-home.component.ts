@@ -15,14 +15,36 @@ import { UrlService } from '../../service/url.service';
 export class MHomeComponent implements OnInit {
   slidesPerViewn:number = 1;
   images = [
-    '/assets/images/lassback25.jpeg',
-    '/assets/images/checkban.png',
-    '/assets/images/extracashbackbanner5.jpeg',
-    '/assets/images/promo7.jpeg',
-    '/assets/images/10minwith.png',
-    '/assets/images/Banner11.jpeg',
-    '/assets/images/Banner18.jpeg',
-    '/assets/images/Dil-se-kheloo_375x250.jpeg'
+    {src:'/assets/images/lassback25.png'},
+    {src:'/assets/images/checkban.png'},
+    {src:'/assets/images/extracashbackbanner5.png'},
+    {src:'/assets/images/promo7.png'},
+    {src:'/assets/images/bonus300banner.png'},
+    // '/assets/images/10minwith.png',
+    // '/assets/images/Banner11.jpeg',
+    // '/assets/images/Banner18.jpeg',
+    // '/assets/images/Dil-se-kheloo_375x250.jpeg'
+  ];
+
+  gamesProvider = [
+    {title:'jpg',src:'/assets/images/game_provider1.png'},
+    {title:'red tiger',src:'/assets/images/game_prover_2.png'},
+    {title:'',src:'/assets/images/game_prover_3.png'},
+    {title:'',src:'/assets/images/game_prover_4.png'},
+    {title:'',src:'/assets/images/game_prover_5.png'},
+    {title:'',src:'/assets/images/game_prover_6.png'},
+    {title:'',src:'/assets/images/game_prover_7.png'},
+    {title:'',src:'/assets/images/game_prover_8.png'},
+    {title:'',src:'/assets/images/game_prover_9.png'},
+    {title:'',src:'/assets/images/game_prover_10.png'},
+    {title:'',src:'/assets/images/game_prover_11.png'},
+    {title:'',src:'/assets/images/game_prover_12.png'},
+    {title:'',src:'/assets/images/game_prover_13.png'},
+    {title:'paly\'s go',src:'/assets/images/game_prover_14.png'},
+    {title:'',src:'/assets/images/game_prover_15.png'},
+    {title:'',src:'/assets/images/game_prover_16.png'},
+    {title:'',src:'/assets/images/game_prover_17.png'},
+    {title:'',src:'/assets/images/game_prover_18.png'},
   ];
   // images = [
   //   {src:'/assets/images/10minwith.png'},
@@ -208,4 +230,11 @@ export class MHomeComponent implements OnInit {
 closeDial2(){
   this.diaRef3.close();
 }
+  clickVal(val:any){
+    this.promotins();
+  }
+  promotins(){
+    this.apiSer.setShowMenu(false);
+    this.apiSer.updatePromotion(true);
+  }
 }

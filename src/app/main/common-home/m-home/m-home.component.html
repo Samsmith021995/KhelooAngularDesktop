@@ -1,70 +1,83 @@
 <br>
 <br>
 <br>
-<app-banner [images]="images" [slidesPerView]="slidesPerViewn"></app-banner>
+<app-banner [images]="images" [slidesPerView]="slidesPerViewn" [location]="false" [clickBanner]="true" (bannerClick)="clickVal($event)"></app-banner>
 <app-langstrip></app-langstrip>
 <app-jackpot></app-jackpot>
 <ng-container *ngIf="!isPromo">
     <div id="scrollToElement">
 
     </div>
-<div class="col-lg-12" >
-    <div class="heading">
-        <h2 id="h2">Games</h2>
-        <img src="/assets/images/heading-border-effect.png" class="img-fluid" alt="effect">
-    </div>
-</div>
-<div class="col-lg-12" >
-    <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="searching()" class="search-class">
-</div>
-<div class="gameing">
-    <div  class="loaderMian" *ngIf="gamelist">
-        
-        <i-feather name="loader"></i-feather>
-    </div>
-    <ng-container *ngFor="let category of subCategory; let i=index;">
-        <div *ngIf="gamesData[category]" class="container">
-            @if(gamesData[category].length>0){
-
-            <span style="color: white;" class="category-btn game_ind_heading_container">
-                <h2 class="h2-heading">{{ category }} ({{gamesData[category].length}})</h2>
-                <button (click)="showMoreF(i)" class="btn-show" *ngIf="gamesData[category].length > 4 && !subSelected">
-                    {{isDetailsVisible[i]?'Show Less':'Show More'}}
-                </button>
-            </span>
-
-            <div style=" color:white; display: flex; width: 100%; flex-wrap: wrap; " #showMore class="ashu"
-                [ngClass]="{'showMore':subSelected}">
-                <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]" style=""
-                    class="casino-game-item shimmerBG">
-                    <img [src]="game.url_thumb" alt="" width="100%">
-                    <div class="min_max_container">
-                        <span class="minValue">
-                            <span ng-show="Item.MaxAmount"> Min.<i>₹</i>{{game.MinAmount}} </span>
-                        </span>
-                        <span class="maxValue ng-binding"
-                            ng-show="Item.MaxAmount">Max.<i>₹</i>{{game.MaxAmount>1000?game.MaxAmount/1000
-                            +'k':game.MaxAmount}}</span>
-                    </div>
-                    <a (click)="gameStart(game.game_id)">
-                        <div class="playbtn">
-                            <img src="/assets/images/play_icon.png" alt="" class="casino-game-item-image-bc"
-                                class="play">
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-            @if( defaultSlices[i] <= gamesData[category].length){ <button (click)="updateSlice(i)"
-                class="btn-show viewmore"
-                *ngIf="gamesData[category].length > 10 && !subSelected && isDetailsVisible[i]">
-                View More
-                </button>
-                }
-                }
+    <div class="col-lg-12">
+        <div class="heading">
+            <h2 id="h2">Games</h2>
+            <img src="/assets/images/heading-border-effect.png" class="img-fluid" alt="effect">
         </div>
-    </ng-container>
-</div>
+    </div>
+    <div class="col-lg-12">
+        <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="searching()" class="search-class">
+    </div>
+    <!-- <div class="game_providers_main_container">
+        <h4>Game Providers</h4>
+        <div id="gameCarousel" class="carousel slide">
+            @for (item of gamesProvider; track $index) {
+                <a (click)="onSearch(item.title)">
+                    <div class="carousel-inner">
+                        <img [src]="item.src" alt="" style="margin-top: 5px;">
+                    </div>
+                </a>
+            }
+        </div>
+    </div> -->
+    <div class="gameing">
+        <div class="loaderMian" *ngIf="gamelist">
+
+            <i-feather name="loader"></i-feather>
+        </div>
+        <ng-container *ngFor="let category of subCategory; let i=index;">
+            <div *ngIf="gamesData[category]" class="container">
+                @if(gamesData[category].length>0){
+
+                <span style="color: white;" class="category-btn game_ind_heading_container">
+                    <h2 class="h2-heading">{{ category }} ({{gamesData[category].length}})</h2>
+                    <button (click)="showMoreF(i)" class="btn-show"
+                        *ngIf="gamesData[category].length > 4 && !subSelected">
+                        {{isDetailsVisible[i]?'Show Less':'Show More'}}
+                    </button>
+                </span>
+
+                <div style=" color:white; display: flex; width: 100%; flex-wrap: wrap; " #showMore class="ashu"
+                    [ngClass]="{'showMore':subSelected}">
+                    <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]" style=""
+                        class="casino-game-item shimmerBG">
+                        <img [src]="game.url_thumb" alt="" width="100%">
+                        <div class="min_max_container">
+                            <span class="minValue">
+                                <span ng-show="Item.MaxAmount"> Min.<i>₹</i>{{game.MinAmount}} </span>
+                            </span>
+                            <span class="maxValue ng-binding"
+                                ng-show="Item.MaxAmount">Max.<i>₹</i>{{game.MaxAmount>1000?game.MaxAmount/1000
+                                +'k':game.MaxAmount}}</span>
+                        </div>
+                        <a (click)="gameStart(game.game_id)">
+                            <div class="playbtn">
+                                <img src="/assets/images/play_icon.png" alt="" class="casino-game-item-image-bc"
+                                    class="play">
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                @if( defaultSlices[i] <= gamesData[category].length){ <button (click)="updateSlice(i)"
+                    class="btn-show viewmore"
+                    *ngIf="gamesData[category].length > 10 && !subSelected && isDetailsVisible[i]">
+                    View More
+                    </button>
+                    }
+                    }
+            </div>
+        </ng-container>
+    </div>
 </ng-container>
 <div *ngIf="isPromo" id="promo">
     <app-m-promotion></app-m-promotion>
