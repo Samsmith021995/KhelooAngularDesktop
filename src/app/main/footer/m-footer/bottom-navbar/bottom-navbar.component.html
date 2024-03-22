@@ -9,14 +9,12 @@
             @if(showSp){
                 <ul class="ms-nav" [ngClass]="{'customer_show':showSp}">
                     <li class="ms-li ms-li3 ms-li-last">
-                        <a target="_blank"
-                        href="https://t.me/+447897045261">
+                        <a (click)="callSupport('TL')">
                         <img src="/assets/images/telegram.png">
                     </a>
                 </li>
                     <li class="ms-li ms-li3 ms-li-last">
-                        <a target="_blank"
-                        href="https://api.whatsapp.com/send/?phone=447897045261&amp;text&amp;app_absent=0">
+                        <a (click)="callSupport('WH')">
                         <img src="/assets/images/whatsapp.png">
                     </a>
                 </li>

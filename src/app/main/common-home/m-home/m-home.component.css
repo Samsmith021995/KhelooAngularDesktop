@@ -558,3 +558,22 @@ svg {
     text-align: center;
     border-radius: 4px;
 }
+
+.game_providers_main_container::-webkit-scrollbar {
+    width: 12px; /* Set scrollbar width */
+  }
+  
+  /* Track */
+  .game_providers_main_container::-webkit-scrollbar-track {
+    background: #931b1b; /* Set track color */
+  }
+  
+  /* Handle */
+  .game_providers_main_container::-webkit-scrollbar-thumb {
+    background: #761717; /* Set handle color */
+  }
+  
+  /* Handle on hover */
+  .game_providers_main_container::-webkit-scrollbar-thumb:hover {
+    background: #841414; /* Set handle color on hover */
+  }
