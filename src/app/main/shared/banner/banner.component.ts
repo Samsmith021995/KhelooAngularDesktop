@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit, OnInit, Input } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnInit, Input, EventEmitter,Output } from '@angular/core';
 import Swiper from 'swiper';
 import { CommonServiceService } from '../../service/common-service.service';
 import { Router } from '@angular/router';
@@ -10,31 +10,13 @@ import { Router } from '@angular/router';
 export class BannerComponent implements AfterViewInit {
   @ViewChild('swiper', { static: false }) swiperEl?: ElementRef;
   swiper?: Swiper;
-  bannersClick = [
-    'play\'n go',
-    'casino',
-    'evolution',
-    'play\'n go',
-    'casino',
-    'evolution',
-    'play\'n go',
-    'casino',
-    'evolution',
-    'play\'n go',
-    'casino',
-    'evolution',
-    'play\'n go',
-    'casino',
-    'evolution',
-    'play\'n go',
-    'casino',
-    'evolution',
-  ]
  @Input() images:any = [];
  @Input() slidesPerView:any = [];
  @Input() pagination:boolean = true;
  @Input() prevNext:boolean = true;
  @Input() location:boolean = false;
+ @Input() clickBanner:boolean = false;
+ @Output() bannerClick = new EventEmitter<any>;
   ngOnInit(): void {
 
   }
@@ -63,7 +45,7 @@ export class BannerComponent implements AfterViewInit {
           delay: 5000,
           disableOnInteraction: true,
         },
-        // loop: true,
+        loop: true,
         slidesPerView: this.slidesPerView,
         spaceBetween: 3,
       });
@@ -72,5 +54,8 @@ export class BannerComponent implements AfterViewInit {
       // localStorage.setItem('search',search);
       // this.comSer.sendSearchData(search);
       this.router.navigate(['game-provider',search]);
+    }
+    submitData(ref:any){
+      this.bannerClick.emit(ref);
     }
 }
