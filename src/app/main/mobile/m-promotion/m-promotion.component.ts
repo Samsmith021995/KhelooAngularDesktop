@@ -16,6 +16,7 @@ image = [
   {name:'bonus200',src:'/assets/images/bonus200.jpeg'},
   {name:'bonus150',src:'/assets/images/bonus150.jpeg'},
   {name:'cashbackextra',src:'/assets/images/cashbackextra.jpeg'},
+  {name:'ezugispecial',src:'/assets/images/ez-promotion.png'},
   // {name:'viplossbackBonus',src:'/assets/images/promotion4.jpeg'},
   {name:'firstDeposit',src:'/assets/images/promotionNew.jpeg'},
   {name:'depositBonus',src:'/assets/images/promotion1.jpeg'},
