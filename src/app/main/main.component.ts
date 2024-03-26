@@ -29,11 +29,11 @@ export class MainComponent implements OnInit {
         if(params['ref']){
           let refCode = params['ref'];
             this.commonSer.saveData('Ref',refCode);
-            if(this.isSmallScreen){
+            // if(this.isSmallScreen){
               this.routing.navigate(['/signup']);      
-            }else{
-              this.routing.navigate(['/register']);
-            }
+            // }else{
+            //   this.routing.navigate(['/register']);
+            // }
         }
       });
   }
