@@ -34,7 +34,7 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
   openRegister() {
     this.diaRef1 = this.dialog.open(this.register, {
       height: '900x',
-      width: '600px',
+      // width: '600px',
       panelClass: 'screen-dialog',
     });
     this.diaRef1.afterClosed().subscribe(() => { });
@@ -45,7 +45,7 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
     this.showSp = false;
     this.diaRef2 = this.dialog.open(this.mainMenu, {
       height: '900x',
-      width: '600px',
+      // width: '600px',
       panelClass: 'screen-dialog',
     });
     this.diaRef2.afterClosed().subscribe(() => { });
