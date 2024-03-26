@@ -19,8 +19,8 @@ image = [
   {name:'ezugispecial',src:'/assets/images/ez-promotion.png'},
   // {name:'viplossbackBonus',src:'/assets/images/promotion4.jpeg'},
   {name:'firstDeposit',src:'/assets/images/promotionNew.jpeg'},
-  {name:'depositBonus',src:'/assets/images/promotion1.jpeg'},
-  {name:'lossbackBonus',src:'/assets/images/promotion2.jpeg'}
+  // {name:'depositBonus',src:'/assets/images/promotion1.jpeg'},
+  // {name:'lossbackBonus',src:'/assets/images/promotion2.jpeg'}
 ];
 constructor(private dialog:MatDialog){
 
