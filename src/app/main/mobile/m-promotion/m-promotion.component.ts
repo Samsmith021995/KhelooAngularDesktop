@@ -26,6 +26,7 @@ constructor(private dialog:MatDialog){
 
 }
 ngOnInit(): void {
+  
 }
 
 openInfo(index:any){
