@@ -40,6 +40,7 @@ import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
 import { TableGameComponent } from './main/desktop/footer-content/games/table-game/table-game.component';
 import { ThankYouComponent } from './main/shared/thank-you/thank-you.component';
 import { GamesProviderWiseComponent } from './main/mobile/games-provider-wise/games-provider-wise.component';
+import { MSignup1Component } from './main/mobile/m-signup/m-signup1/m-signup1.component';
 
 const commonSer = new CommonServiceService();
 const routes: Routes = [
@@ -324,9 +325,14 @@ const routes: Routes = [
       }
     ]
   },
+  // {
+  //   path: 'signup',
+  //   component: MSignupComponent,
+  //   canActivate: []
+  // },
   {
     path: 'signup',
-    component: MSignupComponent,
+    component: MSignup1Component,
     canActivate: []
   },
   { path: 'SignUp', redirectTo: '/signup', pathMatch: 'full' },
