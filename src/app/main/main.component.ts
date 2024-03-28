@@ -31,7 +31,7 @@ export class MainComponent implements OnInit {
         if(params['ref']){
           let refCode = params['ref'];
             this.commonSer.saveData('Ref',refCode);
-            let code = {Ref:params['ref']};
+            let code = {RefId:params['ref']};
             this.apiSer.apiRequest(config['affiliate'], code).pipe(
               catchError((error) => {
                 this.apiSer.showAlert('Something Went Wrong', 'Check Your Internet Connection', 'error');
