@@ -21,6 +21,7 @@ export const config:any = {
     "recent":{endURL:"GameV1/GetRecentWithdraw",type:"GET",keyL:"recent"},
     "cancelReq":{endURL:"MyProfileAPI/CancellWithdrawRequest",type:"POST",keyL:"cancelReq"},
     "callback":{endURL:"MyProfileAPI/RequestCallback",type:"GET",keyL:"callback"},
+    "affiliate":{endURL:"Common/InsertBrowserDetails",type:"GET",keyL:"affiliate"},
   
 
 }
