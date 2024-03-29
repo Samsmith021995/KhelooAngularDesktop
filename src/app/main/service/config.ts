@@ -22,6 +22,7 @@ export const config:any = {
     "cancelReq":{endURL:"MyProfileAPI/CancellWithdrawRequest",type:"POST",keyL:"cancelReq"},
     "callback":{endURL:"MyProfileAPI/RequestCallback",type:"GET",keyL:"callback"},
     "supportCallback":{endURL:"AppPayment/GetSupportNumber",type:"GET",keyL:"supportCallback"},
+    "affiliateTrack":{endURL:"Common/InsertBrowserDetails",type:"GET",keyL:"affiliateTrack"},
   
 
 }
