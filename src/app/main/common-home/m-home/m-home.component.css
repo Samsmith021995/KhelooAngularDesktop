@@ -554,7 +554,8 @@ svg {
     width:130px;
     height: 70px;
     /* background-color: #2b2b2b; */
-    background-color: #eac69e;
+    /* background-color: #eac69e; */
+    background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
     border: 1px solid #2b2b2b;
     margin-right: 3px; 
     text-align: center;
