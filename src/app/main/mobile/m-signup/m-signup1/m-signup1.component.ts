@@ -17,6 +17,8 @@ import { SharedModule } from 'src/app/main/shared/shared.module';
   styleUrl: './m-signup1.component.css'
 })
 export class MSignup1Component implements OnInit {
+  refHave: boolean = false;
+  hidePassword:boolean = false;
   getcodeBtn: boolean = false;
   otpVerify: boolean = false;
   inputText: string = '';
@@ -42,6 +44,7 @@ export class MSignup1Component implements OnInit {
   isSmallScreen!: boolean;
   constructor(private fb: FormBuilder, private apiSer: ApiService, private router: Router, private commonSer: CommonServiceService, private breakpointObserver: BreakpointObserver) { }
   ngOnInit(): void {
+ 
     this.commonSer.myVariable$.subscribe((width) => {
       this.isSmallScreen = width === "true";
       // let isSmallScreen2 = this.breakpointObserver.isMatched('(max-width: 767px)');
@@ -60,6 +63,7 @@ export class MSignup1Component implements OnInit {
       Password: ['', [Validators.required]],
       Mobile: ['', [Validators.required]],
       OTP: ['', [Validators.required]],
+      acceptterm: ['', [Validators.required]],
     });
     this.signUp.controls['Mobile'].valueChanges.subscribe(value => {
       let strMo = String(value);
@@ -76,6 +80,7 @@ export class MSignup1Component implements OnInit {
       this.getTimer = ('otp' in loading) ? true : false;
     });
   }
+ 
   validateNumber(event: KeyboardEvent) {
     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'];
 
@@ -100,12 +105,19 @@ export class MSignup1Component implements OnInit {
 
   // }
   getCode() {
-
     let param = this.signUp.getRawValue();
     if (!this.signUp.controls['Mobile'].value) {
       this.apiSer.showAlert('Mobile should not be blank', '', 'error');
       return;
     }
+
+    if (this.signUp.controls['Mobile'].value.length < 10) {
+      this.apiSer.showAlert('Please enter valid Mobile Number', '', 'error');
+      return;
+    }
+    this.signUp.controls['UserName'].disable();
+    this.signUp.controls['Mobile'].disable();
+    this.signUp.controls['Password'].disable();
 
     this.apiSer.apiRequest(config['otp'], param).pipe(catchError((error) => {
       this.apiSer.showAlert('', 'You may only perform this action every 30 seconds', 'error');

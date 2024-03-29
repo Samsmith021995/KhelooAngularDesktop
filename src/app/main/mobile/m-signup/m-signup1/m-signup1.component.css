@@ -363,6 +363,7 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    margin: 1rem 0;
   }
   
   .next-step1:hover {
@@ -468,9 +469,7 @@
       padding-bottom: 10px !important;
     }
   
-    .materialI {
-      height: 60px !important;
-    }
+  
   
     .mat-icon {
       width: 20px !important;
@@ -488,10 +487,10 @@
       height: 26px !important;
     }
   
-    .mdc-text-field__input {
+    /* .mdc-text-field__input {
       font-size: 14px !important;
   
-    }
+    } */
   
     .mat-mdc-form-field-icon-prefix>.mat-icon {
       padding: 4px 12px !important;
@@ -528,14 +527,80 @@
     padding: 1rem;
     background-color: unset;
   }
-  #mat-input-1::placeholder {
-    color: #aaa;
+  ::ng-deep #mat-input-0::placeholder {
+    color: #ccc;
+  }
+  ::ng-deep #mat-input-1::placeholder {
+    color: #ccc;
+  }
+  ::ng-deep #mat-input-2::placeholder {
+    color: #ccc;
+  }
+  ::ng-deep #mat-input-3::placeholder {
+    color: #ccc;
+  }
+  ::ng-deep #mat-input-4::placeholder {
+    color: #ccc;
+  }
+  ::ng-deep
+    .mdc-text-field--filled.mdc-text-field--disabled {
+        background-color: #fafafab5 !important;
+        color: #959393cf !important;
+    
   }
  ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-        background: #aaa !important;
+        background: #22262a !important;
         border: 1px solid #3f3f3f;
         color: white !important;
     }
+ ::ng-deep .mdc-text-field--no-label:not(.mdc-text-field--textarea) .mat-mdc-form-field-input-control.mdc-text-field__input, .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+       padding: 0 1rem !important;
+    }
+    .materialI {
+        height: 70px !important;
+      }
   
+   .mdc-text-field__input {
+    width: 100% !important;
+    padding-left: 10px !important;
+    font-size: 18px !important;
+}
+
+::ng-deep .mdc-checkbox:hover .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background{
+    background-color:#e5b86d !important;
+    border-color: #e5b86d !important;
+    border-radius: 50% !important;
+    
+  }
+  ::ng-deep .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background{
+    background-color:#e5b86d !important;
+    border-color: #e5b86d !important;
+    border-radius: 50% !important;
+  }
+  ::ng-deep .mdc-checkbox:hover .mdc-checkbox__native-control:checked~.mdc-checkbox__ripple{
+    
+    background-color:#e5b86d !important;
+  }
+  ::ng-deep .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+    border-color: #e5b86d !important;
+    border-radius: 50% !important;
   
+  }
+  .next-step12 {
+    width: 100%;
+    background-image: linear-gradient(to right, #ebcd76, #ca9421);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    /* clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); */
+    box-shadow: 0 4px 10px 0 #ca9421;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
   /* new Form Signup Design1 */
