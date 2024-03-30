@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../../service/api.service';
+import { config } from '../../service/config';
+import { CommonServiceService } from '../../service/common-service.service';
 
 @Component({
   selector: 'app-thank-you',
@@ -7,10 +10,18 @@ import { Router } from '@angular/router';
   styleUrl: './thank-you.component.css'
 })
 export class ThankYouComponent  implements OnInit{
-  constructor(private router:Router){}
+  constructor(private router:Router,private apiSer:ApiService,private comSer:CommonServiceService){}
 ngOnInit(): void {
   setTimeout(() => {
     this.router.navigate(['/']); 
   }, 5000);
+  this.login();
 }
+
+login(){
+  let mob = localStorage.getItem('Mobile');
+  let pass = localStorage.getItem('Password');
+  this.apiSer.login(mob,pass);
+}
+
 }

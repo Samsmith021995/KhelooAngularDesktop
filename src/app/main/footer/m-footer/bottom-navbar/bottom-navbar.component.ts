@@ -35,7 +35,7 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
     this.diaRef1 = this.dialog.open(this.register, {
       height: '900x',
       // width: '600px',
-      panelClass: 'screen-dialog',
+      panelClass: 'screen-dialog1',
     });
     this.diaRef1.afterClosed().subscribe(() => { });
   }
