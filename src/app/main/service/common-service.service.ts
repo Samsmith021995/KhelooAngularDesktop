@@ -1,9 +1,13 @@
-import { Injectable, HostListener } from '@angular/core';
+import { Injectable, HostListener, OnInit } from '@angular/core';
 import { BehaviorSubject, fromEvent, merge, Observable,Subject } from 'rxjs';
+import { ApiService } from './api.service';
+import { Router } from '@angular/router';
+import { config } from './config';
+;
 @Injectable({
   providedIn: 'root'
 })
-export class CommonServiceService {
+export class CommonServiceService implements OnInit{
 
   private myVariableSubject = new BehaviorSubject<string>('initialValue');
   myVariable$ = this.myVariableSubject.asObservable();
@@ -18,7 +22,9 @@ export class CommonServiceService {
     });
     this.checkScreenSize();
   }
-
+ngOnInit(): void {
+  
+}
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
     this.checkScreenSize();
@@ -91,4 +97,31 @@ export class CommonServiceService {
   sendSearchData(search: any) {
     this.searchSubject.next(search);
   }
+  // login(){
+  //   let mob = localStorage.getItem('Mobile');
+  //   let pass = localStorage.getItem('Password');
+  //   let param = {Mobile:mob,Password:pass};
+  //     this.apiSer.apiRequest(config['login'],param).subscribe({
+        
+  //     next: data=>{
+        
+  //       if(data.ErrorCode == '1'){
+  //         // this.showsubmitbtn = false;
+  //         this.saveData('UserId',data.UserId);
+  //         this.saveData('LoginToken',data.LoginToken);
+  //         this.saveData('name',data.UserName);
+  //         this.apiSer.showAlert(data.ErrorMessage,'','success');
+  //       //  this.onBack();
+  //       //  this.loginCheck.emit();
+  //         this.router.navigate(['/']);
+  //       }else if(data.ErrorCode != '1'){
+  //         this.apiSer.showAlert(data.ErrorMessage,'','error');
+          
+  //       }
+  //     },
+  //     error: err => {
+  //       this.apiSer.showAlert('Something Went Wrong','','error');
+  //     }
+  //   });
+  // }
 }

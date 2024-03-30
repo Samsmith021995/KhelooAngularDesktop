@@ -39,7 +39,7 @@ export class PromotionVideoComponent{
   openVideo(param:string){
     let dialogRef :any;
     if(param == '1'){
-      dialogRef = this.dailog.open(this.videoI,{width:'100%'});
+      dialogRef = this.dailog.open(this.videoI,{width:'100%', panelClass: 'screen-video',});
     
       
     }else if(param == '2'){
