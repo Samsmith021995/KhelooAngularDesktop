@@ -4,6 +4,7 @@ import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
 import { Subscription, catchError } from 'rxjs';
 import { Router } from '@angular/router';
+import { CommonServiceService } from '../../service/common-service.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class PopRegisterComponent implements OnInit {
   startSec:any;
   registerForm !:FormGroup;
   refText:string = '';
-  constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router){}
+  constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router,private comSer:CommonServiceService){}
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading:any={}) => {
       this.btnLoading=('otp' in loading || 'signUp' in loading)?true:false;
@@ -75,6 +76,10 @@ export class PopRegisterComponent implements OnInit {
       this.apiSer.showAlert('Please Provide the Mobile Number', '', 'warning');
       return;
     } 
+    if (String(this.registerForm.controls['Mobile'].value).length < 10) {
+      this.apiSer.showAlert('Please Provide the Valid Mobile Number', '', 'warning');
+      return;
+    } 
 
       this.apiSer.apiRequest(config['otp'], param).pipe(
         catchError((error) => {
@@ -100,8 +105,7 @@ export class PopRegisterComponent implements OnInit {
             this.showTimer = false;
           }
         }, 1000);
-      }
-      );
+      });
   
   }
   getDOB(): string {
@@ -176,9 +180,12 @@ export class PopRegisterComponent implements OnInit {
           this.apiSer.showAlert(data.ErrorMessage, '', 'error');
           return;
         }
-          this.closeDial();
-          this.router.navigate(['/thankyou']);
-          this.registerForm.reset();
+        this.comSer.saveData('Mobile',param.Mobile);
+        this.comSer.saveData('Password',param.Password);
+
+        this.closeDial();
+        this.router.navigate(['/thankyou']);
+        this.registerForm.reset();
       
       });
     } else {

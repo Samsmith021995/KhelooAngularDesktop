@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
-import { CommonServiceService } from './main/service/common-service.service';
 import { LoginComponent } from './main/desktop/auth/login/login.component';
 import { RegisterComponent } from './main/desktop/auth/register/register.component';
 import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/forgot-password.component';
@@ -41,7 +40,7 @@ import { TableGameComponent } from './main/desktop/footer-content/games/table-ga
 import { ThankYouComponent } from './main/shared/thank-you/thank-you.component';
 import { GamesProviderWiseComponent } from './main/mobile/games-provider-wise/games-provider-wise.component';
 
-const commonSer = new CommonServiceService();
+
 const routes: Routes = [
   {
     path: '',
