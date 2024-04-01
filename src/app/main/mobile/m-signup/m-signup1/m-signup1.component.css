@@ -613,4 +613,34 @@
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
     animation: shimmer 2s infinite;
   }
+  ::ng-deep .mat-form-field-outline {
+    outline-color:#fff; /* Change the outline color as needed */
+  }
+  ::ng-deep :root
+.mdc-text-field {
+    background: #22262a;
+}
   /* new Form Signup Design1 */
+
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-start,
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-end,
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-gap,
+.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline-start,
+.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline-end,
+.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline-gap {
+  border-color: #22262a !important; /* Change the outline color */
+
+
+}
+::ng-deep html{
+  --mdc-outlined-text-field-error-outline-color: #22262a !important;
+  --mdc-outlined-text-field-error-hover-outline-color:#22262a !important;
+  --mdc-outlined-text-field-focus-label-text-color:#22262a !important;
+  --mdc-outlined-text-field-error-focus-outline-color:#22262a !important;
+  --mdc-outlined-text-field-caret-color:#22262a !important;
+  --mdc-outlined-text-field-focus-outline-color:#22262a !important;
+}
+
+.custom-error .mat-form-field-appearance-outline .mat-form-field-outline {
+  border-color: #22262a; /* Change the outline color as needed */
+}

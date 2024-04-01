@@ -331,6 +331,11 @@ const routes: Routes = [
   // },
   {
     path: 'signup',
+    component: MSignupComponent,
+    canActivate: []
+  },
+  {
+    path: 'signupv1',
     component: MSignup1Component,
     canActivate: []
   },

@@ -133,30 +133,34 @@
         <h3 style="font-size: 22px;font-weight: 500;margin-left:5rem;color: #fff;"> Join us in just 30 sec</h3>
         <form [formGroup]="signUp">
                 <div class="signFormnew">
-                    <mat-form-field style="width: 100%;" class="materialI">
-                        <input matInput  type="text" name="" id="" formControlName="UserName" placeholder="UserName" >
-    
+                    <mat-form-field style="width: 100%;" class="materialI" appearance="outline" [class.custom-error]="this.signUp.controls['UserName'].invalid && (this.signUp.controls['UserName'].touched || this.signUp.controls['UserName'].dirty)">
+                        <mat-label style="margin-left: 0.5rem;color: #bbb;">UserName</mat-label>
+                        <input matInput  type="text" name="" id="" formControlName="UserName" >
+                        
                     </mat-form-field>
                 </div>
-            <div class="signFormnew">
-                <mat-form-field style="width: 100%;" class="materialI" >
-                    <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="984XXXXXXX"
+                <div class="signFormnew">
+                    <mat-form-field style="width: 100%;" class="materialI" appearance="outline">
+                        <mat-label style="margin-left: 0.5rem;color: #bbb;">Mobile</mat-label>
+                        <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="984XXXXXXX"
                         (keydown)="validateNumber($event)">
-                
-                </mat-form-field>
-            </div>
-            <div class="signFormnew">
-                <mat-form-field style="width: 100%;" class="materialI">
-                   
-                    <input matInput [type]="hidePassword?'text':'password'" name="" id="" formControlName="Password" placeholder="Password">
-                    <a  style="margin-right: 1rem; color: #bbb;margin-top: -1.9rem;float: right;z-index: 99;"  (click)="hidePassword = !hidePassword"><i-feather [name]="hidePassword?'eye-off':'eye'"></i-feather></a>
-                </mat-form-field>
-            </div>
-            <div class="signFormnew">
-                @if(!refHave){
-                    <a (click)="refHave = !refHave" style="margin: 1rem;color: #deb858;">I have promo code</a><br>
-                }@else {
-                    <mat-form-field style="width: 100%;" class="materialI">
+                        
+                    </mat-form-field>
+                </div>
+                <div class="signFormnew">
+                    <mat-form-field style="width: 100%;" class="materialI" appearance="outline">
+                        <mat-label style="margin-left: 0.5rem;color: #bbb;">Password</mat-label>
+                        
+                        <input matInput [type]="hidePassword?'text':'password'" name="" id="" formControlName="Password" placeholder="Password">
+                        <a  style="margin-right: 1rem; color: #bbb;margin-top: -1.9rem;float: right;z-index: 99;"  (click)="hidePassword = !hidePassword"><i-feather [name]="hidePassword?'eye-off':'eye'"></i-feather></a>
+                    </mat-form-field>
+                </div>
+                <div class="signFormnew">
+                    @if(!refHave){
+                        <a (click)="refHave = !refHave" style="margin: 1rem;color: #deb858;">I have promo code</a><br>
+                    }@else {
+                        <mat-form-field style="width: 100%;" class="materialI" appearance="outline">
+                            <mat-label style="margin-left: 0.5rem;color: #bbb;">Refferal</mat-label>
                         <input matInput type="text" name="" id="" formControlName="Ref" placeholder="Refferal" >
                         <a  style="margin-right: 2px; color: #bbb;margin-top: -1.9rem;float: right;z-index: 99;"  (click)="refHave = !refHave"> <i-feather name="x" ></i-feather></a>
                     </mat-form-field>
@@ -190,13 +194,13 @@
 
             }
            
-            <button (click)="getCode()" class="next-step12" >
+            <button (click)="onSubmit()" class="next-step12" >
                 <ng-container *ngIf="btnLoading; else content">
                     <i-feather name="loader"></i-feather>
 
                 </ng-container>
                 <ng-template #content>
-                    {{ !inputVerify ? 'Play the game' : 'Start the game' }}
+                    {{ !inputVerify ? 'Submit' : 'Start the game' }}
                 </ng-template>
             </button>
         </form>
