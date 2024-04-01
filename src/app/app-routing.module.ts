@@ -332,12 +332,12 @@ const routes: Routes = [
   {
     path: 'signup',
     component: MSignupComponent,
-    canActivate: []
+    canActivate: [LoginGuard]
   },
   {
     path: 'signupv1',
     component: MSignup1Component,
-    canActivate: []
+    canActivate: [LoginGuard]
   },
   { path: 'SignUp', redirectTo: '/signup', pathMatch: 'full' },
   {
