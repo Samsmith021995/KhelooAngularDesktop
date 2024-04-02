@@ -1,0 +1,234 @@
+<!-- 
+<div class="container-fluid" style="max-height: 100%;">
+    @if(!isSmallScreen){
+    <a class="navbar-brand fw-bold" href="/">
+
+        <img src="/assets/images/logo.gif" class="logo">
+    </a>
+}
+    <div class="image-overlay-container">
+        @if(isSmallScreen){
+            <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [pagination]="pagination"></app-banner>
+       }
+       @else{
+        <img src="/assets/images/signupNew.jpeg" alt="" class="background-image">
+        } 
+    </div>
+    <div class="overlay-content" [ngClass]="{otpVeri:otpVerify && !isSmallScreen}">
+        <div class="row cont1">
+            <div class="sign">
+                <h2 style="color: #fff;">Create New Account</h2>
+                <form [formGroup]="signUp">
+                    @if(!otpVerify){
+                    <div class="signFormnew">
+                        <mat-form-field style="width: 100%;" class="materialI">
+                            <mat-icon matPrefix class="icon-border-right"><i-feather
+                                    name="smartphone"></i-feather></mat-icon>
+                            <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="Mobile"
+                                (keydown)="validateNumber($event)">
+                            <button (click)="getCode()" class="getC" *ngIf="getcodeBtn"
+                                [disabled]="showTimer || getTimer">
+                                <ng-container *ngIf="showTimer; else content1">
+                                    {{startSec}}
+                                </ng-container>
+                                <ng-template #content1>
+                                    <i-feather name="loader" *ngIf="getTimer"></i-feather>
+                                    @if (!getTimer) {
+                                    Get Code
+                                    }
+                                </ng-template>
+                            </button>
+                        </mat-form-field>
+                    </div>
+                    }
+                    @if(inputVerify){
+                    <div class="signFormnew">
+                        <mat-form-field style="width: 100%;" class="materialI">
+                            <input matInput type="number" name="" id="" formControlName="OTP" placeholder="OTP">
+                        </mat-form-field>
+                    </div>
+
+                    }
+                    @if(otpVerify && verificationCode){
+                    <div class="signFormnew">
+                        <mat-form-field style="width: 100%;" class="materialI">
+                            <mat-icon matPrefix class="icon-border-right"><i-feather name="user"></i-feather></mat-icon>
+                            <input matInput type="text" name="" id="" formControlName="UserName" placeholder="UserName">
+
+                        </mat-form-field>
+                    </div>
+                    <div class="signFormnew">
+                        <mat-form-field style="width: 49%;margin-right: 5px;" class="materialI material2">
+                            <mat-icon matPrefix class="icon-border-right"><i-feather name="user"></i-feather></mat-icon>
+                            <input matInput type="text" name="" id="" formControlName="FName" placeholder="First Name">
+                        </mat-form-field>
+                        <mat-form-field style="width: 49%;" class="materialI">
+                           
+                            <input matInput type="text" name="" id="" formControlName="LName" placeholder="Last Name">
+                        </mat-form-field>
+                    </div>
+                  
+                    <div class="signFormnew">
+                  
+                        <mat-form-field style="width: 49%; margin-right: 5px;" class="materialI material2">
+                            <input matInput formControlName="DOB" placeholder="DOB" [matDatepicker]="picker" (focus)="picker.open()" (click)="picker.open()">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+
+                        </mat-form-field>
+                        <mat-form-field style="width: 49%;" class="materialI">
+                            <input matInput type="text" name="" id="" formControlName="Ref" placeholder="Refferal">
+                        </mat-form-field>
+                    </div>
+                    <div class="signFormnew">
+                    </div>
+                    <div class="signFormnew">
+                        <mat-form-field style="width: 100%;" class="materialI">
+                            <mat-icon matPrefix class="icon-border-right"><i-feather name="lock"></i-feather></mat-icon>
+                            <input matInput type="text" name="" id="" formControlName="Password" placeholder="Password">
+                        </mat-form-field>
+                    </div>
+                    }
+                    <button (click)="onSubmit()" class="next-step1" [disabled]="!showTimer">
+                        <ng-container *ngIf="btnLoading; else content">
+                            <i-feather name="loader"></i-feather>
+
+                        </ng-container>
+                        <ng-template #content>
+                            {{ !otpVerify ? 'Next' : 'Submit' }}
+                        </ng-template>
+                    </button>
+                </form>
+                @if(!otpVerify){
+                <div style="margin-top: 10px;">
+                    <span style="color: #ccc;"> Already have an account ? </span> <a href="/login"
+                        style="text-decoration: none;color: #fff;">Login</a>
+                </div>
+                }
+            </div>
+        </div>
+        <br>
+        <div>
+            <a href="https://tawk.to/chat/60a22370185beb22b30ddc1d/1f5slks90" target="_blank"><img src="/assets/images/call_support.png" alt="" width="30px"></a>&nbsp;&nbsp;
+          <a href="https://api.whatsapp.com/send/?phone=447897045261&text&app_absent=0" target="_blank">  <img src="/assets/images/whatsapp.png" alt="" width="30px"></a>
+
+        </div>
+    </div>
+</div> -->
+<div style="background-color: #292f41;height: 100%;">
+    <div class="header" style="background-color: #505970; padding: 0.5rem; display: flex; justify-content: space-between;position: sticky; top: 0px;color: #fff;text-align: center; font-weight: 400;z-index: 99;">
+        <div class="close-signup">
+           <a href="/"><i-feather name="arrow-left"></i-feather></a> 
+        </div>
+        <div class="regiter-head" style="width: 100px;text-align: center;margin-right:9rem;">
+            <!-- <h3 style="font-size: 22px;font-weight: 500;margin-left:9rem;">SIGN UP</h3> -->
+            <img src="/assets/images/logo.gif" alt="" width="100%">
+        </div>
+    </div>
+    <div class="container-fluid" style="overflow-y: auto;">
+        <div class="banner" style="color: #fff;text-align: center;border: 1px solid #ccc;margin: 1rem; display: flex;border-radius: 9px;">
+            <!-- <img src="/assets/images/promotionNew.jpeg" alt="" width="100%"> -->
+            <div>
+                <h1 style="margin: 11px;">100%</h1>
+            </div>
+            <div style="margin-left: 1rem;">
+                <span><h2 style="margin:0px;">Bonus Just a step away</h2></span>
+                <span>Claim Your Bonus on Registration</span>
+
+            </div>
+        
+        </div>
+        <div class="signup-form" style="border: 1px solid #363431;background-color: #505970;;margin: 0.8rem;box-shadow: 2px 2px 2px #363431;border-radius: 4px;    text-align: center;">
+            <h3 style="font-size: 22px;font-weight: 500;color: #fff;"> Join us in just 30 sec</h3>
+            <form [formGroup]="signUp">
+                    <div class="signFormnew">
+                        <mat-form-field style="width: 100%;" class="materialI" appearance="fill" [class.custom-error]="this.signUp.controls['UserName'].invalid && (this.signUp.controls['UserName'].touched || this.signUp.controls['UserName'].dirty)">
+                            <mat-label style="margin-left: 0.5rem;color: #bbb;">UserName</mat-label>
+                            <input matInput  type="text" name="" id="" formControlName="UserName" >
+                            
+                        </mat-form-field>
+                    </div>
+                    <div class="signFormnew">
+                        <mat-form-field style="width: 100%;" class="materialI" appearance="fill">
+                            <mat-label style="margin-left: 0.5rem;color: #bbb;">Mobile</mat-label>
+                            <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="984XXXXXXX"
+                            (keydown)="validateNumber($event)">
+                            
+                        </mat-form-field>
+                    </div>
+                    <div class="signFormnew">
+                        <mat-form-field style="width: 100%;" class="materialI" appearance="fill">
+                            <mat-label style="margin-left: 0.5rem;color: #bbb;">Password</mat-label>
+                            
+                            <input matInput [type]="hidePassword?'text':'password'" name="" id="" formControlName="Password" placeholder="Password">
+                            <a  style="margin-right: 1rem; color: #bbb;margin-top: -1.9rem;float: right;z-index: 99;"  (click)="hidePassword = !hidePassword"><i-feather [name]="hidePassword?'eye-off':'eye'"></i-feather></a>
+                        </mat-form-field>
+                    </div>
+                    <div class="signFormnew">
+                        @if(!refHave){
+                            <a (click)="refHave = !refHave" style="margin: 1rem;color: #deb858;">I have promo code</a><br>
+                        }@else {
+                            <mat-form-field style="width: 100%;" class="materialI" appearance="fill">
+                                <mat-label style="margin-left: 0.5rem;color: #bbb;">Refferal</mat-label>
+                            <input matInput type="text" name="" id="" formControlName="Ref" placeholder="Refferal" >
+                            <a  style="margin-right: 2px; color: #bbb;margin-top: -1.9rem;float: right;z-index: 99;"  (click)="refHave = !refHave"> <i-feather name="x" ></i-feather></a>
+                        </mat-form-field>
+                    }
+                </div>
+    
+                
+                <div class="signFormnew" style="margin-bottom:2.3rem;margin-left: -1rem; margin-top: 1rem;">
+                    <!-- <mat-form-field style="width: 100%;" class="materialI"> -->
+                        <!-- <div class="privacy-box"> -->
+                             <mat-checkbox class="example-margin" formControlName="acceptterm">
+                            <!-- <p class="privacy-statement"> -->
+                                <div class="container__text--VA6e8" style="color: #fff;margin-left: -0.6rem;"><div class="description--LEqJr" data-testid="description"><span>I have read, understand and agree with the </span><a style="color: #deb858;" class="default-link--np1ir" href="/pages/terms-conditions/" tabindex="-1">Terms and Conditions</a><span>, </span><a style="color: #deb858;" class="default-link--np1ir" href="/pages/privacy-policy/" tabindex="-1">Privacy Policy</a><span>, </span><a style="color: #deb858;" class="default-link--np1ir" href="/rules/" tabindex="-1">Betting Rules</a><span> and confirm that I am over 18 years of age.</span></div></div>
+                            <!-- </p> -->
+                        </mat-checkbox>
+    
+                        <!-- </div> -->
+                        <!-- <mat-checkbox class="example-margin">Check me!</mat-checkbox> -->
+                    <!-- </mat-form-field> -->
+                </div>
+                @if(inputVerify){
+                    <p style="color: #bbb;">CONFIRM YOUR PHONE NUMBER  </p>
+                    <p style="color: #bbb;">A text message with a confirmation code was sent to {{this.signUp.controls['Mobile'].value}}</p>
+            
+                      
+                <div class="signFormnew">
+                    <mat-form-field style="width: 100%;" class="materialI">
+                        <input matInput type="number" name="" id="" formControlName="OTP" placeholder="OTP">
+                    </mat-form-field>
+                </div>
+    
+                }
+               
+                <button (click)="onSubmit()" class="next-step12" >
+                    <ng-container *ngIf="btnLoading; else content">
+                        <i-feather name="loader"></i-feather>
+    
+                    </ng-container>
+                    <ng-template #content>
+                        {{ !inputVerify ? 'Submit' : 'Start the game' }}
+                    </ng-template>
+                </button>
+            </form>
+            <div style="margin-top: 10px;text-align: center;">
+                <span style="color: #ccc;"> Already have an account ? </span> <a href="/login"
+                    style="text-decoration: none;color: #deb858;">Login</a>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;color: #deb858;">
+        <p>---------------- or ----------------</p>
+    </div>
+    
+    <div style="text-align: center;padding: 1rem; border: 1px solid #fff; margin: 1rem;border-radius: 4px;">
+        <p style="color: #bbb;">
+            For Instant Singup , Please Contact Us.
+        </p>
+        <a href="https://tawk.to/chat/60a22370185beb22b30ddc1d/1f5slks90" target="_blank"><img src="/assets/images/call_support.png" alt="" width="30px"></a>&nbsp;&nbsp;
+        <a href="https://api.whatsapp.com/send/?phone=447897045261&text&app_absent=0" target="_blank">  <img src="/assets/images/whatsapp.png" alt="" width="30px"></a>&nbsp;&nbsp;
+        <a href="https://cdn.kheloo.com/khelooapp.apk" target="_blank" style="text-decoration: none;color: #deb858;"> <i-feather name="download"></i-feather></a>
+    </div>
+    </div>

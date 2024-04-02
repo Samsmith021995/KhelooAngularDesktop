@@ -40,6 +40,7 @@ import { TableGameComponent } from './main/desktop/footer-content/games/table-ga
 import { ThankYouComponent } from './main/shared/thank-you/thank-you.component';
 import { GamesProviderWiseComponent } from './main/mobile/games-provider-wise/games-provider-wise.component';
 import { MSignup1Component } from './main/mobile/m-signup/m-signup1/m-signup1.component';
+import { MSignup2Component } from './main/mobile/m-signup/m-signup2/m-signup2.component';
 
 
 const routes: Routes = [
@@ -337,6 +338,11 @@ const routes: Routes = [
   {
     path: 'signupv1',
     component: MSignup1Component,
+    canActivate: [LoginGuard]
+  },
+  {
+    path: 'signupv2',
+    component: MSignup2Component,
     canActivate: [LoginGuard]
   },
   { path: 'SignUp', redirectTo: '/signup', pathMatch: 'full' },
