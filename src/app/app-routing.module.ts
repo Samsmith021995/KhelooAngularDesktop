@@ -325,11 +325,6 @@ const routes: Routes = [
       }
     ]
   },
-  // {
-  //   path: 'signup',
-  //   component: MSignupComponent,
-  //   canActivate: []
-  // },
   {
     path: 'signup',
     component: MSignupComponent,
@@ -340,11 +335,11 @@ const routes: Routes = [
     component: MSignup1Component,
     canActivate: [LoginGuard]
   },
-  {
-    path: 'signupv2',
-    component: MSignup2Component,
-    canActivate: [LoginGuard]
-  },
+  // {
+  //   path: 'signupv2',
+  //   component: MSignup2Component,
+  //   canActivate: [LoginGuard]
+  // },
   { path: 'SignUp', redirectTo: '/signup', pathMatch: 'full' },
   {
     path: 'login',
