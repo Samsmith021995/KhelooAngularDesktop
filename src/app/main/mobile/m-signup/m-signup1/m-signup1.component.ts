@@ -323,6 +323,7 @@ export class MSignup1Component implements OnInit ,AfterViewInit{
   }
   saveLocation(param:any){
     sessionStorage.setItem('redirectRegister',param);
+    console.log("Ashutosh")
     this.router.navigate(['/']);
   }
 }

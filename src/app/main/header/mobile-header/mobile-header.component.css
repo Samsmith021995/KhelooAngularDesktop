@@ -241,3 +241,11 @@ span.mdc-button__label, .mat-mdc-button:not(:disabled) {
   margin-top: 15px;
   margin-right: 1rem;
 }
+.logoimage {
+  height: 55px !important;
+}
+
+/* .img-fluid {
+  max-width: 100%;
+  height: unset !important;
+} */
