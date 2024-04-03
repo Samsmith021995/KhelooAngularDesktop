@@ -36,7 +36,11 @@ export class MSignup1Component implements OnInit ,AfterViewInit{
   datepicker: any = new Date();
   newDob:string ='';
   images = [
-    '/assets/images/promotionNew.jpeg',
+    '/assets/images/lassback25.png',
+    '/assets/images/checkban.png',
+    '/assets/images/extracashbackbanner5.png',
+    '/assets/images/promo7.png',
+    '/assets/images/bonus300banner.png',
   ];
   @ViewChild('swiper', { static: false }) swiperEl?: ElementRef<any>;
   swiper?: Swiper;
