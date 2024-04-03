@@ -32,12 +32,17 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
 
   }
   openRegister() {
-    this.diaRef1 = this.dialog.open(this.register, {
-      height: '900x',
-      // width: '600px',
-      panelClass: 'screen-dialog1',
-    });
-    this.diaRef1.afterClosed().subscribe(() => { });
+    if(sessionStorage.getItem('redirectRegister')){
+      this.router.navigate(['/'+sessionStorage.getItem('redirectRegister')]);
+    } else{
+      this.diaRef1 = this.dialog.open(this.register, {
+        height: '900x',
+        // width: '600px',
+        panelClass: 'screen-dialog1',
+      });
+      this.diaRef1.afterClosed().subscribe(() => { });
+
+    }
   }
   openMenu() {
     this.apiSer.setShowMenu(false);
