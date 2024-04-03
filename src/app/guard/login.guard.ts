@@ -27,7 +27,7 @@ export class LoginGuard implements CanActivate {
       // Redirect to home page if trying to access /login after login
       return this.router.parseUrl('/');
     }
-    if (state.url === '/register' && userHasAccess) {
+    if ((state.url === '/signup' || state.url === '/signupv1') && userHasAccess) {
       // Redirect to home page if trying to access /login after login
       return this.router.parseUrl('/');
     }
