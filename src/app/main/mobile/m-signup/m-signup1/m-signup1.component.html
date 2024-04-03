@@ -1,10 +1,13 @@
 <div class="check-form">
     <div class="header">
         <div class="regiter-head">
-            <img src="/assets/images/logo.gif" alt="" width=" 100px;">
+            <a (click)="saveLocation('signupv1')" style=" width:100px;">
+                <img src="/assets/images/logo.gif" alt="" width="100px;">
+
+            </a>
         </div>
         <div class="close-signup">
-            <a href="/"><i-feather name="x"></i-feather></a>
+            <a (click)="saveLocation('signupv1')"><i-feather name="x"></i-feather></a>
         </div>
     </div>
     <div class="container-fluid" >
@@ -90,14 +93,16 @@
                     }
                 </div>
 
-                <div class="signFormnew" style="margin-bottom:1rem;margin-left: -0.7rem; margin-top: 1rem;">
+                <div class="signFormnew" style="text-align: left;">
                     <mat-checkbox class="example-margin" formControlName="acceptterm">
-                        <div class="container__text--VA6e8" style="color: #fff;margin-left: -1rem;">
+                        <div class="container__text--VA6e8" style="color: #fff;">
                             <div class="description--LEqJr" data-testid="description"><span>I agree with the </span><a style="color: #deb858;" class="default-link--np1ir"
-                                    href="/term-condition/" tabindex="-1">Terms & Con</a><span>,
+                                    href="/term-condition/" tabindex="-1">Terms & Condition</a>
+                                    <!-- <span>,
                                 </span><a style="color: #deb858;" class="default-link--np1ir"
                                     href="/privacy-policy/" tabindex="-1">Privacy Policy</a><span> and confirm that I am over 18 years of
-                                    age.</span></div>
+                                    age.</span> -->
+                                </div>
                         </div>
                     </mat-checkbox>
                 </div>

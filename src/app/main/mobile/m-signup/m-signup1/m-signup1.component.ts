@@ -321,5 +321,8 @@ export class MSignup1Component implements OnInit ,AfterViewInit{
       }, 39000);
     }
   }
-
+  saveLocation(param:any){
+    sessionStorage.setItem('redirectRegister',param);
+    this.router.navigate(['/']);
+  }
 }
