@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation,ViewChild,Input,Output,ElementRef, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../../service/api.service';
 import { config } from '../../../service/config';
@@ -8,7 +8,8 @@ import { CommonServiceService } from '../../../service/common-service.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import * as moment from 'moment';
 import { SharedModule } from 'src/app/main/shared/shared.module';
-
+import Swiper from 'swiper';
+import { Vimeo } from 'vimeo';
 @Component({
   selector: 'app-m-signup1',
   standalone: true,
@@ -16,7 +17,7 @@ import { SharedModule } from 'src/app/main/shared/shared.module';
   templateUrl: './m-signup1.component.html',
   styleUrl: './m-signup1.component.css'
 })
-export class MSignup1Component implements OnInit {
+export class MSignup1Component implements OnInit ,AfterViewInit{
   refHave: boolean = false;
   hidePassword:boolean = false;
   getcodeBtn: boolean = false;
@@ -35,11 +36,15 @@ export class MSignup1Component implements OnInit {
   datepicker: any = new Date();
   newDob:string ='';
   images = [
-    '/assets/images/sign-up-bg-new2.jpg',
-    '/assets/images/sign-up-bg-new1.jpg',
-    '/assets/images/sign-up-bg-new3.jpg',
-    '/assets/images/sign-up-bg-new4.jpg',
+    '/assets/images/promotionNew.jpeg',
   ];
+  @ViewChild('swiper', { static: false }) swiperEl?: ElementRef<any>;
+  swiper?: Swiper;
+  autoplayTimeout: any;
+  classRemove:boolean = false;
+  prevNext:boolean = true;
+
+
   private loaderSubscriber !: Subscription;
   private apiSubscriber: Subscription[] = [];
   isSmallScreen!: boolean;
@@ -71,7 +76,7 @@ export class MSignup1Component implements OnInit {
       Password: ['', [Validators.required]],
       Mobile: ['', [Validators.required]],
       OTP: ['', [Validators.required]],
-      acceptterm: ['', [Validators.required]],
+      acceptterm: [true, [Validators.required]],
     });
     this.signUp.controls['Mobile'].valueChanges.subscribe(value => {
       let strMo = String(value);
@@ -82,7 +87,7 @@ export class MSignup1Component implements OnInit {
       }
     });
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
-      this.btnLoading = ('verifyOtp' in loading || 'signUp' in loading) ? true : false;
+      this.btnLoading = ('verifyOtp' in loading || 'signUp' in loading || 'signUp1' in loading || 'otp' in loading) ? true : false;
     });
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.getTimer = ('otp' in loading) ? true : false;
@@ -223,7 +228,7 @@ export class MSignup1Component implements OnInit {
             this.apiSer.showAlert('', data.ErrorMessage, 'error');
             return;
           }
-          this.apiSer.apiRequest(config['signUp'], param).subscribe({
+          this.apiSer.apiRequest(config['signUp1'], param).subscribe({
             next: (data) => {
               if(data.ErrorCode != '1'){
                 this.apiSer.showAlert('', data.ErrorMessage, 'error');
@@ -263,4 +268,54 @@ export class MSignup1Component implements OnInit {
 
     }
   }
+     
+  ngAfterViewInit() {
+    this.swiper = new Swiper(this.swiperEl?.nativeElement, {
+      ...(this.prevNext ? { 
+        navigation: {
+          // nextEl: '.swiper-button-next',
+          // prevEl: '.swiper-button-prev',
+        },
+      } : {}),
+      ...(this.pagination ? {
+        
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    } : {}),
+     
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+     
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: true,
+        pauseOnMouseEnter:true,
+      },
+      loop: true,
+      // slidesPerView: this.slidesPerView,
+      // spaceBetween: 3,
+    });
+   
+
+ 
+  }
+
+
+
+  checkStatus(){
+    this.classRemove = true;
+    if (this.swiper) {
+      this.swiper.autoplay.stop();
+      clearTimeout(this.autoplayTimeout);
+      this.autoplayTimeout = setTimeout(() => {
+        if (this.swiper) {
+          this.swiper.autoplay.start();
+          this.classRemove = false;
+        }
+      }, 39000);
+    }
+  }
+
 }

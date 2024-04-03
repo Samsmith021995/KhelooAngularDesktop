@@ -644,3 +644,97 @@
 .custom-error .mat-form-field-appearance-outline .mat-form-field-outline {
   border-color: #22262a; /* Change the outline color as needed */
 }
+
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+/* @import 'swiper/css/pagination'; */
+/* .swiper-slide{
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 0px;
+    position: relative;
+    transition-property: transform;
+    display: block;
+    z-index: 1000;
+    
+}
+swiper-container{
+    width: 100%;
+    height: 100%;
+  }
+  
+
+  .swiper-pagination-bullet{
+    background: #000 !important; 
+  }
+
+  .swiper{
+    padding-bottom: 70px;
+  }
+
+  .swiper-button-prev{
+    margin-top: -10px !important;
+   top: var(--swiper-navigation-top-offset, 40%) !important;
+}
+  .swiper-button-next{
+    margin-top: -10px !important;
+   top: var(--swiper-navigation-top-offset, 40%) !important;
+}
+.vp-center {
+  align-items: normal !important;
+} */
+.padd{
+  padding: 0 15px !important;
+  
+}
+.removeDiv{
+  display: none;
+}
+.header {
+  background-color: black;
+  padding: 0.5rem;
+  z-index: 111111;
+  display: flex;
+  position: sticky;
+  top: 0px;
+  color: #fff;
+  justify-content: space-between; 
+  align-items: center; 
+  font-weight: 400;
+}
+
+.regiter-head {
+  flex-grow: 1; 
+
+  text-align: center; /* Added to center the image */
+  img{
+    margin-left: 1.5rem;
+  }
+}
+
+.close-signup {
+  i-feather{
+
+    color: #fff;
+  }
+  /* margin-left: auto; */
+}
+.check-form{
+  max-width: 600px;
+}
+.signup-form{
+margin-top: -1.5rem;
+text-align: center;
+}
+@media (min-width:767px) {
+  .check-form{
+    border: 1px solid #fff;
+     margin: auto;
+    /* height: 60vw;  */
+    overflow: auto;
+  }
+  .signup-form{
+    margin-top: 0rem;
+    }
+}
