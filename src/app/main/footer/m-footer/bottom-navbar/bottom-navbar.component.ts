@@ -32,12 +32,17 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
 
   }
   openRegister() {
-    this.diaRef1 = this.dialog.open(this.register, {
-      height: '900x',
-      width: '600px',
-      panelClass: 'screen-dialog',
-    });
-    this.diaRef1.afterClosed().subscribe(() => { });
+    if(sessionStorage.getItem('redirectRegister')){
+      this.router.navigate(['/'+sessionStorage.getItem('redirectRegister')]);
+    } else{
+      this.diaRef1 = this.dialog.open(this.register, {
+        height: '900x',
+        // width: '600px',
+        panelClass: 'screen-dialog1',
+      });
+      this.diaRef1.afterClosed().subscribe(() => { });
+
+    }
   }
   openMenu() {
     this.apiSer.setShowMenu(false);
@@ -45,7 +50,7 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
     this.showSp = false;
     this.diaRef2 = this.dialog.open(this.mainMenu, {
       height: '900x',
-      width: '600px',
+      // width: '600px',
       panelClass: 'screen-dialog',
     });
     this.diaRef2.afterClosed().subscribe(() => { });
@@ -161,5 +166,24 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
         })
       }
     });
+  }
+  callSupport(val:any){
+    let param = {type:val}
+    this.apiSer.apiRequest(config['supportCallback'],param).subscribe({
+      next:(data)=>{
+        if(data.ErrorCode == '1'){
+          if(val == 'TL'){
+            window.open( 'https://t.me/+'+data.Result,'_blank');
+          }else{
+            window.open(  'https://api.whatsapp.com/send/?phone='+data.Result+'&amp;text&amp;app_absent=0','_blank');
+          }
+        }else{
+          this.apiSer.showAlert('',data.ErrorMessage,'error');
+        }
+      },
+      error:(err)=>{
+
+      }
+    })
   }
 }

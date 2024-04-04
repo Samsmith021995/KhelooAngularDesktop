@@ -8,7 +8,23 @@
 .slides > div {
     scroll-snap-align: start;
     flex-shrink: 0;
-    width: 100%;
+    width: 85%;
+    margin-right: 10px;
+    border-radius: 0;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: navajowhite;
+    font-size: 100px;
+}
+.slides23 > div {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 85%;
     margin-right: 10px;
     border-radius: 0;
     transform-origin: center center;
@@ -35,22 +51,48 @@ iframe {
     height: 3px;
 }
 .slides::-webkit-scrollbar-thumb {
-    background: #fdc600;
+    background: #f5ad60;
     border-radius: 10px;
 }
 
 .arrow-cl{
     color: #fdc601;
     text-align: center;
+    margin-top: 1rem;
     a {
         text-decoration: none;
-        color: #fdc601;
+        color: #fff;
     }
 }
 .btn-slider{
-    background: none;
+    color:#fff;
+    background: #f7ad08;
+    border-radius: 50%;
+    height: 35px;
     border: none;
+    i-feather{
+        stroke-width: 3px !important;
+    }
 }
 .disable-cl{
-    color: #968855 !important;
+    background-color: #745404 !important;
 }
+.mat-dialog-container {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  @media (max-width: 599px)
+  {
+     .cdk-overlay-pane.screen-video.mat-mdc-dialog-panel {
+          max-width: 100% !important;
+      }
+          
+}
+
+::ng-deep   .cdk-overlay-pane.screen-video.mat-mdc-dialog-panel {
+    max-width: 100% !important;
+}
+::ng-deep .cdk-overlay-dark-backdrop {
+    background: rgb(0 0 0 / 74%);
+}
+

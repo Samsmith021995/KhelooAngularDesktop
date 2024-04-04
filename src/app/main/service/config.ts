@@ -5,6 +5,7 @@ export const config:any = {
     "otp":{endURL:"GameV1/GenerateOTP",type:"GET",keyL:"otp"},
     "verifyOtp":{endURL:"GameV1/VerifyOTP",type:"GET",keyL:"verifyOtp"},
     "signUp":{endURL:"GameV1/RegisterUser",type:"POST",keyL:"signUp"},
+    "signUp1":{endURL:"GameV1/RegisterUserV1",type:"POST",keyL:"signUp1"},
     "generateForpass":{endURL:"GameV1/GenerateOTPForgotPassword",type:"POST",keyL:"generateForpass"},
     "verifyOtppass":{endURL:"GameV1/ResetPassword",type:"POST",keyL:"verifyOtppass"},
     "changePassword":{endURL:"GameV1/ChangePassword",type:"POST",keyL:"changePassword"},
@@ -21,6 +22,8 @@ export const config:any = {
     "recent":{endURL:"GameV1/GetRecentWithdraw",type:"GET",keyL:"recent"},
     "cancelReq":{endURL:"MyProfileAPI/CancellWithdrawRequest",type:"POST",keyL:"cancelReq"},
     "callback":{endURL:"MyProfileAPI/RequestCallback",type:"GET",keyL:"callback"},
+    "supportCallback":{endURL:"AppPayment/GetSupportNumber",type:"GET",keyL:"supportCallback"},
+    "affiliateTrack":{endURL:"Common/InsertBrowserDetails",type:"GET",keyL:"affiliateTrack"},
   
 
 }

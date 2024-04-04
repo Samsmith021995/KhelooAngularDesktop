@@ -29,8 +29,8 @@ export class MSignupComponent implements OnInit {
   pagination: boolean = false;
   datepicker: any = new Date();
   images = [
-    '/assets/images/sign-up-bg-new1.jpg',
     '/assets/images/sign-up-bg-new2.jpg',
+    '/assets/images/sign-up-bg-new1.jpg',
     '/assets/images/sign-up-bg-new3.jpg',
     '/assets/images/sign-up-bg-new4.jpg',
   ];
@@ -184,6 +184,12 @@ export class MSignupComponent implements OnInit {
 
       this.apiSer.apiRequest(config['signUp'], param).subscribe({
         next: (data) => {
+          if(data.ErrorCode != '1'){
+            this.apiSer.showAlert('', data.ErrorMessage, 'error');
+            return;
+          }
+          this.commonSer.saveData('Mobile',param.Mobile);
+          this.commonSer.saveData('Password',param.Password);
           this.router.navigate(['/thankyou']);
         },
         error: (err) => {

@@ -15,10 +15,39 @@ import { UrlService } from '../../service/url.service';
 export class MHomeComponent implements OnInit {
   slidesPerViewn:number = 1;
   images = [
-    '/assets/images/10minwith.png',
-    '/assets/images/Banner11.jpeg',
-    '/assets/images/Banner18.jpeg',
-    '/assets/images/Dil-se-kheloo_375x250.jpeg'
+    {src:'/assets/images/lassback25.png'},
+    {src:'/assets/images/checkban.png'},
+    {src:'/assets/images/extracashbackbanner5.png'},
+    {src:'/assets/images/promo7.png'},
+    {src:'/assets/images/bonus300banner.png'},
+    {src:'/assets/images/ezugi.png'},
+    // '/assets/images/10minwith.png',
+    // '/assets/images/Banner11.jpeg',
+    // '/assets/images/Banner18.jpeg',
+    // '/assets/images/Dil-se-kheloo_375x250.jpeg'
+  ];
+
+  gamesProvider = [
+    {title:'ezugi',src:'/assets/provider/ezugi.svg'},
+    {title:'red tiger',src:'/assets/provider/red-tiger.svg'},
+    {title:'smartsoft',src:'/assets/provider/smartsoft.svg'},
+    {title:'evolution gaming',src:'/assets/provider/evolution_gaming.svg'},
+    {title:'habanero',src:'/assets/provider/habanero.svg'},
+    {title:'play\'n go',src:'/assets/provider/playngo.svg'},
+    {title:'playtech',src:'/assets/provider/playtech.png'},
+    {title:'tvbet',src:'/assets/provider/tvbet.png'},
+    {title:'Pragmatic Play',src:'/assets/provider/3oaks.svg'},
+    {title:'sexy',src:'/assets/provider/ae-sexy.png'},
+    {title:'Betsolutions',src:'/assets/provider/betgames.png'},
+    {title:'charismatic',src:'/assets/provider/charismatic.webp'},
+    {title:'fantasma games',src:'/assets/provider/fantasma-games.webp'},
+    {title:'gamzix',src:'/assets/provider/gamzix.webp'},
+    {title:'jili',src:'/assets/provider/jilli.png'},
+    {title:'nolimit city',src:'/assets/provider/nolimit-city.svg'},
+    {title:'pgsoft',src:'/assets/provider/pgsoft.svg'},
+    {title:'quickspin',src:'/assets/provider/quickspin.svg'},
+    {title:'Relax Gaming',src:'/assets/provider/relax-gaming.svg'},
+    {title:'netent',src:'/assets/provider/netent.svg'},
   ];
   // images = [
   //   {src:'/assets/images/10minwith.png'},
@@ -204,4 +233,11 @@ export class MHomeComponent implements OnInit {
 closeDial2(){
   this.diaRef3.close();
 }
+  clickVal(val:any){
+    this.promotins();
+  }
+  promotins(){
+    this.apiSer.setShowMenu(false);
+    this.apiSer.updatePromotion(true);
+  }
 }

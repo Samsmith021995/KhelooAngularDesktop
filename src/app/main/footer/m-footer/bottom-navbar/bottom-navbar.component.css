@@ -96,3 +96,11 @@ background-image: none !important ;
 .call-supp{
     margin-bottom: 5px;
 }
+
+.ms-nav li {
+    -webkit-transform: translate3d(0, 1000px, 0);
+    transform: unset !important;
+}
+.screen-dialog1{
+    max-width: 80vw !important;
+} 

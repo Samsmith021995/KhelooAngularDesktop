@@ -2,13 +2,14 @@ import { Injectable, NgZone } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 import { Observable, throwError, of, Subject, BehaviorSubject } from 'rxjs';
-import { catchError, tap, delay, filter } from 'rxjs/operators';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { catchError, tap } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CommonServiceService } from './common-service.service';
 import { LoaderService } from './loader.service';
 import { environment } from 'src/env/environments';
 import { Meta, Title } from '@angular/platform-browser';
+import { config } from './config';
 
 
 @Injectable({
@@ -51,6 +52,9 @@ export class ApiService {
       this.headers_object = this.headers_object.append('Token', localStorage.getItem('LoginToken'));
       this.headers_object = this.headers_object.append('userid', localStorage.getItem('UserId'));
       let urlPath = window.location.pathname;
+      if (localStorage.getItem('Amount')) {
+        this.headers_object = this.headers_object.append('Amount', localStorage.getItem('Amount'));
+      }
       this.headers_object = this.headers_object.append('sitePath', urlPath);
     }
     this.options = {
@@ -162,7 +166,7 @@ export class ApiService {
   // deleteCookie(name: string): void {
   //   document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 UTC;';
   // }
-  
+
   // googleTranslateElementInit(target: string): void {
   //   const cookieName = 'googtrans';
   //   if (target === 'en') {
@@ -206,8 +210,28 @@ export class ApiService {
     return data;
   }
 
-  updatePromotion(value: boolean){
-      this.isPromotion.next(value);
-    }
-  
+  updatePromotion(value: boolean) {
+    this.isPromotion.next(value);
+  }
+
+  login(mob: any, pass: any) {
+    let param = { Mobile: mob, Password: pass };
+    this.apiRequest(config['login'], param).subscribe({
+      next: data => {
+        if (data.ErrorCode == '1') {
+          this.commonSer.saveData('UserId', data.UserId);
+          this.commonSer.saveData('LoginToken', data.LoginToken);
+          this.commonSer.saveData('name', data.UserName);
+          this.showAlert(data.ErrorMessage, '', 'success');
+          this.router.navigate(['/']);
+        } else if (data.ErrorCode != '1') {
+          this.showAlert(data.ErrorMessage, '', 'error');
+        }
+      },
+      error: err => {
+        this.showAlert('Something Went Wrong', '', 'error');
+      }
+    });
+  }
+
 }
