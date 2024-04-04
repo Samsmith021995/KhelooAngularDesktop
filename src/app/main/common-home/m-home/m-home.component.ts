@@ -240,4 +240,7 @@ closeDial2(){
     this.apiSer.setShowMenu(false);
     this.apiSer.updatePromotion(true);
   }
+  checklogin(){
+    this.apiSer.updateLoginStatus(true);
+  }
 }

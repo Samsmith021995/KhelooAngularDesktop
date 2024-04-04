@@ -39,8 +39,16 @@
                 <i-feather name="plus"> </i-feather>
             </div>
             <ul id="scroll_bottom" class="swiper-scroll">
-                <li >
+                <!-- <li >
                     <a (click)="gameStart(3306)">
+                        <img src="/assets/images/sports-new.png">
+                        <span>
+                            Sports
+                        </span>
+                    </a>
+                </li> -->
+                <li [ngClass]="{'active':selectedMenu=='Sports'}">
+                    <a (click)="updateData('Sports')">
                         <img src="/assets/images/sports-new.png">
                         <span>
                             Sports
@@ -156,6 +164,6 @@
     <app-m-menu (onCancel)="closeDial1()"></app-m-menu>
 </ng-template>
 <ng-template #loginPop>
-    <app-loginpopup (onCancel)="closeDial2()"></app-loginpopup>
+    <app-loginpopup (onCancel)="closeDial2()" (loginCheck)="loginchek()"></app-loginpopup>
 </ng-template>
 <!-- Ashutosh -->
