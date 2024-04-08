@@ -38,7 +38,6 @@ export class GamesProviderWiseComponent implements OnInit {
   ngOnInit(): void {
     // this.getAllCategory(this.selected);
     this.route.paramMap.subscribe(param => {
-      console.log("Ashu")
       this.getAllCategory(this.selected);
       console.log(this.gamesData)
     });

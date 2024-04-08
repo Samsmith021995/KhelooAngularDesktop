@@ -186,4 +186,7 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
       }
     })
   }
+  loginchek(){
+    this.apiSer.updateLoginStatus(true);
+  }
 }
