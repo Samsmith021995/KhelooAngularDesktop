@@ -551,8 +551,8 @@ svg {
     padding-bottom: 10px;
 }
 .carousel-inner{
-    width:130px;
-    height: 70px;
+    width:12rem;
+    height: 5rem;
     /* background-color: #2b2b2b; */
     /* background-color: #eac69e; */
     background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
@@ -583,4 +583,8 @@ svg {
   .carousel::-webkit-scrollbar-thumb:hover {
     padding: 1rem;
     background: #f4ad09;
+  }
+  .pro-img{
+    width: 8rem;
+    height: 5rem;
   }

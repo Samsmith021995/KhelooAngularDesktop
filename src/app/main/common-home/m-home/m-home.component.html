@@ -23,7 +23,7 @@
             @for (item of gamesProvider; track $index) {
                 <a (click)="onSearch(item.title)">
                     <div class="carousel-inner">
-                        <img [src]="item.src" alt="" style="width: 100px;height: 70px;">
+                        <img [src]="item.src" alt="" class="pro-img" >
                     </div>
                 </a>
             }
