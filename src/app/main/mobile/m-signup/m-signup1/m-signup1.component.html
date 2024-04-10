@@ -1,0 +1,157 @@
+<div class="check-form">
+    <div class="header">
+        <div class="regiter-head">
+            <a (click)="saveLocation('signupv1')" >
+                <img src="/assets/images/logo.gif" alt="" width="100px;">
+
+            </a>
+        </div>
+        <div class="close-signup">
+            <a (click)="saveLocation('signupv1')"><i-feather name="x"></i-feather></a>
+        </div>
+    </div>
+    <div class="container-fluid" >
+        <div class="banner" style="margin-top: -0.8rem;">
+            <div class="swiper" #swiper>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div id="slide-11" class="slider24" style="display: flex;">
+                            <iframe src="https://player.vimeo.com/video/759401631?h=27f2be5876" width="640" height="270"
+                                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""
+                                #iframe1 [ngClass]="{removeDiv:!classRemove}"></iframe>
+                            <div [ngClass]="{removeDiv:classRemove}" style="position: absolute;z-index: 100000;">
+                                <a (click)="checkStatus()">
+                                    <img src="/assets/images/kajal.png" alt="" width="100%" style="margin-top: 36px;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div id="slide-21" class="slider4" style="display: flex; ">
+                            <iframe src="https://player.vimeo.com/video/661405333?h=5cdfbec4d0" width="640" height="270"
+                                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""
+                                #iframe2  [ngClass]="{removeDiv:!classRemove}"></iframe>
+                            <div [ngClass]="{removeDiv:classRemove}" style="position: absolute;z-index: 100000;">
+                                <a (click)="checkStatus()">
+                                    <img src="/assets/images/emran.png" alt="" width="100%" style="margin-top: 36px;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-container *ngFor="let img of images; let i=index">
+                        <div class="swiper-slide">
+                            <img [src]="img" alt="" width="100%">
+                        </div>
+                      </ng-container>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+
+
+        </div>
+        <div class="signup-form">
+            <h3 style="font-size: 22px;font-weight: 500;color: #fff;"> Join us in just 30 sec</h3>
+            <form [formGroup]="signUp">
+                <div class="signFormnew">
+                    <mat-form-field style="width: 100%;" class="materialI" appearance="outline"
+                        [class.custom-error]="this.signUp.controls['UserName'].invalid && (this.signUp.controls['UserName'].touched || this.signUp.controls['UserName'].dirty)">
+                        <mat-label style="margin-left: 0.5rem;color: #bbb;">UserName</mat-label>
+                        <input matInput type="text" name="" id="" formControlName="UserName">
+
+                    </mat-form-field>
+                </div>
+                <div class="signFormnew">
+                    <mat-form-field style="width: 100%;" class="materialI" appearance="outline">
+                        <mat-label style="margin-left: 0.5rem;color: #bbb;">Mobile</mat-label>
+                        <input matInput type="number" name="" id="" formControlName="Mobile" placeholder="984XXXXXXX"
+                            (keydown)="validateNumber($event)">
+
+                    </mat-form-field>
+                </div>
+                <div class="signFormnew">
+                    <mat-form-field style="width: 100%;" class="materialI" appearance="outline">
+                        <mat-label style="margin-left: 0.5rem;color: #bbb;">Password</mat-label>
+
+                        <input matInput [type]="hidePassword?'text':'password'" name="" id="" formControlName="Password"
+                            placeholder="Password">
+                        </mat-form-field>
+                        <div  style="margin-right: 1rem;color: #bbb; margin-top: -3.0rem;float: right;position: absolute;right: 13px;">
+                            <a (click)="hidePassword = !hidePassword"><i-feather
+                                    [name]="hidePassword?'eye-off':'eye'"></i-feather></a>
+
+                        </div>
+                </div>
+                <div class="signFormnew" style="text-align: left;">
+                    @if(!refHave){
+                    <a (click)="refHave = !refHave" style="margin: 1rem;color: #deb858;">I have promo code</a><br>
+                    }@else {
+                    <mat-form-field style="width: 100%;" class="materialI" appearance="outline">
+                        <mat-label style="margin-left: 0.5rem;color: #bbb;">Refferal</mat-label>
+                        <input matInput type="text" name="" id="" formControlName="Ref" placeholder="Refferal">
+                    </mat-form-field>
+                    <div style="margin-right: 2rem; color: #bbb;margin-top: -3.3rem;float: right;z-index: 99;position: absolute;right: 0;">
+                        <a (click)="refHave = !refHave"> <i-feather name="x"></i-feather></a>
+                    </div>
+                    }
+                </div>
+
+                <div class="signFormnew" style="text-align: left;">
+                    <mat-checkbox class="example-margin" formControlName="acceptterm">
+                        <div class="container__text--VA6e8" style="color: #fff;">
+                            <div class="description--LEqJr" data-testid="description"><span>I agree with the </span><a style="color: #deb858;" class="default-link--np1ir"
+                                    href="/term-condition/" tabindex="-1">Terms & Condition</a>
+                                    <!-- <span>,
+                                </span><a style="color: #deb858;" class="default-link--np1ir"
+                                    href="/privacy-policy/" tabindex="-1">Privacy Policy</a><span> and confirm that I am over 18 years of
+                                    age.</span> -->
+                                </div>
+                        </div>
+                    </mat-checkbox>
+                </div>
+                @if(inputVerify){
+                <p style="color: #bbb;">CONFIRM YOUR PHONE NUMBER </p>
+                <p style="color: #bbb;">A text message with a confirmation code was sent to
+                    {{this.signUp.controls['Mobile'].value}}</p>
+
+
+                <div class="signFormnew">
+                    <mat-form-field style="width: 100%;" class="materialI">
+                        <input matInput type="number" name="" id="" formControlName="OTP" placeholder="OTP">
+                    </mat-form-field>
+                </div>
+
+                }
+
+                <button (click)="onSubmit()" class="next-step12">
+                    <ng-container *ngIf="btnLoading; else content">
+                        <i-feather name="loader"></i-feather>
+
+                    </ng-container>
+                    <ng-template #content>
+                        {{ !inputVerify ? 'Submit' : 'Start the game' }}
+                    </ng-template>
+                </button>
+            </form>
+            <div style="margin-top: 10px;text-align: center;">
+                <span style="color: #ccc;"> Already have an account ? </span> <a href="/login"
+                    style="text-decoration: none;color: #deb858;">Login</a>
+            </div>
+        </div>
+    </div>
+    <!-- <div style="text-align: center;color: #deb858;">
+        <p>---------------- or ----------------</p>
+    </div> -->
+
+    <!-- <div style="text-align: center;padding: 1rem; border: 2px solid #363431; margin: 1rem;border-radius: 4px;">
+        <p style="color: #bbb;">
+            For Instant Singup , Please Contact Us.
+        </p>
+        <a href="https://tawk.to/chat/60a22370185beb22b30ddc1d/1f5slks90" target="_blank"><img
+                src="/assets/images/call_support.png" alt="" width="30px"></a>&nbsp;&nbsp;
+        <a href="https://api.whatsapp.com/send/?phone=447897045261&text&app_absent=0" target="_blank"> <img
+                src="/assets/images/whatsapp.png" alt="" width="30px"></a>&nbsp;&nbsp;
+        <a href="https://cdn.kheloo.com/khelooapp.apk" target="_blank" style="text-decoration: none;color: #deb858;">
+            <i-feather name="download"></i-feather></a>
+    </div> -->
+</div>

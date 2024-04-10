@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
-import { CommonServiceService } from './main/service/common-service.service';
 import { LoginComponent } from './main/desktop/auth/login/login.component';
 import { RegisterComponent } from './main/desktop/auth/register/register.component';
 import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/forgot-password.component';
@@ -40,8 +39,10 @@ import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
 import { TableGameComponent } from './main/desktop/footer-content/games/table-game/table-game.component';
 import { ThankYouComponent } from './main/shared/thank-you/thank-you.component';
 import { GamesProviderWiseComponent } from './main/mobile/games-provider-wise/games-provider-wise.component';
+import { MSignup1Component } from './main/mobile/m-signup/m-signup1/m-signup1.component';
+import { MSignup2Component } from './main/mobile/m-signup/m-signup2/m-signup2.component';
 
-const commonSer = new CommonServiceService();
+
 const routes: Routes = [
   {
     path: '',
@@ -327,8 +328,18 @@ const routes: Routes = [
   {
     path: 'signup',
     component: MSignupComponent,
-    canActivate: []
+    canActivate: [LoginGuard]
   },
+  {
+    path: 'signupv1',
+    component: MSignup1Component,
+    canActivate: [LoginGuard]
+  },
+  // {
+  //   path: 'signupv2',
+  //   component: MSignup2Component,
+  //   canActivate: [LoginGuard]
+  // },
   { path: 'SignUp', redirectTo: '/signup', pathMatch: 'full' },
   {
     path: 'login',

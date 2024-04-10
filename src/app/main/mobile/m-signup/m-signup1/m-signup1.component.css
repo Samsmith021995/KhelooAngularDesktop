@@ -1,0 +1,557 @@
+.signForm span:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #2d1a5e, #7b27a2);
+    animation: animate1 2s linear infinite;
+  }
+  
+  .signForm span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to right, #2d1a5e, #7b27a2);
+    animation: animate2 2s linear infinite;
+    animation-delay: 1s;
+  }
+  
+  
+  .signForm span:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #2d1a5e, #7b27a2);
+    animation: animate3 2s linear infinite;
+  }
+
+  
+  .signForm span:nth-child(4) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to right, #2d1a5e, #7b27a2);
+    animation: animate4 2s linear infinite;
+    animation-delay: 1s;
+  }
+  
+  /* 
+  @keyframes animate4 {
+      0% {
+          transform: translateY(100%);
+      }
+  
+      100% {
+          transform: translateY(-100%);
+      }
+  } */
+  button.next-step:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transform: skewX(-20deg);
+    background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+  }
+  
+  button.next-step:after {
+    animation: shine 1.6s ease infinite;
+  }
+  
+  button.next-step:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 16px rgba(27, 189, 9, 0.2);
+  }
+  
+  @-moz-keyframes shine {
+    100% {
+      left: 100%;
+    }
+  }
+  
+  @-webkit-keyframes shine {
+    100% {
+      left: 100%;
+    }
+  }
+  
+  @-o-keyframes shine {
+    100% {
+      left: 100%;
+    }
+  }
+  
+  @keyframes shine {
+    100% {
+      left: 100%;
+    }
+  }
+  
+  .image-overlay-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+  }
+  
+  .background-image {
+    width: 100%;
+    display: block;
+  }
+  
+  @media (min-width: 768px) and (max-width:968px) {
+    .overlay-content {
+      width: 38%;
+      position: absolute;
+      top: 10%;
+      right: 3%;
+      border: 2px solid #998c98;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      text-align: center;
+      border-radius: 25px;
+      box-shadow: black 2px 2px 2px;
+  
+    }
+  
+    .getC {
+      width: 67px !important;
+    }
+  }
+  
+  @media (min-width:968px) and (max-width:1024px) {
+    .overlay-content {
+      width: 35%;
+      position: absolute;
+      top: 20%;
+      right: 5%;
+      border: 2px solid #998c98;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      text-align: center;
+      border-radius: 25px;
+      box-shadow: black 2px 2px 2px;
+  
+    }
+  
+  }
+  
+  @media (min-width:1024px) {
+    .overlay-content {
+      width: 30%;
+      position: absolute;
+      top: 25%;
+      right: 8%;
+      border: 2px solid #998c98;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      text-align: center;
+      border-radius: 25px;
+      box-shadow: black 2px 2px 2px;
+  
+    }
+  
+    .getC {
+      width: 80px !important;
+    }
+  }
+  
+  .otpVeri {
+    top: 25% !important;
+  }
+  
+  .next-step1 {
+    width: 100%;
+    background-image: linear-gradient(to right, #ebcd76, #ca9421);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+  
+  .next-step1:hover {
+    background-image: linear-gradient(to right, #ca9421, #ebcd76);
+    box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.25);
+  }
+  
+  .next-step1::after {
+    content: '';
+    top: 0;
+    left: -150%;
+    width: 300%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      left: -150%;
+    }
+  
+    100% {
+      left: 150%;
+    }
+  }
+  
+  :root .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    border: 1px solid #998c98 !important;
+    border-radius: 5px;
+  }
+  
+  .icon-border-right {
+    border-right: 1px solid #998c98;
+    padding-right: 5px;
+    margin-right: 5px;
+  }
+  
+  .material-icons {
+    line-height: 0 !important;
+  
+    .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
+  }
+  
+  .mat-mdc-form-field-infix {
+    min-height: 41px !important;
+  }
+  
+  .otpVeri {
+    top: 20% !important;
+  }
+  
+
+  
+  @media (max-width: 767px) {
+  
+    .overlay-content {
+      width: 100%;
+      position: relative;
+      bottom: 25rem;
+      padding: 1em;
+      text-align: center;
+      z-index: 99;
+    }
+  
+    .mat-mdc-form-field-icon-prefix>.mat-icon {
+      background-color: rgba(255, 255, 255, 0.2);
+  
+    }
+  
+    .getC {
+      margin-right: 8px;
+      height: 24px;
+      width: 79px !important;
+      font-size: 14px !important;
+    }
+  
+    .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+      padding-top: 6px !important;
+      padding-bottom: 10px !important;
+    }
+  
+  
+  
+    .mat-icon {
+      width: 20px !important;
+      padding-top: 5px !important;
+  
+    }
+  
+    .logo {
+      left: 33% !important
+    }
+  
+    .material2 .mdc-text-field__input {
+      width: 100% !important;
+      padding-left: 10 !important;
+      height: 26px !important;
+    }
+  
+  
+    .mat-mdc-form-field-icon-prefix>.mat-icon {
+      padding: 4px 12px !important;
+      height: 30px;
+    }
+  }
+  
+  .logo {
+    position: absolute;
+    top: 0;
+    margin: 10px auto;
+    display: block;
+    z-index: 999;
+  
+  }
+  
+  .mat-datepicker-toggle {
+    color: #fff !important;
+  }
+  
+  .mat-mdc-icon-button {
+    padding-top: 2px !important;
+  }
+  .swiper {
+    padding-bottom: 20px !important;
+  }
+  /* new Form Signup Design1 */
+
+  .container-fluid {
+    /* background: #aaa; */
+    padding: 0px !important;
+  }
+  .signup-form{
+    padding: 1rem;
+    background-color: unset;
+  }
+  ::ng-deep #mat-input-0::placeholder {
+    color: #ccc;
+  }
+  ::ng-deep #mat-input-1::placeholder {
+    color: #ccc;
+  }
+  ::ng-deep #mat-input-2::placeholder {
+    color: #ccc;
+  }
+  ::ng-deep #mat-input-3::placeholder {
+    color: #ccc;
+  }
+  ::ng-deep #mat-input-4::placeholder {
+    color: #ccc;
+  }
+  ::ng-deep
+    .mdc-text-field--filled.mdc-text-field--disabled {
+        background-color: #fafafab5 !important;
+        color: #959393cf !important;
+    
+  }
+ ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+        background: #22262a !important;
+        border: 1px solid #3f3f3f;
+        color: white !important;
+    }
+ ::ng-deep .mdc-text-field--no-label:not(.mdc-text-field--textarea) .mat-mdc-form-field-input-control.mdc-text-field__input, .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+       padding: 0 1rem !important;
+    }
+    .materialI {
+        height: 70px !important;
+      }
+  
+   .mdc-text-field__input {
+    width: 100% !important;
+    padding-left: 10px !important;
+    font-size: 18px !important;
+}
+
+::ng-deep .mdc-checkbox:hover .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background{
+    background-color:#e5b86d !important;
+    border-color: #e5b86d !important;
+    border-radius: 50% !important;
+    
+  }
+  ::ng-deep .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background{
+    background-color:#e5b86d !important;
+    border-color: #e5b86d !important;
+    border-radius: 50% !important;
+  }
+  ::ng-deep .mdc-checkbox:hover .mdc-checkbox__native-control:checked~.mdc-checkbox__ripple{
+    
+    background-color:#e5b86d !important;
+  }
+  ::ng-deep .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+    border-color: #e5b86d !important;
+    border-radius: 50% !important;
+  
+  }
+  .next-step12 {
+    width: 100%;
+    background-image: linear-gradient(to right, #ebcd76, #ca9421);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    /* clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); */
+    box-shadow: 0 4px 10px 0 #ca9421;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+  .next-step12::after {
+    content: '';
+    top: 0;
+    left: -150%;
+    width: 300%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+    animation: shimmer 2s infinite;
+  }
+  ::ng-deep .mat-form-field-outline {
+    outline-color:#fff; /* Change the outline color as needed */
+  }
+  ::ng-deep :root
+.mdc-text-field {
+    background: #22262a;
+}
+  /* new Form Signup Design1 */
+
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-start,
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-end,
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-gap,
+.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline-start,
+.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline-end,
+.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline-gap {
+  border-color: #22262a !important; /* Change the outline color */
+
+
+}
+::ng-deep html{
+  --mdc-outlined-text-field-error-outline-color: #22262a !important;
+  --mdc-outlined-text-field-error-hover-outline-color:#22262a !important;
+  --mdc-outlined-text-field-focus-label-text-color:#22262a !important;
+  --mdc-outlined-text-field-error-focus-outline-color:#22262a !important;
+  --mdc-outlined-text-field-caret-color:#22262a !important;
+  --mdc-outlined-text-field-focus-outline-color:#22262a !important;
+}
+
+.custom-error .mat-form-field-appearance-outline .mat-form-field-outline {
+  border-color: #22262a; /* Change the outline color as needed */
+}
+
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+/* @import 'swiper/css/pagination'; */
+/* .swiper-slide{
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 0px;
+    position: relative;
+    transition-property: transform;
+    display: block;
+    z-index: 1000;
+    
+}
+swiper-container{
+    width: 100%;
+    height: 100%;
+  }
+  
+
+  .swiper-pagination-bullet{
+    background: #000 !important; 
+  }
+
+  .swiper{
+    padding-bottom: 70px;
+  }
+
+  .swiper-button-prev{
+    margin-top: -10px !important;
+   top: var(--swiper-navigation-top-offset, 40%) !important;
+}
+  .swiper-button-next{
+    margin-top: -10px !important;
+   top: var(--swiper-navigation-top-offset, 40%) !important;
+}
+.vp-center {
+  align-items: normal !important;
+} */
+.padd{
+  padding: 0 15px !important;
+  
+}
+.removeDiv{
+  display: none;
+}
+.header {
+  background-color: black;
+  padding: 0.5rem;
+  z-index: 111111;
+  display: flex;
+  position: sticky;
+  top: 0px;
+  color: #fff;
+  justify-content: space-between; 
+  align-items: center; 
+  font-weight: 400;
+}
+
+.regiter-head {
+  flex-grow: 1; 
+
+  text-align: center; /* Added to center the image */
+  img{
+    margin-left: 1.5rem;
+  }
+}
+
+.close-signup {
+  i-feather{
+
+    color: #fff;
+  }
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-height: 100%;
+}
+
+.check-form {
+  display: flex; /* Use flexbox to manage content */
+  flex-direction: column; /* Stack content vertically */
+  height: 100vh; /* Set height to viewport height */
+  box-sizing: border-box;
+}
+
+.container-fluid {
+  flex: 1; /* Grow to fill remaining space */
+
+  padding: 20px; /* Adjust padding as needed */
+  box-sizing: border-box;
+}
+
+.signup-form{
+margin-top: -1.5rem;
+text-align: center;
+}
+@media (min-width:767px) {
+  .check-form{
+    border: 1px solid #fff;
+     margin: auto;
+    /* height: 60vw;  */
+    overflow: auto;
+    max-width: 600px;
+  }
+  .signup-form{
+    margin-top: 0rem;
+    }
+}

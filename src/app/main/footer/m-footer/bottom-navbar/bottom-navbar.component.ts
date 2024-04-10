@@ -32,12 +32,17 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
 
   }
   openRegister() {
-    this.diaRef1 = this.dialog.open(this.register, {
-      height: '900x',
-      width: '600px',
-      panelClass: 'screen-dialog',
-    });
-    this.diaRef1.afterClosed().subscribe(() => { });
+    if(sessionStorage.getItem('redirectRegister')){
+      this.router.navigate(['/'+sessionStorage.getItem('redirectRegister')]);
+    } else{
+      this.diaRef1 = this.dialog.open(this.register, {
+        height: '900x',
+        // width: '600px',
+        panelClass: 'screen-dialog1',
+      });
+      this.diaRef1.afterClosed().subscribe(() => { });
+
+    }
   }
   openMenu() {
     this.apiSer.setShowMenu(false);
@@ -45,7 +50,7 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
     this.showSp = false;
     this.diaRef2 = this.dialog.open(this.mainMenu, {
       height: '900x',
-      width: '600px',
+      // width: '600px',
       panelClass: 'screen-dialog',
     });
     this.diaRef2.afterClosed().subscribe(() => { });
@@ -180,5 +185,8 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
 
       }
     })
+  }
+  loginchek(){
+    this.apiSer.updateLoginStatus(true);
   }
 }

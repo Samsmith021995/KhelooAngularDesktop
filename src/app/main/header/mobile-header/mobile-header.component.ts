@@ -1,4 +1,4 @@
-import { Component, Inject, ViewChild, ElementRef, TemplateRef, OnInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, TemplateRef, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CommonServiceService } from '../../service/common-service.service';
 import { Subscription } from 'rxjs';
@@ -31,12 +31,19 @@ export class MobileHeaderComponent implements OnInit,OnDestroy {
     this.showSubscription = this.apiSer.getShowMenu().subscribe(value=>{
       this.showmenu= value;
     });
-    this.loginchecks();
     this.urlSubscription = this.urlSer
     .getIsUrlPresent().
     subscribe((isUrlPresent1) => {
       this.isUrlPresent = isUrlPresent1 === 'true';
     });
+    this.apiSer.isLoggedIn$.subscribe({
+      next: data => {
+      this.loginchecks();
+    },
+    error:err=>{
+
+    }
+  });
   }
   openDialog() {
      this.dialogRef = this.dialog.open(this.login)
@@ -54,9 +61,9 @@ export class MobileHeaderComponent implements OnInit,OnDestroy {
         this.checkLogin = false;
         return;
       }
-      if(this.checkLogin){
-        this.apiSer.updateLoginStatus(this.checkLogin);
-      }
+      // if(this.checkLogin){
+      //   this.apiSer.updateLoginStatus(this.checkLogin);
+      // }
       this.apiSer.apiRequest(config['balance']).subscribe({
         next: data => {
           if (data.ErrorCode == '0') {
