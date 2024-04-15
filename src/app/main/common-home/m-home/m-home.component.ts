@@ -15,7 +15,7 @@ import { UrlService } from '../../service/url.service';
 export class MHomeComponent implements OnInit {
   slidesPerViewn:number = 1;
   images = [
-    {src:'/assets/images/edibanner.jpeg'},
+    // {src:'/assets/images/edibanner.jpeg'},
     {src:'/assets/images/lassback25.png'},
     {src:'/assets/images/checkban.png'},
     {src:'/assets/images/extracashbackbanner5.png'},
