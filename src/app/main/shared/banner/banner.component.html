@@ -3,7 +3,7 @@
     <ng-container *ngFor="let img of images; let i=index">
       <div class="swiper-slide" [ngClass]="{'padd':location}">
         @if(clickBanner){
-         <a (click)="submitData(this)">
+         <a (click)="submitData(this,img.redirect)">
            <img [src]="img.src" alt="" width="100%">
           </a>
         } @else {  

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { CommonServiceService } from '../../service/common-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UrlService } from '../../service/url.service';
+import { ComFunService } from '../../service/com-fun.service';
 
 @Component({
   selector: 'app-m-home',
@@ -14,20 +15,17 @@ import { UrlService } from '../../service/url.service';
 })
 export class MHomeComponent implements OnInit {
   slidesPerViewn:number = 1;
-  images = [
-    {src:'/assets/images/edibanner.jpeg'},
-    {src:'/assets/images/lassback25.png'},
-    {src:'/assets/images/checkban.png'},
-    {src:'/assets/images/extracashbackbanner5.png'},
-    {src:'/assets/images/promo7.png'},
-    {src:'/assets/images/bonus300banner.png'},
-    {src:'/assets/images/ezugi.png'},
-    // '/assets/images/10minwith.png',
-    // '/assets/images/Banner11.jpeg',
-    // '/assets/images/Banner18.jpeg',
-    // '/assets/images/Dil-se-kheloo_375x250.jpeg'
+  images :any= [
+    
   ];
-
+  
+  // {src:'/assets/images/edibanner.jpeg'},
+  // {src:'/assets/images/lassback25.png'},
+  // {src:'/assets/images/checkban.png'},
+  // {src:'/assets/images/extracashbackbanner5.png'},
+  // {src:'/assets/images/promo7.png'},
+  // {src:'/assets/images/bonus300banner.png'},
+  // {src:'/assets/images/ezugi.png'},
   gamesProvider = [
     {title:'ezugi',src:'/assets/provider/ezugi.svg'},
     {title:'red tiger',src:'/assets/provider/red-tiger.svg'},
@@ -80,13 +78,14 @@ export class MHomeComponent implements OnInit {
  
   diaRef3: any;
   isPromo:boolean = false;
-  constructor(private dialog: MatDialog,private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef,private comSer:CommonServiceService,private urlSer:UrlService,private elementRef: ElementRef) { 
+  constructor(private dialog: MatDialog,private apiSer: ApiService, private renderer: Renderer2, private router: Router, private cdr: ChangeDetectorRef,private comSer:CommonServiceService,private urlSer:UrlService,private elementRef: ElementRef,private comfun:ComFunService) { 
  
 
   }
 
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   ngOnInit(): void {
+    this.bannnerImage();
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.categoryFetch = ('gameCategory' in loading) ? true : false;
       this.gamelist = ('gameList' in loading) ? true : false;
@@ -112,8 +111,19 @@ export class MHomeComponent implements OnInit {
       //   behavior: 'smooth'
       // });
     });
+
   }
 
+  bannnerImage(){
+    this.comfun.getCDNData('banner').subscribe({
+      next:(res: any) =>{
+        this.images = res
+      },
+      error:err=>{
+        console.error(err);
+      }
+    })
+  }
   scrollToElement(param:any): void {
     const element = this.elementRef.nativeElement.querySelector('#'+param);
     if (element) {

@@ -1,0 +1,66 @@
+{
+   "banner" :[
+    {
+        "src":"/assets/images/edibanner.jpeg",
+        "redirect":"/"
+    },
+    {
+        "src":"/assets/images/lassback25.jpeg",
+        "redirect":"/"
+    },
+    {
+        "src":"/assets/images/checkban.png",
+        "redirect":"/"
+    },
+    {
+        "src":"/assets/images/extracashbackbanner5.jpeg",
+        "redirect":"/"
+    },
+    {
+        "src":"/assets/images/promo7.jpeg",
+        "redirect":"/"
+    },
+    {
+        "src":"/assets/images/bonus300banner.png",
+        "redirect":""
+    },
+    {
+        "src":"/assets/images/ezugi.png",
+        "redirect":"/"
+    }
+   ] ,
+
+   "promotion" :[
+    {
+        "name":"lossback25",
+        "src":"/assets/images/lossback25.jpeg",
+        "redirect":"/"
+    },
+    {   "name":"bonus300",
+        "src":"/assets/images/bonus300.jpeg",
+        "redirect":"/"
+    },
+    {
+        "name" : "bonus200",
+        "src":"/assets/images/bonus200.jpeg'",
+        "redirect":"/"
+    },
+    {
+        "src":"/assets/images/bonus150.jpeg",
+        "redirect":"/"
+    },
+    {
+        "src":"/assets/images/cashbackextra.jpeg",
+        "redirect":"/"
+    },
+    {
+        "src":"/assets/images/ez-promotion.png",
+        "redirect":""
+    },
+    {
+        "src":"/assets/images/promotionNew.jpeg",
+        "redirect":"/login"
+    }
+   ] 
+}
+
