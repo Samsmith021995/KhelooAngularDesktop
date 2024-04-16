@@ -18,6 +18,8 @@ export class MobileHeaderComponent implements OnInit,OnDestroy {
   @ViewChild('login') login!: TemplateRef<any>;
   slidesPerViewn:number = 4;
   dialogRef:any;
+  balanceLoader:boolean=false;;
+  private loaderSubscriber !: Subscription;
   constructor(public dialog: MatDialog, private comSer: CommonServiceService, private apiSer: ApiService,private router:Router, private urlSer:UrlService) { }
   private logcheck !: Subscription;
   checkLogin: boolean = false;
@@ -28,6 +30,9 @@ export class MobileHeaderComponent implements OnInit,OnDestroy {
   isUrlPresent!:boolean;
   private urlSubscription!: Subscription;
   ngOnInit(): void {
+    this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
+      this.balanceLoader = ('balance' in loading) ? true : false;
+    });
     this.showSubscription = this.apiSer.getShowMenu().subscribe(value=>{
       this.showmenu= value;
     });
@@ -38,12 +43,18 @@ export class MobileHeaderComponent implements OnInit,OnDestroy {
     });
     this.apiSer.isLoggedIn$.subscribe({
       next: data => {
-      this.loginchecks();
+        this.checkLogin = data;
+        if(data == true){
+          this.username = localStorage.getItem('name');
+          this.checkBalance();
+
+        }
     },
     error:err=>{
 
     }
   });
+  this.loginchecks();
   }
   openDialog() {
      this.dialogRef = this.dialog.open(this.login)
@@ -61,25 +72,29 @@ export class MobileHeaderComponent implements OnInit,OnDestroy {
         this.checkLogin = false;
         return;
       }
-      // if(this.checkLogin){
-      //   this.apiSer.updateLoginStatus(this.checkLogin);
-      // }
-      this.apiSer.apiRequest(config['balance']).subscribe({
-        next: data => {
-          if (data.ErrorCode == '0') {
-            this.apiSer.showAlert('', data.ErrorMessage, 'error');
-            this.comSer.clearLocalVars();
-            this.apiSer.logout();
-          } else {
-            this.userBalance = data.Balance;
-            // this.refreshHeader();
-          }
-        },
-        error: err => {
-          this.apiSer.showAlert('Something Went Wrong', 'Check Your Internet Connection', 'error');
-          console.error(err);
+      if(this.checkLogin){
+        this.apiSer.updateLoginStatus(this.checkLogin);
+      }
+      this.checkBalance();
+    });
+  }
+
+  checkBalance(){
+    this.apiSer.apiRequest(config['balance']).subscribe({
+      next: data => {
+        if (data.ErrorCode == '0') {
+          this.apiSer.showAlert('', data.ErrorMessage, 'error');
+          this.comSer.clearLocalVars();
+          this.apiSer.logout();
+        } else {
+          this.userBalance = data.Balance;
+          // this.refreshHeader();
         }
-      });
+      },
+      error: err => {
+        this.apiSer.showAlert('Something Went Wrong', 'Check Your Internet Connection', 'error');
+        console.error(err);
+      }
     });
   }
   logout() {
