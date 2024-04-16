@@ -22,7 +22,7 @@
       <div class="loginbtn user" *ngIf="checkLogin ">
         <li>
           <span class="UserName"><a class="header-btns" >{{
-              username }} <br /> <span class="txt-yel">INR {{ userBalance | number:'1.2-2' }}</span>
+              username }} <br /> <span class="txt-yel">INR @if(!balanceLoader){ {{ userBalance | number:'1.2-2' }} }<i-feather name="loader" *ngIf="balanceLoader"></i-feather></span>
             </a>
           </span>
         </li>
