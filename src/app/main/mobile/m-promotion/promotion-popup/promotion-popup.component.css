@@ -8,8 +8,8 @@
 }
 
 .modal-header .close{
-    margin-top: 10px !important;
-    padding-top: 20px;
+    /* margin-top: 10px !important; */
+    /* padding-top: 20px; */
     font-size: 14px;
 }
 button.close {

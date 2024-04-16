@@ -3618,4 +3618,19 @@
             </div>
         </div>
     </div>
+}@else{
+    <div class="modal fade promotionModal in" id="promotionModal4" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content promotion_modal_sub_content">
+    
+                <div class="modal-header promotion_modal_header">
+                    <h4>{{promoref.title}}</h4>
+                    <button type="button" class="close" (click)="Onclose()">X</button>
+                </div>
+                <div class="promotion_modal_content">
+                    <div [innerHTML]="htmlcon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 }

@@ -43,7 +43,7 @@ export class ComFunService {
     }
   }
   getCDNData(dataType:any): Observable<any> {
-    return this.http.get<any>('/assets/banner.json').pipe(
+    return this.http.get<any>('https://cdn.fairbet91.com/KHELOO/bannerPromo.json').pipe(
       map((data: any) => data[dataType]));
   }
 }

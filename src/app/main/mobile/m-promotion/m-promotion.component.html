@@ -6,7 +6,7 @@
         <ng-container *ngFor="let item of image; let i=index;">
             <div class="promotion_gallery_container">
                 <div class="promotion_card">
-                    <a (click)="openInfo(item.name)">
+                    <a (click)="openInfo(item)">
                         <div class="promotion_img_container promotion_container_4" >
                             <div class="promotion_border"></div>
                             <img [src]="item.src" class="p-img">

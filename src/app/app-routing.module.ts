@@ -41,6 +41,7 @@ import { ThankYouComponent } from './main/shared/thank-you/thank-you.component';
 import { GamesProviderWiseComponent } from './main/mobile/games-provider-wise/games-provider-wise.component';
 import { MSignup1Component } from './main/mobile/m-signup/m-signup1/m-signup1.component';
 import { MSignup2Component } from './main/mobile/m-signup/m-signup2/m-signup2.component';
+import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
 
 
 const routes: Routes = [
@@ -81,6 +82,14 @@ const routes: Routes = [
       {
         path: 'promotion',
         loadChildren: () => import('./main/desktop/promotion/promotion.module').then(m => m.PromotionModule),
+        data: {
+          title: 'Kheloo- Promotion',
+          description: ''
+        }
+      },
+      {
+        path: 'mpromotion',
+        component: MPromotionComponent,
         data: {
           title: 'Kheloo- Promotion',
           description: ''
