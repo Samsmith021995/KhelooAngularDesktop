@@ -144,7 +144,7 @@ export class MobileHeaderComponent implements OnInit,OnDestroy {
     }
   }
   promotins(){
-    this.router.navigate(['/mpromotion']);
+    this.router.navigate(['/promotion']);
     // this.apiSer.setShowMenu(false);
     // this.apiSer.updatePromotion(true);
   }
