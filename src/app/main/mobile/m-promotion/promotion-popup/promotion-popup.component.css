@@ -14,12 +14,14 @@
 }
 button.close {
     outline: unset;
+    margin-top: -5rem
 }
 .promotionModal{
     max-height: 80%;
 }
 .promotion_modal_header{
     margin-top: 10px;
+    display: flex;
 }
 p {
     color: #fff;
@@ -29,4 +31,8 @@ p {
 }
 h4{
     color:  #faba22;
+}
+.modal-dialog{
+    height: 100%;
+    padding: 10px !important;
 }

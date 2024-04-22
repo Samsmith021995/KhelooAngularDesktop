@@ -88,14 +88,7 @@ const routes: Routes = [
         },
         canActivate: [AuthGuard, DesktopGuard]
       },
-      {
-        path: 'mpromotion',
-        component: MPromotionComponent,
-        data: {
-          title: 'Kheloo- Promotion',
-          description: ''
-        }
-      },
+    
       {
         path: 'poker',
         component: PokerComponent,
@@ -334,6 +327,14 @@ const routes: Routes = [
         canActivate: []
       }
     ]
+  },
+  {
+    path: 'mpromotion',
+    component: MPromotionComponent,
+    data: {
+      title: 'Kheloo- Promotion',
+      description: ''
+    }
   },
   {
     path: 'signup',

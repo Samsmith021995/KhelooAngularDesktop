@@ -108,7 +108,8 @@
 }
 
 .promotion_body_container {
-    margin: 25px 0 !important;
+    /* margin: 25px 0 !important; */
+    margin:8rem 0 2rem 0;
 }
 
 .heading h2:after {

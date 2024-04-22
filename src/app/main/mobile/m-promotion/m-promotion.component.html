@@ -1,10 +1,11 @@
-<div class="promotion_body_container">
-    <div class="heading">
+<app-second-header [title]="'Promotion'"></app-second-header>
+<div class="promotion_body_container  ">
+    <!-- <div class="heading">
         <h2>Promotions</h2>
-    </div>
-    <div class="promotion_gal_main_container">
+    </div> -->
+    <div class="promotion_gal_main_container" style="display: flex; flex-wrap: wrap;">
         <ng-container *ngFor="let item of image; let i=index;">
-            <div class="promotion_gallery_container">
+            <div class="promotion_gallery_container col-lg-3 col-md-6 col-sm-12 col-xs-12 p-0">
                 <div class="promotion_card">
                     <a (click)="openInfo(item)">
                         <div class="promotion_img_container promotion_container_4" >

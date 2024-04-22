@@ -47,6 +47,7 @@ import { PromotionPopupComponent } from '../mobile/m-promotion/promotion-popup/p
 import {LayoutModule} from '@angular/cdk/layout';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { SecondHeaderComponent } from './second-header/second-header.component';
 @NgModule({
   declarations: [
     BannerComponent,
@@ -69,6 +70,7 @@ import { MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/materia
     MForgotPasswordComponent,
     MPromotionComponent,
     PromotionPopupComponent,
+    SecondHeaderComponent,
     
   ],
   imports: [
