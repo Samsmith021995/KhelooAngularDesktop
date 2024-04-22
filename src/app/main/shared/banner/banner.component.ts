@@ -57,6 +57,7 @@ export class BannerComponent implements AfterViewInit {
     }
     submitData(ref:any,redirect:any){
       this.bannerClick.emit(ref);
-      this.router.navigate(['/'+redirect]);
+      // console.log(redirect);
+      this.router.navigate([redirect]);
     }
 }
