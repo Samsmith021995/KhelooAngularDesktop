@@ -3,13 +3,15 @@ import { ApiService } from './api.service';
 import { config } from './config';
 import { CommonServiceService } from './common-service.service';
 import { Router } from '@angular/router';
+import { Observable, map } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ComFunService {
 
-  constructor(private apiSer:ApiService,private comSer:CommonServiceService,private router:Router) { }
+  constructor(private apiSer:ApiService,private comSer:CommonServiceService,private router:Router,private http:HttpClient) { }
 
   login(param:any){
     this.apiSer.apiRequest(config['login'],param).subscribe({
@@ -39,5 +41,9 @@ export class ComFunService {
     } else {
       this.comSer?.stoploging('login');
     }
+  }
+  getCDNData(dataType:any): Observable<any> {
+    return this.http.get<any>('https://cdn.fairbet91.com/KHELOO/bannerPromo.json').pipe(
+      map((data: any) => data[dataType]));
   }
 }

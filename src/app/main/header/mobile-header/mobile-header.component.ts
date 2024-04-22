@@ -144,8 +144,9 @@ export class MobileHeaderComponent implements OnInit,OnDestroy {
     }
   }
   promotins(){
-    this.apiSer.setShowMenu(false);
-    this.apiSer.updatePromotion(true);
+    this.router.navigate(['/promotion']);
+    // this.apiSer.setShowMenu(false);
+    // this.apiSer.updatePromotion(true);
   }
   ngOnDestroy(): void {
     this.showSubscription.unsubscribe();

@@ -55,7 +55,9 @@ export class BannerComponent implements AfterViewInit {
       // this.comSer.sendSearchData(search);
       this.router.navigate(['game-provider',search]);
     }
-    submitData(ref:any){
+    submitData(ref:any,redirect:any){
       this.bannerClick.emit(ref);
+      // console.log(redirect);
+      this.router.navigate([redirect]);
     }
 }
