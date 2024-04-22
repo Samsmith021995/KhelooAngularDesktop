@@ -334,7 +334,8 @@ const routes: Routes = [
     data: {
       title: 'Kheloo- Promotion',
       description: ''
-    }
+    },
+    canActivate:[MobileGuard]
   },
   {
     path: 'signup',
