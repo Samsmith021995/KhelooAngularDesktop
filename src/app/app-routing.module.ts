@@ -80,7 +80,7 @@ const routes: Routes = [
         canActivate: [AuthGuard, DesktopGuard]
       },
       {
-        path: 'promotion',
+        path: 'promotions',
         loadChildren: () => import('./main/desktop/promotion/promotion.module').then(m => m.PromotionModule),
         data: {
           title: 'Kheloo- Promotion',
@@ -329,7 +329,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'mpromotion',
+    path: 'promotion',
     component: MPromotionComponent,
     data: {
       title: 'Kheloo- Promotion',
