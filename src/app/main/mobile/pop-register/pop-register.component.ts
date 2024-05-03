@@ -83,7 +83,7 @@ export class PopRegisterComponent implements OnInit {
 
       this.apiSer.apiRequest(config['otp'], param).pipe(
         catchError((error) => {
-          this.apiSer.showAlert('Something Went Wrong', 'Check Your Internet Connection', 'error');
+          this.apiSer.showAlert('','You may only perform this action every 30 seconds', 'error');
           console.error('An error occurred:', error);
           throw error
         })

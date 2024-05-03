@@ -37,10 +37,10 @@
                                         class="" formControlName="Mobile"  (keydown)="validateNumber($event)">
                                 </div>
                                 <div class="get_code_container">
-                                    <a role="button" class="getCodeBtn" (click)="GenerateOTP()">
+                                    <button type="button" class="getCodeBtn" (click)="GenerateOTP()" [disabled]="showTimer || btnLoading">
                                         <span class="ng-binding" *ngIf="!showTimer">Get Code</span>
                                         <span class="ng-binding" *ngIf="showTimer">{{startSec}}</span>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-md-12 p-l-0 crossbar-contact-input-container" style="padding: 20px 15px;">
@@ -116,7 +116,7 @@
                                 </button>
                             </li>
                             <li>
-                                <button type="button" class="next-step" (click)="Signup()">
+                                <button type="button" class="next-step" (click)="Signup()" [disabled]="btnLoading">
                                     <ng-container *ngIf="btnLoading; else content1">
                                         <i-feather name="loader"></i-feather>
                                       </ng-container>
