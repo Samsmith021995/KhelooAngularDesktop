@@ -1,4 +1,4 @@
-.navbar {
+/* .navbar {
   border-radius: 0;
 }
 
@@ -12,7 +12,6 @@
   display: flex;
   flex-wrap: initial;
   align-items: center;
-  /* justify-content: space-between; */
 }
 
 .loginbtn.user {
@@ -33,10 +32,6 @@ a.navbar-brand.fw-bold {
 }
 
 img.promotion-icon {
-  /* margin-top: -1px;
-  width: 70%;
-  height: 100%;
-  object-fit: contain; */
   border-radius: 4px;
   border-radius: 4px;
   text-align: center;
@@ -45,21 +40,12 @@ img.promotion-icon {
 }
 
 img.promotion-icon1 {
-  /* margin-top: -1px;
-  width: 70%;
-  height: 100%;
-  object-fit: contain; */
   border-radius: 4px;
   border-radius: 4px;
   text-align: center;
-  /* margin: 0px auto -20px; */
   display: block;
 }
 img.promotion-icon2 {
-  /* margin-top: -1px;
-  width: 70%;
-  height: 100%;
-  object-fit: contain; */
   border-radius: 4px;
   border-radius: 4px;
   text-align: center;
@@ -263,8 +249,6 @@ button.deposit:active {
     left: 200%;
   }
 }
-
-/* Ashutosh Singh */
 .button {
   background-color: #7900ad;
   color: white;
@@ -275,7 +259,7 @@ button.deposit:active {
   align-items: center;
   overflow:hidden;
   width: auto;
-  max-width: 45px; /** I'm animating max-width because width needs to be auto, and auto can't be animated **/
+  max-width: 45px; 
   -webkit-transition: max-width 0.5s;
   transition: max-width 0.5s;
 }
@@ -307,11 +291,6 @@ img.promotion-icon3 {
   width: 22px;
 }
 
- /* @media screen and (min-width: 980px) and (max-width:1024px) {
-  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.pd10-50 {
-    padding: 10px 35px !important;
-}
- } */
  @media screen and (min-width: 767px) and (max-width:1050px) {
   #navbarSupportedContent{
     width: 200px;
@@ -320,10 +299,56 @@ img.promotion-icon3 {
     margin-bottom: 4px;
   }
 
-}
- /* @media screen and (max-width: 800px) and (min-width:550px) {
-  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.pd10-50 {
-    padding: 10px 40px !important;
+} */
+
+/* New Code */
+
+.navbar {
+  border-radius: 0;
 }
 
-} */
+.navbar>.container,
+.navbar>.container-fluid,
+.navbar>.container-lg,
+.navbar>.container-md,
+.navbar>.container-sm,
+.navbar>.container-xl,
+.navbar>.container-xxl {
+  display: flex;
+  flex-wrap: initial;
+  align-items: center;
+}
+
+.loginbtn.user {
+  color: #fff;
+  font-size: 15px;
+  text-align: right;
+  display: flex;
+}
+
+ 
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
+  background: #000c24 !important;
+  margin: 0;
+}
+
+a.navbar-brand.fw-bold {
+  display: flex;
+}
+.logocontainer {
+  display: inline-block;
+}
+
+.logo {
+  width: 100%;
+}
+.buttons{
+  background-image: linear-gradient(to right, #fceb7e, #f5cb3c);
+  font-size: 14px;
+  color: #580b41;
+  font-weight: 500;
+  i-feather{
+    width: 14px;
+    fill: #580b41;
+  }
+}

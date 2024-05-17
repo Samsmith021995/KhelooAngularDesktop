@@ -14,7 +14,7 @@
             class="ng-untouched ng-pristine ng-valid">
     </div>
 </div>
-<app-banner [images]="images" [slidesPerView]="slidesPerViewn"></app-banner>
+<app-banner [images]="images" [slidesPerView]="slidesPerViewn" [location]="false" [clickBanner]="true" (bannerClick)="clickVal($event)"></app-banner>
 <div style="display: flex; overflow-x: auto; width: 100%; color: white;">
     <ng-container *ngIf="selected != 'AllGames'">
         <ng-container *ngFor="let category of subCategory">

@@ -4,6 +4,7 @@ import { config } from '../../service/config';
 import { catchError, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import Swiper from 'swiper';
+import { ComFunService } from '../../service/com-fun.service';
 
 @Component({
   selector: 'app-d-home',
@@ -20,7 +21,7 @@ export class DHomeComponent implements OnInit {
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   swiper2?: Swiper;
   private apiSubscriber: Subscription[] = [];
-  constructor(private apiSer: ApiService, private router: Router, private renderer: Renderer2) { }
+  constructor(private apiSer: ApiService, private router: Router, private renderer: Renderer2,private comfun:ComFunService) { }
   mainCategory: any[] = [];
   subCategory: any[] = [];
   categoryFetch = false;
@@ -32,14 +33,9 @@ export class DHomeComponent implements OnInit {
   selected: any = { mainCat: 'AllGames' };
   subSelected: string = '';
   defaultSlices: number[] = [];
-  images = [
-    {src:'/assets/images/Cashback.png'},
-    {src:'/assets/images/WELCOME BONUS.png'},
-    {src:'/assets/images/VIP offers.png'},
-    {src:'/assets/images/LUCK.png'},
-  ];
-
+  images = [];
   ngOnInit(): void {
+    this.bannnerImage();
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.categoryFetch = ('gameCategory' in loading) ? true : false;
       this.gamelist = ('gameList' in loading) ? true : false;
@@ -48,7 +44,16 @@ export class DHomeComponent implements OnInit {
 
 
   }
-
+  bannnerImage(){
+    this.comfun.getCDNData('banner').subscribe({
+      next:(res: any) =>{
+        this.images = res
+      },
+      error:err=>{
+        console.error(err);
+      }
+    })
+  }
   gameListAll(item: any) {
     this.subSelected = '';
     let param = { GameCategory: item };
@@ -178,6 +183,8 @@ export class DHomeComponent implements OnInit {
   updateSlice(item: any) {
     this.defaultSlices[item] += 20;
   }
-
+  clickVal(val:any){
+    // this.promotins();
+  }
 
 }
