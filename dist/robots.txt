@@ -1,0 +1,9 @@
+User-agent: * 
+Disallow: *error
+Disallow: *restriction
+Disallow: *bank
+Disallow: /reset-password
+Disallow: /contact-verification
+Disallow: /error/page-not-found
+Disallow: /thankyou*
+Sitemap: https://kheloo.com/sitemap.xml
