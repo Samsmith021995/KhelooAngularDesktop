@@ -21,8 +21,7 @@
       </ng-container>
       <div class="loginbtn user" *ngIf="checkLogin ">
         <li>
-          <span class="UserName"><a class="header-btns" >{{
-              username }} <br /> <span class="txt-yel">INR @if(!balanceLoader){ {{ userBalance | number:'1.2-2' }} }<i-feather name="loader" *ngIf="balanceLoader"></i-feather></span>
+          <span class="UserName"><a class="header-btns" >{{ username.length>5?(username.substring(0, 5) + '*'.repeat(2)):username }} <br /> <span class="txt-yel">INR @if(!balanceLoader){ {{ userBalance.toString().split('.')[0].length>5?(userBalance.toString().substring(0, 5) + '*'.repeat(2)) : userBalance | number:'1.0-0' }} }<i-feather name="loader" *ngIf="balanceLoader"></i-feather></span>
             </a>
           </span>
         </li>
