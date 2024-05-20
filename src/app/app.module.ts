@@ -45,6 +45,7 @@ import { UrlService } from './main/service/url.service';
 import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
 import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
 import { GameHeaderComponent } from './main/desktop/game-platform/game-header/game-header.component';
+import { DesktopSidebarComponent } from './main/common-home/desktop-sidebar/desktop-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { GameHeaderComponent } from './main/desktop/game-platform/game-header/ga
     KhelooPrivilegesComponent,
     TournamentsComponent,
     GameHeaderComponent,  
+    DesktopSidebarComponent
   ],
   imports: [
     BrowserModule,

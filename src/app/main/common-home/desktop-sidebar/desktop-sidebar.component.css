@@ -3,7 +3,8 @@
     align-items: center;
     color: #fff;
     padding: 13px 20px;
-    background: linear-gradient(to right, rgba(56, 9, 76, 1), #0b001c 80%, transparent);
+    /* background: linear-gradient(to right, rgba(56, 9, 76, 1), #0b001c 80%, transparent); */
+    background: linear-gradient(to right,#481260, #000000 80%, transparent);
     margin-bottom: 10px;
     border-radius: 12px;
     cursor: pointer;
@@ -18,4 +19,9 @@ img.menu-icon,svg {
     margin-right: 10px;
     height: 25px;
     filter: invert(100%);
+}
+#siderbar{
+    /* position: relative; */
+    height: 700px;
+    overflow-y: auto;
 }

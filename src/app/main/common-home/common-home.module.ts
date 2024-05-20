@@ -22,7 +22,7 @@ import { DesktopSidebarComponent } from './desktop-sidebar/desktop-sidebar.compo
     JackpotComponent,
     PromotionVideoComponent,
     DesktopHomeComponent,
-    DesktopSidebarComponent
+    // DesktopSidebarComponent
   ],
   imports: [
     CommonModule,

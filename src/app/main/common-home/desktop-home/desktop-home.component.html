@@ -1,9 +1,76 @@
 <div class="row">
-    <div class="col-md-2">
-<app-desktop-sidebar></app-desktop-sidebar>
-    </div>
-    <div class="col-md-10">
-        <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [location]="false" [clickBanner]="true" (bannerClick)="clickVal($event)"></app-banner>
+    <!-- <div class="col-md-2">
+        <app-desktop-sidebar></app-desktop-sidebar>
+    </div> -->
+    <div class="col-md-12">
+        <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [location]="false" [clickBanner]="true"
+            (bannerClick)="clickVal($event)"></app-banner>
+        <div class="row">
+            <div class="game_providers_main_container">
+                <h2 class="game-provider-text">Game Providers</h2>
+                <div id="gameCarousel" class="carousel slide">
+                    @for (item of gamesProvider; track $index) {
+                    <a (click)="onSearch(item.title)">
+                        <div class="carousel-inner">
+                            <img [src]="item.src" alt="" style="width: 100px;height: 50px;">
+                        </div>
+                    </a>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- <div class="game_providers_main_container">
+                    <h2 class="game-provider-text"><i-feather name="star"></i-feather> Popular Game</h2>
+                </div> -->
+            <ng-container *ngFor="let category of subCategory; let i=index;">
+                <div *ngIf="gamesData[category]" class="container">
+                    @if(gamesData[category].length>0){
+
+                    <span style="color: white;" class="category-btn game_ind_heading_container1" class="d-flex games-cat">
+                        <h2 class="h2-heading game-provider-text"><i-feather [name]="icons[i]"></i-feather> {{ category
+                            }} ({{gamesData[category].length}})</h2>
+                        <button (click)="showMoreF(i)" class="btn-show"
+                            *ngIf="gamesData[category].length > 6 && !subSelected">
+                            {{isDetailsVisible[i]?'Show Less':'Show More>>'}}
+                        </button>
+                    </span>
+
+                    <div style=" color:white; display: flex; width: 100%; flex-wrap: wrap; " #showMore class="ashu row "
+                        [ngClass]="{'showMore':subSelected}">
+                        <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]" style=""
+                            class="casino-game-item  col-lg-2 col-md-4 col-xl-custom">
+                            <img [src]="game.url_thumb" alt="" width="100%" style="border-radius: 5px;">
+                            <!-- <div class="min_max_container" st>
+                                    <span class="minValue">
+                                        <span ng-show="Item.MaxAmount"> Min.<i>₹</i>{{game.MinAmount}} </span>
+                                    </span>
+                                    <span class="maxValue ng-binding"
+                                        ng-show="Item.MaxAmount">Max.<i>₹</i>{{game.MaxAmount>1000?game.MaxAmount/1000
+                                        +'k':game.MaxAmount}}</span>
+                                </div> -->
+                            <a (click)="gameStart(game.game_id)">
+                                <div class="playbtn ">
+                                    <img src="/assets/images/play_icon.png" alt="" class="casino-game-item-image-bc"
+                                        class="play">
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                    @if( defaultSlices[i] <= gamesData[category].length){ <button (click)="updateSlice(i)"
+                        class="btn-show viewmore"
+                        *ngIf="gamesData[category].length > 10 && !subSelected && isDetailsVisible[i]">
+                        View More
+                        </button>
+                        }
+                        }
+                </div>
+            </ng-container>
+
+
+        </div>
+
     </div>
 
 </div>
