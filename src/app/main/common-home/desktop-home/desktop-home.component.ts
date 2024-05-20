@@ -24,29 +24,29 @@ export class DesktopHomeComponent implements OnInit {
   defaultSlices: number[] = [];
   isDetailsVisible: boolean[] = [];
   icons: string[] = ['star', 'heart', 'check-circle', 'gift', 'award', 'bell'];
-  gamesProvider = [
-    {title:'ezugi',src:'/assets/provider/ezugi.svg'},
-    {title:'red tiger',src:'/assets/provider/red-tiger.svg'},
-    {title:'smartsoft',src:'/assets/provider/smartsoft.svg'},
-    {title:'evolution gaming',src:'/assets/provider/evolution_gaming.svg'},
-    {title:'habanero',src:'/assets/provider/habanero.svg'},
-    {title:'play\'n go',src:'/assets/provider/playngo.svg'},
-    {title:'playtech',src:'/assets/provider/playtech.png'},
-    {title:'tvbet',src:'/assets/provider/tvbet.png'},
-    {title:'Pragmatic Play',src:'/assets/provider/3oaks.svg'},
-    {title:'sexy',src:'/assets/provider/ae-sexy.png'},
-    {title:'Betsolutions',src:'/assets/provider/betgames.png'},
-    {title:'charismatic',src:'/assets/provider/charismatic.webp'},
-    {title:'fantasma games',src:'/assets/provider/fantasma-games.webp'},
-    {title:'gamzix',src:'/assets/provider/gamzix.webp'},
-    {title:'jili',src:'/assets/provider/jilli.png'},
-    {title:'nolimit city',src:'/assets/provider/nolimit-city.svg'},
-    {title:'pgsoft',src:'/assets/provider/pgsoft.svg'},
-    {title:'quickspin',src:'/assets/provider/quickspin.svg'},
-    {title:'Relax Gaming',src:'/assets/provider/relax-gaming.svg'},
-    {title:'netent',src:'/assets/provider/netent.svg'},
-  ];
   constructor(private comfun: ComFunService,private apiSer:ApiService) { }
+  gamesProvider = [
+    {title:'ezugi',src:this.comfun.cdn+'provider/ezugi.svg'},
+    {title:'red tiger',src:this.comfun.cdn+'provider/red-tiger.svg'},
+    {title:'smartsoft',src:this.comfun.cdn+'provider/smartsoft.svg'},
+    {title:'evolution gaming',src:this.comfun.cdn+'provider/evolution_gaming.svg'},
+    {title:'habanero',src:this.comfun.cdn+'provider/habanero.svg'},
+    {title:'play\'n go',src:this.comfun.cdn+'provider/playngo.svg'},
+    {title:'playtech',src:this.comfun.cdn+'provider/playtech.png'},
+    {title:'tvbet',src:this.comfun.cdn+'provider/tvbet.png'},
+    {title:'Pragmatic Play',src:this.comfun.cdn+'provider/3oaks.svg'},
+    {title:'sexy',src:this.comfun.cdn+'provider/ae-sexy.png'},
+    {title:'Betsolutions',src:this.comfun.cdn+'provider/betgames.png'},
+    {title:'charismatic',src:this.comfun.cdn+'provider/charismatic.webp'},
+    {title:'fantasma games',src:this.comfun.cdn+'provider/fantasma-games.webp'},
+    {title:'gamzix',src:this.comfun.cdn+'provider/gamzix.webp'},
+    {title:'jili',src:this.comfun.cdn+'provider/jilli.png'},
+    {title:'nolimit city',src:this.comfun.cdn+'provider/nolimit-city.svg'},
+    {title:'pgsoft',src:this.comfun.cdn+'provider/pgsoft.svg'},
+    {title:'quickspin',src:this.comfun.cdn+'provider/quickspin.svg'},
+    {title:'Relax Gaming',src:this.comfun.cdn+'provider/relax-gaming.svg'},
+    {title:'netent',src:this.comfun.cdn+'provider/netent.svg'},
+  ];
   ngOnInit(): void {
     this.bannnerImage();
     this.getAllCategory(this.selected);

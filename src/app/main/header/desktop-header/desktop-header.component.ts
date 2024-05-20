@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { config } from '../../service/config';
 import { ApiService } from '../../service/api.service';
@@ -6,6 +6,7 @@ import { CommonServiceService } from '../../service/common-service.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -15,6 +16,8 @@ import Swal from 'sweetalert2';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class DesktopHeaderComponent implements OnInit,OnDestroy {
+  @ViewChild('loginPop') loginPop!: TemplateRef<any>;
+  dialogRef:any;
   showmenu: boolean = false;
   showsubmitbtn: boolean = false;
   username: any = '';
@@ -22,7 +25,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
   checkLogin: boolean = false;
   private logcheck !: Subscription;
   userBalance: number = 0;
-  constructor(private fb: FormBuilder, private apiSer: ApiService, private comSer: CommonServiceService, private router: Router) { }
+  constructor(private fb: FormBuilder, private apiSer: ApiService, private comSer: CommonServiceService, private router: Router,private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.loginchecks();
@@ -171,6 +174,12 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
         })
       }
     });
+  }
+
+  // new Code for Pop
+  LoginPopUp(){
+    this.dialogRef = this.dialog.open(this.loginPop)
+    this.dialogRef.afterClosed().subscribe(() => { })
   }
   ngOnDestroy(): void {
     this.showmenu = false;

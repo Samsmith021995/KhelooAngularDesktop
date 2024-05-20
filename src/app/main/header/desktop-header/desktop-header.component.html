@@ -78,12 +78,15 @@
   <div class="container-fluid">
     <div class="col-md-2 pd-1">
       <a class="navbar-brand fw-bold" href="/">
-        <img src="/assets/images/logo.gif" class="logo">
+        <img src="https://cdn.fairbet91.com/KHELOO/images/logo.gif" class="logo">
       </a>
     </div>
     <div>
-      <button type="button" class="btn buttons"><i-feather name="user-plus"></i-feather> Login</button>&nbsp;&nbsp;
+      <button type="button" class="btn buttons" (click)="LoginPopUp()"><i-feather name="user-plus"></i-feather> Login</button>&nbsp;&nbsp;
       <button type="button" class="btn buttons"><i-feather name="user-plus"></i-feather> Register</button>
     </div>
   </div>
 </nav>
+<ng-template #loginPop>
+  <app-login-popup></app-login-popup>
+</ng-template>

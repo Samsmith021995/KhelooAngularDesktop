@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ComFunService {
-
+  cdn:string = 'https://cdn.fairbet91.com/KHELOO/';
   constructor(private apiSer:ApiService,private comSer:CommonServiceService,private router:Router,private http:HttpClient) { }
 
   login(param:any){
