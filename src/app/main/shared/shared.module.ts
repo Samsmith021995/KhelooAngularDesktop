@@ -48,6 +48,21 @@ import {LayoutModule} from '@angular/cdk/layout';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { SecondHeaderComponent } from './second-header/second-header.component';
+
+
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { IconDefinition } from '@ant-design/icons-angular';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { AccountBookFill, AlertFill, AlertOutline } from '@ant-design/icons-angular/icons';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzImageModule } from 'ng-zorro-antd/image';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+
+import { UserOutline } from '@ant-design/icons-angular/icons';
+const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserOutline ];
 @NgModule({
   declarations: [
     BannerComponent,
@@ -98,7 +113,15 @@ import { SecondHeaderComponent } from './second-header/second-header.component';
   MatDialogModule,
   FeatherModule.pick(allIcons),
   LayoutModule,
-  MatMomentDateModule
+  MatMomentDateModule,
+  NzButtonModule,
+  NzIconModule.forRoot(icons),
+  NzLayoutModule,
+  NzTabsModule,
+  NzImageModule,
+  NzCardModule,
+  NzFormModule,
+  NzInputModule
   ],
  exports:[
   PokerComponent,
@@ -143,7 +166,15 @@ import { SecondHeaderComponent } from './second-header/second-header.component';
   MatCheckboxModule,
   FeatherModule,
   LayoutModule,
-  MatMomentDateModule
+  MatMomentDateModule,
+  NzButtonModule,
+  NzIconModule,
+  NzLayoutModule,
+  NzTabsModule,
+  NzImageModule,
+  NzCardModule,
+  NzFormModule,
+  NzInputModule
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [

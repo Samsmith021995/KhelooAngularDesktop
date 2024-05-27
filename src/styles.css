@@ -1,4 +1,5 @@
 @import url('https://kheloo.com/assets/css/HomeCss.css');
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
 .show-desktop {
     display: none;
     @media (min-width: 721px) { 

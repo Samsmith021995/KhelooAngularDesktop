@@ -1,4 +1,4 @@
-.menu-item {
+.menu-item,.nz-menu-item {
     display: flex;
     align-items: center;
     color: #fff;
@@ -24,4 +24,10 @@ img.menu-icon,svg {
     /* position: relative; */
     height: 700px;
     overflow-y: auto;
+}
+.logo{
+    width: 166px;
+    img{
+        width: 100%;
+    }
 }

@@ -347,6 +347,7 @@ a.navbar-brand.fw-bold {
   font-size: 14px;
   color: #580b41;
   font-weight: 500;
+  border: none;
   i-feather{
     width: 14px;
     fill: #580b41;
@@ -354,18 +355,16 @@ a.navbar-brand.fw-bold {
 }
 :host {
   display: block;
-  width: 100%;
+  /* width: 100%; */
 }
 .top-header{
-  /* position: sticky;
-  top: 0; */
-/*   
-  .sticky-header { */
-    position: -webkit-sticky; /* For Safari */
+
+    /* position: -webkit-sticky;
     position: fixed;
     top: 0;
-    z-index: 1000; /* Ensure the header stays above other content */
-    background-color: white; /* Adjust as needed */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for better visibility */
-  /* } */
+    z-index: 1000; 
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     Optional: Add some shadow for better visibility */
+  
 }

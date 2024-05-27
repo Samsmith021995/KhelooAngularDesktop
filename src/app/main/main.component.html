@@ -1,12 +1,34 @@
 @if(isSmallScreen){
-    <app-mobile-header></app-mobile-header>
-    <router-outlet></router-outlet>
-    <app-m-footer></app-m-footer>
-    @if(isUrlPresent){
-        <app-bottom-navbar></app-bottom-navbar>
-    }
+<app-mobile-header></app-mobile-header>
+<router-outlet></router-outlet>
+<app-m-footer></app-m-footer>
+@if(isUrlPresent){
+<app-bottom-navbar></app-bottom-navbar>
+}
 } @else if(!isSmallScreen){
-    <app-desktop-header></app-desktop-header>
+
+<nz-layout>
+    <nz-header>
+        <app-desktop-header></app-desktop-header>
+        
+    </nz-header>
+    <nz-layout class="right-layout" >
+        <nz-sider>
+            <app-desktop-sidebar></app-desktop-sidebar>
+        </nz-sider>
+        <nz-content>
+            <router-outlet></router-outlet>
+            <nz-footer>
+                <app-d-footer></app-d-footer>
+            </nz-footer>
+        </nz-content>
+    </nz-layout>
+    
+</nz-layout>
+
+
+
+<!-- <app-desktop-header></app-desktop-header>
     <div class="row" style="padding-top: 8rem;">
         <div class="col-md-2" style="height: 700px;overflow-y: auto;">
             <app-desktop-sidebar></app-desktop-sidebar>
@@ -17,7 +39,7 @@
         
         </div>
     </div>
-<app-d-footer></app-d-footer>
+    <app-d-footer></app-d-footer> -->
 <!-- <img src="/assets/images/bannerDesktop.jpg" alt="" width="100%" height="100%"> -->
 
 }

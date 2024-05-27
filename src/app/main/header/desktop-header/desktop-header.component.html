@@ -74,19 +74,20 @@
     </div>
   </div>
 </nav> -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark pd10-50 top-header" >
-  <div class="container-fluid">
-    <div class="col-md-2 pd-1">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark pd10-50 top-header" > -->
+  <div class="">
+    <!-- <div class="col-md-2 pd-1">
       <a class="navbar-brand fw-bold" href="/">
         <img src="https://cdn.fairbet91.com/KHELOO/images/logo.gif" class="logo">
       </a>
-    </div>
-    <div>
-      <button type="button" class="btn buttons" (click)="LoginPopUp()"><i-feather name="user-plus"></i-feather> Login</button>&nbsp;&nbsp;
-      <button type="button" class="btn buttons"><i-feather name="user-plus"></i-feather> Register</button>
+    </div> -->
+    <div style="text-align: end; padding-right: 2rem;">
+      <!-- <span nz-icon nzType="user-add" nzTheme="outline"></span> -->
+      <button nz-button nzType="default" class="buttons" (click)="LoginPopUp()"><i-feather name="user-plus"></i-feather> Login</button>&nbsp;&nbsp;
+      <button nz-button nzType="default" class="buttons"><i-feather name="user-plus"></i-feather> Register</button>
     </div>
   </div>
-</nav>
+<!-- </nav> -->
 <ng-template #loginPop>
   <app-login-popup></app-login-popup>
 </ng-template>

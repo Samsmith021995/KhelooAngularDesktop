@@ -1,16 +1,95 @@
 <div class="container">
-    <div class="card">
+    <div class="card login-card">
+        <!-- <nz-card> -->
+
+       
         <div>
+            <!-- <nz-space >
+                <img *nzSpaceItem nz-image nzSrc="/assets/Group 493.png"  />
+              </nz-space> -->
             <img src="/assets/Group 493.png" alt="" width="100%">
         </div>
         <div class="close-div" >
             <span class="popupClose" mat-dialog-close><i-feather name="x" class="rotate-icon"></i-feather></span>
         </div>
-        <div class="form row anu-class">
+        <div class="form col-md-6 com-sm-6 col-xs-6">
             <div class="logo">
                 <img src="https://cdn.fairbet91.com/KHELOO/images/logo.gif" alt="" width="100%">
             </div>
-            <mat-tab-group>
+            <nz-tabset>
+                <nz-tab nzTitle="Login Now">
+                    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+                        <nz-form-item>
+                          <nz-form-control nzErrorTip="Please input your username!">
+                            <nz-input-group [nzPrefix]="userDel">
+                              <input type="text" nz-input formControlName="userName" placeholder="Enter Phone Number" />
+                              <ng-template #userDel>
+                                <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                                <i-feather name="phone"></i-feather>
+                              </ng-template>
+                            </nz-input-group>
+                          </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                          <nz-form-control nzErrorTip="Please input your Password!">
+                            <nz-input-group [nzPrefix]="lock">
+                              <input type="password" nz-input formControlName="password" placeholder="Enter Password" />
+                              <ng-template #lock>
+                                <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                                <i-feather name="lock"></i-feather>
+                              </ng-template>
+                            </nz-input-group>
+                          </nz-form-control>
+                        </nz-form-item>
+                        <div nz-row class="login-form-margin">
+                          <div nz-col >
+                            <!-- <label nz-checkbox formControlName="remember">
+                              <span>Remember me</span>
+                            </label> -->
+                          </div>
+                          <div nz-col >
+                            <a class="login-form-forgot">Forgot password</a>
+                          </div>
+                        </div>
+                        <button nz-button class="login-form-button login-form-margin btn-submit"   [nzType]="'primary'"><i-feather name="Log-in"></i-feather>Submit</button>
+                       
+                      </form>
+                </nz-tab>
+                <nz-tab nzTitle="Register Now">
+                    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+                        <nz-form-item>
+                          <nz-form-control nzErrorTip="Please input your username!">
+                            <nz-input-group nzPrefixIcon="user">
+                              <input type="text" nz-input formControlName="userName" placeholder="Username" />
+                            </nz-input-group>
+                          </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                          <nz-form-control nzErrorTip="Please input your Password!">
+                            <nz-input-group [nzSuffix]="suffixIconSearch">
+                              <input type="password" nz-input formControlName="password" placeholder="Password" />
+                              <ng-template #suffixIconSearch>
+                                <span nz-icon [nzType]="'search'"></span>
+                              </ng-template>
+                            </nz-input-group>
+                          </nz-form-control>
+                        </nz-form-item>
+                        <div nz-row class="login-form-margin">
+                          <div nz-col >
+                            <!-- <label nz-checkbox formControlName="remember">
+                              <span>Remember me</span>
+                            </label> -->
+                          </div>
+                          <div nz-col >
+                            <a class="login-form-forgot">Forgot password?</a>
+                          </div>
+                        </div>
+                        <button nz-button class="login-form-button login-form-margin btn-submit"   [nzType]="'primary'"><i-feather name="Log-out"></i-feather>Submit</button>
+                      </form>
+                    
+                </nz-tab>
+              </nz-tabset>
+            <!-- <mat-tab-group>
                 <mat-tab label="Login"> 
                     <form >
                         <div class="anu-class">
@@ -42,20 +121,21 @@
                             </mat-form-field>
 
                         </div>
-                        <!-- <div>
-                            <mat-form-field>
-                                <mat-icon></mat-icon>
-                                <input matInput type="text" placeholder="Mobile">
-                                <mat-error></mat-error>
-                            </mat-form-field>
-
-                        </div> -->
                         <button><i-feather name="Log-out"></i-feather> Submit</button>
                     </form>    
                 </mat-tab>
-             </mat-tab-group>
+            </mat-tab-group> -->
+            <!-- <div>
+                <mat-form-field>
+                    <mat-icon></mat-icon>
+                    <input matInput type="text" placeholder="Mobile">
+                    <mat-error></mat-error>
+                </mat-form-field>
+
+            </div> -->
 
         </div>
     </div>
+<!-- </nz-card> -->
 
 </div>
