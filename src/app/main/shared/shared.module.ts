@@ -1,4 +1,4 @@
-import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA,LOCALE_ID} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DHomeComponent } from '../common-home/d-home/d-home.component';
 import { MHomeComponent } from '../common-home/m-home/m-home.component';
@@ -60,8 +60,15 @@ import { NzImageModule } from 'ng-zorro-antd/image';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
+import { NZ_I18N, en_US ,NZ_DATE_LOCALE} from 'ng-zorro-antd/i18n';
+import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
+import { enUS as dateFnsEnUS } from 'date-fns/locale';
 import { UserOutline } from '@ant-design/icons-angular/icons';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { GamesCategoryComponent } from '../desktop/games-category/games-category.component';
+
 const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserOutline ];
 @NgModule({
   declarations: [
@@ -86,6 +93,7 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
     MPromotionComponent,
     PromotionPopupComponent,
     SecondHeaderComponent,
+    GamesCategoryComponent
     
   ],
   imports: [
@@ -121,7 +129,11 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzImageModule,
   NzCardModule,
   NzFormModule,
-  NzInputModule
+  NzInputModule,
+  NzDatePickerModule,
+  NzGridModule,
+  NzSkeletonModule
+
   ],
  exports:[
   PokerComponent,
@@ -174,11 +186,17 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzImageModule,
   NzCardModule,
   NzFormModule,
-  NzInputModule
+  NzInputModule,
+  NzDatePickerModule,
+  NzGridModule,
+  NzSkeletonModule
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en-US' },
+    { provide: LOCALE_ID, useValue: 'en-US' },
+    { provide: NZ_I18N, useValue: en_US },
+    { provide: NZ_DATE_LOCALE, useValue: dateFnsEnUS }
   ]
 })
 export class SharedModule { }

@@ -22,11 +22,14 @@
     right: 3rem;
     top: 2rem;
     text-align: #fff;
+    max-height: 81%;
+    overflow: auto;
     /* width: 35%; */
     .logo{
         width: 200px;
         text-align: center;
     }
+
 }
 .btn-submit{
     width: 90%;
@@ -161,7 +164,7 @@
 }
 ::ng-deep .ant-tabs-top>.ant-tabs-nav::before {
     
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid rgba(55, 55, 55, 1);
   }
 ::ng-deep .ant-input-affix-wrapper, .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper,.ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input{
     
@@ -196,4 +199,21 @@ i-feather[name='lock'],[name='phone']{
 }
 .login-card{
   padding: 0px !important;
+}
+::ng-deep .ant-tabs-ink-bar .ant-tabs-tab-active{
+  color: #f2b702 !important;
+}
+
+.otp1{
+  padding: 0px !important;
+  background-color: #242323;
+  margin-right: 4px;
+  border-radius: 10px;
+}
+.otp1 .ant-input{
+  border: none;
+}
+nz-date-picker,
+nz-range-picker {
+  margin: 0 8px 12px 0;
 }

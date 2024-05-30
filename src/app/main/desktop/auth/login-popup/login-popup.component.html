@@ -1,95 +1,205 @@
 <div class="container">
-    <div class="card login-card">
-        <!-- <nz-card> -->
-
-       
-        <div>
-            <!-- <nz-space >
+  <div class="card login-card">
+    <div>
+      <!-- <nz-space >
                 <img *nzSpaceItem nz-image nzSrc="/assets/Group 493.png"  />
               </nz-space> -->
-            <img src="/assets/Group 493.png" alt="" width="100%">
-        </div>
-        <div class="close-div" >
-            <span class="popupClose" mat-dialog-close><i-feather name="x" class="rotate-icon"></i-feather></span>
-        </div>
-        <div class="form col-md-6 com-sm-6 col-xs-6">
-            <div class="logo">
-                <img src="https://cdn.fairbet91.com/KHELOO/images/logo.gif" alt="" width="100%">
+      <img src="/assets/Group 493.png" alt="" width="100%">
+    </div>
+    <div class="close-div">
+      <span class="popupClose" mat-dialog-close><i-feather name="x" class="rotate-icon"></i-feather></span>
+    </div>
+    <div class="form col-md-4 com-sm-4 col-xs-4">
+      <div class="logo">
+        <img src="https://cdn.fairbet91.com/KHELOO/images/logo.gif" alt="" width="100%">
+      </div>
+      <nz-tabset>
+        <nz-tab nzTitle="Login Now">
+          <form nz-form [formGroup]="loginForm" class="login-form" (ngSubmit)="LoginForm()">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your username!">
+                <nz-input-group [nzPrefix]="mobile">
+                  <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number" />
+                  <ng-template #mobile>
+                    <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                    <i-feather name="phone"></i-feather>
+                  </ng-template>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your Password!">
+                <nz-input-group [nzPrefix]="lockPass">
+                  <input type="password" nz-input formControlName="Password" placeholder="Enter Password" />
+                  <ng-template #lockPass>
+                    <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                    <i-feather name="lock"></i-feather>
+                  </ng-template>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <div nz-row class="login-form-margin">
+              <div nz-col>
+                <!-- <label nz-checkbox formControlName="remember">
+                              <span>Remember me</span>
+                            </label> -->
+              </div>
+              <div nz-col>
+                <a class="login-form-forgot">Forgot password?</a>
+              </div>
             </div>
-            <nz-tabset>
-                <nz-tab nzTitle="Login Now">
-                    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
-                        <nz-form-item>
-                          <nz-form-control nzErrorTip="Please input your username!">
-                            <nz-input-group [nzPrefix]="userDel">
-                              <input type="text" nz-input formControlName="userName" placeholder="Enter Phone Number" />
-                              <ng-template #userDel>
-                                <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
-                                <i-feather name="phone"></i-feather>
-                              </ng-template>
-                            </nz-input-group>
-                          </nz-form-control>
-                        </nz-form-item>
-                        <nz-form-item>
-                          <nz-form-control nzErrorTip="Please input your Password!">
-                            <nz-input-group [nzPrefix]="lock">
-                              <input type="password" nz-input formControlName="password" placeholder="Enter Password" />
-                              <ng-template #lock>
-                                <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
-                                <i-feather name="lock"></i-feather>
-                              </ng-template>
-                            </nz-input-group>
-                          </nz-form-control>
-                        </nz-form-item>
-                        <div nz-row class="login-form-margin">
-                          <div nz-col >
-                            <!-- <label nz-checkbox formControlName="remember">
+            <button nz-button class="login-form-button login-form-margin btn-submit" [nzType]="'primary'"><i-feather
+                name="Log-in"></i-feather>Submit</button>
+
+          </form>
+        </nz-tab>
+        <nz-tab nzTitle="Register Now">
+          <form nz-form [formGroup]="registerForm" class="login-form" (ngSubmit)="submitRegForm()">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your username!">
+                <nz-input-group [nzPrefix]="MobileReg">
+                  <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number" />
+                  <ng-template #MobileReg>
+                    <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                    <i-feather name="phone"></i-feather>
+                  </ng-template>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control class="otp1">
+                <nz-input-group>
+                  <input type="number" nz-input formControlName="otp" maxlength="1" (input)="moveToNext($event, 0)"
+                    #otpInput [(ngModel)]="otp[0]" />
+                </nz-input-group>
+              </nz-form-control>
+              <nz-form-control class="otp1">
+                <nz-input-group>
+                  <input type="number" nz-input formControlName="otp2" maxlength="1" (input)="moveToNext($event, 1)"
+                    #otpInput [(ngModel)]="otp[1]" />
+                </nz-input-group>
+              </nz-form-control>
+              <nz-form-control class="otp1">
+                <nz-input-group>
+                  <input type="number" nz-input formControlName="otp3" maxlength="1" (input)="moveToNext($event, 2)"
+                    #otpInput [(ngModel)]="otp[2]" />
+                </nz-input-group>
+              </nz-form-control>
+              <nz-form-control class="otp1">
+                <nz-input-group>
+                  <input type="number" nz-input formControlName="otp4" maxlength="1" (input)="moveToNext($event, 3)"
+                    #otpInput [(ngModel)]="otp[3]" />
+                </nz-input-group>
+              </nz-form-control>
+              <nz-form-control class="otp1">
+                <nz-input-group>
+                  <input type="number" nz-input formControlName="otp5" maxlength="1" (input)="moveToNext($event, 4)"
+                    #otpInput [(ngModel)]="otp[4]" />
+                </nz-input-group>
+              </nz-form-control>
+              <nz-form-control class="otp1">
+                <nz-input-group>
+                  <input type="number" nz-input formControlName="otp6" maxlength="1" (input)="moveToNext($event, 5)"
+                    #otpInput [(ngModel)]="otp[5]" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your First Name!">
+                <nz-input-group [nzPrefix]="regfName">
+                  <input type="text" nz-input formControlName="FName" placeholder="Enter First Name" />
+                  <ng-template #regfName>
+                    <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                    <i-feather name="user"></i-feather>
+                  </ng-template>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your username!">
+                <nz-input-group [nzPrefix]="regLname">
+                  <input type="text" nz-input formControlName="LName" placeholder="Enter last Name" />
+                  <ng-template #regLname>
+                    <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                    <i-feather name="user"></i-feather>
+                  </ng-template>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your username!">
+                <nz-input-group [nzPrefix]="regPass">
+                  <input type="text" nz-input formControlName="Password" placeholder="Enter Password" />
+                  <ng-template #regPass>
+                    <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                    <i-feather name="lock"></i-feather>
+                  </ng-template>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <!-- <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your username!">
+              <nz-input-group >
+              <nz-date-picker nzMode="date" formControlName="DOB1"></nz-date-picker>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item> -->
+            <!-- <nz-date-picker nzMode="date" ></nz-date-picker > -->
+            <!-- <nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker> -->
+             <!-- <nz-form-item>
+              <nz-form-control nzErrorTip="Please select Date">
+                <nz-input-group [nzPrefix]="regRef">
+                  <input type="date" nz-input formControlName="DOB" />
+                  <ng-template #regRef>
+                    <i-feather name="calendar"></i-feather>
+                  </ng-template>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>  -->
+            <!-- <nz-form-item>
+              <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>DatePicker</nz-form-label>
+              <nz-form-control [nzSm]="16" [nzXs]="24">
+                <nz-date-picker formControlName="datePicker"></nz-date-picker>
+              </nz-form-control>
+            </nz-form-item> -->
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please select Date" [nzSm]="16" [nzXs]="24">
+                <!-- <nz-input-group [nzPrefix]="regDate"> -->
+                  <!-- <nz-date-picker formControlName="DOB" nzFormat="yyyy-MM-dd" nzMode="date"></nz-date-picker> -->
+                  <ng-template #regDate>
+                    <i-feather name="calendar"></i-feather>
+                  </ng-template>
+                <!-- </nz-input-group> -->
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your Refferal">
+                <nz-input-group [nzPrefix]="regRef">
+                  <input type="text" nz-input formControlName="Ref" placeholder="Enter Refferal(optional)" />
+                  <ng-template #regRef>
+                    <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                    <i-feather name="gift"></i-feather>
+                  </ng-template>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <div nz-row class="login-form-margin">
+              <div nz-col>
+                <!-- <label nz-checkbox formControlName="remember">
                               <span>Remember me</span>
                             </label> -->
-                          </div>
-                          <div nz-col >
-                            <a class="login-form-forgot">Forgot password</a>
-                          </div>
-                        </div>
-                        <button nz-button class="login-form-button login-form-margin btn-submit"   [nzType]="'primary'"><i-feather name="Log-in"></i-feather>Submit</button>
-                       
-                      </form>
-                </nz-tab>
-                <nz-tab nzTitle="Register Now">
-                    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
-                        <nz-form-item>
-                          <nz-form-control nzErrorTip="Please input your username!">
-                            <nz-input-group nzPrefixIcon="user">
-                              <input type="text" nz-input formControlName="userName" placeholder="Username" />
-                            </nz-input-group>
-                          </nz-form-control>
-                        </nz-form-item>
-                        <nz-form-item>
-                          <nz-form-control nzErrorTip="Please input your Password!">
-                            <nz-input-group [nzSuffix]="suffixIconSearch">
-                              <input type="password" nz-input formControlName="password" placeholder="Password" />
-                              <ng-template #suffixIconSearch>
-                                <span nz-icon [nzType]="'search'"></span>
-                              </ng-template>
-                            </nz-input-group>
-                          </nz-form-control>
-                        </nz-form-item>
-                        <div nz-row class="login-form-margin">
-                          <div nz-col >
-                            <!-- <label nz-checkbox formControlName="remember">
-                              <span>Remember me</span>
-                            </label> -->
-                          </div>
-                          <div nz-col >
-                            <a class="login-form-forgot">Forgot password?</a>
-                          </div>
-                        </div>
-                        <button nz-button class="login-form-button login-form-margin btn-submit"   [nzType]="'primary'"><i-feather name="Log-out"></i-feather>Submit</button>
-                      </form>
-                    
-                </nz-tab>
-              </nz-tabset>
-            <!-- <mat-tab-group>
+              </div>
+              <div nz-col>
+                <a class="login-form-forgot">Forgot password?</a>
+              </div>
+            </div>
+            <button nz-button class="login-form-button login-form-margin btn-submit" type="submit"><i-feather
+                name="Log-out"></i-feather>Submit</button>
+          </form>
+
+        </nz-tab>
+      </nz-tabset>
+      <!-- <mat-tab-group>
                 <mat-tab label="Login"> 
                     <form >
                         <div class="anu-class">
@@ -125,7 +235,7 @@
                     </form>    
                 </mat-tab>
             </mat-tab-group> -->
-            <!-- <div>
+      <!-- <div>
                 <mat-form-field>
                     <mat-icon></mat-icon>
                     <input matInput type="text" placeholder="Mobile">
@@ -134,8 +244,8 @@
 
             </div> -->
 
-        </div>
     </div>
-<!-- </nz-card> -->
+  </div>
+  <!-- </nz-card> -->
 
 </div>

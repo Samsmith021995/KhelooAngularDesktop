@@ -28,7 +28,6 @@ import { LoginComponent } from './main/desktop/auth/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/forgot-password.component';
 import { GamePlatformComponent } from './main/desktop/game-platform/game-platform.component';
-import { PopRegisterComponent } from './main/mobile/pop-register/pop-register.component';
 import { BottomNavbarComponent } from './main/footer/m-footer/bottom-navbar/bottom-navbar.component';
 // import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.component';
 import { CricketBettingComponent } from './main/desktop/footer-content/sports/cricket-betting/cricket-betting.component';
@@ -47,6 +46,16 @@ import { TournamentsComponent } from './main/desktop/footer-content/games/tourna
 import { GameHeaderComponent } from './main/desktop/game-platform/game-header/game-header.component';
 import { DesktopSidebarComponent } from './main/common-home/desktop-sidebar/desktop-sidebar.component';
 import { LoginPopupComponent } from './main/desktop/auth/login-popup/login-popup.component';
+import { PokerGameComponent } from './main/desktop/Games/poker-game/poker-game.component';
+import { SlotsGameComponent } from './main/desktop/Games/slots-game/slots-game.component';
+import { TeenpatiGameComponent } from './main/desktop/Games/teenpati-game/teenpati-game.component';
+import { TablegameGameComponent } from './main/desktop/Games/tablegame-game/tablegame-game.component';
+import { StoreModule } from '@ngrx/store';
+import { AUTH_STATE_NAME } from './main/desktop/auth/state/auth.selector';
+import { AuthReducer } from './main/desktop/auth/state/auth.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './main/desktop/auth/state/auth.effects';
+import { RouletteGameComponent } from './main/desktop/Games/roulette-game/roulette-game.component';
 
 @NgModule({
   declarations: [
@@ -86,13 +95,17 @@ import { LoginPopupComponent } from './main/desktop/auth/login-popup/login-popup
     KhelooPrivilegesComponent,
     TournamentsComponent,
     GameHeaderComponent,  
-    DesktopSidebarComponent, LoginPopupComponent
+    DesktopSidebarComponent, LoginPopupComponent, PokerGameComponent, SlotsGameComponent, TeenpatiGameComponent, TablegameGameComponent, RouletteGameComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StoreModule.forFeature(AUTH_STATE_NAME,AuthReducer),
+    StoreModule.forRoot([]),
+    EffectsModule.forRoot([]),
+    EffectsModule.forFeature([AuthEffects])
    ],
    schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [ApiService,UrlService],

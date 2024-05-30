@@ -17,7 +17,8 @@
                                 <img [src]="item.src" alt="" style="width: 100px;height: 50px;">
                             </div>
                         </a>
-                    }
+                     }
+                    
                 </div>
             <!-- </marquee> -->
 
@@ -28,22 +29,23 @@
             <!-- <div class="game_providers_main_container">
                     <h2 class="game-provider-text"><i-feather name="star"></i-feather> Popular Game</h2>
                 </div> -->
-            <ng-container *ngFor="let category of subCategory; let i=index;">
+                @for (category of subCategory; track $index) {
+            <!-- <ng-container *ngFor="let category of subCategory; let i=index;"> -->
                 <div *ngIf="gamesData[category]" class="container">
                     @if(gamesData[category].length>0){
 
                     <span style="color: white;" class="category-btn game_ind_heading_container1" class="d-flex games-cat">
-                        <h2 class="h2-heading game-provider-text"><i-feather [name]="icons[i]"></i-feather> {{ category
+                        <h2 class="h2-heading game-provider-text"><i-feather [name]="icons[$index]"></i-feather> {{ category
                             }} ({{gamesData[category].length}})</h2>
-                        <button (click)="showMoreF(i)" class="btn-show"
+                        <button (click)="showMoreF($index)" class="btn-show"
                             *ngIf="gamesData[category].length > 6 && !subSelected">
-                            {{isDetailsVisible[i]?'Show Less':'Show More>>'}}
+                            {{isDetailsVisible[$index]?'Show Less':'Show More>>'}}
                         </button>
                     </span>
 
                     <div style=" color:white; display: flex; width: 100%; flex-wrap: wrap; " #showMore class="ashu row "
                         [ngClass]="{'showMore':subSelected}">
-                        <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]" style=""
+                        <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[$index]" style=""
                             class="casino-game-item  col-lg-2 col-md-4 col-xl-custom">
                             <img [src]="game.url_thumb" alt="" width="100%" style="border-radius: 5px;">
                             <!-- <div class="min_max_container" st>
@@ -63,16 +65,30 @@
                         </div>
 
                     </div>
-                    @if( defaultSlices[i] <= gamesData[category].length){ <button (click)="updateSlice(i)"
+                    @if( defaultSlices[$index] <= gamesData[category].length){ <button (click)="updateSlice($index)"
                         class="btn-show viewmore"
-                        *ngIf="gamesData[category].length > 10 && !subSelected && isDetailsVisible[i]">
+                        *ngIf="gamesData[category].length > 10 && !subSelected && isDetailsVisible[$index]">
                         View More
                         </button>
                         }
                         }
                 </div>
-            </ng-container>
+            <!-- </ng-container> -->
+        }
+            <!-- @empty { -->
+                <div style="float: left;">
+                    <nz-skeleton-element
+           
+            nzType="button"
+            [nzActive]="true"
+            [nzSize]="elementSize"
+            [nzShape]="buttonShape"
+            width="150px" class="title-skelten"></nz-skeleton-element><br>
 
+                </div>
+        @for (item of loopArray; track $index) {
+                    <nz-skeleton-element nzType="image" [nzActive]="true" width="150px" ></nz-skeleton-element>
+             }
 
         </div>
 

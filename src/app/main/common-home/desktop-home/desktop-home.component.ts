@@ -3,7 +3,13 @@ import { ComFunService } from '../../service/com-fun.service';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
 import { catchError } from 'rxjs';
-
+import {
+  NzSkeletonAvatarShape,
+  NzSkeletonAvatarSize,
+  NzSkeletonButtonShape,
+  NzSkeletonButtonSize,
+  NzSkeletonInputSize
+} from 'ng-zorro-antd/skeleton';
 @Component({
   selector: 'app-desktop-home',
   templateUrl: './desktop-home.component.html',
@@ -23,7 +29,10 @@ export class DesktopHomeComponent implements OnInit {
   categoryFetch = false;
   defaultSlices: number[] = [];
   isDetailsVisible: boolean[] = [];
-  icons: string[] = ['star', 'heart', 'check-circle', 'gift', 'award', 'bell'];
+  elementSize: NzSkeletonInputSize = 'default';
+  buttonShape: NzSkeletonButtonShape = 'default';
+  loopArray: number[] = [];
+  icons: string[] = ['star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell'];
   constructor(private comfun: ComFunService,private apiSer:ApiService) { }
   gamesProvider = [
     {title:'ezugi',src:this.comfun.cdn+'provider/ezugi.svg'},
@@ -50,6 +59,7 @@ export class DesktopHomeComponent implements OnInit {
   ngOnInit(): void {
     this.bannnerImage();
     this.getAllCategory(this.selected);
+    this.loopArray = Array.from({ length: 6 }, (_, i) => i + 1);
   }
 
   bannnerImage() {
@@ -70,6 +80,7 @@ export class DesktopHomeComponent implements OnInit {
 
   }
   gameListAll(item: any) {
+    console.log(item+"<br>");
     let param = { GameCategory: item };
     this.apiSer.apiRequest(config['gameList'], param).pipe(
       catchError((error) => {
@@ -81,7 +92,7 @@ export class DesktopHomeComponent implements OnInit {
         this.filteredResults[item] = data;
       }
     });
-    console.log(this.gamesData);
+    // console.log(this.gamesData);
   }
 
   gameListOne(item: any) {

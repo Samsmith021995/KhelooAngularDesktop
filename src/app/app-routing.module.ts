@@ -42,6 +42,10 @@ import { GamesProviderWiseComponent } from './main/mobile/games-provider-wise/ga
 import { MSignup1Component } from './main/mobile/m-signup/m-signup1/m-signup1.component';
 import { MSignup2Component } from './main/mobile/m-signup/m-signup2/m-signup2.component';
 import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
+import { GamesCategoryComponent } from './main/desktop/games-category/games-category.component';
+import { PokerGameComponent } from './main/desktop/Games/poker-game/poker-game.component';
+import { SlotsGameComponent } from './main/desktop/Games/slots-game/slots-game.component';
+import { TablegameGameComponent } from './main/desktop/Games/tablegame-game/tablegame-game.component';
 
 
 const routes: Routes = [
@@ -324,6 +328,27 @@ const routes: Routes = [
       {
         path: 'thankyou',
         component: ThankYouComponent,
+        canActivate: []
+      },
+      //new desktop path
+      {
+        path: 'gamesCat/:id',
+        component: GamesCategoryComponent,
+        canActivate: []
+      },
+      {
+        path: 'gamesList/poker',
+        component: PokerGameComponent,
+        canActivate: []
+      },
+      {
+        path: 'gamesList/slots',
+        component: SlotsGameComponent,
+        canActivate: []
+      },
+      {
+        path: 'gamesList/tablegame',
+        component: TablegameGameComponent,
         canActivate: []
       }
     ]

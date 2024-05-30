@@ -153,3 +153,17 @@
 .games-cat{
     justify-content: space-between;
 }
+
+::ng-deep .ant-skeleton-element .ant-skeleton-image{
+    width: 155px !important;
+    padding: 0.7rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .casino-game-item:hover{
+    
+        transform: translateY(-8px);
+        -webkit-transition: all .2s ease-out;
+        transition: all .2s ease-out;
+      
+  }
