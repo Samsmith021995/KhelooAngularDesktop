@@ -51,6 +51,7 @@ import { LotteryGameComponent } from './main/desktop/Games/lottery-game/lottery-
 import { TeenpatiGameComponent } from './main/desktop/Games/teenpati-game/teenpati-game.component';
 import { TablegamesGameComponent } from './main/desktop/Games/tablegames-game/tablegames-game.component';
 import { SportsGameComponent } from './main/desktop/Games/sports-game/sports-game.component';
+import { PromotionComponent } from './main/desktop/promotion/promotion.component';
 
 
 const routes: Routes = [
@@ -384,7 +385,16 @@ const routes: Routes = [
         path: 'gamesList/sports',
         component: SportsGameComponent,
         canActivate: []
-      }
+      },
+      {
+        path: 'dpromotion',
+        component: PromotionComponent,
+        data: {
+          title: 'Kheloo- Promotion',
+          description: ''
+        },
+        canActivate:[]
+      },
     ]
   },
   {
@@ -396,6 +406,7 @@ const routes: Routes = [
     },
     canActivate:[]
   },
+
   {
     path: 'signup',
     component: MSignupComponent,

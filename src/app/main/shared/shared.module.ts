@@ -67,7 +67,9 @@ import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
 import { enUS as dateFnsEnUS } from 'date-fns/locale';
 import { UserOutline } from '@ant-design/icons-angular/icons';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 import { GamesCategoryComponent } from '../desktop/games-category/games-category.component';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
 
 const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserOutline ];
 @NgModule({
@@ -132,7 +134,9 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzInputModule,
   NzDatePickerModule,
   NzGridModule,
-  NzSkeletonModule
+  NzSkeletonModule,
+  NzModalModule,
+  NzSpinModule
 
   ],
  exports:[
@@ -189,7 +193,9 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzInputModule,
   NzDatePickerModule,
   NzGridModule,
-  NzSkeletonModule
+  NzSkeletonModule,
+  NzModalModule,
+  NzSpinModule
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [

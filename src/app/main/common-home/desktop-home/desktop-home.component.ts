@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { ComFunService } from '../../service/com-fun.service';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
@@ -33,8 +33,9 @@ export class DesktopHomeComponent implements OnInit {
   buttonShape: NzSkeletonButtonShape = 'default';
   loopArray: number[] = [];
   loopArray1: number[] = [];
+  @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   icons: string[] = ['star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell'];
-  constructor(private comfun: ComFunService,private apiSer:ApiService) { }
+  constructor(private comfun: ComFunService,private apiSer:ApiService,private renderer: Renderer2) { }
   gamesProvider = [
     {title:'ezugi',src:this.comfun.cdn+'provider/ezugi.svg'},
     {title:'red tiger',src:this.comfun.cdn+'provider/red-tiger.svg'},
@@ -140,18 +141,19 @@ export class DesktopHomeComponent implements OnInit {
     });
   }
   showMoreF(item: number) {
-    // let nativeElement = this.myElementRef.toArray()[item].nativeElement;
-    // if (nativeElement) {
-    //   if (nativeElement.classList.contains('showMore')) {
-    //     this.defaultSlices[item] = 4;
-    //     this.renderer.removeClass(nativeElement, 'showMore');
-    //     this.isDetailsVisible[item] = false;
-    //     return;
-    //   }
-    //   this.defaultSlices[item] += 20;
-    //   this.renderer.addClass(nativeElement, 'showMore');
-    //   this.isDetailsVisible[item] = true;
-    // }
+    console.log("Ashu")
+    let nativeElement = this.myElementRef.toArray()[item].nativeElement;
+    if (nativeElement) {
+      if (nativeElement.classList.contains('showMore')) {
+        this.defaultSlices[item] = 6;
+        this.renderer.removeClass(nativeElement, 'showMore');
+        this.isDetailsVisible[item] = false;
+        return;
+      }
+      this.defaultSlices[item] += 20;
+      this.renderer.addClass(nativeElement, 'showMore');
+      this.isDetailsVisible[item] = true;
+    }
   }
   gameStart(param: any) {
   //   if(!this.isLoggedIn){
