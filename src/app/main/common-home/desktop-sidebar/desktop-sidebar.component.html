@@ -70,7 +70,7 @@
       </a>
 </div>
         <ul nz-menu nzTheme="dark" nzMode="inline">
-          <li nz-menu-item class="nz-menu-item">
+          <li nz-menu-item class="nz-menu-item" routerLink="/" routerLinkActive="active-menu-item">
             <!-- <span nz-icon nzType="file"></span> -->
             <!-- <span>nav 1</span> -->
             <svg 
@@ -80,49 +80,49 @@
                     </path>
                 </svg> Home 
           </li>
-          <li nz-menu-item class="nz-menu-item" (click)="gamesList('casino')">
+          <li nz-menu-item class="nz-menu-item" routerLink="gamesList/casino"  routerLinkActive="active-menu-item">
             <!-- <span nz-icon nzType="video-camera"></span>
             <span>nav 2</span> -->
             <img 
-                    [src]="cdn+'menu/casino.svg'" class="menu-icon">Casino
+                    [src]="cdn+'menu/casino.svg'" class="menu-icon" >Casino
           </li>
-          <li nz-menu-item class="nz-menu-item" routerLink="/gamesList/poker">
+          <li nz-menu-item class="nz-menu-item" routerLink="/gamesList/poker" routerLinkActive="active-menu-item">
             <!-- <span nz-icon nzType="upload"></span>
             <span>nav 3</span> -->
             <img 
-                    [src]="cdn+'menu/pokeroutline.svg'" class="menu-icon"> Poker
+                     [src]="cdn+'menu/pokeroutline.svg'" class="menu-icon"> Poker
           </li>
-          <li nz-menu-item class="nz-menu-item"  routerLink="/gamesList/tablegame">
+          <li nz-menu-item class="nz-menu-item"  routerLink="/gamesList/tablegames" routerLinkActive="active-menu-item">
             <!-- <span nz-icon nzType="bar-chart"></span>
             <span>nav 4</span> -->
             <img 
                             [src]="cdn+'menu/board.svg'" class="menu-icon">Table Game
           </li>
-          <li nz-menu-item class="nz-menu-item" routerLink="/gamesList/slots">
+          <li nz-menu-item class="nz-menu-item" routerLink="/gamesList/slots" routerLinkActive="active-menu-item">
             <!-- <span nz-icon nzType="cloud-o"></span>
             <span>nav 5</span> -->
             <img 
                     [src]="cdn+'menu/slotoutline.svg'" class="menu-icon" >Slots
           </li>
-          <li nz-menu-item class="nz-menu-item" (click)="gamesList('Table Games')">
+          <li nz-menu-item class="nz-menu-item" routerLink="gamesList/sports" routerLinkActive="active-menu-item">
             <!-- <span nz-icon nzType="appstore-o"></span>
             <span>nav 6</span> -->
             <img 
                             [src]="cdn+'menu/esport1.svg'" class="menu-icon">E-Sport
           </li>
-          <li nz-menu-item class="nz-menu-item" (click)="gamesList('Table Games')">
+          <li nz-menu-item class="nz-menu-item" routerLink="/gamesList/lottery" routerLinkActive="active-menu-item">
             <!-- <span nz-icon nzType="team"></span>
             <span>nav 7</span> -->
             <img 
                     [src]="cdn+'menu/coin.svg'" class="menu-icon">Lottery
           </li>
-          <li nz-menu-item class="nz-menu-item" (click)="gamesList('Table Games')">
+          <li nz-menu-item class="nz-menu-item" routerLink="/gamesList/roulette" routerLinkActive="active-menu-item">
             <!-- <span nz-icon nzType="shop"></span>
             <span>nav 8</span> -->
             <img 
                     [src]="cdn+'menu/rulle.svg'" class="menu-icon">Roulette
           </li>
-          <li nz-menu-item class="nz-menu-item" (click)="gamesList('Table Games')">
+          <li nz-menu-item class="nz-menu-item" routerLink="/gamesList/teenpatti" routerLinkActive="active-menu-item">
             <!-- <span nz-icon nzType="shop"></span>
             <span>nav 8</span> -->
             <img 

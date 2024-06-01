@@ -167,3 +167,9 @@
         transition: all .2s ease-out;
       
   }
+  ::ng-deep.ant-skeleton-button{
+    width: 200px !important;
+  }
+  ::ng-deep .ant-skeleton-image{
+    width: 100%;
+  }

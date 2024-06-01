@@ -75,21 +75,26 @@
                 </div>
             <!-- </ng-container> -->
         }
-            <!-- @empty { -->
-                <div style="float: left;">
+            @empty {
+                @for (item of loopArray1; track $index) {
+                <div style="float: left; text-align: left;margin-bottom: 1rem;">
                     <nz-skeleton-element
            
             nzType="button"
             [nzActive]="true"
             [nzSize]="elementSize"
             [nzShape]="buttonShape"
-            width="150px" class="title-skelten"></nz-skeleton-element><br>
+            width="300px" class="title-skelten"></nz-skeleton-element><br>
 
                 </div>
-        @for (item of loopArray; track $index) {
+             @for (item of loopArray; track $index) {
+                <div class="col-lg-2 col-md-4 col-xl-custom">
                     <nz-skeleton-element nzType="image" [nzActive]="true" width="150px" ></nz-skeleton-element>
-             }
 
+                </div>
+             }
+            }
+        }
         </div>
 
     </div>

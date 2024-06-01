@@ -45,7 +45,12 @@ import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.compo
 import { GamesCategoryComponent } from './main/desktop/games-category/games-category.component';
 import { PokerGameComponent } from './main/desktop/Games/poker-game/poker-game.component';
 import { SlotsGameComponent } from './main/desktop/Games/slots-game/slots-game.component';
-import { TablegameGameComponent } from './main/desktop/Games/tablegame-game/tablegame-game.component';
+import { CasinoGameComponent } from './main/desktop/Games/casino-game/casino-game.component';
+import { RouletteGameComponent } from './main/desktop/Games/roulette-game/roulette-game.component';
+import { LotteryGameComponent } from './main/desktop/Games/lottery-game/lottery-game.component';
+import { TeenpatiGameComponent } from './main/desktop/Games/teenpati-game/teenpati-game.component';
+import { TablegamesGameComponent } from './main/desktop/Games/tablegames-game/tablegames-game.component';
+import { SportsGameComponent } from './main/desktop/Games/sports-game/sports-game.component';
 
 
 const routes: Routes = [
@@ -337,6 +342,11 @@ const routes: Routes = [
         canActivate: []
       },
       {
+        path: 'gamesList/casino',
+        component: CasinoGameComponent,
+        canActivate: []
+      },
+      {
         path: 'gamesList/poker',
         component: PokerGameComponent,
         canActivate: []
@@ -347,8 +357,32 @@ const routes: Routes = [
         canActivate: []
       },
       {
-        path: 'gamesList/tablegame',
-        component: TablegameGameComponent,
+        path: 'gamesList/tablegames',
+        component: TablegamesGameComponent,
+        canActivate: []
+      },
+      
+      {
+        path: 'gamesList/roulette',
+        component: RouletteGameComponent,
+        canActivate: []
+      }
+      ,
+      {
+        path: 'gamesList/lottery',
+        component: LotteryGameComponent,
+        canActivate: []
+      }
+      ,
+      {
+        path: 'gamesList/teenpatti',
+        component: TeenpatiGameComponent,
+        canActivate: []
+      }
+      ,
+      {
+        path: 'gamesList/sports',
+        component: SportsGameComponent,
         canActivate: []
       }
     ]
@@ -360,7 +394,7 @@ const routes: Routes = [
       title: 'Kheloo- Promotion',
       description: ''
     },
-    canActivate:[MobileGuard]
+    canActivate:[]
   },
   {
     path: 'signup',

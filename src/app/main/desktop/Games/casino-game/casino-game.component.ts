@@ -4,12 +4,20 @@ import { catchError } from 'rxjs';
 
 import { ApiService } from 'src/app/main/service/api.service';
 import { config } from 'src/app/main/service/config';
+
 @Component({
-  selector: 'app-teenpati-game',
-  templateUrl: './teenpati-game.component.html',
-  styleUrl: './teenpati-game.component.css'
+  selector: 'app-casino-game',
+  templateUrl: './casino-game.component.html',
+  styleUrl: './casino-game.component.css'
 })
-export class TeenpatiGameComponent implements OnInit {
+export class CasinoGameComponent implements OnInit{
+  // this.apiSer.apiRequest(config['gameCategory']).pipe(
+  //   catchError((error) => {
+  //     throw error;
+  //   })
+  // ).subscribe(data => {
+
+  // });
   gameName!:string;
   gamesData:any[] =[];
   elementActive:boolean =true;
@@ -35,7 +43,7 @@ getGames(){
         })
       ).subscribe(data => {
         if (data) {
-            let itemSeach = 'Teenpatti';
+            let itemSeach = 'casino';
             const filteredApiResultsed = data.filter((result: { name: string; groupname: string; gamecategory: string; product: string; })=>
               (result.name.toLowerCase().includes(itemSeach.toLowerCase())) || 
               (result.groupname && result.groupname.toLowerCase().includes(itemSeach.toLowerCase())) || 

@@ -18,23 +18,29 @@ export class PokerGameComponent implements OnInit{
   loopArray: number[] = [];
   constructor(private activeRooute:ActivatedRoute,private apiSer:ApiService ){}
 ngOnInit(): void {
-  this.activeRooute.params.subscribe(params => {
-    this.gameName = params['id'];
-   this.getGames(this.gameName);
-  });
+  // this.activeRooute.params.subscribe(params => {
+  //   this.gameName = params['id'];
+   this.getGames();
+  // });
   this.loopArray = Array.from({ length: 60 }, (_, i) => i + 1);
 }
-getGames(category:String){
-  let param = { GameCategory: 'Live poker' };
-  this.apiSer.apiRequest(config['gameList'],param).pipe(
-    catchError((error) => {
-      throw error;
-    })
-  ).subscribe(data => {
-    if (data) {
-      this.gamesData = data;
-      console.log(data);
-    }
+getGames(){
+  let cateLottery = ['Poker','Live Poker'];
+  cateLottery.forEach((item)=>{
+    let param = {GameCategory:item}
+    this.apiSer.apiRequest(config['gameList'],param).pipe(
+      catchError((error) => {
+        throw error;
+      })
+    ).subscribe(data => {
+      if (data) {
+        data.forEach((item:any)=>{
+          this.gamesData.push(item);
+        });
+        console.log(data);
+      }
+    });
+
   });
 }
 }

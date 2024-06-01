@@ -32,6 +32,7 @@ export class DesktopHomeComponent implements OnInit {
   elementSize: NzSkeletonInputSize = 'default';
   buttonShape: NzSkeletonButtonShape = 'default';
   loopArray: number[] = [];
+  loopArray1: number[] = [];
   icons: string[] = ['star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell'];
   constructor(private comfun: ComFunService,private apiSer:ApiService) { }
   gamesProvider = [
@@ -60,6 +61,7 @@ export class DesktopHomeComponent implements OnInit {
     this.bannnerImage();
     this.getAllCategory(this.selected);
     this.loopArray = Array.from({ length: 6 }, (_, i) => i + 1);
+    this.loopArray1 = Array.from({ length: 10 }, (_, i) => i + 1);
   }
 
   bannnerImage() {

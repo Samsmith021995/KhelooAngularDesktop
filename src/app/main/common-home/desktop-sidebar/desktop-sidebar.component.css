@@ -31,3 +31,10 @@ img.menu-icon,svg {
         width: 100%;
     }
 }
+
+.active-menu-item{
+    color: rgba(255, 190, 24, 1) !important;
+}
+.active-menu-item .menu-icon{
+    filter: brightness(0) invert(1);
+}

@@ -5,11 +5,11 @@ import { ApiService } from 'src/app/main/service/api.service';
 import { config } from 'src/app/main/service/config';
 
 @Component({
-  selector: 'app-tablegame-game',
-  templateUrl: './tablegame-game.component.html',
-  styleUrl: './tablegame-game.component.css'
+  selector: 'app-tablegames-game',
+  templateUrl: './tablegames-game.component.html',
+  styleUrl: './tablegames-game.component.css'
 })
-export class TablegameGameComponent implements OnInit {
+export class TablegamesGameComponent {
   gameName!:string;
   gamesData:any[] =[];
   elementActive:boolean =true;
@@ -24,7 +24,7 @@ ngOnInit(): void {
   this.loopArray = Array.from({ length: 60 }, (_, i) => i + 1);
 }
 getGames(category:String){
-  let param = { GameCategory: 'TableGames' };
+  let param = { GameCategory: 'Table Games' };
   this.apiSer.apiRequest(config['gameList'],param).pipe(
     catchError((error) => {
       throw error;

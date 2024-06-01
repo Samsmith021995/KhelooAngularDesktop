@@ -49,13 +49,19 @@ import { LoginPopupComponent } from './main/desktop/auth/login-popup/login-popup
 import { PokerGameComponent } from './main/desktop/Games/poker-game/poker-game.component';
 import { SlotsGameComponent } from './main/desktop/Games/slots-game/slots-game.component';
 import { TeenpatiGameComponent } from './main/desktop/Games/teenpati-game/teenpati-game.component';
-import { TablegameGameComponent } from './main/desktop/Games/tablegame-game/tablegame-game.component';
 import { StoreModule } from '@ngrx/store';
 import { AUTH_STATE_NAME } from './main/desktop/auth/state/auth.selector';
 import { AuthReducer } from './main/desktop/auth/state/auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './main/desktop/auth/state/auth.effects';
 import { RouletteGameComponent } from './main/desktop/Games/roulette-game/roulette-game.component';
+import { CasinoGameComponent } from './main/desktop/Games/casino-game/casino-game.component';
+import { LotteryGameComponent } from './main/desktop/Games/lottery-game/lottery-game.component';
+import { BlackjackGameComponent } from './main/desktop/Games/blackjack-game/blackjack-game.component';
+import { BaccaratGameComponent } from './main/desktop/Games/baccarat-game/baccarat-game.component';
+import { AndarbaharGameComponent } from './main/desktop/Games/andarbahar-game/andarbahar-game.component';
+import { TablegamesGameComponent } from './main/desktop/Games/tablegames-game/tablegames-game.component';
+import { SportsGameComponent } from './main/desktop/Games/sports-game/sports-game.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +101,7 @@ import { RouletteGameComponent } from './main/desktop/Games/roulette-game/roulet
     KhelooPrivilegesComponent,
     TournamentsComponent,
     GameHeaderComponent,  
-    DesktopSidebarComponent, LoginPopupComponent, PokerGameComponent, SlotsGameComponent, TeenpatiGameComponent, TablegameGameComponent, RouletteGameComponent
+    DesktopSidebarComponent, LoginPopupComponent, PokerGameComponent, SlotsGameComponent, TeenpatiGameComponent, RouletteGameComponent, CasinoGameComponent, LotteryGameComponent, BlackjackGameComponent, BaccaratGameComponent, AndarbaharGameComponent, TablegamesGameComponent, SportsGameComponent
   ],
   imports: [
     BrowserModule,
