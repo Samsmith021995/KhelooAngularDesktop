@@ -1,8 +1,8 @@
-import { Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, Renderer2, TemplateRef, ViewChild, ViewChildren } from '@angular/core';
 import { ComFunService } from '../../service/com-fun.service';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
-import { catchError } from 'rxjs';
+import { Subscribable, Subscription, catchError } from 'rxjs';
 import {
   NzSkeletonAvatarShape,
   NzSkeletonAvatarSize,
@@ -10,12 +10,15 @@ import {
   NzSkeletonButtonSize,
   NzSkeletonInputSize
 } from 'ng-zorro-antd/skeleton';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
 @Component({
   selector: 'app-desktop-home',
   templateUrl: './desktop-home.component.html',
   styleUrl: './desktop-home.component.css',
 })
-export class DesktopHomeComponent implements OnInit {
+export class DesktopHomeComponent implements OnInit,AfterViewInit {
   slidesPerViewn: number = 2;
   images = [];
   gamesData: { [key: string]: any[] } = {};
@@ -33,9 +36,15 @@ export class DesktopHomeComponent implements OnInit {
   buttonShape: NzSkeletonButtonShape = 'default';
   loopArray: number[] = [];
   loopArray1: number[] = [];
+  isLeftScrollDisabled: boolean[] = [];
+  isRightScrollDisabled: boolean[] = [];
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
+  @ViewChildren('scrollContainer') scrollElement!: QueryList<ElementRef<any>>;
+  // @ViewChild('loginPop') loginPop!: TemplateRef<any>;
+  isLoggedIn: boolean = false;
+  private isLoggedInSubscription!: Subscription;
   icons: string[] = ['star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell'];
-  constructor(private comfun: ComFunService,private apiSer:ApiService,private renderer: Renderer2) { }
+  constructor(private comfun: ComFunService,private apiSer:ApiService,private renderer: Renderer2,private router:Router,private dialog:MatDialog) { }
   gamesProvider = [
     {title:'ezugi',src:this.comfun.cdn+'provider/ezugi.svg'},
     {title:'red tiger',src:this.comfun.cdn+'provider/red-tiger.svg'},
@@ -63,6 +72,9 @@ export class DesktopHomeComponent implements OnInit {
     this.getAllCategory(this.selected);
     this.loopArray = Array.from({ length: 6 }, (_, i) => i + 1);
     this.loopArray1 = Array.from({ length: 10 }, (_, i) => i + 1);
+    this.isLoggedInSubscription = this.apiSer.isLoggedIn$.subscribe((value) => {
+      this.isLoggedIn = value;
+    });
   }
 
   bannnerImage() {
@@ -76,14 +88,11 @@ export class DesktopHomeComponent implements OnInit {
     })
   }
   clickVal(val: any) {
-
   }
 
   onSearch(itemSeach:any){
-
   }
   gameListAll(item: any) {
-    console.log(item+"<br>");
     let param = { GameCategory: item };
     this.apiSer.apiRequest(config['gameList'], param).pipe(
       catchError((error) => {
@@ -95,7 +104,6 @@ export class DesktopHomeComponent implements OnInit {
         this.filteredResults[item] = data;
       }
     });
-    // console.log(this.gamesData);
   }
 
   gameListOne(item: any) {
@@ -134,14 +142,13 @@ export class DesktopHomeComponent implements OnInit {
       this.subCategory = Array.from(subCategorySet);
       this.subCategorybc = Array.from(subCategorySet);
       this.subCategory.forEach((item: { GameCategory: string; }) => {
-        this.defaultSlices.push(6);
+        this.defaultSlices.push(200);
         this.isDetailsVisible.push(false);
         this.gameListAll(item);
       })
     });
   }
   showMoreF(item: number) {
-    console.log("Ashu")
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     if (nativeElement) {
       if (nativeElement.classList.contains('showMore')) {
@@ -155,15 +162,47 @@ export class DesktopHomeComponent implements OnInit {
       this.isDetailsVisible[item] = true;
     }
   }
-  gameStart(param: any) {
-  //   if(!this.isLoggedIn){
-  //     this.diaRef3 = this.dialog.open(this.loginPop);
-  //     this.diaRef3.afterClosed().subscribe(() => { });
-  //     return
-  //   }
-  //   this.router.navigate(['/games', param]);
+  redirectCategory(item:string){
+    // console.log("categoty:"+item)
+    this.router.navigate(['/gamesCat',item]);
   }
+  gameStart(param:any){
+    this.comfun.checkLoginRedirect(param);
+  }
+  
   updateSlice(item: number) {
     this.defaultSlices[item] += 20;
   }
+  scrollGame(direction:string,i:number){
+    this.checkScrollButtons(i);
+    const container = this.scrollElement.toArray()[i].nativeElement;
+    const scrollAmount = 500; // Adjust scroll amount as needed
+    console.log(container);
+    if (direction === 'left') {
+      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else if (direction === 'right') {
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      // this.btnScroll = false;
+    }
+  }
+  checkScrollButtons(index: number): void {
+    const container = this.scrollElement.toArray()[index].nativeElement;
+
+    this.isLeftScrollDisabled[index] = container.scrollLeft === 0;
+    this.isRightScrollDisabled[index] = container.scrollLeft + container.clientWidth >= container.scrollWidth;
+  }
+  ngAfterViewInit() {
+    this.scrollElement.forEach((container, index) => {
+      this.checkScrollButtons(index);
+    });
+  }
+  // visible = false;
+  // placement: NzDrawerPlacement = 'top';
+  // open(): void {
+  //   this.visible = true;
+  // }
+
+  // close(): void {
+  //   this.visible = false;
+  // }
 }

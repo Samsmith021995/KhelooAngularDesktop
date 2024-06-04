@@ -5,6 +5,7 @@
     margin: auto;
     text-align: center;
     padding-left: 10px;
+    position: unset;
 }
 .carousel-inner{
     width:160px;
@@ -172,4 +173,14 @@
   }
   ::ng-deep .ant-skeleton-image{
     width: 100%;
+  }
+  .btn-scroll{
+    background: #767676;
+    color: #fff;
+    border: none;
+border-radius: 5px;
+}
+.btn-scroll:disabled{
+      background: #3e3b3b;
+
   }

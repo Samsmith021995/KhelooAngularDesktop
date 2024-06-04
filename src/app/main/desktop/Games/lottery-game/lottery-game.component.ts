@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { catchError } from 'rxjs';
 
 import { ApiService } from 'src/app/main/service/api.service';
+import { ComFunService } from 'src/app/main/service/com-fun.service';
 import { config } from 'src/app/main/service/config';
 @Component({
   selector: 'app-lottery-game',
@@ -15,31 +16,15 @@ export class LotteryGameComponent implements OnInit {
   elementActive:boolean =true;
 
   loopArray: number[] = [];
-  constructor(private activeRooute:ActivatedRoute,private apiSer:ApiService ){}
+  constructor(private activeRooute:ActivatedRoute,private apiSer:ApiService,private comFun:ComFunService ){}
 ngOnInit(): void {
-  this.getGames();
-  // this.activeRooute.params.subscribe(params => {
-  //   this.gameName = params['id'];
-  // });
+  let cateLottery = ['Lottery','Live Lottery'];
+  this.comFun.filterGames(cateLottery).subscribe(filteredGames => {
+    this.gamesData = [...filteredGames];
+  });
   this.loopArray = Array.from({ length: 60 }, (_, i) => i + 1);
 }
-getGames(){
-  let cateLottery = ['Lottery','Live Lottery'];
-  cateLottery.forEach((item)=>{
-    let param = {GameCategory:item}
-    this.apiSer.apiRequest(config['gameList'],param).pipe(
-      catchError((error) => {
-        throw error;
-      })
-    ).subscribe(data => {
-      if (data) {
-        data.forEach((item:any)=>{
-          this.gamesData.push(item);
-        });
-        console.log(data);
-      }
-    });
-
-  });
+gameStart(param:any){
+  this.comFun.checkLoginRedirect(param);
 }
 }

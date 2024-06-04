@@ -18,6 +18,22 @@
         </nz-sider>
         <nz-content>
             <router-outlet></router-outlet>
+            <button (click)="open()">Search</button>
+            <nz-drawer
+[nzClosable]="false"
+[nzVisible]="visible"
+[nzPlacement]="placement"
+nzTitle="Basic Drawer"
+(nzOnClose)="close()"
+[nzWrapClassName]="custom_drawer"
+
+>
+<ng-container *nzDrawerContent>
+  <p>Some contents...</p>
+  <p>Some contents...</p>
+  <p>Some contents...</p>
+</ng-container>
+</nz-drawer>
             <nz-footer>
                 <app-d-footer></app-d-footer>
             </nz-footer>

@@ -1,3 +1,5 @@
+
+<!-- <button (click)="open()">search</button> -->
 <div class="row inner-content">
     <!-- <div class="col-md-2">
         <app-desktop-sidebar></app-desktop-sidebar>
@@ -37,13 +39,21 @@
                     <span style="color: white;" class="category-btn game_ind_heading_container1" class="d-flex games-cat">
                         <h2 class="h2-heading game-provider-text"><i-feather [name]="icons[$index]"></i-feather> {{ category
                             }} ({{gamesData[category].length}})</h2>
-                        <button (click)="showMoreF($index)" class="btn-show"
-                            *ngIf="gamesData[category].length > 6 && !subSelected">
-                            {{isDetailsVisible[$index]?'Show Less':'Show More>>'}}
-                        </button>
+                            @if (gamesData[category].length > 6  && !subSelected) {
+                                <div class="btn">
+                                    <button (click)="redirectCategory(category)" class="btn-show">
+                                        <!-- {{isDetailsVisible[$index]?'Show Less':'Show More>>'}} -->
+                                        Show More>>
+                                    </button>
+                                    <button class="btn-scroll" [disabled]="isLeftScrollDisabled[$index]" (click)="scrollGame('left',$index)"><i-feather name="chevron-left"></i-feather></button>&nbsp;
+                                    <button class="btn-scroll" (click)="scrollGame('right',$index)" [disabled]="isRightScrollDisabled[$index]"><i-feather name="chevron-right"></i-feather></button>
+
+                                </div>
+                            }
+
                     </span>
 
-                    <div style=" color:white; display: flex; width: 100%; flex-wrap: wrap; " #showMore class="ashu row "
+                    <div style=" color:white; display: flex; width: 100%; overflow-x: auto; flex-wrap: nowrap;" #showMore #scrollContainer class="ashu row"
                         [ngClass]="{'showMore':subSelected}">
                         <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[$index]" style=""
                             class="casino-game-item  col-lg-2 col-md-4 col-xl-custom">
@@ -65,12 +75,12 @@
                         </div>
 
                     </div>
-                    @if( defaultSlices[$index] <= gamesData[category].length){ <button (click)="updateSlice($index)"
+                    <!-- @if( defaultSlices[$index] <= gamesData[category].length){ <button (click)="updateSlice($index)"
                         class="btn-show viewmore"
                         *ngIf="gamesData[category].length > 10 && !subSelected && isDetailsVisible[$index]">
                         View More
                         </button>
-                        }
+                        } -->
                         }
                 </div>
             <!-- </ng-container> -->

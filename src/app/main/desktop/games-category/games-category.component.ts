@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../service/api.service';
 import { catchError } from 'rxjs';
 import { config } from '../../service/config';
+import { ComFunService } from '../../service/com-fun.service';
 
 @Component({
   selector: 'app-games-category',
@@ -15,7 +16,7 @@ export class GamesCategoryComponent implements OnInit{
   elementActive:boolean =true;
 
   loopArray: number[] = [];
-  constructor(private activeRooute:ActivatedRoute,private apiSer:ApiService ){}
+  constructor(private activeRooute:ActivatedRoute,private apiSer:ApiService,private comFun:ComFunService ){}
 ngOnInit(): void {
   this.activeRooute.params.subscribe(params => {
     this.gameName = params['id'];
@@ -35,5 +36,8 @@ getGames(category:String){
       console.log(data);
     }
   });
+}
+gameStart(param:any){
+  this.comFun.checkLoginRedirect(param);
 }
 }

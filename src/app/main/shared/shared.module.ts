@@ -61,6 +61,7 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 
 import { NZ_I18N, en_US ,NZ_DATE_LOCALE} from 'ng-zorro-antd/i18n';
 import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
@@ -70,6 +71,7 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { GamesCategoryComponent } from '../desktop/games-category/games-category.component';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { LoginPopupComponent } from '../desktop/auth/login-popup/login-popup.component';
 
 const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserOutline ];
 @NgModule({
@@ -95,7 +97,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
     MPromotionComponent,
     PromotionPopupComponent,
     SecondHeaderComponent,
-    GamesCategoryComponent
+    GamesCategoryComponent,
+    LoginPopupComponent
     
   ],
   imports: [
@@ -136,7 +139,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzGridModule,
   NzSkeletonModule,
   NzModalModule,
-  NzSpinModule
+  NzSpinModule,
+  NzDrawerModule
 
   ],
  exports:[
@@ -159,6 +163,7 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   MForgotPasswordComponent,
   MPromotionComponent,
   PromotionPopupComponent,
+  LoginPopupComponent,
   CommonModule,
   FormsModule,
   HttpClientModule,
@@ -195,7 +200,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzGridModule,
   NzSkeletonModule,
   NzModalModule,
-  NzSpinModule
+  NzSpinModule,
+  NzDrawerModule
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [

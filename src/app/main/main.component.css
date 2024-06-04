@@ -82,3 +82,22 @@ nz-sider {
   /* nz-footer {
     text-align: center;
   } */
+
+  :host .ant-drawer-top, .ant-drawer-top .ant-drawer-content-wrapper ,.ant-drawer {
+    top: 64px !important;
+    /* right: 0; */
+    left: 250px !important;
+    /* box-shadow: 0 6px 16px -8px rgba(0, 0, 0, .08), 0 9px 28px 0 rgba(0, 0, 0, .05), 0 12px 48px 16px rgba(0, 0, 0, .03); */
+  }
+ ::ng-deep .custom-drawer {
+    top: 64px !important;
+    left: 240px !important;
+    /* height: calc(100% - 64px) !important;
+    width: calc(100% - 300px) !important;
+    max-width: none !important; */
+    background: #000;
+    
+  }
+ :ng-deep html{
+    top: 0px !important;
+  }

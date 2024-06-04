@@ -382,3 +382,11 @@ input, button, select, a {
     border: 1px solid #fff !important;
     /* color: white !important; */
 }
+
+.custom-drawer .ant-drawer-content-wrapper {
+  top: 64px !important;
+  left: 300px !important;
+  height: calc(100% - 64px) !important;
+  width: calc(100% - 300px) !important;
+  max-width: none !important;
+}

@@ -83,11 +83,13 @@
     </div> -->
     <div style="text-align: end; padding-right: 2rem;">
       <!-- <span nz-icon nzType="user-add" nzTheme="outline"></span> -->
+      <!-- <button nz-button nzType="default" class="buttons" (click)="open()"><i-feather name="search"></i-feather></button>&nbsp;&nbsp; -->
       <button nz-button nzType="default" class="buttons" (click)="LoginPopUp()"><i-feather name="user-plus"></i-feather> Login</button>&nbsp;&nbsp;
       <button nz-button nzType="default" class="buttons"><i-feather name="user-plus"></i-feather> Register</button>
     </div>
   </div>
 <!-- </nav> -->
+
 <ng-template #loginPop>
   <app-login-popup></app-login-popup>
 </ng-template>

@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './service/api.service';
 import { config } from './service/config';
+import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
 
 @Component({
   selector: 'app-main',
@@ -14,6 +15,7 @@ import { config } from './service/config';
 export class MainComponent implements OnInit {
   isSmallScreen!:boolean;
   isUrlPresent!:boolean;
+  custom_drawer:string = '';
   private urlSubscription!: Subscription;
   constructor(private commonSer:CommonServiceService,private urlSer:UrlService,private router:ActivatedRoute,private routing:Router,private apiSer:ApiService){}
   ngOnInit(): void {
@@ -43,6 +45,17 @@ export class MainComponent implements OnInit {
             });
         }
       });
+  }
+    visible = false;
+  placement: NzDrawerPlacement = 'top';
+  open(): void {
+    this.custom_drawer = 'custom-drawer';
+    this.visible = true;
+  }
+
+  close(): void {
+    this.visible = false;
+    this.custom_drawer = '';
   }
   // ngOnDestroy(): void {
   //   this.urlSubscription.unsubscribe();

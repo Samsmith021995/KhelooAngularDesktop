@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './main/shared/shared.module';
@@ -29,23 +28,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/forgot-password.component';
 import { GamePlatformComponent } from './main/desktop/game-platform/game-platform.component';
 import { BottomNavbarComponent } from './main/footer/m-footer/bottom-navbar/bottom-navbar.component';
-// import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.component';
 import { CricketBettingComponent } from './main/desktop/footer-content/sports/cricket-betting/cricket-betting.component';
 import { FootballBettingComponent } from './main/desktop/footer-content/sports/football-betting/football-betting.component';
 import { TennisBettingComponent } from './main/desktop/footer-content/sports/tennis-betting/tennis-betting.component';
 import { IplBettingComponent } from './main/desktop/footer-content/sports/ipl-betting/ipl-betting.component';
 import { OnlineSportsBettingComponent } from './main/desktop/footer-content/sports/online-sports-betting/online-sports-betting.component';
-// import { MForgotPasswordComponent } from './main/mobile/m-forgot-password/m-forgot-password.component';
 import { ApiService } from './main/service/api.service';
 import { MMenuComponent } from './main/mobile/m-menu/m-menu.component';
 import { UrlService } from './main/service/url.service';
-// import { PromotionPopupComponent } from './main/mobile/m-promotion/promotion-popup/promotion-popup.component';
-// import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
 import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
 import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
 import { GameHeaderComponent } from './main/desktop/game-platform/game-header/game-header.component';
 import { DesktopSidebarComponent } from './main/common-home/desktop-sidebar/desktop-sidebar.component';
-import { LoginPopupComponent } from './main/desktop/auth/login-popup/login-popup.component';
 import { PokerGameComponent } from './main/desktop/Games/poker-game/poker-game.component';
 import { SlotsGameComponent } from './main/desktop/Games/slots-game/slots-game.component';
 import { TeenpatiGameComponent } from './main/desktop/Games/teenpati-game/teenpati-game.component';
@@ -101,7 +95,7 @@ import { SportsGameComponent } from './main/desktop/Games/sports-game/sports-gam
     KhelooPrivilegesComponent,
     TournamentsComponent,
     GameHeaderComponent,  
-    DesktopSidebarComponent, LoginPopupComponent, PokerGameComponent, SlotsGameComponent, TeenpatiGameComponent, RouletteGameComponent, CasinoGameComponent, LotteryGameComponent, BlackjackGameComponent, BaccaratGameComponent, AndarbaharGameComponent, TablegamesGameComponent, SportsGameComponent
+    DesktopSidebarComponent, PokerGameComponent, SlotsGameComponent, TeenpatiGameComponent, RouletteGameComponent, CasinoGameComponent, LotteryGameComponent, BlackjackGameComponent, BaccaratGameComponent, AndarbaharGameComponent, TablegamesGameComponent, SportsGameComponent
   ],
   imports: [
     BrowserModule,
