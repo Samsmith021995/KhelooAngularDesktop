@@ -217,3 +217,9 @@ nz-date-picker,
 nz-range-picker {
   margin: 0 8px 12px 0;
 }
+::ng-deep .ant-tabs-tab{
+  padding: 17px 17px;
+}
+::ng-deep .ant-tabs-tab+.ant-tabs-tab{
+ margin: 0px;
+}

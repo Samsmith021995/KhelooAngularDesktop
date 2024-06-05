@@ -194,7 +194,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
   // new Code for Pop
   LoginPopUp(){
     this.dialogRef = this.dialog.open(this.loginPop,{
-      width:'800px'
+      width:'1200px'
     })
     this.dialogRef.afterClosed().subscribe(() => { })
   }

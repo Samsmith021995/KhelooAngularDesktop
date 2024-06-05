@@ -195,7 +195,7 @@ export class MSignupComponent implements OnInit {
         error: (err) => {
 
         }
-      })
+      });
     }
   }
   // onInput(): void {

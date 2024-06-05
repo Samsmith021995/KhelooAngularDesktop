@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card login-card">
-    <div>
+    <div style="">
       <!-- <nz-space >
                 <img *nzSpaceItem nz-image nzSrc="/assets/Group 493.png"  />
               </nz-space> -->
@@ -9,7 +9,7 @@
     <div class="close-div">
       <span class="popupClose" mat-dialog-close><i-feather name="x" class="rotate-icon"></i-feather></span>
     </div>
-    <div class="form col-md-4 com-sm-4 col-xs-4">
+    <div class="form col-md-3 com-sm-4 col-xs-4">
       <div class="logo">
         <img src="https://cdn.fairbet91.com/KHELOO/images/logo.gif" alt="" width="100%">
       </div>
@@ -48,24 +48,27 @@
                 <a class="login-form-forgot">Forgot password?</a>
               </div>
             </div>
-            <button nz-button class="login-form-button login-form-margin btn-submit" [nzType]="'primary'"><i-feather
+            <button nz-button class="login-form-button login-form-margin btn-submit" [nzType]="'primary'" [nzLoading]="loginLoading"><i-feather
                 name="Log-in"></i-feather>Submit</button>
 
           </form>
         </nz-tab>
         <nz-tab nzTitle="Register Now">
           <form nz-form [formGroup]="registerForm" class="login-form" (ngSubmit)="submitRegForm()">
-            <nz-form-item>
-              <nz-form-control nzErrorTip="Please input your username!">
-                <nz-input-group [nzPrefix]="MobileReg">
-                  <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number" />
-                  <ng-template #MobileReg>
-                    <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
-                    <i-feather name="phone"></i-feather>
-                  </ng-template>
-                </nz-input-group>
-              </nz-form-control>
-            </nz-form-item>
+            @if(!getOtp && !verifyOtp){
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your username!">
+                  <nz-input-group [nzPrefix]="MobileReg">
+                    <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number" (keydown)="validateNumber($event)"/>
+                    <ng-template #MobileReg>
+                      <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                      <i-feather name="phone"></i-feather>
+                    </ng-template>
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+            }
+            @if(getOtp && !verifyOtp){
             <nz-form-item>
               <nz-form-control class="otp1">
                 <nz-input-group>
@@ -104,6 +107,8 @@
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
+          }
+          @if(getOtp && verifyOtp){
             <nz-form-item>
               <nz-form-control nzErrorTip="Please input your First Name!">
                 <nz-input-group [nzPrefix]="regfName">
@@ -183,18 +188,10 @@
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
-            <div nz-row class="login-form-margin">
-              <div nz-col>
-                <!-- <label nz-checkbox formControlName="remember">
-                              <span>Remember me</span>
-                            </label> -->
-              </div>
-              <div nz-col>
-                <a class="login-form-forgot">Forgot password?</a>
-              </div>
-            </div>
-            <button nz-button class="login-form-button login-form-margin btn-submit" type="submit"><i-feather
-                name="Log-out"></i-feather>Submit</button>
+          }
+          <button nz-button class="login-form-button login-form-margin btn-submit" type="submit"  [disabled]="btnLoading"  [nzLoading]="btnLoading">
+              <i-feather name="Log-out"></i-feather>Submit
+          </button>
           </form>
 
         </nz-tab>
