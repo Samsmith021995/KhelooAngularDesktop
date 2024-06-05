@@ -62,6 +62,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 import { NZ_I18N, en_US ,NZ_DATE_LOCALE} from 'ng-zorro-antd/i18n';
 import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
@@ -140,7 +141,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzSkeletonModule,
   NzModalModule,
   NzSpinModule,
-  NzDrawerModule
+  NzDrawerModule,
+  NzDropDownModule
 
   ],
  exports:[
@@ -201,7 +203,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzSkeletonModule,
   NzModalModule,
   NzSpinModule,
-  NzDrawerModule
+  NzDrawerModule,
+  NzDropDownModule
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [

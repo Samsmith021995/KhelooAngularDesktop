@@ -44,6 +44,20 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
         this.loginForm.controls['Mobile'].setValue(trimmedValue, { emitEvent: false });
     }
     });
+    this.apiSer.isLoggedIn$.subscribe({
+      next: data => {
+        console.log(this.checkLogin)
+        this.checkLogin = data;
+        if(data == true){
+          this.username = localStorage.getItem('name');
+          // this.checkBalance();
+
+        }
+    },
+    error:err=>{
+
+    }
+  });
   }
   validateNumber(event: KeyboardEvent) {
     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'];
@@ -188,5 +202,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
   ngOnDestroy(): void {
     this.showmenu = false;
   }
+
+  
 
 }

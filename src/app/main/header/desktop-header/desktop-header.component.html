@@ -84,8 +84,28 @@
     <div style="text-align: end; padding-right: 2rem;">
       <!-- <span nz-icon nzType="user-add" nzTheme="outline"></span> -->
       <!-- <button nz-button nzType="default" class="buttons" (click)="open()"><i-feather name="search"></i-feather></button>&nbsp;&nbsp; -->
-      <button nz-button nzType="default" class="buttons" (click)="LoginPopUp()"><i-feather name="user-plus"></i-feather> Login</button>&nbsp;&nbsp;
-      <button nz-button nzType="default" class="buttons"><i-feather name="user-plus"></i-feather> Register</button>
+      @if (!checkLogin) {
+        <button nz-button nzType="default" class="buttons" (click)="LoginPopUp()"><i-feather name="user-plus"></i-feather> Login</button>&nbsp;&nbsp;
+        <button nz-button nzType="default" class="buttons"><i-feather name="user-plus"></i-feather> Register</button>
+        
+      } @else{
+        <button nz-button nzType="default" nz-dropdown [nzDropdownMenu]="menu"  class="buttons-menu">
+          10000
+          <span nz-icon nzType="down"></span>
+        </button>
+        <nz-dropdown-menu #menu="nzDropdownMenu" class="dropdown-menu">
+          <ul nz-menu nzSelectable>
+            <li nz-menu-item><i-feather name="user"></i-feather>Profile</li>
+            <li nz-menu-item>WithDraw</li>
+            <li nz-menu-item>Statements</li>
+            <li nz-menu-item ><i-feather name="log-out"></i-feather>Logout</li>
+          </ul>
+        </nz-dropdown-menu>
+        &nbsp;&nbsp;
+        <button nz-button nzType="default" class="buttons" (click)="LoginPopUp()"><i-feather name="user-plus"></i-feather> WithDraw</button>&nbsp;&nbsp;
+        <button nz-button nzType="default" class="buttons"><i-feather name="user-plus"></i-feather> Depo</button>
+
+      }
     </div>
   </div>
 <!-- </nav> -->

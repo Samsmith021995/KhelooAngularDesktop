@@ -353,6 +353,17 @@ a.navbar-brand.fw-bold {
     fill: #580b41;
   }
 }
+.buttons-menu{
+  background: rgba(62, 15, 82, 1);
+  font-size: 14px;
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  i-feather{
+    width: 14px;
+    fill: #580b41;
+  }
+}
 :host {
   display: block;
   /* width: 100%; */
@@ -367,4 +378,12 @@ a.navbar-brand.fw-bold {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
      Optional: Add some shadow for better visibility */
   
+}
+
+.dropdown-menu{
+  background: #580b41;
+}
+::ng-deep nz-dropdown-menu{
+  
+  background: #580b41;
 }

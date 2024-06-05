@@ -39,6 +39,12 @@ export class LoginPopupComponent  implements OnInit{
       DOB:[new Date() ],
       // DOB1:['', [Validators.required]]
     });
+
+    this.store.select(state => state.auth).subscribe(authState => {
+      if (authState.loggedIn) {
+        console.log("login")
+      }
+    });
   }
   moveToNext(event: Event, index: number) {
     const input = event.target as HTMLInputElement;
