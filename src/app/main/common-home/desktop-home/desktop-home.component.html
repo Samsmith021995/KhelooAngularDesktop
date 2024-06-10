@@ -5,7 +5,20 @@
         <app-desktop-sidebar></app-desktop-sidebar>
     </div> -->
    
+    <!-- <nz-carousel [nzEffect]="strategy" nzAutoPlay [nzEffect]="effect" [nzLoop]="true">
+        @for (item of images; track $index) {
+          <div nz-carousel-content>
+            <img [src]="item['src']" alt="" width="75%">
+          </div>
+        }
+      </nz-carousel> -->
     <div class="col-md-12">
+
+
+
+
+
+
         <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [location]="false" [clickBanner]="true"
             (bannerClick)="clickVal($event)"></app-banner>
         <div class="row">

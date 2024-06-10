@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="card login-card">
+        <div style="">
+            <img src="/assets/images/Post-456_3.jpg" alt="" width="100%">
+        </div>
+        <div class="close-div">
+            <span class="popupClose" mat-dialog-close><i-feather name="x" class="rotate-icon"></i-feather></span>
+        </div>
+        <div class="form col-md-3 com-sm-4 col-xs-4">
+            <div class="logo">
+                <img src="https://cdn.fairbet91.com/KHELOO/images/logo.gif" alt="" width="100%">
+                <h2 class="form-title">Reset Password</h2>
+            </div>
+            <form nz-form [formGroup]="forgotForm" class="login-form" (ngSubmit)="submitForgotForm()">
+                @if(!getOtp && !verifyOtp){
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input your username!">
+                        <nz-input-group [nzPrefix]="MobileReg">
+                            <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number"
+                                (keydown)="validateNumber($event)" />
+                            <ng-template #MobileReg>
+                                <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                                <i-feather name="phone"></i-feather>
+                            </ng-template>
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                }
+                @if(getOtp && !verifyOtp){
+                <nz-form-item>
+                    <div formArrayName="otpArray" style="display: flex;">
+                        <nz-form-control class="otp1" *ngFor="let control of otpArray.controls; let i = index">
+                            <nz-input-group>
+                                <input type="number" nz-input [formControlName]="i" maxlength="1"
+                                    (input)="moveToNext($event, i)" #otpInput />
+                            </nz-input-group>
+                        </nz-form-control>
+                    </div>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input your Password!">
+                        <nz-input-group [nzPrefix]="regPass">
+                            <input type="text" nz-input formControlName="Password" placeholder="Enter Password" />
+                            <ng-template #regPass>
+                                <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                                <i-feather name="lock"></i-feather>
+                            </ng-template>
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                }
+                @if(getOtp && verifyOtp){
+               
+                }
+                <button nz-button class="login-form-button login-form-margin btn-submit" type="submit"
+                    [disabled]="btnLoading || forgotForm.invalid" [nzLoading]="btnLoading">
+                    <i-feather name="Log-out"></i-feather>Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -68,12 +68,14 @@ import { enUS as dateFnsEnUS } from 'date-fns/locale';
 import { UserOutline } from '@ant-design/icons-angular/icons';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NZ_CAROUSEL_CUSTOM_STRATEGIES, NzCarouselFlipStrategy, NzCarouselModule, NzCarouselTransformNoLoopStrategy, NzCarouselTransformStrategy } from 'ng-zorro-antd/carousel';
 import { GamesCategoryComponent } from '../desktop/games-category/games-category.component';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { LoginPopupComponent } from '../desktop/auth/login-popup/login-popup.component';
 import { ProfilePopupComponent } from '../desktop/profile-popup/profile-popup.component';
 import { WithdrawPopComponent } from '../desktop/profile-popup/withdraw-pop/withdraw-pop.component';
 import { StatementPopComponent } from '../desktop/profile-popup/statement-pop/statement-pop.component';
+import { ForgotPopupComponent } from '../desktop/auth/forgot-popup/forgot-popup.component';
 
 const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserOutline ];
 @NgModule({
@@ -103,7 +105,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
     LoginPopupComponent,
     ProfilePopupComponent,
     WithdrawPopComponent,
-    StatementPopComponent
+    StatementPopComponent,
+    ForgotPopupComponent
     
     
   ],
@@ -148,7 +151,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzSpinModule,
   NzDrawerModule,
   NzDropDownModule,
-  NzAvatarModule
+  NzAvatarModule,
+  NzCarouselModule
 
   ],
  exports:[
@@ -175,6 +179,7 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   ProfilePopupComponent,
   WithdrawPopComponent,
   StatementPopComponent,
+  ForgotPopupComponent,
   CommonModule,
   FormsModule,
   HttpClientModule,
@@ -214,14 +219,21 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzSpinModule,
   NzDrawerModule,
   NzDropDownModule,
-  NzAvatarModule
+  NzAvatarModule,
+  NzCarouselModule
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en-US' },
     { provide: LOCALE_ID, useValue: 'en-US' },
     { provide: NZ_I18N, useValue: en_US },
-    { provide: NZ_DATE_LOCALE, useValue: dateFnsEnUS }
+    { provide: NZ_DATE_LOCALE, useValue: dateFnsEnUS },
+    // { provide: NZ_CAROUSEL_CUSTOM_STRATEGIES,
+    //   useValue: [
+    //     { name: 'transform-no-loop', strategy: NzCarouselTransformNoLoopStrategy },
+    //     { name: 'flip', strategy: NzCarouselFlipStrategy }
+    //   ]
+    //   }
   ]
 })
 export class SharedModule { }

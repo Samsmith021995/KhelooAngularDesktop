@@ -22,6 +22,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
   dialogRef:any;
   showmenu: boolean = false;
   showsubmitbtn: boolean = false;
+  selectTab:number = 0;
   username: any = '';
   loginForm !: FormGroup;
   checkLogin: boolean = false;
@@ -195,7 +196,8 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
   }
 
   // new Code for Pop
-  LoginPopUp(){
+  LoginPopUp(item:number){
+    this.selectTab = item;
     this.dialogRef = this.dialog.open(this.loginPop,{
       width:'1200px'
     })

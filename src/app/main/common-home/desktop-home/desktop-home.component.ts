@@ -19,7 +19,7 @@ import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
   styleUrl: './desktop-home.component.css',
 })
 export class DesktopHomeComponent implements OnInit,AfterViewInit {
-  slidesPerViewn: number = 2;
+  slidesPerViewn: number = 3;
   images = [];
   gamesData: { [key: string]: any[] } = {};
   backgamesData: { [key: string]: any[] } = {};
@@ -38,6 +38,9 @@ export class DesktopHomeComponent implements OnInit,AfterViewInit {
   loopArray1: number[] = [];
   isLeftScrollDisabled: boolean[] = [];
   isRightScrollDisabled: boolean[] = [];
+  public strategy = 'transform-no-loop';
+  public array = [1, 2, 3, 4];
+  effect = 'scrollx';
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   @ViewChildren('scrollContainer') scrollElement!: QueryList<ElementRef<any>>;
   // @ViewChild('loginPop') loginPop!: TemplateRef<any>;

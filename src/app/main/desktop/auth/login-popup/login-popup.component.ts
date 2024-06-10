@@ -1,5 +1,5 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, ElementRef, Input, OnInit, QueryList, TemplateRef, ViewChild, ViewChildren } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.state';
 import { loginStart } from '../state/auth.actions';
@@ -8,52 +8,63 @@ import { config } from 'src/app/main/service/config';
 import { Subscription, catchError } from 'rxjs';
 import { CommonServiceService } from 'src/app/main/service/common-service.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { NzTabSetComponent } from 'ng-zorro-antd/tabs';
 @Component({
   selector: 'app-login-popup',
   templateUrl: './login-popup.component.html',
   styleUrl: './login-popup.component.css'
 })
-export class LoginPopupComponent  implements OnInit{
+export class LoginPopupComponent implements OnInit {
   otp: string[] = ['', '', '', '', '', ''];
   @ViewChildren('otpInput') otpInputs!: QueryList<ElementRef>;
+  @ViewChild('forgetPop') forgetPop !:TemplateRef<any>;
+  @ViewChild('tabset') tabset!: NzTabSetComponent;
+  @Input() selecttab!:number;
   date = null;
   isEnglish = false;
-  loginForm!:FormGroup;
-  registerForm!:FormGroup;
+  loginForm!: FormGroup;
+  registerForm!: FormGroup;
   size: 'default' = 'default';
-  getOtp:boolean = false;
-  verifyOtp:boolean = false;
-  btnLoading:boolean = false;
-  loginLoading:boolean = false;
+  getOtp: boolean = false;
+  verifyOtp: boolean = false;
+  btnLoading: boolean = false;
+  loginLoading: boolean = false;
   private loaderSubscriber !: Subscription;
-  constructor(private fb:FormBuilder,private fb1:FormBuilder,private store:Store<AppState>,private apiSer:ApiService,private commonSer:CommonServiceService,private router:Router){
+  constructor(private fb: FormBuilder, private fb1: FormBuilder, private store: Store<AppState>, private apiSer: ApiService, private commonSer: CommonServiceService, private router: Router,private dialog:MatDialog) {
 
   }
   ngOnInit(): void {
 
     this.loginForm = this.fb.group({
-      Mobile:['', [Validators.required]],
-      Password:['', [Validators.required]]
+      Mobile: ['', [Validators.required]],
+      Password: ['', [Validators.required]]
     });
     this.registerForm = this.fb1.group({
-      Mobile:['', [Validators.required]],
-      otp:['', [Validators.required]],
-      otp2:['', [Validators.required]],
-      otp3:['', [Validators.required]],
-      otp4:['', [Validators.required]],
-      otp5:['', [Validators.required]],
-      otp6:['', [Validators.required]],
-      FName:['', [Validators.required]],
-      LName:['', [Validators.required]],
-      Password:['', [Validators.required]],
-      Ref:['', [Validators.required]],
-      DOB:[new Date() ],
+      Mobile: ['', [Validators.required]],
+      otpArray: this.fb.array(
+        Array(6).fill('').map(() => this.fb.control('', [Validators.required]))
+      ),
+      OTP: ['', [Validators.required]],
+      FName: ['', [Validators.required]],
+      LName: ['', [Validators.required]],
+      Password: ['', [Validators.required]],
+      Ref: ['', [Validators.required]],
+      DOB: [new Date()],
       // DOB1:['', [Validators.required]]
     });
 
     this.store.select(state => state.auth).subscribe(authState => {
       if (authState.loggedIn) {
         console.log("login")
+      }
+    });
+    this.loginForm.controls['Mobile'].valueChanges.subscribe(value => {
+      let strMo = String(value);
+      if (strMo && strMo.length >= 10) {
+        let trimmedValue = strMo.substring(0, 10);
+        this.loginForm.controls['Mobile'].setValue(trimmedValue, { emitEvent: false });
+        // this.getcodeBtn = true;
       }
     });
     this.registerForm.controls['Mobile'].valueChanges.subscribe(value => {
@@ -66,27 +77,37 @@ export class LoginPopupComponent  implements OnInit{
     });
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.btnLoading = ('otp' in loading || 'verifyOtp' in loading || 'signUp' in loading) ? true : false;
-      this.loginLoading = ('login' in loading ) ? true : false;
+      this.loginLoading = ('login' in loading) ? true : false;
     });
 
+    this.registerForm.controls['otpArray'].valueChanges.subscribe(values => {
+      let combinedOtp = values.join('');
+      if(combinedOtp.length >6){
+        combinedOtp = combinedOtp.substring(0,6);
+      }
+      this.registerForm.controls['OTP'].setValue(combinedOtp);
+    });
   }
+  get otpArray() {
+    return this.registerForm.get('otpArray') as FormArray;
+  }
+
   moveToNext(event: Event, index: number) {
     const input = event.target as HTMLInputElement;
-    if (input.value.length > 1) {
-      input.value = input.value.slice(0, 1);
-    }
-    if (input.value && index < 5) {
+    input.value = input.value.slice(0, 1);
+    if (input.value.length === 1 && index < this.otpInputs.length - 1) {
       this.otpInputs.toArray()[index + 1].nativeElement.focus();
     }
+
   }
-  LoginForm(){
+  LoginForm() {
     const Mobile = this.loginForm.controls['Mobile'].value;
     const Password = this.loginForm.controls['Password'].value;
-    this.store.dispatch(loginStart({Mobile,Password}));
+    this.store.dispatch(loginStart({ Mobile, Password }));
   }
-  submitRegForm(){
+  submitRegForm() {
     let param = this.registerForm.getRawValue();
-    if(!this.getOtp && !this.verifyOtp ){
+    if (!this.getOtp && !this.verifyOtp) {
       this.apiSer.apiRequest(config['otp'], param).pipe(catchError((error) => {
         this.apiSer.showAlert('', 'You may only perform this action every 30 seconds', 'error');
         throw error;
@@ -113,12 +134,12 @@ export class LoginPopupComponent  implements OnInit{
         error: (err) => {
           console.error(err);
         }
-  
+
       });
-    }else if(this.getOtp && !this.verifyOtp){
+    } else if (this.getOtp && !this.verifyOtp) {
       this.apiSer.apiRequest(config['verifyOtp'], param).subscribe({
         next: (data) => {
-          this.verifyOtp=true;
+          this.verifyOtp = true;
           // if (data.ErrorCode != '1') {
           //   this.apiSer.showAlert('', data.ErrorMessage, 'error');
           //   return;
@@ -131,15 +152,15 @@ export class LoginPopupComponent  implements OnInit{
           console.error(err);
         }
       });
-    }else if(this.getOtp && this.verifyOtp){
+    } else if (this.getOtp && this.verifyOtp) {
       this.apiSer.apiRequest(config['signUp'], param).subscribe({
         next: (data) => {
-          if(data.ErrorCode != '1'){
+          if (data.ErrorCode != '1') {
             this.apiSer.showAlert('', data.ErrorMessage, 'error');
             return;
           }
-          this.commonSer.saveData('Mobile',param.Mobile);
-          this.commonSer.saveData('Password',param.Password);
+          this.commonSer.saveData('Mobile', param.Mobile);
+          this.commonSer.saveData('Password', param.Password);
           this.router.navigate(['/thankyou']);
         },
         error: (err) => {
@@ -162,6 +183,11 @@ export class LoginPopupComponent  implements OnInit{
       event.preventDefault();
     }
   }
+  forgetpassword(){
+    let dialogRef = this.dialog.open(this.forgetPop,{
+      width:'1200px'
+    })
+   dialogRef.afterClosed().subscribe(() => { });
 
-  
+  }
 }

@@ -10,13 +10,14 @@
       <div class="logo">
         <img src="https://cdn.fairbet91.com/KHELOO/images/logo.gif" alt="" width="100%">
       </div>
-      <nz-tabset>
+      <nz-tabset #tabset [(nzSelectedIndex)]="selecttab">
         <nz-tab nzTitle="Login Now">
           <form nz-form [formGroup]="loginForm" class="login-form" (ngSubmit)="LoginForm()">
             <nz-form-item>
-              <nz-form-control nzErrorTip="Please input your username!">
+              <nz-form-control nzErrorTip="Please input your Mobile Number!">
                 <nz-input-group [nzPrefix]="mobile">
-                  <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number" (keydown)="validateNumber($event)" />
+                  <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number"
+                    (keydown)="validateNumber($event)" />
                   <ng-template #mobile>
                     <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
                     <i-feather name="phone"></i-feather>
@@ -37,16 +38,13 @@
             </nz-form-item>
             <div nz-row class="login-form-margin">
               <div nz-col>
-                <!-- <label nz-checkbox formControlName="remember">
-                              <span>Remember me</span>
-                            </label> -->
               </div>
               <div nz-col>
-                <a class="login-form-forgot">Forgot password?</a>
+                <a class="login-form-forgot" (click)="forgetpassword()">Forgot password?</a>
               </div>
             </div>
             <button nz-button class="login-form-button login-form-margin btn-submit" [nzType]="'primary'"
-              [nzLoading]="loginLoading" [disabled]="loginLoading"><i-feather name="Log-in"></i-feather>Submit</button>
+              [nzLoading]="loginLoading" [disabled]="loginLoading || loginForm.invalid"><i-feather name="Log-in"></i-feather>Submit</button>
 
           </form>
         </nz-tab>
@@ -68,42 +66,14 @@
             }
             @if(getOtp && !verifyOtp){
             <nz-form-item>
-              <nz-form-control class="otp1">
-                <nz-input-group>
-                  <input type="number" nz-input formControlName="otp" maxlength="1" (input)="moveToNext($event, 0)"
-                    #otpInput [(ngModel)]="otp[0]" />
-                </nz-input-group>
-              </nz-form-control>
-              <nz-form-control class="otp1">
-                <nz-input-group>
-                  <input type="number" nz-input formControlName="otp2" maxlength="1" (input)="moveToNext($event, 1)"
-                    #otpInput [(ngModel)]="otp[1]" />
-                </nz-input-group>
-              </nz-form-control>
-              <nz-form-control class="otp1">
-                <nz-input-group>
-                  <input type="number" nz-input formControlName="otp3" maxlength="1" (input)="moveToNext($event, 2)"
-                    #otpInput [(ngModel)]="otp[2]" />
-                </nz-input-group>
-              </nz-form-control>
-              <nz-form-control class="otp1">
-                <nz-input-group>
-                  <input type="number" nz-input formControlName="otp4" maxlength="1" (input)="moveToNext($event, 3)"
-                    #otpInput [(ngModel)]="otp[3]" />
-                </nz-input-group>
-              </nz-form-control>
-              <nz-form-control class="otp1">
-                <nz-input-group>
-                  <input type="number" nz-input formControlName="otp5" maxlength="1" (input)="moveToNext($event, 4)"
-                    #otpInput [(ngModel)]="otp[4]" />
-                </nz-input-group>
-              </nz-form-control>
-              <nz-form-control class="otp1">
-                <nz-input-group>
-                  <input type="number" nz-input formControlName="otp6" maxlength="1" (input)="moveToNext($event, 5)"
-                    #otpInput [(ngModel)]="otp[5]" />
-                </nz-input-group>
-              </nz-form-control>
+              <div formArrayName="otpArray" style="display: flex;">
+                <nz-form-control class="otp1" *ngFor="let control of otpArray.controls; let i = index">
+                  <nz-input-group>
+                    <input type="number" nz-input [formControlName]="i" maxlength="1" (input)="moveToNext($event, i)"
+                      #otpInput />
+                  </nz-input-group>
+                </nz-form-control>
+              </div>
             </nz-form-item>
             }
             @if(getOtp && verifyOtp){
@@ -188,60 +158,15 @@
             </nz-form-item>
             }
             <button nz-button class="login-form-button login-form-margin btn-submit" type="submit"
-              [disabled]="btnLoading" [nzLoading]="btnLoading">
+              [disabled]="btnLoading || registerForm.invalid" [nzLoading]="btnLoading">
               <i-feather name="Log-out"></i-feather>Submit
             </button>
           </form>
-
         </nz-tab>
       </nz-tabset>
-      <!-- <mat-tab-group>
-                <mat-tab label="Login"> 
-                    <form >
-                        <div class="anu-class">
-                            <mat-form-field style="width: 100%;">
-                                <mat-icon></mat-icon>
-                                <input matInput type="text" placeholder="Mobile">
-                                <mat-error></mat-error>
-                            </mat-form-field>
-
-                        </div>
-                        <div >
-                            <mat-form-field style="width: 100%;">
-                                <mat-icon></mat-icon>
-                                <input matInput type="text" placeholder="Mobile">
-                                <mat-error></mat-error>
-                            </mat-form-field>
-
-                        </div>
-                        <button type="submit" class="btn-submit"><i-feather name="Log-out"></i-feather> Submit</button>
-                    </form>
-                </mat-tab>
-                <mat-tab label="Register">
-                    <form >
-                        <div>
-                            <mat-form-field style="width: 100%;">
-                                <mat-icon></mat-icon>
-                                <input matInput type="text" placeholder="Mobile">
-                                <mat-error></mat-error>
-                            </mat-form-field>
-
-                        </div>
-                        <button><i-feather name="Log-out"></i-feather> Submit</button>
-                    </form>    
-                </mat-tab>
-            </mat-tab-group> -->
-      <!-- <div>
-                <mat-form-field>
-                    <mat-icon></mat-icon>
-                    <input matInput type="text" placeholder="Mobile">
-                    <mat-error></mat-error>
-                </mat-form-field>
-
-            </div> -->
-
     </div>
   </div>
-  <!-- </nz-card> -->
-
 </div>
+<ng-template #forgetPop>
+  <app-forgot-popup></app-forgot-popup>
+</ng-template>

@@ -40,6 +40,7 @@ export class BannerComponent implements AfterViewInit {
         scrollbar: {
           el: '.swiper-scrollbar',
         },
+        effect:'coverflow',
        
         autoplay: {
           delay: 5000,

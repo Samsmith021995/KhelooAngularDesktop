@@ -184,3 +184,26 @@ border-radius: 5px;
       background: #3e3b3b;
 
   }
+
+
+
+  /* 
+   */
+   nz-radio-group {
+    margin-bottom: 8px;
+  }
+
+  [nz-carousel-content] {
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+    background: #364d79;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  h3 {
+    color: #fff;
+    margin-bottom: 0;
+    user-select: none;
+  }

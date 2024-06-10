@@ -85,8 +85,8 @@
       <!-- <span nz-icon nzType="user-add" nzTheme="outline"></span> -->
       <!-- <button nz-button nzType="default" class="buttons" (click)="open()"><i-feather name="search"></i-feather></button>&nbsp;&nbsp; -->
       @if (!checkLogin) {
-        <button nz-button nzType="default" class="buttons" (click)="LoginPopUp()"><i-feather name="user-plus"></i-feather> Login</button>&nbsp;&nbsp;
-        <button nz-button nzType="default" class="buttons" (click)="LoginPopUp()"><i-feather name="user-plus"></i-feather> Register</button>
+        <button nz-button nzType="default" class="buttons" (click)="LoginPopUp(0)"><i-feather name="user-plus"></i-feather> Login</button>&nbsp;&nbsp;
+        <button nz-button nzType="default" class="buttons" (click)="LoginPopUp(1)"><i-feather name="user-plus"></i-feather> Register</button>
         
       } @else{
         <button nz-button nzType="default" nz-dropdown [nzDropdownMenu]="menu"  class="buttons-menu">
@@ -111,7 +111,7 @@
 <!-- </nav> -->
 
 <ng-template #loginPop>
-  <app-login-popup></app-login-popup>
+  <app-login-popup [selecttab]="selectTab"></app-login-popup>
 </ng-template>
 <ng-template #profilePop>
   <app-profile-popup [profileRef]="this.profileRef"></app-profile-popup>

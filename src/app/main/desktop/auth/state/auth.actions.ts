@@ -9,3 +9,4 @@ export const loginStart = createAction(
     props<{ Mobile:any; Password:any }>()
 );
 export const loginSuccess = createAction(LOGIN_SUCCESS,props<{user:any}>());
+export const loginfail = createAction(LOGIN_FAIL,props<{user:any}>());

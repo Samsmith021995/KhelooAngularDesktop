@@ -16,14 +16,20 @@ export class AuthEffects {
             exhaustMap((action) => {
                 return this.comFun.login({ Mobile: action.Mobile, Password: action.Password }).pipe(
                     tap((data) => {
-                        // Save data to local storage
-                        localStorage.setItem('userData', JSON.stringify(data));
-                        this.comSer.saveData('UserId',data.UserId);
-                        this.comSer.saveData('LoginToken',data.LoginToken);
-                        this.comSer.saveData('name',data.UserName);
-                        this.dialog.closeAll();
-                        this.apiSer.showAlert(data.ErrorMessage,'','success');
-                        this.apiSer.updateLoginStatus(true);
+                        if(data.ErrorCode == '1'){
+                            // Save data to local storage
+                            localStorage.setItem('userData', JSON.stringify(data));
+                            this.comSer.saveData('UserId',data.UserId);
+                            this.comSer.saveData('LoginToken',data.LoginToken);
+                            this.comSer.saveData('name',data.UserName);
+                            this.dialog.closeAll();
+                            this.apiSer.showAlert(data.ErrorMessage,'','success');
+                            this.apiSer.updateLoginStatus(true);
+                            
+                        }else{
+                            this.apiSer.showAlert(data.ErrorMessage,'Login Failed','error');
+                            this.dialog.closeAll();
+                        }
 
                     }),
                     map((data) => {

@@ -106,7 +106,7 @@ import { SportsGameComponent } from './main/desktop/Games/sports-game/sports-gam
     BaccaratGameComponent,
     AndarbaharGameComponent,
     TablegamesGameComponent,
-    SportsGameComponent
+    SportsGameComponent,
   ],
   imports: [
     BrowserModule,
