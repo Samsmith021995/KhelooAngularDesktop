@@ -1,9 +1,6 @@
 <div class="container">
   <div class="card login-card">
     <div style="">
-      <!-- <nz-space >
-                <img *nzSpaceItem nz-image nzSrc="/assets/Group 493.png"  />
-              </nz-space> -->
       <img src="/assets/images/Post-456_3.jpg" alt="" width="100%">
     </div>
     <div class="close-div">
@@ -19,7 +16,7 @@
             <nz-form-item>
               <nz-form-control nzErrorTip="Please input your username!">
                 <nz-input-group [nzPrefix]="mobile">
-                  <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number" />
+                  <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number" (keydown)="validateNumber($event)" />
                   <ng-template #mobile>
                     <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
                     <i-feather name="phone"></i-feather>
@@ -48,25 +45,26 @@
                 <a class="login-form-forgot">Forgot password?</a>
               </div>
             </div>
-            <button nz-button class="login-form-button login-form-margin btn-submit" [nzType]="'primary'" [nzLoading]="loginLoading"><i-feather
-                name="Log-in"></i-feather>Submit</button>
+            <button nz-button class="login-form-button login-form-margin btn-submit" [nzType]="'primary'"
+              [nzLoading]="loginLoading" [disabled]="loginLoading"><i-feather name="Log-in"></i-feather>Submit</button>
 
           </form>
         </nz-tab>
         <nz-tab nzTitle="Register Now">
           <form nz-form [formGroup]="registerForm" class="login-form" (ngSubmit)="submitRegForm()">
             @if(!getOtp && !verifyOtp){
-              <nz-form-item>
-                <nz-form-control nzErrorTip="Please input your username!">
-                  <nz-input-group [nzPrefix]="MobileReg">
-                    <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number" (keydown)="validateNumber($event)"/>
-                    <ng-template #MobileReg>
-                      <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
-                      <i-feather name="phone"></i-feather>
-                    </ng-template>
-                  </nz-input-group>
-                </nz-form-control>
-              </nz-form-item>
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your username!">
+                <nz-input-group [nzPrefix]="MobileReg">
+                  <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number"
+                    (keydown)="validateNumber($event)" />
+                  <ng-template #MobileReg>
+                    <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                    <i-feather name="phone"></i-feather>
+                  </ng-template>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
             }
             @if(getOtp && !verifyOtp){
             <nz-form-item>
@@ -107,8 +105,8 @@
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
-          }
-          @if(getOtp && verifyOtp){
+            }
+            @if(getOtp && verifyOtp){
             <nz-form-item>
               <nz-form-control nzErrorTip="Please input your First Name!">
                 <nz-input-group [nzPrefix]="regfName">
@@ -151,7 +149,7 @@
         </nz-form-item> -->
             <!-- <nz-date-picker nzMode="date" ></nz-date-picker > -->
             <!-- <nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker> -->
-             <!-- <nz-form-item>
+            <!-- <nz-form-item>
               <nz-form-control nzErrorTip="Please select Date">
                 <nz-input-group [nzPrefix]="regRef">
                   <input type="date" nz-input formControlName="DOB" />
@@ -170,10 +168,10 @@
             <nz-form-item>
               <nz-form-control nzErrorTip="Please select Date" [nzSm]="16" [nzXs]="24">
                 <!-- <nz-input-group [nzPrefix]="regDate"> -->
-                  <!-- <nz-date-picker formControlName="DOB" nzFormat="yyyy-MM-dd" nzMode="date"></nz-date-picker> -->
-                  <ng-template #regDate>
-                    <i-feather name="calendar"></i-feather>
-                  </ng-template>
+                <!-- <nz-date-picker formControlName="DOB" nzFormat="yyyy-MM-dd" nzMode="date"></nz-date-picker> -->
+                <ng-template #regDate>
+                  <i-feather name="calendar"></i-feather>
+                </ng-template>
                 <!-- </nz-input-group> -->
               </nz-form-control>
             </nz-form-item>
@@ -188,10 +186,11 @@
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
-          }
-          <button nz-button class="login-form-button login-form-margin btn-submit" type="submit"  [disabled]="btnLoading"  [nzLoading]="btnLoading">
+            }
+            <button nz-button class="login-form-button login-form-margin btn-submit" type="submit"
+              [disabled]="btnLoading" [nzLoading]="btnLoading">
               <i-feather name="Log-out"></i-feather>Submit
-          </button>
+            </button>
           </form>
 
         </nz-tab>

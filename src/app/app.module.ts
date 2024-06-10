@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -94,22 +94,33 @@ import { SportsGameComponent } from './main/desktop/Games/sports-game/sports-gam
     // MPromotionComponent,
     KhelooPrivilegesComponent,
     TournamentsComponent,
-    GameHeaderComponent,  
-    DesktopSidebarComponent, PokerGameComponent, SlotsGameComponent, TeenpatiGameComponent, RouletteGameComponent, CasinoGameComponent, LotteryGameComponent, BlackjackGameComponent, BaccaratGameComponent, AndarbaharGameComponent, TablegamesGameComponent, SportsGameComponent
+    GameHeaderComponent,
+    DesktopSidebarComponent,
+    PokerGameComponent,
+    SlotsGameComponent,
+    TeenpatiGameComponent,
+    RouletteGameComponent,
+    CasinoGameComponent,
+    LotteryGameComponent,
+    BlackjackGameComponent,
+    BaccaratGameComponent,
+    AndarbaharGameComponent,
+    TablegamesGameComponent,
+    SportsGameComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
-    StoreModule.forFeature(AUTH_STATE_NAME,AuthReducer),
+    StoreModule.forFeature(AUTH_STATE_NAME, AuthReducer),
     StoreModule.forRoot([]),
     EffectsModule.forRoot([]),
     EffectsModule.forFeature([AuthEffects])
-   ],
-   schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  providers: [ApiService,UrlService],
- 
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [ApiService, UrlService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

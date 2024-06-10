@@ -18,12 +18,14 @@ import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
 })
 export class DesktopHeaderComponent implements OnInit,OnDestroy {
   @ViewChild('loginPop') loginPop!: TemplateRef<any>;
+  @ViewChild('profilePop') profilePop!: TemplateRef<any>;
   dialogRef:any;
   showmenu: boolean = false;
   showsubmitbtn: boolean = false;
   username: any = '';
   loginForm !: FormGroup;
   checkLogin: boolean = false;
+  profileRef:string = '';
   private logcheck !: Subscription;
   userBalance: number = 0;
   constructor(private fb: FormBuilder, private apiSer: ApiService, private comSer: CommonServiceService, private router: Router,private dialog:MatDialog) { }
@@ -50,7 +52,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
         this.checkLogin = data;
         if(data == true){
           this.username = localStorage.getItem('name');
-          // this.checkBalance();
+          this.checkBalance();
 
         }
     },
@@ -58,6 +60,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
 
     }
   });
+  
   }
   validateNumber(event: KeyboardEvent) {
     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'];
@@ -196,9 +199,37 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
     this.dialogRef = this.dialog.open(this.loginPop,{
       width:'1200px'
     })
-    this.dialogRef.afterClosed().subscribe(() => { })
+    this.dialogRef.afterClosed().subscribe(() => { });
   }
-
+  openprofilePop(item:any){
+    this.profileRef = item;
+    let dialogRef1= this.dialog.open(this.profilePop,{
+      width:'1200px'
+    })
+    dialogRef1.afterClosed().subscribe(() => { });
+  }
+  checkBalance(){
+    this.apiSer.apiRequest(config['balance']).subscribe({
+      next: data => {
+        if (data.ErrorCode == '0') {
+          this.apiSer.showAlert('', data.ErrorMessage, 'error');
+          this.comSer.clearLocalVars();
+          this.apiSer.logout();
+        } else {
+          this.userBalance = data.Balance;
+          // this.refreshHeader();
+        }
+      },
+      error: err => {
+        this.apiSer.showAlert('Something Went Wrong', 'Check Your Internet Connection', 'error');
+        console.error(err);
+      }
+    });
+  }
+  logoutUser()
+  {
+    this.apiSer.logout();
+  }
   ngOnDestroy(): void {
     this.showmenu = false;
   }

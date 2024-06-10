@@ -1,7 +1,5 @@
 import { NgModule ,CUSTOM_ELEMENTS_SCHEMA,LOCALE_ID} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DHomeComponent } from '../common-home/d-home/d-home.component';
-import { MHomeComponent } from '../common-home/m-home/m-home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -63,7 +61,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
-
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NZ_I18N, en_US ,NZ_DATE_LOCALE} from 'ng-zorro-antd/i18n';
 import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
 import { enUS as dateFnsEnUS } from 'date-fns/locale';
@@ -73,6 +71,9 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { GamesCategoryComponent } from '../desktop/games-category/games-category.component';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { LoginPopupComponent } from '../desktop/auth/login-popup/login-popup.component';
+import { ProfilePopupComponent } from '../desktop/profile-popup/profile-popup.component';
+import { WithdrawPopComponent } from '../desktop/profile-popup/withdraw-pop/withdraw-pop.component';
+import { StatementPopComponent } from '../desktop/profile-popup/statement-pop/statement-pop.component';
 
 const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserOutline ];
 @NgModule({
@@ -99,7 +100,11 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
     PromotionPopupComponent,
     SecondHeaderComponent,
     GamesCategoryComponent,
-    LoginPopupComponent
+    LoginPopupComponent,
+    ProfilePopupComponent,
+    WithdrawPopComponent,
+    StatementPopComponent
+    
     
   ],
   imports: [
@@ -142,7 +147,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzModalModule,
   NzSpinModule,
   NzDrawerModule,
-  NzDropDownModule
+  NzDropDownModule,
+  NzAvatarModule
 
   ],
  exports:[
@@ -166,6 +172,9 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   MPromotionComponent,
   PromotionPopupComponent,
   LoginPopupComponent,
+  ProfilePopupComponent,
+  WithdrawPopComponent,
+  StatementPopComponent,
   CommonModule,
   FormsModule,
   HttpClientModule,
@@ -204,7 +213,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzModalModule,
   NzSpinModule,
   NzDrawerModule,
-  NzDropDownModule
+  NzDropDownModule,
+  NzAvatarModule
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [

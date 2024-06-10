@@ -86,24 +86,24 @@
       <!-- <button nz-button nzType="default" class="buttons" (click)="open()"><i-feather name="search"></i-feather></button>&nbsp;&nbsp; -->
       @if (!checkLogin) {
         <button nz-button nzType="default" class="buttons" (click)="LoginPopUp()"><i-feather name="user-plus"></i-feather> Login</button>&nbsp;&nbsp;
-        <button nz-button nzType="default" class="buttons"><i-feather name="user-plus"></i-feather> Register</button>
+        <button nz-button nzType="default" class="buttons" (click)="LoginPopUp()"><i-feather name="user-plus"></i-feather> Register</button>
         
       } @else{
         <button nz-button nzType="default" nz-dropdown [nzDropdownMenu]="menu"  class="buttons-menu">
-          10000
+          <img src="/assets/8988833.webp" alt="" width="18px"> &nbsp;{{userBalance}}
           <span nz-icon nzType="down"></span>
         </button>
         <nz-dropdown-menu #menu="nzDropdownMenu" class="dropdown-menu">
           <ul nz-menu nzSelectable>
-            <li nz-menu-item><i-feather name="user"></i-feather>Profile</li>
-            <li nz-menu-item>WithDraw</li>
-            <li nz-menu-item>Statements</li>
-            <li nz-menu-item ><i-feather name="log-out"></i-feather>Logout</li>
+            <li nz-menu-item (click)="openprofilePop('profile')"><img src="/assets/userIcon.png" alt="" width="18px"> Profile</li>
+            <li nz-menu-item (click)="openprofilePop('withdraw')"><img src="/assets/8988833.webp" alt="" width="18px"> WithDraw</li>
+            <li nz-menu-item (click)="openprofilePop('statement')"><img src="/assets/statement.png" alt="" width="25px">Statements</li>
+            <li nz-menu-item (click)="logoutUser()" ><img src="/assets/logout.jpg" alt="" width="25px"> Logout</li>
           </ul>
         </nz-dropdown-menu>
         &nbsp;&nbsp;
-        <button nz-button nzType="default" class="buttons" (click)="LoginPopUp()"><i-feather name="user-plus"></i-feather> WithDraw</button>&nbsp;&nbsp;
-        <button nz-button nzType="default" class="buttons"><i-feather name="user-plus"></i-feather> Depo</button>
+        <button nz-button nzType="default" class="buttons" (click)="openprofilePop('withdraw')"><i-feather name="user-plus"></i-feather> WithDraw</button>&nbsp;&nbsp;
+        <button nz-button nzType="default" class="buttons" (click)="openprofilePop('deposit')"><i-feather name="user-plus"></i-feather> Deposit</button>
 
       }
     </div>
@@ -112,4 +112,7 @@
 
 <ng-template #loginPop>
   <app-login-popup></app-login-popup>
+</ng-template>
+<ng-template #profilePop>
+  <app-profile-popup [profileRef]="this.profileRef"></app-profile-popup>
 </ng-template>
