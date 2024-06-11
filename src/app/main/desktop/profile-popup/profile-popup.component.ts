@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs';
   styleUrl: './profile-popup.component.css'
 })
 export class ProfilePopupComponent implements OnInit {
-  selected:string = 'withdraw';
   depositForm !:FormGroup;
   btnLoading:boolean = false;
   isSpinning:boolean = false;
@@ -97,5 +96,8 @@ export class ProfilePopupComponent implements OnInit {
   }
   setAmount(item:any){
     this.depositForm.controls['Amount'].setValue(item);
+  }
+  changemenu(item:any){
+    this.profileRef = item;
   }
 }

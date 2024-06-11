@@ -170,3 +170,7 @@ p.bl_prom_title_container span {
 .list li{
     vertical-align:middle;
 }
+::ng-deep    .ant-card-body{
+    color: #fff;
+} 
+    

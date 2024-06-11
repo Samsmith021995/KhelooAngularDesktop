@@ -63,6 +63,7 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NZ_I18N, en_US ,NZ_DATE_LOCALE} from 'ng-zorro-antd/i18n';
 import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
+import { NzWaterMarkModule } from 'ng-zorro-antd/water-mark';
 import { enUS as dateFnsEnUS } from 'date-fns/locale';
 import { UserOutline } from '@ant-design/icons-angular/icons';
 import { NzGridModule } from 'ng-zorro-antd/grid';
@@ -155,7 +156,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzAvatarModule,
   NzCarouselModule,
   NzAlertModule,
-  NzMessageModule
+  NzMessageModule,
+  NzWaterMarkModule
 
   ],
  exports:[
@@ -225,7 +227,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzAvatarModule,
   NzCarouselModule,
   NzAlertModule,
-  NzMessageModule
+  NzMessageModule,
+  NzWaterMarkModule
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [

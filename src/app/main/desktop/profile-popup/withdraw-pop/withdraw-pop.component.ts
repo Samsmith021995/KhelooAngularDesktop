@@ -12,6 +12,7 @@ import { config } from 'src/app/main/service/config';
 export class WithdrawPopComponent  implements OnInit{
   formLoading:boolean = false
   isLoading:boolean = false
+  // isSpinning:boolean = 
   bankForm !:FormGroup;
   withdrawStatement: any;
   private loaderSubscriber !: Subscription;

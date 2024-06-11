@@ -88,7 +88,7 @@ nz-form-item{
     justify-content: space-between;
 }
 .withdraw-container{
-    max-height: 400px;
+    max-height: 500px;
     overflow-y: auto;
 }
 .success {
@@ -97,3 +97,11 @@ nz-form-item{
 .statuColor{
   color: #FC4F0B !important;
 }
+.example {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    /* border-radius: 4px; */
+    margin-bottom: 20px;
+    /* padding: 30px 50px; */
+    /* margin: 20px 0; */
+  }

@@ -11,20 +11,27 @@
                     <span>{{userData.FName}} {{userData.LName}}</span>
                     <div nz-row class=" btn-div">
                         <div class=" col-md-3 col-sm-6 col-xs-12 " nzXs="24" nzSm="24" nzMd="12" nzLg="6" nzXl="8"
-                            style="padding: 0.1rem;">
-                            <div class="btn-heading">
-                                <img src="/assets/9057002.webp" alt="" width="25px"> <br>Deposit
+                        style="padding: 0.1rem;">
+                        <a (click)="changemenu('deposit')">
+                                <div class="btn-heading">
+                                    <img src="/assets/9057002.webp" alt="" width="25px"> <br>Deposit
+                                </div>
+                            </a>
                             </div>
-                        </div>
+
                         <div class="col-md-3" nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.1rem;">
+                            <a (click)="changemenu('withdraw')">
                             <div class="btn-heading">
                                 <i-feather name="dollar-sign"></i-feather> <br>WithDraw
                             </div>
+                        </a>
                         </div>
                         <div class="col-md-3" nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.1rem;">
+                            <a (click)="changemenu('statement')">
                             <div class="btn-heading">
                                 <i-feather name="book"></i-feather><br>Statement
                             </div>
+                            </a>
                         </div>
                         <div class="col-md-3 " nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.1rem;">
                             <div class="btn-heading">

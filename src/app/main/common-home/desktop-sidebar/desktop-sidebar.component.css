@@ -38,3 +38,14 @@ img.menu-icon,svg {
 .active-menu-item .menu-icon{
     filter: brightness(0) invert(1);
 }
+::ng-deep .ant-menu.ant-menu-dark{
+background-color: #000912;
+}
+
+.nz-menu-item:hover{
+    /* transform: translateY(-8px); */
+    transform: scale(1.05);
+    -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    color: rgba(255, 190, 24, 1) !important;
+  }

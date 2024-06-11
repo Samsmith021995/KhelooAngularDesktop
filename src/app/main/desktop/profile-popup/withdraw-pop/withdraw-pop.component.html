@@ -78,6 +78,9 @@
         </nz-tab>
         <nz-tab nzTitle="Withdraw Status">
             <div nz-row class="withdraw-container">
+                <!-- <div class="example">
+                    <nz-spin nzSimple [nzSpinning]="true"></nz-spin>
+                  </div> -->
                 @for (item of withdrawStatement; track $index) {
                     <div  nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
                         <nz-card style="width: 100%;background: #2B2B2B;border: none;
@@ -95,6 +98,11 @@
             
                             </div>
                         </nz-card>
+                    </div>
+                }
+                @empty {
+                    <div  nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24" class="promo-card" style="text-align: center;color:#fff">
+                        <span>No data Found</span>
                     </div>
                 }
             </div>

@@ -3,10 +3,9 @@
         <span>Statement</span>
         <!-- <button nz-button class="button-withdraw"> How to Withdraw?</button> -->
     </div>
-
-            <div nz-row class="withdraw-container">
+            <div nz-row class="withdraw-container" (scroll)="onPage($event)" >
                 @for (item of details; track $index) {
-                    <div  nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                    <div  nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card" >
                         <nz-card style="width: 100%;background: #2B2B2B;border: none;
                         " class="card-details">
                             <div class="withdraw-header">
@@ -27,12 +26,12 @@
                         </nz-card>
                     </div>
                 }
-                <nz-skeleton-element
-                *nzSpaceItem
-                nzType="button"
-                [nzActive]="elementActive"
-                [nzSize]="elementSize"
-                [nzShape]="buttonShape"
-              ></nz-skeleton-element>
             </div> 
+            
+    <div class="example">
+        <nz-spin nzSimple [nzSpinning]="isLoading"></nz-spin>
+      </div>
+            <nz-skeleton-element
+           
+          ></nz-skeleton-element>
 </div>

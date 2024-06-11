@@ -387,3 +387,6 @@ a.navbar-brand.fw-bold {
   
   background: #580b41;
 }
+.buttons:hover{
+  background-image: linear-gradient(to right, #e0d37f, #bc9d36);
+}
