@@ -6,10 +6,11 @@ import { ComFunService } from "src/app/main/service/com-fun.service";
 import { CommonServiceService } from "src/app/main/service/common-service.service";
 import { ApiService } from "src/app/main/service/api.service";
 import { MatDialog } from "@angular/material/dialog";
+import { NzMessageService } from "ng-zorro-antd/message";
 
 @Injectable()
 export class AuthEffects {
-    constructor(private action$: Actions, private comFun: ComFunService,private comSer:CommonServiceService,private apiSer:ApiService,private dialog:MatDialog) { }
+    constructor(private action$: Actions, private comFun: ComFunService,private comSer:CommonServiceService,private apiSer:ApiService,private dialog:MatDialog,private msg:NzMessageService) { }
     login$ = createEffect(() => {
         return this.action$.pipe(
             ofType(loginStart),
@@ -23,11 +24,13 @@ export class AuthEffects {
                             this.comSer.saveData('LoginToken',data.LoginToken);
                             this.comSer.saveData('name',data.UserName);
                             this.dialog.closeAll();
-                            this.apiSer.showAlert(data.ErrorMessage,'','success');
+                            this.msg.success(data.ErrorMessage,{nzDuration:3000});
+                            // this.apiSer.showAlert(data.ErrorMessage,'','success');
                             this.apiSer.updateLoginStatus(true);
                             
                         }else{
-                            this.apiSer.showAlert(data.ErrorMessage,'Login Failed','error');
+                            // this.apiSer.showAlert(data.ErrorMessage,'Login Failed','error');
+                            this.msg.error('Login Failed',{nzDuration:3000})
                             this.dialog.closeAll();
                         }
 

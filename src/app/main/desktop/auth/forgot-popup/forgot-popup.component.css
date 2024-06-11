@@ -49,6 +49,7 @@
  .card {
     padding:1rem;
     margin: 0.5rem;
+    border: none;
   }
   
   .font7 {
@@ -135,6 +136,7 @@
 
   .login-form {
     max-width: 300px;
+    margin: auto;
   }
 
   .login-form-margin {
@@ -226,3 +228,6 @@ nz-range-picker {
 .form-title{
     color: #fff;
 }
+::ng-deep .otp-class{
+    margin-bottom: 10px;
+  }

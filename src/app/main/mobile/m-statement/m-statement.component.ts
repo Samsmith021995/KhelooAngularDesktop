@@ -14,7 +14,7 @@ export class MStatementComponent implements OnInit {
   private loaderSubscriber !: Subscription;
   private apiSubscriber: Subscription[] = [];
   isLoading: boolean = false;
-  details: any = 0;
+ details: any = 0;
   ttl: number = 0;
   ttlpage: number = 0;
   datacount: number = 10;
@@ -25,7 +25,7 @@ export class MStatementComponent implements OnInit {
   pages = {
     "PageNumber": 1,
     "RecordCount": 10
-  };
+  }; 
   constructor(private apiservice: ApiService, private router: Router, private renderer: Renderer2) { }
   ngOnInit(): void {
     this.loaderSubscriber = this.apiservice.loaderService.loading$.subscribe((loading: any = {}) => {

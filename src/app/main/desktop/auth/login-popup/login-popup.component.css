@@ -135,6 +135,7 @@
 
   .login-form {
     max-width: 300px;
+    margin: 10px auto;
   }
 
   .login-form-margin {
@@ -199,6 +200,7 @@ i-feather[name='lock'],[name='phone']{
 }
 .login-card{
   padding: 0px !important;
+  border: none;
 }
 ::ng-deep .ant-tabs-ink-bar .ant-tabs-tab-active{
   color: #f2b702 !important;
@@ -222,4 +224,15 @@ nz-range-picker {
 }
 ::ng-deep .ant-tabs-tab+.ant-tabs-tab{
  margin: 0px;
+}
+
+::ng-deep .ant-tabs-nav-wrap{
+  padding: 0 1.5rem;
+}
+::ng-deep .ant-tabs-top>.ant-tabs-nav{
+  margin: auto;
+  min-width: 300px;
+}
+::ng-deep .otp-class{
+  margin-bottom: 10px;
 }

@@ -6,20 +6,19 @@
         <div class="close-div">
             <span class="popupClose" mat-dialog-close><i-feather name="x" class="rotate-icon"></i-feather></span>
         </div>
-        <div class="form col-md-3 com-sm-4 col-xs-4">
-            <div class="logo">
+        <div class="form col-md-4 com-sm-6 col-xs-6">
+            <div class="logo col-md-8 com-sm-8 col-xs-8" style="margin: auto;" >
                 <img src="https://cdn.fairbet91.com/KHELOO/images/logo.gif" alt="" width="100%">
                 <h2 class="form-title">Reset Password</h2>
             </div>
             <form nz-form [formGroup]="forgotForm" class="login-form" (ngSubmit)="submitForgotForm()">
                 @if(!getOtp && !verifyOtp){
                 <nz-form-item>
-                    <nz-form-control nzErrorTip="Please input your username!">
-                        <nz-input-group [nzPrefix]="MobileReg">
+                    <nz-form-control nzErrorTip="Please input valid Mobile Number!">
+                        <nz-input-group [nzPrefix]="Mobilefor">
                             <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number"
                                 (keydown)="validateNumber($event)" />
-                            <ng-template #MobileReg>
-                                <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                            <ng-template #Mobilefor>
                                 <i-feather name="phone"></i-feather>
                             </ng-template>
                         </nz-input-group>
@@ -27,7 +26,7 @@
                 </nz-form-item>
                 }
                 @if(getOtp && !verifyOtp){
-                <nz-form-item>
+                <nz-form-item class="otp-class">
                     <div formArrayName="otpArray" style="display: flex;">
                         <nz-form-control class="otp1" *ngFor="let control of otpArray.controls; let i = index">
                             <nz-input-group>
@@ -37,6 +36,12 @@
                         </nz-form-control>
                     </div>
                 </nz-form-item>
+                @if(otpArray.dirty && (forgotForm.controls['OTP'].value).length < 6){
+                    <div style="color: red;font-size: 12px;" #error>
+                      Please input valid Otp
+                    </div>
+      
+                  }
                 <nz-form-item>
                     <nz-form-control nzErrorTip="Please input your Password!">
                         <nz-input-group [nzPrefix]="regPass">
@@ -49,11 +54,9 @@
                     </nz-form-control>
                 </nz-form-item>
                 }
-                @if(getOtp && verifyOtp){
                
-                }
                 <button nz-button class="login-form-button login-form-margin btn-submit" type="submit"
-                    [disabled]="btnLoading || forgotForm.invalid" [nzLoading]="btnLoading">
+                    [disabled]="btnLoading" [nzLoading]="btnLoading">
                     <i-feather name="Log-out"></i-feather>Submit
                 </button>
             </form>

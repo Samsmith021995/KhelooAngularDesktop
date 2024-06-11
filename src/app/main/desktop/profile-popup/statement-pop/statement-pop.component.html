@@ -1,1 +1,38 @@
-<p>statement-pop works!</p>
+<div class="container">
+    <div class="heading">
+        <span>Statement</span>
+        <!-- <button nz-button class="button-withdraw"> How to Withdraw?</button> -->
+    </div>
+
+            <div nz-row class="withdraw-container">
+                @for (item of details; track $index) {
+                    <div  nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                        <nz-card style="width: 100%;background: #2B2B2B;border: none;
+                        " class="card-details">
+                            <div class="withdraw-header">
+                                <span><img src="/assets/8988833.webp" alt="" width="20px">{{item.Balance}}</span>
+                                <span>{{item.CreatedDate | date:'medium'}}</span> 
+                            </div>
+                            <div>
+                                <span>Debit:</span> <span>{{item.Debit }}</span>
+                            </div>
+                            <div>
+                                <span>Credit:</span> <span>{{item.Credit}}</span>
+                            </div>
+                            <div>
+                                <span>Description:</span>
+                                <p>{{item.Description}}</p>
+            
+                            </div>
+                        </nz-card>
+                    </div>
+                }
+                <nz-skeleton-element
+                *nzSpaceItem
+                nzType="button"
+                [nzActive]="elementActive"
+                [nzSize]="elementSize"
+                [nzShape]="buttonShape"
+              ></nz-skeleton-element>
+            </div> 
+</div>

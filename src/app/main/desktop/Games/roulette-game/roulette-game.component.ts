@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { catchError } from 'rxjs';
-
 import { ApiService } from 'src/app/main/service/api.service';
 import { ComFunService } from 'src/app/main/service/com-fun.service';
-import { config } from 'src/app/main/service/config';
 
 @Component({
   selector: 'app-roulette-game',

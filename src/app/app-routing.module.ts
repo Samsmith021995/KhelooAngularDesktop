@@ -52,6 +52,9 @@ import { TeenpatiGameComponent } from './main/desktop/Games/teenpati-game/teenpa
 import { TablegamesGameComponent } from './main/desktop/Games/tablegames-game/tablegames-game.component';
 import { SportsGameComponent } from './main/desktop/Games/sports-game/sports-game.component';
 import { PromotionComponent } from './main/desktop/promotion/promotion.component';
+import { AndarbaharGameComponent } from './main/desktop/Games/andarbahar-game/andarbahar-game.component';
+import { BaccaratGameComponent } from './main/desktop/Games/baccarat-game/baccarat-game.component';
+import { BlackjackGameComponent } from './main/desktop/Games/blackjack-game/blackjack-game.component';
 
 
 const routes: Routes = [
@@ -384,6 +387,21 @@ const routes: Routes = [
       {
         path: 'gamesList/sports',
         component: SportsGameComponent,
+        canActivate: []
+      },
+      {
+        path: 'gamesList/andarbahar',
+        component: AndarbaharGameComponent,
+        canActivate: []
+      },
+      {
+        path: 'gamesList/baccarat',
+        component: BaccaratGameComponent,
+        canActivate: []
+      },
+      {
+        path: 'gamesList/blackjack',
+        component: BlackjackGameComponent,
         canActivate: []
       },
       {

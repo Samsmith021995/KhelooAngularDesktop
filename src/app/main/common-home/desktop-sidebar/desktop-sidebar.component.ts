@@ -21,5 +21,27 @@ export class DesktopSidebarComponent implements OnInit {
   gamesList(param:String){
     this.router.navigate(['/gamesCat',param]);
   }
+  callSupport(val:any){
+    if(val == 'tawk'){
+      window.open('https://tawk.to/chat/60a22370185beb22b30ddc1d/1f5slks90');
+      return;
+    }
+    let param = {type:val}
+    this.apiSer.apiRequest(config['supportCallback'],param).subscribe({
+      next:(data)=>{
+        if(data.ErrorCode == '1'){
+          if(val == 'TL'){
+            window.open( 'https://t.me/+'+data.Result,'_blank');
+          }else{
+            window.open(  'https://api.whatsapp.com/send/?phone='+data.Result+'&amp;text&amp;app_absent=0','_blank');
+          }
+        }else{
+          this.apiSer.showAlert('',data.ErrorMessage,'error');
+        }
+      },
+      error:(err)=>{
 
+      }
+    })
+  }
 }

@@ -66,7 +66,9 @@ export class ComFunService {
     });
     if(!this.isLoggedIn){
       let diaRef3:any = '';
-      diaRef3 = this.dialog.open(LoginPopupComponent);
+      diaRef3 = this.dialog.open(LoginPopupComponent,{
+        width:'1200px'
+      });
       diaRef3.afterClosed().subscribe(() => { });
       return
     }

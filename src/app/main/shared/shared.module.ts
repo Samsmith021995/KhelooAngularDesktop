@@ -29,7 +29,6 @@ import { RouletteComponent } from '../desktop/footer-content/games/roulette/roul
 import { SlotsComponent } from '../desktop/footer-content/games/slots/slots.component';
 import { DJackpotComponent } from '../desktop/d-jackpot/d-jackpot.component';
 import { DPromotionalComponent } from '../desktop/d-promotional/d-promotional.component';
-
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
 import { LangstripComponent } from '../mobile/langstrip/langstrip.component';
@@ -44,7 +43,7 @@ import { MPromotionComponent } from '../mobile/m-promotion/m-promotion.component
 import { PromotionPopupComponent } from '../mobile/m-promotion/promotion-popup/promotion-popup.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { SecondHeaderComponent } from './second-header/second-header.component';
 
 
@@ -68,7 +67,9 @@ import { enUS as dateFnsEnUS } from 'date-fns/locale';
 import { UserOutline } from '@ant-design/icons-angular/icons';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzModalModule } from 'ng-zorro-antd/modal';
-import { NZ_CAROUSEL_CUSTOM_STRATEGIES, NzCarouselFlipStrategy, NzCarouselModule, NzCarouselTransformNoLoopStrategy, NzCarouselTransformStrategy } from 'ng-zorro-antd/carousel';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { GamesCategoryComponent } from '../desktop/games-category/games-category.component';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { LoginPopupComponent } from '../desktop/auth/login-popup/login-popup.component';
@@ -152,7 +153,9 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzDrawerModule,
   NzDropDownModule,
   NzAvatarModule,
-  NzCarouselModule
+  NzCarouselModule,
+  NzAlertModule,
+  NzMessageModule
 
   ],
  exports:[
@@ -220,7 +223,9 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzDrawerModule,
   NzDropDownModule,
   NzAvatarModule,
-  NzCarouselModule
+  NzCarouselModule,
+  NzAlertModule,
+  NzMessageModule
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [
