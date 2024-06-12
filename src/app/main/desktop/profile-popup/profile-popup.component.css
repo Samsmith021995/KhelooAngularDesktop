@@ -173,4 +173,15 @@ p.bl_prom_title_container span {
 ::ng-deep    .ant-card-body{
     color: #fff;
 } 
-    
+.icon-title{
+    border: 1px solid #590B42;
+    background: linear-gradient(183.35deg, #590B42 2.77%, #A246C9 83.19%);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    i-feather{
+        margin: 7px 7px;
+        padding: 3px;
+
+    }
+}  

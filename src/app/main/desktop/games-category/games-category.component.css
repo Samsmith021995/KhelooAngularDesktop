@@ -39,3 +39,66 @@
 .playbtn img {
     height: 56%;
 }
+.game_providers_main_container{
+  max-width: 100%;
+  display: flex;
+}
+.game_providers_main_container::-webkit-scrollbar {
+  width: 12px; 
+}
+
+/* Track */
+.game_providers_main_container::-webkit-scrollbar-track {
+  background: #931b1b;
+}
+
+/* Handle */
+.game_providers_main_container::-webkit-scrollbar-thumb {
+  background: #761717; 
+}
+
+/* Handle on hover */
+.game_providers_main_container::-webkit-scrollbar-thumb:hover {
+  background: #841414; /* Set handle color on hover */
+}
+.carousel {
+  display: inline-flex;
+  overflow: auto;
+  width: 97%;
+  margin: auto;
+  text-align: center;
+  padding-left: 10px;
+  position: unset;
+}
+.carousel-inner{
+  width:160px;
+  height: 70px;
+  /* background-color: #2b2b2b; */
+  background: linear-gradient( rgb(85 26 109), #903cb3 80%);
+  border: 1px solid #2b2b2b;
+  margin-right: 3px; 
+  text-align: center;
+  border-radius: 4px;
+  img{
+    filter: brightness(5);
+  }
+}
+.left-icon{
+  background-color: #903cb3;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  border-radius: 50%;
+  justify-content: space-around;
+  i-feather{
+    margin-top: 7px;
+  }
+  z-index: 10;
+  margin-top: 1rem;
+}
+.right{
+  right: 10px;
+}
+.selected{
+  background: linear-gradient( rgb(91, 52, 106), #67337e 80%);
+}

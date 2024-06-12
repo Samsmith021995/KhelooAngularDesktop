@@ -27,7 +27,7 @@
                 <!-- <marquee behavior="" direction=""> -->
                 <div id="gameCarousel" class="carousel slide">
                         @for (item of gamesProvider; track $index) {
-                        <a (click)="onSearch(item.title)">
+                        <a (click)="redirectCategory(item.title)">
                             <div class="carousel-inner">
                                 <img [src]="item.src" alt="" style="width: 100px;height: 50px;">
                             </div>

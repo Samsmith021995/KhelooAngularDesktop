@@ -78,6 +78,10 @@ export class DesktopHomeComponent implements OnInit,AfterViewInit {
     this.isLoggedInSubscription = this.apiSer.isLoggedIn$.subscribe((value) => {
       this.isLoggedIn = value;
     });
+    this.comfun.getCategorizedGames().subscribe(gamesByCategory => {
+    this.gamesData = gamesByCategory;
+    });
+   
   }
 
   bannnerImage() {
@@ -147,7 +151,7 @@ export class DesktopHomeComponent implements OnInit,AfterViewInit {
       this.subCategory.forEach((item: { GameCategory: string; }) => {
         this.defaultSlices.push(200);
         this.isDetailsVisible.push(false);
-        this.gameListAll(item);
+        // this.gameListAll(item);
       })
     });
   }

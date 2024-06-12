@@ -1,4 +1,31 @@
+<div nz-row>
+    <div class="game_providers_main_container" >
+        <!-- <h2 class="game-provider-text">Game Providers</h2> -->
+        <!-- <marquee behavior="" direction=""> -->
+            <a (click)="scrollleft(scrollContainer,'left')">
+                <div class="left-icon">
+                    <i-feather name="arrow-left"></i-feather>
+                </div>
+            </a>
+            <div id="gameCarousel" class="carousel slide" #scrollContainer>
+                @for (item of gamesProvider; track $index) {
+                <a (click)="redirectCategory(item.title)">
+                    <div class="carousel-inner" [ngClass]="{'selected':gameName == item.title}">
+                        <img [src]="item.src" alt="" style="width: 100px;height: 50px;">
+                    </div>
+                </a>
+             }
+            
+            </div>
+            <a (click)="scrollleft(scrollContainer,'right')">
+            <div class="left-icon right">
+                <i-feather name="arrow-right"></i-feather>
+            </div>
+        </a>
+    <!-- </marquee> -->
 
+    </div>
+</div>
 <div nz-row  >
         @for (item of gamesData; track $index) {
             <div nz-col nzXs="12" nzSm="8" nzMd="6" nzLg="6" nzXl="4"  class="game-img-data">

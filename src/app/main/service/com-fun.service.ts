@@ -22,6 +22,8 @@ export class ComFunService {
   gamesDataCat$ = this.gamesDataCatSubject.asObservable();
   gamesDataCat: any[] = [];
   private isDataLoaded = false;
+  private gamesByCategory: { [key: string]: any[] } = {};
+  private gamesByCategorySubject = new BehaviorSubject<{ [key: string]: any[] }>({});
   constructor(private apiSer:ApiService,private comSer:CommonServiceService,private router:Router,private http:HttpClient,private dialog:MatDialog) {
     this.getAllGames();
    }
@@ -77,8 +79,8 @@ export class ComFunService {
   }
   getAllGames(){
     if (this.isDataLoaded) {
-      // If data is already loaded, emit the cached data
       this.gamesDataSubject.next(this.gamesData);
+      this.gamesByCategorySubject.next(this.gamesByCategory);
       return;
     }
     this.apiSer.apiRequest(config['gameCategory']).pipe(
@@ -86,33 +88,41 @@ export class ComFunService {
         throw error;
       })
     ).subscribe(data => {
-      // console.log(data)
-      data.forEach((item: any) => {
-        let param = { GameCategory: item.SubCategory }
+      const uniqueSubCategories = Array.from(new Set(data.map((item: { SubCategory: any; }) => item.SubCategory)));
+      let categoriesToFetch = uniqueSubCategories.length;
+      uniqueSubCategories.forEach((item: any) => {
+        const category = item;
+        let param = { GameCategory: item }
         this.apiSer.apiRequest(config['gameList'], param).pipe(
           catchError((error) => {
             throw error;
           })
         ).subscribe(data => {
           if (data) {
-            // let itemSeach = searchitem;
-            // const filteredApiResultsed = data.filter((result: { name: string; groupname: string; gamecategory: string; product: string; }) =>
-            //   (result.name.toLowerCase().includes(itemSeach.toLowerCase())) ||
-            //   (result.groupname && result.groupname.toLowerCase().includes(itemSeach.toLowerCase())) ||
-            //   (result.gamecategory && result.gamecategory.toLowerCase().includes(itemSeach.toLowerCase())) ||
-            //   (result.product && result.product.toLowerCase().includes(itemSeach.toLowerCase()))
-            // );
-            // filteredApiResultsed.forEach((item: any) => {
               this.gamesData = [...this.gamesData, ...data];
-            this.gamesDataSubject.next(this.gamesData);
-            this.isDataLoaded = true; 
-              // this.gamesData.push(data);
-            // })
+              this.gamesDataSubject.next(this.gamesData);
+
+
+            if (!this.gamesByCategory[category]) {
+              this.gamesByCategory[category] = [];
+            }
+            this.gamesByCategory[category] = [...this.gamesByCategory[category], ...data];
+            this.gamesByCategorySubject.next(this.gamesByCategory);
+
+            
+            categoriesToFetch--;
+            if (categoriesToFetch === 0) {
+              this.isDataLoaded = true;
+            }
+
           }
         });
 
       })
     });
+  }
+  getCategorizedGames(): Observable<{ [key: string]: any[] }> {
+    return this.gamesByCategorySubject.asObservable();
   }
 
   //     gameCategoryWise(item:any):Observable<any>{
@@ -131,22 +141,69 @@ export class ComFunService {
   //           // console.log();
   //           return this.gamesDataCat;
   // }
+  // filterGames(searchStrings: string[]): Observable<any[]> {
+  //   return this.gamesData$.pipe(
+  //     map(data => {
+  //       const filteredGames = data.filter(game => {
+  //         return searchStrings.some(searchString => {
+  //           return (
+  //             game.name.toLowerCase().includes(searchString.toLowerCase()) ||
+  //             (game.groupname && game.groupname.toLowerCase().includes(searchString.toLowerCase())) ||
+  //             (game.gamecategory && game.gamecategory.toLowerCase().includes(searchString.toLowerCase())) ||
+  //             (game.product && game.product.toLowerCase().includes(searchString.toLowerCase()))
+  //           );
+  //         });
+  //       });
+  //       return filteredGames;
+  //     })
+  //   );
+  // }
   filterGames(searchStrings: string[]): Observable<any[]> {
     return this.gamesData$.pipe(
-      map(data => {
-        const filteredGames = data.filter(game => {
-          return searchStrings.some(searchString => {
-            return (
-              game.name.toLowerCase().includes(searchString.toLowerCase()) ||
-              (game.groupname && game.groupname.toLowerCase().includes(searchString.toLowerCase())) ||
-              (game.gamecategory && game.gamecategory.toLowerCase().includes(searchString.toLowerCase())) ||
-              (game.product && game.product.toLowerCase().includes(searchString.toLowerCase()))
-            );
-          });
-        });
-        return filteredGames;
-      })
+        map(data => {
+            const uniqueGames = new Map<number, any>(); // Use game_id as the key
+
+            // Filter games based on search strings and uniqueness of game_id
+            data.forEach(game => {
+                const matchesSearch = searchStrings.some(searchString => 
+                    game.name.toLowerCase().includes(searchString.toLowerCase()) ||
+                    (game.groupname && game.groupname.toLowerCase().includes(searchString.toLowerCase())) ||
+                    (game.gamecategory && game.gamecategory.toLowerCase().includes(searchString.toLowerCase())) ||
+                    (game.product && game.product.toLowerCase().includes(searchString.toLowerCase()))
+                );
+
+                if (matchesSearch && !uniqueGames.has(game.game_id)) {
+                    uniqueGames.set(game.game_id, game); // Add to Map if game_id is unique
+                }
+            });
+
+            return Array.from(uniqueGames.values()); // Convert Map values to an array
+        })
     );
-  }
+}
+  // filterGames(searchStrings: string[]): Observable<any[]> {
+  //   return this.gamesData$.pipe(
+  //     map(data => {
+  //       const uniqueGames = new Map<string, any>(); // Use a Map to track unique games
+  //       const filteredGames = data.filter(game => {
+  //         const matchesSearch = searchStrings.some(searchString => {
+  //           return (
+  //             game.name.toLowerCase().includes(searchString.toLowerCase()) ||
+  //             (game.groupname && game.groupname.toLowerCase().includes(searchString.toLowerCase())) ||
+  //             (game.gamecategory && game.gamecategory.toLowerCase().includes(searchString.toLowerCase())) ||
+  //             (game.product && game.product.toLowerCase().includes(searchString.toLowerCase()))
+  //           );
+  //         });
+  //         if (matchesSearch) {
+  //           if (!uniqueGames.has(game.name)) { // Use game.name or game.id as the unique key
+  //             uniqueGames.set(game.name, game); // Add to the Map if not already present
+  //           }
+  //         }
+  //         return matchesSearch;
+  //       });
+  //       return Array.from(uniqueGames.values()); // Convert Map values to an array
+  //     })
+  //   );
+  // }
 
 }

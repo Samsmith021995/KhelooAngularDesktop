@@ -11,39 +11,55 @@
                     <span>{{userData.FName}} {{userData.LName}}</span>
                     <div nz-row class=" btn-div">
                         <div class=" col-md-3 col-sm-6 col-xs-12 " nzXs="24" nzSm="24" nzMd="12" nzLg="6" nzXl="8"
-                        style="padding: 0.1rem;">
-                        <a (click)="changemenu('deposit')">
+                            style="padding: 0.1rem;">
+                            <a (click)="changemenu('deposit')">
                                 <div class="btn-heading">
                                     <img src="/assets/9057002.webp" alt="" width="25px"> <br>Deposit
                                 </div>
                             </a>
-                            </div>
+                        </div>
 
                         <div class="col-md-3" nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.1rem;">
                             <a (click)="changemenu('withdraw')">
-                            <div class="btn-heading">
-                                <i-feather name="dollar-sign"></i-feather> <br>WithDraw
-                            </div>
-                        </a>
+                                <div class="btn-heading">
+                                    <i-feather name="dollar-sign"></i-feather> <br>WithDraw
+                                </div>
+                            </a>
                         </div>
                         <div class="col-md-3" nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.1rem;">
                             <a (click)="changemenu('statement')">
-                            <div class="btn-heading">
-                                <i-feather name="book"></i-feather><br>Statement
-                            </div>
+                                <div class="btn-heading">
+                                    <i-feather name="book"></i-feather><br>Statement
+                                </div>
                             </a>
                         </div>
                         <div class="col-md-3 " nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.1rem;">
-                            <div class="btn-heading">
-                                <i-feather name="log-out"></i-feather> <br>Logout
-                            </div>
+                            <a (click)="changemenu('profile')">
+                                <div class="btn-heading">
+                                    <i-feather name="user"></i-feather> <br>Profile
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div>
                         <ul class="detail-list">
+                             <li>
+                                <div class="list">
+                                    <div class="icon-title">
+                                        <i-feather name="user"></i-feather>
+                                    </div>
+                                    <div class="text-det">
+                                        <span>Username</span><br>
+                                        <span>{{userData.UserName}}</span>
+
+                                    </div>
+                                </div>
+                            </li>
                             <li>
                                 <div class="list">
-                                    <i-feather name="book"></i-feather>
+                                    <div class="icon-title">
+                                        <i-feather name="book"></i-feather>
+                                    </div>
                                     <div class="text-det">
                                         <span>Date Of Birth</span><br>
                                         <span>{{userData.DOB | date:'mediumDate'}}</span>
@@ -52,7 +68,9 @@
                             </li>
                             <li>
                                 <div class="list">
-                                    <i-feather name="phone"></i-feather>
+                                    <div class="icon-title">
+                                        <i-feather name="phone"></i-feather>
+                                    </div>
                                     <div class="text-det">
                                         <span>Mobile Number</span><br>
                                         <span>{{userData.Mobile}}</span>
@@ -61,22 +79,26 @@
                             </li>
                             <li>
                                 <div class="list">
-                                    <i-feather name="book"></i-feather>
+                                    <div class="icon-title">
+                                        <i-feather name="book"></i-feather>
+                                    </div>
                                     <div class="text-det">
                                         <span>Statement</span>
 
                                     </div>
                                 </div>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <div class="list">
-                                    <i-feather name="user"></i-feather>
+                                    <div class="icon-title">
+                                        <i-feather name="user"></i-feather>
+                                    </div>
                                     <div class="text-det">
                                         <span>Kyc verification</span>
 
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </nz-card>
@@ -94,10 +116,18 @@
                         <div class="deposit-form">
                             <form nz-form [formGroup]="depositForm" class="login-form">
                                 <nz-form-item>
-                                    <nz-form-control nzErrorTip="Please input Amount!">
+                                    <nz-form-control [nzErrorTip]="erroetpl">
                                         <nz-input-group>
-                                            <input type="text" nz-input formControlName="Amount" placeholder="Amount"
+                                            <input type="number" nz-input formControlName="Amount" placeholder="Amount"
                                                 class="amount-control" />
+                                            <ng-template #erroetpl let-control>
+                                                @if (control.errors?.['required']) {
+                                                Please input your Amount!
+                                                }
+                                                @if (control.errors?.['minlength']) {
+                                                Amount should be atleast 100
+                                                }
+                                            </ng-template>
                                         </nz-input-group>
                                     </nz-form-control>
                                 </nz-form-item>
@@ -153,7 +183,10 @@
                 <app-withdraw-pop></app-withdraw-pop>
                 }
                 @case ("statement") {
-                    <app-statement-pop></app-statement-pop>
+                <app-statement-pop></app-statement-pop>
+                }
+                @case ("profile") {
+                <app-profile-details></app-profile-details>
                 }
                 }
             </div>

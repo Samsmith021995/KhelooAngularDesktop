@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
   profileRef:string = '';
   private logcheck !: Subscription;
   userBalance: number = 0;
-  constructor(private fb: FormBuilder, private apiSer: ApiService, private comSer: CommonServiceService, private router: Router,private dialog:MatDialog) { }
+  constructor(private fb: FormBuilder, private apiSer: ApiService, private comSer: CommonServiceService, private router: Router,private dialog:MatDialog,private msg:NzMessageService) { }
 
   ngOnInit(): void {
     this.loginchecks();
@@ -128,7 +129,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
       this.apiSer.apiRequest(config['balance']).subscribe({
         next: data => {
           if (data.ErrorCode == '0') {
-            this.apiSer.showAlert('', data.ErrorMessage, 'error');
+            this.msg.error(data.ErrorMessage, {nzDuration:3000,nzPauseOnHover:true});
             this.apiSer.logout();
             this.comSer.clearLocalVars();
           } else {
@@ -214,7 +215,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
     this.apiSer.apiRequest(config['balance']).subscribe({
       next: data => {
         if (data.ErrorCode == '0') {
-          this.apiSer.showAlert('', data.ErrorMessage, 'error');
+          this.msg.error(data.ErrorMessage, {nzDuration:3000,nzPauseOnHover:true});
           this.comSer.clearLocalVars();
           this.apiSer.logout();
         } else {
@@ -223,7 +224,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
         }
       },
       error: err => {
-        this.apiSer.showAlert('Something Went Wrong', 'Check Your Internet Connection', 'error');
+        this.msg.error('Something Went Wrong', {nzDuration:3000,nzPauseOnHover:true});
         console.error(err);
       }
     });

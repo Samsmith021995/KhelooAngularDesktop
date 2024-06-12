@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
 import { Subscription } from 'rxjs';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-profile-popup',
@@ -35,10 +36,10 @@ export class ProfilePopupComponent implements OnInit {
   // displayedButtons: any = [];
   @Input() profileRef :any;
   userData = JSON.parse(localStorage.getItem('userData')|| '');
-  constructor(private fb:FormBuilder,private apiSer:ApiService){}
+  constructor(private fb:FormBuilder,private apiSer:ApiService,private msg:NzMessageService){}
   ngOnInit(): void {
     this.depositForm = this.fb.group({
-      Amount:["",Validators.required]
+      Amount:["",Validators.required,Validators.minLength(3)]
     });
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.btnLoading = ('getPaymentGateway' in loading ) ? true : false;
@@ -46,8 +47,14 @@ export class ProfilePopupComponent implements OnInit {
     });
   }
   addWallet(){
+    if (!this.depositForm.controls['Amount'].value ) {
+      this.depositForm.controls['Amount'].markAllAsTouched();
+      this.depositForm.controls['Amount'].updateValueAndValidity({ onlySelf: true });
+      return;
+    }
     if(this.depositForm.controls['Amount'].value <100){
-      this.apiSer.showAlert('oops!','Deposit Amount should be ateast 100','warning');
+      this.msg.warning('Amount should more than 100',{nzDuration:3000,nzPauseOnHover:true});
+    //   this.apiSer.showAlert('oops!','Deposit Amount should be ateast 100','warning');
       return ;
     }
     this.showsubmitbtn = true;
@@ -64,7 +71,7 @@ export class ProfilePopupComponent implements OnInit {
         }
       },
       error: err => {
-        this.apiSer.showAlert('Something Went Wrong', 'Please check your Internet Connection', 'error');
+        this.msg.error('Something Went Wrong',{nzDuration:3000,nzPauseOnHover:true});
         this.showsubmitbtn = false;
       }
     });
@@ -80,7 +87,7 @@ export class ProfilePopupComponent implements OnInit {
           this.paymentinput = false;
           window.location.href = item.PaymentUrl + this.transcationId;
         } else {
-          this.apiSer.showAlert(data.ErrorMessage, '', 'error');
+          this.msg.error(data.ErrorMessage,{nzDuration:3000,nzPauseOnHover:true});
         }
         this.isSpinning = false;
         this.paymenting = data;
@@ -89,8 +96,7 @@ export class ProfilePopupComponent implements OnInit {
       error: err => {
         this.isSpinning = false;
         this.showsubmitbtn = false;
-        this.apiSer.showAlert('Something Went Wrong', 'Please check your internet connection', 'error');
-
+        this.msg.error('Something Went Wrong',{nzDuration:3000,nzPauseOnHover:true});
       }
     });
   }

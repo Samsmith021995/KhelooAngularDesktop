@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { Subscription, catchError } from 'rxjs';
 import { ApiService } from 'src/app/main/service/api.service';
 import { config } from 'src/app/main/service/config';
@@ -16,7 +17,7 @@ export class WithdrawPopComponent  implements OnInit{
   bankForm !:FormGroup;
   withdrawStatement: any;
   private loaderSubscriber !: Subscription;
-  constructor(private fb:FormBuilder,private apiSer:ApiService){}
+  constructor(private fb:FormBuilder,private apiSer:ApiService,private msg:NzMessageService){}
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.isLoading = ('withdrawReq' in loading) ? true : false;
@@ -36,15 +37,15 @@ export class WithdrawPopComponent  implements OnInit{
     this.apiSer.apiRequest(config['withdrawReq'], this.bankForm.getRawValue()).subscribe({
       next: data => {
         if (data.ErrorCode == '1') {
-          this.apiSer.showAlert(data.Result, data.ErrorMessage, 'success');
+          this.msg.success(data.ErrorMessage,{nzDuration:3000});
           this.bankForm.reset();
         } else {
-          this.apiSer.showAlert('', data.ErrorMessage, 'error');
+          this.msg.error(data.ErrorMessage,{nzDuration:3000});
         }
         // this.showsubmitbtn = false;
       },
       error: err => {
-        this.apiSer.showAlert('Something Went Wrong', 'Please check your internet Connection', 'error');
+        this.msg.error('Something Went Wrong',{nzDuration:3000});
         // this.showsubmitbtn = false;
       }
     });
