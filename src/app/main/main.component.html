@@ -16,9 +16,12 @@
         <nz-sider>
             <app-desktop-sidebar></app-desktop-sidebar>
         </nz-sider>
-        <nz-content>
-            <router-outlet></router-outlet>
-            <button (click)="open()">Search</button>
+        <nz-content> 
+            <div style="min-height: 800px;">
+                <router-outlet></router-outlet>
+
+            </div>
+            <!-- <button (click)="open()">Search</button> -->
             <nz-drawer
 [nzClosable]="false"
 [nzVisible]="visible"

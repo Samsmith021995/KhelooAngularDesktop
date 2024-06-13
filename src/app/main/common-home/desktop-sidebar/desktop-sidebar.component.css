@@ -49,3 +49,6 @@ background-color: #000912;
     transition: all .2s ease-out;
     color: rgba(255, 190, 24, 1) !important;
   }
+  ::ng-deep .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected{
+    background-color: #343537;
+  }
