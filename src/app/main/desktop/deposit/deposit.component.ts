@@ -60,7 +60,7 @@ export class DepositComponent implements OnInit {
           this.paymentGateway = data;
           data.forEach((element:any) => {
             this.finalpayProcess1(element);
-            
+            console.log(element);
           });
         }
       },

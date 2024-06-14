@@ -71,6 +71,9 @@ export class MDepositComponent implements OnInit, OnDestroy {
         if (data) {
           this.paymentGateway = data
           this.showsubmitbtn = false;
+          this.paymentGateway.forEach((element)=>{
+          this.finalDepositPro1(element);
+        });
         }
       },
       error: err => {
@@ -89,6 +92,30 @@ export class MDepositComponent implements OnInit, OnDestroy {
           this.transcationId = trans[1];
           this.paymentinput = false;
           window.location.href = item.PaymentUrl + this.transcationId;
+        } else {
+          this.apiSer.showAlert(data.ErrorMessage, '', 'error');
+        }
+        this.paymenting = data;
+        this.showsubmitbtn = false;
+      },
+      error: err => {
+        this.showsubmitbtn = false;
+        this.apiSer.showAlert('Something Went Wrong', 'Please check your internet connection', 'error');
+
+      }
+    });
+  }
+  finalDepositPro1(item:any){
+    this.showsubmitbtn = true;
+    let param = {"Amount":this.depositForm.controls['Amount'].value,"SiteName":item.SiteName}
+      this.apiSer.apiRequest(config['depositReq1'], param).subscribe({
+      next: data => {
+        if (data.ErrorCode == '1') {
+          let trans = data.Result.split("=");
+          this.transcationId = trans[1];
+          console.log(item.PaymentUrl+""+this.transcationId);
+          // this.paymentinput = false;
+          // window.location.href = item.PaymentUrl + this.transcationId;
         } else {
           this.apiSer.showAlert(data.ErrorMessage, '', 'error');
         }
