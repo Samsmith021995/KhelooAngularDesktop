@@ -940,3 +940,14 @@ html.amo-livechat-iframe-a_uFQcVt .amo-brand {
       border-radius: 0;
   }
 }
+.amo-button__link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.amo-inner-buttons-body.horisontal {
+    height: 100%;
+    position: relative;
+}
