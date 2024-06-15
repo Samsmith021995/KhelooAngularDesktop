@@ -57,6 +57,25 @@ export class MainComponent implements OnInit {
     this.visible = false;
     this.custom_drawer = '';
   }
+  callSupport(val:any){
+    let param = {type:val}
+    this.apiSer.apiRequest(config['supportCallback'],param).subscribe({
+      next:(data)=>{
+        if(data.ErrorCode == '1'){
+          if(val == 'TL'){
+            window.open( 'https://t.me/+'+data.Result,'_blank');
+          }else{
+            window.open(  'https://api.whatsapp.com/send/?phone='+data.Result+'&amp;text&amp;app_absent=0','_blank');
+          }
+        }else{
+          this.apiSer.showAlert('',data.ErrorMessage,'error');
+        }
+      },
+      error:(err)=>{
+
+      }
+    })
+  }
   // ngOnDestroy(): void {
   //   this.urlSubscription.unsubscribe();
   // }

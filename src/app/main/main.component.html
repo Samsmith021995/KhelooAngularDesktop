@@ -10,26 +10,65 @@
 <nz-layout>
     <nz-header>
         <app-desktop-header></app-desktop-header>
-        
+
     </nz-header>
-    <nz-layout class="right-layout" >
+    <nz-layout class="right-layout">
         <nz-sider>
             <app-desktop-sidebar></app-desktop-sidebar>
         </nz-sider>
-        <nz-content> 
+        <nz-content>
             <!-- Live Chat start -->
-            <div class="amo-button-holder amo-horisontal" style="position: fixed; z-index: 100000; right: 90px; bottom: 90px;">
-                <iframe width="162" height="85" id="social_iframe1" name="social_iframe1" title="Kommo CRM Plugin social network list"
+            <!-- <div class="amo-button-holder amo-horisontal"
+                style="position: fixed; z-index: 100000; right: 90px; bottom: 90px;"> -->
+                <!-- <iframe width="162" height="85" id="social_iframe1" name="social_iframe1" title="Kommo CRM Plugin social network list"
                     src="https://gso.kommo.com/buttons/v3/html/896fa39e1bcfb96ecc9effdb175900c9dba6dabd777859d14cfee2e19a962d40.html?1715687715"
                     scrolling="no" class="amo-button__iframe"
-                    style="min-height: 85px; z-index: 100001; top: auto; bottom: -20px; left: inherit; right: 40px; min-width: 0px;"></iframe>
+                    style="min-height: 85px; z-index: 100001; top: auto; bottom: -20px; left: inherit; right: 40px; min-width: 100px;"></iframe> -->
 
-                <div class="amo-button amo-button--main js-amo-button amo_animation_tremble" id="amobutton" data-social=""
+                <!-- <div class="amo-inner-buttons-body horisontal">
+                    <div class="amo-inner-buttons horisontal js-horisontal-buttons-holder">
+
+
+                        <div class="amo-button js-amo-control amo-button--telegram">
+                            <a (click)="callSupport('TL')" class="amo-button__link" data-social="telegram"
+                                target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                    viewBox="0 0 48 48" fill="none">
+                                    <path fill="#E1E1E1"
+                                        d="M18.186 37.327c-.965 0-.8-.37-1.134-1.303l-2.838-9.488 21.85-13.165"></path>
+                                    <path fill="#CDCDCD"
+                                        d="M18.186 37.328c.745 0 1.074-.346 1.49-.757l3.973-3.923-4.956-3.035"></path>
+                                    <path fill="#fff"
+                                        d="m18.693 29.614 12.007 9.01c1.37.768 2.36.37 2.7-1.292l4.888-23.392c.5-2.038-.765-2.962-2.075-2.357l-28.7 11.239c-1.96.798-1.948 1.908-.357 2.403l7.365 2.334 17.05-10.925c.805-.496 1.544-.23.938.317">
+                                    </path>
+                                </svg></a>
+                            <span class="amo-button__title">Telegram</span>
+                        </div>
+
+
+                        <div class="amo-button js-amo-control amo-button--livechat">
+                            <a href="wss://lc-en.amocrm.com/6352b44d-808c-43d4-b968-5ded34b85747"
+                                class="amo-button__link" data-social="livechat" target="_blank"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24"
+                                    fill="none">
+                                    <path fill="#fff"
+                                        d="M20.612 0H9.505C4.565 0 .56 4.433.56 9.895c0 4.368 2.558 8.064 6.105 9.38L10.916 24l3.803-4.206h5.893c4.942 0 8.947-4.43 8.947-9.899C29.559 4.433 25.553 0 20.612 0ZM8.154 11.998c-1.096 0-1.985-.98-1.985-2.195 0-1.211.889-2.196 1.985-2.196s1.985.984 1.985 2.196c0 1.214-.889 2.195-1.985 2.195Zm6.905 0c-1.096 0-1.985-.98-1.985-2.195 0-1.211.888-2.196 1.985-2.196 1.096 0 1.985.984 1.985 2.196 0 1.214-.89 2.195-1.985 2.195Zm6.905 0c-1.097 0-1.986-.98-1.986-2.195 0-1.211.889-2.196 1.986-2.196 1.096 0 1.985.984 1.985 2.196 0 1.214-.89 2.195-1.985 2.195Z">
+                                    </path>
+                                </svg></a>
+                            <span class="amo-button__title">Live Chat</span>
+                        </div>
+                    </div>
+                </div> -->
+
+
+
+
+                <!-- <div class="amo-button amo-button--main js-amo-button amo_animation_tremble" id="amobutton"
+                    data-social=""
                     style="width: 55px; height: 55px; z-index: 100002; background: rgb(99, 60, 240); border-radius: 21px; float: right; opacity: 1;">
                     <div class="amo-button--main-icon">
                         <div class="amo-button--main-icon-inner">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
-                                viewBox="0 0 48 48" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"
+                                fill="none">
                                 <path fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width=".25"
                                     d="m40.9 33.4-2.2-6.5c1.2-2.1 1.8-4.4 1.8-6.7 0-7.5-6.1-13.7-13.7-13.7-5.3 0-10.2 3.1-12.4 8-4.2 2.3-7 6.8-7 11.9 0 2.4.6 4.7 1.8 6.7L7 39.8c0 .2 0 .4.2.5.1.1.3.2.4.2h.1l7.2-1.9c1.9 1 4 1.5 6.2 1.5 5.4 0 10-3.1 12.2-7.6l6.9 1.8h.1c.3 0 .6-.3.6-.6.1-.1.1-.2 0-.3Zm-19.8 5.5c-1.5 0-2.9-.3-4.3-.8-1-.4-1.3-.6-1.5-.7 0 0-.2-.1-.5 0l-6.4 1.7 2-5.9c.1-.2 0-.3-.1-.5-1.1-1.9-1.8-4.1-1.8-6.4 0-4.9 2.8-9.2 6.9-11.2.1 0 .1-.1.2-.1.1-.1.2-.1.4-.2.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.2-.1.3-.1.5-.2.1 0 .1 0 .2-.1.2-.1.5-.1.7-.2.2-.1.4-.1.7-.1h.1c.2 0 .4-.1.6-.1h.2c.2 0 .4 0 .5-.1h.9c6.9 0 12.5 5.6 12.5 12.5v2c0 .1 0 .2-.1.4 0 .1 0 .2-.1.3 0 .1-.1.2-.1.3 0 .1 0 .2-.1.3 0 .1-.1.2-.1.3 0 .1-.1.2-.1.3 0 .1-.1.2-.1.3 0 .1-.1.2-.1.4 0 .1-.1.2-.1.2 0 .1-.1.2-.1.4-1.9 4.3-6.3 7.4-11.4 7.4Zm12.7-7.5c.2-.4.3-.8.4-1.1 0-.1 0-.1.1-.2.1-.4.2-.7.3-1.1v-.2c.1-.4.1-.7.2-1.1v-.1c0-.4.1-.8.1-1.2 0-7.5-6.1-13.7-13.7-13.7-.4 0-.8 0-1.2.1h-.1c-.4 0-.8.1-1.2.2h-.1c-.4.1-.8.2-1.1.3h-.1c-.4.1-.7.2-1 .3h-.1c2.3-3.7 6.3-6 10.7-6 6.9 0 12.5 5.6 12.5 12.5 0 2.2-.6 4.5-1.8 6.4-.1.1-.1.3-.1.5l2 5.9-5.8-1.5Z">
                                 </path>
@@ -49,19 +88,86 @@
                         </svg>
                     </div>
                     <div id="amo-livechat"
-                        class="amo-livechat amo-livechat_bottom-right amo-livechat_horizontal amo-livechat_hidden"><iframe
-                            title="Kommo Live Chat" name="amo-livechat-iframe-a_uFQcVt"
+                        class="amo-livechat amo-livechat_bottom-right amo-livechat_horizontal amo-livechat_hidden">
+                        <iframe title="Kommo Live Chat" name="amo-livechat-iframe-a_uFQcVt"
                             src="https://gso.kommo.com/livechat/index.html?-nxeIFZ_5BCUw2q7tZC9t"></iframe>
                     </div>
-                    
+
                     <div class="amo-button-greeting-badge" style="display: none;"></div>
                 </div>
                 <div class="amo-brand" id="amo_brand" style="width: 55px; bottom: -18px;">
-                    <p class="amo-brand__link-holder"><a target="_blank" href="https://www.kommo.com" class="amo-brand__link">Made
+                    <p class="amo-brand__link-holder"><a target="_blank" href="https://www.kommo.com"
+                            class="amo-brand__link">Made
                             by Ashutosh</a></p>
                 </div>
-            </div>
+            </div> -->
             <!-- End Live Chat -->
+
+
+
+            <!-- Live chat box -->
+            <!-- <div id="app">
+                <div class="styles_header__1ezfF" style="background-color: rgb(240, 210, 60);"><span
+                        class="styles_name__2vlvO styles_name_light__3Eqin styles_name_no_avatar__3OT7x">kheloo</span>
+                </div>
+                <div class="styles_main__2px6w" id="main" style="">
+                    <div class="styles_messages__MlKbB styles_messages_border__D4TM2"
+                        style="width: 360px; margin-bottom: 38px;">
+                        <div class="styles_messages_inner__3riuD">
+                            <div class="styles_footer__2sTqH"><span class="styles_copyright__25N_x">Powered by <a
+                                        href="https://kheloo.com" target="_blank"
+                                        rel="noopener noreferrer">Kheloo</a></span></div>
+                        </div>
+                    </div>
+                    <iframe src="https://tawk.to/chat/60a22370185beb22b30ddc1d/1f5slks90" frameborder="0" width="450" height="25000" style="z-index: 100000000;"></iframe>
+                    <div class="styles_compose_wrapper__2awbC undefined">
+                        <div id="compose" class="styles_compose__24NLo"><textarea class="styles_textarea__gluDA"
+                                placeholder="Write a message..." tabindex="0"
+                                style="min-height: 29px; overflow: hidden; overflow-wrap: break-word; height: 44px;"></textarea>
+                            <div class="styles_actions__aKpMZ">
+                                <div>
+                                    <div id="gif_icon_wrapper" class="styles_gif_icon_wrapper__GGCbF"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none">
+                                            <path fill="currentColor"
+                                                d="M6.149 8.798h1.827v2.184a1.838 1.838 0 0 1-.707.357c-.27.075-.539.112-.805.112-.313 0-.604-.05-.875-.147a1.811 1.811 0 0 1-.693-.455 2.22 2.22 0 0 1-.462-.798c-.112-.322-.168-.705-.168-1.148 0-.462.065-.854.196-1.176.135-.327.31-.59.525-.791a1.96 1.96 0 0 1 .735-.441c.27-.093.546-.14.826-.14a3.785 3.785 0 0 1 1.246.196l-.196.805a1.846 1.846 0 0 0-.392-.105 2.996 2.996 0 0 0-.553-.042c-.2 0-.385.03-.553.09-.168.062-.315.162-.441.302-.121.135-.217.31-.287.525a2.72 2.72 0 0 0-.098.784c0 .294.033.548.098.763.065.21.156.385.273.525.117.135.252.236.406.3.159.066.327.099.504.099.121 0 .24-.014.357-.042a.859.859 0 0 0 .294-.14V9.49l-1.057-.112v-.581Zm2.635-2.345h.959v4.9h-.96v-4.9Zm1.898 0h2.905v.854H11.64v1.21h1.792v.855H11.64v1.98h-.96v-4.9Z">
+                                            </path>
+                                            <rect width="17" height="17" x=".5" y=".5" stroke="currentColor" rx="3.5">
+                                            </rect>
+                                        </svg></div>
+                                </div>
+                                <div class="styles_emoji_picker_container__3CCl6">
+                                    <div id="emoji_icon_wrapper" class="styles_emoji_icon_wrapper__1B6zt"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                                            <path fill="currentColor" fill-rule="evenodd"
+                                                d="M10 18.5v-.099.099a8.5 8.5 0 1 1 8.5-8.5 8.51 8.51 0 0 1-8.5 8.5ZM5.964 3.96A7.265 7.265 0 0 1 10 2.734 7.273 7.273 0 0 1 17.265 10 7.265 7.265 0 1 1 5.964 3.96Zm7.016 2.576a3.21 3.21 0 0 0-1.855.59c-.294.208-.28.616-.043.854.244.244.623.226.896.065a1.975 1.975 0 0 1 2.006 0c.273.161.652.178.895-.066.237-.238.25-.644-.043-.852a3.21 3.21 0 0 0-1.856-.591Zm-5.95-.012c-.67 0-1.317.209-1.856.59-.293.208-.28.615-.043.853.244.244.623.227.895.066a1.975 1.975 0 0 1 2.007 0c.272.16.65.178.895-.066.238-.238.251-.645-.043-.853a3.21 3.21 0 0 0-1.855-.59Zm-.055 4.638c-.227-.24-.607-.305-.883-.098-.27.202-.334.593-.1.852A5.412 5.412 0 0 0 10 13.698a5.411 5.411 0 0 0 3.99-1.782c.235-.259.17-.65-.099-.852-.276-.207-.656-.142-.883.098a4.152 4.152 0 0 1-6.033 0Z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></div>
+                                </div>
+                                <div><input class="styles_input__19OOM" id="file_uploader" type="file"><label
+                                        class="styles_label__hGejy" for="file_uploader"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                            class="styles_attach_icon__3iuk6">
+                                            <path fill="currentColor" fill-rule="evenodd" stroke="currentColor"
+                                                stroke-width=".2"
+                                                d="m16.49 7.76-2.04 2.068-4.892 4.966a2.282 2.282 0 0 1-3.26 0 2.365 2.365 0 0 1 0-3.31l5.303-5.38.816.829-5.305 5.378a1.18 1.18 0 0 0 .373 1.909 1.14 1.14 0 0 0 1.258-.255l5.304-5.378 1.632-1.654a2.365 2.365 0 0 0 0-3.31l-.408-.414a2.28 2.28 0 0 0-3.261 0L9.97 5.278l-5.303 5.378a3.547 3.547 0 0 0 0 4.965l.815.827a3.424 3.424 0 0 0 4.892 0l5.305-5.378.815.827-5.304 5.38a4.566 4.566 0 0 1-6.523 0l-.816-.829a4.728 4.728 0 0 1 0-6.619l1.223-1.242L7.84 5.775 9.147 4.45l2.038-2.069a3.423 3.423 0 0 1 4.892 0l.408.414a3.549 3.549 0 0 1 .005 4.966Z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></label></div>
+                            </div>
+                        </div><span class="styles_button__1mvfr styles_button_hidden__BQA9L" role="button"
+                            tabindex="0"><svg width="44" height="44" viewBox="0 0 44 44"
+                                xmlns="http://www.w3.org/2000/svg" class="styles_button_icon__saQOE">
+                                <path
+                                    d="M22 44C34.1503 44 44 34.1503 44 22C44 9.84974 34.1503 0 22 0C9.84974 0 0 9.84974 0 22C0 34.1503 9.84974 44 22 44Z">
+                                </path>
+                                <path
+                                    d="M12.4018 33.2906L14.3762 24.7405C14.4541 24.3767 14.7658 24.0908 15.1555 24.0389L26.1964 22.8954C26.5081 22.8694 26.5081 22.4016 26.1964 22.3497L15.1555 21.2842C14.7658 21.2582 14.4541 20.9723 14.3762 20.6085L12.4018 12.0844C12.2199 11.3568 12.9993 10.7591 13.6747 11.0969L35.2629 21.9079C35.9124 22.2457 35.9124 23.1813 35.2629 23.5191L13.6747 34.2781C12.9993 34.6159 12.2199 34.0182 12.4018 33.2906Z"
+                                    fill="white"></path>
+                            </svg></span>
+                    </div>
+                </div>
+            </div> -->
+            <!-- Live chat box -->
+
 
 
 
@@ -72,27 +178,20 @@
 
             </div>
             <!-- <button (click)="open()">Search</button> -->
-            <nz-drawer
-[nzClosable]="false"
-[nzVisible]="visible"
-[nzPlacement]="placement"
-nzTitle="Basic Drawer"
-(nzOnClose)="close()"
-[nzWrapClassName]="custom_drawer"
-
->
-<ng-container *nzDrawerContent>
-  <p>Some contents...</p>
-  <p>Some contents...</p>
-  <p>Some contents...</p>
-</ng-container>
-</nz-drawer>
+            <nz-drawer [nzClosable]="false" [nzVisible]="visible" [nzPlacement]="placement" nzTitle="Basic Drawer"
+                (nzOnClose)="close()" [nzWrapClassName]="custom_drawer">
+                <ng-container *nzDrawerContent>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                </ng-container>
+            </nz-drawer>
             <nz-footer>
                 <app-d-footer></app-d-footer>
             </nz-footer>
         </nz-content>
     </nz-layout>
-    
+
 </nz-layout>
 
 

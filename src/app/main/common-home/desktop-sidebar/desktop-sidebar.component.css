@@ -52,3 +52,6 @@ background-color: #000912;
   ::ng-deep .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected{
     background-color: #343537;
   }
+  ::ng-deep .ant-layout-sider::-webkit-scrollbar {
+    width: 0px; 
+}

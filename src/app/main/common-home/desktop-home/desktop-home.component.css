@@ -209,10 +209,10 @@ border-radius: 5px;
   }
 
   .carousel::-webkit-scrollbar {
-    width: 0px;  /* For Chrome, Safari, and Opera */
+    width: 0px; 
 }
   .ashu::-webkit-scrollbar {
-    width: 0px;  /* For Chrome, Safari, and Opera */
+    width: 0px; 
 }
   /* live chat */
   
