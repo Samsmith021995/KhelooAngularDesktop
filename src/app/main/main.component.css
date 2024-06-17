@@ -2252,3 +2252,8 @@ body:not(.no-titles) .amo-button:hover .amo-button__title {
   
 /* Live chat Box */
 /* Live chat Box */
+
+.widget-visible>iframe{
+    left: auto !important;
+    right:20px !important
+}

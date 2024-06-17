@@ -45,8 +45,21 @@ export class MainComponent implements OnInit {
             });
         }
       });
+      
   }
-    visible = false;
+  recheck(){
+    // var Tawk_API:any=Tawk_API||{}, Tawk_LoadStart=new Date();
+    // (function(){
+    // var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    // s1.async=false;
+    // s1.src='https://embed.tawk.to/60a22370185beb22b30ddc1d/1f5slks90';
+    // s1.charset='UTF-8';
+    // s1.setAttribute('crossorigin','*');
+    // s0.parentNode?.insertBefore(s1,s0);
+    // })();
+  }
+
+     visible = false;
   placement: NzDrawerPlacement = 'top';
   open(): void {
     this.custom_drawer = 'custom-drawer';

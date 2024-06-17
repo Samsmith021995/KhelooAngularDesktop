@@ -390,3 +390,28 @@ input, button, select, a {
   width: calc(100% - 300px) !important;
   max-width: none !important;
 }
+#tawkmin {
+  right: 0 !important;
+  left: auto !important;
+}
+
+/* Hide Tawk.to widget on small screens */
+@media (max-width: 767px) {
+  #tawkmin {
+    display: none !important;
+  }
+}
+::ng-deep iframe[title="chat widget"] {
+  position: fixed !important;
+  right: 0 !important;
+  left: auto !important;
+  bottom: 0 !important;
+  z-index: 9999;  /* Ensure it's on top */
+}
+
+/* Hide Tawk.to widget on small screens */
+@media (max-width: 767px) {
+  iframe[title="chat widget"] {
+    display: none !important;
+  }
+}
