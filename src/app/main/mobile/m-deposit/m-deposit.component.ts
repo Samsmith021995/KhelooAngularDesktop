@@ -71,9 +71,9 @@ export class MDepositComponent implements OnInit, OnDestroy {
         if (data) {
           this.paymentGateway = data
           this.showsubmitbtn = false;
-          this.paymentGateway.forEach((element)=>{
-          this.finalDepositPro1(element);
-        });
+        //   this.paymentGateway.forEach((element)=>{
+        //   this.finalDepositPro1(element);
+        // });
         }
       },
       error: err => {
