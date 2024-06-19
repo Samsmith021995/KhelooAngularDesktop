@@ -11,7 +11,7 @@
                 @for (item of gamesProvider; track $index) {
                 <a (click)="redirectCategory(item.title)">
                     <div class="carousel-inner" [ngClass]="{'selected':gameName == item.title}">
-                        <img [src]="item.src" alt="" style="width: 100px;height: 50px;">
+                        <img [src]="item.src" alt="" style="width: 100px;height: 70px; margin: auto;">
                     </div>
                 </a>
              }

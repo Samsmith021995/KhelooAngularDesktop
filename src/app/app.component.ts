@@ -27,8 +27,8 @@ export class AppComponent implements OnInit,OnDestroy {
     this.commonSer.myVariable$.subscribe((width)=>{
       this.isSmallScreen = width === "true";
     });   
-    this.loadTawkScript();
-    window.addEventListener('resize', this.handleResize);
+    // this.loadTawkScript();
+    // window.addEventListener('resize', this.handleResize);
    
   }
 
@@ -80,36 +80,34 @@ export class AppComponent implements OnInit,OnDestroy {
   }
 
   private handleWidgetMutation = (): void => {
-    const tawkWidgetIframe = document.querySelector('iframe[title="chat widget"]') as HTMLElement | null;
-    // const tawkChatContainer = document.querySelector('iframe title="chat widget"] .open') as HTMLElement | null;
+    const tawkWidgetIframes = document.querySelectorAll('iframe[title="chat widget"]') as NodeListOf<HTMLIFrameElement>;
+    if (tawkWidgetIframes.length > 0) {
+      tawkWidgetIframes.forEach((iframe, index) => {
+        this.applyInlineStyles(iframe, index);
+        this.toggleWidgetVisibility(iframe, index);
+      });
+    }
+  }
 
-    if (tawkWidgetIframe) {
-      this.applyInlineStyles(tawkWidgetIframe);
-      this.toggleWidgetVisibility(tawkWidgetIframe);
-    }
-    // if (tawkChatContainer) {
-    //   this.applyChatContainerStyles(tawkChatContainer);
-    // }
-  }
-  private applyChatContainerStyles(container: HTMLElement): void {
-    container.style.right = '0';
-    container.style.left = 'auto';
-  }
   private handleResize = (): void => {
-    const tawkWidgetIframe = document.querySelector('iframe[title="chat widget"]') as HTMLElement | null;
-    if (tawkWidgetIframe) {
-      this.toggleWidgetVisibility(tawkWidgetIframe);
+    const tawkWidgetIframes = document.querySelectorAll('iframe[title="chat widget"]') as NodeListOf<HTMLIFrameElement>;
+    if (tawkWidgetIframes.length > 0) {
+      tawkWidgetIframes.forEach((iframe, index) => {
+        // this.applyInlineStyles(iframe, index);
+        this.toggleWidgetVisibility(iframe, index);
+      });
     }
   }
-  private applyInlineStyles(iframe: HTMLElement): void {
+
+  private applyInlineStyles(iframe: HTMLIFrameElement, index: number): void {
     iframe.style.position = 'fixed';
     iframe.style.right = '0';
-    iframe.style.left = 'auto ';
+    iframe.style.left = 'auto';
     iframe.style.bottom = '0';
-    iframe.style.zIndex = '9999';
+    // iframe.style.zIndex = '999999';
   }
 
-  private toggleWidgetVisibility(iframe: HTMLElement): void {
+  private toggleWidgetVisibility(iframe: HTMLIFrameElement, index: number): void {
     if (window.innerWidth < 768) {
       iframe.style.display = 'none';
     } else {

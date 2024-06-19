@@ -15,6 +15,8 @@ import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
 export class MainComponent implements OnInit {
   isSmallScreen!:boolean;
   isUrlPresent!:boolean;
+  iconOpen:boolean = false;
+  chatOp:boolean = false;
   custom_drawer:string = '';
   private urlSubscription!: Subscription;
   constructor(private commonSer:CommonServiceService,private urlSer:UrlService,private router:ActivatedRoute,private routing:Router,private apiSer:ApiService){}
@@ -58,12 +60,19 @@ export class MainComponent implements OnInit {
     // s0.parentNode?.insertBefore(s1,s0);
     // })();
   }
-
-     visible = false;
+  visible = false;
   placement: NzDrawerPlacement = 'top';
   open(): void {
     this.custom_drawer = 'custom-drawer';
     this.visible = true;
+  }
+
+  ChatBoxOpen(){
+    this.chatOp = !this.chatOp;
+  }
+  LiveChatOpen(){
+  this.iconOpen = !this.iconOpen;
+  this.chatOp =false;
   }
 
   close(): void {

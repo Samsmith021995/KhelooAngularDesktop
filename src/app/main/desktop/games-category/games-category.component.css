@@ -79,9 +79,9 @@
   margin-right: 3px; 
   text-align: center;
   border-radius: 4px;
-  img{
+  /* img{
     filter: brightness(5);
-  }
+  } */
 }
 .left-icon{
   background-color: #903cb3;
