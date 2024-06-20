@@ -77,6 +77,22 @@ export class ComFunService {
     this.router.navigate(['/games', param]);
 
   }
+  loginCheck(param?:any){
+    this.isLoggedInSubscription = this.apiSer.isLoggedIn$.subscribe((value) => {
+      this.isLoggedIn = value;
+    });
+    if(!this.isLoggedIn){
+      let diaRef3:any = '';
+      diaRef3 = this.dialog.open(LoginPopupComponent,{
+        width:'1200px'
+      });
+      diaRef3.afterClosed().subscribe(() => { });
+      return
+    }
+    this.router.navigate(['/'+param]);
+
+  }
+
   getAllGames(){
     if (this.isDataLoaded) {
       this.gamesDataSubject.next(this.gamesData);
@@ -162,7 +178,9 @@ export class ComFunService {
     return this.gamesData$.pipe(
         map(data => {
             const uniqueGames = new Map<number, any>(); // Use game_id as the key
-
+            if (!Array.isArray(searchStrings)) {
+              searchStrings = [searchStrings]; // Convert to array if it's not already
+            }
             // Filter games based on search strings and uniqueness of game_id
             data.forEach(game => {
                 const matchesSearch = searchStrings.some(searchString => 
@@ -205,5 +223,19 @@ export class ComFunService {
   //     })
   //   );
   // }
+  private drawerVisibleSubject = new BehaviorSubject<boolean>(false);
+  drawerVisible$ = this.drawerVisibleSubject.asObservable();
+
+  openDrawer() {
+    this.drawerVisibleSubject.next(true);
+  }
+
+  closeDrawer() {
+    this.drawerVisibleSubject.next(false);
+  }
+  toggleDrawer() {
+    this.drawerVisibleSubject.next(!this.drawerVisibleSubject.value);
+  }
+
 
 }

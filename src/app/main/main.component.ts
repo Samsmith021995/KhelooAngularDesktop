@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonServiceService } from './service/common-service.service';
 import { UrlService } from './service/url.service';
-import { Subscription } from 'rxjs';
+import { Subscription, debounceTime } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './service/api.service';
 import { config } from './service/config';
 import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
+import { ComFunService } from './service/com-fun.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-main',
@@ -13,18 +15,53 @@ import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
   styleUrl: './main.component.css'
 })
 export class MainComponent implements OnInit {
+  searchGames: any[] = [];
   isSmallScreen!:boolean;
   isUrlPresent!:boolean;
   iconOpen:boolean = false;
   chatOp:boolean = false;
   custom_drawer:string = '';
+  visible = false;
+  searchForm!:FormGroup;
+  loopArray: number[] = [];
   private urlSubscription!: Subscription;
-  constructor(private commonSer:CommonServiceService,private urlSer:UrlService,private router:ActivatedRoute,private routing:Router,private apiSer:ApiService){}
+  elementActive:boolean =true;
+  startLoading:boolean = false;
+  constructor(private commonSer:CommonServiceService,private urlSer:UrlService,private router:ActivatedRoute,private routing:Router,private apiSer:ApiService,private comFun:ComFunService,private fb:FormBuilder){}
   ngOnInit(): void {
+    this.searchForm = this.fb.group({
+      search:[""],
+    });
+    this.loopArray = Array.from({ length: 60 }, (_, i) => i + 1);
+    // this.searchForm.controls['search'].valueChanges.subscribe((data)=>{
+    //   if(data.length > 0){
+    //     this.comFun.filterGames(data)?.subscribe(filteredGames => {
+    //       this.searchGames = [...filteredGames];
+    //     });
+    //   }
+    //   console.log(this.searchGames)
+    // });
+    this.searchForm.controls['search'].valueChanges.pipe(
+      debounceTime(3000) // Adjust the debounce time as needed
+    ).subscribe((data) => {
+      // this.startLoading = true;
+      // this.startLoading = true;
+      if (data.length > 0) {
+        this.comFun.filterGames(data)?.subscribe(filteredGames => {
+          this.searchGames = [...filteredGames];
+          debounceTime(3000) // Adjust the debounce time as needed
+          this.startLoading = false;
+        });
+      } else {
+        this.searchGames = []; // Clear the search results if input is empty
+      }
+    });
     this.commonSer.myVariable$.subscribe((width)=>{
       this.isSmallScreen = width === "true";
     });
-    
+    this.comFun.drawerVisible$.subscribe(visible => {
+      this.visible = visible;
+    });
     this.urlSubscription = this.urlSer
       .getIsUrlPresent().
       subscribe((isUrlPresent1) => {
@@ -49,22 +86,16 @@ export class MainComponent implements OnInit {
       });
       
   }
-  recheck(){
-    // var Tawk_API:any=Tawk_API||{}, Tawk_LoadStart=new Date();
-    // (function(){
-    // var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    // s1.async=false;
-    // s1.src='https://embed.tawk.to/60a22370185beb22b30ddc1d/1f5slks90';
-    // s1.charset='UTF-8';
-    // s1.setAttribute('crossorigin','*');
-    // s0.parentNode?.insertBefore(s1,s0);
-    // })();
+  searchIn(){
+    this.startLoading = true;
   }
-  visible = false;
+  gameStart(param: any) {
+    this.comFun.checkLoginRedirect(param);
+  }
   placement: NzDrawerPlacement = 'top';
   open(): void {
     this.custom_drawer = 'custom-drawer';
-    this.visible = true;
+    this.comFun.openDrawer();
   }
 
   ChatBoxOpen(){
@@ -76,7 +107,7 @@ export class MainComponent implements OnInit {
   }
 
   close(): void {
-    this.visible = false;
+    this.comFun.closeDrawer();
     this.custom_drawer = '';
   }
   callSupport(val:any){

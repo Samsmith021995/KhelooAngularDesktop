@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { ComFunService } from '../../service/com-fun.service';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
   profileRef:string = '';
   private logcheck !: Subscription;
   userBalance: number = 0;
-  constructor(private fb: FormBuilder, private apiSer: ApiService, private comSer: CommonServiceService, private router: Router,private dialog:MatDialog,private msg:NzMessageService) { }
+  constructor(private fb: FormBuilder, private apiSer: ApiService, private comSer: CommonServiceService, private router: Router,private dialog:MatDialog,private msg:NzMessageService,private comFun:ComFunService) { }
 
   ngOnInit(): void {
     this.loginchecks();
@@ -237,6 +238,8 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
     this.showmenu = false;
   }
 
-  
+  search(){
+    this.comFun.toggleDrawer();
+  }
 
 }

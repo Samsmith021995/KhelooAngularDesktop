@@ -390,3 +390,14 @@ a.navbar-brand.fw-bold {
 .buttons:hover{
   background-image: linear-gradient(to right, #e0d37f, #bc9d36);
 }
+.search-input{
+  /* width: ; */
+  height: 38px;
+  padding: 0.4rem 0.6rem;
+  background: none;
+  background-color: #000c24;
+  border: none;
+  margin-right: 1rem;
+  border-radius: 5px;
+  border:1px solid #FFBF00;
+}

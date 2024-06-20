@@ -491,8 +491,8 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent,
-    canActivate: [LoginGuard, DesktopGuard],
+    component: MSignupComponent,
+    canActivate: [LoginGuard],
     data: {
       title: 'Register- Kheloo',
       description: ''
