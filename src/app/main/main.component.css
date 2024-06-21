@@ -32,7 +32,8 @@ nz-layout:last-child {
 nz-header {
   position: fixed;
   width: 100%;
-  z-index: 11000;
+  z-index: 1000;
+  height: 91px;
 }
 
 nz-sider {
@@ -40,7 +41,7 @@ nz-sider {
   height: 100%;
   position: fixed;
   left: 0;
-  z-index: 11000;
+  z-index: 1002;
   padding: 1rem;
   top: 0;
   left: 0;
@@ -58,9 +59,12 @@ nz-header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 11000;
+  z-index: 1000;
   position: fixed;
 }
+/* ::ng-deep .cdk-overlay-container {
+  z-index: 1005;
+} */
 
 nz-content {
   margin: 5rem 16px 0;
@@ -83,12 +87,13 @@ nz-content {
   left: 200px !important; 
   justify-self: right;
   width: 100%;
+  z-index: 900 !important;
   /* background: #2e3640 !important; */
 }
-/* ::ng-deep nz-drawer {
+::ng-deep .ant-drawer {
   
-  z-index: -1;
-} */
+  z-index: 900 !important;
+}
 :ng-deep html {
   top: 0px !important;
 }

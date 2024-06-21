@@ -1,3 +1,38 @@
+<nz-drawer [nzClosable]="false" [nzVisible]="visible" [nzPlacement]="placement" nzTitle="Search" (nzOnClose)="close()"
+    [nzWrapClassName]="custom_drawer" [nzOffsetX]="240" [nzOffsetY]="91" [nzMask]="true" [nzZIndex]="900">
+    <ng-container *nzDrawerContent>
+        <div class="search-form">
+            <form action="" [formGroup]="searchForm">
+                <input type="text" placeholder="search" formControlName="search" class="seach-input"
+                    (input)="searchIn()">
+            </form>
+        </div>
+        <div nz-row>
+            @for (item of searchGames; track $index) {
+            <div nz-col nzXs="12" nzSm="8" nzMd="6" nzLg="6" nzXl="4" class="game-img-data">
+                <img nz-image width="100%" [nzSrc]="item.url_thumb" alt="" />
+
+                <a (click)="gameStart(item.game_id)">
+                    <div class="playbtn ">
+                        <div class="playbtn-back">
+                            <img src="/assets/images/play_icon.png" alt="" class="casino-game-item-image-bc"
+                                class="play">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            }
+            @if(startLoading){
+            @for (item of loopArray; track $index) {
+            <div nz-col nzXs="12" nzSm="8" nzMd="6" nzLg="6" nzXl="4">
+                <nz-skeleton-element nzType="image" [nzActive]="elementActive" width="150px"></nz-skeleton-element>
+            </div>
+            }
+            }
+        </div>
+    </ng-container>
+</nz-drawer>
+
 @if(isSmallScreen){
 <app-mobile-header></app-mobile-header>
 <router-outlet></router-outlet>
@@ -16,9 +51,6 @@
             <app-desktop-sidebar></app-desktop-sidebar>
         </nz-sider>
         <nz-content>
-            <script type="text/javascript">
-
-            </script>
             <!-- Live Chat start -->
             <div class="amo-button-holder amo-horisontal"
                 style="position: fixed; z-index: 100000; right: 90px; bottom: 90px;">
@@ -118,7 +150,7 @@
             <!-- Live chat box -->
 
             <!-- MainContainer -->
-            <div style="min-height: 800px;">
+            <div style="min-height: 800px;margin-top: 1rem;">
                 <nz-back-top></nz-back-top>
                 <router-outlet></router-outlet>
             </div>
@@ -128,47 +160,13 @@
             </nz-footer>
         </nz-content>
     </nz-layout>
-    
+
 </nz-layout>
 
-            <!-- Search -->
-          
-            <nz-drawer [nzClosable]="false" [nzVisible]="visible" [nzPlacement]="placement" nzTitle="Search"
-            (nzOnClose)="close()" [nzWrapClassName]="custom_drawer"  [nzOffsetX]="240" [nzOffsetY]="64" [nzMask]="true" [nzZIndex]="900">
-                            <ng-container *nzDrawerContent>
-                              <div class="search-form">
-                                <form action="" [formGroup]="searchForm">
-                                    <input type="text" placeholder="search" formControlName="search" class="seach-input" (input)="searchIn()">
-                                </form>
-                              </div>
-                              <div nz-row  >
-                                @for (item of searchGames; track $index) {
-                                    <div nz-col nzXs="12" nzSm="8" nzMd="6" nzLg="6" nzXl="4"  class="game-img-data">
-                                        <img nz-image width="100%"
-                                        [nzSrc]="item.url_thumb" alt="" />
-                        
-                                    <a (click)="gameStart(item.game_id)">
-                                        <div class="playbtn ">
-                                            <div class="playbtn-back">
-                                                <img src="/assets/images/play_icon.png" alt="" class="casino-game-item-image-bc"
-                                                    class="play">
-                                            </div>
-                                        </div>
-                                        </a>
-                                    </div>
-                                }
-                                @if(startLoading){
-                                    @for (item of loopArray; track $index) {
-                                        <div nz-col nzXs="12" nzSm="8" nzMd="6" nzLg="6" nzXl="4">  
-                                            <nz-skeleton-element nzType="image" [nzActive]="elementActive" width="150px" ></nz-skeleton-element>
-                                        </div>
-                                    }
-                                }
-                        </div>
-                            </ng-container>
-                        </nz-drawer>
-            
-            <!-- Search -->
+<!-- Search -->
+
+
+<!-- Search -->
 
 
 <!-- <app-desktop-header></app-desktop-header>

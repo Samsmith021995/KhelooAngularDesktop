@@ -80,6 +80,7 @@ import { WithdrawPopComponent } from '../desktop/profile-popup/withdraw-pop/with
 import { StatementPopComponent } from '../desktop/profile-popup/statement-pop/statement-pop.component';
 import { ForgotPopupComponent } from '../desktop/auth/forgot-popup/forgot-popup.component';
 import { ProfileDetailsComponent } from '../desktop/profile-popup/profile-details/profile-details.component';
+import { HowToWithdrawComponent } from '../desktop/profile-popup/how-to-withdraw/how-to-withdraw.component';
 
 const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserOutline ];
 @NgModule({
@@ -111,7 +112,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
     WithdrawPopComponent,
     StatementPopComponent,
     ForgotPopupComponent,
-    ProfileDetailsComponent
+    ProfileDetailsComponent,
+    HowToWithdrawComponent
     
     
   ],
@@ -190,6 +192,7 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   StatementPopComponent,
   ForgotPopupComponent,
   ProfileDetailsComponent,
+  HowToWithdrawComponent,
   CommonModule,
   FormsModule,
   HttpClientModule,

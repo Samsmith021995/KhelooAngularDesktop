@@ -30,14 +30,15 @@ export class ProfileDetailsComponent implements OnInit{
     let param = this.resetForm.getRawValue();
     this.apiService.apiRequest(config['changePassword'], param).pipe(
       catchError((error) => {
-        this.apiService.showAlert('Something Went Wrong', 'Check your Internet Connection', 'error');
+        this.msg.error('Something Went Wrong', {nzDuration:3000,nzPauseOnHover:true});
         console.error('An error occurred:', error);
         throw error
       })
     ).subscribe(
       data => {
-        if (data.ErrorCode == '1') {
+        if (data.ErrorCode === "1") {
           this.msg.success(data.ErrorMessage, {nzDuration:3000,nzPauseOnHover:true});
+          this.resetForm.reset();
         } else {
 
           this.msg.error(data.ErrorMessage, {nzDuration:3000,nzPauseOnHover:true});

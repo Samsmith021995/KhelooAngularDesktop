@@ -77,4 +77,7 @@ export class WithdrawPopComponent  implements OnInit{
       }
     });
   }
+  viewWithdraw(){
+    
+  }
 }

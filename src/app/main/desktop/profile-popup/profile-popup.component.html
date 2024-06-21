@@ -82,8 +82,8 @@
                                     <div class="icon-title">
                                         <i-feather name="book"></i-feather>
                                     </div>
-                                    <div class="text-det">
-                                        <span>Statement</span>
+                                    <div class="text-det" style="margin-top: 0.8rem;">
+                                      <span (click)="changemenu('statement')">Statement</span>
 
                                     </div>
                                 </div>
@@ -187,6 +187,9 @@
                 }
                 @case ("profile") {
                 <app-profile-details></app-profile-details>
+                }
+                @case ("howToWith") {
+                <app-how-to-withdraw></app-how-to-withdraw>
                 }
                 }
             </div>

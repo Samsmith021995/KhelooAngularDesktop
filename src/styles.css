@@ -415,3 +415,13 @@ input, button, select, a {
     display: none !important;
   }
 }
+ /* ::ng-deep .ant-notification {
+  z-index: 10500000; /* Adjust as needed */
+
+ /* .cdk-global-overlay-wrapper,.cdk-overlay-container{
+  z-index: 999 !important;
+} */
+.dropdown-menu{
+  
+  z-index: 1001 !important;
+}
