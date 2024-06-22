@@ -1,4 +1,6 @@
 <div class="container">
+@if(withdrawForm){
+
     <div class="heading">
         <span>Withdraw</span>
         <button nz-button class="button-withdraw" (click)="viewWithdraw()"> How to Withdraw?</button>
@@ -109,4 +111,13 @@
 
         </nz-tab>
     </nz-tabset>
+    
+}
+@else {
+    <div class="heading">
+        <span (click)="viewWithdraw()" style="cursor: pointer;"><i-feather name="arrow-left"></i-feather> Back</span>
+        <!-- <button nz-button class="button-withdraw" > How to Withdraw?</button> -->
+    </div>
+    <app-how-to-withdraw></app-how-to-withdraw>
+}
 </div>

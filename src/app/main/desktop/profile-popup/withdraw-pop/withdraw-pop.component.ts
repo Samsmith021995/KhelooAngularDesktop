@@ -12,13 +12,16 @@ import { config } from 'src/app/main/service/config';
 })
 export class WithdrawPopComponent  implements OnInit{
   formLoading:boolean = false
-  isLoading:boolean = false
+  isLoading:boolean = false;
+  withdrawForm:boolean = true;
   // isSpinning:boolean = 
   bankForm !:FormGroup;
   withdrawStatement: any;
   private loaderSubscriber !: Subscription;
   constructor(private fb:FormBuilder,private apiSer:ApiService,private msg:NzMessageService){}
   ngOnInit(): void {
+
+  this.withdrawForm = true;
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.isLoading = ('withdrawReq' in loading) ? true : false;
       // this.isStatusLoading = ('withdrawState' in loading) ? true : false;
@@ -78,6 +81,6 @@ export class WithdrawPopComponent  implements OnInit{
     });
   }
   viewWithdraw(){
-    
+    this.withdrawForm = !this.withdrawForm;
   }
 }
