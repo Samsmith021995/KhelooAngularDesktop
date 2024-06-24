@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../service/api.service';
 import { catchError } from 'rxjs';
@@ -14,7 +14,9 @@ export class GamesCategoryComponent implements OnInit {
   gameName!: string;
   gamesData: any[] = [];
   elementActive: boolean = true;
-
+  @ViewChild('scrollContainer', { static: true }) scrollContainer!: ElementRef;
+  canScrollLeft = false;
+  canScrollRight = true;
   loopArray: number[] = [];
   constructor(private activeRooute: ActivatedRoute, private apiSer: ApiService, private comFun: ComFunService,private router:Router) { }
   gamesProvider = [
@@ -51,32 +53,33 @@ export class GamesCategoryComponent implements OnInit {
     });
     this.loopArray = Array.from({ length: 60 }, (_, i) => i + 1);
   }
-  // getGames(category: String) {
-  //   let param = { GameCategory: category };
-  //   this.apiSer.apiRequest(config['gameList'], param).pipe(
-  //     catchError((error) => {
-  //       throw error;
-  //     })
-  //   ).subscribe(data => {
-  //     if (data) {
-  //       this.gamesData = data;
-  //       console.log(data);
-  //     }
-  //   });
 
-  // }
   gameStart(param: any) {
     this.comFun.checkLoginRedirect(param);
   }
   redirectCategory(item:string){
-    // console.log("categoty:"+item)
     this.router.navigate(['/gamesCat',item]);
   }
-  scrollleft(item:HTMLElement,param:String){
-    if(param == 'left'){
-      item.scrollBy({ left: -200, behavior: 'smooth' });
-    }else{
-      item.scrollBy({ left: 200, behavior: 'smooth' });
+
+  checkScroll() {
+    const scrollContainer = this.scrollContainer.nativeElement;
+    const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+    this.canScrollLeft = scrollContainer.scrollLeft > 0;
+    this.canScrollRight = Math.round(scrollContainer.scrollLeft) < Math.round(maxScrollLeft);
+  }
+
+  scroll(container: HTMLElement, direction: 'left' | 'right') {
+    const scrollAmount = 200;
+    if (direction === 'left') {
+      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
+    setTimeout(() => this.checkScroll(), 300); // Adjust delay as needed
+  }
+
+  trackByIndex(index: number, item: any): number {
+    return index;
   }
 }

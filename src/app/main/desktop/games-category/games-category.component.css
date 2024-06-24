@@ -102,6 +102,9 @@
   z-index: 10;
   margin-top: 1rem;
 }
+.disable{
+  background-color: #6c467c !important;
+}
 .right{
   right: 10px;
 }

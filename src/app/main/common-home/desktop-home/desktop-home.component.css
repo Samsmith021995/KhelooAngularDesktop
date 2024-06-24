@@ -225,3 +225,77 @@ border-radius: 5px;
   .h2-heading i-feather{
     width: 18px;
   }
+
+
+
+  /* live withdraw */
+  .live_icon_container1,
+.live_para {
+    display: inline-block;
+    float: left;
+}
+
+.live_icon_container1 img {
+    width: 45px;
+}
+
+.live_para p {
+    margin-bottom: 0;
+}
+
+.live_icon_container1 {
+    /* padding: 5px; */
+    /* border: 3px solid #d57f23; */
+    /* border-radius: 50%; */
+
+}
+
+.live_para {
+    /* margin-left: 5px; */
+}
+
+p.live_small_text {
+    font-size: 12px !important;
+    opacity: 0.5;
+}
+
+p.live_title {
+    font-family: serif;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+}
+
+.live_ind_container1 {
+    margin-top: 15px;
+    margin-right: 15px;
+    padding-right: 0;
+}
+
+.live_container {
+    padding: 0 15px;
+}
+
+.live_sub_container1 {
+    /* background: url(/assets/images/Withdrawl-Board_9.png) round; */
+    /* background-color: #2b2b2b; */
+    padding: 0;
+    padding-bottom: 23px;
+    border-radius: 22px;
+    border-left: 2px solid #c8b683;
+    position: relative;
+    border-right: 2px solid #c8b683;
+}
+
+
+
+
+
+
+.live_main_with1{
+  background-color: #2b2b2b;
+  margin: 0.8rem 1.5rem;
+  border-radius: 10px;
+  min-width: 200px;
+}
+
+  /* live withdraw */

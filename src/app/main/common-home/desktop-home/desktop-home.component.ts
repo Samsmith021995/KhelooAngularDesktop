@@ -70,6 +70,21 @@ export class DesktopHomeComponent implements OnInit,AfterViewInit {
     {title:'Relax Gaming',src:this.comfun.cdn+'provider/relax.svg'},
     {title:'netent',src:this.comfun.cdn+'provider/netent.svg'},
   ];
+  profileImg = [
+    '/assets/profile-image.png',
+    '/assets/third.jpg',
+    '/assets/fourth.jpg',
+    '/assets/fifth.jpg',
+    '/assets/profile-image.png',
+    '/assets/third.jpg',
+    '/assets/fourth.jpg',
+    '/assets/fifth.jpg'
+  ]
+  countDownValue = 6598326;
+  displayValue=this.countDownValue.toString();
+  private intervalId: any;
+  dataDetails:any = [];
+
   ngOnInit(): void {
     this.bannnerImage();
     this.getAllCategory(this.selected);
@@ -81,7 +96,22 @@ export class DesktopHomeComponent implements OnInit,AfterViewInit {
     this.comfun.getCategorizedGames().subscribe(gamesByCategory => {
     this.gamesData = gamesByCategory;
     });
-   
+
+
+    this.getRecentWith();
+    setInterval(() => {
+      this.getRecentWith()
+    }, 30000);
+    this.intervalId = setInterval(() => {
+      this.countDownValue++;
+    
+      if (this.countDownValue.toString().length > 7) {
+        this.countDownValue = 1000000; // Reset to a specific 7-digit number
+      }
+    
+      // Ensure the display value is always 7 digits long
+      this.displayValue = this.countDownValue.toString().padStart(7, '0');
+    }, 1000)
   }
 
   bannnerImage() {
@@ -202,6 +232,26 @@ export class DesktopHomeComponent implements OnInit,AfterViewInit {
     this.scrollElement.forEach((container, index) => {
       this.checkScrollButtons(index);
     });
+  }
+
+
+
+  getRecentWith(){
+    this.apiSer.apiRequest(config['recent']).subscribe({
+      next:data=>{
+        if(data){
+          this.dataDetails = data;
+        }
+      },
+      error:err=>{
+        console.error(err);
+      }
+    });
+  }
+  ngOnDestroy(): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
   }
   // visible = false;
   // placement: NzDrawerPlacement = 'top';

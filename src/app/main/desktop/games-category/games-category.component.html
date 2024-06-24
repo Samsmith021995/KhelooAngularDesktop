@@ -2,8 +2,8 @@
     <div class="game_providers_main_container" >
         <!-- <h2 class="game-provider-text">Game Providers</h2> -->
         <!-- <marquee behavior="" direction=""> -->
-            <a (click)="scrollleft(scrollContainer,'left')">
-                <div class="left-icon">
+            <a (click)="scroll(scrollContainer,'left')">
+                <div class="left-icon" [ngClass]="{'disable': !canScrollLeft}"> 
                     <i-feather name="arrow-left"></i-feather>
                 </div>
             </a>
@@ -17,8 +17,8 @@
              }
             
             </div>
-            <a (click)="scrollleft(scrollContainer,'right')">
-            <div class="left-icon right">
+            <a (click)="scroll(scrollContainer,'right')">
+            <div class="left-icon right" [ngClass]="{'disable': !canScrollRight}">
                 <i-feather name="arrow-right"></i-feather>
             </div>
         </a>

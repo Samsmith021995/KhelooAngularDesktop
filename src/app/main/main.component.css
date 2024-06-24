@@ -775,7 +775,7 @@ body:not(.no-titles) .amo-button:hover .amo-button__title {
 
 .playbtn {
    align-items: center;
-   background: #2B2B2D;
+   background: #070707a3;
    bottom: 0;
    display: flex;
    justify-content: center;
