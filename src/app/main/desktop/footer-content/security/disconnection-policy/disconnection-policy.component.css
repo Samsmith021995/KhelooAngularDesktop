@@ -262,11 +262,9 @@ li p{
     text-transform: uppercase;
     font-size: 20px;
     &::before {
-      /* content: "Term & Conditions"; */
       color: rgb(75 16 79 / 50%);
-      font-size: 130px;
+      font-size: 90px;
       display: block;
-      /* margin: -160px 0px; */
       font-weight: 900;
   
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -360,6 +358,7 @@ li p{
   }
   
   span.sd {
+    margin-bottom: 10px;
     color: #7814a1;
     display: block;
     font-size: 76px;
@@ -371,7 +370,7 @@ li p{
     &::before {
       content: "Disconnection Policy";
       color: rgb(75 16 79 / 50%);
-      font-size: 130px;
+      font-size: 90px;
       display: block;
       margin: -160px 0px;
       font-weight: 900;

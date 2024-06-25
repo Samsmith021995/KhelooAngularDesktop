@@ -338,7 +338,7 @@ const routes: Routes = [
         canActivate: [DesktopGuard]
       },
       {
-        path: 'gamesList/casino',
+        path: 'casino',
         component: CasinoGameComponent,
         data: {
           title: 'Kheloo-Best Online Casino in India to earn real money',
@@ -347,7 +347,7 @@ const routes: Routes = [
         canActivate: [DesktopGuard]
       },
       {
-        path: 'gamesList/poker',
+        path: 'poker',
         component: PokerGameComponent,
         data: {
           title: 'Kheloo- Best Online Poker Games to Earn Real Money',
@@ -356,7 +356,7 @@ const routes: Routes = [
         canActivate: [DesktopGuard]
       },
       {
-        path: 'gamesList/slots',
+        path: 'slots',
         component: SlotsGameComponent,
         data: {
           title: 'Best Online Slot Games to Earn Real Money at Kheloo',
@@ -365,7 +365,7 @@ const routes: Routes = [
         canActivate: [DesktopGuard]
       },
       {
-        path: 'gamesList/tablegames',
+        path: 'table',
         component: TablegamesGameComponent,
         data: {
           title: 'Kheloo- Top Online Casino Table Games in India',
@@ -375,7 +375,7 @@ const routes: Routes = [
       },
       
       {
-        path: 'gamesList/roulette',
+        path: 'roulette',
         component: RouletteGameComponent,
         data: {
           title: 'Kheloo-Play Online Roulette and Win Real Money',
@@ -385,13 +385,13 @@ const routes: Routes = [
       }
       ,
       {
-        path: 'gamesList/lottery',
+        path: 'lottery',
         component: LotteryGameComponent,
         canActivate: [DesktopGuard]
       }
       ,
       {
-        path: 'gamesList/teenpatti',
+        path: 'teenpatti',
         component: TeenpatiGameComponent,
         data: {
           title: 'Kheloo-Play Teen Patti Casino Game Online and Win Real Money',
@@ -401,12 +401,12 @@ const routes: Routes = [
       }
       ,
       {
-        path: 'gamesList/sports',
+        path: 'sports',
         component: SportsGameComponent,
         canActivate: [DesktopGuard]
       },
       {
-        path: 'gamesList/andarbahar',
+        path: 'andarbahar',
         component: AndarbaharGameComponent,
         data: {
           title: 'Kheloo- Andar Bahar Online game to win real money',
@@ -415,7 +415,7 @@ const routes: Routes = [
         canActivate: [DesktopGuard]
       },
       {
-        path: 'gamesList/baccarat',
+        path: 'baccarat',
         component: BaccaratGameComponent,
         data: {
           title: 'Kheloo-Top Online Baccarat Games to win real money',
@@ -424,7 +424,7 @@ const routes: Routes = [
         canActivate: [DesktopGuard]
       },
       {
-        path: 'gamesList/blackjack',
+        path: 'blackjack',
         component: BlackjackGameComponent,
         data: {
           title: 'Kheloo-Play Online Blackjack for Real Money in India',
