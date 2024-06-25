@@ -427,7 +427,7 @@ td img {
     &::before {
       content: "Term & Conditions";
       color: rgb(75 16 79 / 50%);
-      font-size: 130px;
+      font-size: 75px;
       display: block;
       margin: -160px 0px;
       font-weight: 900;
@@ -510,7 +510,7 @@ td img {
     &::before {
       /* content: "Term & Conditions"; */
       color: rgb(75 16 79 / 50%);
-      font-size: 130px;
+      font-size: 75px;
       display: block;
       /* margin: -160px 0px; */
       font-weight: 900;
