@@ -105,7 +105,7 @@ export class LoginpopupComponent implements OnInit{
          this.loginCheck.emit();
           this.router.navigate(['/']);
         }else if(data.ErrorCode != '1'){
-          this.apiSer.showAlert(data.ErrorMessage,'','error');
+          this.apiSer.showAlert('Login Failed','','error');
           
         }
       },

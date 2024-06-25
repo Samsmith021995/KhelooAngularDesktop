@@ -30,7 +30,7 @@ export class AuthEffects {
                             
                         }else{
                             // this.apiSer.showAlert(data.ErrorMessage,'Login Failed','error');
-                            this.msg.error('Login Failed',{nzDuration:3000})
+                            this.msg.error('Login Failed',{nzDuration:3000});
                             this.dialog.closeAll();
                         }
 
