@@ -1,6 +1,5 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './main/shared/shared.module';
@@ -23,28 +22,38 @@ import { DisconnectionPolicyComponent } from './main/desktop/footer-content/secu
 import { CasinoComponent } from './main/desktop/footer-content/games/casino/casino.component';
 import { TeenpattiComponent } from './main/desktop/footer-content/games/teenpatti/teenpatti.component';
 import { AndarBaharComponent } from './main/desktop/footer-content/games/andar-bahar/andar-bahar.component';
-import { RegisterComponent } from './main/desktop/auth/register/register.component';
 import { LoginComponent } from './main/desktop/auth/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/forgot-password.component';
 import { GamePlatformComponent } from './main/desktop/game-platform/game-platform.component';
-import { PopRegisterComponent } from './main/mobile/pop-register/pop-register.component';
 import { BottomNavbarComponent } from './main/footer/m-footer/bottom-navbar/bottom-navbar.component';
-// import { LoginpopupComponent } from './main/mobile/loginpopup/loginpopup.component';
 import { CricketBettingComponent } from './main/desktop/footer-content/sports/cricket-betting/cricket-betting.component';
 import { FootballBettingComponent } from './main/desktop/footer-content/sports/football-betting/football-betting.component';
 import { TennisBettingComponent } from './main/desktop/footer-content/sports/tennis-betting/tennis-betting.component';
 import { IplBettingComponent } from './main/desktop/footer-content/sports/ipl-betting/ipl-betting.component';
 import { OnlineSportsBettingComponent } from './main/desktop/footer-content/sports/online-sports-betting/online-sports-betting.component';
-// import { MForgotPasswordComponent } from './main/mobile/m-forgot-password/m-forgot-password.component';
 import { ApiService } from './main/service/api.service';
 import { MMenuComponent } from './main/mobile/m-menu/m-menu.component';
 import { UrlService } from './main/service/url.service';
-// import { PromotionPopupComponent } from './main/mobile/m-promotion/promotion-popup/promotion-popup.component';
-// import { MPromotionComponent } from './main/mobile/m-promotion/m-promotion.component';
 import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
 import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
 import { GameHeaderComponent } from './main/desktop/game-platform/game-header/game-header.component';
+import { DesktopSidebarComponent } from './main/common-home/desktop-sidebar/desktop-sidebar.component';
+import { PokerGameComponent } from './main/desktop/Games/poker-game/poker-game.component';
+import { SlotsGameComponent } from './main/desktop/Games/slots-game/slots-game.component';
+import { TeenpatiGameComponent } from './main/desktop/Games/teenpati-game/teenpati-game.component';
+import { StoreModule } from '@ngrx/store';
+import { AUTH_STATE_NAME } from './main/desktop/auth/state/auth.selector';
+import { AuthReducer } from './main/desktop/auth/state/auth.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './main/desktop/auth/state/auth.effects';
+import { RouletteGameComponent } from './main/desktop/Games/roulette-game/roulette-game.component';
+import { CasinoGameComponent } from './main/desktop/Games/casino-game/casino-game.component';
+import { LotteryGameComponent } from './main/desktop/Games/lottery-game/lottery-game.component';
+import { BlackjackGameComponent } from './main/desktop/Games/blackjack-game/blackjack-game.component';
+import { BaccaratGameComponent } from './main/desktop/Games/baccarat-game/baccarat-game.component';
+import { AndarbaharGameComponent } from './main/desktop/Games/andarbahar-game/andarbahar-game.component';
+import { TablegamesGameComponent } from './main/desktop/Games/tablegames-game/tablegames-game.component';
+import { SportsGameComponent } from './main/desktop/Games/sports-game/sports-game.component';
 
 @NgModule({
   declarations: [
@@ -68,9 +77,7 @@ import { GameHeaderComponent } from './main/desktop/game-platform/game-header/ga
     CasinoComponent,
     TeenpattiComponent,
     AndarBaharComponent,
-    RegisterComponent,
     LoginComponent,
-    ForgotPasswordComponent,
     GamePlatformComponent,
     BottomNavbarComponent,
     CricketBettingComponent,
@@ -79,21 +86,35 @@ import { GameHeaderComponent } from './main/desktop/game-platform/game-header/ga
     IplBettingComponent,
     OnlineSportsBettingComponent,
     MMenuComponent,
-    // PromotionPopupComponent,
-    // MPromotionComponent,
     KhelooPrivilegesComponent,
     TournamentsComponent,
-    GameHeaderComponent,  
+    GameHeaderComponent,
+    DesktopSidebarComponent,
+    PokerGameComponent,
+    SlotsGameComponent,
+    TeenpatiGameComponent,
+    RouletteGameComponent,
+    CasinoGameComponent,
+    LotteryGameComponent,
+    BlackjackGameComponent,
+    BaccaratGameComponent,
+    AndarbaharGameComponent,
+    TablegamesGameComponent,
+    SportsGameComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    BrowserAnimationsModule
-   ],
-   schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  providers: [ApiService,UrlService],
- 
+    BrowserAnimationsModule,
+    StoreModule.forFeature(AUTH_STATE_NAME, AuthReducer),
+    StoreModule.forRoot([]),
+    EffectsModule.forRoot([]),
+    EffectsModule.forFeature([AuthEffects])
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [ApiService, UrlService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,107 @@
+.container{
+    color:#fff;
+}
+.bank-Form{
+    width: 100%;
+}
+.btn-submit{
+    width: 30%;
+    border: none;
+    background: linear-gradient(90deg, #FCD95B 0%, #FDF48C 51.5%, #F4C935 100%);
+    /* border-radius: 18px 0px 18px 0px; */
+    padding: 0.5rem 3rem 2rem 3rem;
+    color: rgba(89, 11, 66, 1);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    /* margin-left: 0.5rem; */
+    
+}
+.promo-card{
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+nz-form-item{
+    /* width: 40%; */
+    /* margin: 1rem 0.5rem; */
+    border:none;
+    /* background: #2B2B2B; */
+    input{
+        background: #2B2B2B;
+        border:none;
+        color: #fff;
+        
+    }
+    
+}
+::ng-deep .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input,
+.ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input, .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover {
+    background: #2B2B2B;
+}
+::ng-deep .ant-tabs-ink-bar .ant-tabs-tab-active{
+    color: #f2b702 !important;
+  }
+  .nz-tabs-nav{
+    width: 68% !important;
+  }
+::ng-deep  .ant-tabs-tab{
+  color: #fff;
+}
+::ng-deep  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color:#f2b702 !important;
+  
+}
+::ng-deep .ant-tabs-tab:hover {
+  color:#f2b702 !important;
+  
+}
+::ng-deep .ant-tabs-top>.ant-tabs-nav::before {
+    
+  border-bottom: 1px solid rgba(55, 55, 55, 1);
+  }
+  ::ng-deep .ant-card-body {
+    padding: 10px;
+    color: #fff;
+}
+.card-details .withdraw-header{
+    justify-content: space-between;
+    display: flex;
+}
+
+.button-withdraw{
+    width: 30%;
+    border: none;
+    background: linear-gradient(180deg, #FFBF00 0%, #FC4F0B 100%);
+    /* border-radius: 18px 0px 18px 0px; */
+    /* padding: 0.5rem 3rem 2rem 3rem; */
+    padding: 0px !important;
+    color: rgba(89, 11, 66, 1);
+    /* font-size: 1rem; */
+    font-weight: 500;
+    /* margin-top: 1rem; */
+    /* margin-left: 0.5rem; */
+    text-align: center;
+    
+}
+.heading{
+    display: flex;
+    justify-content: space-between;
+}
+.withdraw-container{
+    max-height: 500px;
+    overflow-y: auto;
+}
+.success {
+  color: green;
+}
+.statuColor{
+  color: #FC4F0B !important;
+}
+.example {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    /* border-radius: 4px; */
+    margin-bottom: 20px;
+    /* padding: 30px 50px; */
+    /* margin: 20px 0; */
+  }

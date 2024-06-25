@@ -1,4 +1,5 @@
 @import url('https://kheloo.com/assets/css/HomeCss.css');
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
 .show-desktop {
     display: none;
     @media (min-width: 721px) { 
@@ -380,4 +381,47 @@ input, button, select, a {
     /* background: transparent; */
     border: 1px solid #fff !important;
     /* color: white !important; */
+}
+
+.custom-drawer .ant-drawer-content-wrapper {
+  top: 64px !important;
+  left: 300px !important;
+  height: calc(100% - 64px) !important;
+  width: calc(100% - 300px) !important;
+  max-width: none !important;
+}
+#tawkmin {
+  right: 0 !important;
+  left: auto !important;
+}
+
+/* Hide Tawk.to widget on small screens */
+@media (max-width: 767px) {
+  #tawkmin {
+    display: none !important;
+  }
+}
+::ng-deep iframe[title="chat widget"] {
+  position: fixed !important;
+  right: 0 !important;
+  left: auto !important;
+  bottom: 0 !important;
+  z-index: 9999;  /* Ensure it's on top */
+}
+
+/* Hide Tawk.to widget on small screens */
+@media (max-width: 767px) {
+  iframe[title="chat widget"] {
+    display: none !important;
+  }
+}
+ /* ::ng-deep .ant-notification {
+  z-index: 10500000; /* Adjust as needed */
+
+ /* .cdk-global-overlay-wrapper,.cdk-overlay-container{
+  z-index: 999 !important;
+} */
+.dropdown-menu{
+  
+  z-index: 1001 !important;
 }

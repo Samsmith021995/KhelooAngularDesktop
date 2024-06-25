@@ -1,7 +1,5 @@
-import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA,LOCALE_ID} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DHomeComponent } from '../common-home/d-home/d-home.component';
-import { MHomeComponent } from '../common-home/m-home/m-home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -31,7 +29,6 @@ import { RouletteComponent } from '../desktop/footer-content/games/roulette/roul
 import { SlotsComponent } from '../desktop/footer-content/games/slots/slots.component';
 import { DJackpotComponent } from '../desktop/d-jackpot/d-jackpot.component';
 import { DPromotionalComponent } from '../desktop/d-promotional/d-promotional.component';
-
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
 import { LangstripComponent } from '../mobile/langstrip/langstrip.component';
@@ -46,8 +43,46 @@ import { MPromotionComponent } from '../mobile/m-promotion/m-promotion.component
 import { PromotionPopupComponent } from '../mobile/m-promotion/promotion-popup/promotion-popup.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { SecondHeaderComponent } from './second-header/second-header.component';
+
+
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { IconDefinition } from '@ant-design/icons-angular';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { AccountBookFill, AlertFill, AlertOutline } from '@ant-design/icons-angular/icons';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzImageModule } from 'ng-zorro-antd/image';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NZ_I18N, en_US ,NZ_DATE_LOCALE} from 'ng-zorro-antd/i18n';
+import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
+import { NzWaterMarkModule } from 'ng-zorro-antd/water-mark';
+import { enUS as dateFnsEnUS } from 'date-fns/locale';
+import { UserOutline } from '@ant-design/icons-angular/icons';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+import { NzBackTopModule } from 'ng-zorro-antd/back-top';
+import { GamesCategoryComponent } from '../desktop/games-category/games-category.component';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { LoginPopupComponent } from '../desktop/auth/login-popup/login-popup.component';
+import { ProfilePopupComponent } from '../desktop/profile-popup/profile-popup.component';
+import { WithdrawPopComponent } from '../desktop/profile-popup/withdraw-pop/withdraw-pop.component';
+import { StatementPopComponent } from '../desktop/profile-popup/statement-pop/statement-pop.component';
+import { ForgotPopupComponent } from '../desktop/auth/forgot-popup/forgot-popup.component';
+import { ProfileDetailsComponent } from '../desktop/profile-popup/profile-details/profile-details.component';
+import { HowToWithdrawComponent } from '../desktop/profile-popup/how-to-withdraw/how-to-withdraw.component';
+
+const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserOutline ];
 @NgModule({
   declarations: [
     BannerComponent,
@@ -71,6 +106,15 @@ import { SecondHeaderComponent } from './second-header/second-header.component';
     MPromotionComponent,
     PromotionPopupComponent,
     SecondHeaderComponent,
+    GamesCategoryComponent,
+    LoginPopupComponent,
+    ProfilePopupComponent,
+    WithdrawPopComponent,
+    StatementPopComponent,
+    ForgotPopupComponent,
+    ProfileDetailsComponent,
+    HowToWithdrawComponent
+    
     
   ],
   imports: [
@@ -98,7 +142,29 @@ import { SecondHeaderComponent } from './second-header/second-header.component';
   MatDialogModule,
   FeatherModule.pick(allIcons),
   LayoutModule,
-  MatMomentDateModule
+  MatMomentDateModule,
+  NzButtonModule,
+  NzIconModule.forRoot(icons),
+  NzLayoutModule,
+  NzTabsModule,
+  NzImageModule,
+  NzCardModule,
+  NzFormModule,
+  NzInputModule,
+  NzDatePickerModule,
+  NzGridModule,
+  NzSkeletonModule,
+  NzModalModule,
+  NzSpinModule,
+  NzDrawerModule,
+  NzDropDownModule,
+  NzAvatarModule,
+  NzCarouselModule,
+  NzAlertModule,
+  NzMessageModule,
+  NzWaterMarkModule,
+  NzBackTopModule
+
   ],
  exports:[
   PokerComponent,
@@ -120,6 +186,13 @@ import { SecondHeaderComponent } from './second-header/second-header.component';
   MForgotPasswordComponent,
   MPromotionComponent,
   PromotionPopupComponent,
+  LoginPopupComponent,
+  ProfilePopupComponent,
+  WithdrawPopComponent,
+  StatementPopComponent,
+  ForgotPopupComponent,
+  ProfileDetailsComponent,
+  HowToWithdrawComponent,
   CommonModule,
   FormsModule,
   HttpClientModule,
@@ -143,11 +216,41 @@ import { SecondHeaderComponent } from './second-header/second-header.component';
   MatCheckboxModule,
   FeatherModule,
   LayoutModule,
-  MatMomentDateModule
+  MatMomentDateModule,
+  NzButtonModule,
+  NzIconModule,
+  NzLayoutModule,
+  NzTabsModule,
+  NzImageModule,
+  NzCardModule,
+  NzFormModule,
+  NzInputModule,
+  NzDatePickerModule,
+  NzGridModule,
+  NzSkeletonModule,
+  NzModalModule,
+  NzSpinModule,
+  NzDrawerModule,
+  NzDropDownModule,
+  NzAvatarModule,
+  NzCarouselModule,
+  NzAlertModule,
+  NzMessageModule,
+  NzWaterMarkModule,
+  NzBackTopModule
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en-US' },
+    { provide: LOCALE_ID, useValue: 'en-US' },
+    { provide: NZ_I18N, useValue: en_US },
+    { provide: NZ_DATE_LOCALE, useValue: dateFnsEnUS },
+    // { provide: NZ_CAROUSEL_CUSTOM_STRATEGIES,
+    //   useValue: [
+    //     { name: 'transform-no-loop', strategy: NzCarouselTransformNoLoopStrategy },
+    //     { name: 'flip', strategy: NzCarouselFlipStrategy }
+    //   ]
+    //   }
   ]
 })
 export class SharedModule { }

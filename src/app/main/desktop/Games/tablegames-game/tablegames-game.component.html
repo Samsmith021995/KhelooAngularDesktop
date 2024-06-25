@@ -1,0 +1,27 @@
+<div nz-row  >
+    @for (item of gamesData; track $index) {
+        <div nz-col nzXs="12" nzSm="8" nzMd="6" nzLg="6" nzXl="4"  class="game-img-data">
+            <img nz-image width="100%"
+            [nzSrc]="item.url_thumb" alt="" />
+
+            <a (click)="gameStart(item.game_id)">
+            <div class="playbtn ">
+                <div class="playbtn-back">
+                <img src="/assets/images/play_icon.png" alt="" class="casino-game-item-image-bc"
+                    class="play">
+                </div>
+            </div>
+            </a>
+        </div>
+    }
+    @empty{
+        @for (item of loopArray; track $index) {
+            <div nz-col nzXs="12" nzSm="8" nzMd="6" nzLg="6" nzXl="4">  
+                <nz-skeleton-element nzType="image" [nzActive]="elementActive" width="150px" ></nz-skeleton-element>
+            </div>
+        }
+    }
+</div>
+<div nz-row>
+    <app-table-game></app-table-game>
+</div>

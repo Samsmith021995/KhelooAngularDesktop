@@ -1,0 +1,62 @@
+<div class="container">
+    <h2>Reset Password</h2>
+    <div class="reset-form">
+        <form nz-form [formGroup]="resetForm" class="bank-Form" (ngSubmit)="formSubmit()">
+            <div nz-row>
+                <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback="" nzErrorTip="Please input Current Password!">
+                            <nz-input-group >
+                                <input type="text" nz-input formControlName="Password"
+                                    placeholder="Current Password" />
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                </div>
+                <div nz-row>
+                <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzErrorTip]="passwordErr">
+                            <nz-input-group>
+                                <input type="text" nz-input formControlName="NewPassword"
+                                    placeholder="New Password" (ngModelChange)="updateConfirmValidator()"/>
+                                    <ng-template #passwordErr let-control>
+                                        @if (control.errors?.['required']) {
+                                          Please Input new Password
+                                        }
+                                        @if (control.errors?.['minlength']) {
+                                          Password length should be atleast 6.
+                                        }
+                                      </ng-template>
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzErrorTip]="errorTpl">
+                            <nz-input-group>
+                                <input type="text" nz-input formControlName="ConfirmPassword" placeholder="Confirm Password" />
+                                <ng-template #errorTpl let-control>
+                                    @if (control.errors?.['required']) {
+                                      Please confirm your password!
+                                    }
+                                    @if (control.errors?.['confirm']) {
+                                      Two passwords that you enter is inconsistent!
+                                    }
+                                  </ng-template>
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                </div>
+                <div nz-row>
+                <button nz-button class="btn-reset" [nzType]="'primary'" [nzLoading]="isLoading"
+                    [disabled]=" resetForm.invalid || isLoading"><i-feather name="Log-in"></i-feather>Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

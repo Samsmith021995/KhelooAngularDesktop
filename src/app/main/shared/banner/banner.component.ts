@@ -40,6 +40,15 @@ export class BannerComponent implements AfterViewInit {
         scrollbar: {
           el: '.swiper-scrollbar',
         },
+        effect:'coverflow',
+        coverflowEffect:{
+          // depth:200,
+          // modifier:1,
+          // rotate:60,
+          // slideShadows:false,
+          // stretch:0
+        },
+      
        
         autoplay: {
           delay: 5000,

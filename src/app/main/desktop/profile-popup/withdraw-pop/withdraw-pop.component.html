@@ -1,0 +1,155 @@
+<div class="container">
+@if(withdrawForm){
+
+    <div class="heading">
+        <span>Withdraw</span>
+        <button nz-button class="button-withdraw" (click)="viewWithdraw()"> How to Withdraw?</button>
+    </div>
+    <nz-tabset>
+        <nz-tab nzTitle="Bank Details">
+            <div class="bank-details">
+                <form nz-form [formGroup]="bankForm" class="bank-Form" (ngSubmit)="formSubmit()">
+                    <div nz-row>
+                        <div  nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                            <nz-form-item>
+                                <nz-form-control nzErrorTip="Please input AccountHolder Name!">
+                                    <nz-input-group>
+                                        <input type="text" nz-input formControlName="AccountHolderName"
+                                            placeholder="AccountHolder Name" />
+                                    </nz-input-group>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11x" nzXl="11" class="promo-card">
+                            <nz-form-item>
+                                <nz-form-control nzErrorTip="Please input AccountNumber!">
+                                    <nz-input-group>
+                                        <input type="text" nz-input formControlName="AccountNumber"
+                                            placeholder="Enter AccountNumber" />
+                                    </nz-input-group>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                            <nz-form-item>
+                                <nz-form-control nzErrorTip="Please input BankName!">
+                                    <nz-input-group>
+                                        <input type="text" nz-input formControlName="BankName"
+                                            placeholder="Enter BankName" />
+                                    </nz-input-group>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                            <nz-form-item>
+                                <nz-form-control nzErrorTip="Please input BranchName!">
+                                    <nz-input-group>
+                                        <input type="text" nz-input formControlName="BranchName"
+                                            placeholder="Enter BranchName" />
+                                    </nz-input-group>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                            <nz-form-item>
+                                <nz-form-control nzErrorTip="Please input Amount!">
+                                    <nz-input-group>
+                                        <input type="text" nz-input formControlName="Amount"
+                                            placeholder="Enter Amount" />
+                                    </nz-input-group>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                            <nz-form-item>
+                                <nz-form-control nzErrorTip="Please input IfscCode!">
+                                    <nz-input-group>
+                                        <input type="text" nz-input formControlName="IfscCode"
+                                            placeholder="Enter IfscCode" />
+                                    </nz-input-group>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                    </div>
+                    <button nz-button class="login-form-button login-form-margin btn-submit" [nzType]="'primary'"
+                        [nzLoading]="isLoading" [disabled]="bankForm.invalid || isLoading"><i-feather
+                            name="Log-in"></i-feather>Submit</button>
+                </form>
+            </div>
+        </nz-tab>
+        <nz-tab nzTitle="Withdraw Status">
+            <div nz-row class="withdraw-container">
+                <!-- <div class="example">
+                    <nz-spin nzSimple [nzSpinning]="true"></nz-spin>
+                  </div> -->
+                @for (item of withdrawStatement; track $index) {
+                    <div  nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                        <nz-card style="width: 100%;background: #2B2B2B;border: none;
+                        " class="card-details">
+                            <div class="withdraw-header">
+                                <span><img src="/assets/8988833.webp" alt="" width="20px"> {{item.Amount}}</span>
+                                <span>Status:<span class="success" [ngClass]="{'statuColor':item.StatusCode == 'R'}"> {{item.StatusName}}</span> </span> 
+                            </div>
+                            <div>
+                                <span>Date & Time :</span> <span>{{item.CreatedDate | date:'medium'}}</span>
+                            </div>
+                            <div>
+                                <span>Description:</span>
+                                <p>{{item.Description}}</p>
+            
+                            </div>
+                            <div style="text-align: right;">
+                                @if(item.StatusCode == 'P'){
+                                    <button nz-button [nzLoading]="btnLoading" (click)="reverseWithdraw(item)" style="background: none;color:#fff;">Revert</button>  
+                                }
+                                <button nz-button nzType="primary" (click)="viewDetail($index)" style="margin-left: 3px;background-color: #6E1C68;border: none;">View Details</button>
+
+                            </div>
+                            <div class="viewbankDetails" #bankDetailShow [ngClass]="{'view':viewDetails}" >
+                                <div class="" >
+                                    <div class="">
+                                        <span>Account Holder Name: </span><span>{{item.AccountHolderName}}</span>
+                                    </div>
+                                    <div class="">
+                                        <span class="">Account Number:</span> <span class="">{{item.AccountNumber}}</span>
+                                       
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="">
+                                        <span class="">IFSC Code: </span>
+                                        <span class="">
+                                            <span class="">{{item.IfscCode}}</span>
+                                        </span>
+                                    </div>
+                                    <div class="">
+                                        <span class="">Bank Name: </span>
+                                        <span class="">
+                                            <span class="">{{item.BankName}}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </nz-card>
+                    </div>
+                }
+                @empty {
+                    <div  nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24" nzXl="24" class="promo-card" style="text-align: center;color:#fff">
+                        <span>No data Found</span>
+                    </div>
+                }
+            </div>
+
+        </nz-tab>
+    </nz-tabset>
+    
+}
+@else {
+    <div class="heading">
+        <span (click)="viewWithdraw()" style="cursor: pointer;"><i-feather name="arrow-left"></i-feather> Back</span>
+        <!-- <button nz-button class="button-withdraw" > How to Withdraw?</button> -->
+    </div>
+    <app-how-to-withdraw></app-how-to-withdraw>
+}
+</div>

@@ -481,6 +481,7 @@ td img {
     color: #8f99a3;
     font-size: 13px;
     line-height: 20px !important;
+    text-align: left;
   }
   div.title {
     width: 100%;

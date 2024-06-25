@@ -1,0 +1,233 @@
+.images {
+    background: url('/assets/Group 493.png');
+}
+
+.close-div {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    right: 1rem;
+    top: 1rem;
+}
+.rotate-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.close-div:hover .rotate-icon {
+    transform: rotate(90deg);
+}
+.form{
+    position: absolute;
+    right: 3rem;
+    top: 2rem;
+    text-align: #fff;
+    max-height: 81%;
+    overflow: auto;
+    /* width: 35%; */
+    .logo{
+        width: 200px;
+        text-align: center;
+    }
+
+}
+.btn-submit{
+    width: 90%;
+    border: none;
+    background: linear-gradient(90deg, #FCD95B 0%, #FDF48C 51.5%, #F4C935 100%);
+    border-radius: 18px 0px 18px 0px;
+    padding: 0.5rem 3rem 2rem 3rem;
+    color: rgba(89, 11, 66, 1);
+    font-size: 1rem;
+    font-weight: 500;
+    
+}
+
+
+/* new css
+ */
+ .card {
+    padding:1rem;
+    margin: 0.5rem;
+    border: none;
+  }
+  
+  .font7 {
+    font-size:.9rem;
+    vertical-align:top;
+    margin-top:.45rem;
+    font-weight:500
+  }
+  
+  .anu-class ::ng-deep .mat-form-field-wrapper {
+    margin-bottom:1.25rem!important;
+    padding-bottom:0!important;
+    margin-bottom:0
+  }
+  
+  .anu-class ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding-top:0!important;
+    padding-bottom:0!important
+  }
+  
+  .anu-class .mat-form-field {
+    line-height:2rem;
+    font-size:.8rem
+  }
+  
+  .anu-class ::ng-deep .mat-date-range-input-mirror {
+    min-width: 5rem !important
+  }
+  
+  .anu-class ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+    margin-top:0!important
+  }
+  
+  .anu-class ::ng-deep .mat-form-field-infix {
+    border-top:0!important
+  }
+  
+  .anu-class ::ng-deep .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button {
+    width:1rem!important;
+    height:1rem!important;
+    vertical-align:middle!important
+  }
+  
+  .anu-title .mat-date-range-input-inner,::ng-deep .mat-button,::ng-deep .mat-calendar,.anu-title .mat-option,.anu-title .mat-select,.anu-title .mat-input-element,.anu-title .mat-calendar {
+    font-family:"BeVietnamPro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"!important
+  }
+  
+  .anu-class ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline,.anu-class ::ng-deep .mat-form-field-appearance-outline .mat-form-field-suffix {
+    top:0!important
+  }
+  
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  
+   ::ng-deep label:not(.form-check-label):not(.custom-file-label) {
+      font-weight: normal !important;
+  }
+  
+  ::ng-deep .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element, .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element{
+    background-color: #4ab74e;
+  }
+  
+  ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #4ab74e;
+  }
+
+/* new Code */
+
+  .ant-card-body{
+    padding: 0px !important;
+    /* background-image: url('/assets/Group 493.png'); */
+  }
+
+
+
+  .login-form {
+    max-width: 300px;
+    margin: auto;
+  }
+
+  .login-form-margin {
+    margin-bottom: 16px;
+  }
+
+  .login-form-forgot {
+    float: right;
+  }
+
+  .login-form-button {
+    width: 100%;
+  }
+  .nz-tabs-nav{
+    width: 68% !important;
+  }
+::ng-deep  .ant-tabs-tab{
+  color: #fff;
+}
+::ng-deep  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color:#f2b702 !important;
+  
+}
+::ng-deep .ant-tabs-tab:hover {
+  color:#f2b702 !important;
+  
+}
+::ng-deep .ant-tabs-top>.ant-tabs-nav::before {
+    
+  border-bottom: 1px solid rgba(55, 55, 55, 1);
+  }
+::ng-deep .ant-input-affix-wrapper, .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper,.ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input{
+    
+  border:none;
+  background-color: #242323;
+  border-radius: 0.5rem;
+  }
+  ::ng-deep .ant-input-affix-wrapper:focus {
+    border-color:#f2b702;
+  }
+  input{
+    background: none;
+  }
+  .login-form-forgot{
+    text-decoration: none;
+    color: #fff;
+  }
+  .ant-input ,.ant-input-affix-wrapper, .ant-input-prefix{
+    color: #fff;
+    padding-left: 1rem;
+  }
+i-feather[name='lock'],[name='phone']{
+  width:17px;
+}
+
+.ant-input-affix-wrapper>.ant-input:not(textarea) {
+  padding: 5px 5px 5px 15px;
+}
+
+::ng-deep  {
+  color: #fff !important;
+}
+.login-card{
+  padding: 0px !important;
+}
+::ng-deep .ant-tabs-ink-bar .ant-tabs-tab-active{
+  color: #f2b702 !important;
+}
+
+.otp1{
+  padding: 0px !important;
+  background-color: #242323;
+  margin-right: 4px;
+  border-radius: 10px;
+}
+.otp1 .ant-input{
+  border: none;
+}
+nz-date-picker,
+nz-range-picker {
+  margin: 0 8px 12px 0;
+}
+::ng-deep .ant-tabs-tab{
+  padding: 17px 17px;
+}
+::ng-deep .ant-tabs-tab+.ant-tabs-tab{
+ margin: 0px;
+}
+.form-title{
+    color: #fff;
+}
+::ng-deep .otp-class{
+    margin-bottom: 10px;
+  }
