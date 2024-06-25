@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { flush } from '@angular/core/testing';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Subscription, catchError } from 'rxjs';
@@ -20,7 +21,7 @@ export class ForgotPopupComponent implements OnInit {
   getOtp:boolean =false;
   verifyOtp:boolean =false;
   private loaderSubscriber !: Subscription;
-  constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router,private msg:NzMessageService){ }
+  constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router,private msg:NzMessageService,private dialog:MatDialog){ }
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.btnLoading = ('generateForpass' in loading || 'verifyOtppass' in loading ) ? true : false;
@@ -92,6 +93,7 @@ export class ForgotPopupComponent implements OnInit {
         data =>{
           if(data.n == '1'){
             this.msg.success(data.Msg,{nzDuration:3000});
+            this.dialog.closeAll();
             this.router.navigate(['/']);
           }else{
             this.msg.error(data.Msg,{nzDuration:3000,nzPauseOnHover:true});
