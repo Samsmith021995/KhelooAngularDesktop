@@ -52,6 +52,7 @@ nz-sider {
 
 .right-layout {
   margin-left: 210px !important;
+  overflow: hidden;
 }
 
 nz-header {
