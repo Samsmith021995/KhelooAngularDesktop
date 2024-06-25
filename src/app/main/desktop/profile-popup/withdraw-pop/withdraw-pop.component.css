@@ -108,3 +108,9 @@ nz-form-item{
 .ant-input-affix-wrapper>.ant-input:not(textarea) {
   padding: 5px 5px 5px 15px;
 }
+.viewbankDetails{
+  display: none;
+}
+.view{
+  display: block !important;
+}

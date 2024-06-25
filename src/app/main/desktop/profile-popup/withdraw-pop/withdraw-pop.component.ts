@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Subscription, catchError } from 'rxjs';
@@ -11,19 +11,23 @@ import { config } from 'src/app/main/service/config';
   styleUrl: './withdraw-pop.component.css'
 })
 export class WithdrawPopComponent  implements OnInit{
+
+  @ViewChildren('bankDetailShow') bankshow!: QueryList<ElementRef<any>>;
   formLoading:boolean = false
   isLoading:boolean = false;
+  btnLoading:boolean = false;
   withdrawForm:boolean = true;
-  // isSpinning:boolean = 
+  viewDetails:boolean = false;
   bankForm !:FormGroup;
   withdrawStatement: any;
   private loaderSubscriber !: Subscription;
-  constructor(private fb:FormBuilder,private apiSer:ApiService,private msg:NzMessageService){}
+  constructor(private fb:FormBuilder,private apiSer:ApiService,private msg:NzMessageService,private renderer: Renderer2){}
   ngOnInit(): void {
 
   this.withdrawForm = true;
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.isLoading = ('withdrawReq' in loading) ? true : false;
+      this.btnLoading = ('cancelReq' in loading) ? true : false;
       // this.isStatusLoading = ('withdrawState' in loading) ? true : false;
     });
     this.bankForm = this.fb.group({
@@ -42,27 +46,23 @@ export class WithdrawPopComponent  implements OnInit{
         if (data.ErrorCode == '1') {
           this.msg.success(data.ErrorMessage,{nzDuration:3000});
           this.bankForm.reset();
+          this.withdrawStatus();
         } else {
           this.msg.error(data.ErrorMessage,{nzDuration:3000});
         }
-        // this.showsubmitbtn = false;
       },
       error: err => {
         this.msg.error('Something Went Wrong',{nzDuration:3000});
-        // this.showsubmitbtn = false;
       }
     });
   }
   withdrawStatus() {
-    // this.api.loaderShow();
-    // this.withdrawState = true;
     this.apiSer.apiRequest(config['withdrawState']).subscribe({
       next: data => {
         this.withdrawStatement = data;
-        console.log(this.withdrawStatement);
       },
       error: err => {
-        this.apiSer.showAlert('Something Went Wrong', 'Please check your internet Connection', 'error');
+        this.msg.error('Something Went Wrong',{nzDuration:3000});
       }
     })
   }
@@ -72,10 +72,10 @@ export class WithdrawPopComponent  implements OnInit{
       throw error
     })).subscribe((data)=>{
       if(data.ErrorCode == '1'){
-        this.apiSer.showAlert(data.ErrorMessage,'','success');
+        this.msg.success(data.ErrorMessage,{nzDuration:3000});
         this.withdrawStatus();
       }else{
-        this.apiSer.showAlert(data.ErrorMessage,'','error');
+        this.msg.error(data.ErrorMessage,{nzDuration:3000});
 
       }
     });
@@ -83,4 +83,15 @@ export class WithdrawPopComponent  implements OnInit{
   viewWithdraw(){
     this.withdrawForm = !this.withdrawForm;
   }
+  viewDetail(item: any) {
+    let nativeElement = this.bankshow.toArray()[item].nativeElement;
+    if (nativeElement) {
+      if (nativeElement.classList.contains('view')) {
+        this.renderer.removeClass(nativeElement, 'view');
+        return;
+      }
+      this.renderer.addClass(nativeElement, 'view');
+    }
+  }
+
 }

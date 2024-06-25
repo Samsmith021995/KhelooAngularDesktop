@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './main/desktop/auth/login/login.component';
-import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/forgot-password.component';
 import { GamePlatformComponent } from './main/desktop/game-platform/game-platform.component';
 import { AuthGuard } from './guard/auth.guard';
 import { LoginGuard } from './guard/login.guard';
@@ -35,7 +34,6 @@ import { DesktopGuard } from './guard/desktop.guard';
 import { KhelooPrivilegesComponent } from './main/desktop/footer-content/games/kheloo-privileges/kheloo-privileges.component';
 import { TournamentsComponent } from './main/desktop/footer-content/games/tournaments/tournaments.component';
 import { MSignupComponent } from './main/mobile/m-signup/m-signup.component';
-import { TableGameComponent } from './main/desktop/footer-content/games/table-game/table-game.component';
 import { ThankYouComponent } from './main/shared/thank-you/thank-you.component';
 import { GamesProviderWiseComponent } from './main/mobile/games-provider-wise/games-provider-wise.component';
 import { MSignup1Component } from './main/mobile/m-signup/m-signup1/m-signup1.component';
@@ -64,11 +62,6 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () => import('./main/common-home/common-home.module').then(m => m.CommonHomeModule),
-      },
-      {
-        path: 'change-password',
-        loadChildren: () => import('./main/desktop/auth/change-password/change-password.module').then(m => m.ChangePasswordModule),
-        canActivate: [AuthGuard, DesktopGuard]
       },
       {
         path: 'setting',
@@ -495,11 +488,6 @@ const routes: Routes = [
       title: 'Register- Kheloo',
       description: ''
     }
-  },
-  {
-    path: 'forgot-password',
-    component: ForgotPasswordComponent,
-    canActivate: [LoginGuard, DesktopGuard]
   },
   {
     path: 'games/:id',

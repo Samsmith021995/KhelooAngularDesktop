@@ -99,6 +99,38 @@
                                 <p>{{item.Description}}</p>
             
                             </div>
+                            <div style="text-align: right;">
+                                @if(item.StatusCode == 'P'){
+                                    <button nz-button [nzLoading]="btnLoading" (click)="reverseWithdraw(item)" style="background: none;color:#fff;">Revert</button>  
+                                }
+                                <button nz-button nzType="primary" (click)="viewDetail($index)" style="margin-left: 3px;background-color: #6E1C68;border: none;">View Details</button>
+
+                            </div>
+                            <div class="viewbankDetails" #bankDetailShow [ngClass]="{'view':viewDetails}" >
+                                <div class="" >
+                                    <div class="">
+                                        <span>Account Holder Name: </span><span>{{item.AccountHolderName}}</span>
+                                    </div>
+                                    <div class="">
+                                        <span class="">Account Number:</span> <span class="">{{item.AccountNumber}}</span>
+                                       
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="">
+                                        <span class="">IFSC Code: </span>
+                                        <span class="">
+                                            <span class="">{{item.IfscCode}}</span>
+                                        </span>
+                                    </div>
+                                    <div class="">
+                                        <span class="">Bank Name: </span>
+                                        <span class="">
+                                            <span class="">{{item.BankName}}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                         </nz-card>
                     </div>
                 }

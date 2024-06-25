@@ -22,10 +22,8 @@ import { DisconnectionPolicyComponent } from './main/desktop/footer-content/secu
 import { CasinoComponent } from './main/desktop/footer-content/games/casino/casino.component';
 import { TeenpattiComponent } from './main/desktop/footer-content/games/teenpatti/teenpatti.component';
 import { AndarBaharComponent } from './main/desktop/footer-content/games/andar-bahar/andar-bahar.component';
-import { RegisterComponent } from './main/desktop/auth/register/register.component';
 import { LoginComponent } from './main/desktop/auth/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ForgotPasswordComponent } from './main/desktop/auth/forgot-password/forgot-password.component';
 import { GamePlatformComponent } from './main/desktop/game-platform/game-platform.component';
 import { BottomNavbarComponent } from './main/footer/m-footer/bottom-navbar/bottom-navbar.component';
 import { CricketBettingComponent } from './main/desktop/footer-content/sports/cricket-betting/cricket-betting.component';
@@ -79,9 +77,7 @@ import { SportsGameComponent } from './main/desktop/Games/sports-game/sports-gam
     CasinoComponent,
     TeenpattiComponent,
     AndarBaharComponent,
-    RegisterComponent,
     LoginComponent,
-    ForgotPasswordComponent,
     GamePlatformComponent,
     BottomNavbarComponent,
     CricketBettingComponent,
@@ -90,8 +86,6 @@ import { SportsGameComponent } from './main/desktop/Games/sports-game/sports-gam
     IplBettingComponent,
     OnlineSportsBettingComponent,
     MMenuComponent,
-    // PromotionPopupComponent,
-    // MPromotionComponent,
     KhelooPrivilegesComponent,
     TournamentsComponent,
     GameHeaderComponent,
