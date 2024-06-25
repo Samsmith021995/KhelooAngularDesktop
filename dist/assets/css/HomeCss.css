@@ -1682,7 +1682,7 @@ span.round-tab {
     display: inline-block;
     width: 320px;
     position: relative;
-    left: 50%;
+    left: 40%;
     transform: translateX(-50%);
 }
 

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
 import { catchError } from 'rxjs';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-desktop-sidebar',
@@ -13,7 +14,7 @@ import { catchError } from 'rxjs';
 export class DesktopSidebarComponent implements OnInit {
   gameName!:string;
   gamesData:any[] =[];
-  constructor(private comFun: ComFunService,private router:Router,private activeRooute:ActivatedRoute,private apiSer:ApiService) { }
+  constructor(private comFun: ComFunService,private router:Router,private activeRooute:ActivatedRoute,private apiSer:ApiService,private msg:NzMessageService) { }
   cdn: string = this.comFun.cdn;
   ngOnInit(): void {
  
@@ -29,6 +30,11 @@ export class DesktopSidebarComponent implements OnInit {
     let param = {type:val}
     this.apiSer.apiRequest(config['supportCallback'],param).subscribe({
       next:(data)=>{
+        console.log(data);
+        if(!data){
+          this.msg.error('Currently Whatsapp is not available',{nzDuration:3000});
+          return
+        }
         if(data.ErrorCode == '1'){
           if(val == 'TL'){
             window.open( 'https://t.me/+'+data.Result,'_blank');
@@ -36,7 +42,7 @@ export class DesktopSidebarComponent implements OnInit {
             window.open(  'https://api.whatsapp.com/send/?phone='+data.Result+'&amp;text&amp;app_absent=0','_blank');
           }
         }else{
-          this.apiSer.showAlert('',data.ErrorMessage,'error');
+          this.msg.error(data.ErrorMessage,{nzDuration:3000});
         }
       },
       error:(err)=>{

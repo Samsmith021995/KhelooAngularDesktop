@@ -27,6 +27,7 @@
                 }
                 @if(getOtp && !verifyOtp){
                 <nz-form-item class="otp-class">
+                    <label for="" style="text-align: center;font-size: 14px;color: #fff;margin: 0.6rem auto;"> Verify Otp</label>
                     <div formArrayName="otpArray" style="display: flex;">
                         <nz-form-control class="otp1" *ngFor="let control of otpArray.controls; let i = index">
                             <nz-input-group>

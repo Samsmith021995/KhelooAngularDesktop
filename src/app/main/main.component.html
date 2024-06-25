@@ -1,5 +1,5 @@
 <nz-drawer [nzClosable]="false" [nzVisible]="visible" [nzPlacement]="placement" nzTitle="Search" (nzOnClose)="close()"
-    [nzWrapClassName]="custom_drawer" [nzOffsetX]="240" [nzOffsetY]="91" [nzMask]="true" [nzZIndex]="900">
+    [nzWrapClassName]="custom_drawer" [nzOffsetX]="240" [nzOffsetY]="91" [nzMask]="true" [nzZIndex]="900"  [nzExtra]="extra">
     <ng-container *nzDrawerContent>
         <div class="search-form">
             <form action="" [formGroup]="searchForm">
@@ -31,6 +31,9 @@
             }
         </div>
     </ng-container>
+    <ng-template #extra>
+        <button nz-button nzType="default" (click)="close()" style="background: none;border: none;text-decoration: none;color: #fff;"><i-feather name="x"></i-feather></button>
+      </ng-template>
 </nz-drawer>
 
 @if(isSmallScreen){

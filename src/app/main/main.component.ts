@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonServiceService } from './service/common-service.service';
 import { UrlService } from './service/url.service';
-import { Subscription, debounceTime } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription, debounceTime, filter } from 'rxjs';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ApiService } from './service/api.service';
 import { config } from './service/config';
 import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
@@ -27,8 +27,15 @@ export class MainComponent implements OnInit {
   private urlSubscription!: Subscription;
   elementActive:boolean =true;
   startLoading:boolean = false;
-  constructor(private commonSer:CommonServiceService,private urlSer:UrlService,private router:ActivatedRoute,private routing:Router,private apiSer:ApiService,private comFun:ComFunService,private fb:FormBuilder){}
+
+  private routerSubscription!: Subscription;
+  constructor(private commonSer:CommonServiceService,private urlSer:UrlService,private router:ActivatedRoute,private routing:Router,private apiSer:ApiService,private comFun:ComFunService,private fb:FormBuilder,private routers:Router){}
   ngOnInit(): void {
+    this.routerSubscription = this.routers.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe(() => {
+     this.comFun.closeDrawer();
+    });
     this.searchForm = this.fb.group({
       search:[""],
     });
@@ -132,4 +139,5 @@ export class MainComponent implements OnInit {
   // ngOnDestroy(): void {
   //   this.urlSubscription.unsubscribe();
   // }
+
 }

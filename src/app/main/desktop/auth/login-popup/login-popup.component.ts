@@ -212,6 +212,7 @@ export class LoginPopupComponent implements OnInit {
           }
           this.commonSer.saveData('Mobile', param.Mobile);
           this.commonSer.saveData('Password', param.Password);
+          this.dialog.closeAll();
           this.router.navigate(['/thankyou']);
         },
         error: (err) => {

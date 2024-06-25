@@ -1679,7 +1679,7 @@ span.round-tab {
     height: 145px;
     background-repeat: no-repeat;
     background-size: contain;
-    display: inline-block;
+    /* display: inline-block; */
     width: 320px;
     position: relative;
     left: 50%;
