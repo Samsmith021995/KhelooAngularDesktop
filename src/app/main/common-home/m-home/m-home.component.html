@@ -1,7 +1,10 @@
 <br>
 <br>
 <br>
-<app-banner [images]="images" [slidesPerView]="slidesPerViewn" [location]="false" [clickBanner]="true" (bannerClick)="clickVal($event)"></app-banner>
+<div style="min-height: 300px;">
+    <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [location]="false" [clickBanner]="true" (bannerClick)="clickVal($event)"></app-banner>
+
+</div>
 <app-langstrip></app-langstrip>
 <app-jackpot></app-jackpot>
 <ng-container *ngIf="!isPromo">
