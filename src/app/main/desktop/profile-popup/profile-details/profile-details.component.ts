@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Subscription, catchError } from 'rxjs';
 import { ApiService } from 'src/app/main/service/api.service';
+import { ComFunService } from 'src/app/main/service/com-fun.service';
 import { config } from 'src/app/main/service/config';
 
 @Component({
@@ -15,7 +16,8 @@ export class ProfileDetailsComponent implements OnInit{
   isLoading:boolean = false;
 
   private loaderSubscriber !: Subscription;
-  constructor(private fb:FormBuilder,private apiService:ApiService,private msg:NzMessageService){}
+  constructor(private fb:FormBuilder,private apiService:ApiService,private msg:NzMessageService,private comFun:ComFunService){}
+  cdn: string = this.comFun.cdn;
   ngOnInit(): void {
     this.resetForm = this.fb.group({
       Password: ["", [Validators.required]],

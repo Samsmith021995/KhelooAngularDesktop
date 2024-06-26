@@ -10,7 +10,7 @@
             <div class="bank-details">
                 <form nz-form [formGroup]="bankForm" class="bank-Form" (ngSubmit)="formSubmit()">
                     <div nz-row>
-                        <div  nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                        <div  nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card1">
                             <nz-form-item>
                                 <nz-form-control nzErrorTip="Please input AccountHolder Name!">
                                     <nz-input-group>
@@ -20,7 +20,7 @@
                                 </nz-form-control>
                             </nz-form-item>
                         </div>
-                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11x" nzXl="11" class="promo-card">
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11x" nzXl="11" class="promo-card1">
                             <nz-form-item>
                                 <nz-form-control nzErrorTip="Please input AccountNumber!">
                                     <nz-input-group>
@@ -30,7 +30,7 @@
                                 </nz-form-control>
                             </nz-form-item>
                         </div>
-                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card1">
                             <nz-form-item>
                                 <nz-form-control nzErrorTip="Please input BankName!">
                                     <nz-input-group>
@@ -40,7 +40,7 @@
                                 </nz-form-control>
                             </nz-form-item>
                         </div>
-                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card1">
                             <nz-form-item>
                                 <nz-form-control nzErrorTip="Please input BranchName!">
                                     <nz-input-group>
@@ -50,7 +50,7 @@
                                 </nz-form-control>
                             </nz-form-item>
                         </div>
-                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card1">
                             <nz-form-item>
                                 <nz-form-control nzErrorTip="Please input Amount!">
                                     <nz-input-group>
@@ -60,7 +60,7 @@
                                 </nz-form-control>
                             </nz-form-item>
                         </div>
-                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card1">
                             <nz-form-item>
                                 <nz-form-control nzErrorTip="Please input IfscCode!">
                                     <nz-input-group>
@@ -73,8 +73,7 @@
 
                     </div>
                     <button nz-button class="login-form-button login-form-margin btn-submit" [nzType]="'primary'"
-                        [nzLoading]="isLoading" [disabled]="bankForm.invalid || isLoading"><i-feather
-                            name="Log-in"></i-feather>Submit</button>
+                        [nzLoading]="isLoading" [disabled]="bankForm.invalid || isLoading"><img [src]="cdn+'icons/submit.svg'">Submit</button>
                 </form>
             </div>
         </nz-tab>

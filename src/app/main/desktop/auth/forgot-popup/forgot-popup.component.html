@@ -19,7 +19,7 @@
                             <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number"
                                 (keydown)="validateNumber($event)" />
                             <ng-template #Mobilefor>
-                                <i-feather name="phone"></i-feather>
+                                <img src="" alt="">
                             </ng-template>
                         </nz-input-group>
                     </nz-form-control>
@@ -49,7 +49,7 @@
                             <input type="text" nz-input formControlName="Password" placeholder="Enter Password" />
                             <ng-template #regPass>
                                 <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
-                                <i-feather name="lock"></i-feather>
+                                <img [src]="cdn+'icons/lock.svg'">
                             </ng-template>
                         </nz-input-group>
                     </nz-form-control>
@@ -58,7 +58,7 @@
                
                 <button nz-button class="login-form-button login-form-margin btn-submit" type="submit"
                     [disabled]="btnLoading" [nzLoading]="btnLoading">
-                    <i-feather name="Log-out"></i-feather>Submit
+                    <img [src]="cdn+'icons/submit.svg'">Submit
                 </button>
             </form>
         </div>

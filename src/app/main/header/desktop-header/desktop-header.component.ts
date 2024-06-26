@@ -32,7 +32,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
   private logcheck !: Subscription;
   userBalance: number = 0;
   constructor(private fb: FormBuilder, private apiSer: ApiService, private comSer: CommonServiceService, private router: Router,private dialog:MatDialog,private msg:NzMessageService,private comFun:ComFunService) { }
-
+  cdn: string = this.comFun.cdn;
   ngOnInit(): void {
     this.loginchecks();
     this.loginForm = this.fb.group({

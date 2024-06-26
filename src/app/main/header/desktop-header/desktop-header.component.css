@@ -352,13 +352,21 @@ a.navbar-brand.fw-bold {
     width: 14px;
     fill: #580b41;
   }
+  img{
+    width: 18px;
+    margin:0 0.2rem;
+  }
 }
+
 .buttons-menu{
   background: rgba(62, 15, 82, 1);
   font-size: 14px;
   color: #fff;
   font-weight: 500;
   border: none;
+  img{
+    width: 18px;
+  }
   i-feather{
     width: 14px;
     fill: #580b41;
@@ -401,6 +409,6 @@ a.navbar-brand.fw-bold {
   border-radius: 5px;
   border:1px solid #FFBF00;
 }
-.header-main-style{
-  /* vertical-align: center; */
+.menu-icon1{
+  width: 15px !important;
 }
