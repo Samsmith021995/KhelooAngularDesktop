@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Subscription, catchError } from 'rxjs';
 import { ApiService } from 'src/app/main/service/api.service';
+import { ComFunService } from 'src/app/main/service/com-fun.service';
 import { config } from 'src/app/main/service/config';
 
 @Component({
@@ -21,7 +22,8 @@ export class ForgotPopupComponent implements OnInit {
   getOtp:boolean =false;
   verifyOtp:boolean =false;
   private loaderSubscriber !: Subscription;
-  constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router,private msg:NzMessageService,private dialog:MatDialog){ }
+  constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router,private msg:NzMessageService,private dialog:MatDialog,private comFun:ComFunService){ }
+  cdn: string = this.comFun.cdn;
   ngOnInit(): void {
     this.loaderSubscriber = this.apiSer.loaderService.loading$.subscribe((loading: any = {}) => {
       this.btnLoading = ('generateForpass' in loading || 'verifyOtppass' in loading ) ? true : false;

@@ -91,7 +91,7 @@ const routes: Routes = [
           title: 'Kheloo- Promotion',
           description: ''
         },
-        canActivate: [AuthGuard, DesktopGuard]
+        canActivate: [ DesktopGuard]
       },
     
       // {
@@ -437,16 +437,7 @@ const routes: Routes = [
         component: LoginPopupComponent,
         outlet:'popup',
         canActivate: [DesktopGuard]
-      },
-      {
-        path: 'dpromotion',
-        component: PromotionComponent,
-        data: {
-          title: 'Kheloo- Promotion',
-          description: ''
-        },
-        canActivate:[DesktopGuard]
-      },
+      }
     ]
   },
   {

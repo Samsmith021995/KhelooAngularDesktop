@@ -2,10 +2,8 @@
   <div style="text-align: end; padding-right: 2rem;margin: 0.9rem auto;">
     <input type="text" (click)="search()" readonly class="search-input" placeholder="Search For Game">
     @if (!checkLogin) {
-    <button nz-button nzType="default" class="buttons header-btn" (click)="LoginPopUp(0)"><i-feather
-        name="user-plus"></i-feather> Login</button>&nbsp;&nbsp;
-    <button nz-button nzType="default" class="buttons header-btn" (click)="LoginPopUp(1)"><i-feather
-        name="user-plus"></i-feather> Register</button>
+    <button nz-button nzType="default" class="buttons header-btn" (click)="LoginPopUp(0)"><img [src]="cdn+'icons/user.svg'" class="menu-icon"> Login</button>&nbsp;&nbsp;
+    <button nz-button nzType="default" class="buttons header-btn" (click)="LoginPopUp(1)"><img [src]="cdn+'icons/user.svg'" class="menu-icon">  Register</button>
     } @else{
     <button nz-button nzType="default" nz-dropdown [nzDropdownMenu]="menu" class="buttons-menu">
       <img src="/assets/8988833.webp" alt="" width="18px"> &nbsp;{{userBalance}}
@@ -23,10 +21,8 @@
       </ul>
     </nz-dropdown-menu>
     &nbsp;&nbsp;
-    <button nz-button [nzType]="'primary'" class="buttons" (click)="openprofilePop('withdraw')"><i-feather
-        name="user-plus"></i-feather> Withdraw</button>&nbsp;&nbsp;
-    <button nz-button [nzType]="'primary'" class="buttons" (click)="openprofilePop('deposit')"><i-feather
-        name="user-plus"></i-feather> Deposit</button>
+    <button nz-button [nzType]="'primary'" class="buttons" (click)="openprofilePop('withdraw')"><img [src]="cdn+'icons/withdraw.svg'" class="menu-icon1" width="14px"> Withdraw</button>&nbsp;&nbsp;
+    <button nz-button [nzType]="'primary'" class="buttons" (click)="openprofilePop('deposit')"><img [src]="cdn+'icons/deposit.svg'" class="menu-icon"> Deposit</button>
       }
   </div>
 </div>

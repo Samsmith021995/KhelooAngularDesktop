@@ -21,7 +21,7 @@
                     (keydown)="validateNumber($event)" />
                   <ng-template #mobile>
                     <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
-                    <i-feather name="phone"></i-feather>
+                    <img [src]="cdn+'icons/call.svg'">
                   </ng-template>
                 </nz-input-group>
               </nz-form-control>
@@ -32,7 +32,7 @@
                   <input type="password" nz-input formControlName="Password" placeholder="Enter Password" />
                   <ng-template #lockPass>
                     <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
-                    <i-feather name="lock"></i-feather>
+                    <img [src]="cdn+'icons/lock.svg'">
                   </ng-template>
                 </nz-input-group>
               </nz-form-control>
@@ -45,7 +45,7 @@
               </div>
             </div>
             <button nz-button class="login-form-button login-form-margin btn-submit" [nzType]="'primary'"
-              [nzLoading]="loginLoading" [disabled]="loginLoading || loginForm.invalid"><i-feather name="Log-in"></i-feather>Submit</button>
+              [nzLoading]="loginLoading" [disabled]="loginLoading || loginForm.invalid"><img [src]="cdn+'icons/submit.svg'" alt="">Submit</button>
 
           </form>
         </nz-tab>
@@ -59,7 +59,7 @@
                     (keydown)="validateNumber($event)" />
                   <ng-template #MobileReg>
                     <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
-                    <i-feather name="phone"></i-feather>
+                    <img [src]="cdn+'icons/call.svg'">
                   </ng-template>
                 </nz-input-group>
               </nz-form-control>
@@ -92,7 +92,7 @@
                   <input type="text" nz-input formControlName="UserName" placeholder="Enter User Name" />
                   <ng-template #regfName>
                     <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
-                    <i-feather name="user"></i-feather>
+                    <img [src]="cdn+'icons/inputuser.svg'">
                   </ng-template>
                 </nz-input-group>
               </nz-form-control>
@@ -102,7 +102,7 @@
                 <nz-input-group [nzPrefix]="regfName">
                   <input type="text" nz-input formControlName="FName" placeholder="Enter First Name" />
                   <ng-template #regfName>
-                    <i-feather name="user"></i-feather>
+                    <img [src]="cdn+'icons/inputuser.svg'">
                   </ng-template>
                 </nz-input-group>
               </nz-form-control>
@@ -112,7 +112,7 @@
                 <nz-input-group [nzPrefix]="regLname">
                   <input type="text" nz-input formControlName="LName" placeholder="Enter last Name" />
                   <ng-template #regLname>
-                    <i-feather name="user"></i-feather>
+                    <img [src]="cdn+'icons/inputuser.svg'">
                   </ng-template>
                 </nz-input-group>
               </nz-form-control>
@@ -122,7 +122,7 @@
                 <nz-input-group [nzPrefix]="regPass">
                   <input type="password" nz-input formControlName="Password" placeholder="Enter Password" />
                   <ng-template #regPass>
-                    <i-feather name="lock"></i-feather>
+                    <img [src]="cdn+'icons/lock.svg'">
                   </ng-template>
                 </nz-input-group>
               </nz-form-control>
@@ -133,7 +133,7 @@
                   <input type="date" nz-input formControlName="DOB" />
 
                   <ng-template #regDob>
-                    <i-feather name="calendar"></i-feather>
+                    <img [src]="cdn+'icons/clender.svg'">
                   </ng-template>
                 </nz-input-group>
               </nz-form-control>
@@ -143,7 +143,7 @@
                 <nz-input-group [nzPrefix]="regRef">
                   <input type="text" nz-input formControlName="Ref" placeholder="Enter Refferal(optional)" />
                   <ng-template #regRef>
-                    <i-feather name="gift"></i-feather>
+                    <img [src]="cdn+'icons/refferal.svg'">
                   </ng-template>
                 </nz-input-group>
               </nz-form-control>
@@ -152,7 +152,7 @@
            
             <button nz-button class="login-form-button login-form-margin btn-submit" type="submit"
               [disabled]="btnLoading" [nzLoading]="btnLoading">
-              <i-feather name="Log-out"></i-feather>Submit
+              <img [src]="cdn+'icons/submit.svg'" alt="">Submit
             </button>
           </form>
 

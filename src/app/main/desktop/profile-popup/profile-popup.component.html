@@ -6,37 +6,37 @@
         <div nz-row style="margin-top: 1rem;">
             <div nz-col [nzSpan]="8" [nzPush]="0">
                 <nz-card style="width: 100%;background: none;border: none;" class="card-details">
-                    <nz-avatar [nzSize]="64" nzIcon="user"></nz-avatar><br>
+                    <img [src]="cdn+'icons/mainprofile.svg'" alt=""><br>
                     <span>Kheloo User</span><br>
                     <span>{{userData.FName}} {{userData.LName}}</span>
                     <div nz-row class=" btn-div">
                         <div class=" col-md-3 col-sm-6 col-xs-12 " nzXs="24" nzSm="24" nzMd="12" nzLg="6" nzXl="8"
-                            style="padding: 0.1rem;">
+                            style="padding: 0.2rem;">
                             <a (click)="changemenu('deposit')">
                                 <div class="btn-heading">
-                                    <img src="/assets/9057002.webp" alt="" width="25px"> <br>Deposit
+                                    <img [src]="cdn+'icons/deposit1.svg'" alt="" class="profileSp"> <br>Deposit
                                 </div>
                             </a>
                         </div>
 
-                        <div class="col-md-3" nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.1rem;">
+                        <div class="col-md-3" nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.2rem;">
                             <a (click)="changemenu('withdraw')">
                                 <div class="btn-heading">
-                                    <img src="/assets/withdraw2Icon.png" alt="" width="20px"> <br>WithDraw
+                                    <img [src]="cdn+'icons/pwithdraw.svg'" alt="" width="20px"> <br>WithDraw
                                 </div>
                             </a>
                         </div>
-                        <div class="col-md-3" nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.1rem;">
+                        <div class="col-md-3" nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.2rem;">
                             <a (click)="changemenu('statement')">
                                 <div class="btn-heading">
-                                    <i-feather name="book"></i-feather><br>Statement
+                                    <img [src]="cdn+'icons/statement.svg'" alt=""><br>Statement
                                 </div>
                             </a>
                         </div>
-                        <div class="col-md-3 " nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.1rem;">
+                        <div class="col-md-3 " nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.2rem;">
                             <a (click)="changemenu('profile')">
                                 <div class="btn-heading">
-                                    <i-feather name="user"></i-feather> <br>Profile
+                                    <img [src]="cdn+'icons/inputuser.svg'" alt="" class="profileSp"> <br>Profile
                                 </div>
                             </a>
                         </div>
@@ -46,7 +46,7 @@
                              <li>
                                 <div class="list">
                                     <div class="icon-title">
-                                        <i-feather name="user"></i-feather>
+                                        <img [src]="cdn+'icons/inputuser.svg'" alt="">
                                     </div>
                                     <div class="text-det">
                                         <span>Username</span><br>
@@ -58,7 +58,7 @@
                             <li>
                                 <div class="list">
                                     <div class="icon-title">
-                                        <i-feather name="book"></i-feather>
+                                        <img [src]="cdn+'icons/dob.svg'" alt="">
                                     </div>
                                     <div class="text-det">
                                         <span>Date Of Birth</span><br>
@@ -69,7 +69,7 @@
                             <li>
                                 <div class="list">
                                     <div class="icon-title">
-                                        <i-feather name="phone"></i-feather>
+                                        <img [src]="cdn+'icons/call.svg'" alt="" class="callIcon">
                                     </div>
                                     <div class="text-det">
                                         <span>Mobile Number</span><br>
@@ -80,7 +80,7 @@
                             <li>
                                 <div class="list">
                                     <div class="icon-title">
-                                        <i-feather name="book"></i-feather>
+                                        <img [src]="cdn+'icons/statement.svg'" alt="" class="callIcon">
                                     </div>
                                     <div class="text-det" style="margin-top: 0.8rem;">
                                       <span (click)="changemenu('statement')" style="cursor: pointer;">Statement</span>
@@ -103,12 +103,12 @@
                     </div>
                 </nz-card>
             </div>
-            <div nz-col [nzSpan]="15">
+            <div nz-col [nzSpan]="15" style="padding-top:1.6rem">
                 @switch (profileRef) {
                 @case ("deposit") {
                 <div class="container ">
                     <img src="/assets/image.png" alt="" width="100%">
-                    <div class="cantai">
+                    <div class="cantai" style="padding-top:2rem">
                         <div class="head">
                             <span>Add Money to your Wallet</span>
                         </div>
@@ -137,9 +137,9 @@
                                         {{item}}</button>
                                     }
                                 </div>
-                                <button nz-button class="login-form-button login-form-margin btn-submit" type="submit"
+                                <button style="margin-top:1.8rem" nz-button class="login-form-button login-form-margin btn-submit" type="submit"
                                     [disabled]="btnLoading" [nzLoading]="btnLoading" (click)="addWallet()">
-                                    <i-feather name="Log-out"></i-feather>Deposit
+                                    <img [src]="cdn+'icons/deposit.svg'" alt=""> &nbsp;Deposit
                                 </button>
                             </form>
                         </div>

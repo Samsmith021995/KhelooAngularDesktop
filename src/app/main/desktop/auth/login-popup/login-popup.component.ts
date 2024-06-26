@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { NzTabSetComponent } from 'ng-zorro-antd/tabs';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { ComFunService } from 'src/app/main/service/com-fun.service';
 @Component({
   selector: 'app-login-popup',
   templateUrl: './login-popup.component.html',
@@ -32,9 +33,10 @@ export class LoginPopupComponent implements OnInit {
   btnLoading: boolean = false;
   loginLoading: boolean = false;
   private loaderSubscriber !: Subscription;
-  constructor(private fb: FormBuilder, private fb1: FormBuilder, private store: Store<AppState>, private apiSer: ApiService, private commonSer: CommonServiceService, private router: Router, private dialog: MatDialog,private msg:NzMessageService) {
+  constructor(private comFun:ComFunService,private fb: FormBuilder, private fb1: FormBuilder, private store: Store<AppState>, private apiSer: ApiService, private commonSer: CommonServiceService, private router: Router, private dialog: MatDialog,private msg:NzMessageService) {
 
   }
+  cdn: string = this.comFun.cdn;
   ngOnInit(): void {
 
     this.loginForm = this.fb.group({

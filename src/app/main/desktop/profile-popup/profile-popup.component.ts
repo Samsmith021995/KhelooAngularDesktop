@@ -4,6 +4,7 @@ import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
 import { Subscription } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { ComFunService } from '../../service/com-fun.service';
 
 @Component({
   selector: 'app-profile-popup',
@@ -36,7 +37,8 @@ export class ProfilePopupComponent implements OnInit {
   // displayedButtons: any = [];
   @Input() profileRef :any;
   userData = JSON.parse(localStorage.getItem('userData')|| '');
-  constructor(private fb:FormBuilder,private apiSer:ApiService,private msg:NzMessageService){}
+  constructor(private fb:FormBuilder,private apiSer:ApiService,private msg:NzMessageService,private comFun:ComFunService){}
+  cdn: string = this.comFun.cdn;
   ngOnInit(): void {
     this.depositForm = this.fb.group({
       Amount:["",Validators.required,Validators.minLength(3)]

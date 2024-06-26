@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Subscription, catchError } from 'rxjs';
 import { ApiService } from 'src/app/main/service/api.service';
+import { ComFunService } from 'src/app/main/service/com-fun.service';
 import { config } from 'src/app/main/service/config';
 
 @Component({
@@ -21,7 +22,8 @@ export class WithdrawPopComponent  implements OnInit{
   bankForm !:FormGroup;
   withdrawStatement: any;
   private loaderSubscriber !: Subscription;
-  constructor(private fb:FormBuilder,private apiSer:ApiService,private msg:NzMessageService,private renderer: Renderer2){}
+  constructor(private fb:FormBuilder,private apiSer:ApiService,private msg:NzMessageService,private renderer: Renderer2,private comFun:ComFunService){}
+  cdn: string = this.comFun.cdn;
   ngOnInit(): void {
 
   this.withdrawForm = true;
