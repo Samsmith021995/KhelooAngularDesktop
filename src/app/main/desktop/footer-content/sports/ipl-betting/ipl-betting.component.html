@@ -1,11 +1,10 @@
-<div class="sc-himrzO nSrBz">
-    <div class="sc-cKYHso eBOuzh">
+<div class="main" >
         <div class="title col-md-12 col-sm-12 col-xs-12">
-            <span class="sd"><img src="/assets/cImg/left.svg" alt="" width=""><img src="/assets/cImg/ipl.svg"
-                    alt=""><img src="/assets/cImg/right.svg" alt=""></span>
+            <span class="sd"><img [src]="cdn+'left.svg'" alt="" class="arrow"><img [src]="cdn+'ipl.svg'"
+                    alt="" class="main-header"><img [src]="cdn+'/right.svg'" alt="" class="arrow"></span>
         </div>
         <div class="sc-fPJDME fjVnzR col-md-12 col-sm-12 col-xs-12">
-            <h2 class="sc-NUcrz jrxmYg">Introduction of IPL Betting </h2>
+            <h1 class="sc-NUcrz jrxmYg">Introduction of IPL Betting </h1>
 
             <p>
 
@@ -178,7 +177,7 @@
             <h2 class="sc-NUcrz jrxmYg"> Indian Premier League Details</h2>
 
 
-            <table border="1px">
+            <table >
                 <tr>
                     <th>
                         <p>
@@ -419,7 +418,6 @@
 
             <h2 class="sc-NUcrz jrxmYg"> Team Name List of the IPL 2024</h2>
             <table>
-                <thead>
                     <tr>
                         <th>
                             <p>
@@ -427,8 +425,6 @@
                             </p>
                         </th>
                     </tr>
-                </thead>
-                <tbody>
                     <tr>
                         <td>
                             <p>
@@ -499,7 +495,6 @@
                             </p>
                         </td>
                     </tr>
-                </tbody>
             </table>
             <p>Above is the list of the teams that will be partaking in the 2024 IPL event and will be battling between
                 themselves to take home the winning trophy of the 17th edition of the tournament.</p>
@@ -512,8 +507,9 @@
                 on their match.
             </p>
             <h3 class="sc-NUcrz jrxmYg">The full IPL 2024 schedule along with the venue details is as follows:</h3>
-            <table>
-                <tbody>
+            <div class="table-data col-md-12 col-sm-12 col-xs-12">
+
+            <table class="newTab">
                     <tr>
                         <td>Match No.</td>
                         <td><strong>IPL 2024 Match Dates</strong></td>
@@ -1114,8 +1110,8 @@
                         <td>To be updated</td>
                         <td>7:30 PM</td>
                     </tr>
-                </tbody>
             </table>
+        </div>
             <!-- <table>
                 <thead>
                     <tr>
@@ -1759,7 +1755,7 @@
                 you can deposit.
 
             </p>
-            <ul>
+            <ul class="content-ul">
                 <li>
                     <p>
                         Net banking
@@ -1843,7 +1839,7 @@
                 still join in on the fun by speedily joining the platform and meeting all the necessary requirements.
 
             </p>
-            <span class="sc-NUcrz jrxmYg"> IPL Betting Tips from Kheloo</span>
+            <h2 class="sc-NUcrz jrxmYg"> IPL Betting Tips from Kheloo</h2>
             <p>
 
                 Betting on IPL frequently means being familiar with how to stay away from mistakes other than knowing
@@ -1907,8 +1903,17 @@
                     </p>
                 </li>
             </ul>
-            <span class="sc-NUcrz jrxmYg"> IPL Betting FAQ</span>
-            <p>
+            <h2 class="sc-NUcrz jrxmYg"> IPL Betting FAQ</h2>
+            <nz-collapse nzGhost [nzBordered]="true">
+                @for (panel of panels; track panel) {
+                  <nz-collapse-panel [nzHeader]="panel.name" [nzActive]="panel.active" [nzDisabled]="panel.disabled">
+                    <p style="margin:0;color: #bbbb!important;">
+                      {{panel.content}}
+                    </p>
+                  </nz-collapse-panel>
+                }
+              </nz-collapse>
+            <!-- <p>
                 <span>1.</span>
                 What is IPL betting?
             </p>
@@ -1961,7 +1966,7 @@
                 alternatives are considered reliable, secure and fast. The player can use them to make quick deposits in
                 Indian rupees.
 
-            </p>
+            </p> -->
 
 
 
@@ -1970,4 +1975,5 @@
 
 
 
+        </div>
         </div>

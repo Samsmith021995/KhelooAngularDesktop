@@ -344,7 +344,8 @@ input:focus-visible {
     height: 55px;
     font-size: 18px;
     border-radius: 25px;
-    background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
+    /* background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%); */
+    background: linear-gradient(to right, #fceb7e, #f5cb3c);
     max-width: 600px;
 }
 .register-div{
@@ -425,3 +426,138 @@ input, button, select, a {
   
   z-index: 1001 !important;
 }
+
+/* contentcss */
+@import url(https://fonts.googleapis.com/css?family=Lato&subset=latin-ext);
+.content-ul li{
+  color: #F4B41C;
+}
+.sc-fPJDME.fjVnzR>ul>li{
+  color: #F4B41C;
+  
+}
+ul.content-ul{
+  margin-left: 0.5rem;
+}
+h1.sc-NUcrz.jrxmYg {
+ color: #F4B41C;
+}
+h2.sc-NUcrz.jrxmYg {
+ color: #F4B41C;
+}
+h3.sc-NUcrz.jrxmYg {
+ color: #F4B41C;
+}
+h1.sc-NUcrz.jrxmYg::before {
+  content: url(https://cdn.fairbet91.com/KHELOO/content/listicon.svg);
+  display: inline-block;
+  vertical-align: middle; 
+  margin-right: 8px;
+  height: 25px;
+}
+h2.sc-NUcrz.jrxmYg::before {
+  content: url(https://cdn.fairbet91.com/KHELOO/content/listicon.svg);
+  display: inline-block;
+  vertical-align: middle; 
+  margin-right: 8px;
+  height: 25px;
+}
+h3.sc-NUcrz.jrxmYg::before {
+  content: url(https://cdn.fairbet91.com/KHELOO/content/listicon.svg);
+  display: inline-block;
+  vertical-align: middle; 
+  margin-right: 8px;
+  height: 25px;
+}
+.sc-fPJDME.fjVnzR> p{
+  text-align: left;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+.sc-fPJDME.fjVnzR>ul>li> p{
+  text-align: left;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+.sc-fPJDME.fjVnzR>table>tr>td>p{
+  text-align: left;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+.sc-fPJDME.fjVnzR>p>span{
+  color: #F4B41C;
+
+}
+.sc-fPJDME.fjVnzR >table tr th, tr td {
+  justify-content: center;
+  padding: 2px;
+  margin: auto;
+}
+::ng-deep .ant-collapse>.ant-collapse-item>.ant-collapse-header{
+  color: #FFFFFF !important;
+}
+::ng-deep .ant-collapse-header-text{
+  text-align: left;
+}
+.sc-fPJDME .fjVnzR{
+  text-align: left !important;
+}
+.main{
+  margin-top: 0rem !important;
+
+}
+
+@media (max-width:767px) {
+
+  .main{
+    margin-top: 6rem !important;
+  }
+  .sc-fPJDME.fjVnzR>p{
+    text-align: left;
+    font-size: 12px;
+    color: #FFFFFF;
+  }
+  .sc-fPJDME.fjVnzR>ul>li>p{
+    text-align: left;
+    font-size: 12px;
+    color: #FFFFFF;
+  }
+  .sc-fPJDME.fjVnzR>table>tr>td>p{
+    text-align: left;
+    font-size: 12px;
+    color: #FFFFFF;
+  }
+  h1.sc-NUcrz.jrxmYg {
+    text-align: left;
+    font-size: 14px;
+    
+   }
+  h2.sc-NUcrz.jrxmYg {
+    text-align: left;
+    font-size: 14px;
+    
+   }
+  h3.sc-NUcrz.jrxmYg {
+    text-align: left;
+    font-size: 14px;
+    
+   }
+   ::ng-deep .mat-typography h1{
+    margin: 0px !important;
+   }
+   .sc-fPJDME.fjVnzR> table{
+     color: #ffff !important;
+
+   }
+   .newTab {
+    color: #ffff !important;
+    text-align: left;
+    font-size: 12px;
+    color: #FFFFFF;
+   }
+}
+.sc-fPJDME.fjVnzR>.table-data{
+  max-width: 100%;
+  overflow:auto;
+}
+/* contentcss */
