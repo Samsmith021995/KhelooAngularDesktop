@@ -1,6 +1,6 @@
 
 @import url(https://fonts.googleapis.com/css?family=Lato&subset=latin-ext);
-.nSrBz {
+/* .nSrBz {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -188,7 +188,6 @@
   align-items: flex-start;
 }
 .fjVnzR p {
-  /* display: flex; */
   flex-wrap: wrap;
   -webkit-box-pack: center;
   justify-content: center;
@@ -222,7 +221,6 @@ div.title {
     background: url('/assets/images/tittleLine.png') center center / cover no-repeat;
     display: block;
     margin: -25px auto;
-    /* position: absolute; */
   }
 span.sd {
     color: #7814a1;
@@ -237,7 +235,6 @@ span.sd {
       content: "IPL Betting";
       color: rgb(75 16 79 / 50%);
       font-size: 130px;
-      /* //width: 350px; */
       display: block;
       margin: -160px -110px;
       font-weight: 900;
@@ -294,4 +291,29 @@ table tr th, tr td {
 table{
     margin: 4px;
     color: #fff;
+} */
+
+h2.sc-NUcrz.jrxmYg {
+ color: #F4B41C;
+}
+h2.sc-NUcrz.jrxmYg::before {
+  content: url('/assets/cImg/listicon.svg');
+  display: inline-block;
+  vertical-align: middle; 
+  margin-right: 8px;
+}
+p{
+  text-align: left;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+p span{
+  color: #F4B41C;
+
+}
+table tr th, tr td {
+  border: 1px solid rgb(189, 8, 198);
+  justify-content: center;
+  padding: 2px;
+  margin: auto;
 }
