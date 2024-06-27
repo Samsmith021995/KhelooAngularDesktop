@@ -353,7 +353,7 @@ const routes: Routes = [
           title: 'Kheloo- Best Online Poker Games to Earn Real Money',
           description: 'Play Online Poker to win some exciting cash rewards and bonuses. Explore the variety of Poker games available on Kheloo.com. 24/7 customer support.'
         },
-        canActivate: [DesktopGuard]
+        canActivate: []
       },
       {
         path: 'slots',
@@ -362,7 +362,7 @@ const routes: Routes = [
           title: 'Best Online Slot Games to Earn Real Money at Kheloo',
           description: 'Explore a huge range of slot games like 3 Reel Slots, 5 Reel Slots, 7&9 Reel Slots, and 3D Slots. Visit Kheloo.com now to learn more about slots.'
         },
-        canActivate: [DesktopGuard]
+        canActivate: []
       },
       {
         path: 'table',
@@ -371,7 +371,7 @@ const routes: Routes = [
           title: 'Kheloo- Top Online Casino Table Games in India',
           description: 'Choose from a huge range of online casino table games at Kheloo. Take advantage of the thrilling bonuses and offers. 24/7 customer support assistance.'
         },
-        canActivate: [DesktopGuard]
+        canActivate: []
       },
       
       {
@@ -381,13 +381,13 @@ const routes: Routes = [
           title: 'Kheloo-Play Online Roulette and Win Real Money',
           description: 'Play some of the best Roulette games at Kheloo. European, French, 3D, and Live Roulette are some of the popular games. Join and start earning today!'
         },
-        canActivate: [DesktopGuard]
+        canActivate: []
       }
       ,
       {
         path: 'lottery',
         component: LotteryGameComponent,
-        canActivate: [DesktopGuard]
+        canActivate: []
       }
       ,
       {
@@ -397,13 +397,13 @@ const routes: Routes = [
           title: 'Kheloo-Play Teen Patti Casino Game Online and Win Real Money',
           description: 'Play the Teen Patti Game at Kheloo.com and earn real money. Play with friends and people across the world. 24/7 customer support via different means.'
         },
-        canActivate: [DesktopGuard]
+        canActivate: []
       }
       ,
       {
         path: 'sports',
         component: SportsGameComponent,
-        canActivate: [DesktopGuard]
+        canActivate: []
       },
       {
         path: 'andarbahar',
@@ -412,7 +412,7 @@ const routes: Routes = [
           title: 'Kheloo- Andar Bahar Online game to win real money',
           description: 'Play a variety of Andar Bahar games like Super Andar Bahar, Live Andar Bahar, and One Touch Andar Bahar. Get exciting rewards and cash bonuses.'
         },
-        canActivate: [DesktopGuard]
+        canActivate: []
       },
       {
         path: 'baccarat',
@@ -421,7 +421,7 @@ const routes: Routes = [
           title: 'Kheloo-Top Online Baccarat Games to win real money',
           description: 'Kheloo offers all top-rated Baccarat games where players can play with their friends and online players 24/7. Earn huge bonuses and other rewards.'
         },
-        canActivate: [DesktopGuard]
+        canActivate: []
       },
       {
         path: 'blackjack',
@@ -430,7 +430,7 @@ const routes: Routes = [
           title: 'Kheloo-Play Online Blackjack for Real Money in India',
           description: 'Explore Kheloo for the best online and live Blackjack games like single, multi-hand, and European Blackjack! Get big cash bonuses and rewards.'
         },
-        canActivate: [DesktopGuard]
+        canActivate: []
       },
       {
         path: 'loginpop',
