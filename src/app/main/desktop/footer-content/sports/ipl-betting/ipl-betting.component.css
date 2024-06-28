@@ -15,3 +15,13 @@
     width:10%;
   }
 }
+.main ::ng-deep .ant-collapse>.ant-collapse-item>.ant-collapse-header .ant-collapse-header-text {
+  text-align: left;
+  color: #fff;
+}
+.main ::ng-deep .ant-collapse>.ant-collapse-item>.ant-collapse-header .ant-collapse-arrow{
+  color: #fff;
+}
+.main ::ng-deep .ant-collapse-ghost>.ant-collapse-item>.ant-collapse-content>.ant-collapse-content-box{
+  text-align: left;
+}

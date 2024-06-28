@@ -10,6 +10,7 @@ import { CommonServiceService } from 'src/app/main/service/common-service.servic
 export class CasinoComponent implements OnInit {
   isSmallScreen:boolean=false;
   constructor(private commSer:CommonServiceService, private router:Router,private comFun:ComFunService) { }
+  cdn = this.comFun.cdn;
 ngOnInit(): void {
   this.commSer.myVariable$.subscribe((width)=>{
     this.isSmallScreen = width === "true";

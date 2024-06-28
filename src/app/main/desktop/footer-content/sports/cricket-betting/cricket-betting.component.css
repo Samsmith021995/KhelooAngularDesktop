@@ -1,0 +1,26 @@
+@media (min-width:767px) {
+    .arrow{
+      width:5%;
+    }
+    .main-header{
+      width:60%;
+    }
+  }
+  @media (max-width:767px) {
+    .main-header{
+      width:80%;
+    }
+    .arrow{
+      width:10%;
+    }
+  }
+  .main ::ng-deep .ant-collapse>.ant-collapse-item>.ant-collapse-header .ant-collapse-header-text {
+    text-align: left;
+    color: #fff;
+  }
+  .main ::ng-deep .ant-collapse>.ant-collapse-item>.ant-collapse-header .ant-collapse-arrow{
+    color: #fff;
+  }
+  .main ::ng-deep .ant-collapse-ghost>.ant-collapse-item>.ant-collapse-content>.ant-collapse-content-box{
+    text-align: left;
+  }

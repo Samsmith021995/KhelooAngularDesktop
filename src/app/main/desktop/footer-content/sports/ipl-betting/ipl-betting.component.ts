@@ -41,13 +41,13 @@ export class IplBettingComponent implements OnInit {
       content:"Yes, you can. Kheloo presently accepts Mastercard and Visa credit cards for deposits, and both payment alternatives are considered reliable, secure and fast. The player can use them to make quick deposits in Indian rupees."
     }
   ];
+  cdn :string= 'https://cdn.fairbet91.com/KHELOO/content/'
   constructor(private commSer: CommonServiceService, private router: Router) { }
   ngOnInit(): void {
     this.commSer.myVariable$.subscribe((width) => {
       this.isSmallScreen = width === "true";
     });
   }
-  cdn :string= 'https://cdn.fairbet91.com/KHELOO/content/'
   navigateRegister() {
     if (this.isSmallScreen) {
       this.router.navigate(['/signup']);
