@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonServiceService } from './service/common-service.service';
 import { UrlService } from './service/url.service';
-import { Subscription, debounceTime, filter } from 'rxjs';
+import { Subscription, debounceTime, filter, map } from 'rxjs';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ApiService } from './service/api.service';
 import { config } from './service/config';
@@ -27,7 +27,7 @@ export class MainComponent implements OnInit {
   private urlSubscription!: Subscription;
   elementActive:boolean =true;
   startLoading:boolean = false;
-
+  breadcrumbs: Array<{ label: string, url: string }> = [];
   private routerSubscription!: Subscription;
   constructor(private commonSer:CommonServiceService,private urlSer:UrlService,private router:ActivatedRoute,private routing:Router,private apiSer:ApiService,private comFun:ComFunService,private fb:FormBuilder,private routers:Router){}
   ngOnInit(): void {
@@ -91,6 +91,13 @@ export class MainComponent implements OnInit {
             });
         }
       });
+      this.routing.events.pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(() => this.buildBreadcrumbs(this.router.root))
+      ).subscribe(breadcrumbs => {
+        this.breadcrumbs = breadcrumbs;
+      });
+      this.breadcrumbs = this.buildBreadcrumbs(this.router.root);
       
   }
   searchIn(){
@@ -139,5 +146,26 @@ export class MainComponent implements OnInit {
   // ngOnDestroy(): void {
   //   this.urlSubscription.unsubscribe();
   // }
+
+
+  private buildBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: Array<{ label: string, url: string }> = []): Array<{ label: string, url: string }> {
+    const children: ActivatedRoute[] = route.children;
+
+    if (children.length === 0) {
+      return breadcrumbs;
+    }
+
+    const child = children[0];
+    const routeURL: string = child.snapshot.url.map(segment => segment.path).join('/');
+    if (routeURL !== '') {
+      url += `/${routeURL}`;
+    }
+
+    if (child.snapshot.data['breadcrumb']) {
+      breadcrumbs.push({ label: child.snapshot.data['breadcrumb'], url });
+    }
+
+    return this.buildBreadcrumbs(child, url, breadcrumbs);
+  }
 
 }

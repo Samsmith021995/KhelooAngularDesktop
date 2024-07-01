@@ -75,6 +75,7 @@ import { NzBackTopModule } from 'ng-zorro-antd/back-top';
 import { GamesCategoryComponent } from '../desktop/games-category/games-category.component';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 
 import { LoginPopupComponent } from '../desktop/auth/login-popup/login-popup.component';
 import { ProfilePopupComponent } from '../desktop/profile-popup/profile-popup.component';
@@ -167,7 +168,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzMessageModule,
   NzWaterMarkModule,
   NzBackTopModule,
-  NzCollapseModule
+  NzCollapseModule,
+  NzBreadCrumbModule
 
   ],
  exports:[
@@ -242,7 +244,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzMessageModule,
   NzWaterMarkModule,
   NzBackTopModule,
-  NzCollapseModule
+  NzCollapseModule,
+  NzBreadCrumbModule
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [

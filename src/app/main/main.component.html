@@ -54,6 +54,7 @@
             <app-desktop-sidebar></app-desktop-sidebar>
         </nz-sider>
         <nz-content>
+           
             <!-- Live Chat start -->
             <div class="amo-button-holder amo-horisontal"
                 style="position: fixed; z-index: 100000; right: 90px; bottom: 90px;">
@@ -155,6 +156,12 @@
             <!-- MainContainer -->
             <div style="min-height: 800px;margin-top: 1rem;">
                 <nz-back-top></nz-back-top>
+                <nz-breadcrumb>
+                    <nz-breadcrumb-item *ngFor="let breadcrumb of breadcrumbs; let last = last">
+                      <a *ngIf="!last; else lastBreadcrumb" [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a>
+                      <ng-template #lastBreadcrumb>{{ breadcrumb.label }}</ng-template>
+                    </nz-breadcrumb-item>
+                  </nz-breadcrumb>
                 <router-outlet></router-outlet>
             </div>
             <!-- MainContainer -->

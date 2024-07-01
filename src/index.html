@@ -147,16 +147,16 @@
 
     <script type="text/javascript">
         (function () {
-            let siteKey = '3dd2c529a232bfe6ee9e87d570b36dc66e08fe8c'
+            let siteKey = '3ad1b3e8d85c44d345462bb47b977b9649417f7a'
             // const urlParams = new URLSearchParams(window.location.search);
-            // const siteCode = urlParams.get('siteCode');
+            const siteCode = "KH"
             const userId = localStorage.getItem('UserId');
             
           // console.log("Ashu"+localStorage.getItem('UserId'));
             var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
             s1.async = true;
             // /1h9fv5otd
-            s1.src = 'https://embed.tawk.to/64f5bf33b2d3e13950edcfa5/1h9fv5otd';
+            s1.src = 'https://embed.tawk.to/60a22370185beb22b30ddc1d/1f5slks90';
             s1.charset = 'UTF-8';
             s1.setAttribute('crossorigin', '*');
             s0.parentNode.insertBefore(s1, s0);
@@ -172,7 +172,7 @@
                     window.Tawk_API.setAttributes({
                         hash: hash,
                         userId: userId,
-                        name:  userId,
+                        name:siteCode + userId,
                     }, function (error) {
                         console.error(error);
                     });

@@ -88,6 +88,7 @@ const routes: Routes = [
         path: 'promotions',
         loadChildren: () => import('./main/desktop/promotion/promotion.module').then(m => m.PromotionModule),
         data: {
+          breadcrumb: '/promotions',
           title: 'Kheloo- Promotion',
           description: ''
         },
@@ -341,6 +342,7 @@ const routes: Routes = [
         path: 'casino',
         component: CasinoGameComponent,
         data: {
+          breadcrumb: '/casino',
           title: 'Kheloo-Best Online Casino in India to earn real money',
           description: 'Kheloo offers the best online casino games like Teen Patti, Blackjack, Slots, Baccarat, Roulette, Poker, and more. Get a welcome bonus of ₹50,000.'
         },
@@ -350,6 +352,7 @@ const routes: Routes = [
         path: 'poker',
         component: PokerGameComponent,
         data: {
+          breadcrumb: '/poker',
           title: 'Kheloo- Best Online Poker Games to Earn Real Money',
           description: 'Play Online Poker to win some exciting cash rewards and bonuses. Explore the variety of Poker games available on Kheloo.com. 24/7 customer support.'
         },
@@ -359,6 +362,7 @@ const routes: Routes = [
         path: 'slots',
         component: SlotsGameComponent,
         data: {
+          breadcrumb: '/slots',
           title: 'Best Online Slot Games to Earn Real Money at Kheloo',
           description: 'Explore a huge range of slot games like 3 Reel Slots, 5 Reel Slots, 7&9 Reel Slots, and 3D Slots. Visit Kheloo.com now to learn more about slots.'
         },
@@ -368,6 +372,7 @@ const routes: Routes = [
         path: 'table',
         component: TablegamesGameComponent,
         data: {
+          breadcrumb: '/table',
           title: 'Kheloo- Top Online Casino Table Games in India',
           description: 'Choose from a huge range of online casino table games at Kheloo. Take advantage of the thrilling bonuses and offers. 24/7 customer support assistance.'
         },
@@ -378,6 +383,7 @@ const routes: Routes = [
         path: 'roulette',
         component: RouletteGameComponent,
         data: {
+          breadcrumb: '/roulette',
           title: 'Kheloo-Play Online Roulette and Win Real Money',
           description: 'Play some of the best Roulette games at Kheloo. European, French, 3D, and Live Roulette are some of the popular games. Join and start earning today!'
         },
@@ -387,13 +393,17 @@ const routes: Routes = [
       {
         path: 'lottery',
         component: LotteryGameComponent,
-        canActivate: [DesktopGuard]
+        canActivate: [DesktopGuard],
+        data:{
+          breadcrumb: '/lottery',
+        }
       }
       ,
       {
         path: 'teenpatti',
         component: TeenpatiGameComponent,
         data: {
+          breadcrumb: '/teenpatti',
           title: 'Kheloo-Play Teen Patti Casino Game Online and Win Real Money',
           description: 'Play the Teen Patti Game at Kheloo.com and earn real money. Play with friends and people across the world. 24/7 customer support via different means.'
         },
@@ -403,12 +413,16 @@ const routes: Routes = [
       {
         path: 'sports',
         component: SportsGameComponent,
-        canActivate: [DesktopGuard]
+        canActivate: [DesktopGuard],
+        data:{
+          breadcrumb: '/sports',
+        }
       },
       {
         path: 'andarbahar',
         component: AndarbaharGameComponent,
         data: {
+          breadcrumb: '/andarbahar',
           title: 'Kheloo- Andar Bahar Online game to win real money',
           description: 'Play a variety of Andar Bahar games like Super Andar Bahar, Live Andar Bahar, and One Touch Andar Bahar. Get exciting rewards and cash bonuses.'
         },
@@ -418,6 +432,7 @@ const routes: Routes = [
         path: 'baccarat',
         component: BaccaratGameComponent,
         data: {
+          breadcrumb: '/baccarat',
           title: 'Kheloo-Top Online Baccarat Games to win real money',
           description: 'Kheloo offers all top-rated Baccarat games where players can play with their friends and online players 24/7. Earn huge bonuses and other rewards.'
         },
@@ -427,6 +442,7 @@ const routes: Routes = [
         path: 'blackjack',
         component: BlackjackGameComponent,
         data: {
+          breadcrumb: '/blackjack',
           title: 'Kheloo-Play Online Blackjack for Real Money in India',
           description: 'Explore Kheloo for the best online and live Blackjack games like single, multi-hand, and European Blackjack! Get big cash bonuses and rewards.'
         },

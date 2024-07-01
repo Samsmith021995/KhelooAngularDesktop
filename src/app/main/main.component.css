@@ -71,7 +71,13 @@ nz-content {
   margin: 5rem 16px 0;
   overflow: initial;
 }
+::ng-deep nz-breadcrumb{
+  text-align: justify;
+  .ant-breadcrumb-link{
+    color: #fff;
 
+  }
+}
 .inner-content {
   padding: 24px;
   text-align: center;

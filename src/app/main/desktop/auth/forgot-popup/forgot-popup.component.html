@@ -45,12 +45,21 @@
                   }
                 <nz-form-item>
                     <nz-form-control nzErrorTip="Please input your Password!">
-                        <nz-input-group [nzPrefix]="regPass">
-                            <input type="text" nz-input formControlName="Password" placeholder="Enter Password" />
+                        <nz-input-group [nzPrefix]="regPass" [nzSuffix]="eye">
+                            <input [type]="showPass?'text':'password'" nz-input formControlName="Password" placeholder="Enter Password" />
                             <ng-template #regPass>
                                 <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
                                 <img [src]="cdn+'icons/lock.svg'">
                             </ng-template>
+                            <ng-template #eye>
+                                <a (click)="showPass = !showPass">
+                                 @if(showPass){
+                                   <img [src]="cdn+'icons/eye-off.svg'">
+                                 }@else{
+                                   <img [src]="cdn+'icons/eye.svg'">
+                                 }
+                               </a>
+                             </ng-template>
                         </nz-input-group>
                     </nz-form-control>
                 </nz-form-item>
