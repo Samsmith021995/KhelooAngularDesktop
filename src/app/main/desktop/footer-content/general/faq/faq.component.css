@@ -422,12 +422,10 @@ td img {
     text-align: left;
   }
   
-
-
-
-
-  .tab-label .questions{
+.tab-label .questions{
     color: white;
+    font-size: 14px;
+    font-weight: 400;
  
   }
 
@@ -470,6 +468,7 @@ ol li::marker {
     font-size: 26px;
     font-weight: 800;
     margin-bottom: 20px;
+    color: #F4B41C;
   }
   .tab {
     width: 100%;
