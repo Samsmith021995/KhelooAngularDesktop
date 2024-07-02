@@ -71,10 +71,18 @@ nz-content {
   margin: 5rem 16px 0;
   overflow: initial;
 }
+::ng-deep .ant-breadcrumb{
+  line-height: 3;
+}
 ::ng-deep nz-breadcrumb{
   text-align: justify;
+  margin-bottom: 3px;
+ 
+  background-color: #2B2B2B;
   .ant-breadcrumb-link{
+    padding: 1rem;
     color: #fff;
+    margin: 1rem;
 
   }
 }

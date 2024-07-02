@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class InviteFriendComponent {
   isCopied = false;
+ cdn :string= 'https://cdn.fairbet91.com/KHELOO/content/'
   copyToClipboard() {
     const refUrlElement = document.querySelector(".ref_url") as HTMLSpanElement;
 

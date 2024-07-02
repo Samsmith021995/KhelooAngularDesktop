@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './disconnection-policy.component.css'
 })
 export class DisconnectionPolicyComponent {
-
+cdn :string= 'https://cdn.fairbet91.com/KHELOO/content/'
 }

@@ -1,17 +1,10 @@
 
-<div class="sc-himrzO nSrBz">
-    <!-- <div class="sc-eFcTUF fAmwxC"><span class=" lazy-load-image-background none lazy-load-image-loaded"
-        style="color: transparent; display: inline-block; height: 100%; width: 100%;"><img
-          src="https://opt-v3-files.raksahb.com/static/cashsite/brand/6/image/FunkyPromoBanner.jpg" height="100%"
-          width="100%"></span><button class="sc-kiXtfX eIkrFH play">Play Now</button></div> -->
-    <div class="sc-cKYHso eBOuzh">
-
-        <div class="title">
-            <span class="sd">INVITE</span> 
+<div class="main">
+        <div class="title  col-md-12 col-sm-12 col-xs-12">
+            <span class="sd"><img [src]="cdn+'left.svg'" alt="" class="arrow"><img [src]="cdn+'inviteFreind.svg'"
+                alt="" class="main-header"><img [src]="cdn+'/right.svg'" alt="" class="arrow"></span> 
         </div> 
-    
-    <!-- <span class="sc-NUcrz jrxmYg center col-md-12">INVITE A FRIEND</span> -->
-    <div class="row invite-row">
+    <div class=" row invite-row">
         
         <div class="col-md-3 offset-md-1 invite-girl">
             <img src="https://opt-v3-files.raksahb.com/static/media/navImage/DROPDOWN_CASHBACKBONUS_NEW.png"
@@ -20,27 +13,25 @@
         <div class="col-md-8 mobile-card">
             
             
-            <!-- just wanted to test share button i found in mozilla's documentation;  if you open the pen on mobile - there will be a green button. it triggers share window native to your mobile devise;-->
-            
-            <div>
-                <span class="sc-NUcrz jrxmYg col-md-12">Invite Friends With A Link</span>
-                <p class="center">
+            <div class="sc-fPJDME fjVnzR col-md-12 col-sm-12 col-xs-12">
+                <h2 class="sc-NUcrz jrxmYg">Invite Friends With A Link</h2>
+                <p>
                     Here’s your unique link - simply copy it below and share via email or social media. <br>
                     Your bonus will progress
                     once your first friend joins!
                 </p>
-                <ul class="ref_desc">
-                        <li>1. Send your friend a referral link</li>
-                        <li>2. Wait for them to register</li>
-                        <li>3. Get Referral Bonus 🎉</li>
-                    </ul>
+                <ul>
+                        <li><p>Send your friend a referral link</p></li>
+                        <li><p>Wait for them to register</p></li>
+                        <li><p>Get Referral Bonus 🎉</p></li>
+                </ul>
 
                 </div>
-                <div class="ref_container">
+                <div class="ref_container col-md-12 col-sm-12 col-xs-12">
                     <div class="cool_btn">
                         <span class="ref_url">https://bit.ly/3JJL72t</span>
+                        <button class="ref_url_btn" (click)="copyToClipboard()" nz-button nzType="primary">{{isCopied?'Copied':'Copy'}}</button>
                     </div>
-                    <button class="ref_url_btn" (click)="copyToClipboard()">{{isCopied?'Copied':'Copy'}}</button>
                     <!-- <div class="ref_url_copied2" [hidden]="!isCopied">Copied</div> -->
                 </div>
             </div>
