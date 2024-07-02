@@ -1,14 +1,14 @@
 <div class="container">
     <div class="card login-card">
         <div style="">
-            <img src="/assets/images/Post-456_3.jpg" alt="" width="100%">
+            <img [src]="cdn+'images/Post-456_3.jpg'" alt="" width="100%">
         </div>
         <div class="close-div">
             <span class="popupClose" mat-dialog-close><i-feather name="x" class="rotate-icon"></i-feather></span>
         </div>
         <div class="form col-md-4 com-sm-6 col-xs-6">
             <div class="logo col-md-8 com-sm-8 col-xs-8" style="margin: auto;" >
-                <img src="https://cdn.fairbet91.com/KHELOO/images/logo.gif" alt="" width="100%">
+                <img [src]="cdn+'images/logo.gif'" alt="" width="100%">
                 <h2 class="form-title">Reset Password</h2>
             </div>
             <form nz-form [formGroup]="forgotForm" class="login-form" (ngSubmit)="submitForgotForm()">

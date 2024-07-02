@@ -379,14 +379,14 @@ td img {
   
   .tab label {
     display: flex !important;
-    justify-content: space-between !important;
+    /* justify-content: space-between !important; */
     padding: 10px;
   
     font-weight: bold;
     cursor: pointer;
   }
   
-  .tab label::after {
+  .tab label::before {
     content: "\276F";
     width: 1em;
     height: 1em;
@@ -409,7 +409,7 @@ td img {
   input:checked {
     + .tab-label {
      
-      &::after {
+      &::before {
         transform: rotate(90deg);
       }
     }
@@ -417,6 +417,9 @@ td img {
       max-height: 100vh;
       padding: 1em;
     }
+  }
+  .col{
+    text-align: left;
   }
   
 
@@ -475,7 +478,7 @@ ol li::marker {
   }
   ul li::before {
     content: "";
-    border:  rgb(189, 8, 198);
+    border:#F4B41C ;
     border-style: solid;
     border-width: 0.35em;
     border-radius: 6px;
@@ -491,15 +494,16 @@ ol li::marker {
     max-height: 0;
     padding: 0 1em;
    
-    background: #2a0b47;
+    background: #201f21;
     transition: all 0.35s;
   }
   
   #m-main{
-    color: rgb(189, 8, 198);
+    color: #F4B41C;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 1em;
+    text-transform: capitalize;
    
   }
   .sc-cKYHso.eBOuzh {
@@ -516,11 +520,11 @@ ol li::marker {
   .tab-label{
     color: white;
    
-    background-color:rgb(120 20 161); 
+    /* background-color:rgb(120 20 161);  */
    
   }
   input:checked + .tab-label {
-    background-color: rgb(189, 8, 198);
+    /* background-color: rgb(189, 8, 198); */
   }
   .custom-row{
     width: 100%;

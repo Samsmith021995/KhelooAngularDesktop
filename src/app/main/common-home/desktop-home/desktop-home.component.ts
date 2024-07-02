@@ -48,6 +48,7 @@ export class DesktopHomeComponent implements OnInit,AfterViewInit {
   private isLoggedInSubscription!: Subscription;
   icons: string[] = ['star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell'];
   constructor(private comfun: ComFunService,private apiSer:ApiService,private renderer: Renderer2,private router:Router,private dialog:MatDialog) { }
+ 
   gamesProvider = [
     {title:'ezugi',src:this.comfun.cdn+'provider/ezugi_1.svg'},
     {title:'red tiger',src:this.comfun.cdn+'provider/red-tiger-gaming.svg'},
@@ -71,14 +72,14 @@ export class DesktopHomeComponent implements OnInit,AfterViewInit {
     {title:'netent',src:this.comfun.cdn+'provider/netent.svg'},
   ];
   profileImg = [
-    '/assets/profile-image.png',
-    '/assets/third.jpg',
-    '/assets/fourth.jpg',
-    '/assets/fifth.jpg',
-    '/assets/profile-image.png',
-    '/assets/third.jpg',
-    '/assets/fourth.jpg',
-    '/assets/fifth.jpg'
+    this.comfun.cdn+'images/profile-image.png',
+    this.comfun.cdn+'images/third.jpg',
+    this.comfun.cdn+'images/fourth.jpg',
+    this.comfun.cdn+'images/fifth.jpg',
+    this.comfun.cdn+'images/profile-image.png',
+    this.comfun.cdn+'images/third.jpg',
+    this.comfun.cdn+'images/fourth.jpg',
+    this.comfun.cdn+'images/fifth.jpg'
   ]
   countDownValue = 6598326;
   displayValue=this.countDownValue.toString();
