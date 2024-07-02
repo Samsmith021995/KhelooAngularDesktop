@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NzSkeletonButtonShape, NzSkeletonButtonSize, NzSkeletonInputSize } from 'ng-zorro-antd/skeleton';
 import { Subscription, catchError } from 'rxjs';
 import { ApiService } from 'src/app/main/service/api.service';
+import { ComFunService } from 'src/app/main/service/com-fun.service';
 import { config } from 'src/app/main/service/config';
 
 @Component({
@@ -39,7 +40,8 @@ export class StatementPopComponent implements OnInit {
     "RecordCount": 10
   };
   private loaderSubscriber !: Subscription;
-  constructor(private apiservice: ApiService, private router: Router) { }
+  constructor(private apiservice: ApiService, private router: Router,private comFun:ComFunService) { }
+  cdn = this.comFun.cdn;
   ngOnInit(): void {
     this.loaderSubscriber = this.apiservice.loaderService.loading$.subscribe((loading: any = {}) => {
       this.isLoading = ('fetchStatement' in loading) ? true : false;

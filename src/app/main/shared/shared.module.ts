@@ -74,6 +74,9 @@ import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzBackTopModule } from 'ng-zorro-antd/back-top';
 import { GamesCategoryComponent } from '../desktop/games-category/games-category.component';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+
 import { LoginPopupComponent } from '../desktop/auth/login-popup/login-popup.component';
 import { ProfilePopupComponent } from '../desktop/profile-popup/profile-popup.component';
 import { WithdrawPopComponent } from '../desktop/profile-popup/withdraw-pop/withdraw-pop.component';
@@ -81,6 +84,8 @@ import { StatementPopComponent } from '../desktop/profile-popup/statement-pop/st
 import { ForgotPopupComponent } from '../desktop/auth/forgot-popup/forgot-popup.component';
 import { ProfileDetailsComponent } from '../desktop/profile-popup/profile-details/profile-details.component';
 import { HowToWithdrawComponent } from '../desktop/profile-popup/how-to-withdraw/how-to-withdraw.component';
+import { RippleDirective } from './ripple.directive';
+
 
 const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserOutline ];
 @NgModule({
@@ -113,8 +118,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
     StatementPopComponent,
     ForgotPopupComponent,
     ProfileDetailsComponent,
-    HowToWithdrawComponent
-    
+    HowToWithdrawComponent,
+    RippleDirective
     
   ],
   imports: [
@@ -163,7 +168,9 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzAlertModule,
   NzMessageModule,
   NzWaterMarkModule,
-  NzBackTopModule
+  NzBackTopModule,
+  NzCollapseModule,
+  NzBreadCrumbModule
 
   ],
  exports:[
@@ -193,6 +200,7 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   ForgotPopupComponent,
   ProfileDetailsComponent,
   HowToWithdrawComponent,
+  RippleDirective,
   CommonModule,
   FormsModule,
   HttpClientModule,
@@ -237,7 +245,9 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   NzAlertModule,
   NzMessageModule,
   NzWaterMarkModule,
-  NzBackTopModule
+  NzBackTopModule,
+  NzCollapseModule,
+  NzBreadCrumbModule
  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [

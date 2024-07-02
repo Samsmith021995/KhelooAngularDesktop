@@ -1,7 +1,3 @@
-.images {
-    background: url('/assets/Group 493.png');
-}
-
 .close-div {
     position: absolute;
     background-color: #fff;
@@ -128,7 +124,6 @@
 
   .ant-card-body{
     padding: 0px !important;
-    /* background-image: url('/assets/Group 493.png'); */
   }
 
 

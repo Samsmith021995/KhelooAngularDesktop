@@ -17,6 +17,7 @@ import { config } from 'src/app/main/service/config';
 export class ForgotPopupComponent implements OnInit {
   @ViewChildren('otpInput') otpInputs!: QueryList<ElementRef>;
   otp: string[] = ['', '', '', '', '', ''];
+  showPass:boolean = false;
   btnLoading:boolean = false;
   forgotForm!:FormGroup;
   getOtp:boolean =false;

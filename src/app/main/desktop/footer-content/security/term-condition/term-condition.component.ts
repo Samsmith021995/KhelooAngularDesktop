@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './term-condition.component.css'
 })
 export class TermConditionComponent {
-
+cdn :string= 'https://cdn.fairbet91.com/KHELOO/content/'
 }

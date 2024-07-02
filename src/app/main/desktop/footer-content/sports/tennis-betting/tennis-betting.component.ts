@@ -9,6 +9,7 @@ import { CommonServiceService } from 'src/app/main/service/common-service.servic
 })
 export class TennisBettingComponent  implements OnInit{
   isSmallScreen:boolean=false;
+  cdn :string= 'https://cdn.fairbet91.com/KHELOO/content/'
   constructor(private commSer:CommonServiceService, private router:Router) { }
   ngOnInit(): void {
     this.commSer.myVariable$.subscribe((width)=>{

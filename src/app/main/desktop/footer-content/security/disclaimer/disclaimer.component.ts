@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './disclaimer.component.css'
 })
 export class DisclaimerComponent {
-
+ cdn :string= 'https://cdn.fairbet91.com/KHELOO/content/'
 }
