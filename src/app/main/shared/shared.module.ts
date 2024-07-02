@@ -84,6 +84,7 @@ import { StatementPopComponent } from '../desktop/profile-popup/statement-pop/st
 import { ForgotPopupComponent } from '../desktop/auth/forgot-popup/forgot-popup.component';
 import { ProfileDetailsComponent } from '../desktop/profile-popup/profile-details/profile-details.component';
 import { HowToWithdrawComponent } from '../desktop/profile-popup/how-to-withdraw/how-to-withdraw.component';
+import { RippleDirective } from './ripple.directive';
 
 
 const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserOutline ];
@@ -117,8 +118,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
     StatementPopComponent,
     ForgotPopupComponent,
     ProfileDetailsComponent,
-    HowToWithdrawComponent
-    
+    HowToWithdrawComponent,
+    RippleDirective
     
   ],
   imports: [
@@ -199,6 +200,7 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill,UserO
   ForgotPopupComponent,
   ProfileDetailsComponent,
   HowToWithdrawComponent,
+  RippleDirective,
   CommonModule,
   FormsModule,
   HttpClientModule,

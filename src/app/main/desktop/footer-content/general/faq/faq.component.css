@@ -468,7 +468,7 @@ ol li::marker {
     font-size: 26px;
     font-weight: 800;
     margin-bottom: 20px;
-    color: #F4B41C;
+    color: #F4B41C !important;
   }
   .tab {
     width: 100%;
