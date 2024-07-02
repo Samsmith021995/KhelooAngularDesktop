@@ -1,308 +1,3 @@
-/* .navbar {
-  border-radius: 0;
-}
-
-.navbar>.container,
-.navbar>.container-fluid,
-.navbar>.container-lg,
-.navbar>.container-md,
-.navbar>.container-sm,
-.navbar>.container-xl,
-.navbar>.container-xxl {
-  display: flex;
-  flex-wrap: initial;
-  align-items: center;
-}
-
-.loginbtn.user {
-  color: #fff;
-  font-size: 15px;
-  text-align: right;
-  display: flex;
-}
-
- 
-nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
-  background: #000c24 !important;
-  margin: 0;
-}
-
-a.navbar-brand.fw-bold {
-  display: flex;
-}
-
-img.promotion-icon {
-  border-radius: 4px;
-  border-radius: 4px;
-  text-align: center;
-  margin: 0px auto -20px;
-  display: block;
-}
-
-img.promotion-icon1 {
-  border-radius: 4px;
-  border-radius: 4px;
-  text-align: center;
-  display: block;
-}
-img.promotion-icon2 {
-  border-radius: 4px;
-  border-radius: 4px;
-  text-align: center;
-  margin-top:20px;
-  display: block;
-}
-
-button.btn.btn-primary.btn-lg {
-  background: -webkit-linear-gradient(#ffd370 0%, #f7ad07 50%);
-  border: none;
-  font-size: 13px;
-}
-
-nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.pd10-50 {
-  padding: 10px 50px;
-}
-
-.sub-menu {
-  position: absolute;
-  width: 10%;
-  top: 100%;
-  right: 30px;
-  display: block;
-  z-index: 1;
-  text-align: center;
-
-}
-
-.sub-menu .menu-item:nth-child(1) {
-  animation-duration: .2s;
-  animation-delay: 0s;
-}
-
-.sub-menu .menu-item {
-  padding: 0.75rem 0;
-  background: #1e0048;
-  opacity: 1;
-  border: 1px solid #f4ad09;
-  transform-origin: bottom;
-  animation: enter .4s ease forwards;
-  list-style: none;
-}
-
-.menu-item a {
-  text-decoration: none;
-  color: white;
-}
-
-a {
-  cursor: pointer;
-}
-
-.logincontainer {
-  float: right;
-}
-
-.logocontainer {
-  display: inline-block;
-}
-
-.logo {
-  width: 100px;
-}
-
-.promotion-icon {
-
-  width: 30px;
-}
-.promotion-icon1 {
-
-  width: 30px;
-}
-.promotion-icon2 {
-
-  width: 30px;
-}
-
-input {
-  width: 180px;
-  margin-right: 4px;
-  height: 37px;
-  border: 1px solid #fff;
-  border-radius: 4px;
-  background: transparent;
-  vertical-align: bottom;
-  color: #fff;
-  padding: 0px 15px;
-}
-::placeholder{
-  padding: 10px;
-  color: #fff;
-}
-
-button {
-
-  height: 100%;
-  padding: 9px 20px;
-  margin-right: -10px;
-  border-radius: 5px;
-}
-
-.sub-menu {
-  position: absolute;
-  width: 10%;
-  top: 100%;
-  right: 30px;
-  display: block;
-  z-index: 1034;
-  text-align: center;
-
-}
-
-.sub-menu .menu-item:nth-child(1) {
-  animation-duration: .2s;
-  animation-delay: 0s;
-}
-
-.sub-menu .menu-item {
-  padding: 0.75rem 0;
-  background: #1e0048;
-  opacity: 1;
-  border: 1px solid #f4ad09;
-  transform-origin: bottom;
-  animation: enter .4s ease forwards;
-  list-style: none;
-}
-
-.menu-item a {
-  text-decoration: none;
-  color: white;
-}
-span.font7 {
-  font-size: 9px;
-  color: #f6c859;
-  font-weight: bold;
-  text-transform: none;
-}
-.me-2 {
-    margin-right: 30.5rem!important;
-}
-img.profileicon {
-  position: absolute;
-  top: 25px;
-  right: 20px;
-}
-.mr20{
-  margin-left: 20px;
-}
-
-
-button.deposit {
-  position: relative;
-  background: #4d8e02;
-  border: 0;
-  text-transform: uppercase;
-  border-radius: 3px;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-  font-weight: 400;
-  font-size: 12px;
-  color: #fff;
-
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  transition: all 0.2s ease;
-}
-button.deposit:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -200%;
-  width: 200%;
-  height: 100%;
-  transform: skewX(-20deg);
-  background-image: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
-}
-button.deposit:after {
-  animation: shine 1.6s ease infinite;
-}
-button.deposit:active {
-  transform: translateY(1px);
-  box-shadow: 0 4px 16px rgba(27, 189, 9, 0.2);
-}
-@-moz-keyframes shine {
-  100% {
-    left: 200%;
-  }
-}
-@-webkit-keyframes shine {
-  100% {
-    left: 200%;
-  }
-}
-@-o-keyframes shine {
-  100% {
-    left: 200%;
-  }
-}
-@keyframes shine {
-  100% {
-    left: 200%;
-  }
-}
-.button {
-  background-color: #7900ad;
-  color: white;
-  text-decoration: none;
-  border-radius: 60px;
-  height: 45px;
-  display: inline-flex;
-  align-items: center;
-  overflow:hidden;
-  width: auto;
-  max-width: 45px; 
-  -webkit-transition: max-width 0.5s;
-  transition: max-width 0.5s;
-}
-
-.button:hover {
-  max-width: 500px;
-}
-
-.icon {
-  font-family: "Font Awesome 5 Free";
-  font-size: 16px;
-  margin-right: 15px;
-  padding: 0px 8px;
-  display: flex;
-  align-items: center;
-}
-
-.text {
-  display: flex;
-}
-
-
-img.promotion-icon3 {
-  border-radius: 4px;
-  border-radius: 4px;
-  text-align: center;
-  margin-top:24px;
-  display: block;
-  width: 22px;
-}
-
- @media screen and (min-width: 767px) and (max-width:1050px) {
-  #navbarSupportedContent{
-    width: 200px;
-  }
-  input{
-    margin-bottom: 4px;
-  }
-
-} */
-
-/* New Code */
-
 .navbar {
   border-radius: 0;
 }
@@ -352,19 +47,163 @@ a.navbar-brand.fw-bold {
     width: 14px;
     fill: #580b41;
   }
+  img{
+    width: 18px;
+    margin:0 0.2rem;
+  }
+}
+
+.buttons-menu{
+  background: rgba(62, 15, 82, 1);
+  font-size: 14px;
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  img{
+    width: 18px;
+  }
+  i-feather{
+    width: 14px;
+    fill: #580b41;
+  }
 }
 :host {
   display: block;
-  /* width: 100%; */
 }
-.top-header{
 
-    /* position: -webkit-sticky;
-    position: fixed;
-    top: 0;
-    z-index: 1000; 
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-     Optional: Add some shadow for better visibility */
+
+.dropdown-menu{
+  background: #580b41;
+}
+::ng-deep nz-dropdown-menu{
   
+  background: #580b41;
+}
+.buttons:hover{
+  background-image: linear-gradient(to right, #e0d37f, #bc9d36);
+}
+.search-input{
+  /* width: ; */
+  height: 34px;
+  padding: 0.4rem 0.6rem;
+  background: none;
+  background-color: #000c24;
+  border: none;
+  margin-right: 1rem;
+  border-radius: 5px;
+  border:1px solid #FFBF00;
+}
+.menu-icon1{
+  width: 15px !important;
+}
+
+/* .deposit{
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em transparent;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+} */
+/* .glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+} */
+.continuous-ripple {
+  position: relative;
+  overflow: hidden;
+  display: inline-block; /* Use inline-block or block to manage layout */
+  background-color: #6200ea; /* Customize your button color */
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+.continuous-ripple::before {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple-animation 2s infinite;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.75;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
 }

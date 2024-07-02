@@ -62,21 +62,21 @@
 }
 
 
-.bLvAaE.funkytime {
+/* .bLvAaE.funkytime {
   color: rgb(221, 18, 123);
   background: url('/assets/images/funkyenter.png')
     center center / contain no-repeat;
   height: 100px;
   width: 100%;
   font-size: 27px;
-}
-.bLvAaE::after {
+} */
+/* .bLvAaE::after {
   content: "";
   width: 190px;
   height: 10px;
   background: url('/assets/images/tittleLine.png')
     center center / cover no-repeat;
-}
+} */
 .bmKVRh {
   text-transform: uppercase;
   font-size: 30px;
@@ -97,7 +97,7 @@
   text-align: center;
   font-family: Inter-Bold;
 }
-.boKhha::after {
+/* .boKhha::after {
   content: "";
   width: 73px;
   height: 165px;
@@ -106,7 +106,7 @@
   position: absolute;
   background: url('/assets/images/crazyCrashOrangeRIght.png')
     center center / cover no-repeat;
-}
+} */
 .ggRmfc {
   width: 35%;
   display: flex;
@@ -379,14 +379,14 @@ td img {
   
   .tab label {
     display: flex !important;
-    justify-content: space-between !important;
+    /* justify-content: space-between !important; */
     padding: 10px;
   
     font-weight: bold;
     cursor: pointer;
   }
   
-  .tab label::after {
+  .tab label::before {
     content: "\276F";
     width: 1em;
     height: 1em;
@@ -409,7 +409,7 @@ td img {
   input:checked {
     + .tab-label {
      
-      &::after {
+      &::before {
         transform: rotate(90deg);
       }
     }
@@ -418,13 +418,14 @@ td img {
       padding: 1em;
     }
   }
+  .col{
+    text-align: left;
+  }
   
-
-
-
-
-  .tab-label .questions{
+.tab-label .questions{
     color: white;
+    font-size: 14px;
+    font-weight: 400;
  
   }
 
@@ -467,6 +468,7 @@ ol li::marker {
     font-size: 26px;
     font-weight: 800;
     margin-bottom: 20px;
+    color: #F4B41C !important;
   }
   .tab {
     width: 100%;
@@ -475,7 +477,7 @@ ol li::marker {
   }
   ul li::before {
     content: "";
-    border:  rgb(189, 8, 198);
+    border:#F4B41C ;
     border-style: solid;
     border-width: 0.35em;
     border-radius: 6px;
@@ -491,15 +493,16 @@ ol li::marker {
     max-height: 0;
     padding: 0 1em;
    
-    background: #2a0b47;
+    background: #201f21;
     transition: all 0.35s;
   }
   
   #m-main{
-    color: rgb(189, 8, 198);
+    color: #F4B41C;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 1em;
+    text-transform: capitalize;
    
   }
   .sc-cKYHso.eBOuzh {
@@ -516,11 +519,11 @@ ol li::marker {
   .tab-label{
     color: white;
    
-    background-color:rgb(120 20 161); 
+    /* background-color:rgb(120 20 161);  */
    
   }
   input:checked + .tab-label {
-    background-color: rgb(189, 8, 198);
+    /* background-color: rgb(189, 8, 198); */
   }
   .custom-row{
     width: 100%;
@@ -545,7 +548,7 @@ ol li::marker {
     height: 100px;
     margin-top: 100px;
   }
-  .sd:after {
+  /* .sd:after {
     content: "";
     width: 190px;
     height: 10px;
@@ -553,9 +556,9 @@ ol li::marker {
       center center / cover no-repeat;
     display: block;
     margin: -25px auto;
-  }
+  } */
   span.sd {
-    color: #7814a1;
+    /* color: #7814a1;
     display: block;
     font-size: 76px;
     text-align: center;
@@ -572,7 +575,7 @@ ol li::marker {
       font-weight: 900;
   
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-    }
+    } */
   }
   .fjVnzR {
     width: 100%;
@@ -672,7 +675,7 @@ ol li::marker {
     height: 45px;
     /* margin-top: 30px; */
   }
-  .sd:after {
+  /* .sd:after {
     content: "";
     width: 190px;
     height: 10px;
@@ -680,8 +683,8 @@ ol li::marker {
       center center / cover no-repeat;
     display: block;
     margin: -25px auto;
-  }
-  span.sd {
+  } */
+  /* span.sd {
     color: #7814a1;
     display: block;
     font-size: 24px;
@@ -699,7 +702,7 @@ ol li::marker {
       font-weight: 900;
   
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-    }
+    } */
   }
   .fjVnzR {
     width: 100%;
@@ -718,4 +721,3 @@ ol li::marker {
   .fjVnzR span {
     font-size: 21px;
   }
-}

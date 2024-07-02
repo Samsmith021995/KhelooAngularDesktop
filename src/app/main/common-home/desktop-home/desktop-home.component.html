@@ -1,81 +1,122 @@
 <div class="row inner-content">
-    <!-- <div class="col-md-2">
-        <app-desktop-sidebar></app-desktop-sidebar>
-    </div> -->
-   
     <div class="col-md-12">
-        <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [location]="false" [clickBanner]="true"
-            (bannerClick)="clickVal($event)"></app-banner>
+        <div style="min-height: 400px;">
+            <app-banner [images]="images" [slidesPerView]="slidesPerViewn" [location]="false" [clickBanner]="true"
+                (bannerClick)="clickVal($event)"></app-banner>
+
+        </div>
+
+        <div class="row" >
+            <!-- <div class="live_container_desk"> -->
+                <div class="heading1"  style="text-align: left;">
+                    <h2 style="color: #fff;">Live Withdraw</h2>
+                </div>
+                <div class="container1"  style="display: flex; flex-wrap: wrap;">
+                    <ng-container *ngFor="let item of dataDetails;let track = index;">
+                        <div class="live_main_with1" style="text-align: left;">
+                            <div class="live_icon_container1" style="margin-top: 1rem; margin-left: -20px;">
+                                <img [src]="profileImg[track]">
+                            </div>
+                            <div class="live_para" style="padding: 0.8rem 3rem 0.8rem 1rem;">
+                                <p class="live_title">
+                                    {{item.Name}} <br>
+                                    <span>₹ </span>{{item.Amount}}
+                                </p>
+                                <p class="live_small_text">{{item.TimeAgo}} second ago</p>
+                            </div>
+                        </div>
+                    </ng-container>
+                    @if(dataDetails.length < 1){
+                        <div class="live_main_with1" style="text-align: left;padding: 0.5rem;">
+                        <nz-skeleton-element nzType="button" [nzActive]="true" [nzSize]="elementSize" [nzShape]="buttonShape"
+                        width="300px" class="title-skelten"></nz-skeleton-element>
+                        </div>
+                        <div class="live_main_with1" style="text-align: left;padding: 0.5rem;">
+                        <nz-skeleton-element nzType="button" [nzActive]="true" [nzSize]="elementSize" [nzShape]="buttonShape"
+                        width="300px" class="title-skelten"></nz-skeleton-element>
+                        </div>
+                        <div class="live_main_with1" style="text-align: left;padding: 0.5rem;">
+                        <nz-skeleton-element nzType="button" [nzActive]="true" [nzSize]="elementSize" [nzShape]="buttonShape"
+                        width="300px" class="title-skelten"></nz-skeleton-element>
+                        </div>
+                        <div class="live_main_with1" style="text-align: left;padding: 0.5rem;">
+                        <nz-skeleton-element nzType="button" [nzActive]="true" [nzSize]="elementSize" [nzShape]="buttonShape"
+                        width="300px" class="title-skelten"></nz-skeleton-element>
+                        </div>
+                    }
+                </div>
+            </div>
+        <!-- </div> -->
+
         <div class="row">
             <div class="game_providers_main_container">
                 <h2 class="game-provider-text">Game Providers</h2>
                 <!-- <marquee behavior="" direction=""> -->
-                <div id="gameCarousel" class="carousel slide">
-                        @for (item of gamesProvider; track $index) {
-                        <a (click)="onSearch(item.title)">
-                            <div class="carousel-inner">
-                                <img [src]="item.src" alt="" style="width: 100px;height: 50px;">
-                            </div>
-                        </a>
+                <div id="gameCarousel" class=" slide" style="display:flex;overflow-x: auto;max-width: 99%;scrollbar-width: none;">
+                    @for (item of gamesProvider; track $index) {
+                    <a (click)="redirectCategory(item.title)" style="height: 70px;">
+                        <div class="carousel-inner">
+                            <img [src]="item.src" alt="" style="width:100px; height: 70px;">
+                        </div>
+                    </a>
                     }
                 </div>
-            <!-- </marquee> -->
-
+                <!-- </marquee> -->
             </div>
         </div>
-        <!-- <button nz-button nzType="primary">Primary</button> -->
+
         <div class="row">
-            <!-- <div class="game_providers_main_container">
-                    <h2 class="game-provider-text"><i-feather name="star"></i-feather> Popular Game</h2>
-                </div> -->
-            <ng-container *ngFor="let category of subCategory; let i=index;">
-                <div *ngIf="gamesData[category]" class="container">
-                    @if(gamesData[category].length>0){
-
-                    <span style="color: white;" class="category-btn game_ind_heading_container1" class="d-flex games-cat">
-                        <h2 class="h2-heading game-provider-text"><i-feather [name]="icons[i]"></i-feather> {{ category
-                            }} ({{gamesData[category].length}})</h2>
-                        <button (click)="showMoreF(i)" class="btn-show"
-                            *ngIf="gamesData[category].length > 6 && !subSelected">
-                            {{isDetailsVisible[i]?'Show Less':'Show More>>'}}
+            @for (category of subCategory; track $index) {
+            <div *ngIf="gamesData[category]" class="container">
+                @if(gamesData[category].length>0){
+                <span style="color: white;" class="category-btn game_ind_heading_container1" class="d-flex games-cat">
+                    <h2 class="h2-heading game-provider-text"><i-feather [name]="icons[$index]"></i-feather> {{ category
+                        }} ({{gamesData[category].length}})</h2>
+                    @if (gamesData[category].length > 6 && !subSelected) {
+                    <div class="btn">
+                        <button (click)="redirectCategory(category)" class="btn-show">
+                            Show More
                         </button>
-                    </span>
-
-                    <div style=" color:white; display: flex; width: 100%; flex-wrap: wrap; " #showMore class="ashu row "
-                        [ngClass]="{'showMore':subSelected}">
-                        <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[i]" style=""
-                            class="casino-game-item  col-lg-2 col-md-4 col-xl-custom">
-                            <img [src]="game.url_thumb" alt="" width="100%" style="border-radius: 5px;">
-                            <!-- <div class="min_max_container" st>
-                                    <span class="minValue">
-                                        <span ng-show="Item.MaxAmount"> Min.<i>₹</i>{{game.MinAmount}} </span>
-                                    </span>
-                                    <span class="maxValue ng-binding"
-                                        ng-show="Item.MaxAmount">Max.<i>₹</i>{{game.MaxAmount>1000?game.MaxAmount/1000
-                                        +'k':game.MaxAmount}}</span>
-                                </div> -->
-                            <a (click)="gameStart(game.game_id)">
-                                <div class="playbtn ">
+                        <button class="btn-scroll" [disabled]="isLeftScrollDisabled[$index]"
+                            (click)="scrollGame('left',$index)"><i-feather
+                                name="chevron-left"></i-feather></button>&nbsp;
+                        <button class="btn-scroll" (click)="scrollGame('right',$index)"
+                            [disabled]="isRightScrollDisabled[$index]"><i-feather
+                                name="chevron-right"></i-feather></button>
+                    </div>
+                    }
+                </span>
+                <div style=" color:white; display: flex; width: 100%; overflow-x: auto; flex-wrap: nowrap;" #showMore
+                    #scrollContainer class="ashu row" [ngClass]="{'showMore':subSelected}">
+                    <div *ngFor="let game of gamesData[category] | slice:0:defaultSlices[$index]" style=""
+                        class="casino-game-item  col-lg-2 col-md-4 col-xl-custom">
+                        <img [src]="game.url_thumb" alt="" width="100%" style="border-radius: 5px;">
+                        <a (click)="gameStart(game.game_id)">
+                            <div class="playbtn ">
+                                <div class="playbtn-back">
                                     <img src="/assets/images/play_icon.png" alt="" class="casino-game-item-image-bc"
                                         class="play">
                                 </div>
-                            </a>
-                        </div>
-
+                            </div>
+                        </a>
                     </div>
-                    @if( defaultSlices[i] <= gamesData[category].length){ <button (click)="updateSlice(i)"
-                        class="btn-show viewmore"
-                        *ngIf="gamesData[category].length > 10 && !subSelected && isDetailsVisible[i]">
-                        View More
-                        </button>
-                        }
-                        }
                 </div>
-            </ng-container>
-
-
+                }
+            </div>
+            }
+            @empty {
+            @for (item of loopArray1; track $index) {
+            <div style="float: left; text-align: left;margin-bottom: 1rem;">
+                <nz-skeleton-element nzType="button" [nzActive]="true" [nzSize]="elementSize" [nzShape]="buttonShape"
+                    width="300px" class="title-skelten"></nz-skeleton-element><br>
+            </div>
+            @for (item of loopArray; track $index) {
+            <div class="col-lg-2 col-md-4 col-xl-custom">
+                <nz-skeleton-element nzType="image" [nzActive]="true" width="150px"></nz-skeleton-element>
+            </div>
+            }
+            }
+            }
         </div>
-
     </div>
-
 </div>

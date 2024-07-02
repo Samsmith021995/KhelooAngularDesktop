@@ -1,20 +1,20 @@
-<div class="sc-himrzO nSrBz">
-    <div class="sc-cKYHso eBOuzh">
+    <div class="main">
 
-        <div class="title">
-            <span class="sd">CONTACT US</span>
+        <div class="title col-md-12 col-sm-12 col-xs-12">
+            <span class="sd"><img [src]="cdn+'left.svg'" alt="" class="arrow"><img [src]="cdn+'contactUs.svg'"
+                alt="" class="main-header"><img [src]="cdn+'/right.svg'" alt="" class="arrow"></span>
         </div>
 
 
         <div class="row custom-row">
             <div class="col">
-                <p id="get-content">Here at Kheloo, we want you to be as passionate about our fantastic range of sports
+                <p style="text-align: justify;">Here at Kheloo, we want you to be as passionate about our fantastic range of sports
                     betting opportunities and online casino games as we are. That's why we have a dedicated and
                     professional team standing by 24/7 to take care of any issue you may have so you can get right back
                     into having fun.</p>
             </div>
 
-           <div class="container">
+           <div class="container row">
            
                 <span id="m-main">Get In Touch</span>
          
@@ -26,29 +26,31 @@
                
                 <div class="col">
                     <form id="contact" autocomplete="off" [formGroup]="contactus">
-                        <mat-form-field style="width: 90%;background: none !important;" class="custom">
+                        <!-- <mat-form-field style="width: 90%;background: none !important;" class="custom1"> -->
                             <!-- <mat-label>Name</mat-label> -->
                             <input matInput type="text" placeholder="Name" id="name" class="input" formControlName="first_name">
                             <!-- <mat-error *ngIf="this.contactus.controls['first_name'].hasError('required')">This field is required</mat-error> -->
-                        </mat-form-field>
-                        <mat-form-field style="width: 90%" class="custom">
+                        <!-- </mat-form-field> -->
+                        <!-- <mat-form-field style="width: 90%" class="custom1"> -->
                             <input matInput type="email" placeholder="Email" id="email" class="input" formControlName="email"><br>
                             <!-- <mat-error *ngIf="this.contactus.controls['email'].hasError('pattern')">Email is not valid</mat-error> -->
                             
-                        </mat-form-field>
-                        <mat-form-field style="width: 90%" class="custom">
+                        <!-- </mat-form-field> -->
+                        <!-- <mat-form-field style="width: 90%" class="custom1"> -->
                             <input matInput type="text" placeholder="Subject" id="subject" class="input" formControlName="subject"><br>
                             
                             <!-- <mat-error *ngIf="this.contactus.controls['subject'].hasError('required')">This field is required</mat-error> -->
-                        </mat-form-field>
-                        
+                        <!-- </mat-form-field>
+                        <mat-form-field style="width: 90%" class="custom1"> -->
                             <textarea matInput name="" id="mail-content" formControlName="description" >
-    
-                            </textarea><br>
+                                Description
+                            </textarea>
+                            
+                        <!-- </mat-form-field><br> -->
 
                         
                         <div class="sub-btn">
-                            <button type="button" class="btn-sub" (click)="onSubmit()">Submit</button>
+                            <button type="button" class="btn-sub" (click)="onSubmit()" nz-button nzType="primary">Submit</button>
 
                         </div>
                     </form>

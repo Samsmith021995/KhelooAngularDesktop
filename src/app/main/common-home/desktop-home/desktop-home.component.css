@@ -1,10 +1,11 @@
 .carousel {
     display: inline-flex;
     overflow: auto;
-    width: 97%;
+    width: 99%;
     margin: auto;
     text-align: center;
-    padding-left: 10px;
+    /* padding-left: 10px; */
+    position: unset;
 }
 .carousel-inner{
     width:160px;
@@ -16,7 +17,9 @@
     text-align: center;
     border-radius: 4px;
 }
-
+.inner-content{
+  margin-top: 1.2rem;
+}
 .game_providers_main_container::-webkit-scrollbar {
     width: 12px; 
   }
@@ -102,12 +105,17 @@
 .casino-game-item:hover .playbtn {
     opacity: 1;
 }
-.playbtn .play {
-    /* max-width: 31%; */
-    height: 50%;
-    filter: invert(100%) sepia(0) saturate(0%) hue-rotate(0) brightness(100%) contrast(100%);
+.playbtn .playbtn-back .play {
+  /* max-width: 31%; */
+  height: 98%;
+  filter: invert(100%) sepia(0) saturate(0%) hue-rotate(0) brightness(100%) contrast(100%);
+  padding: 0.5rem;
 }
-
+.playbtn .playbtn-back{
+  height: 30%;
+  background: linear-gradient(to right, #8822b8 48%, #ab16e9 18%, #580b62 33%);
+  border-radius: 50%;
+}
 .playbtn img {
     height: 56%;
 }
@@ -153,3 +161,141 @@
 .games-cat{
     justify-content: space-between;
 }
+
+::ng-deep .ant-skeleton-element .ant-skeleton-image{
+    width: 155px !important;
+    padding: 0.7rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .casino-game-item:hover{
+    
+        transform: translateY(-8px);
+        -webkit-transition: all .2s ease-out;
+        transition: all .2s ease-out;
+      
+  }
+  ::ng-deep.ant-skeleton-button{
+    width: 200px !important;
+  }
+  ::ng-deep .ant-skeleton-image{
+    width: 100%;
+  }
+  .btn-scroll{
+    background: #767676;
+    color: #fff;
+    border: none;
+border-radius: 5px;
+}
+.btn-scroll:disabled{
+      background: #3e3b3b;
+
+  }
+
+
+
+  /* 
+   */
+   nz-radio-group {
+    margin-bottom: 8px;
+  }
+
+  [nz-carousel-content] {
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+    background: #364d79;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  h3 {
+    color: #fff;
+    margin-bottom: 0;
+    user-select: none;
+  }
+
+  .carousel::-webkit-scrollbar {
+    width: 0px; 
+}
+  .ashu::-webkit-scrollbar {
+    width: 0px; 
+}
+  /* live chat */
+  .h2-heading i-feather{
+    width: 18px;
+  }
+
+
+
+  /* live withdraw */
+  .live_icon_container1,
+.live_para {
+    display: inline-block;
+    float: left;
+}
+
+.live_icon_container1 img {
+    width: 45px;
+}
+
+.live_para p {
+    margin-bottom: 0;
+}
+
+.live_icon_container1 {
+    /* padding: 5px; */
+    /* border: 3px solid #d57f23; */
+    /* border-radius: 50%; */
+
+}
+
+.live_para {
+    /* margin-left: 5px; */
+}
+
+p.live_small_text {
+    font-size: 12px !important;
+    opacity: 0.5;
+}
+
+p.live_title {
+    font-family: serif;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+}
+
+.live_ind_container1 {
+    margin-top: 15px;
+    margin-right: 15px;
+    padding-right: 0;
+}
+
+.live_container {
+    padding: 0 15px;
+}
+
+.live_sub_container1 {
+    /* background: url(/assets/images/Withdrawl-Board_9.png) round; */
+    /* background-color: #2b2b2b; */
+    padding: 0;
+    padding-bottom: 23px;
+    border-radius: 22px;
+    border-left: 2px solid #c8b683;
+    position: relative;
+    border-right: 2px solid #c8b683;
+}
+
+
+
+
+
+
+.live_main_with1{
+  background-color: #2b2b2b;
+  margin: 0.8rem 1.5rem;
+  border-radius: 10px;
+  min-width: 200px;
+}
+
+  /* live withdraw */

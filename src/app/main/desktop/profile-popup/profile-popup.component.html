@@ -1,0 +1,196 @@
+<div class="container profile-container">
+    <nz-card class="profile-container">
+        <div nz-row class="close-div">
+            <span class="popupClose" mat-dialog-close><i-feather name="x" class="rotate-icon"></i-feather></span>
+        </div>
+        <div nz-row style="margin-top: 1rem;">
+            <div nz-col [nzSpan]="8" [nzPush]="0">
+                <nz-card style="width: 100%;background: none;border: none;" class="card-details">
+                    <img [src]="cdn+'icons/mainprofile.svg'" alt=""><br>
+                    <span>Kheloo User</span><br>
+                    <span>{{userData.FName}} {{userData.LName}}</span>
+                    <div nz-row class=" btn-div">
+                        <div class=" col-md-3 col-sm-6 col-xs-12 " nzXs="24" nzSm="24" nzMd="12" nzLg="6" nzXl="8"
+                            style="padding: 0.2rem;">
+                            <a (click)="changemenu('deposit')">
+                                <div class="btn-heading">
+                                    <img [src]="cdn+'icons/deposit1.svg'" alt="" class="profileSp"> <br>Deposit
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-3" nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.2rem;">
+                            <a (click)="changemenu('withdraw')">
+                                <div class="btn-heading">
+                                    <img [src]="cdn+'icons/pwithdraw.svg'" alt="" width="20px"> <br>WithDraw
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-3" nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.2rem;">
+                            <a (click)="changemenu('statement')">
+                                <div class="btn-heading">
+                                    <img [src]="cdn+'icons/statement.svg'" alt=""><br>Statement
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 " nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" style="padding: 0.2rem;">
+                            <a (click)="changemenu('profile')">
+                                <div class="btn-heading">
+                                    <img [src]="cdn+'icons/inputuser.svg'" alt="" class="profileSp"> <br>Profile
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="detail-list">
+                             <li>
+                                <div class="list">
+                                    <div class="icon-title">
+                                        <img [src]="cdn+'icons/inputuser.svg'" alt="">
+                                    </div>
+                                    <div class="text-det">
+                                        <span>Username</span><br>
+                                        <span>{{userData.UserName}}</span>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list">
+                                    <div class="icon-title">
+                                        <img [src]="cdn+'icons/dob.svg'" alt="">
+                                    </div>
+                                    <div class="text-det">
+                                        <span>Date Of Birth</span><br>
+                                        <span>{{userData.DOB | date:'mediumDate'}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list">
+                                    <div class="icon-title">
+                                        <img [src]="cdn+'icons/call.svg'" alt="" class="callIcon">
+                                    </div>
+                                    <div class="text-det">
+                                        <span>Mobile Number</span><br>
+                                        <span>{{userData.Mobile}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="list">
+                                    <div class="icon-title">
+                                        <img [src]="cdn+'icons/statement.svg'" alt="" class="callIcon">
+                                    </div>
+                                    <div class="text-det" style="margin-top: 0.8rem;">
+                                      <span (click)="changemenu('statement')" style="cursor: pointer;">Statement</span>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- <li>
+                                <div class="list">
+                                    <div class="icon-title">
+                                        <i-feather name="user"></i-feather>
+                                    </div>
+                                    <div class="text-det">
+                                        <span>Kyc verification</span>
+
+                                    </div>
+                                </div>
+                            </li> -->
+                        </ul>
+                    </div>
+                </nz-card>
+            </div>
+            <div nz-col [nzSpan]="15" style="padding-top:1.6rem">
+                @switch (profileRef) {
+                @case ("deposit") {
+                <div class="container ">
+                    <img [src]="cdn+'images/image.png'" alt="" width="100%">
+                    <div class="cantai" style="padding-top:2rem">
+                        <div class="head">
+                            <span>Add Money to your Wallet</span>
+                        </div>
+                        @if (paymentinput) {
+                        <div class="deposit-form">
+                            <form nz-form [formGroup]="depositForm" class="login-form">
+                                <nz-form-item>
+                                    <nz-form-control [nzErrorTip]="erroetpl">
+                                        <nz-input-group>
+                                            <input type="number" nz-input formControlName="Amount" placeholder="Amount"
+                                                class="amount-control" />
+                                            <ng-template #erroetpl let-control>
+                                                @if (control.errors?.['required']) {
+                                                Please input your Amount!
+                                                }
+                                                @if (control.errors?.['minlength']) {
+                                                Amount should be atleast 100
+                                                }
+                                            </ng-template>
+                                        </nz-input-group>
+                                    </nz-form-control>
+                                </nz-form-item>
+                                <div class="amount-buuton">
+                                    @for (item of displayedButtons; track $index) {
+                                    <button nz-button class="btn amount-btn" (click)="setAmount(item)">₹
+                                        {{item}}</button>
+                                    }
+                                </div>
+                                <button style="margin-top:1.8rem" nz-button class="login-form-button login-form-margin btn-submit" type="submit"
+                                    [disabled]="btnLoading" [nzLoading]="btnLoading" (click)="addWallet()">
+                                    <img [src]="cdn+'icons/deposit.svg'" alt=""> &nbsp;Deposit
+                                </button>
+                            </form>
+                        </div>
+                        }
+
+                        <nz-spin nzTip="Loading..." [nzSpinning]="isSpinning">
+                            @if(!showsubmitbtn){
+                            <ng-container *ngFor="let item of paymentGateway">
+                                <!-- <a  href="{{ item.PaymentUrl + transcationIdFinal}}" (click)="finalDepositPro(paymentGateway)" > -->
+                                <a (click)="finalDepositPro(item)">
+                                    <div class="bl_promotion_list_main_container">
+                                        <div class="bl_promotion_list_container">
+                                            <div>
+                                                <div class="bl_ind_promotion_container box">
+                                                    <div class="ribbon ribbon-top-left">
+                                                        <span class="ng-binding"> {{item.Tag}}</span>
+                                                    </div>
+                                                    <div class="bl_ind_prom_content_container">
+                                                        <p class="bl_prom_title_container">
+                                                            <span class="ng-binding">{{item.Title}}</span>
+                                                        </p>
+                                                        <p class="bl_prom_heading" style="color: #fff !important;">
+                                                            {{item.SubTitle}}</p>
+                                                    </div>
+                                                    <div class="bl_ind_img_container">
+                                                        <img src="/assets{{ item.ImageUrl }}" class="bl_prom_image"
+                                                            alt="" width="100" height="52">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </ng-container>
+                            }
+                        </nz-spin>
+                    </div>
+                </div>
+                }
+                @case ("withdraw") {
+                <app-withdraw-pop></app-withdraw-pop>
+                }
+                @case ("statement") {
+                <app-statement-pop></app-statement-pop>
+                }
+                @case ("profile") {
+                <app-profile-details></app-profile-details>
+                }
+                }
+            </div>
+        </div>
+
+    </nz-card>
+</div>

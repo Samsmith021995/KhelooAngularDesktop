@@ -8,6 +8,10 @@
     margin-bottom: 10px;
     border-radius: 12px;
     cursor: pointer;
+
+    img,svg{
+        width: 22px;
+    }
 }
 #sidebar{
     min-width: 250px;
@@ -30,4 +34,28 @@ img.menu-icon,svg {
     img{
         width: 100%;
     }
+}
+
+.active-menu-item{
+    color: rgba(255, 190, 24, 1) !important;
+}
+.active-menu-item .menu-icon{
+    filter: brightness(0) invert(1);
+}
+::ng-deep .ant-menu.ant-menu-dark{
+background-color: #000912;
+}
+
+.nz-menu-item:hover{
+    /* transform: translateY(-8px); */
+    transform: scale(1.05);
+    -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    color: rgba(255, 190, 24, 1) !important;
+  }
+  ::ng-deep .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected{
+    background-color: #343537;
+  }
+  ::ng-deep .ant-layout-sider::-webkit-scrollbar {
+    width: 0px; 
 }

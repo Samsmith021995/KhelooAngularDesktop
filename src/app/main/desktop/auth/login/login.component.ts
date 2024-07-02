@@ -6,6 +6,7 @@ import { CommonServiceService } from "src/app/main/service/common-service.servic
 import { config } from "src/app/main/service/config";
 import { Subscription ,catchError} from "rxjs";
 import { MatDialog } from "@angular/material/dialog";
+import { ComFunService } from "src/app/main/service/com-fun.service";
 
 @Component({
   selector: 'app-login',
@@ -25,9 +26,10 @@ export class LoginComponent implements OnInit{
  loginform  !:FormGroup
  btnLoading:boolean = false;
 
- constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router,private cdr: ChangeDetectorRef,private comSer:CommonServiceService,private dialog:MatDialog){
+ constructor(private fb:FormBuilder,private apiSer:ApiService,private router:Router,private cdr: ChangeDetectorRef,private comSer:CommonServiceService,private dialog:MatDialog,private comFun:ComFunService){
    
   }
+  cdn: string = this.comFun.cdn;
 ngOnInit(): void {
   this.comSer.myVariable$.subscribe((width)=>{
     this.isSmallScreen = width === "true";

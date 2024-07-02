@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
+import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { ComFunService } from '../../service/com-fun.service';
 
 
 @Component({
@@ -17,16 +20,19 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class DesktopHeaderComponent implements OnInit,OnDestroy {
   @ViewChild('loginPop') loginPop!: TemplateRef<any>;
+  @ViewChild('profilePop') profilePop!: TemplateRef<any>;
   dialogRef:any;
   showmenu: boolean = false;
   showsubmitbtn: boolean = false;
+  selectTab:number = 0;
   username: any = '';
   loginForm !: FormGroup;
   checkLogin: boolean = false;
+  profileRef:string = '';
   private logcheck !: Subscription;
   userBalance: number = 0;
-  constructor(private fb: FormBuilder, private apiSer: ApiService, private comSer: CommonServiceService, private router: Router,private dialog:MatDialog) { }
-
+  constructor(private fb: FormBuilder, private apiSer: ApiService, private comSer: CommonServiceService, private router: Router,private dialog:MatDialog,private msg:NzMessageService,private comFun:ComFunService) { }
+  cdn: string = this.comFun.cdn;
   ngOnInit(): void {
     this.loginchecks();
     this.loginForm = this.fb.group({
@@ -43,6 +49,21 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
         this.loginForm.controls['Mobile'].setValue(trimmedValue, { emitEvent: false });
     }
     });
+    this.apiSer.isLoggedIn$.subscribe({
+      next: data => {
+        console.log(this.checkLogin)
+        this.checkLogin = data;
+        if(data == true){
+          this.username = localStorage.getItem('name');
+          this.checkBalance();
+
+        }
+    },
+    error:err=>{
+
+    }
+  });
+  
   }
   validateNumber(event: KeyboardEvent) {
     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete'];
@@ -109,7 +130,7 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
       this.apiSer.apiRequest(config['balance']).subscribe({
         next: data => {
           if (data.ErrorCode == '0') {
-            this.apiSer.showAlert('', data.ErrorMessage, 'error');
+            this.msg.error(data.ErrorMessage, {nzDuration:3000,nzPauseOnHover:true});
             this.apiSer.logout();
             this.comSer.clearLocalVars();
           } else {
@@ -177,12 +198,48 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
   }
 
   // new Code for Pop
-  LoginPopUp(){
-    this.dialogRef = this.dialog.open(this.loginPop)
-    this.dialogRef.afterClosed().subscribe(() => { })
+  LoginPopUp(item:number){
+    this.selectTab = item;
+    this.dialogRef = this.dialog.open(this.loginPop,{
+      width:'1200px'
+    })
+    this.dialogRef.afterClosed().subscribe(() => { });
+  }
+  openprofilePop(item:any){
+    this.profileRef = item;
+    let dialogRef1= this.dialog.open(this.profilePop,{
+      width:'1200px'
+    })
+    dialogRef1.afterClosed().subscribe(() => { });
+  }
+  checkBalance(){
+    this.apiSer.apiRequest(config['balance']).subscribe({
+      next: data => {
+        if (data.ErrorCode == '0') {
+          this.msg.error(data.ErrorMessage, {nzDuration:3000,nzPauseOnHover:true});
+          this.comSer.clearLocalVars();
+          this.apiSer.logout();
+        } else {
+          this.userBalance = data.Balance;
+          // this.refreshHeader();
+        }
+      },
+      error: err => {
+        this.msg.error('Something Went Wrong', {nzDuration:3000,nzPauseOnHover:true});
+        console.error(err);
+      }
+    });
+  }
+  logoutUser()
+  {
+    this.apiSer.logout();
   }
   ngOnDestroy(): void {
     this.showmenu = false;
+  }
+
+  search(){
+    this.comFun.toggleDrawer();
   }
 
 }

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './cookie-policy.component.css'
 })
 export class CookiePolicyComponent {
-
+cdn :string= 'https://cdn.fairbet91.com/KHELOO/content/'
 }

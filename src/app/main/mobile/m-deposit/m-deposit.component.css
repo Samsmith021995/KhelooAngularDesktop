@@ -238,7 +238,8 @@
 }
 
 .dep_form_elem_container {
-    margin: 20px 0
+    margin: 20px 0;
+    text-align: left;
 }
 
 .input-group.dep_input_container {
