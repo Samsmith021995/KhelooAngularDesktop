@@ -91,7 +91,7 @@ const routes: Routes = [
           title: 'Kheloo- Promotion',
           description: ''
         },
-        canActivate: [ DesktopGuard]
+        canActivate: []
       },
     
       // {
