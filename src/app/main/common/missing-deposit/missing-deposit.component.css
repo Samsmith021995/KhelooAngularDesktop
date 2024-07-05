@@ -2,14 +2,22 @@ h1{
     color: #fff;
 }
 .main-left-form{
+    margin: auto;
     background-color: #1E1E1E;
-    /* height: 400px; */
+   
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
 }
 .btn-icon {
     background: none;
     border: none;
     cursor: pointer;
-    padding:8rem;
+    /* padding:8rem; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
   }
   
   .btn-icon i {
@@ -32,15 +40,19 @@ h1{
   nz-form-item{
     /* width: 40%; */
     /* margin: 1rem 0.5rem; */
+    text-align: left;
     border:none;
     background: #2B2B2B;
     input{
         background:  #1E1E1E;
         border:none;
         color: #fff;
-        padding:1rem 0.5rem;
-        text-align: left;
+        padding:0.5rem  ;
+      
         
     }
     
+}
+.form-input{
+    margin-top: 1rem;
 }

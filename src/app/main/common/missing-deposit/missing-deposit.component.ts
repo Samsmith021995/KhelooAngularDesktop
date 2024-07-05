@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as Tesseract from 'tesseract.js';
 @Component({
   selector: 'app-missing-deposit',
@@ -19,7 +19,9 @@ export class MissingDepositComponent implements OnInit {
       file: [null]
     });
     this.urtForm = this.fb.group({
-      utr: [""]
+      utr: ["",[Validators.required]],
+      upiid: ["",[Validators.required]],
+      Amount: ["",[Validators.required]]
     });
   }
 
@@ -47,6 +49,8 @@ export class MissingDepositComponent implements OnInit {
     try {
       this.getTextFromImage(this.selectedFile).then((text: string) => {
         this.extractedText = text;
+        console.log(this.extractedText);
+        console.log( this.extractUpiIds(this.extractedText));
         this.urtForm.controls['utr'].setValue(this.extractUtrNumber(this.extractedText));
         ;
       })
@@ -79,6 +83,17 @@ export class MissingDepositComponent implements OnInit {
     const utrRegex = /\b(?:UTR|UPI transaction ID|UPI Ref No)\s*[:#]?\s*([A-Za-z0-9]{12,})\b/gi;
     const match = utrRegex.exec(text);
     return match ? match[1] : null;
+  }
+  extractUpiIds(text: string): string[] {
+    const regex = /(?:UPI ID: (\S+)|To:.*?(\S+@\S+))/g;
+    let match;
+    const results = [];
+
+    while ((match = regex.exec(text)) !== null) {
+      if (match[1]) results.push(match[1]); // Match for "UPI ID"
+      if (match[2]) results.push(match[2]); // Match for "To"
+    }
+    return results.length > 0 ? results : ['No UPI IDs found'];
   }
   utrSubmit() {
 
