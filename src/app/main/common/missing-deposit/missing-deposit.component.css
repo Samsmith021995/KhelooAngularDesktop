@@ -1,0 +1,46 @@
+h1{
+    color: #fff;
+}
+.main-left-form{
+    background-color: #1E1E1E;
+    /* height: 400px; */
+}
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding:8rem;
+  }
+  
+  .btn-icon i {
+    font-size: 24px;
+    color: #007bff;
+  }
+  .image-preview {
+    margin-top: 10px;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .image-preview img {
+    max-width: 30%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+  }
+  nz-form-item{
+    /* width: 40%; */
+    /* margin: 1rem 0.5rem; */
+    border:none;
+    background: #2B2B2B;
+    input{
+        background:  #1E1E1E;
+        border:none;
+        color: #fff;
+        padding:1rem 0.5rem;
+        text-align: left;
+        
+    }
+    
+}

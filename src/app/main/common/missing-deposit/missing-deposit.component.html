@@ -1,0 +1,71 @@
+<div class="container ">
+    <div class="row">
+        <h1>Missing Transcation</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-12 col-xs-12 main-left-form">
+            @if(!imageUrl){
+                <div class="missing-tran">
+                    <form [formGroup]="uploadForm">
+                        <div class="input-file">
+                            <input type="file" formControlName="file"  #fileInput (change)="onFileSelected($event)" hidden>
+                            <button type="button" (click)="fileInput.click()" class="btn btn-icon" aria-label="Upload File">
+                                <img src="/assets/upload.svg" alt=""> </button>
+                        </div>
+                        <!-- <button type="submit" (click)="submitData()" class="btn btn-primary">Submit</button> -->
+                    </form>
+                </div>
+
+            }
+            <div *ngIf="imageUrl" class="image-preview">
+                <img [src]="imageUrl" alt="Image preview" height="500px"/>
+              </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="form-input">
+                <form nz-form [formGroup]="urtForm" class="bank-Form" >
+                    <div nz-row>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                            <nz-form-item>
+                                <nz-form-control nzErrorTip="Please input UTR!">
+                                    <nz-input-group >
+                                        <input type="text" nz-input formControlName="utr"
+                                            placeholder="UTR" />
+                                    </nz-input-group>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        </div>
+                        <div nz-row>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                            <nz-form-item>
+                                <nz-form-control nzErrorTip="Please input UpiID!">
+                                    <nz-input-group>
+                                        <input type="text" nz-input formControlName="NewPassword"
+                                            placeholder="UPI ID" />
+                                    </nz-input-group>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                    </div>
+                    <div nz-row>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                            <nz-form-item>
+                                <nz-form-control  nzErrorTip="Please input Amount">
+                                    <nz-input-group>
+                                        <input type="text" nz-input formControlName="ConfirmPassword" placeholder="Confirm Password" />
+                                       
+                                    </nz-input-group>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        </div>
+                        <div nz-row>
+                        <button nz-button class="btn-reset" [nzType]="'primary'" 
+                            [disabled]=" urtForm.invalid ">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -52,6 +52,7 @@ import { AndarbaharGameComponent } from './main/desktop/Games/andarbahar-game/an
 import { BaccaratGameComponent } from './main/desktop/Games/baccarat-game/baccarat-game.component';
 import { BlackjackGameComponent } from './main/desktop/Games/blackjack-game/blackjack-game.component';
 import { LoginPopupComponent } from './main/desktop/auth/login-popup/login-popup.component';
+import { MissingDepositComponent } from './main/common/missing-deposit/missing-deposit.component';
 
 
 const routes: Routes = [
@@ -437,6 +438,11 @@ const routes: Routes = [
         component: LoginPopupComponent,
         outlet:'popup',
         canActivate: [DesktopGuard]
+      },
+      {
+        path: 'missing-deposit',
+        component: MissingDepositComponent,
+        canActivate: []
       }
     ]
   },
