@@ -18,6 +18,7 @@
 
             }
             <div *ngIf="imageUrl" class="image-preview">
+                <div class="cross" (click)="hideImage()"><i-feather name="x"></i-feather></div>
                 <img [src]="imageUrl" alt="Image preview" height="500px"/>
               </div>
         </div>
@@ -29,7 +30,7 @@
                             <nz-form-item>
                                 <nz-form-control nzErrorTip="Please input UTR!">
                                     <nz-input-group >
-                                        <input type="text" nz-input formControlName="utr"
+                                        <input type="text" nz-input formControlName="utrno"
                                             placeholder="UTR" />
                                     </nz-input-group>
                                 </nz-form-control>
@@ -53,11 +54,20 @@
                             <nz-form-item>
                                 <nz-form-control  nzErrorTip="Please input Amount">
                                     <nz-input-group>
-                                        <input type="text" nz-input formControlName="Amount" placeholder="Amount" />
+                                        <input type="text" nz-input formControlName="amount" placeholder="Amount" />
                                        
                                     </nz-input-group>
                                 </nz-form-control>
                             </nz-form-item>
+                        </div>
+                        </div>
+                    <div nz-row>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="11" nzLg="11" nzXl="11" class="promo-card">
+                            <nz-form-item>
+                                <nz-form-control>
+                                  <nz-date-picker formControlName="paymentDate"></nz-date-picker>
+                                </nz-form-control>
+                              </nz-form-item>
                         </div>
                         </div>
                         <div nz-row>

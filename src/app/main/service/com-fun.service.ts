@@ -236,6 +236,25 @@ export class ComFunService {
   toggleDrawer() {
     this.drawerVisibleSubject.next(!this.drawerVisibleSubject.value);
   }
+  private apiKey = '72c1834044eb3f1b4f7cee486f300d13675540a5';  // Replace with your API key
+  private apiUrl = `https://vision.googleapis.com/v1/images:annotate?key=${this.apiKey}`;
+  extractText(imageBase64: string) {
+    const request = {
+      requests: [
+        {
+          image: {
+            content: imageBase64
+          },
+          features: [
+            {
+              type: 'TEXT_DETECTION'
+            }
+          ]
+        }
+      ]
+    };
 
+    return this.http.post(this.apiUrl, request);
+  }
 
 }

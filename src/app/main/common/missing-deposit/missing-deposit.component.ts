@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as Tesseract from 'tesseract.js';
+import { ComFunService } from '../../service/com-fun.service';
 @Component({
   selector: 'app-missing-deposit',
   templateUrl: './missing-deposit.component.html',
   styleUrl: './missing-deposit.component.css'
 })
 export class MissingDepositComponent implements OnInit {
+  private apiKey = 'YOUR_GOOGLE_CLOUD_API_KEY';  // Replace with your API key
+  private apiUrl = `https://vision.googleapis.com/v1/images:annotate?key=${this.apiKey}`;
+
+
+
+
+
+
   uploadForm!: FormGroup;
   urtForm!: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private comFun:ComFunService) { }
   selectedFile!: File;
   extractedWords: string[] = [];
   extractedText: string = ''
@@ -19,9 +28,10 @@ export class MissingDepositComponent implements OnInit {
       file: [null]
     });
     this.urtForm = this.fb.group({
-      utr: ["",[Validators.required]],
+      utrno: ["",[Validators.required]],
       upiid: ["",[Validators.required]],
-      Amount: ["",[Validators.required]]
+      amount: ["",[Validators.required]],
+      paymentDate: ["",[Validators.required]]
     });
   }
 
@@ -45,25 +55,43 @@ export class MissingDepositComponent implements OnInit {
       console.error('No file selected');
       return;
     }
-
-    try {
-      this.getTextFromImage(this.selectedFile).then((text: string) => {
-        this.extractedText = text;
-        console.log(this.extractedText);
-        console.log( this.extractUpiIds(this.extractedText));
-        this.urtForm.controls['utr'].setValue(this.extractUtrNumber(this.extractedText));
-        ;
-      })
-        .catch(error => {
-          console.error('Error extracting text:', error);
-        });
-      console.log('Extracted Text:', this.extractedText);
-    } catch (error) {
-      console.error('Error extracting text:', error);
+    if (this.selectedFile) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64Image = (reader.result as string).split(',')[1];
+        this.comFun.extractText(base64Image).subscribe(
+          (data: any) => {
+            this.extractedText = data;
+            console.log(this.extractedText )
+          },
+          error => {
+            console.error('Error:', error);
+          }
+        );
+      };
+      reader.readAsDataURL(this.selectedFile);
     }
+    // try {
+    //   this.getTextFromImage(this.selectedFile).then((text: string) => {
+    //     this.extractedText = text;
+    //     console.log(this.extractedText);
+    //     const Upi = this.extractUpiIds(this.extractedText);
+    //     this.urtForm.controls['upiid'].setValue(Upi[0]);
+    //     this.urtForm.controls['utrno'].setValue(this.extractUtrNumber(this.extractedText));
+    //     ;
+    //   })
+    //     .catch(error => {
+    //       console.error('Error extracting text:', error);
+    //     });
+    //   console.log('Extracted Text:', this.extractedText);
+    // } catch (error) {
+    //   console.error('Error extracting text:', error);
+    // }
   }
 
-
+  hideImage(){
+    this.imageUrl = null;
+  }
   async getTextFromImage(imageFile: File): Promise<string> {
     return new Promise<string>(async (resolve, reject) => {
       const worker = await Tesseract.createWorker();
@@ -84,18 +112,22 @@ export class MissingDepositComponent implements OnInit {
     const match = utrRegex.exec(text);
     return match ? match[1] : null;
   }
-  extractUpiIds(text: string): string[] {
-    const regex = /(?:UPI ID: (\S+)|To:.*?(\S+@\S+))/g;
-    let match;
-    const results = [];
 
+  extractUpiIds(text: string): string[] {
+    const regex = /\b\w+\b@\b\w+\b/g;
+    const matches: string[] = [];
+    let match;
     while ((match = regex.exec(text)) !== null) {
-      if (match[1]) results.push(match[1]); // Match for "UPI ID"
-      if (match[2]) results.push(match[2]); // Match for "To"
-    }
-    return results.length > 0 ? results : ['No UPI IDs found'];
+        if (match[0]) {
+            matches.push(match[0]);
+        }
+    } 
+    return matches;
   }
   utrSubmit() {
 
   }
+
+  
+
 }

@@ -26,12 +26,12 @@ h1{
   }
   .image-preview {
     margin-top: 10px;
-    max-width: 100%;
+    max-width:30%;
     text-align: center;
   }
   
   .image-preview img {
-    max-width: 30%;
+    max-width: 90%;
     height: auto;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -55,4 +55,30 @@ h1{
 }
 .form-input{
     margin-top: 1rem;
+}
+.cross{
+  background-color: #fff;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  color: #2B2B2B;
+  justify-content: center;
+  align-items: center;
+  float: inline-end;
+}
+.ant-picker {
+  background: #1E1E1E;
+  color: #fff;
+  border: none;
+}
+.ant-picker-status-error.ant-picker, .ant-picker-status-error.ant-picker:not(.ant-picker-disabled):hover {
+  background-color: #1E1E1E;
+  border-color: unset;
+}
+::ng-deep .ant-picker-suffix{
+  color: #fff !important;
+}
+nz-date-picker{
+  width: 100%;
 }
