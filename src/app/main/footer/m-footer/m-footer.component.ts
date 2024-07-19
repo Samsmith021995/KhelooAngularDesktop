@@ -13,6 +13,7 @@ export class MFooterComponent implements OnInit{
   footer:boolean = true;
   slidesPerViewn:number = 3;
 constructor(private comFun:ComFunService){}
+  cdn = this.comFun.cdn;
   images = [
     this.comFun.cdn+'images/game_provider1.png',
     this.comFun.cdn+'images/game_prover_2.png',
