@@ -1,28 +1,32 @@
 <div class="header-main-style">
   <div style="text-align: end; padding-right: 2rem;margin: 0.9rem auto;">
+    <a href="https://cdn.kheloo.com/khelooapp.apk">
+      <img [src]="cdn+'images/android1.gif'" alt="" width="200px" height="80px" >
+
+    </a>
     <input type="text" (click)="search()" readonly class="search-input" placeholder="Search For Game">
     @if (!checkLogin) {
     <button nz-button nzType="default" class="buttons header-btn" (click)="LoginPopUp(0)"><img [src]="cdn+'icons/user.svg'" class="menu-icon"> Login</button>&nbsp;&nbsp;
     <button nz-button nzType="default" class="buttons header-btn" (click)="LoginPopUp(1)"><img [src]="cdn+'icons/user.svg'" class="menu-icon">  Register</button>
     } @else{
     <button nz-button nzType="default" nz-dropdown [nzDropdownMenu]="menu" class="buttons-menu">
-      <img src="/assets/8988833.webp" alt="" width="18px"> &nbsp;{{userBalance}}
+      <img [src]="cdn+'images/8988833.webp'" alt="" width="18px"> &nbsp;{{userBalance}}
       <span nz-icon nzType="down"></span>
     </button>
     <nz-dropdown-menu #menu="nzDropdownMenu" class="dropdown-menu">
       <ul nz-menu nzSelectable>
-        <li nz-menu-item (click)="openprofilePop('profile')"><img src="/assets/userIcon.png" alt="" width="18px">
+        <li nz-menu-item (click)="openprofilePop('profile')"><img [src]="cdn+'images/userIcon.png'" alt="" width="18px">
           Profile</li>
-        <li nz-menu-item (click)="openprofilePop('withdraw')"><img src="/assets/8988833.webp" alt="" width="18px">
+        <li nz-menu-item (click)="openprofilePop('withdraw')"><img [src]="cdn+'images/8988833.webp'" alt="" width="18px">
           Withdraw</li>
-        <li nz-menu-item (click)="openprofilePop('statement')"><img src="/assets/statement.png" alt=""
+        <li nz-menu-item (click)="openprofilePop('statement')"><img [src]="cdn+'images/statement.png'" alt=""
             width="25px">Statements</li>
-        <li nz-menu-item (click)="logoutUser()"><img src="/assets/logout.jpg" alt="" width="25px"> Logout</li>
+        <li nz-menu-item (click)="logoutUser()"><img [src]="cdn+'images/logout.jpg'" alt="" width="25px"> Logout</li>
       </ul>
     </nz-dropdown-menu>
     &nbsp;&nbsp;
     <button nz-button [nzType]="'primary'" class="buttons" (click)="openprofilePop('withdraw')"><img [src]="cdn+'icons/withdraw.svg'" class="menu-icon1" width="14px"> Withdraw</button>&nbsp;&nbsp;
-    <button nz-button [nzType]="'primary'" class="buttons" (click)="openprofilePop('deposit')"><img [src]="cdn+'icons/deposit.svg'" class="menu-icon"> Deposit</button>
+    <button nz-button [nzType]="'primary'" class="buttons " (click)="openprofilePop('deposit')" ><img [src]="cdn+'icons/deposit.svg'" class="menu-icon "> Deposit</button>
       }
   </div>
 </div>

@@ -25,6 +25,8 @@ export class LoginPopupComponent implements OnInit {
   @Input() selecttab!: number;
   date = null;
   isEnglish = false;
+  showPass:boolean = false;
+  showPass1:boolean = false;
   loginForm!: FormGroup;
   registerForm!: FormGroup;
   size: 'default' = 'default';

@@ -11,6 +11,8 @@ export class ContactUsComponent implements OnInit{
   constructor( private fb:FormBuilder,private apiSer:ApiService){
 
   }
+
+   cdn :string= 'https://cdn.fairbet91.com/KHELOO/content/'
   ngOnInit(): void {
     this.contactus = this.fb.group({
       first_name: ['', [Validators.required, Validators.pattern('[a-zA-Z]+')]],

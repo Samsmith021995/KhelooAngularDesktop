@@ -2,21 +2,21 @@
   <!-- <nz-alert nzType="success" nzMessage="Success Text"></nz-alert> -->
   <div class="card login-card">
     <div>
-      <img src="/assets/images/Post-456_3.jpg" alt="" width="100%">
+      <img [src]="cdn+'images/Post-456_3.jpg'" alt="" width="100%">
     </div>
     <div class="close-div">
       <span class="popupClose" mat-dialog-close><i-feather name="x" class="rotate-icon"></i-feather></span>
     </div>
     <div class="form col-md-4 com-sm-6 col-xs-6">
       <div class="logo col-md-8 com-sm-8 col-xs-8" style="margin: auto;">
-        <img src="https://cdn.fairbet91.com/KHELOO/images/logo.gif" alt="" width="100%">
+        <img [src]="cdn+'images/logo.gif'" alt="" width="100%">
       </div>
       <nz-tabset #tabset [(nzSelectedIndex)]="selecttab" >
         <nz-tab nzTitle="Login Now">
           <form nz-form [formGroup]="loginForm" class="login-form" (ngSubmit)="LoginForm()">
             <nz-form-item>
               <nz-form-control nzErrorTip="Please input valid Mobile Number!">
-                <nz-input-group [nzPrefix]="mobile">
+                <nz-input-group [nzPrefix]="mobile" >
                   <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number"
                     (keydown)="validateNumber($event)" />
                   <ng-template #mobile>
@@ -28,11 +28,20 @@
             </nz-form-item>
             <nz-form-item>
               <nz-form-control nzErrorTip="Please input your Password!">
-                <nz-input-group [nzPrefix]="lockPass">
-                  <input type="password" nz-input formControlName="Password" placeholder="Enter Password" />
+                <nz-input-group [nzPrefix]="lockPass" [nzSuffix]="eye">
+                  <input [type]="showPass?'text':'password'" nz-input formControlName="Password" placeholder="Enter Password" />
                   <ng-template #lockPass>
                     <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
                     <img [src]="cdn+'icons/lock.svg'">
+                  </ng-template>
+                  <ng-template #eye>
+                     <a (click)="showPass = !showPass">
+                      @if(showPass){
+                        <img [src]="cdn+'icons/eye-off.svg'">
+                      }@else{
+                        <img [src]="cdn+'icons/eye.svg'">
+                      }
+                    </a>
                   </ng-template>
                 </nz-input-group>
               </nz-form-control>
@@ -119,11 +128,20 @@
             </nz-form-item>
             <nz-form-item>
               <nz-form-control nzErrorTip="Please input your Password!">
-                <nz-input-group [nzPrefix]="regPass">
-                  <input type="password" nz-input formControlName="Password" placeholder="Enter Password" />
+                <nz-input-group [nzPrefix]="regPass" [nzSuffix]="eye">
+                  <input [type]="showPass1?'text':'password'" nz-input formControlName="Password" placeholder="Enter Password" />
                   <ng-template #regPass>
                     <img [src]="cdn+'icons/lock.svg'">
                   </ng-template>
+                  <ng-template #eye>
+                    <a (click)="showPass1 = !showPass1">
+                     @if(showPass1){
+                       <img [src]="cdn+'icons/eye-off.svg'">
+                     }@else{
+                       <img [src]="cdn+'icons/eye.svg'">
+                     }
+                   </a>
+                 </ng-template>
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>

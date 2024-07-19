@@ -1,12 +1,13 @@
-<div class="sc-himrzO nSrBz">
-    <div class="sc-cKYHso eBOuzh">
-        <div class="title">
-            <span class="sd">Teen Patti</span>
+<div class="main">
+        <div class="title col-md-12 col-sm-12 col-xs-12">
+            <span class="sd"><img [src]="cdn+'content/left.svg'" alt="" class="arrow"><img
+                [src]="cdn+'content/teenPattiTitle.svg'" alt="" class="main-header"><img [src]="cdn+'/content/right.svg'"
+                alt="" class="arrow"></span>
         </div>
-        <div class="sc-fPJDME fjVnzR">
-            <h1 class="sc-NUcrz jrxmYg">✪ Play Online Teen Patti at Kheloo</h1>
+        <div class="sc-fPJDME fjVnzR col-md-12 col-sm-12 col-xs-12">
+            <h1 class="sc-NUcrz jrxmYg">Play Online Teen Patti at Kheloo</h1>
             <p>
-                You can now indulge in an online teen patti game on India’s most trusted gambling platform, Kheloo. It
+                You can now indulge in an  <a href="https://blog.kheloo.com/3-patti-cash-withdrawal-with-upi-phonepe-paytm/" target="__blank">online teen patti game </a> on India’s most trusted gambling platform, Kheloo. It
                 offers you a live Teen Patti online gaming experience that is as exciting as the real casino experience.
                 You can earn real cash by playing the teen patti game online. What’s more is that you get an opportunity to
                 deal with dealers and no other games on the platform. Live Teen Patti is parallel to 3-card poker in
@@ -23,7 +24,7 @@
                 expose his cards and the player with greater cards will be declared as the winner.
             </p>
 
-            <h2 class="sc-NUcrz jrxmYg">✪ Teen Patti Game Rules</h2>
+            <h2 class="sc-NUcrz jrxmYg">Teen Patti Game Rules</h2>
 
             <p>
                 Real cash Teen Patti game online rules are not much tougher to learn than its gameplay. The Teen needs
@@ -76,7 +77,7 @@
             <div class="register-div">
                 <button class="register-btn-c" (click)="navigateRegister()">Join Now</button>
             </div>
-            <h2 class="sc-NUcrz jrxmYg">✪ Variations of Teen Patti</h2>
+            <h2 class="sc-NUcrz jrxmYg">Variations of Teen Patti</h2>
 
 
             <p>
@@ -117,7 +118,7 @@
 
             </p>
 
-            <h2 class="sc-NUcrz jrxmYg">✪ 5 Best Teen Patti Game Tips to Use:</h2>
+            <h2 class="sc-NUcrz jrxmYg">5 Best Teen Patti Game Tips to Use:</h2>
 
             <p>
                 For playing the game of teen patti: begin with a smaller bet - it is crucial to be practical and spend a
@@ -142,7 +143,7 @@
                 in the Teen Patti game, you have to play a particular amount of rounds to gain experience and expertise.
 
             </p>
-            <h2 class="sc-NUcrz jrxmYg">✪ Kheloo Casino Teen Patti Bonus</h2>
+            <h2 class="sc-NUcrz jrxmYg">Kheloo Casino Teen Patti Bonus</h2>
 
 
             <p>
@@ -166,7 +167,7 @@
                 usable. You can use the free bet finances for betting on any accessible sports market. This offer will
                 cease to exist 14 days after its activation.
             </p>
-            <h2 class="sc-NUcrz jrxmYg">✪ What is the Online Teen Patti Game?</h2>
+            <h2 class="sc-NUcrz jrxmYg">What is the Online Teen Patti Game?</h2>
 
 
             <p>
@@ -183,7 +184,7 @@
                 today in the South-East parts of Asia. Kheloo casino online offers a chance to play Teen Patti online
                 for real cash.
             </p>
-            <h2 class="sc-NUcrz jrxmYg">✪ Play Online Casino Games and Enjoy Best Online Teen Patti Today</h2>
+            <h2 class="sc-NUcrz jrxmYg">Play Online Casino Games and Enjoy Best Online Teen Patti Today</h2>
 
             <p>
                 Kheloo casino online is a brilliant place to play teen patti online but that’s just the tip of the
@@ -204,80 +205,14 @@
             <div class="register-div">
                 <button class="register-btn-c" (click)="navigateRegister()">Join Now</button>
             </div>
-            <h2 class="sc-NUcrz jrxmYg">✪ FAQs Related to Teen Patti Game</h2>
-
-
-            <h3>
-                <span>1.</span>&nbsp; How to play Teen Patti?
-
-            </h3>
-            <p>
-                Teen Patti is a card game played with a 52 deck card pack by a group of 3 to 6 players. Every player in the
-                game is dealt with three cards, facing down. A bet sum is decided and gathered from the players, before
-                the cards are dealt. This is the minimum stake sum put into the pot. The winner of the game accumulates
-                this pot cash. In a Teen patti game, the player with the greatest hand is announced the winner, securing the
-                pot cash.
-
-            </p>
-            <h3>
-                <span>2.</span>&nbsp; Can I ask for a sideshow from any gamer playing the hand?
-
-            </h3>
-            <p>
-                No, you can only ask for a sideshow from the games who have placed the final bet. In addition, the
-                sideshow alternative is accessible only when the other gamer who has placed the final bet is not playing
-                blind.
-
-            </p>
-            <h3>
-                <span>3.</span>&nbsp; In teen patti, which are the best hands?
-
-            </h3>
-            <p>
-                Kindly view the instances below to know the hand rankings,
-            </p>
-            <ul>
-                <li>
-                    <p>
-                        Straight flush
-
+            <h2 class="sc-NUcrz jrxmYg">FAQs Related to Teen Patti Game</h2>
+            <nz-collapse nzGhost [nzBordered]="true">
+                @for (panel of panels; track panel) {
+                <nz-collapse-panel [nzHeader]="panel.name" [nzActive]="panel.active" [nzDisabled]="panel.disabled">
+                    <p style="margin:0;color: #bbbb!important;" [innerHTML]="panel.content">
                     </p>
-                </li>
-                <li>
-                    <p>
-                        Three of a kind
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Colour
-
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Straight
-
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        High card
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Pair
-                    </p>
-                </li>
-            </ul>
-            <h3>
-                <span>4.</span>&nbsp; Can we select a joker in teen patti?
-            </h3>
-            <p>
-                Unfortunately, Kheloo casino classic Teen Patti doesn’t does not have any alternatives to select a
-                joker. The fate of your hand is entirely based on the rankings of the three cards dealt to you, and your
-                skills. Joker might be utilised in any other forms of the game if accessible.
-
-            </p>
+                </nz-collapse-panel>
+                }
+            </nz-collapse>
+        </div>
         </div>

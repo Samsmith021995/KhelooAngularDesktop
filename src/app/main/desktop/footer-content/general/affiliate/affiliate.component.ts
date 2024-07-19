@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AffiliateComponent {
 
+   cdn :string= 'https://cdn.fairbet91.com/KHELOO/content/'
 }

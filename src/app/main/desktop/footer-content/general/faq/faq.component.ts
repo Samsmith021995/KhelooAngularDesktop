@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './faq.component.css'
 })
 export class FaqComponent {
-
+cdn :string= 'https://cdn.fairbet91.com/KHELOO/content/'
 }

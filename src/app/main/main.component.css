@@ -46,7 +46,7 @@ nz-sider {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 11000;
+  z-index: 1000;
   position: fixed;
 }
 
@@ -71,7 +71,21 @@ nz-content {
   margin: 5rem 16px 0;
   overflow: initial;
 }
+::ng-deep .ant-breadcrumb{
+  line-height: 3;
+}
+::ng-deep nz-breadcrumb{
+  text-align: justify;
+  margin-bottom: 3px;
+ 
+  background-color: #2B2B2B;
+  .ant-breadcrumb-link{
+    padding: 1rem;
+    color: #fff;
+    margin: 1rem;
 
+  }
+}
 .inner-content {
   padding: 24px;
   text-align: center;

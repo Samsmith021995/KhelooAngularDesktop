@@ -70,7 +70,7 @@
             <div *ngIf="gamesData[category]" class="container">
                 @if(gamesData[category].length>0){
                 <span style="color: white;" class="category-btn game_ind_heading_container1" class="d-flex games-cat">
-                    <h2 class="h2-heading game-provider-text"><i-feather [name]="icons[$index]"></i-feather> {{ category
+                    <h2 class="h2-heading game-provider-text">@if(titleIcon[$index].icon == 'icon'){<i-feather [name]="titleIcon[$index].src"></i-feather>} @if(titleIcon[$index].icon == 'img'){<img [src]="cdnmain+titleIcon[$index].src" alt="">} {{ category
                         }} ({{gamesData[category].length}})</h2>
                     @if (gamesData[category].length > 6 && !subSelected) {
                     <div class="btn">

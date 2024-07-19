@@ -87,7 +87,7 @@
                         <nz-card style="width: 100%;background: #2B2B2B;border: none;
                         " class="card-details">
                             <div class="withdraw-header">
-                                <span><img src="/assets/8988833.webp" alt="" width="20px"> {{item.Amount}}</span>
+                                <span><img [src]="cdn+'images/8988833.webp'" alt="" width="20px"> {{item.Amount}}</span>
                                 <span>Status:<span class="success" [ngClass]="{'statuColor':item.StatusCode == 'R'}"> {{item.StatusName}}</span> </span> 
                             </div>
                             <div>
