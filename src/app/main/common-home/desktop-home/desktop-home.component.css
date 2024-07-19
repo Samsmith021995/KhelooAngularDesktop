@@ -47,6 +47,11 @@
         fill: #ffbe00;
         color: #ffbe00;
     }
+    img{
+      width: 25px;
+      /* filter: invert(29%) sepia(96%) saturate(1003%) hue-rotate(45deg) brightness(100%) contrast(101%); */
+    }
+
   }
   button.btn-show.viewmore {
     margin: 10px auto;

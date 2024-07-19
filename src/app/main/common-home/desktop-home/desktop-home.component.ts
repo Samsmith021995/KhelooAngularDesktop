@@ -1,18 +1,14 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, Renderer2, TemplateRef, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { ComFunService } from '../../service/com-fun.service';
 import { ApiService } from '../../service/api.service';
 import { config } from '../../service/config';
-import { Subscribable, Subscription, catchError } from 'rxjs';
+import {Subscription, catchError } from 'rxjs';
 import {
-  NzSkeletonAvatarShape,
-  NzSkeletonAvatarSize,
   NzSkeletonButtonShape,
-  NzSkeletonButtonSize,
   NzSkeletonInputSize
 } from 'ng-zorro-antd/skeleton';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
 @Component({
   selector: 'app-desktop-home',
   templateUrl: './desktop-home.component.html',
@@ -43,12 +39,42 @@ export class DesktopHomeComponent implements OnInit,AfterViewInit {
   effect = 'scrollx';
   @ViewChildren('showMore') myElementRef!: QueryList<ElementRef<any>>;
   @ViewChildren('scrollContainer') scrollElement!: QueryList<ElementRef<any>>;
-  // @ViewChild('loginPop') loginPop!: TemplateRef<any>;
   isLoggedIn: boolean = false;
   private isLoggedInSubscription!: Subscription;
-  icons: string[] = ['star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell','star', 'heart', 'check-circle', 'gift', 'award', 'bell'];
+
   constructor(private comfun: ComFunService,private apiSer:ApiService,private renderer: Renderer2,private router:Router,private dialog:MatDialog) { }
- 
+ titleIcon = [
+  {icon:'icon',src:'star'},
+  {icon:'img',src:'catSvg/virtualSports.svg'},
+  {icon:'img',src:'catSvg/Baccarat.svg'},
+  {icon:'img',src:'catSvg/BlackJack.svg'},
+  {icon:'img',src:'catSvg/casualGame.svg'},
+  {icon:'img',src:'catSvg/craps.svg'},
+  {icon:'img',src:'catSvg/casualGame.svg'},
+  {icon:'img',src:'catSvg/dragon.svg'},
+  {icon:'img',src:'catSvg/fishing.svg'},
+  {icon:'img',src:'catSvg/livedealer.svg'},
+  {icon:'img',src:'catSvg/Baccarat.svg'},
+  {icon:'img',src:'catSvg/liveBlackjack.svg'},
+  {icon:'img',src:'catSvg/livedealer.svg'},
+  {icon:'img',src:'catSvg/livedragonTiger.svg'},
+  {icon:'img',src:'catSvg/lobby.svg'},
+  {icon:'img',src:'catSvg/poker.svg'},
+  {icon:'img',src:'catSvg/liveroullete.svg'},
+  {icon:'img',src:'catSvg/livesicbo.svg'},
+  {icon:'img',src:'catSvg/moneywheel.svg'},
+  {icon:'img',src:'catSvg/relaxgaming.svg'},
+  {icon:'img',src:'catSvg/playtech.svg'},
+  {icon:'img',src:'catSvg/playtechlive.svg'},
+  {icon:'img',src:'catSvg/pragmaticPlay.svg'},
+  {icon:'img',src:'catSvg/relaxgaming.svg'},
+  {icon:'img',src:'catSvg/roulleteCat.svg'},
+  {icon:'img',src:'catSvg/liveLottery.svg'},
+  {icon:'img',src:'catSvg/LotteryTicket.svg'},
+  {icon:'img',src:'catSvg/poker.svg'},
+  {icon:'img',src:'catSvg/videoSlots.svg'},
+  {icon:'img',src:'catSvg/table.svg'},
+ ];
   gamesProvider = [
     {title:'ezugi',src:this.comfun.cdn+'provider/ezugi_1.svg'},
     {title:'red tiger',src:this.comfun.cdn+'provider/red-tiger-gaming.svg'},
@@ -85,7 +111,7 @@ export class DesktopHomeComponent implements OnInit,AfterViewInit {
   displayValue=this.countDownValue.toString();
   private intervalId: any;
   dataDetails:any = [];
-
+cdnmain = this.comfun.cdn;
   ngOnInit(): void {
     this.bannnerImage();
     this.getAllCategory(this.selected);
@@ -107,10 +133,8 @@ export class DesktopHomeComponent implements OnInit,AfterViewInit {
       this.countDownValue++;
     
       if (this.countDownValue.toString().length > 7) {
-        this.countDownValue = 1000000; // Reset to a specific 7-digit number
+        this.countDownValue = 1000000;
       }
-    
-      // Ensure the display value is always 7 digits long
       this.displayValue = this.countDownValue.toString().padStart(7, '0');
     }, 1000)
   }
@@ -128,35 +152,35 @@ export class DesktopHomeComponent implements OnInit,AfterViewInit {
   clickVal(val: any) {
   }
 
-  onSearch(itemSeach:any){
-  }
-  gameListAll(item: any) {
-    let param = { GameCategory: item };
-    this.apiSer.apiRequest(config['gameList'], param).pipe(
-      catchError((error) => {
-        throw error;
-      })
-    ).subscribe(data => {
-      if (data) {
-        this.gamesData[item] = data;
-        this.filteredResults[item] = data;
-      }
-    });
-  }
+  // onSearch(itemSeach:any){
+  // }
+  // gameListAll(item: any) {
+  //   let param = { GameCategory: item };
+  //   this.apiSer.apiRequest(config['gameList'], param).pipe(
+  //     catchError((error) => {
+  //       throw error;
+  //     })
+  //   ).subscribe(data => {
+  //     if (data) {
+  //       this.gamesData[item] = data;
+  //       this.filteredResults[item] = data;
+  //     }
+  //   });
+  // }
 
-  gameListOne(item: any) {
-    this.subSelected = item;
-    this.gamesData = {};
-    let param = { GameCategory: item };
-    this.apiSer.apiRequest(config['gameList'], param).pipe(
-      catchError((error) => {
-        throw error;
-      })
-    ).subscribe(data => {
-      this.gamesData[item] = data;
-      this.filteredResults[item] = data;
-    });
-  }
+  // gameListOne(item: any) {
+  //   this.subSelected = item;
+  //   this.gamesData = {};
+  //   let param = { GameCategory: item };
+  //   this.apiSer.apiRequest(config['gameList'], param).pipe(
+  //     catchError((error) => {
+  //       throw error;
+  //     })
+  //   ).subscribe(data => {
+  //     this.gamesData[item] = data;
+  //     this.filteredResults[item] = data;
+  //   });
+  // }
   getAllCategory(cat?: any) {
     this.apiSer.apiRequest(config['gameCategory']).pipe(
       catchError((error) => {

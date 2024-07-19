@@ -14,7 +14,7 @@
     <div class="col-lg-12">
         <div class="heading">
             <h2 id="h2">Games</h2>
-            <img src="/assets/images/heading-border-effect.png" class="img-fluid" alt="effect">
+            <img [src]="cdn+'images/heading-border-effect.png'" class="img-fluid" alt="effect">
         </div>
     </div>
     <div class="col-lg-12">
@@ -74,7 +74,7 @@
                         </div>
                         <a (click)="gameStart(game.game_id)">
                             <div class="playbtn">
-                                <img src="/assets/images/play_icon.png" alt="" class="casino-game-item-image-bc"
+                                <img [src]="cdn+'images/play_icon.png'" alt="" class="casino-game-item-image-bc"
                                     class="play">
                             </div>
                         </a>
