@@ -51,7 +51,6 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
     });
     this.apiSer.isLoggedIn$.subscribe({
       next: data => {
-        console.log(this.checkLogin)
         this.checkLogin = data;
         if(data == true){
           this.username = localStorage.getItem('name');
@@ -122,7 +121,6 @@ export class DesktopHeaderComponent implements OnInit,OnDestroy {
       }
       this.checkLogin = true;
       this.username = localStorage.getItem('name');
-      // console.log(this.username);
       if(!this.username){
         this.checkLogin = false;
         return;

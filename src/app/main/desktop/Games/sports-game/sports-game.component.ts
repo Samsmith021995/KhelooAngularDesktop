@@ -31,7 +31,6 @@ ngOnInit(): void {
 //       throw error;
 //     })
 //   ).subscribe(data => {
-//     console.log(data)
 //     data.forEach((item:any) =>{
 //       let param = {GameCategory:item.SubCategory}
 //       this.apiSer.apiRequest(config['gameList'],param).pipe(

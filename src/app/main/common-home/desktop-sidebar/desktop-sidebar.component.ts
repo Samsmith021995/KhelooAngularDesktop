@@ -30,7 +30,6 @@ export class DesktopSidebarComponent implements OnInit {
     let param = {type:val}
     this.apiSer.apiRequest(config['supportCallback'],param).subscribe({
       next:(data)=>{
-        console.log(data);
         if(!data){
           this.msg.error('Currently Whatsapp is not available',{nzDuration:3000});
           return

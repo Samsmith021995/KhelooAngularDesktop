@@ -33,7 +33,6 @@ ngOnInit(): void {
 //   ).subscribe(data => {
 //     if (data) {
 //       this.gamesData = data;
-//       console.log(data);
 //     }
 //   });
 // }

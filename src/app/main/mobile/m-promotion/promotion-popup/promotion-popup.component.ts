@@ -19,7 +19,7 @@ export class PromotionPopupComponent implements OnInit {
       next: (res) => {
         this.htmlcon = res;
       },
-      error: err => console.log(err)
+      error: err => console.error(err)
     });
   }
   getHtmlContent(url: string) {

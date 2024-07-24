@@ -78,7 +78,6 @@ export class LoginpopupComponent implements OnInit{
   }
   showPassword(){
     this.showPass = !this.showPass;
-    console.log(this.showPass)
   }
   onLogin(){
     if(!this.mobileLogin.controls['Mobile'].value){
@@ -153,7 +152,6 @@ export class LoginpopupComponent implements OnInit{
     
     }
     openRegister(){
-      console.log('Ashu')
       this.defRegister = this.dialog.open(this.register);
       this.defRegister.afterClosed().subscribe(() => { });
     }

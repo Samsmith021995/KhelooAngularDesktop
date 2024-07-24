@@ -39,7 +39,6 @@ export class GamesProviderWiseComponent implements OnInit {
     // this.getAllCategory(this.selected);
     this.route.paramMap.subscribe(param => {
       this.getAllCategory(this.selected);
-      console.log(this.gamesData)
     });
     this.isLoggedInSubscription = this.apiSer.isLoggedIn$.subscribe((value) => {
       this.isLoggedIn = value;
@@ -48,7 +47,6 @@ export class GamesProviderWiseComponent implements OnInit {
       this.categoryFetch = ('gameCategory' in loading) ? true : false;
       this.gamelist = ('gameList' in loading) ? true : false;
     });
-    // console.log(this.gamesData);
   }
 
   getAllCategory(cat?: any) {
@@ -118,7 +116,6 @@ export class GamesProviderWiseComponent implements OnInit {
     }
   }
   searching() {
-    console.log(this.searchGame);
     this.onSearch(this.searchGame);
   }
   gameStart(param: any) {

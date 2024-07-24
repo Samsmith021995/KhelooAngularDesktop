@@ -72,7 +72,6 @@ export class ApiService {
         break;
       case 'GET':
         let gBody = body ? this.commonSer.setForGet(body) : '';
-        // console.log(environment.apiUrl + apiData['endURL'] + gBody)
         httpMethod = this.http.get(environment.apiUrl + apiData['endURL'] + gBody, this.options);
         break;
       default:
