@@ -27,11 +27,9 @@ export class MobileGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     // const userHasAccess = this.checkUserAccess();
-    // console.log(this.isSmallScreen);
     if(this.isSmallScreen){
       return true;
     }else{
-      // console.log('Redirecting to 404 page');
       return this.router.navigate(['/']);
       
     }

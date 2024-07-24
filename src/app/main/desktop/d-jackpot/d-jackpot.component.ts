@@ -23,10 +23,8 @@ export class DJackpotComponent implements OnInit {
 
     // this.apiService.getdata().subscribe((data) => {
     //   this.result = data;
-    //   console.log(data);
     // });
     // this.apiService.getQuote().subscribe((data) => {
-    //   console.log(data);
     //   this.Quote = data[content];
     // });
   }

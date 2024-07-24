@@ -60,7 +60,6 @@ export class StatementPopComponent implements OnInit {
         return;
       }
       if (data) {
-        console.log(data);
         this.details = data;
         this.ttl = data?.[0]?.TotalCount || 0;
       }
@@ -96,7 +95,6 @@ export class StatementPopComponent implements OnInit {
         this.router.navigate(['/']);
         return;
       }
-      console.log("more dat");
       if (data) {
         data.forEach((item: any) => {
           this.details.push(item);

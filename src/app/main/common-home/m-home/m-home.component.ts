@@ -173,7 +173,6 @@ export class MHomeComponent implements OnInit {
     this.router.navigate(['/games', param]);
   }
   showMoreF(item: number) {
-    console.log(item);
     let nativeElement = this.myElementRef.toArray()[item].nativeElement;
     if (nativeElement) {
       if (nativeElement.classList.contains('showMore')) {

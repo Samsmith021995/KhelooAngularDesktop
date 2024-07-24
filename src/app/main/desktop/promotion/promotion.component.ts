@@ -58,23 +58,21 @@ getPromoImage(){
       this.image = res;
     },
     error:err=>{
-      console.log("error");
+      console.error("error");
     }
   })
 }
 openInfo(index:any){
   this.isSpinning = true;
   this.promotionRef = index;
-  console.log(this.promotionRef.content);
   // this.defref = this.dialog.open(this.promoinfo);
   this.getHtmlContent(this.promotionRef.content).subscribe({
     next: (res) => {
       this.htmlcon = res;
-      console.log(this.htmlcon);
       this.isVisibleMiddle = true;
       this.isSpinning = false;
     },
-    error: err => console.log(err)
+    error: err => console.error(err)
   });
   // this.defref.afterClosed().subscribe(() => { });
 }
@@ -94,7 +92,6 @@ closePo(){
   // }
 
   handleOkTop(): void {
-    console.log('点击了确定');
     this.isVisibleTop = false;
   }
 
@@ -103,7 +100,6 @@ closePo(){
   }
 
   handleOkMiddle(): void {
-    console.log('click ok');
     this.isVisibleMiddle = false;
   }
 

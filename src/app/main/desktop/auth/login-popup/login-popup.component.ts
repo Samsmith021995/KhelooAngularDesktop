@@ -62,7 +62,6 @@ export class LoginPopupComponent implements OnInit {
 
     this.store.select(state => state.auth).subscribe(authState => {
       if (authState.loggedIn) {
-        console.log("login")
       }
     });
     this.loginForm.controls['Mobile'].valueChanges.subscribe(value => {
@@ -120,7 +119,6 @@ export class LoginPopupComponent implements OnInit {
     });
   }
   onChange(result: Date): void {
-    console.log('onChange: ', result);
   }
   submitRegForm() {
     // if (this.registerForm.invalid) {
