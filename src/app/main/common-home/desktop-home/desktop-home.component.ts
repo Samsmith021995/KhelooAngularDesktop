@@ -225,7 +225,6 @@ cdnmain = this.comfun.cdn;
     }
   }
   redirectCategory(item:string){
-    // console.log("categoty:"+item)
     this.router.navigate(['/gamesCat',item]);
   }
   gameStart(param:any){
@@ -238,8 +237,7 @@ cdnmain = this.comfun.cdn;
   scrollGame(direction:string,i:number){
     this.checkScrollButtons(i);
     const container = this.scrollElement.toArray()[i].nativeElement;
-    const scrollAmount = 500; // Adjust scroll amount as needed
-    console.log(container);
+    const scrollAmount = 500;
     if (direction === 'left') {
       container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     } else if (direction === 'right') {

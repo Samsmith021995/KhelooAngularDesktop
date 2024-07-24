@@ -27,7 +27,6 @@ export class DesktopGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     // const userHasAccess = this.checkUserAccess();
-    // console.log(this.isSmallScreen);
     if(this.isSmallScreen){
       return this.router.navigate(['/404']);
     }else{

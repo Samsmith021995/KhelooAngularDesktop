@@ -65,7 +65,6 @@ export class MSignup1Component implements OnInit ,AfterViewInit{
     this.commonSer.myVariable$.subscribe((width) => {
       this.isSmallScreen = width === "true";
       // let isSmallScreen2 = this.breakpointObserver.isMatched('(max-width: 767px)');
-      // console.log(isSmallScreen2);
     });
     let ref = localStorage.getItem('Ref');
     if (ref) {

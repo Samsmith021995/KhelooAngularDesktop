@@ -35,7 +35,7 @@ getPromoImage(){
       this.image = res;
     },
     error:err=>{
-      console.log("error");
+      console.error("error");
     }
   })
 }
