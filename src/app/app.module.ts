@@ -54,6 +54,8 @@ import { BaccaratGameComponent } from './main/desktop/Games/baccarat-game/baccar
 import { AndarbaharGameComponent } from './main/desktop/Games/andarbahar-game/andarbahar-game.component';
 import { TablegamesGameComponent } from './main/desktop/Games/tablegames-game/tablegames-game.component';
 import { SportsGameComponent } from './main/desktop/Games/sports-game/sports-game.component';
+import { AuthInterceptor } from './main/service/auth-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -113,8 +115,12 @@ import { SportsGameComponent } from './main/desktop/Games/sports-game/sports-gam
     EffectsModule.forFeature([AuthEffects])
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [ApiService, UrlService],
-
+  providers: [ApiService, UrlService,
+    {provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true}
+  ],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
