@@ -65,7 +65,12 @@ export class BannerComponent implements AfterViewInit {
       this.router.navigate(['game-provider',search]);
     }
     submitData(ref:any,redirect:any){
-      this.bannerClick.emit(ref);
-      this.router.navigate([redirect]);
+      const urlPattern = /^https:\/\//;
+      if(urlPattern.test(redirect)){
+        window.location.href = redirect
+      }else{
+        this.bannerClick.emit(ref);
+        this.router.navigate([redirect]);
+      }
     }
 }
