@@ -16,6 +16,7 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
   @ViewChild('mainMenu') mainMenu!: TemplateRef<any>;
   @ViewChild('loginPop') loginPop!: TemplateRef<any>;
   isLoggedIn: boolean = false;
+  sp1: boolean = false;
   diaRef1: any;
   diaRef2: any;
   diaRef3: any;
