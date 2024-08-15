@@ -1,12 +1,12 @@
-<div class="modal fade promotionModal notranslate in" id="languageModal" style="display: block;">
+<div class="modal fade promotionModal notranslate in" id="languageModal" style="display: block;position: fixed;top: 50%; left: 50%;width: 75%;height: 100%;">
     <div class="modal-dialog">
-        <div class="modal-content promotion_modal_sub_content">
+        <div class="modal-content promotion_modal_sub_content" style="background: none;">
             <section>
-                <div class="modal-header lang_modal_header">
+                <div class="modal-header lang_modal_header" style="position: fixed;height: 40px;width: 100%;">
                     <p>Select Lanugage</p>
                     <button type="button" class="close" (click)="close()" >X</button>
                 </div>
-                <div class="promotion_modal_content">
+                <div class="promotion_modal_content" style="position: relative;top:30px">
                     <div class="modal_lang_sub_container">
                         <div class="modal_lang_ind">
                             <a  class="lang_link" (click)="changelanguage('en')">
