@@ -1,12 +1,13 @@
 
 @import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css';
-@import url('https://kheloo.com/assets/css/HomeCss.css');
-
+/* @import url('https://old.kheloo.com/assets/css/HomeCss.css'); */
 
 .header-btns {
   line-height: normal;
 }
-
+.logoimage {
+  height: 55px;
+}
 .navbar {
   border-radius: 0;
 }
