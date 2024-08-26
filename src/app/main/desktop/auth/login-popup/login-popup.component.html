@@ -58,7 +58,7 @@
 
           </form>
         </nz-tab>
-        <nz-tab nzTitle="Register Now">
+        <!-- <nz-tab nzTitle="Register Now">
           <form nz-form [formGroup]="registerForm" class="login-form" (ngSubmit)="submitRegForm()">
             @if(!getOtp && !verifyOtp){
             <nz-form-item>
@@ -67,13 +67,12 @@
                   <input type="text" nz-input formControlName="Mobile" placeholder="Enter Phone Number"
                     (keydown)="validateNumber($event)" />
                   <ng-template #MobileReg>
-                    <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
                     <img [src]="cdn+'icons/call.svg'">
                   </ng-template>
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
-            }
+            } 
             @if(getOtp && !verifyOtp){
             <nz-form-item class="otp-class">
               <label for="" style="text-align: center;font-size: 14px;color: #fff;margin: 0.6rem auto;"> Verify Otp</label>
@@ -100,7 +99,7 @@
                 <nz-input-group [nzPrefix]="regfName">
                   <input type="text" nz-input formControlName="UserName" placeholder="Enter User Name" />
                   <ng-template #regfName>
-                    <!-- <span nz-icon [nzType]="'User'" nzTheme="outline"></span> -->
+                   
                     <img [src]="cdn+'icons/inputuser.svg'">
                   </ng-template>
                 </nz-input-group>
@@ -176,7 +175,7 @@
 
             
          
-        </nz-tab>
+        </nz-tab> -->
       </nz-tabset>
     </div>
   </div>

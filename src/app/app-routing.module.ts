@@ -369,43 +369,43 @@ const routes: Routes = [
     canActivate:[MobileGuard]
   },
 
-  {
-    path: 'signup',
-    component: MSignupComponent,
-    canActivate: [LoginGuard]
-  },
-  {
-    path: 'signupv1',
-    component: MSignup1Component,
-    canActivate: [LoginGuard]
-  },
+  // {
+  //   path: 'signup',
+  //   component: MSignupComponent,
+  //   canActivate: [LoginGuard]
+  // },
+  // {
+  //   path: 'signupv1',
+  //   component: MSignup1Component,
+  //   canActivate: [LoginGuard]
+  // },
   // {
   //   path: 'signupv2',
   //   component: MSignup2Component,
   //   canActivate: [LoginGuard]
   // },
-  { path: 'SignUp', redirectTo: '/signup', pathMatch: 'full' },
+  // { path: 'SignUp', redirectTo: '/signup', pathMatch: 'full' },
   {
     path: 'login',
     component: LoginComponent,
     canActivate: [LoginGuard]
   },
-  {
-    path: 'register',
-    component: MSignupComponent,
-    canActivate: [LoginGuard],
-    data: {
-      title: 'Register- Kheloo',
-      description: ''
-    }
-  },
+  // {
+  //   path: 'register',
+  //   component: MSignupComponent,
+  //   canActivate: [LoginGuard],
+  //   data: {
+  //     title: 'Register- Kheloo',
+  //     description: ''
+  //   }
+  // },
   {
     path: 'games/:id',
     component: GamePlatformComponent,
     canActivate: [AuthGuard]
   },
-  { path: '404', component: NotFoundComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', component: NotFoundComponent },
+  // { path: '**', redirectTo: '', pathMatch: 'full' }
 
 
 ];

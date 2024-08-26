@@ -7,7 +7,7 @@
     <input type="text" (click)="search()" readonly class="search-input" placeholder="Search For Game">
     @if (!checkLogin) {
     <button nz-button nzType="default" class="buttons header-btn" (click)="LoginPopUp(0)"><img [src]="cdn+'icons/user.svg'" class="menu-icon"> Login</button>&nbsp;&nbsp;
-    <button nz-button nzType="default" class="buttons header-btn" (click)="LoginPopUp(1)"><img [src]="cdn+'icons/user.svg'" class="menu-icon">  Register</button>
+    <!-- <button nz-button nzType="default" class="buttons header-btn" (click)="LoginPopUp(1)"><img [src]="cdn+'icons/user.svg'" class="menu-icon">  Register</button> -->
     } @else{
     <button nz-button nzType="default" nz-dropdown [nzDropdownMenu]="menu" class="buttons-menu">
       <img [src]="cdn+'images/8988833.webp'" alt="" width="18px"> &nbsp;{{userBalance}}
