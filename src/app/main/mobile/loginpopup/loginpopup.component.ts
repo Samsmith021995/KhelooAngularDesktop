@@ -158,4 +158,5 @@ export class LoginpopupComponent implements OnInit{
     closeCancel(){
       this.defRegister.close();
     }
+   
 }

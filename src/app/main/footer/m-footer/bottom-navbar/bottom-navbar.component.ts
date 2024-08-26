@@ -33,9 +33,10 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
   }
   openRegister() {
     if(sessionStorage.getItem('redirectRegister')){
-      this.router.navigate(['/'+sessionStorage.getItem('redirectRegister')]);
+      this.router.navigate(['/']);
+      // this.router.navigate(['/'+sessionStorage.getItem('redirectRegister')]);
     } else{
-      this.diaRef1 = this.dialog.open(this.register, {
+      this.diaRef1 = this.dialog.open(this.loginPop, {
         height: '900x',
         // width: '600px',
         panelClass: 'screen-dialog1',
@@ -99,7 +100,8 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
     this.circular = !this.circular;
   }
   closeDial2(){
-    this.diaRef3.close();
+    // this.diaRef3.close();
+    this.diaRef1.close();
   }
   requestCallback(){
     this.showSp = false;

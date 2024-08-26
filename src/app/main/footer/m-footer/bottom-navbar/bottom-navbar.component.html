@@ -151,17 +151,20 @@
 
             <a  class="secondaryAnchor registerFormClass" (click)="openRegister()">
                 <img src="/assets/images/register_footer.png">
-                <span>Register</span>
+                <span>Login</span>
             </a>
             }
         </li>
     </ul>
 </div>
-<ng-template #register>
+<!-- <ng-template #register>
     <app-pop-register (onCancel)="closeDial()"></app-pop-register>
-</ng-template>
+</ng-template> -->
 <ng-template #mainMenu>
     <app-m-menu (onCancel)="closeDial1()"></app-m-menu>
+</ng-template>
+<ng-template #register>
+    <app-loginpopup (onCancel)="closeDial2()" (loginCheck)="loginchek()"></app-loginpopup>
 </ng-template>
 <ng-template #loginPop>
     <app-loginpopup (onCancel)="closeDial2()" (loginCheck)="loginchek()"></app-loginpopup>
