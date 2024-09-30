@@ -126,6 +126,12 @@ export class MobileHeaderComponent implements OnInit,OnDestroy {
     });
   }
   navigate(item:any){
+    if(item == '/m-withdraw'){
+      this.apiSer.showAlert('Withdrawal Request', 'Withdrawal system is down and will resume tomorrow. We apologize for the inconvenience.','warning');
+      this.showmenu =false;
+      this.apiSer.setShowMenu(this.showmenu);
+      return
+    }
     this.router.navigate([item]);
     this.showmenu =false;
     this.apiSer.setShowMenu(this.showmenu);
