@@ -170,12 +170,6 @@ export class BottomNavbarComponent implements OnInit, OnDestroy {
     });
   }
   callSupport(val:any){
-    if(val == 'WH'){ 
-   
-        this.apiSer.showAlert('our whatsapp server is having issue at the moment.','Please use the chat or callback to raise the issues as of now.','warning');
-       
-    return
-    }
     let param = {type:val}
     this.apiSer.apiRequest(config['supportCallback'],param).subscribe({
       next:(data)=>{
